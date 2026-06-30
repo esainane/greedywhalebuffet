@@ -1180,31 +1180,11 @@
     "firstNight": 24,
     "firstNightReminder": "OPTIONALLY: Ask all evil players what they will be bluffing. This is simply an open chance to get their claims for Dreamer or things of the such. You may not do this anytime else.",
     "reminders": [
-      "3 Vote",
-      "3 Vote",
-      "3 Vote",
-      "3 Vote",
-      "3 Vote",
-      "3 Vote"
-    ],
-    "special": [
-      {
-        "type": "vote",
-        "name": "multiplier",
-        "value": "3"
-      }
-    ]
-  },
-  {
-    "id": "banhammer_popppp",
-    "name": "Ban Hammer Ω",
-    "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/banhammer_popppp.png"
-    ],
-    "team": "fabled",
-    "ability": "Storytellers may kick or de-seat players who disrupt a Greedy lobby’s respectful, fun atmosphere (overtalking, misgendering, talking for too long, baiting). They may adjust the game as needed if a player leaves or is removed.",
-    "flavor": "I'm tired of seeing Tean get disrespected -Kianu",
-    "reminders": [
+      "2 Votes",
+      "2 Votes",
+      "2 Votes",
+      "2 Votes",
+      "2 Votes",
       "2 Votes"
     ],
     "special": [

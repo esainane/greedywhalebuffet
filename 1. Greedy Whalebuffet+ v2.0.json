@@ -202,14 +202,14 @@
 
   {
     "id": "choose_your_own_tf",
-    "name": "Choose 2 Characters of Each Type",
+    "name": "Choose your characters",
     "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/thebootleggericon_popppp.png",
     "team": "townsfolk",
-    "ability": "Before the game starts, choose 2 Townsfolks, 2 Outsiders, 2 Minions & 2 Demons to potentially become. Your real role will be told to you before the game starts.",
+    "ability": "Before the game starts, choose the characters you would like to play as. You must choose at least 2 normal Townsfolk, Outsiders, Minions & Demons each. Your real role will be told to you before the game starts.",
     "firstNight": 1,
     "otherNight": 0,
     "flavor": "Trust, I am that bitch. -Kianu",
-    "firstNightReminder": "Choose 2 of Each Character Type",
+    "firstNightReminder": "Choose at least 2 normal characters of each type.",
     "special": [
       {
         "name": "bag-duplicate",
@@ -1634,7 +1634,7 @@
     "id": "thegreed",
     "name": "Greedbuffet Ω",
     "team": "fabled",
-    "ability": "On the 1st night, all players choose 8 characters. 2 Townsfolk, 2 Outsiders, 2 Minions and 2 Demons. The Storyteller assigns characters until all setup abilities have been met around the Grimiore. Everyone* is given one of the characters they chose. There can be more than one of the same character on the grimiore.",
+    "ability": "Pregame, all players choose least two normal characters from each category (Townsfolk, Outsider, Minion, Demon). Normal characters do not change alignments, add Evil, or warp the game. The Storyteller assigns characters forming valid setup.",
     "firstNightReminder": "OPTIONALLY: Ask all evil players what they will be bluffing. This is simply an open chance to get their claims for Dreamer or things of the such. You may not do this anytime else.",
       "reminders": [
       "Negative Vote",
@@ -1733,7 +1733,7 @@
     ],
     "name": "Ban Hammer Ω",
     "team": "fabled",
-    "ability": "If the Storyteller deems a player a threat to the peaceful, fun environment of a Greedy lobby (overtalking, misgendering, talking for too long, baiting players), the player may be kicked or de-seated. The Storyteller can change the game as needed to balance any player's absence.",
+    "ability": "Storytellers may kick or de-seat players who disrupt a Greedy lobby’s respectful, fun atmosphere (overtalking, misgendering, talking for too long, baiting). They may adjust the game as needed if a player leaves or is removed.",
     "flavor": "I'm tired of seeing Tean get disrespected -Kianu",
     "special": [
       {

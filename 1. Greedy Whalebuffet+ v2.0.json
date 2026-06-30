@@ -859,7 +859,17 @@
     "ability": "All players know you are the Vizier. You cannot die during the day. If good voted, you may choose to execute immediately.",
     "flavor": "No thank youuu -Reece",
     "firstNight": 80,
-    "firstNightReminder": "Announce to all players the Vizier is the Vizier. DON'T ANNOUNCE if an Alsaahir or Investigator is in-play."
+    "firstNightReminder": "Announce to all players the Vizier is the Vizier. DON'T ANNOUNCE if an Alsaahir or Investigator is in-play.",
+    "reminders": [
+      "Vizier",
+      "Vizier"
+    ],
+    "special": [
+      {
+        "name": "public",
+        "type": "reminder"
+      }
+    ]
   },
   {
     "id": "widow_popppp",

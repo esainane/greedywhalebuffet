@@ -209,7 +209,9 @@
     ],
     "team": "townsfolk",
     "ability": "The Demon thinks you are a Minion. Minions think you are a Demon.",
-    "flavor": "No I don't think I will. -Mole"
+    "flavor": "No I don't think I will. -Mole",
+    "firstNight": 18,
+    "firstNightReminder": "During Minion Info, point to the Magician and the Demon. During Demon Info, point to the Magician and the Minions."
   },
   {
     "id": "mathematician_popppp",

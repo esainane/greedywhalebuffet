@@ -30,7 +30,7 @@
       {
         "type": "signal",
         "name": "card",
-        "value": "In Order of Preference"
+        "value": "At least 2 normal of each type, most wanted first"
       }
     ]
   },

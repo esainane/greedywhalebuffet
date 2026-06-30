@@ -160,7 +160,11 @@
     "ability": "Each night*, you learn if a Demon voted today.",
     "flavor": "Er is geen probleem, er is geen aanpak nodig, het beste ding is om niets te doen, het is irrelevant en iedereen moet het vergeten. -Victor_ian",
     "otherNight": 1,
-    "otherNightReminder": "Tell the Flowergirl Yes or No if a Demon vote today."
+    "otherNightReminder": "Tell the Flowergirl Yes or No if a Demon vote today.",
+    "reminders": [
+      "Demon Voted",
+      "Demon Not Voted"
+    ]
   },
   "fool",
   "fortuneteller",

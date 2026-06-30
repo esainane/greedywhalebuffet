@@ -480,7 +480,7 @@
     "flavor": "Goon Goon Goon! - Satyr",
     "firstNight": 11,
     "firstNightReminder": "Tell the Hermit the 3 abilities they have, no matter if they are Drunk/Poisoned or not. Run any Outsider abilities they have.",
-    "otherNight": 35,
+    "otherNight": 4,
     "otherNightReminder": "Run any Outsider abilities they have.",
     "reminders": [
       "X Outsider Reminder",

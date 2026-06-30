@@ -7,8 +7,7 @@
       "The Demon doesn't get bluffs.",
       "Any character with Ω in the name is adjusted.",
       "The Drunk, Lunatic and Marionette cannot be chosen, but can be given. The Hermit can be given (with the Lunatic or Drunk ability), even if not chosen.",
-      "*If a player chooses Choirboy, Alchemist, Amnesiac, Village Idiot, Kazali or Legion, other players may not get the character they asked for.",
-      "For selection, the Atheist and Summoner count as your Demon choices. If you choose Atheist, Legion or Lil Monsta in your Demon picks you MUST pick another Demon not listed. If you choose 1 of the following characters for selection, you cannot choose another: Alchemist, Cult Leader, or Philosopher."
+      "*If a player chooses Choirboy, Alchemist, Amnesiac, Village Idiot, Kazali or Legion, other players may not get the character they asked for."
     ]
   },
   {
@@ -1136,7 +1135,7 @@
     "id": "thegreed",
     "name": "Greedbuffet Ω",
     "team": "fabled",
-    "ability": "Pregame, all players choose least two normal characters from each category (Townsfolk, Outsider, Minion, Demon). Normal characters do not change alignments, add Evil, or warp the game. The Storyteller assigns characters forming valid setup.",
+    "ability": "Pregame, all players choose least two normal (See Normality NPC) characters from each category (Townsfolk, Outsider, Minion, Demon). The Storyteller selects characters to form a valid setup.",
     "firstNight": 24,
     "firstNightReminder": "OPTIONALLY: Ask all evil players what they will be bluffing. This is simply an open chance to get their claims for Dreamer or things of the such. You may not do this anytime else.",
     "reminders": [
@@ -1214,14 +1213,14 @@
     "flavor": "I'd like a cheeseburger without cheese, please."
   },
   {
-    "id": "evilOverload",
-    "name": "Evil Overload",
+    "id": "normality",
+    "name": "Normality",
     "image": [
       "https://user-images.klutzbanana.com/ymotc6mn7t9s4rjyxebgkcx2.png"
     ],
     "team": "fabled",
     "edition": "gwb",
-    "ability": "If you choose a character that changes alignments of yourself or others, you must choose 1 more of that character type.",
+    "ability": "When selecting, choose at least 2 normal characters from each category. Normal characters do not change alignments, add Evil, or warp the game. Game-warping characters: Atheist, Alchemist, Philosopher, Heretic, Summoner, Lil Monsta.",
     "flavor": "The Storyteller would like to remind everyone that this was not a good idea."
   },
   {

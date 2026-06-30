@@ -6,7 +6,7 @@
     "firstNight": [
       "dusk",
       "shushingstick_popppp",
-      "choose_your_own_tf",
+      "choose_your_chars",
       "wraith_popppp",
       "lordoftyphon",
       "kazali_popppp",
@@ -201,7 +201,7 @@
 
 
   {
-    "id": "choose_your_own_tf",
+    "id": "choose_your_chars",
     "name": "Choose your characters",
     "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/thebootleggericon_popppp.png",
     "team": "townsfolk",

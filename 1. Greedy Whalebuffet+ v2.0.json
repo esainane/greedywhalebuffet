@@ -3,11 +3,13 @@
     "id": "_meta",
     "name": "Greedy Whalebuffet+ v2 (edited by Sai)",
     "author": "kianu",
+    "almanac": "https://discord.gg/Px3wvyGC4w",
     "bootlegger": [
       "The Demon doesn't get bluffs.",
       "Any character with Ω in the name is adjusted.",
       "The Drunk, Lunatic and Marionette cannot be chosen, but can be given. The Hermit can be given (with the Lunatic or Drunk ability), even if not chosen.",
-      "*If a player chooses Choirboy, Alchemist, Amnesiac, Village Idiot, Kazali or Legion, other players may not get the character they asked for."
+      "*If a player chooses Choirboy, Alchemist, Amnesiac, Village Idiot, Kazali or Legion, other players may not get the character they asked for.",
+      "Greedy uses some special jinxes. They can be found in the Almanac link to the Discord at the top of the character sheet."
     ]
   },
   {
@@ -1175,30 +1177,6 @@
         "type": "vote",
         "name": "multiplier",
         "value": "3"
-      }
-    ]
-  },
-  {
-    "id": "jinx_popppp",
-    "name": "Jinx",
-    "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/jinx_popppp.png"
-    ],
-    "team": "fabled",
-    "ability": "This QR directs to our Jinxes. The jinxes are also on our discord server, here is the link: https://discord.gg/Px3wvyGC4w",
-    "reminders": [
-      "5 Vote",
-      "5 Vote",
-      "5 Vote",
-      "5 Vote",
-      "5 Vote",
-      "5 Vote"
-    ],
-    "special": [
-      {
-        "type": "vote",
-        "name": "multiplier",
-        "value": "5"
       }
     ]
   },

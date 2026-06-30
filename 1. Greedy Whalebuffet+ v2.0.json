@@ -5,10 +5,13 @@
     "author": "kianu",
     "almanac": "https://discord.gg/Px3wvyGC4w",
     "bootlegger": [
+      "Pregame, all players choose least two normal characters from each category (Townsfolk, Outsider, Minion, Demon). The Storyteller selects from these characters* to form a valid setup.",
+      "Normal characters do not change alignments, add Evil, or warp the game. The game-warping characters are: Atheist, Alchemist, Philosopher, Heretic, Summoner, and Lil Monsta.",
+      "The Storyteller might declare other characters abnormal before setup, or outright \"Fussy\" ban characters from entering play.",
+      "*If a player chooses Choirboy, Alchemist, Amnesiac, Village Idiot, Kazali or Legion, other players may not get the character they asked for.",
+      "The Drunk, Lunatic and Marionette cannot be chosen, but can be given. The Hermit can be given (with the Lunatic or Drunk ability), even if not chosen.",
       "The Demon doesn't get bluffs.",
       "Any character with Ω in the name is adjusted.",
-      "The Drunk, Lunatic and Marionette cannot be chosen, but can be given. The Hermit can be given (with the Lunatic or Drunk ability), even if not chosen.",
-      "*If a player chooses Choirboy, Alchemist, Amnesiac, Village Idiot, Kazali or Legion, other players may not get the character they asked for.",
       "Greedy uses some special jinxes. They can be found in the Almanac link to the Discord at the top of the character sheet."
     ]
   },
@@ -19,10 +22,32 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/thebootleggericon_popppp.png"
     ],
     "team": "townsfolk",
-    "ability": "Before the game starts, choose the characters you would like to play as. You must choose at least 2 normal Townsfolk, Outsiders, Minions & Demons each. Your real role will be told to you before the game starts.",
+    "ability": "Choose the characters you want to play as. You must choose at least 2 normal Townsfolk, Outsiders, Minions & Demons each. You will learn your real role before the game starts.",
     "flavor": "Trust, I am that bitch. -Kianu",
     "firstNight": 1,
     "firstNightReminder": "Choose at least 2 normal characters of each type.",
+    "reminders": [
+      "Dealers Choice",
+      "Dealers Choice",
+      "Dealers Choice",
+      "Dealers Choice",
+      "Dealers Choice",
+      "Dealers Choice",
+      "Dealers Choice",
+      "Dealers Choice",
+      "Dealers Choice",
+      "Dealers Choice",
+      "Repick",
+      "Repick",
+      "Repick",
+      "Repick",
+      "Repick",
+      "Repick",
+      "Repick",
+      "Repick",
+      "Repick",
+      "Repick"
+    ],
     "special": [
       {
         "type": "selection",
@@ -32,6 +57,16 @@
         "type": "signal",
         "name": "card",
         "value": "At least 2 normal of each type, most wanted first"
+      },
+      {
+        "type": "signal",
+        "name": "card",
+        "value": "More choices please (See \"Normal\" in Bootlegger)"
+      },
+      {
+        "type": "signal",
+        "name": "player",
+        "value": "Dealer's Choice"
       }
     ]
   },
@@ -1134,36 +1169,16 @@
   },
   "gardener",
   {
-    "id": "thegreed",
-    "name": "Greedbuffet Ω",
-    "team": "fabled",
-    "ability": "Pregame, all players choose least two normal (See Normality NPC) characters from each category (Townsfolk, Outsider, Minion, Demon). The Storyteller selects characters to form a valid setup.",
-    "firstNight": 24,
-    "firstNightReminder": "OPTIONALLY: Ask all evil players what they will be bluffing. This is simply an open chance to get their claims for Dreamer or things of the such. You may not do this anytime else.",
-    "reminders": [
-      "Negative Vote",
-      "Negative Vote",
-      "Negative Vote",
-      "Negative Vote",
-      "Negative Vote"
-    ],
-    "special": [
-      {
-        "type": "vote",
-        "name": "multiplier",
-        "value": "-1"
-      }
-    ]
-  },
-  {
     "id": "dealerschoice_popppp",
     "name": "Dealer's Choice Ω",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/dealerschoice1_popppp.png"
     ],
     "team": "fabled",
-    "ability": "If a player chooses this during setup, the Storyteller chooses their character.",
+    "ability": "A player can send Dealers Choice during setup to allow any character. You can still say what style of character you'd prefer, or anything you don't want.",
     "flavor": "I got $5 saying Iceni is the Wraith. $20 saying he's the King.",
+    "firstNight": 24,
+    "firstNightReminder": "OPTIONALLY: Ask all evil players what they will be bluffing. This is simply an open chance to get their claims for Dreamer or things of the such. You may not do this anytime else.",
     "reminders": [
       "3 Vote",
       "3 Vote",
@@ -1179,27 +1194,6 @@
         "value": "3"
       }
     ]
-  },
-  {
-    "id": "fussy1_popppp",
-    "name": "Fussy Ω",
-    "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/fussy1_popppp.png"
-    ],
-    "team": "fabled",
-    "ability": "One or more characters might be publicly banned before players start selecting.",
-    "flavor": "I'd like a cheeseburger without cheese, please."
-  },
-  {
-    "id": "normality",
-    "name": "Normality",
-    "image": [
-      "https://user-images.klutzbanana.com/ymotc6mn7t9s4rjyxebgkcx2.png"
-    ],
-    "team": "fabled",
-    "edition": "gwb",
-    "ability": "When selecting, choose at least 2 normal characters from each category. Normal characters do not change alignments, add Evil, or warp the game. Game-warping characters: Atheist, Alchemist, Philosopher, Heretic, Summoner, Lil Monsta.",
-    "flavor": "The Storyteller would like to remind everyone that this was not a good idea."
   },
   {
     "id": "banhammer_popppp",

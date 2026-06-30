@@ -1153,7 +1153,7 @@
     "id": "choose_a_own_trv",
     "name": "Choose a Traveller",
     "team": "traveller",
-    "ability": "On the 1st night, choose a Traveller character to become.",
+    "ability": "Choose a Traveller character to become.",
     "firstNight": 1,
     "firstNightReminder": "The Traveller player chooses a character.",
     "special": [

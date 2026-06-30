@@ -1135,7 +1135,7 @@
     "name": "Greedbuffet Ω",
     "team": "fabled",
     "ability": "Pregame, all players choose least two normal characters from each category (Townsfolk, Outsider, Minion, Demon). Normal characters do not change alignments, add Evil, or warp the game. The Storyteller assigns characters forming valid setup.",
-    "firstNight": 1,
+    "firstNight": 24,
     "firstNightReminder": "OPTIONALLY: Ask all evil players what they will be bluffing. This is simply an open chance to get their claims for Dreamer or things of the such. You may not do this anytime else.",
     "reminders": [
       "Negative Vote",

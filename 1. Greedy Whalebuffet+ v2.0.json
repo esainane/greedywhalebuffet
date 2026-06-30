@@ -1,0 +1,1747 @@
+[
+  {
+    "id": "_meta",
+    "author": "kianu",
+    "name": "Greedy Whalebuffet+ v2",
+    "firstNight": [
+      "dusk",
+      "shushingstick_popppp",
+      "choose_your_own_tf",
+      "wraith_popppp",
+      "lordoftyphon",
+      "kazali_popppp",
+      "apprentice",
+      "barista",
+      "bureaucrat",
+      "hermit_popppp",
+      "thief",
+      "philosopher_ultimate",
+      "lunatic_popppp",
+      "alchemist_popppp",
+      "boffin_popppp",
+      "marionette_popppp",
+      "poppygrower_popppp",
+      "snitch_wewew",
+      "yaggababble_poppppp",
+      "magician_popppp",
+      "minioninfo",
+      "demoninfo",
+      "thegreed",
+      "king",
+      "sailor",
+      "preacher_popppp",
+      "lilmonsta",
+      "lleech_popppp",
+      "xaan",
+      "poisoner",
+      "widow_popppp",
+      "courtier_popppp",
+      "wizard_popppp",
+      "snakecharmer",
+      "godfather",
+      "organgrinder",
+      "devilsadvocate",
+      "eviltwin_popppp",
+      "witch",
+      "cerenovus_popppp",
+      "fearmonger",
+      "harpy",
+      "mezepheles",
+      "pukka",
+      "pixie",
+      "huntsman_popppp",
+      "damsel",
+      "amnesiac",
+      "washerwoman",
+      "librarian",
+      "investigator",
+      "chef",
+      "empath",
+      "fortuneteller",
+      "butler_popppp",
+      "grandmother",
+      "clockmaker",
+      "dreamer",
+      "seamstress",
+      "steward",
+      "knight",
+      "noble",
+      "balloonist",
+      "shugenja",
+      "villageidiot",
+      "bountyhunter",
+      "nightwatchman",
+      "spy_popppp",
+      "cultleader_popppp",
+      "ogre",
+      "highpriestess",
+      "general",
+      "chambermaid",
+      "mathematician_popppp",
+      "dawn",
+      "leviathan_popppp",
+      "vizier_popppp"
+    ],
+    "otherNight": [
+      "dusk",
+      "hermit_popppp",
+      "cacklejack_day2",
+      "lunatic_popppp",
+      "philosopher_ultimate",
+      "princess_popppp",
+      "wraith_popppp",
+      "barista",
+      "bureaucrat",
+      "thief",
+      "harlot",
+      "bonecollector",
+      "poppygrower_popppp",
+      "sailor",
+      "preacher_popppp",
+      "xaan",
+      "poisoner",
+      "courtier_popppp",
+      "innkeeper",
+      "wizard_popppp",
+      "gambler",
+      "acrobat",
+      "snakecharmer",
+      "monk",
+      "organgrinder",
+      "devilsadvocate",
+      "pithag_ultimate",
+      "witch",
+      "cerenovus_popppp",
+      "fearmonger",
+      "harpy",
+      "mezepheles",
+      "scarletwoman_popppp",
+      "summoner_popppp",
+      "exorcist",
+      "lycanthrope",
+      "legion_popppp",
+      "imp",
+      "zombuul",
+      "pukka",
+      "shabaloth",
+      "po",
+      "fanggu",
+      "nodashii",
+      "vortox_poppppp",
+      "lordoftyphon",
+      "vigormortis_popppp",
+      "ojo",
+      "alhadikhia_popppp",
+      "lleech_popppp",
+      "lilmonsta",
+      "yaggababble_poppppp",
+      "kazali_popppp",
+      "leviathan_popppp",
+      "riot_popppp",
+      "assassin",
+      "godfather",
+      "gossip",
+      "hatter_popppp",
+      "barber",
+      "sweetheart_wewew",
+      "plaguedoctor_popppp",
+      "sage",
+      "banshee",
+      "professor",
+      "choirboy",
+      "huntsman_popppp",
+      "damsel",
+      "amnesiac",
+      "farmer",
+      "tinker",
+      "moonchild",
+      "grandmother",
+      "ravenkeeper",
+      "empath",
+      "fortuneteller",
+      "undertaker",
+      "dreamer",
+      "flowergirl_popppp",
+      "towncrier",
+      "oracle",
+      "seamstress",
+      "juggler",
+      "balloonist",
+      "villageidiot",
+      "king",
+      "bountyhunter",
+      "nightwatchman",
+      "butler_popppp",
+      "spy_popppp",
+      "cultleader_popppp",
+      "highpriestess",
+      "general",
+      "soldier_popppp",
+      "chambermaid",
+      "mathematician_popppp",
+      "dawn"
+    ],
+
+
+
+
+
+
+    "bootlegger": [
+      "The Demon doesn't get bluffs.",
+"Any character with Ω in the name is adjusted.",
+"The Drunk, Lunatic and Marionette cannot be chosen, but can be given. The Hermit can be given (with the Lunatic or Drunk ability), even if not chosen.",
+"*If a player chooses Choirboy, Alchemist, Amnesiac, Village Idiot, Kazali or Legion, other players may not get the character they asked for.",
+"For selection, the Atheist and Summoner count as your Demon choices. If you choose Atheist, Legion or Lil Monsta in your Demon picks you MUST pick another Demon not listed. If you choose 1 of the following characters for selection, you cannot choose another: Alchemist, Cult Leader, or Philosopher."     
+    ]
+  },
+
+
+
+
+
+  {
+    "id": "choose_your_own_tf",
+    "name": "Choose 2 Characters of Each Type",
+    "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/thebootleggericon_popppp.png",
+    "team": "townsfolk",
+    "ability": "Before the game starts, choose 2 Townsfolks, 2 Outsiders, 2 Minions & 2 Demons to potentially become. Your real role will be told to you before the game starts.",
+    "firstNight": 1,
+    "otherNight": 0,
+    "flavor": "Trust, I am that bitch. -Kianu",
+    "firstNightReminder": "Choose 2 of Each Character Type",
+    "special": [
+      {
+        "name": "bag-duplicate",
+        "type": "selection"
+      },
+      {
+        "type": "signal",
+        "name": "card",
+        "value": "In Order of Preference"
+      }
+    ]
+  },
+
+
+
+
+
+  "acrobat",
+
+
+
+
+
+  {
+    "id": "alchemist_popppp",
+    "name": "Alchemist",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/g_alchemist_popppp.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/e_alchemist_popppp.png"
+    ],
+    "team": "townsfolk",
+    "ability": "You have a Minion ability. When using this, the Storyteller may prompt you to choose differently.",
+    "flavor": "I wanna be different so badly, but I ALWAYSSSS choose Alchemist -Literally Everyone",
+    "firstNight": 13,
+    "otherNight": 0,
+    "firstNightReminder": "Show the YOU ARE token & the Minion they have the ability of.",
+    "remindersGlobal": [
+      "Is the Alchemist",
+      "Is the Alchemist",
+      "Is the Alchemist",
+      "Is the Alchemist",
+      "Is the Alchemist",
+      "Is the Alchemist",
+      "Is the Alchemist"
+    ],
+    "setup": true,
+    "special": [
+      {
+        "name": "replace-character",
+        "type": "reveal"
+      }
+    ]
+  },
+
+
+
+
+
+  "alsaahir",
+  "amnesiac",
+  "artist",
+  "atheist",
+  "balloonist",
+  "banshee",
+  "bountyhunter",
+
+
+  {
+    "id": "cannibal_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/cannibal_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/cannibal_e_popppp.png" ],
+    "reminders": [
+      "Lunch",
+      "Poisoned"
+    ],
+    "name": "Cannibal",
+    "team": "townsfolk",
+    "ability": "You have the ability of the recently killed executee. If they are evil, you are poisoned until a good player dies by execution.",
+    "flavor": "If you are what you eat, then I am an innocent being!"
+  },
+
+
+
+  "chambermaid",
+  "chef",
+  "choirboy",
+  "clockmaker",
+
+
+
+
+
+    {
+    "id": "courtier_popppp",
+    "image": [  "https://www.bloodstar.xyz/p/ZuZuxy/popppp/courtier_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/courtier_e_popppp.png"],
+    "firstNightReminder": "The Courtier might choose a character. Place the relevant reminder token besides the Courtier for how many uses they have left.",
+    "otherNightReminder": "The Courtier might choose a character. Place the relevant reminder token besides the Courtier for how many uses they have left.",
+    "reminders": [
+      "Drunk 1",
+      "Drunk 1",
+      "Drunk 2",
+      "Drunk 2",
+      "Drunk 3",
+      "Drunk 3",
+      "No Ability",
+      "1 Use Left"
+    ],
+    "name": "Courtier Ω",
+    "team": "townsfolk",
+    "ability": "Twice per game, at night, choose a character (different than last time): they are drunk for 3 nights & 3 days.",
+    "flavor": "Remember kids, alcohol is poison, and royalty doesn't have to follow the rules! -Aloe"
+  },
+
+
+
+
+
+  {
+    "id": "cultleader_popppp",
+    "name": "Cult Leader Ω",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/cultleader_popppp.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/cultleader_evil_popppp.png"
+    ],
+    "team": "townsfolk",
+    "ability": "Each night, you become the alignment of an alive neighbour. If all good players choose to join your cult, your team wins. If you die at night, become good.",
+    "flavor": "I'd like to start the cult of chaos. -Evan (Evil Twin)",
+    "firstNight": 15,
+    "otherNight": 5,
+    "firstNightReminder": "If the cult leader changed alignment, show them the thumbs up good signal of the thumbs down evil signal accordingly.",
+    "otherNightReminder": "If the cult leader changed alignment, show them the thumbs up good signal of the thumbs down evil signal accordingly. If the Cult Leader dies at any time tonight, turn them good."
+  },
+
+
+
+
+
+  "dreamer",
+  "empath",
+
+
+
+
+
+  {
+    "id": "asdasd_ultimate",
+    "name": "Engineer Ω",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/nothing/engineer_token_nothing.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/nothing/enge_nothing.png"
+    ],
+    "team": "townsfolk",
+    "ability": "Once per game, during the day, visit the Storyteller to learn a number of in play Minion or Demon characters equal to the Day.",
+    "flavor": "day 3: goblin, goblin, scarlet woman - Benny's the Kazali -the engineer",
+    "reminders": [
+      "No Ability"
+    ]
+  },
+
+
+
+
+
+
+  "exorcist",
+  "farmer",
+  "fisherman",
+
+
+
+
+
+  {
+    "id": "flowergirl_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/flowergirl_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/flowergirl_evil_popppp.png" ],
+    "name": "Flowergirl",
+    "team": "townsfolk",
+    "ability": "Each night*, you learn if a Demon voted today.",
+"otherNightReminder": "Tell the Flowergirl Yes or No if a Demon vote today.",
+    "flavor": "Er is geen probleem, er is geen aanpak nodig, het beste ding is om niets te doen, het is irrelevant en iedereen moet het vergeten. -Victor_ian"
+  },
+
+
+
+
+
+  "fool",
+  "fortuneteller",
+  "gambler",
+  "general",
+  "gossip",
+  "grandmother",
+  "highpriestess",
+
+
+
+
+
+  {
+    "id": "huntsman_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/huntsman_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/huntsman_e_popppp.png" ],
+    "firstNightReminder": "Wake the Huntsman & show the Outsider they added to the bag. They might choose a player. If they choose the Outsider they learned, the Outsider becomes a not in play townsfolk.",
+    "otherNightReminder": "They might choose a player. If they choose the Outsider they learned, the Outsider becomesa not in play townsfolk.",
+    "reminders": [
+      "Target",
+"No Ability"
+    ],
+    "setup": true,
+    "name": "Huntsman Ω",
+    "team": "townsfolk",
+    "ability": "You start knowing an in play Outsider. They can't change character from other abilities. Once per game, at night, choose a player: if you choose that Outsider they become a not in play good Townsfolk. [+0 or +1 Outsider.]",
+    "flavor": "You don't get to be the Heretic -TrappedCosmos"
+  },
+
+
+
+
+
+  "innkeeper",
+  "investigator",
+  "juggler",
+  "king",
+  "knight",
+  "librarian",
+  "lycanthrope",
+
+
+
+
+
+  {
+    "id": "magician_popppp",
+    "name": "Magician",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/magician_popppp.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/evil_magician_popppp.png"
+    ],
+    "team": "townsfolk",
+    "ability": "The Demon thinks you are a Minion. Minions think you are a Demon.",
+    "flavor": "No I don't think I will. -Mole",
+    "firstNight": 17,
+    "otherNight": 0
+  },
+
+
+
+
+
+  {
+    "id": "mathematician_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/mathematician_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/amath_e_popppp.png" ],
+    "firstNightReminder": "Give a finger signal.",
+    "otherNightReminder": "Give a finger signal.",
+    "reminders": [
+      "Abnormalities",
+      "Abnormalities",
+      "Abnormalities",
+      "Abnormalities",
+      "Abnormalities",
+      "Abnormalities",
+      "Abnormalities",
+      "Abnormalities",
+      "Abnormalities"
+    ],
+    "name": "Mathematician",
+    "team": "townsfolk",
+    "ability": "Each night, you learn how many players' abilities worked abnormally (since dawn) due to another character's ability.",
+    "flavor": "Math is like clocktower. You don't know what you're trying to do, nor do you know how to accomplish it. And yet, you succeed -iexistlol",
+    "firstNight": 28,
+    "otherNight": 21
+  },
+
+
+
+  {
+  "id": "mayor_mayor",
+  "name": "Mayor Ω",
+  "image": [
+    "https://user-images.klutzbanana.com/t8l09cni5taf77whss4b401p.png",
+    "https://user-images.klutzbanana.com/ok4jaac7r1pbp9edrhrqtg8m.webp"
+  ],
+  "team": "townsfolk",
+  "edition": "gwb",
+  "ability": "If only 3 players live (travellers don't count) & no execution occurs, your team wins. If you die at night, another player might die instead.",
+  "flavor": "Entrust in my rightfully elected position against the dark ages that fall before us. You do not recall your vote? Don't worry about it; for I am the legitimate, healthy, and fairly elected Mayor of this town. Putting trust in politics has never failed you before.",
+  "setup": false
+},
+
+
+  "minstrel",
+  "monk",
+  "nightwatchman",
+  "noble",
+  "oracle",
+  "pacifist",
+
+
+
+
+
+  {
+    "id": "philosopher_ultimate",
+    "name": "Philosopher Ω",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/good_philo_popppp.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/vil_philo_popppp.png"
+    ],
+    "team": "townsfolk",
+    "ability": "Once per game, at night, choose a good character: gain that ability. If you pick a character that's not helpful to your team or ruins the games balance 3 times, you become Drunk.",
+    "flavor": "If one thing in life is real, it's beer. In pursuit of others achievements, we lose sight of our own desires. -Kianu",
+    "firstNight": 12,
+    "otherNight": 4,
+    "firstNightReminder": "The Philosopher either shows a 'no' head signal, or points to a good character. Tell them to Reconsider if the ability isn't helpful to their team or ruins the games balance. After 3 attempts & 3 reconsiders, Drunk them.",
+    "otherNightReminder": "The Philosopher either shows a 'no' head signal, or points to a good character. Tell them to Reconsider if the ability isn't helpful to their team or ruins the games balance. After 3 attempts & 3 reconsiders, Drunk them.",
+    "reminders": [
+      "Drunk"
+    ],
+    "remindersGlobal": [
+      "Is the Philosopher",
+      "Is the Philosopher",
+      "Is the Philosopher",
+      "Is the Philosopher",
+      "Is the Philosopher",
+      "Drunk"
+    ],
+    "special": [
+      {
+        "name": "replace-character",
+        "type": "reveal"
+      }
+    ]
+  },
+
+
+
+
+
+  "pixie",
+
+
+
+
+
+  {
+    "id": "poppygrower_popppp",
+    "name": "Poppy Grower Ω",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/poppygrower_popppp.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/e_poppygrower_popppp.png"
+    ],
+    "team": "townsfolk",
+    "ability": "Minions & Demons do not know each other. If you die (even if poisoned or drunk), they learn who each other are at night.",
+    "flavor": "We’re doing poppy’s on the dance floor! I feel the rush & I’m pissing all over this stage tonight! -Satyr",
+    "firstNight": 16,
+    "otherNight": 6,
+    "firstNightReminder": "Do not do the Minion Info & Demon Info steps. Wake the Demon, show the THESE CHARACTERS ARE NOT IN PLAY info token & any three good character tokens that are not in play.",
+    "otherNightReminder": "If the Poppy Grower died today or tonight, wake the Minions, show the THIS IS THE DEMON info token & point to the Demon. Put them to sleep. Wake the Demon, show the THESE ARE YOUR MINIONS info token & point to the Minions. Put the Demon to sleep.",
+    "reminders": [
+      "Evil Wakes"
+    ]
+  },
+
+
+
+
+
+   {
+    "id": "preacher_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/preacher_popppp.png",
+ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/preacher_e_popppp.png"],
+    "firstNightReminder": "The Preacher chooses a player. If they chose a Minion: Put the Preacher to sleep. Wake the Minion. Show THIS CHARACTER SELECTED YOU token & the Preacher token. Don't wake the chosen Minions unless the Preacher is dead, poisoned or drunk. ",
+    "otherNightReminder": "The Preacher chooses a player. If they chose a Minion: Put the Preacher to sleep. Wake the Minion. Show THIS CHARACTER SELECTED YOU token & the Preacher token. Don't wake the chosen Minions unless the Preacher is dead, poisoned or drunk.",
+    "reminders": [
+      "No Ability",
+      "No Ability",
+      "No Ability",
+      "No Ability",
+      "No Ability",
+      "No Ability"
+    ],
+    "name": "Preacher",
+    "team": "townsfolk",
+    "ability": "Each night, choose a player: a Minion, if chosen, learns this. All chosen Minions have no ability.",
+    "flavor": "People are getting too loud. -Al-Hadashi"
+  },
+
+
+
+
+
+  {
+    "id": "princess_popppp",
+    "name": "Princess",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/princess_popppp.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/evil_princess_popppp.png"
+    ],
+    "team": "townsfolk",
+    "ability": "On your 1st day, if you nominated & executed a player, the Demon doesn't kill tonight.",
+    "flavor": "Embarassssinngggggg -Spectrum",
+    "firstNight": 0,
+    "otherNight": 4,
+    "otherNightReminder": "If the Princess nominated the player who was executed today, the Demon wakes as normal, but no one dies to the Demon's ability.",
+    "reminders": [
+      "Doesn't Kill",
+	"JINX: Zombuul Kill"
+    ]
+  },
+
+
+
+
+
+  "professor",
+  "ravenkeeper",
+  "sage",
+  "sailor",
+  "savant",
+  "seamstress",
+  "shugenja",
+  "slayer",
+  "snakecharmer",
+
+
+
+
+
+  {
+    "id": "soldier_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/soldier_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/soldier_e_popppp.png" ],
+    "otherNightReminder": "If the Soldier is protected, wake them up & tell them so. Otherwise, don't.",
+    "reminders": [
+      "Protected"
+    ],
+    "name": "Soldier Ω",
+    "team": "townsfolk",
+    "ability": "You are safe from the Demon. Each night*, if your ability protected you from the Demon, wake up & learn so.",
+    "flavor": "As The Spy said to the Heretic, as Mole said to Al-Hadashi, as people believing I’m not the Wraith… No. -Iceni"
+  },
+
+
+
+
+
+  "steward",
+  "tealady",
+  "towncrier",
+  "undertaker",
+  "villageidiot",
+  "virgin",
+  "washerwoman",
+
+
+
+
+
+  "barber",
+
+
+
+
+
+  {
+    "id": "butler_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/butler_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/butler_e_popppp.png" ],
+    "firstNightReminder": "The Butler chooses a player.",
+    "otherNightReminder": "The Butler chooses a player.",
+    "reminders": [
+      "Master!",
+      "Master!",
+      "Master!",
+      "Master!",
+      "Master!"
+    ],
+    "name": "Butler",
+    "team": "outsider",
+    "ability": "Each night, choose a player (not yourself): tomorrow, you may only vote if they are voting too.",
+    "flavor": "Breathe, Identify the problem, Tea break, Consider your options, Handle it. B.I.T.C.H -Alfred Pennyworth",
+    "firstNight": 29,
+    "otherNight": 22
+  },
+
+
+
+
+  "damsel",
+
+
+
+
+
+  {
+    "id": "drunk_popppp",
+    "name": "Drunk",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/drunk_popppp.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/evil_drunk_popppp.png"
+    ],
+    "team": "outsider",
+    "ability": "You do not know you are the Drunk. You think you are a Townsfolk character, but you are not.",
+    "flavor": "I may be drunk, but I didn't drink an ounce of beer! Somehow? -Spectrum",
+    "firstNight": 0,
+    "otherNight": 0,
+    "remindersGlobal": [
+      "Is the Drunk",
+      "Is the Drunk",
+      "Is the Drunk",
+      "Is the Drunk",
+      "Is the Drunk",
+      "Is the Drunk",
+      "Is the Drunk",
+      "Is the Drunk"
+    ],
+    "setup": true,
+    "special": [
+      {
+        "name": "replace-character",
+        "type": "reveal"
+      } ]
+  },
+
+
+
+
+
+  "golem",
+  "goon",
+
+
+
+
+
+  {
+    "id": "hatter_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/hatter_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/hatter_e_popppp.png" ],
+    "otherNightReminder": "If the Hatter died today or tonight, wake the Hatter & make them choose either Minions or Demons. Wake all players of the type they chose & allow them to choose a new character of the same type to become (can be the character they currently are).",
+    "reminders": [
+      "Tea Party Tonight",
+      "Tea Party Tonight",
+      "Tea Party Tonight",
+      "Tea Party Tonight",
+      "Tea Party Tonight",
+      "Tea Party Tonight",
+      "Tea Party Tonight",
+      "Tea Party Tonight"
+    ],
+    "name": "Hatter Ω",
+    "team": "outsider",
+    "ability": "If you die, at night, choose Minions or Demons. All players of the type you chose picks new characters of the same type to be.",
+    "flavor": "10/6 is a much greater number than 6 - 7  -Soril"
+  },
+
+
+
+
+
+  {
+    "id": "heretic_popppp",
+    "name": "Heretic Ω",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/heretic_popppp.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/evil_heretic_popppp.png"
+    ],
+    "team": "outsider",
+    "ability": "Whoever wins, loses, & whoever loses, wins, even if you are dead. If only evil players are alive, evil wins.",
+    "flavor": "I swear if it's a Heretic game. -Mole",
+    "firstNight": 0,
+    "otherNight": 0
+  },
+
+
+
+
+
+  {
+    "id": "hermit_popppp",
+    "name": "Hermit Ω",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/hermit_popppp.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/hermit_evil_popppp.png"
+    ],
+    "team": "outsider",
+    "ability": "You have 3 Outsider abilities. You know each, even if drunk or poisoned. [-0 or -1 Outsiders]",
+    "flavor": "Goon Goon Goon! - Satyr",
+    "firstNight": 11,
+    "otherNight": 2,
+    "firstNightReminder": "Tell the Hermit the 3 abilities they have, no matter if they are Drunk/Poisoned or not. Run any Outsider abilities they have.",
+    "otherNightReminder": "Run any Outsider abilities they have.",
+    "reminders": [
+      "X Outsider Reminder",
+      "X Outsider Reminder",
+      "X Outsider Reminder",
+      "X Outsider Reminder",
+      "X Outsider Reminder",
+      "Y Outsider Reminder",
+      "Y Outsider Reminder",
+      "Y Outsider Reminder",
+      "Y Outsider Reminder",
+      "Y Outsider Reminder"
+    ],
+    "remindersGlobal": [
+      "Is the Hermit",
+      "Is the Hermit",
+      "Is the Hermit",
+      "Is the Hermit",
+      "Is the Hermit",
+      "Is the Hermit"
+    ],
+    "setup": true,
+    "special": [
+      {
+        "name": "replace-character",
+        "type": "reveal"
+      } ]
+  },
+
+
+
+
+
+  "klutz",
+
+
+
+
+
+  {
+    "id": "lunatic_popppp",
+    "name": "Lunatic Ω",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/lunatic_popppp.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/evillunatic_popppp.png"
+    ],
+    "team": "outsider",
+    "ability": "You think you are a Demon, but you are not. The Demon knows you are the Lunatic & who you choose at night.",
+    "flavor": "If I'm the Lunatic I'm gonna be very angry -Sam",
+    "firstNight": 12,
+    "otherNight": 3,
+    "firstNightReminder": "If there are 7 or more players, wake the Lunatic: Show the THESE ARE YOUR MINIONS token. Point to any players. Show the THESE CHARACTERS ARE NOT IN PLAY token. Show 3 good character tokens. Put the Lunatic to sleep. Wake the Demon. Show the YOU ARE info token & the Demon token. Show the THIS PLAYER IS info token & the Lunatic token, then point to the Lunatic.",
+    "otherNightReminder": "Do whatever needs to be done to simulate the Demon acting. Put the Lunatic to sleep. Wake the Demon. Show the Lunatic token &amp; point to them, then their target(s).",
+    "reminders": [
+      "Chosen ",
+      "Chosen ",
+      "Chosen ",
+      "Seen Minion",
+      "Seen Minion",
+      "Seen Minion",
+      "Seen Minion",
+      "Seen Minion"
+    ],
+    "remindersGlobal": [
+      "Is the Lunatic",
+      "Is the Lunatic",
+      "Is the Lunatic",
+      "Is the Lunatic",
+      "Is the Lunatic",
+      "Is the Lunatic"
+    ],
+    "special": [
+      {
+        "name": "replace-character",
+        "type": "reveal"
+      }
+    ]
+  },
+
+
+
+
+
+  "moonchild",
+  "mutant",
+  "ogre",
+
+
+
+
+
+  {
+    "id": "plaguedoctor_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/plaguedoctor_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/plaguedoctor_e_popppp.png" ],
+    "otherNightReminder": "If the Plague Doctor died, the Storyteller gained a Minion ability. If you haven't done this yet, do so now.",
+    "reminders": [
+      "Storyteller Ability"
+    ],
+    "name": "Plague Doctor",
+    "team": "outsider",
+    "ability": "When you die, the Storyteller gains a Minion ability.",
+    "flavor": "You're all my marionettes now."
+  },
+
+
+
+
+
+  "politician",
+  "puzzlemaster",
+
+
+
+
+
+  {
+    "id": "recluse_wewew",
+    "name": "Recluse Ω",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/nothing/reclusegood_nothing.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/nothing/recluseevil_nothing.png"
+    ],
+    "team": "outsider",
+    "ability": "You might register as any character, alignment, or living status, even if dead.",
+    "flavor": "I love men -You know who."
+  },
+
+
+
+
+
+  "saint",
+
+
+
+
+
+  {
+    "id": "snitch_wewew",
+    "name": "Snitch Ω",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/Day6/newcharacter3_day6.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/Day6/newcharacter4_day6.png"
+    ],
+    "team": "outsider",
+    "ability": "Each Minion starts knowing a different in-play good character.",
+    "flavor": "It was Al-Hadashi -Taken Kianu",
+    "firstNightReminder": "Show each Minion a different in-play good character.",
+    "reminders": [
+      "Knows",
+      "Knows",
+      "Knows",
+      "Knows",
+      "Knows",
+      "Knows"
+    ]
+  },
+
+
+
+
+
+  {
+    "id": "sweetheart_wewew",
+    "name": "Sweetheart Ω",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/Day6/good_sweetheart_day6.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/Day6/evil_sweetheart_day6.png"
+    ],
+    "team": "outsider",
+    "ability": "When you die, 1 player is drunk from now on. If you die, you may guess (once) which player you Drunked during the day. If correct, all players learn you are the Sweetheart tonight.",
+    "flavor": "My heart will go on! *Penny whistle solo*. -Miss Chief",
+    "firstNight": 0,
+    "otherNight": 60,
+    "otherNightReminder": "If the Sweetheart died, a player became drunk immediately. If you haven't done this yet, do so now.",
+    "reminders": [
+      "Drunk",
+      "Guess Used"
+    ]
+  },
+
+
+
+
+
+  "tinker",
+  "zealot",
+
+
+
+
+
+  "assassin",
+  "baron",
+
+
+
+
+
+  {
+    "id": "boffin_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/boffin_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/boffing_popppp.png" ],
+    "firstNightReminder": "Wake the Boffin and the Demon. Show them the not in-play Townsfolk ability the Demon has.",
+    "name": "Boffin",
+    "team": "minion",
+    "ability": "The Demon (even if drunk or poisoned) has a not-in-play good character's ability. You both know which.",
+    "flavor": "Sometimes the questions are complicated and the answers are simple. -Dr. Seuss",
+    "firstNight": 30
+  },
+
+
+
+
+
+  "boomdandy",
+
+
+
+
+  {
+    "id": "cerenovus_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/cerenovus_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/cerenovusg_popppp.png" ],
+    "firstNightReminder": "They choose a player and good character for them to be mad as. Tell the chosen player.",
+    "otherNightReminder": "They choose a player and good character for them to be mad as. Tell the chosen player.",
+    "reminders": [
+      "Mad",
+      "Mad",
+      "Mad",
+      "Mad",
+      "Mad",
+      "Mad",
+      "Mad"
+    ],
+    "name": "Cerenovus",
+    "team": "minion",
+    "flavor": "what are you on about, im definitely the politician, yep, nothing to see here - SereNOvus Shrek",
+    "ability": "Each night, choose a player & a good character: they are \"mad\" they are this character tomorrow, or might be executed.",
+    "firstNight": 31,
+    "otherNight": 23
+  },
+
+
+
+
+  "devilsadvocate",
+
+
+
+
+
+  {
+    "id": "eviltwin_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/eviltwin_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/eviltwin_g_popppp.png" ],
+    "firstNightReminder": "Wake both twins. Allow them to speak to each other. Show the good twin's character token to the Evil Twin & vice versa. If any twin changes character while this ability is still in affect, tell the other twin.",
+    "reminders": [
+      "Twin"
+    ],
+    "name": "Evil Twin",
+    "team": "minion",
+    "ability": "You & an opposing player know each other. If the good player is executed, evil wins. Good can't win if you both live.",
+    "flavor": "Yeah that’s my Twinnem, Go best friend! -Mattoo"
+  },
+
+
+
+
+
+  "fearmonger",
+  "goblin",
+  "godfather",
+  "harpy",
+
+
+
+
+
+  {
+    "id": "marionette_popppp",
+    "name": "Marionette",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/marionette_popppp.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/g_marionette_popppp.png"
+    ],
+    "team": "minion",
+    "ability": "You think you are a good character, but you are not. The Demon knows who you are. [You neighbor the Demon]",
+    "flavor": "I would like to Wizard wish that everyone must tell one of their neighbors they're their Marionette. -Drazhar",
+    "firstNight": 14,
+    "otherNight": 0,
+    "firstNightReminder": "Wake the Demon. Point to the player marked IS THE MARIONETTE & show the THIS PLAYER IS token & the Marionette character token.",
+    "remindersGlobal": [
+      "Is the Marionette",
+      "Is the Marionette",
+      "Is the Marionette",
+      "Is the Marionette",
+      "Is the Marionette",
+      "Is the Marionette"
+    ],
+    "setup": true,
+    "special": [
+      {
+        "name": "replace-character",
+        "type": "reveal"
+      } ]
+  },
+
+
+
+
+
+  "mastermind",
+  "mezepheles",
+  "organgrinder",
+
+
+
+
+
+   {
+    "id": "pithag_ultimate",
+    "name": "Pit-Hag Ω",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/Day6/evil_pithag_day6.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/Day6/good_pithag_day6.png"
+    ],
+    "team": "minion",
+    "ability": "Each other night*, you may choose a player & character they become (if not in play). If a potential evil-making character or a Demon is made, deaths tonight are arbitrary.",
+    "flavor": "Its definetly not a Vortox game... yet -Fleuris",
+    "firstNight": 0,
+    "otherNight": 25,
+    "otherNightReminder": "The Pit-Hag points to a player & a character on the sheet. If this character is not in play, wake that player & show them the 'You are' card & the relevant character token. If the character is in play, nothing happens.",
+    "reminders": [
+      "Used Last Night"
+    ]
+  },
+
+
+
+
+
+
+  "poisoner",
+
+
+
+
+
+  {
+    "id": "psychopath_ultimate",
+    "name": "Psychopath Ω",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/Day6/evil_psychopath_day6.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/Day6/newcharacter_day6.png"
+    ],
+    "team": "minion",
+    "ability": "If there are 5 or more alive players (not including travellers), each day, before nominations, you may publicly choose a player: they die. If executed, you only die if you lose roshambo.",
+    "flavor": "My weapon of choice? Old man farts. -Jyraphe",
+    "firstNight": 0,
+    "otherNight": 0,
+    "reminders": [
+      "No Axe!"
+    ]
+  },
+
+
+
+
+
+   {
+    "id": "scarletwoman_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/scarletwoman_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/scarlet_g_popppp.png" ],
+    "otherNightReminder": "If the Scarlet Woman becomes the Demon, tell them.",
+    "remindersGlobal": [
+      "Is the Demon",
+      "Is the Demon",
+      "Is the Demon",
+      "Is the Demon"
+    ],
+    "name": "Scarlet Woman",
+    "team": "minion",
+    "ability": "If there are 5 or more players alive & the Demon dies, you become the Demon. (Travellers don't count.)",
+    "flavor": "The first person to say \"Smooch\" at me will get to pick the quote! You can only choose 1 quote.",
+    "otherNight": 24,
+    "special": [
+      {
+        "name": "replace-character",
+        "type": "reveal"
+      } ]
+  },
+
+
+
+
+
+  
+  {
+    "id": "spy_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/spy_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/spy_g_popppp.png" ],
+    "firstNightReminder": "Show them the Grimoire. ",
+    "otherNightReminder": "Show them the Grimoire. ",
+    "name": "Spy",
+    "team": "minion",
+    "ability": "Each night, you see the Grimoire. You might register as good & as a Townsfolk or Outsider, even if dead.",
+    "flavor": "The world's greatest actor doesn't need a stage... -Soril",
+     "special": [
+    {
+      "name": "grimoire",
+      "type": "signal",
+      "time": "night"
+    } ]
+  },
+
+
+
+
+
+
+ {
+    "id": "summoner_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/summoner_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/summoner_g_popppp.png" ],
+    "otherNightReminder": "Change the Summoner reminder token to the relevant night. If it is night 3, the Summoner chooses a player & a Demon. Put the Summoner to sleep. Wake the chosen player. Show the YOU ARE token, a thumbs down & the chosen Demon token. If it's night 2, ask the Summoner if they want to create a Pukka",
+    "reminders": [
+      "Night 1",
+      "Night 2",
+      "Night 3",
+      "Summoned"
+    ],
+    "name": "Summoner Ω",
+    "team": "minion",
+    "ability": "On the 3rd night, choose a player: they become an evil Demon of your choice. [No Demon]",
+    "flavor": "With this treasure, I summon… -Chara"
+  },
+
+
+
+
+
+
+  {
+    "id": "vizier_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/vizier_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/vizier_good_popppp.png" ],
+    "firstNightReminder": "Announce to all players the Vizier is the Vizier. DON'T ANNOUNCE if an Alsaahir or Investigator is in-play.",
+    "name": "Vizier",
+    "team": "minion",
+    "ability": "All players know you are the Vizier. You cannot die during the day. If good voted, you may choose to execute immediately.",
+    "flavor": "No thank youuu -Reece",
+    "firstNight": 19
+  },
+
+
+
+
+
+  {
+    "id": "widow_popppp",
+    "image":  ["https://www.bloodstar.xyz/p/ZuZuxy/popppp/widow_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/widow_g_popppp.png" ],
+    "firstNightReminder": "Show the grim. They choose 1 player to poison.",
+    "reminders": [
+      "Knows",
+      "Knows",
+      "Poisoned",
+      "Poisoned"
+    ],
+    "name": "Widow",
+    "team": "minion",
+    "ability": "On your 1st night, look at the Grimoire & choose a player: they are poisoned. 1 good player knows a Widow is in play.",
+    "flavor": "The first person to say \"Widowmaker\" at me will get to pick the quote! You can only choose 1 quote.",
+     "special": [
+    {
+      "name": "grimoire",
+      "type": "signal",
+      "time": "night"
+    } ]
+  },
+
+
+
+
+  "witch",
+
+
+
+
+
+   {
+    "id": "wizard_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/wizard_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/wizard_g_popppp.png" ],
+    "firstNightReminder": "Run the Wizard's ability, if applicable. If they make a stupid wish, put the \"Bruh\" reminder token next to them. At 3 Bruh's, turn them into a character of the same type.",
+    "otherNightReminder": "Run the Wizard's ability, if applicable. If they make a stupid wish, put the \"Bruh\" reminder token next to them. At 3 Bruh's, turn them into a character of the same type.",
+    "reminders": [
+      "Bruh 1",
+      "Bruh 2",
+      "Bruh 3",
+     "?",
+"?",
+"?",
+"?",
+"?",
+"?",
+"?"
+    ],
+    "name": "Wizard Ω",
+    "team": "minion",
+    "ability": "Once per game, choose to make a wish. If granted, it might have a price & leave a clue as to its nature. If you propose a declined wish for your team 3 times, you turn into a character of the same type.",
+    "flavor": "Madam Morrible-- MM, flip it around? Wicked Witch!! -Orpheus"
+  },
+
+
+
+
+
+   {
+    "id": "wraith_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/wraith_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/wraith_g_popppp.png" ],
+    "firstNightReminder": "Wake the Wraith whenever other evil players do.",
+    "otherNightReminder": "Wake the Wraith whenever other evil players do.",
+    "name": "Wraith",
+    "team": "minion",
+    "ability": "You may choose to open your eyes at night. You wake when other evil players do.",
+    "special": [
+      {
+        "name": "open-eyes",
+        "type": "player",
+        "time": "night"
+      }
+    ],
+    "flavor": "I am Iceni."
+  },
+
+
+
+
+
+  "xaan",
+
+
+
+
+
+  {
+    "id": "alhadikhia_popppp",
+    "otherNightReminder": "The Al-Hadikhia chooses three players. Wake the player marked 1 and ask them to live or die. Do the same for the players marked 2 and 3. If all three players are alive, kills all three in the order they were chosen. ",
+    "reminders": [
+      "1",
+      "2",
+      "3"
+    ],
+    "name": "Al-Hadikhia",
+    "team": "demon",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/alhadikhia_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/alhad_g_popppp.png" ],
+    "ability": "Each night*, you may choose 3 players (all players learn who): each silently chooses to live or die, but if all live, all die.",
+    "flavor": "This is for all my demons who don’t get hyped enough"
+  },
+
+
+
+
+
+  "fanggu",
+  "imp",
+
+
+
+
+
+  {
+    "id": "kazali_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/kazali_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/kazaligood_popppp.png" ],
+    "firstNightReminder": "Wake the Kazali, allow them to choose Minions. Deny their Minion choices until the game is balanced.",
+    "otherNightReminder": "The Kazali chooses a player.  ",
+    "reminders": [
+      "Dead"
+    ],
+    "setup": true,
+    "name": "Kazali Ω",
+    "team": "demon",
+    "ability": "Each night*, choose a player: they die. [You choose which players are which Minions, your Minion choices may be denied. -? to +? Outsiders]",
+    "flavor": "Let's lock in besties. -Nic",
+    "firstNight": 18,
+    "otherNight": 7
+  },
+
+
+
+
+
+   {
+    "id": "legion_popppp",
+"special": [
+      {
+        "name": "bag-duplicate",
+        "type": "selection"
+      } ],
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/legion_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/legio_g_popppp.png" ],
+    "otherNightReminder": "A player might die. 1 death per Legion alive/with ability.",
+    "reminders": [
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+"About to Die"
+    ],
+    "setup": true,
+    "name": "Legion",
+    "team": "demon",
+    "ability": "Each night*, a player might die. Executions fail if only evil voted. You register as a Minion too. [Most players are Legion]",
+    "flavor": "It's an Atheist game. Also, Orpheus is my evil twin. -Spectrum",
+    "otherNight": 8
+  },
+
+
+
+
+
+    {
+    "id": "leviathan_popppp",
+    "image":  [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/leviathan_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/levi_g_popppp.png" ],
+    "firstNightReminder": "Declare that 'The Leviathan is in play.' Mark the Leviathan with the DAY 1 reminder.",
+    "otherNightReminder": "Wake the Leviathan to choose a player if one of their jinxes permits. Switch the Leviathan token with the relevant day.",
+    "reminders": [
+      "Day 1",
+      "Day 2",
+      "Day 3",
+      "Day 4 ",
+      "Day 5",
+      "Good Player Executed",
+"Jinx Chosen",
+"Jinx Chosen",
+"Jinx Chosen",
+"Jinx Chosen",
+"Jinx Chosen",
+"Jinx Chosen",
+"Jinx Chosen",
+"Jinx Chosen",
+"Jinx Chosen"
+    ],
+    "name": "Leviathan",
+    "team": "demon",
+    "ability": "If more than 1 good player is executed, evil wins. All players know you are in play. After day 5, evil wins.",
+    "flavor": "Don't worry it's just a Wizard wish. -The Politician"
+  },
+
+
+
+
+
+  "lilmonsta",
+
+
+
+
+
+
+  {
+    "id": "lleech_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/lleech_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/lleechgood_popppp.png" ],
+    "firstNightReminder": "The Lleech chooses a player.",
+    "otherNightReminder": "The Lleech chooses a player.",
+    "reminders": [
+      "Dead",
+      "Dead",
+      "Dead",
+      "Poisoned"
+    ],
+    "name": "Lleech",
+    "team": "demon",
+    "ability": "Each night*, choose a player: they die. You start by choosing a player: they are poisoned. You die if & only if they are dead.",
+    "flavor": "'For Science!' said definitely the Sailor -boypower",
+    "firstNight": 34,
+    "otherNight": 26
+  },
+
+
+
+
+
+  "lordoftyphon",
+  "nodashii",
+  "ojo",
+  "po",
+  "pukka",
+
+
+
+
+
+  {
+    "id": "riot_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/riot_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/riot_g_popppp.png" ],
+    "otherNightReminder": "Wake the Riot to choose a player if the jinxes permit. ",
+    "name": "Riot",
+"reminders": [
+      "Day 1",
+      "Day 2",
+      "Day 3"
+    ],
+    "team": "demon",
+    "ability": "On your third day, Minions become Riot & nominees die but nominate an alive player immediately. This must happen.",
+    "flavor": "Guys I need to leave in 30 minutes",
+    "otherNight": 11
+  },
+
+
+
+  "shabaloth",
+
+
+
+  {
+    "id": "vigormortis_popppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/vigormortis_popppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/newcharacter8_popppp.png" ],
+    "otherNightReminder": "The Vigormortis chooses a player. If that player is a Minion & dies, choose 1 of their neighbours to be poisoned.",
+    "reminders": [
+      "Dead",
+      "Poisoned",
+      "Poisoned",
+      "Poisoned",
+      "Poisoned",
+      "Has Ability",
+      "Has Ability",
+      "Has Ability",
+      "Has Ability"
+    ],
+    "name": "Vigormortis",
+    "team": "demon",
+    "ability": "Each night*, choose a player: they die. Minions you kill keep their ability & poison 1 Townsfolk neighbor. [-1 Outsider]",
+    "flavor": "Your information? What information?",
+    "otherNight": 29
+  },
+
+
+
+
+ {
+    "id": "vortox_poppppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/poppppp/vortox_poppppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/vortoxgood_popppp.png" ],
+    "ability": "Each night*, choose a player: they die. Townsfolk abilities yield false info. Each day, if no-one is executed, evil wins.",
+    "otherNightReminder": "The Vortox chooses a player.",
+    "reminders": [
+      "Dead"
+    ],
+    "name": "Vortox",
+    "team": "demon",
+    "flavor": "The first person to say \"Dorothy\" at me will get to pick the quote! You can only choose 1 quote.",
+    "otherNight": 2
+  },
+
+
+
+   {
+    "id": "yaggababble_poppppp",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/poppppp/yaggababble_poppppp.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/popppp/yaggababblegood_popppp.png" ],
+    "ability": "You start knowing a secret phrase. For each time you said it publicly today, a player might die.",
+    "otherNightReminder": "For each time the Yaggababble said the phrase today, you may choose a player. They die.",
+    "reminders": [
+      "Dead"
+    ],
+    "name": "Yaggababble",
+    "team": "demon",
+    "flavor": "Hallo, kan jij jouw bek houden -Victor_ian",
+    "otherNight": 3
+  },
+
+
+
+
+
+  "zombuul",
+
+
+
+
+
+{
+    "id": "choose_a_own_trv",
+    "name": "Choose a Traveller Ω",
+    "team": "traveller",
+    "ability": "On the 1st night, choose a Traveller character to become.",
+    "firstNight": 1,
+    "otherNight": 0,
+    "firstNightReminder": "The Traveller player chooses a character.",
+    "special": [
+      {
+        "name": "bag-duplicate",
+        "type": "selection"
+      },
+      {
+        "type": "signal",
+        "name": "card"
+      }
+    ]
+  },
+
+
+  "gardener",
+
+
+
+
+  {
+    "id": "thegreed",
+    "name": "Greedbuffet Ω",
+    "team": "fabled",
+    "ability": "On the 1st night, all players choose 8 characters. 2 Townsfolk, 2 Outsiders, 2 Minions and 2 Demons. The Storyteller assigns characters until all setup abilities have been met around the Grimiore. Everyone* is given one of the characters they chose. There can be more than one of the same character on the grimiore.",
+    "firstNightReminder": "OPTIONALLY: Ask all evil players what they will be bluffing. This is simply an open chance to get their claims for Dreamer or things of the such. You may not do this anytime else.",
+      "reminders": [
+      "Negative Vote",
+      "Negative Vote",
+      "Negative Vote",
+      "Negative Vote",
+      "Negative Vote"
+    ],
+    "special": [
+      {
+        "name": "multiplier",
+        "type": "vote",
+        "value": "-1"
+      }
+    ]
+  },
+
+
+
+
+ {
+    "id": "dealerschoice_popppp",
+    "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/dealerschoice1_popppp.png",
+    "name": "Dealer's Choice Ω",
+    "team": "fabled",
+    "ability": "If a player chooses this during setup, the Storyteller chooses their character.",
+    "flavor": "I got $5 saying Iceni is the Wraith. $20 saying he's the King.",
+    "reminders": [
+      "3 Vote",
+      "3 Vote",
+      "3 Vote",
+      "3 Vote",
+      "3 Vote",
+      "3 Vote"
+    ],
+    "special": [
+      {
+        "name": "multiplier",
+        "type": "vote",
+        "value": "3"
+      }
+    ]
+  },
+
+ {
+    "id": "jinx_popppp",
+    "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/jinx_popppp.png",
+    "name": "Jinx",
+    "team": "fabled",
+    "ability": "This QR directs to our Jinxes. The jinxes are also on our discord server, here is the link: https://discord.gg/Px3wvyGC4w",
+    "reminders": [
+      "5 Vote",
+      "5 Vote",
+      "5 Vote",
+      "5 Vote",
+      "5 Vote",
+      "5 Vote"
+    ],
+ "special": [
+      {
+        "name": "multiplier",
+        "type": "vote",
+        "value": "5"
+      }
+    ]
+  },
+
+
+
+  {
+    "id": "fussy1_popppp",
+    "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/fussy1_popppp.png",
+    "name": "Fussy Ω",
+    "team": "fabled",
+    "ability": "One or more characters might be publicly banned before players start selecting.",
+    "flavor": "I'd like a cheeseburger without cheese, please."
+  },
+
+{
+  "id": "evilOverload",
+  "name": "Evil Overload",
+  "image": [
+    "https://user-images.klutzbanana.com/ymotc6mn7t9s4rjyxebgkcx2.png"
+  ],
+  "team": "fabled",
+  "edition": "gwb",
+  "ability": "If you choose a character that changes alignments of yourself or others, you must choose 1 more of that character type.",
+  "flavor": "The Storyteller would like to remind everyone that this was not a good idea.",
+  "setup": false
+},
+ {
+    "id": "banhammer_popppp",
+    "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/banhammer_popppp.png",
+    "reminders": [
+      "2 Votes"
+    ],
+    "name": "Ban Hammer Ω",
+    "team": "fabled",
+    "ability": "If the Storyteller deems a player a threat to the peaceful, fun environment of a Greedy lobby (overtalking, misgendering, talking for too long, baiting players), the player may be kicked or de-seated. The Storyteller can change the game as needed to balance any player's absence.",
+    "flavor": "I'm tired of seeing Tean get disrespected -Kianu",
+    "special": [
+      {
+        "name": "multiplier",
+        "type": "vote",
+        "value": "2"
+      }
+    ]
+  }
+
+]

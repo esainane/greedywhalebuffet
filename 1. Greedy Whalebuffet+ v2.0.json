@@ -67,6 +67,18 @@
         "type": "signal",
         "name": "player",
         "value": "Dealer's Choice"
+      },
+      {
+        "type": "signal",
+        "name": "card",
+        "value": "What are you mechanically bluffing as?",
+        "global": "minion"
+      },
+      {
+        "type": "signal",
+        "name": "card",
+        "value": "What are you mechanically bluffing as?",
+        "global": "demon"
       }
     ]
   },

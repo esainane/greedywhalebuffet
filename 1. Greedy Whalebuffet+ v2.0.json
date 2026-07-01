@@ -94,7 +94,7 @@
     "ability": "You have a Minion ability. When using this, the Storyteller may prompt you to choose differently.",
     "flavor": "I wanna be different so badly, but I ALWAYSSSS choose Alchemist -Literally Everyone",
     "firstNight": 15,
-    "firstNightReminder": "Show the YOU ARE token & the Minion they have the ability of.",
+    "firstNightReminder": "Show the *YOU ARE* info token and a Minion token.",
     "remindersGlobal": [
       "Is the Alchemist",
       "Is the Alchemist",
@@ -146,12 +146,12 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/courtier_e_popppp.png"
     ],
     "team": "townsfolk",
-    "ability": "Twice per game, at night, choose a character (different than last time): they are drunk for 3 nights & 3 days.",
+    "ability": "Twice per game, at night, choose a different character: they are drunk for 3 nights & 3 days.",
     "flavor": "Remember kids, alcohol is poison, and royalty doesn't have to follow the rules! -Aloe",
     "firstNight": 35,
-    "firstNightReminder": "The Courtier might choose a character. Place the relevant reminder token besides the Courtier for how many uses they have left.",
+    "firstNightReminder": "The Courtier might choose a character. :reminder: :reminder:",
     "otherNight": 18,
-    "otherNightReminder": "The Courtier might choose a character. Place the relevant reminder token besides the Courtier for how many uses they have left.",
+    "otherNightReminder": "The Courtier might choose a character. :reminder: :reminder:",
     "reminders": [
       "Drunk 1",
       "Drunk 1",
@@ -174,9 +174,9 @@
     "ability": "Each night, you become the alignment of an alive neighbour. If all good players choose to join your cult, your team wins. If you die at night, become good.",
     "flavor": "I'd like to start the cult of chaos. -Evan (Evil Twin)",
     "firstNight": 71,
-    "firstNightReminder": "If the cult leader changed alignment, show them the thumbs up good signal of the thumbs down evil signal accordingly.",
+    "firstNightReminder": "The Cult Leader might change alignment. If so, show the *YOU ARE* info token & give a thumb signal.",
     "otherNight": 90,
-    "otherNightReminder": "If the cult leader changed alignment, show them the thumbs up good signal of the thumbs down evil signal accordingly. If the Cult Leader dies at any time tonight, turn them good."
+    "otherNightReminder": "The Cult Leader might change alignment. If the Cult Leader dies at any time tonight, they become good. If they changed, show the *YOU ARE* info token & give a thumb signal."
   },
   "dreamer",
   "empath",
@@ -208,7 +208,7 @@
     "ability": "Each night*, you learn if a Demon voted today.",
     "flavor": "Er is geen probleem, er is geen aanpak nodig, het beste ding is om niets te doen, het is irrelevant en iedereen moet het vergeten. -Victor_ian",
     "otherNight": 80,
-    "otherNightReminder": "Tell the Flowergirl Yes or No if a Demon vote today.",
+    "otherNightReminder": "Either nod or shake your head.",
     "reminders": [
       "Demon Voted",
       "Demon Not Voted"
@@ -229,12 +229,12 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/huntsman_e_popppp.png"
     ],
     "team": "townsfolk",
-    "ability": "You start knowing an in play Outsider. They can't change character from other abilities. Once per game, at night, choose a player: if you choose that Outsider they become a not in play good Townsfolk. [+0 or +1 Outsider.]",
+    "ability": "You start knowing an in play Outsider. They can't change character from other abilities. Once per game, at night, choose a player: that Outsider, if chosen, becomes a not in play good Townsfolk. [+0 or +1 Outsider]",
     "flavor": "You don't get to be the Heretic -TrappedCosmos",
     "firstNight": 49,
-    "firstNightReminder": "Wake the Huntsman & show the Outsider they added to the bag. They might choose a player. If they choose the Outsider they learned, the Outsider becomes a not in play townsfolk.",
+    "firstNightReminder": "Wake the Huntsman & show the token of their target Outsider. They might choose a player. :reminder: If they choose the Outsider they learned: Put the Huntsman to sleep. Wake the target. Show the *YOU ARE* info token & their new character token.",
     "otherNight": 67,
-    "otherNightReminder": "They might choose a player. If they choose the Outsider they learned, the Outsider becomesa not in play townsfolk.",
+    "otherNightReminder": "The Huntsman might choose a player. :reminder: If they choose the Outsider they learned: Put the Huntsman to sleep. Wake the target. Show the *YOU ARE* info token & their new character token.",
     "reminders": [
       "Target",
       "No Ability"
@@ -313,12 +313,12 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/vil_philo_popppp.png"
     ],
     "team": "townsfolk",
-    "ability": "Once per game, at night, choose a good character: gain that ability. If you pick a character that's not helpful to your team or ruins the games balance 3 times, you become Drunk.",
+    "ability": "Once per game, at night, choose a good character: gain that ability. You may be told to reconsider. If you pick a character that's not helpful to your team or ruins the games balance 3 times, you become Drunk.",
     "flavor": "If one thing in life is real, it's beer. In pursuit of others achievements, we lose sight of our own desires. -Kianu",
     "firstNight": 14,
-    "firstNightReminder": "The Philosopher either shows a 'no' head signal, or points to a good character. Tell them to Reconsider if the ability isn't helpful to their team or ruins the games balance. After 3 attempts & 3 reconsiders, Drunk them.",
+    "firstNightReminder": "The Philosopher either shows a 'no' head signal, or points to a good character. Tell them to reconsider if the ability isn't helpful to their team or ruins the games balance. After 3 attempts & 3 reconsiders, Drunk them.",
     "otherNight": 11,
-    "otherNightReminder": "The Philosopher either shows a 'no' head signal, or points to a good character. Tell them to Reconsider if the ability isn't helpful to their team or ruins the games balance. After 3 attempts & 3 reconsiders, Drunk them.",
+    "otherNightReminder": "The Philosopher either shows a 'no' head signal, or points to a good character. Tell them to reconsider if the ability isn't helpful to their team or ruins the games balance. After 3 attempts & 3 reconsiders, Drunk them.",
     "reminders": [
       "Drunk"
     ],
@@ -349,9 +349,9 @@
     "ability": "Minions & Demons do not know each other. If you die (even if poisoned or drunk), they learn who each other are at night.",
     "flavor": "We’re doing poppy’s on the dance floor! I feel the rush & I’m pissing all over this stage tonight! -Satyr",
     "firstNight": 16,
-    "firstNightReminder": "Do not do the Minion Info & Demon Info steps. Wake the Demon, show the THESE CHARACTERS ARE NOT IN PLAY info token & any three good character tokens that are not in play.",
+    "firstNightReminder": "Skip Minion Info and Demon Info.",
     "otherNight": 12,
-    "otherNightReminder": "If the Poppy Grower died today or tonight, wake the Minions, show the THIS IS THE DEMON info token & point to the Demon. Put them to sleep. Wake the Demon, show the THESE ARE YOUR MINIONS info token & point to the Minions. Put the Demon to sleep.",
+    "otherNightReminder": "If the Poppy Grower died today or tonight, run Minion Info and Demon Info.",
     "reminders": [
       "Evil Wakes"
     ]
@@ -367,9 +367,9 @@
     "ability": "Each night, choose a player: a Minion, if chosen, learns this. All chosen Minions have no ability.",
     "flavor": "People are getting too loud. -Al-Hadashi",
     "firstNight": 29,
-    "firstNightReminder": "The Preacher chooses a player. If they chose a Minion: Put the Preacher to sleep. Wake the Minion. Show THIS CHARACTER SELECTED YOU token & the Preacher token. Don't wake the chosen Minions unless the Preacher is dead, poisoned or drunk.",
+    "firstNightReminder": "The Preacher chooses a player. :reminder: If they chose a Minion: Put the Preacher to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* & Preacher tokens.",
     "otherNight": 15,
-    "otherNightReminder": "The Preacher chooses a player. If they chose a Minion: Put the Preacher to sleep. Wake the Minion. Show THIS CHARACTER SELECTED YOU token & the Preacher token. Don't wake the chosen Minions unless the Preacher is dead, poisoned or drunk.",
+    "otherNightReminder": "The Preacher chooses a player. :reminder: If they chose a Minion: Put the Preacher to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* & Preacher tokens.",
     "reminders": [
       "No Ability",
       "No Ability",
@@ -390,7 +390,7 @@
     "ability": "On your 1st day, if you nominated & executed a player, the Demon doesn't kill tonight.",
     "flavor": "Embarassssinngggggg -Spectrum",
     "otherNight": 38,
-    "otherNightReminder": "If the Princess nominated the player who was executed today, the Demon wakes as normal, but no one dies to the Demon's ability.",
+    "otherNightReminder": "If the Princess nominated the player who was executed today, wake the Demon as normal, but no one dies to the Demon's ability. :reminder:",
     "reminders": [
       "Doesn't Kill",
       "JINX: Zombuul Kill"
@@ -416,9 +416,9 @@
     "ability": "You are safe from the Demon. Each night, if your ability protected you from the Demon, wake and learn this.",
     "flavor": "As The Spy said to the Heretic, as Mole said to Al-Hadashi, as people believing I’m not the Wraith… No. -Iceni",
     "firstNight": 75,
-    "firstNightReminder": "If the Soldier was protected, wake them. Nod.",
+    "firstNightReminder": "If the Soldier was protected, wake them and nod.",
     "otherNight": 94,
-    "otherNightReminder": "If the Soldier was protected, wake them. Nod.",
+    "otherNightReminder": "If the Soldier was protected, wake them and nod.",
     "reminders": [
       "Protected"
     ]
@@ -442,9 +442,9 @@
     "ability": "Each night, choose a player (not yourself): tomorrow, you may only vote if they are voting too.",
     "flavor": "Breathe, Identify the problem, Tea break, Consider your options, Handle it. B.I.T.C.H -Alfred Pennyworth",
     "firstNight": 58,
-    "firstNightReminder": "The Butler chooses a player.",
+    "firstNightReminder": "The Butler chooses a player. :reminder:",
     "otherNight": 91,
-    "otherNightReminder": "The Butler chooses a player.",
+    "otherNightReminder": "The Butler chooses a player. :reminder:",
     "reminders": [
       "Master!",
       "Master!",
@@ -495,7 +495,7 @@
     "ability": "If you die, at night, choose Minions or Demons. All players of the type you chose picks new characters of the same type to be.",
     "flavor": "10/6 is a much greater number than 6 - 7  -Soril",
     "otherNight": 59,
-    "otherNightReminder": "If the Hatter died today or tonight, wake the Hatter & make them choose either Minions or Demons. Wake all players of the type they chose & allow them to choose a new character of the same type to become (can be the character they currently are).",
+    "otherNightReminder": "If the Hatter died, wake the Hatter. They point to either Minions or Demons. Put the Hatter to sleep. Wake each player of the type they chose. Each may choose a new character. If they do, show the *YOU ARE* token & their new character token.",
     "reminders": [
       "Tea Party Tonight",
       "Tea Party Tonight",
@@ -529,9 +529,9 @@
     "ability": "You have 3 Outsider abilities. You know each, even if drunk or poisoned. [-0 or -1 Outsiders]",
     "flavor": "Goon Goon Goon! - Satyr",
     "firstNight": 11,
-    "firstNightReminder": "Tell the Hermit the 3 abilities they have, no matter if they are Drunk/Poisoned or not. Run any Outsider abilities they have.",
+    "firstNightReminder": "If the Hermit does not have the Drunk or Lunatic abilities, wake the Hermit. Show the character token of each ability they have. Run any Outsider abilities the Hermit has.",
     "otherNight": 4,
-    "otherNightReminder": "Run any Outsider abilities they have.",
+    "otherNightReminder": "Run any Outsider abilities the Hermit has.",
     "reminders": [
       "X Outsider Reminder",
       "X Outsider Reminder",
@@ -569,12 +569,12 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/evillunatic_popppp.png"
     ],
     "team": "outsider",
-    "ability": "You think you are a Demon, but you are not. The Demon knows you are the Lunatic & who you choose at night.",
+    "ability": "You think you are a Demon, but you are not. The Demon knows who you are & who you choose at night.",
     "flavor": "If I'm the Lunatic I'm gonna be very angry -Sam",
     "firstNight": 22,
-    "firstNightReminder": "If there are 7 or more players, wake the Lunatic: Show the THESE ARE YOUR MINIONS token. Point to any players. Show the THESE CHARACTERS ARE NOT IN PLAY token. Show 3 good character tokens. Put the Lunatic to sleep. Wake the Demon. Show the YOU ARE info token & the Demon token. Show the THIS PLAYER IS info token & the Lunatic token, then point to the Lunatic.",
+    "firstNightReminder": "If there are 7 or more players, wake the Lunatic: Show the *THESE ARE YOUR MINIONS* token. Point to any players. Show the *THESE CHARACTERS ARE NOT IN PLAY* token. Show 3 good character tokens. Put the Lunatic to sleep. Wake the Demon. Show the *YOU ARE* info token and the Demon token. Show the *THIS PLAYER IS* info token and the Lunatic token, then point to the Lunatic.",
     "otherNight": 35,
-    "otherNightReminder": "Do whatever needs to be done to simulate the Demon acting. Put the Lunatic to sleep. Wake the Demon. Show the Lunatic token &amp; point to them, then their target(s).",
+    "otherNightReminder": "Do whatever needs to be done to simulate the Demon acting. Put the Lunatic to sleep. Wake the Demon. Show the Lunatic token & point to them, then their target(s).",
     "reminders": [
       "Chosen",
       "Chosen",
@@ -614,7 +614,7 @@
     "ability": "When you die, the Storyteller gains a Minion ability.",
     "flavor": "You're all my marionettes now.",
     "otherNight": 62,
-    "otherNightReminder": "If the Plague Doctor died, the Storyteller gained a Minion ability. If you haven't done this yet, do so now.",
+    "otherNightReminder": "If the Plague Doctor died, the Storyteller gained a Minion ability. If you haven't done this yet, do so now. :reminder:",
     "reminders": [
       "Storyteller Ability"
     ]
@@ -644,7 +644,7 @@
     "ability": "Each Minion starts knowing a different in-play good character.",
     "flavor": "It was Al-Hadashi -Taken Kianu",
     "firstNight": 21,
-    "firstNightReminder": "Show each Minion a different in-play good character.",
+    "firstNightReminder": "Wake each Minion. Show each a different in-play good character token.",
     "reminders": [
       "Knows",
       "Knows",
@@ -662,10 +662,10 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/Day6/evil_sweetheart_day6.png"
     ],
     "team": "outsider",
-    "ability": "When you die, 1 player is drunk from now on. If you die, you may guess (once) which player you Drunked during the day. If correct, all players learn you are the Sweetheart tonight.",
+    "ability": "When you die, 1 player is drunk from now on. When dead, you may guess (once) which. If correct, all players learn you are the Sweetheart tonight.",
     "flavor": "My heart will go on! *Penny whistle solo*. -Miss Chief",
     "otherNight": 61,
-    "otherNightReminder": "If the Sweetheart died, a player became drunk immediately. If you haven't done this yet, do so now.",
+    "otherNightReminder": "If the Sweetheart died, a player became drunk immediately. If you haven't done this yet, do so now. :reminder: If the Sweetheart made a correct guess when dead, wake each player. Show them *THIS PLAYER IS* info token & the Sweetheart token.",
     "reminders": [
       "Drunk",
       "Guess Used"
@@ -686,7 +686,7 @@
     "ability": "The Demon (even if drunk or poisoned) has a not-in-play good character's ability. You both know which.",
     "flavor": "Sometimes the questions are complicated and the answers are simple. -Dr. Seuss",
     "firstNight": 13,
-    "firstNightReminder": "Wake the Boffin and the Demon. Show them the not in-play Townsfolk ability the Demon has."
+    "firstNightReminder": "Wake the Boffin and the Demon. Show the *THIS CHARACTER SELECTED YOU* & Boffin tokens, then the not-in-play good character token."
   },
   "boomdandy",
   {
@@ -700,9 +700,9 @@
     "ability": "Each night, choose a player & a good character: they are \"mad\" they are this character tomorrow, or might be executed.",
     "flavor": "what are you on about, im definitely the politician, yep, nothing to see here - SereNOvus Shrek",
     "firstNight": 43,
-    "firstNightReminder": "They choose a player and good character for them to be mad as. Tell the chosen player.",
+    "firstNightReminder": "The Cerenovus chooses a player & a character. :reminder: Put the Cerenovus to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* token, the Cerenovus token, then the madness-character token.",
     "otherNight": 28,
-    "otherNightReminder": "They choose a player and good character for them to be mad as. Tell the chosen player.",
+    "otherNightReminder": "The Cerenovus chooses a player & a character. :reminder: Put the Cerenovus to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* token, the Cerenovus token, then the madness-character token.",
     "reminders": [
       "Mad",
       "Mad",
@@ -725,7 +725,7 @@
     "ability": "You & an opposing player know each other. If the good player is executed, evil wins. Good can't win if you both live.",
     "flavor": "Yeah that’s my Twinnem, Go best friend! -Mattoo",
     "firstNight": 41,
-    "firstNightReminder": "Wake both twins. Allow them to speak to each other. Show the good twin's character token to the Evil Twin & vice versa. If any twin changes character while this ability is still in affect, tell the other twin.",
+    "firstNightReminder": "Wake both twins. Allow eye contact. Show the good twin's character token to the Evil Twin & vice versa.",
     "reminders": [
       "Twin"
     ]
@@ -745,7 +745,7 @@
     "ability": "You think you are a good character, but you are not. The Demon knows who you are. [You neighbor the Demon]",
     "flavor": "I would like to Wizard wish that everyone must tell one of their neighbors they're their Marionette. -Drazhar",
     "firstNight": 27,
-    "firstNightReminder": "Wake the Demon. Point to the player marked IS THE MARIONETTE & show the THIS PLAYER IS token & the Marionette character token.",
+    "firstNightReminder": "Wake the Demon. Show the *THIS PLAYER IS* & Marionette tokens. Point to the Marionette.",
     "remindersGlobal": [
       "Is the Marionette",
       "Is the Marionette",
@@ -773,10 +773,10 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/Day6/good_pithag_day6.png"
     ],
     "team": "minion",
-    "ability": "Each other night*, you may choose a player & character they become (if not in play). If a potential evil-making character or a Demon is made, deaths tonight are arbitrary.",
+    "ability": "Each other night*, you may choose a player & character they become (if not in play). If a potential evil-making character or Demon is made, deaths tonight are arbitrary.",
     "flavor": "Its definetly not a Vortox game... yet -Fleuris",
     "otherNight": 29,
-    "otherNightReminder": "The Pit-Hag points to a player & a character on the sheet. If this character is not in play, wake that player & show them the 'You are' card & the relevant character token. If the character is in play, nothing happens.",
+    "otherNightReminder": "The Pit-Hag chooses a player & a character. If they chose a character that is not in play: Put the Pit-Hag to sleep. Wake the target. Show the *YOU ARE* token & their new character token.",
     "reminders": [
       "Used Last Night"
     ]
@@ -807,7 +807,7 @@
     "ability": "If there are 5 or more players alive & the Demon dies, you become the Demon. (Travellers don't count.)",
     "flavor": "The first person to say \"Smooch\" at me will get to pick the quote! You can only choose 1 quote.",
     "otherNight": 33,
-    "otherNightReminder": "If the Scarlet Woman becomes the Demon, tell them.",
+    "otherNightReminder": "If the Scarlet Woman became the Demon today, show them the *YOU ARE* token, then the Demon token.",
     "remindersGlobal": [
       "Is the Demon",
       "Is the Demon",
@@ -832,9 +832,9 @@
     "ability": "Each night, you see the Grimoire. You might register as good & as a Townsfolk or Outsider, even if dead.",
     "flavor": "The world's greatest actor doesn't need a stage... -Soril",
     "firstNight": 72,
-    "firstNightReminder": "Show them the Grimoire.",
+    "firstNightReminder": "Show the Grimoire for as long as the Spy needs.",
     "otherNight": 92,
-    "otherNightReminder": "Show them the Grimoire.",
+    "otherNightReminder": "Show the Grimoire for as long as the Spy needs.",
     "special": [
       {
         "type": "signal",
@@ -854,7 +854,7 @@
     "ability": "On the 3rd night, choose a player: they become an evil Demon of your choice. [No Demon]",
     "flavor": "With this treasure, I summon… -Chara",
     "otherNight": 34,
-    "otherNightReminder": "Change the Summoner reminder token to the relevant night. If it is night 3, the Summoner chooses a player & a Demon. Put the Summoner to sleep. Wake the chosen player. Show the YOU ARE token, a thumbs down & the chosen Demon token. If it's night 2, ask the Summoner if they want to create a Pukka",
+    "otherNightReminder": "Change the Summoner reminder token to the relevant night. :reminder: If it's night 2, ask the Summoner if they want to create a Pukka. If it is night 3, the Summoner chooses a player & a Demon character. Put the Summoner to sleep. Wake the target. Show the *YOU ARE* and Demon tokens & give a thumbs-down.",
     "reminders": [
       "Night 1",
       "Night 2",
@@ -873,7 +873,7 @@
     "ability": "All players know you are the Vizier. You cannot die during the day. If good voted, you may choose to execute immediately.",
     "flavor": "No thank youuu -Reece",
     "firstNight": 80,
-    "firstNightReminder": "Announce to all players the Vizier is the Vizier. DON'T ANNOUNCE if an Alsaahir or Investigator is in-play.",
+    "firstNightReminder": "If no Alsaahir or Investigator is in-play: Announce which player is the Vizier.",
     "reminders": [
       "Vizier",
       "Vizier"
@@ -896,10 +896,10 @@
     "ability": "On your 1st night, look at the Grimoire & choose a player: they are poisoned. 1 good player knows a Widow is in play.",
     "flavor": "The first person to say \"Widowmaker\" at me will get to pick the quote! You can only choose 1 quote.",
     "firstNight": 34,
-    "firstNightReminder": "Show the grim. They choose 1 player to poison.",
+    "firstNightReminder": "Show the Grimoire for as long as the Widow needs. The Widow chooses a player. :reminder: Put the Widow to sleep. Wake the player marked *KNOW* & show the Widow token. :reminder:",
     "reminders": [
-      "Knows",
-      "Knows",
+      "Know",
+      "Know",
       "Poisoned",
       "Poisoned"
     ],
@@ -923,9 +923,9 @@
     "ability": "Once per game, choose to make a wish. If granted, it might have a price & leave a clue as to its nature. If you propose a declined wish for your team 3 times, you turn into a character of the same type.",
     "flavor": "Madam Morrible-- MM, flip it around? Wicked Witch!! -Orpheus",
     "firstNight": 36,
-    "firstNightReminder": "Run the Wizard's ability, if applicable. If they make a stupid wish, put the \"Bruh\" reminder token next to them. At 3 Bruh's, turn them into a character of the same type.",
+    "firstNightReminder": "Do whatever needs to be done to satisfy the Wizard's ability. If they make a stupid wish, put the \"Bruh\" reminder token next to them. :reminder: At 3 Bruh's, turn them into a character of the same type.",
     "otherNight": 20,
-    "otherNightReminder": "Run the Wizard's ability, if applicable. If they make a stupid wish, put the \"Bruh\" reminder token next to them. At 3 Bruh's, turn them into a character of the same type.",
+    "otherNightReminder": "Do whatever needs to be done to satisfy the Wizard's ability. If they make a stupid wish, put the \"Bruh\" reminder token next to them. :reminder: At 3 Bruh's, turn them into a character of the same type.",
     "reminders": [
       "Bruh 1",
       "Bruh 2",
@@ -950,9 +950,9 @@
     "ability": "You may choose to open your eyes at night. You wake when other evil players do.",
     "flavor": "I am Iceni.",
     "firstNight": 6,
-    "firstNightReminder": "Wake the Wraith whenever other evil players do.",
+    "firstNightReminder": "Wake the Wraith whenever other evil players wake.",
     "otherNight": 4,
-    "otherNightReminder": "Wake the Wraith whenever other evil players do.",
+    "otherNightReminder": "Wake the Wraith whenever other evil players wake.",
     "special": [
       {
         "type": "player",
@@ -973,7 +973,7 @@
     "ability": "Each night*, you may choose 3 players (all players learn who): each silently chooses to live or die, but if all live, all die.",
     "flavor": "This is for all my demons who don’t get hyped enough",
     "otherNight": 51,
-    "otherNightReminder": "The Al-Hadikhia chooses three players. Wake the player marked 1 and ask them to live or die. Do the same for the players marked 2 and 3. If all three players are alive, kills all three in the order they were chosen.",
+    "otherNightReminder": "The Al-Hadikhia chooses 3 players. :reminder: :reminder: :reminder: In order, wake each target. They nod or shake their head. Put them to sleep before waking the next target.",
     "reminders": [
       "1",
       "2",
@@ -993,9 +993,9 @@
     "ability": "Each night*, choose a player: they die. [You choose which players are which Minions, your Minion choices may be denied. -? to +? Outsiders]",
     "flavor": "Let's lock in besties. -Nic",
     "firstNight": 8,
-    "firstNightReminder": "Wake the Kazali, allow them to choose Minions. Deny their Minion choices until the game is balanced.",
+    "firstNightReminder": "The Kazali chooses which players are which Minions. Deny their Minion choices until the game is balanced. Wake each target. Show the *YOU ARE* and Minion tokens & give a thumbs-down.",
     "otherNight": 55,
-    "otherNightReminder": "The Kazali chooses a player.",
+    "otherNightReminder": "The Kazali chooses a player. :reminder:",
     "reminders": [
       "Dead"
     ],
@@ -1012,7 +1012,7 @@
     "ability": "Each night*, a player might die. Executions fail if only evil voted. You register as a Minion too. [Most players are Legion]",
     "flavor": "It's an Atheist game. Also, Orpheus is my evil twin. -Spectrum",
     "otherNight": 39,
-    "otherNightReminder": "A player might die. 1 death per Legion alive/with ability.",
+    "otherNightReminder": "A player might die. :reminder:",
     "reminders": [
       "Dead",
       "Dead",
@@ -1047,9 +1047,9 @@
     "ability": "If more than 1 good player is executed, evil wins. All players know you are in play. After day 5, evil wins.",
     "flavor": "Don't worry it's just a Wizard wish. -The Politician",
     "firstNight": 79,
-    "firstNightReminder": "Declare that 'The Leviathan is in play.' Mark the Leviathan with the DAY 1 reminder.",
+    "firstNightReminder": "Announce that the Leviathan is in play. :reminder:",
     "otherNight": 55,
-    "otherNightReminder": "Wake the Leviathan to choose a player if one of their jinxes permits. Switch the Leviathan token with the relevant day.",
+    "otherNightReminder": "Wake the Leviathan to choose a player if one of their jinxes permits. Change the Leviathan reminder token to the relevant day. :reminder: At dawn, you may announce that the Leviathan is in play.",
     "reminders": [
       "Day 1",
       "Day 2",
@@ -1080,9 +1080,9 @@
     "ability": "Each night*, choose a player: they die. You start by choosing a player: they are poisoned. You die if & only if they are dead.",
     "flavor": "'For Science!' said definitely the Sailor -boypower",
     "firstNight": 31,
-    "firstNightReminder": "The Lleech chooses a player.",
+    "firstNightReminder": "The Lleech chooses a player. :reminder:",
     "otherNight": 52,
-    "otherNightReminder": "The Lleech chooses a player.",
+    "otherNightReminder": "The Lleech chooses a player. :reminder:",
     "reminders": [
       "Dead",
       "Dead",
@@ -1106,11 +1106,20 @@
     "ability": "On your third day, Minions become Riot & nominees die but nominate an alive player immediately. This must happen.",
     "flavor": "Guys I need to leave in 30 minutes",
     "otherNight": 55,
-    "otherNightReminder": "Wake the Riot to choose a player if the jinxes permit.",
+    "otherNightReminder": "Wake the Riot to choose a player if the jinxes permit. :reminder: Change the Riot reminder token to the relevant day. :reminder: If it is night 3, you may wake the Minions before dawn. Show the *YOU ARE* & Riot tokens.",
     "reminders": [
       "Day 1",
       "Day 2",
-      "Day 3"
+      "Day 3",
+      "Jinx Chosen",
+      "Jinx Chosen",
+      "Jinx Chosen",
+      "Jinx Chosen",
+      "Jinx Chosen",
+      "Jinx Chosen",
+      "Jinx Chosen",
+      "Jinx Chosen",
+      "Jinx Chosen"
     ]
   },
   "shabaloth",
@@ -1125,7 +1134,7 @@
     "ability": "Each night*, choose a player: they die. Minions you kill keep their ability & poison 1 Townsfolk neighbor. [-1 Outsider]",
     "flavor": "Your information? What information?",
     "otherNight": 49,
-    "otherNightReminder": "The Vigormortis chooses a player. If that player is a Minion & dies, choose 1 of their neighbours to be poisoned.",
+    "otherNightReminder": "The Vigormortis chooses a player. :reminder: If that player is a Minion, poison a neighboring Townsfolk. :reminder: :reminder:",
     "reminders": [
       "Dead",
       "Poisoned",
@@ -1149,7 +1158,7 @@
     "ability": "Each night*, choose a player: they die. Townsfolk abilities yield false info. Each day, if no-one is executed, evil wins.",
     "flavor": "The first person to say \"Dorothy\" at me will get to pick the quote! You can only choose 1 quote.",
     "otherNight": 47,
-    "otherNightReminder": "The Vortox chooses a player.",
+    "otherNightReminder": "The Vortox chooses a player. :reminder:",
     "reminders": [
       "Dead"
     ]
@@ -1167,8 +1176,19 @@
     "firstNight": 17,
     "firstNightReminder": "Show the Yaggababble their secret phrase.",
     "otherNight": 54,
-    "otherNightReminder": "For each time the Yaggababble said the phrase today, you may choose a player. They die.",
+    "otherNightReminder": "For each time the Yaggababble said their phrase today, a player might die. :reminder:",
     "reminders": [
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
       "Dead"
     ]
   },

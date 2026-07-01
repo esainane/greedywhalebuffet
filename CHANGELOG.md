@@ -18,9 +18,11 @@
 ### Character Updates
 - Flowergirl: Added reminder tokens.
 - Magician: Fixed blank first-night reminder.
+- Riot: Added jinx selection reminder tokens.
 - Soldier: Can now also be woken on the first night, if a Demon would have acted harmfully on the first night.
 - Vizier: Added a public reminder token.
-- Yaggababble: Added missing first-night reminder.
+- Yaggababble: Added missing first-night reminder. Added multiple kill reminder tokens.
+- Night reminder texts have been heavily updated to match modern official versions, or follow modern templating.
 - Made minor text fixes to many characters for templating consistency, and to keep them within the schema's character limits.
 
 ### Night Cards

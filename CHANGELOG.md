@@ -1,6 +1,6 @@
 # Changelog
 
-## [Unreleased]
+## [v2.1, Unreleased]
 
 ### Simplifications
 - The character selection process has been simplified. It now follows the "Evil Overload" template for all abnormal choices: Players must provide at least 2 normal picks for each character type.

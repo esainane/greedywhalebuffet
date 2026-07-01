@@ -2,6 +2,7 @@ const DUPLICATE_LINE = 'Duplicate characters might be in play.';
 const REMOVED_CHARACTERS_PREFIX = 'The following characters are not available: ';
 const LATEST_JSON_URL = './latest.json';
 const ROLES_JSON_URL = './roles.json';
+const FILTERABLE_TEAMS = new Set(['townsfolk', 'outsider', 'minion', 'demon']);
 
 type MetaEntry = {
 	id?: string;
@@ -62,7 +63,6 @@ function getMetaEntry(data: ScriptData): MetaEntry | null {
 
 function getCharacters(data: ScriptData, roles: CharacterEntry[] | null): Character[] {
 	const characters: Character[] = [];
-	const validTeams = new Set(['townsfolk', 'outsider', 'minion', 'demon']);
 
     console.log(roles);
 
@@ -75,7 +75,7 @@ function getCharacters(data: ScriptData, roles: CharacterEntry[] | null): Charac
 			const team = roleEntry?.team as string | undefined;
 			
 			// Only include if team is valid
-			if (!team || !validTeams.has(team)) {
+			if (!team || !FILTERABLE_TEAMS.has(team)) {
                 console.warn(`Skipping character ${entry} due to invalid or missing team: ${team}`);
 				continue;
 			}
@@ -108,7 +108,7 @@ function getCharacters(data: ScriptData, roles: CharacterEntry[] | null): Charac
 			}
 
 			// Only include characters with valid team types
-			if (!charEntry.team || !validTeams.has(charEntry.team)) {
+			if (!charEntry.team || !FILTERABLE_TEAMS.has(charEntry.team)) {
 				continue;
 			}
 
@@ -151,19 +151,24 @@ function buildCopyPayload(data: ScriptData, shouldAppendLine: boolean): string {
 		let entryId: string | undefined;
 		let entryName: string | undefined;
 		let shouldAlwaysInclude = false;
+		let isFilterableCharacter = false;
 
 		if (typeof entry === 'string') {
 			entryId = entry;
 			entryName = rolesData?.find((role) => role.id === entry)?.name ?? entry;
+			const roleTeam = rolesData?.find((role) => role.id === entry)?.team;
+			isFilterableCharacter = !!roleTeam && FILTERABLE_TEAMS.has(roleTeam);
 		} else if (typeof entry === 'object' && entry !== null && 'id' in entry) {
 			entryId = (entry as CharacterEntry).id;
 			entryName = (entry as CharacterEntry).name || entryId;
 			shouldAlwaysInclude = entryId === 'choose_your_chars';
+			const entryTeam = (entry as CharacterEntry).team;
+			isFilterableCharacter = !!entryTeam && FILTERABLE_TEAMS.has(entryTeam);
 		}
 
-		if (shouldAlwaysInclude || (entryId && selectedCharacterIds.has(entryId))) {
+		if (!isFilterableCharacter || shouldAlwaysInclude || (entryId && selectedCharacterIds.has(entryId))) {
 			filteredData.push(entry);
-		} else if (entryId && entryName) {
+		} else if (isFilterableCharacter && entryId && entryName) {
 			removedCharacterNames.push(entryName);
 		}
 	}

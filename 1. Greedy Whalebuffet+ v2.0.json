@@ -413,10 +413,12 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/soldier_e_popppp.png"
     ],
     "team": "townsfolk",
-    "ability": "You are safe from the Demon. Each night*, if your ability protected you from the Demon, wake up & learn so.",
+    "ability": "You are safe from the Demon. Each night, if your ability protected you from the Demon, wake and learn this.",
     "flavor": "As The Spy said to the Heretic, as Mole said to Al-Hadashi, as people believing I’m not the Wraith… No. -Iceni",
+    "firstNight": 75,
+    "firstNightReminder": "If the Soldier was protected, wake them. Nod.",
     "otherNight": 94,
-    "otherNightReminder": "If the Soldier is protected, wake them up & tell them so. Otherwise, don't.",
+    "otherNightReminder": "If the Soldier was protected, wake them. Nod.",
     "reminders": [
       "Protected"
     ]

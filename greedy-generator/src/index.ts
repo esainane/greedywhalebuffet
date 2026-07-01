@@ -3,6 +3,16 @@ const REMOVED_CHARACTERS_PREFIX = 'The following characters are not available: '
 const LATEST_JSON_URL = './latest.json';
 const ROLES_JSON_URL = './roles.json';
 const FILTERABLE_TEAMS = new Set(['townsfolk', 'outsider', 'minion', 'demon']);
+const COMMON_BANS = [
+    'atheist',
+    'bountyhunter',
+    'heretic_popppp',
+    'goon',
+    'pithag_ultimate',
+    'legion_popppp',
+    'leviathan_popppp',
+    'zombuul'
+];
 
 type MetaEntry = {
 	id?: string;
@@ -42,6 +52,7 @@ const reloadButton = requireElement('#reload-button', HTMLButtonElement);
 const statusElement = requireElement('#status', HTMLParagraphElement);
 const scriptName = requireElement('#script-name', HTMLElement);
 const characterCount = requireElement('#character-count', HTMLElement);
+const quickRemoveList = requireElement('#quick-remove-list', HTMLDivElement);
 const characterList = requireElement('#character-list', HTMLDivElement);
 
 let latestJson: ScriptData | null = null;
@@ -64,8 +75,6 @@ function getMetaEntry(data: ScriptData): MetaEntry | null {
 function getCharacters(data: ScriptData, roles: CharacterEntry[] | null): Character[] {
 	const characters: Character[] = [];
 
-    console.log(roles);
-
 	for (let i = 1; i < data.length; i++) {
 		const entry = data[i];
 
@@ -76,7 +85,6 @@ function getCharacters(data: ScriptData, roles: CharacterEntry[] | null): Charac
 			
 			// Only include if team is valid
 			if (!team || !FILTERABLE_TEAMS.has(team)) {
-                console.warn(`Skipping character ${entry} due to invalid or missing team: ${team}`);
 				continue;
 			}
 
@@ -122,6 +130,21 @@ function getCharacters(data: ScriptData, roles: CharacterEntry[] | null): Charac
 	}
 
 	return characters;
+}
+
+function splitCharactersByCommonBans(characters: Character[]): { quickRemove: Character[]; remaining: Character[] } {
+	const quickRemove: Character[] = [];
+	const remaining: Character[] = [];
+
+	for (const character of characters) {
+		if (COMMON_BANS.includes(character.id)) {
+			quickRemove.push(character);
+		} else {
+			remaining.push(character);
+		}
+	}
+
+	return { quickRemove, remaining };
 }
 
 function getBootleggerEntries(data: ScriptData, shouldAppendLine = false): string[] {
@@ -183,11 +206,22 @@ function buildCopyPayload(data: ScriptData, shouldAppendLine: boolean): string {
 }
 
 function renderCharacters(characters: Character[]): void {
-	characterList.innerHTML = '';
+	const { quickRemove, remaining } = splitCharactersByCommonBans(characters);
+	renderCharacterList(quickRemoveList, quickRemove, true);
+	renderCharacterList(characterList, remaining, false);
+}
+
+function renderCharacterList(container: HTMLDivElement, characters: Character[], isQuickRemove = false): void {
+	if (characters.length === 0) {
+		container.innerHTML = `<p class="status">${isQuickRemove ? 'No common bans in this script.' : 'No characters available.'}</p>`;
+		return;
+	}
+
+	container.innerHTML = '';
 
 	for (const character of characters) {
 		const label = document.createElement('label');
-		label.className = `character-item ${selectedCharacterIds.has(character.id) ? '' : 'disabled'}`;
+		label.className = `character-item ${isQuickRemove ? 'quick-remove-item' : ''} ${selectedCharacterIds.has(character.id) ? '' : 'disabled'}`;
 
 		const checkbox = document.createElement('input');
 		checkbox.type = 'checkbox';
@@ -226,7 +260,7 @@ function renderCharacters(characters: Character[]): void {
 		nameEl.textContent = character.name;
 		label.appendChild(nameEl);
 
-		characterList.appendChild(label);
+		container.appendChild(label);
 	}
 }
 

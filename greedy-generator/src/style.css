@@ -326,10 +326,31 @@ button.secondary {
 	color: var(--muted);
 }
 
+.quick-remove-box {
+	margin-bottom: 1rem;
+	padding: 0.9rem;
+	border-radius: 18px;
+	background: var(--surface);
+	border: 1px solid var(--surface-border);
+}
+
+.quick-remove-title {
+	margin: 0 0 0.75rem;
+	font-size: 0.85rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	color: var(--muted);
+}
+
 .character-list {
 	display: grid;
 	grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
 	gap: 0.75rem;
+}
+
+.quick-remove-list {
+	grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
 }
 
 .character-item {
@@ -343,6 +364,11 @@ button.secondary {
 	cursor: pointer;
 	transition: all 140ms ease;
 	opacity: 1;
+}
+
+.quick-remove-item {
+	padding: 0.6rem;
+	border-style: dashed;
 }
 
 .character-item:hover:not(.disabled) {

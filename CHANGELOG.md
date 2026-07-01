@@ -5,8 +5,8 @@
 ### Simplifications
 - The character selection process has been simplified. It now follows the "Evil Overload" template for all abnormal choices: Players must provide at least 2 normal picks for each character type.
 - Yes, that means players may now ask for both Alchemist and Philosopher, as long as they also give the Storyteller enough normal Townsfolk to work with.
-- There special soft restriction on choosing Atheist, Lil Monsta, and Legion has been removed.
-- There special hard restriction on choosing Alchemist, Cult Leader, and Philosopher has been removed.
+- The special soft restriction on choosing Atheist, Lil Monsta, and Legion has been removed.
+- The special hard restriction on choosing Alchemist, Cult Leader, and Philosopher has been removed.
 - Atheist and Summoner no longer need special classification as Demons, since they can no longer count towards the minimum number of normal picks for any character type.
 - Most NPCs have been removed or merged.
 - Removed the "Greedbuffet" NPC. Character selection rules have been moved to the Bootlegger NPC, which already contained most of those rules. The night order reminder to ask for mechanical bluffs is now handled by the "Dealer's Choice" NPC.

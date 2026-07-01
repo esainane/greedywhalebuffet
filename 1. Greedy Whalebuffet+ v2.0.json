@@ -5,14 +5,14 @@
     "author": "kianu",
     "almanac": "https://discord.gg/Px3wvyGC4w",
     "bootlegger": [
-      "Pregame, all players choose least two normal characters from each category (Townsfolk, Outsider, Minion, Demon). The Storyteller selects from these characters* to form a valid setup.",
-      "Normal characters do not change alignments, add Evil, or warp the game. The game-warping characters are: Atheist, Alchemist, Philosopher, Heretic, Summoner, and Lil Monsta.",
-      "The Storyteller might declare other characters abnormal before setup, or outright \"Fussy\" ban characters from entering play.",
-      "*If a player chooses Choirboy, Alchemist, Amnesiac, Village Idiot, Kazali or Legion, other players may not get the character they asked for.",
-      "The Drunk, Lunatic and Marionette cannot be chosen, but can be given. The Hermit can be given (with the Lunatic or Drunk ability), even if not chosen.",
-      "The Demon doesn't get bluffs.",
-      "Any character with Ω in the name is adjusted.",
-      "Greedy uses some special jinxes. They can be found in the Almanac link to the Discord at the top of the character sheet."
+      "Before the game, each player chooses at least two normal characters from each category: Townsfolk, Outsider, Minion, and Demon. The Storyteller then selects from those characters* to create a valid setup.",
+      "Normal characters do not change alignments, add Evil players, or warp the game. The game-warping characters are: Atheist, Alchemist, Philosopher, Heretic, Summoner, and Lil Monsta.",
+      "Before setup, the Storyteller may declare additional characters to be abnormal, or may \"Fussy\" ban characters from being in play.",
+      "*If a player chooses the Choirboy, Alchemist, Amnesiac, Village Idiot, Kazali, or Legion, some players may not receive the character they requested.",
+      "The Drunk, Lunatic, and Marionette cannot be chosen, but they may be assigned by the Storyteller. The Hermit may also be assigned with the Lunatic or Drunk ability, even if it was not chosen.",
+      "The Demon does not receive bluffs.",
+      "Any character with Ω in its name has been adjusted.",
+      "Greedy uses some special jinxes. These can be found in the Almanac link to the Discord at the top of the character sheet."
     ]
   },
   {
@@ -22,21 +22,21 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/thebootleggericon_popppp.png"
     ],
     "team": "townsfolk",
-    "ability": "Choose the characters you want to play as. You must choose at least 2 normal Townsfolk, Outsiders, Minions & Demons each. You will learn your real role before the game starts.",
+    "ability": "Choose the characters you want to play. You must choose at least 2 normal characters from each category: Townsfolk, Outsider, Minion, and Demon. You will learn your actual role before the game begins.",
     "flavor": "Trust, I am that bitch. -Kianu",
     "firstNight": 1,
-    "firstNightReminder": "Choose at least 2 normal characters of each type.",
+    "firstNightReminder": "Choose at least 2 normal characters from each category.",
     "reminders": [
-      "Dealers Choice",
-      "Dealers Choice",
-      "Dealers Choice",
-      "Dealers Choice",
-      "Dealers Choice",
-      "Dealers Choice",
-      "Dealers Choice",
-      "Dealers Choice",
-      "Dealers Choice",
-      "Dealers Choice",
+      "Dealer's Choice",
+      "Dealer's Choice",
+      "Dealer's Choice",
+      "Dealer's Choice",
+      "Dealer's Choice",
+      "Dealer's Choice",
+      "Dealer's Choice",
+      "Dealer's Choice",
+      "Dealer's Choice",
+      "Dealer's Choice",
       "Repick",
       "Repick",
       "Repick",
@@ -56,12 +56,12 @@
       {
         "type": "signal",
         "name": "card",
-        "value": "At least 2 normal of each type, most wanted first"
+        "value": "At least 2 normal per type, most wanted first"
       },
       {
         "type": "signal",
         "name": "card",
-        "value": "More choices please (See \"Normal\" in Bootlegger)"
+        "value": "More choices please! See \"Normal\" in Bootlegger"
       },
       {
         "type": "signal",
@@ -1197,10 +1197,10 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/dealerschoice1_popppp.png"
     ],
     "team": "fabled",
-    "ability": "A player can send Dealers Choice during setup to allow any character. You can still say what style of character you'd prefer, or anything you don't want.",
+    "ability": "During setup, a player may choose Dealer's Choice to allow the Storyteller to assign them any character. They may still describe the style of character they would prefer, or name anything they do not want.",
     "flavor": "I got $5 saying Iceni is the Wraith. $20 saying he's the King.",
     "firstNight": 24,
-    "firstNightReminder": "OPTIONALLY: Ask all evil players what they will be bluffing. This is simply an open chance to get their claims for Dreamer or things of the such. You may not do this anytime else.",
+    "firstNightReminder": "OPTIONAL: Ask evil players what they plan to bluff as. This is an open chance to collect claims for the Dreamer or similar abilities. You may not do this at any other time.",
     "reminders": [
       "2 Votes",
       "2 Votes",

@@ -22,7 +22,7 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/thebootleggericon_popppp.png"
     ],
     "team": "townsfolk",
-    "ability": "Choose the characters you want to play. You must choose at least 2 normal characters from each category: Townsfolk, Outsider, Minion, and Demon. You will learn your actual role before the game begins.",
+    "ability": "Choose what you want to play. Choose at least 2 normal characters of each type: Townsfolk, Outsider, Minion, and Demon. You learn your actual character before the game starts.",
     "flavor": "Trust, I am that bitch. -Kianu",
     "firstNight": 1,
     "firstNightReminder": "Choose at least 2 normal characters from each category.",
@@ -71,13 +71,13 @@
       {
         "type": "signal",
         "name": "card",
-        "value": "What are you mechanically bluffing as?",
+        "value": "Who are you mechanically bluffing as?",
         "global": "minion"
       },
       {
         "type": "signal",
         "name": "card",
-        "value": "What are you mechanically bluffing as?",
+        "value": "Who are you mechanically bluffing as?",
         "global": "demon"
       }
     ]

@@ -1,13 +1,64 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parcel Vanilla App</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <h1>Parcel Vanilla App</h1>
-    <p>Edit <code>src/index.html</code> to get started!</p>
-  </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Greedy Whalebuffet Generator</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+			rel="stylesheet"
+		/>
+		<link rel="stylesheet" href="./style.css" />
+	</head>
+	<body>
+		<main class="shell">
+			<section class="panel hero">
+				<p class="eyebrow">Script generator</p>
+				<h1>Greedy Whalebuffet</h1>
+				<p class="lede">
+					Generate a Greedy Whalebuffet script for Blood on the Clocktower. This script can be copied to the clipboard for use in the official app, or downloaded for repeated use.
+				</p>
+			</section>
+
+			<section class="panel controls">
+				<form id="copy-form" class="copy-form">
+					<label class="toggle" for="append-duplicate-line">
+						<input id="append-duplicate-line" name="append-duplicate-line" type="checkbox" checked />
+						<span>
+							Duplicate characters might be in play, even without setup abilities.
+						</span>
+					</label>
+
+					<div class="actions">
+						<button id="copy-button" type="submit">Copy JSON to clipboard</button>
+						<button id="reload-button" type="button" class="secondary">Reload</button>
+					</div>
+				</form>
+
+				<dl class="meta" id="meta">
+					<div>
+						<dt>Name</dt>
+						<dd id="script-name">Loading…</dd>
+					</div>
+					<div>
+						<dt>Enabled characters</dt>
+						<dd id="character-count">-</dd>
+					</div>
+				</dl>
+
+				<p id="status" class="status" aria-live="polite">Loading latest script…</p>
+			</section>
+
+			<section class="panel preview">
+				<div class="preview-header">
+					<h2>Preview</h2>
+					<p>WIP</p>
+				</div>
+			</section>
+		</main>
+
+		<script src="./index.ts" type="module" async></script>
+	</body>
 </html>

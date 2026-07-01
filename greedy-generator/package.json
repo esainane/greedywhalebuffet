@@ -7,8 +7,13 @@
     "start": "parcel",
     "build": "parcel build"
   },
+  "staticFiles": {
+    "staticPath": "static",
+    "staticOutPath": "."
+  },
   "devDependencies": {
     "parcel": "^2.14.0",
+    "parcel-reporter-static-files-copy": "^1.5.3",
     "typescript": "^6.0.3"
   }
 }

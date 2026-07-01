@@ -1,4 +1,5 @@
 const DUPLICATE_LINE = 'Duplicate characters might be in play.';
+const REMOVED_CHARACTERS_PREFIX = 'The following characters are not available: ';
 const LATEST_JSON_URL = './latest.json';
 const ROLES_JSON_URL = './roles.json';
 
@@ -137,6 +138,7 @@ function getBootleggerEntries(data: ScriptData, shouldAppendLine = false): strin
 function buildCopyPayload(data: ScriptData, shouldAppendLine: boolean): string {
 	const nextData = cloneJson(data);
 	const metaEntry = getMetaEntry(nextData);
+	const removedCharacterNames: string[] = [];
 
 	if (metaEntry && Array.isArray(metaEntry.bootlegger) && shouldAppendLine) {
 		metaEntry.bootlegger.push(DUPLICATE_LINE);
@@ -147,18 +149,29 @@ function buildCopyPayload(data: ScriptData, shouldAppendLine: boolean): string {
 	for (let i = 1; i < nextData.length; i++) {
 		const entry = nextData[i];
 		let entryId: string | undefined;
+		let entryName: string | undefined;
 		let shouldAlwaysInclude = false;
 
 		if (typeof entry === 'string') {
 			entryId = entry;
+			entryName = rolesData?.find((role) => role.id === entry)?.name ?? entry;
 		} else if (typeof entry === 'object' && entry !== null && 'id' in entry) {
 			entryId = (entry as CharacterEntry).id;
+			entryName = (entry as CharacterEntry).name || entryId;
 			shouldAlwaysInclude = entryId === 'choose_your_chars';
 		}
 
 		if (shouldAlwaysInclude || (entryId && selectedCharacterIds.has(entryId))) {
 			filteredData.push(entry);
+		} else if (entryId && entryName) {
+			removedCharacterNames.push(entryName);
 		}
+	}
+
+	if (metaEntry && removedCharacterNames.length > 0) {
+		const bootlegger = Array.isArray(metaEntry.bootlegger) ? metaEntry.bootlegger : [];
+		bootlegger.push(`${REMOVED_CHARACTERS_PREFIX}${removedCharacterNames.join(', ')}`);
+		metaEntry.bootlegger = bootlegger;
 	}
 
 	return JSON.stringify(filteredData, null, 2);
@@ -242,10 +255,11 @@ async function loadLatestJson(): Promise<void> {
 	if (!rolesResponse.ok) {
         throw new Error(`Failed to load roles.json (${rolesResponse.status})`);
     }
-    const rolesData = (await rolesResponse.json()) as unknown;
-    if (!Array.isArray(rolesData)) {
+	const parsedRoles = (await rolesResponse.json()) as unknown;
+	if (!Array.isArray(parsedRoles)) {
         throw new Error('roles.json has an unexpected shape.');
     }
+	rolesData = parsedRoles as CharacterEntry[];
 
 	const metaEntry = getMetaEntry(latestJson);
 	scriptName.textContent = metaEntry?.name ?? 'Unknown script';

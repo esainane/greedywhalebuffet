@@ -23,13 +23,23 @@
 			</section>
 
 			<section class="panel controls">
+				<p class="eyebrow">Options</p>
 				<form id="copy-form" class="copy-form">
-					<label class="toggle" for="append-duplicate-line">
-						<input id="append-duplicate-line" name="append-duplicate-line" type="checkbox" checked />
-						<span>
-							Duplicate characters might be in play, even without setup abilities.
-						</span>
-					</label>
+					<div class="toggle">
+						<div class="toggle-main">
+							<span class="toggle-label">Duplicate characters</span>
+							<label class="switch" for="append-duplicate-line">
+								<input id="append-duplicate-line" name="append-duplicate-line" type="checkbox" checked />
+								<span class="slider" aria-hidden="true"></span>
+							</label>
+						</div>
+						<div class="help-bubble">
+							<button type="button" class="help-trigger" aria-describedby="duplicate-help-text">?</button>
+							<span id="duplicate-help-text" class="help-tooltip" role="tooltip">
+								Duplicate characters might be added during setup, even without setup abilities.
+							</span>
+						</div>
+					</div>
 
 					<div class="actions">
 						<button id="copy-button" type="submit">Copy JSON to clipboard</button>
@@ -49,6 +59,14 @@
 				</dl>
 
 				<p id="status" class="status" aria-live="polite">Loading latest script…</p>
+			</section>
+
+			<section class="panel characters">
+				<p class="eyebrow">Characters</p>
+				<p class="lede">Click to deselect characters from the script</p>
+				<div id="character-list" class="character-list">
+					<p class="status">Loading characters…</p>
+				</div>
 			</section>
 
 			<section class="panel preview">

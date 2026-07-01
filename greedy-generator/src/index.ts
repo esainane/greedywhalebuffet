@@ -1,12 +1,28 @@
 const DUPLICATE_LINE = 'Duplicate characters might be in play.';
 const LATEST_JSON_URL = './latest.json';
+const ROLES_JSON_URL = './roles.json';
 
 type MetaEntry = {
+	id?: string;
 	name?: string;
 	bootlegger?: string[];
 };
 
-type ScriptData = MetaEntry[];
+type CharacterEntry = {
+	id: string;
+	name: string;
+	image?: string[];
+	team?: string;
+	[key: string]: unknown;
+};
+
+type ScriptData = (MetaEntry | CharacterEntry | string)[];
+
+type Character = {
+	id: string;
+	name: string;
+	imageUrl?: string | Array<string>;
+};
 
 function requireElement<T extends Element>(selector: string, ctor: { new (): T }): T {
 	const element = document.querySelector(selector);
@@ -24,8 +40,11 @@ const reloadButton = requireElement('#reload-button', HTMLButtonElement);
 const statusElement = requireElement('#status', HTMLParagraphElement);
 const scriptName = requireElement('#script-name', HTMLElement);
 const characterCount = requireElement('#character-count', HTMLElement);
+const characterList = requireElement('#character-list', HTMLDivElement);
 
 let latestJson: ScriptData | null = null;
+let rolesData: CharacterEntry[] | null = null;
+const selectedCharacterIds = new Set<string>();
 
 function setStatus(message: string, tone: 'info' | 'success' | 'error' = 'info'): void {
 	statusElement.textContent = message;
@@ -37,7 +56,71 @@ function cloneJson(value: ScriptData): ScriptData {
 }
 
 function getMetaEntry(data: ScriptData): MetaEntry | null {
-	return Array.isArray(data) ? data[0] ?? null : null;
+	return Array.isArray(data) ? data[0] as MetaEntry ?? null : null;
+}
+
+function getCharacters(data: ScriptData, roles: CharacterEntry[] | null): Character[] {
+	const characters: Character[] = [];
+	const validTeams = new Set(['townsfolk', 'outsider', 'minion', 'demon']);
+
+    console.log(roles);
+
+	for (let i = 1; i < data.length; i++) {
+		const entry = data[i];
+
+		if (typeof entry === 'string') {
+			// Simple string ID - look up in roles.json
+			const roleEntry = roles?.find(r => r.id === entry);
+			const team = roleEntry?.team as string | undefined;
+			
+			// Only include if team is valid
+			if (!team || !validTeams.has(team)) {
+                console.warn(`Skipping character ${entry} due to invalid or missing team: ${team}`);
+				continue;
+			}
+
+			const name = roleEntry?.name || (entry.charAt(0).toUpperCase() + entry.slice(1));
+			const roleImage = roleEntry?.image;
+			let imageUrl: string | undefined;
+			if (typeof roleImage === 'string') {
+				imageUrl = roleImage;
+			} else if (Array.isArray(roleImage)) {
+				imageUrl = roleImage[0];
+			} else {
+				// Fallback to Klutzbanana URL
+                // Work out whether to ask for g or e as the standard image
+                const team_id = ['townsfolk', 'outsider'].includes(team) ? 'g' : 'e';
+				imageUrl = `https://images.klutzbanana.com/characters_official/${entry}_${team_id}.png`;
+			}
+
+			characters.push({
+				id: entry,
+				name,
+				imageUrl,
+			});
+		} else if (typeof entry === 'object' && entry !== null && 'id' in entry) {
+			const charEntry = entry as CharacterEntry;
+			
+			// Skip the "Choose your characters" pseudo-character
+			if (charEntry.id === 'choose_your_chars') {
+				continue;
+			}
+
+			// Only include characters with valid team types
+			if (!charEntry.team || !validTeams.has(charEntry.team)) {
+				continue;
+			}
+
+			const imageUrl = Array.isArray(charEntry.image) ? charEntry.image[0] : undefined;
+			characters.push({
+				id: charEntry.id,
+				name: charEntry.name || charEntry.id,
+				imageUrl,
+			});
+		}
+	}
+
+	return characters;
 }
 
 function getBootleggerEntries(data: ScriptData, shouldAppendLine = false): string[] {
@@ -59,30 +142,122 @@ function buildCopyPayload(data: ScriptData, shouldAppendLine: boolean): string {
 		metaEntry.bootlegger.push(DUPLICATE_LINE);
 	}
 
-	return JSON.stringify(nextData, null, 2);
+	// Filter out deselected characters
+	const filteredData: ScriptData = [nextData[0] as MetaEntry]; // Keep metadata
+	for (let i = 1; i < nextData.length; i++) {
+		const entry = nextData[i];
+		let entryId: string | undefined;
+		let shouldAlwaysInclude = false;
+
+		if (typeof entry === 'string') {
+			entryId = entry;
+		} else if (typeof entry === 'object' && entry !== null && 'id' in entry) {
+			entryId = (entry as CharacterEntry).id;
+			shouldAlwaysInclude = entryId === 'choose_your_chars';
+		}
+
+		if (shouldAlwaysInclude || (entryId && selectedCharacterIds.has(entryId))) {
+			filteredData.push(entry);
+		}
+	}
+
+	return JSON.stringify(filteredData, null, 2);
+}
+
+function renderCharacters(characters: Character[]): void {
+	characterList.innerHTML = '';
+
+	for (const character of characters) {
+		const label = document.createElement('label');
+		label.className = `character-item ${selectedCharacterIds.has(character.id) ? '' : 'disabled'}`;
+
+		const checkbox = document.createElement('input');
+		checkbox.type = 'checkbox';
+		checkbox.value = character.id;
+		checkbox.checked = selectedCharacterIds.has(character.id);
+		checkbox.addEventListener('change', (e) => {
+			const target = e.target as HTMLInputElement;
+			if (target.checked) {
+				selectedCharacterIds.add(character.id);
+			} else {
+				selectedCharacterIds.delete(character.id);
+			}
+			label.classList.toggle('disabled', !target.checked);
+			updateCharacterCount();
+		});
+
+		label.appendChild(checkbox);
+
+		if (character.imageUrl) {
+            let src: string;
+            const urlDef: string | Array<string> = character.imageUrl;
+            if (Array.isArray(urlDef)) {
+                src = urlDef[0];
+            } else {
+                src = urlDef;
+            }
+			const img = document.createElement('img');
+			img.src = src;
+			img.alt = character.name;
+			img.className = 'character-icon';
+			label.appendChild(img);
+		}
+
+		const nameEl = document.createElement('span');
+		nameEl.className = 'character-name';
+		nameEl.textContent = character.name;
+		label.appendChild(nameEl);
+
+		characterList.appendChild(label);
+	}
+}
+
+function updateCharacterCount(): void {
+	characterCount.textContent = String(selectedCharacterIds.size);
 }
 
 function renderPreview(): void {
-    // TODO
+	// TODO
 }
 
 async function loadLatestJson(): Promise<void> {
 	setStatus('Loading latest script...');
 
-	const response = await fetch(LATEST_JSON_URL, { cache: 'no-store' });
-	if (!response.ok) {
-		throw new Error(`Failed to load latest.json (${response.status})`);
+	const [latestResponse, rolesResponse] = await Promise.all([
+		fetch(LATEST_JSON_URL, { cache: 'no-store' }),
+		fetch(ROLES_JSON_URL, { cache: 'no-store' }),
+	]);
+
+	if (!latestResponse.ok) {
+		throw new Error(`Failed to load latest.json (${latestResponse.status})`);
 	}
 
-	const parsed = (await response.json()) as unknown;
-	if (!Array.isArray(parsed)) {
+	const latestParsed = (await latestResponse.json()) as unknown;
+	if (!Array.isArray(latestParsed)) {
 		throw new Error('latest.json has an unexpected shape.');
 	}
 
-	latestJson = parsed as ScriptData;
+	latestJson = latestParsed as ScriptData;
+
+	if (!rolesResponse.ok) {
+        throw new Error(`Failed to load roles.json (${rolesResponse.status})`);
+    }
+    const rolesData = (await rolesResponse.json()) as unknown;
+    if (!Array.isArray(rolesData)) {
+        throw new Error('roles.json has an unexpected shape.');
+    }
 
 	const metaEntry = getMetaEntry(latestJson);
 	scriptName.textContent = metaEntry?.name ?? 'Unknown script';
+
+	const characters = getCharacters(latestJson, rolesData);
+	selectedCharacterIds.clear();
+	for (const char of characters) {
+		selectedCharacterIds.add(char.id);
+	}
+	renderCharacters(characters);
+	updateCharacterCount();
+
 	renderPreview();
 	setStatus('Script loaded.', 'success');
 }

@@ -1,6 +1,6 @@
 const DUPLICATE_LINE = 'Duplicate characters might be in play.';
 const REMOVED_CHARACTERS_PREFIX = 'The following characters are not available: ';
-const LATEST_JSON_URL = './latest.json';
+const GREEDY_JSON_URL = './greedy.json';
 const ROLES_JSON_URL = './roles.json';
 const FILTERABLE_TEAMS = new Set(['townsfolk', 'outsider', 'minion', 'demon']);
 const COMMON_BANS = [
@@ -387,7 +387,7 @@ async function loadLatestJson(): Promise<void> {
 	setStatus('Loading latest script...');
 
 	const [latestResponse, rolesResponse] = await Promise.all([
-		fetch(LATEST_JSON_URL, { cache: 'no-store' }),
+		fetch(GREEDY_JSON_URL, { cache: 'no-store' }),
 		fetch(ROLES_JSON_URL, { cache: 'no-store' }),
 	]);
 

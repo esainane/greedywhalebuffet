@@ -3,10 +3,6 @@
     "id": "alchemist",
     "jinx": [
       {
-        "id": "baffler",
-        "reason": "Alch Ability is: If you vote on every nomination and speak like a baffled player during the day, that night you learn a piece of true info."
-      },
-      {
         "id": "baron",
         "reason": "Alch Ability is: You know how many Outsiders are in play. Learn if an Outsider ever leaves play. [+0 or +1 Outsider]"
       },
@@ -51,10 +47,6 @@
         "reason": "Alch Ability is: The Alchemist chooses which Demon but not which player. If they die before this happens, evil wins. [No Demon]"
       },
       {
-        "id": "sybil",
-        "reason": "The Alchemist's announced words might be false."
-      },
-      {
         "id": "vizier",
         "reason": "The Alchemist might not be able to push an execution through if only they voted."
       },
@@ -69,10 +61,6 @@
       {
         "id": "xaan",
         "reason": "Alch Ability is: On night X, all Minions are poisoned until dusk. [X Outsiders]"
-      },
-      {
-        "id": "watcher",
-        "reason": "If the Alchemist-Watcher chooses an evil player, they receive false information."
       }
     ]
   },
@@ -90,106 +78,11 @@
     ]
   },
   {
-    "id": "armageddon",
-    "jinx": [
-      {
-        "id": "assassin",
-        "reason": "The Assassin has no ability on Night 4."
-      },
-      {
-        "id": "courtier",
-        "reason": "If the Armageddon is drunked by the Courtier, the Storyteller chooses which 3 players live on Night 4."
-      },
-      {
-        "id": "devilsadvocate",
-        "reason": "The Devil's Advocate has no ability on Night 4."
-      },
-      {
-        "id": "engineer",
-        "reason": "The Engineer cannot create an Armageddon after night 4."
-      },
-      {
-        "id": "eviltwin",
-        "reason": "The Evil Twin has no ability on Night 4."
-      },
-      {
-        "id": "exorcist",
-        "reason": "On Night 4, the Exorcist learns if they ever chose the Armageddon, even if dead. If the Exorcist chooses the Armageddon, they still wake up."
-      },
-      {
-        "id": "goon",
-        "reason": "The Goon has no ability on Night 4."
-      },
-      {
-        "id": "grandmother",
-        "reason": "If the Armageddon is in play and the Grandchild dies by execution, evil wins. The Grandmother has no ability on Night 4."
-      },
-      {
-        "id": "hatter",
-        "reason": "If the Armageddon is created from the Hatter after Night 4, the Armageddon immediately chooses 3 players."
-      },
-      {
-        "id": "innkeeper",
-        "reason": "A protected player might survive instead of you if you are chosen by Armageddon."
-      },
-      {
-        "id": "king",
-        "reason": "If the Armageddon is in play, and at least 1 player is dead, the King learns an alive character each night."
-      },
-      {
-        "id": "mayor",
-        "reason": "If the Armageddon and Mayor are alive on day 4 & no execution occurs, the Mayor's team wins."
-      },
-      {
-        "id": "monk",
-        "reason": "A protected player might survive instead of you if you are chosen by Armageddon."
-      },
-      {
-        "id": "princess",
-        "reason": "If the Princess nominates & executes on their first day, the Princess learns an Armageddon is in play."
-      },
-      {
-        "id": "soldier",
-        "reason": "If an evil player nominates & executes the Soldier, the Soldier's team wins."
-      },
-      {
-        "id": "godfather",
-        "reason": "The Godfather has no ability on Night 4."
-      }
-    ]
-  },
-  {
-    "id": "arsonist",
-    "jinx": [
-      {
-        "id": "lycanthrope",
-        "reason": "If the Lycanthrope kills a good player, the Arsonist chosen player isn't poisoned."
-      },
-      {
-        "id": "princess",
-        "reason": "If the Princess nominates & executes on their first day, the Arsonist must choose a player, but they don't become poisoned."
-      },
-      {
-        "id": "xaan",
-        "reason": "Players poisoned by the Xaan don't count for the Arsonist's ability."
-      }
-    ]
-  },
-  {
     "id": "banshee",
     "jinx": [
       {
         "id": "vortox",
         "reason": "When the Banshee dies by the Demon, all players learn the Banshee has died."
-      }
-    ]
-  },
-  {
-    "id": "baroness",
-    "jinx": [
-      {
-        "id": "alchemistminions",
-        "reason": "Any good Minions that has a jinx with Alchemist will have the modified ability the jinx reads."
       }
     ]
   },
@@ -215,10 +108,6 @@
       {
         "id": "politician",
         "reason": "The Demon can't have the Politician ability."
-      },
-      {
-        "id": "portiaf",
-        "reason": "The Demon can't have the Portia Featherington ability."
       }
     ]
   },
@@ -249,15 +138,6 @@
       {
         "id": "mathematician",
         "reason": "The Chambermaid learns if the Mathematician wakes tonight."
-      }
-    ]
-  },
-  {
-    "id": "daki",
-    "jinx": [
-      {
-        "id": "scarletwoman",
-        "reason": "The Scarlet Woman will become a Demon if & only if the Gyutaro dies."
       }
     ]
   },
@@ -352,19 +232,6 @@
     ]
   },
   {
-    "id": "informant",
-    "jinx": [
-      {
-        "id": "chambermaid",
-        "reason": "The Chambermaid learns if the Informant wakes tonight."
-      },
-      {
-        "id": "mathematician",
-        "reason": "The Informant can learn if the Mathematician wakes tonight."
-      }
-    ]
-  },
-  {
     "id": "kazali",
     "jinx": [
       {
@@ -450,10 +317,6 @@
         "reason": "If an evil player nominates & executes a player protected by the Monk, the Monk's team wins."
       },
       {
-        "id": "pathologist",
-        "reason": "Each night* the Leviathan chooses an alive good player (different to previous nights): If the Leviathan chooses the Pathologist chosen player, the Pathologist learns a player that's not a Demon."
-      },
-      {
         "id": "ravenkeeper",
         "reason": "Each night* the Leviathan chooses an alive good player (different to previous nights): a chosen Ravenkeeper uses their ability but don't die."
       },
@@ -464,10 +327,6 @@
       {
         "id": "soldier",
         "reason": "If an evil player nominates & executes the Soldier, the Soldier's team wins."
-      },
-      {
-        "id": "journalist",
-        "reason": "While the Leviathan is in play, they do not learn the Journalist's picks. Each night, the Leviathan chooses an alive good player (different to previous nights): if the Leviathan chooses a Leviathan chosen player, the Journalist learns a true statement, even if dead."
       }
     ]
   },
@@ -502,19 +361,6 @@
       {
         "id": "slayer",
         "reason": "If the Slayer shoots the Lleech Host, they die."
-      }
-    ]
-  },
-  {
-    "id": "lolth",
-    "jinx": [
-      {
-        "id": "bountyhunter",
-        "reason": "One additional Townsfolk might become evil."
-      },
-      {
-        "id": "summoner",
-        "reason": "If the Lolth is summoned, a Townsfolk might become evil."
       }
     ]
   },
@@ -673,10 +519,6 @@
       {
         "id": "villageidiot",
         "reason": "If there is a spare token, the Pit-Hag can create an extra Village Idiot. If so, the drunk Village Idiot might change."
-      },
-      {
-        "id": "portiaf",
-        "reason": "If the Pit Hag turns an evil player into a Portia F., they cannot turn good due to their own ability."
       }
     ]
   },
@@ -819,10 +661,6 @@
         "reason": "If an evil player nominates & executes a player protected by the Monk, the Monk's team wins."
       },
       {
-        "id": "pathologist",
-        "reason": "Each night* the Riot chooses an alive good player (different to previous nights): if the Riot chooses the Pathologist chosen player, the Pathologist learns a Riot is in-play."
-      },
-      {
         "id": "ravenkeeper",
         "reason": "Each night* the Riot chooses an alive good player (different to previous nights): a chosen Ravenkeeper uses their ability but don't die."
       },
@@ -833,10 +671,6 @@
       {
         "id": "soldier",
         "reason": "If an evil player nominates & executes the Soldier, the Soldier's team wins."
-      },
-      {
-        "id": "journalist",
-        "reason": "While the Riot is in play, they do not learn the Journalist's picks. Each night, the Riot chooses an alive good player (different to previous nights): if the Riot chooses a Journalist chosen player, the Journalist learns a true statement, even if dead."
       }
     ]
   },
@@ -906,10 +740,6 @@
         "reason": "The Vizier cannot push an execution on the Storyteller, whether or not an Atheist is in play."
       },
       {
-        "id": "baffler",
-        "reason": "The Baffled player might register as evil to the Vizier."
-      },
-      {
         "id": "courtier",
         "reason": "If the Vizier is drunked by the Courtier, they learn this, and cannot die during the day."
       },
@@ -922,10 +752,6 @@
         "reason": "The Vizier isn't announced if the Investigator is in play."
       },
       {
-        "id": "jester",
-        "reason": "The Vizier might not be able to push on a Jester that claimed Jester during their defense."
-      },
-      {
         "id": "lilmonsta",
         "reason": "If the Vizier is holding Lil' Monsta, they die when executed."
       },
@@ -936,10 +762,6 @@
       {
         "id": "preacher",
         "reason": "If the Vizier loses their ability, they learn this, and cannot die during the day."
-      },
-      {
-        "id": "secretary",
-        "reason": "The Vizier isn't announced if the Secretary saw the Vizier."
       },
       {
         "id": "zealot",

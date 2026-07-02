@@ -179,25 +179,6 @@ function splitCharactersByCommonBans(characters: Character[]): { quickRemove: Ch
 	return { quickRemove, remaining };
 }
 
-function getBootleggerEntries(data: ScriptData, shouldAppendLine = false): string[] {
-	const metaEntry = getMetaEntry(data);
-	const entries = Array.isArray(metaEntry?.bootlegger) ? [...metaEntry.bootlegger] : [];
-
-	if (shouldAppendLine) {
-		entries.push(DUPLICATE_LINE);
-	}
-
-	return entries;
-}
-
-function applyDuplicateLine(data: ScriptData): void {
-	const metaEntry = getMetaEntry(data);
-	if (!metaEntry) {
-		return;
-	}
-
-	metaEntry.bootlegger = getBootleggerEntries(data, true);
-}
 
 function getGenerationOptions(): GenerationOptions {
 	return {
@@ -224,6 +205,15 @@ function syncOfficialJinxDependencies(): void {
 			toggle.classList.toggle('is-disabled', !isEnabled);
 		}
 	}
+}
+
+function applyDuplicateLine(data: ScriptData): void {
+	const metaEntry = getMetaEntry(data);
+	if (!metaEntry) {
+		return;
+	}
+
+	metaEntry.bootlegger = [...metaEntry.bootlegger ?? [], DUPLICATE_LINE];
 }
 
 function applyAlejoRules(_data: ScriptData): void {

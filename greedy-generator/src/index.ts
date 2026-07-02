@@ -16,6 +16,8 @@ const COMMON_BANS = [
     'zombuul'
 ];
 
+type IdMappings = Record<string, string>;
+
 type MetaEntry = {
 	id?: string;
 	name?: string;

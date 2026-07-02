@@ -41,6 +41,86 @@
 						</div>
 					</div>
 
+					<div class="toggle">
+						<div class="toggle-main">
+							<span class="toggle-label">Alejo rules</span>
+							<label class="switch" for="alejo-rules">
+								<input id="alejo-rules" name="alejo-rules" type="checkbox" />
+								<span class="slider" aria-hidden="true"></span>
+							</label>
+						</div>
+						<div class="help-bubble">
+							<button type="button" class="help-trigger" aria-describedby="alejo-rules-help-text">?</button>
+							<span id="alejo-rules-help-text" class="help-tooltip" role="tooltip">
+								Enforces Alejo first-night ordering: Philosopher and Snake Charmer appear before Minion and Demon information.
+							</span>
+						</div>
+					</div>
+
+					<div class="toggle">
+						<div class="toggle-main">
+							<span class="toggle-label">List official jinxes</span>
+							<label class="switch" for="list-official-jinxes">
+								<input id="list-official-jinxes" name="list-official-jinxes" type="checkbox" />
+								<span class="slider" aria-hidden="true"></span>
+							</label>
+						</div>
+						<div class="help-bubble">
+							<button type="button" class="help-trigger" aria-describedby="list-official-jinxes-help-text">?</button>
+							<span id="list-official-jinxes-help-text" class="help-tooltip" role="tooltip">
+								Adds all vanilla Blood on the Clocktower official jinxes to the generated script sheet.
+							</span>
+						</div>
+					</div>
+
+					<div class="toggle">
+						<div class="toggle-main">
+							<span class="toggle-label">Revert Recluse-Marionette jinx</span>
+							<label class="switch" for="revert-recluse-marionette-jinx">
+								<input id="revert-recluse-marionette-jinx" name="revert-recluse-marionette-jinx" type="checkbox" />
+								<span class="slider" aria-hidden="true"></span>
+							</label>
+						</div>
+						<div class="help-bubble">
+							<button type="button" class="help-trigger" aria-describedby="revert-recluse-marionette-help-text">?</button>
+							<span id="revert-recluse-marionette-help-text" class="help-tooltip" role="tooltip">
+								Restores the removed Recluse-Marionette jinx behavior so a Marionette may neighbor the Recluse again.
+							</span>
+						</div>
+					</div>
+
+					<div class="toggle">
+						<div class="toggle-main">
+							<span class="toggle-label">Revert Mathematician jinxes</span>
+							<label class="switch" for="revert-mathematician-jinxes">
+								<input id="revert-mathematician-jinxes" name="revert-mathematician-jinxes" type="checkbox" />
+								<span class="slider" aria-hidden="true"></span>
+							</label>
+						</div>
+						<div class="help-bubble">
+							<button type="button" class="help-trigger" aria-describedby="revert-mathematician-help-text">?</button>
+							<span id="revert-mathematician-help-text" class="help-tooltip" role="tooltip">
+								Reverts October 2025 Mathematician jinx updates to deterministic behavior for Drunk, Marionette, and Lunatic registration.
+							</span>
+						</div>
+					</div>
+
+					<div class="toggle">
+						<div class="toggle-main">
+							<span class="toggle-label">List Greedy jinxes</span>
+							<label class="switch" for="list-greedy-jinxes">
+								<input id="list-greedy-jinxes" name="list-greedy-jinxes" type="checkbox" />
+								<span class="slider" aria-hidden="true"></span>
+							</label>
+						</div>
+						<div class="help-bubble">
+							<button type="button" class="help-trigger" aria-describedby="list-greedy-jinxes-help-text">?</button>
+							<span id="list-greedy-jinxes-help-text" class="help-tooltip" role="tooltip">
+								Adds all Greedy Whalebuffet-specific jinxes to the generated script sheet.
+							</span>
+						</div>
+					</div>
+
 					<div class="actions">
 						<button id="copy-button" type="submit">Copy JSON to clipboard</button>
 						<button id="reload-button" type="button" class="secondary">Reload</button>

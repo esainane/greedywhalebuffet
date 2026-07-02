@@ -126,6 +126,10 @@ h1 {
 	border: 1px solid var(--surface-border);
 }
 
+.toggle.is-disabled {
+	opacity: 0.58;
+}
+
 .toggle-main {
 	display: flex;
 	align-items: center;
@@ -194,6 +198,16 @@ h1 {
 .switch input:focus-visible + .slider {
 	outline: 2px solid var(--accent-strong);
 	outline-offset: 2px;
+}
+
+.switch input:disabled + .slider {
+	background: rgba(196, 222, 214, 0.12);
+	cursor: not-allowed;
+}
+
+.switch input:disabled + .slider::before {
+	background: rgba(237, 243, 238, 0.5);
+	box-shadow: none;
 }
 
 .help-bubble {

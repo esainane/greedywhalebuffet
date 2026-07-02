@@ -38,6 +38,15 @@ type Character = {
 	imageUrl?: string | Array<string>;
 };
 
+type GenerationOptions = {
+	appendDuplicateLine: boolean;
+	alejoRules: boolean;
+	listOfficialJinxes: boolean;
+	revertRecluseMarionetteJinx: boolean;
+	revertMathematicianJinxes: boolean;
+	listGreedyJinxes: boolean;
+};
+
 function requireElement<T extends Element>(selector: string, ctor: { new (): T }): T {
 	const element = document.querySelector(selector);
 
@@ -50,12 +59,31 @@ function requireElement<T extends Element>(selector: string, ctor: { new (): T }
 
 const form = requireElement('#copy-form', HTMLFormElement);
 const appendDuplicateLineInput = requireElement('#append-duplicate-line', HTMLInputElement);
+const alejoRulesInput = requireElement('#alejo-rules', HTMLInputElement);
+const listOfficialJinxesInput = requireElement('#list-official-jinxes', HTMLInputElement);
+const revertRecluseMarionetteJinxInput = requireElement('#revert-recluse-marionette-jinx', HTMLInputElement);
+const revertMathematicianJinxesInput = requireElement('#revert-mathematician-jinxes', HTMLInputElement);
+const listGreedyJinxesInput = requireElement('#list-greedy-jinxes', HTMLInputElement);
 const reloadButton = requireElement('#reload-button', HTMLButtonElement);
 const statusElement = requireElement('#status', HTMLParagraphElement);
 const scriptName = requireElement('#script-name', HTMLElement);
 const characterCount = requireElement('#character-count', HTMLElement);
 const quickRemoveList = requireElement('#quick-remove-list', HTMLDivElement);
 const characterList = requireElement('#character-list', HTMLDivElement);
+
+const allOptionInputs = [
+	appendDuplicateLineInput,
+	alejoRulesInput,
+	listOfficialJinxesInput,
+	revertRecluseMarionetteJinxInput,
+	revertMathematicianJinxesInput,
+	listGreedyJinxesInput,
+];
+
+const officialJinxDependentInputs = [
+	revertRecluseMarionetteJinxInput,
+	revertMathematicianJinxesInput,
+];
 
 let latestJson: ScriptData | null = null;
 let rolesData: CharacterEntry[] | null = null;
@@ -160,14 +188,93 @@ function getBootleggerEntries(data: ScriptData, shouldAppendLine = false): strin
 	return entries;
 }
 
-function buildCopyPayload(data: ScriptData, shouldAppendLine: boolean): string {
+function applyDuplicateLine(data: ScriptData): void {
+	const metaEntry = getMetaEntry(data);
+	if (!metaEntry) {
+		return;
+	}
+
+	metaEntry.bootlegger = getBootleggerEntries(data, true);
+}
+
+function getGenerationOptions(): GenerationOptions {
+	return {
+		appendDuplicateLine: appendDuplicateLineInput.checked,
+		alejoRules: alejoRulesInput.checked,
+		listOfficialJinxes: listOfficialJinxesInput.checked,
+		revertRecluseMarionetteJinx: revertRecluseMarionetteJinxInput.checked,
+		revertMathematicianJinxes: revertMathematicianJinxesInput.checked,
+		listGreedyJinxes: listGreedyJinxesInput.checked,
+	};
+}
+
+function syncOfficialJinxDependencies(): void {
+	const isEnabled = listOfficialJinxesInput.checked;
+
+	for (const input of officialJinxDependentInputs) {
+		input.disabled = !isEnabled;
+		if (!isEnabled) {
+			input.checked = false;
+		}
+
+		const toggle = input.closest('.toggle');
+		if (toggle) {
+			toggle.classList.toggle('is-disabled', !isEnabled);
+		}
+	}
+}
+
+function applyAlejoRules(_data: ScriptData): void {
+	// TODO: Implement Alejo first-night ordering adjustments.
+}
+
+function applyOfficialJinxes(_data: ScriptData): void {
+	// TODO: Implement official vanilla BotC jinx injection.
+}
+
+function revertRecluseMarionetteJinx(_data: ScriptData): void {
+	// TODO: Implement Recluse-Marionette jinx revert.
+}
+
+function revertMathematicianJinxes(_data: ScriptData): void {
+	// TODO: Implement deterministic Mathematician jinx reverts.
+}
+
+function applyGreedyJinxes(_data: ScriptData): void {
+	// TODO: Implement Greedy Whalebuffet jinx injection.
+}
+
+function applyOptions(data: ScriptData, options: GenerationOptions): void {
+	if (options.appendDuplicateLine) {
+		applyDuplicateLine(data);
+	}
+
+	if (options.alejoRules) {
+		applyAlejoRules(data);
+	}
+
+	if (options.listOfficialJinxes) {
+		applyOfficialJinxes(data);
+
+		if (options.revertRecluseMarionetteJinx) {
+			revertRecluseMarionetteJinx(data);
+		}
+
+		if (options.revertMathematicianJinxes) {
+			revertMathematicianJinxes(data);
+		}
+	}
+
+	if (options.listGreedyJinxes) {
+		applyGreedyJinxes(data);
+	}
+}
+
+function buildCopyPayload(data: ScriptData): string {
+	const options = getGenerationOptions();
 	const nextData = cloneJson(data);
 	const metaEntry = getMetaEntry(nextData);
 	const removedCharacterNames: string[] = [];
-
-	if (metaEntry && Array.isArray(metaEntry.bootlegger) && shouldAppendLine) {
-		metaEntry.bootlegger.push(DUPLICATE_LINE);
-	}
 
 	// Filter out deselected characters
 	const filteredData: ScriptData = [nextData[0] as MetaEntry]; // Keep metadata
@@ -203,6 +310,8 @@ function buildCopyPayload(data: ScriptData, shouldAppendLine: boolean): string {
 		bootlegger.push(`${REMOVED_CHARACTERS_PREFIX}${removedCharacterNames.join(', ')}`);
 		metaEntry.bootlegger = bootlegger;
 	}
+
+	applyOptions(filteredData, options);
 
 	return JSON.stringify(filteredData, null, 2);
 }
@@ -325,14 +434,23 @@ async function copyJson(event: SubmitEvent): Promise<void> {
 		return;
 	}
 
-	const shouldAppendLine = appendDuplicateLineInput.checked;
-	const payload = buildCopyPayload(latestJson, shouldAppendLine);
+	const payload = buildCopyPayload(latestJson);
 
 	await navigator.clipboard.writeText(payload);
 	setStatus('Copied!', 'success');
 }
 
-appendDuplicateLineInput.addEventListener('change', renderPreview);
+for (const input of allOptionInputs) {
+	input.addEventListener('change', () => {
+		if (input === listOfficialJinxesInput) {
+			syncOfficialJinxDependencies();
+		}
+		renderPreview();
+	});
+}
+
+syncOfficialJinxDependencies();
+
 reloadButton.addEventListener('click', async () => {
 	try {
 		await loadLatestJson();

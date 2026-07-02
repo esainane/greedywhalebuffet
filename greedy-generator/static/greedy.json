@@ -67,18 +67,6 @@
         "type": "signal",
         "name": "player",
         "value": "Dealer's Choice"
-      },
-      {
-        "type": "signal",
-        "name": "card",
-        "value": "Who are you mechanically bluffing as?",
-        "global": "minion"
-      },
-      {
-        "type": "signal",
-        "name": "card",
-        "value": "Who are you mechanically bluffing as?",
-        "global": "demon"
       }
     ]
   },
@@ -1236,6 +1224,30 @@
         "type": "vote",
         "name": "multiplier",
         "value": "2"
+      }
+    ]
+  },
+  {
+    "id": "choose_your_chars_dummy",
+    "name": "Choose your characters",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/thebootleggericon_popppp.png"
+    ],
+    "team": "traveller",
+    "ability": "This is a dummy duplicate of Choose your characters, so that Minions and Demons can be asked what they are mechanically bluffing as, without this cluttering the main Choose your characters night interface.",
+    "flavor": "When we get the option to hide signal cards, this will be merged back into the main Choose your characters.",
+    "special": [
+      {
+        "type": "signal",
+        "name": "card",
+        "value": "Who are you mechanically bluffing as?",
+        "global": "minion"
+      },
+      {
+        "type": "signal",
+        "name": "card",
+        "value": "Who are you mechanically bluffing as?",
+        "global": "demon"
       }
     ]
   }

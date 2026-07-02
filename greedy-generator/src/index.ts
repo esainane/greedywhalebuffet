@@ -217,7 +217,21 @@ function applyDuplicateLine(data: ScriptData): void {
 }
 
 function applyAlejoRules(_data: ScriptData): void {
-	// TODO: Implement Alejo first-night ordering adjustments.
+	const snakeCharmer = rolesData?.find((role) => role.id === 'snakecharmer');
+
+	if (!snakeCharmer) {
+		throw new Error('Snake Charmer role not found in roles.json.');
+	}
+
+	snakeCharmer.firstNight = 14;
+	snakeCharmer.otherNight = 23; // Night order is entirely missing from roles.json
+
+	let index = _data.findIndex((entry) => entry === 'snakecharmer');
+	if (index !== -1) {
+		index = _data.length;
+	}
+
+	_data[index] = snakeCharmer;
 }
 
 function applyOfficialJinxes(_data: ScriptData): void {

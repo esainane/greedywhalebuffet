@@ -6,9 +6,11 @@ const FILTERABLE_TEAMS = new Set(['townsfolk', 'outsider', 'minion', 'demon']);
 const COMMON_BANS = [
     'atheist',
     'bountyhunter',
+    'cultleader_popppp',
     'heretic_popppp',
     'goon',
     'pithag_ultimate',
+    'wizard_popppp',
     'legion_popppp',
     'leviathan_popppp',
     'zombuul'

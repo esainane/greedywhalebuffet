@@ -200,6 +200,31 @@ function splitCharactersByCommonBans(characters: Character[]): { quickRemove: Ch
 	return { quickRemove, remaining };
 }
 
+function findOrExpandCharacter(id: string, data: ScriptData): CharacterEntry | null {
+	// Return existing full object if already expanded
+	const existing = data.find(
+		(entry) => typeof entry === 'object' && entry !== null && 'id' in entry && (entry as CharacterEntry).id === id
+	) as CharacterEntry | undefined;
+	if (existing) {
+		return existing;
+	}
+
+	// Find the string entry index
+	const index = data.findIndex((d) => d === id);
+	if (index === -1) {
+		return null;
+	}
+
+	const lookupId = idMappingsData && id in idMappingsData ? idMappingsData[id] : id;
+	const roleDef = rolesData?.find((d) => d.id === lookupId);
+	if (!roleDef) {
+		return null;
+	}
+
+	const clone = structuredClone(roleDef);
+	data[index] = clone;
+	return clone;
+}
 
 function getGenerationOptions(): GenerationOptions {
 	return {
@@ -238,23 +263,15 @@ function applyDuplicateLine(data: ScriptData): void {
 }
 
 function applyAlejoRules(_data: ScriptData): void {
-	const index = _data.findIndex((entry) => entry === 'snakecharmer');
-	if (index === -1) {
-		// No Snake Charmer; nothing to change
-		return;
-	}
-
-	const snakeCharmer = rolesData?.find((role) => role.id === 'snakecharmer');
+	const snakeCharmer = findOrExpandCharacter('snakecharmer', _data);
 
 	if (!snakeCharmer) {
-		throw new Error('Snake Charmer role not found in roles.json.');
+		return;
 	}
 
 	// TODO: Load from nightorder.json
 	snakeCharmer.firstNight = 14;
 	snakeCharmer.otherNight = 23; // Night order is entirely missing from roles.json
-
-	_data[index] = snakeCharmer;
 }
 
 function applyOfficialJinxes(_data: ScriptData): void {

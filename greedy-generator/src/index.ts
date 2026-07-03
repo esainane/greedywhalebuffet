@@ -474,8 +474,6 @@ async function loadLatestJson(): Promise<void> {
 	}
 	renderCharacters(characters);
 	updateCharacterCount();
-
-	renderPreview();
 }
 
 async function copyJson(event: SubmitEvent): Promise<void> {
@@ -497,7 +495,6 @@ for (const input of allOptionInputs) {
 		if (input === listOfficialJinxesInput) {
 			syncOfficialJinxDependencies();
 		}
-		renderPreview();
 	});
 }
 

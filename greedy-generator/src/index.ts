@@ -1,7 +1,15 @@
 const DUPLICATE_LINE = 'Duplicate characters might be in play.';
 const REMOVED_CHARACTERS_PREFIX = 'The following characters are not available: ';
+
 const GREEDY_JSON_URL = './greedy.json';
+const GREEDY_JINX_JSON_URL = './greedy_jinxes.json';
+
+const ID_MAPPINGS_JSON_URL = './id_mappings.json';
+
 const ROLES_JSON_URL = './roles.json';
+const NIGHTSHEET_JSON_URL = './nightsheet.json';
+const JINX_JSON_URL = './jinxes.json';
+
 const FILTERABLE_TEAMS = new Set(['townsfolk', 'outsider', 'minion', 'demon']);
 const COMMON_BANS = [
     'atheist',
@@ -26,13 +34,19 @@ type MetaEntry = {
 
 type CharacterEntry = {
 	id: string;
-	name: string;
+	name?: string;
 	image?: string[];
 	team?: string;
+	jinx?: [{id: string, reason: string}];
 	[key: string]: unknown;
 };
 
 type ScriptData = (MetaEntry | CharacterEntry | string)[];
+
+type NightsheetData = {
+	firstNight: [string];
+	otherNight: [string];
+};
 
 type Character = {
 	id: string;
@@ -88,7 +102,14 @@ const officialJinxDependentInputs = [
 ];
 
 let greedyJson: ScriptData | null = null;
+let greedyJinxData: CharacterEntry[] | null = null;
+
+let idMappingsData: IdMappings | null = null;
+
 let rolesData: CharacterEntry[] | null = null;
+let nightsheetData: NightsheetData | null = null;
+let jinxData: CharacterEntry[] | null = null;
+
 const selectedCharacterIds = new Set<string>();
 
 function setStatus(message: string, tone: 'info' | 'success' | 'error' = 'info'): void {
@@ -387,37 +408,61 @@ function updateCharacterCount(): void {
 	characterCount.textContent = String(selectedCharacterIds.size);
 }
 
-function renderPreview(): void {
-	// TODO
-}
-
 async function loadLatestJson(): Promise<void> {
 	setStatus('Loading latest script...');
 
-	const [latestResponse, rolesResponse] = await Promise.all([
-		fetch(GREEDY_JSON_URL, { cache: 'no-store' }),
-		fetch(ROLES_JSON_URL, { cache: 'no-store' }),
-	]);
+	const dataSources = [
+		GREEDY_JSON_URL,
+		GREEDY_JINX_JSON_URL,
+		ID_MAPPINGS_JSON_URL,
+		ROLES_JSON_URL,
+		NIGHTSHEET_JSON_URL,
+		JINX_JSON_URL
+	];
 
-	if (!latestResponse.ok) {
-		throw new Error(`Failed to load latest.json (${latestResponse.status})`);
+	const responses = await Promise.all(dataSources.map(d => fetch(d, { cache: 'no-store' })));
+	if (responses.some(r => !r.ok)) {
+		const failedSources = responses
+			.map((r, i) => ({ response: r, source: dataSources[i] }))
+			.filter(({ response }) => !response.ok)
+			.map(({ source, response }) => `${source} (${response.status})`)
+			.join(', ');
+
+		throw new Error(`Failed to load data: ${failedSources}`);
 	}
 
-	const latestParsed = (await latestResponse.json()) as unknown;
-	if (!Array.isArray(latestParsed)) {
-		throw new Error('latest.json has an unexpected shape.');
+	const [greedyParsed, greedyJinxParsed, idMappingsParsed, rolesParsed, nightsheetParsed, jinxParsed] = await Promise.all(responses.map(r => r.json()));
+
+	if (!Array.isArray(greedyParsed)) {
+		throw new Error('greedy.json has an unexpected shape.');
 	}
+	greedyJson = greedyParsed as ScriptData;
 
-	greedyJson = latestParsed as ScriptData;
+	if (typeof greedyJinxParsed !== 'object' || greedyJinxParsed === null) {
+		throw new Error('greedy-jinxes.json has an unexpected shape.');
+	}
+	greedyJinxData = greedyJinxParsed as CharacterEntry[];
 
-	if (!rolesResponse.ok) {
-        throw new Error(`Failed to load roles.json (${rolesResponse.status})`);
-    }
-	const parsedRoles = (await rolesResponse.json()) as unknown;
-	if (!Array.isArray(parsedRoles)) {
+	if (typeof idMappingsParsed !== 'object' || idMappingsParsed === null) {
+		throw new Error('id-mappings.json has an unexpected shape.');
+	}
+	idMappingsData = idMappingsParsed as IdMappings;
+
+	if (!Array.isArray(rolesParsed)) {
         throw new Error('roles.json has an unexpected shape.');
     }
-	rolesData = parsedRoles as CharacterEntry[];
+	rolesData = rolesParsed as CharacterEntry[];
+
+	if (typeof nightsheetParsed !== 'object' || nightsheetParsed === null) {
+		throw new Error('nightsheet.json has an unexpected shape.');
+	}
+	nightsheetData = nightsheetParsed as NightsheetData;
+
+	if (!Array.isArray(jinxParsed)) {
+		throw new Error('jinx.json has an unexpected shape.');
+	}
+	jinxData = jinxParsed as CharacterEntry[];
+
 
 	const metaEntry = getMetaEntry(greedyJson);
 	scriptName.textContent = metaEntry?.name ?? 'Unknown script';
@@ -431,7 +476,6 @@ async function loadLatestJson(): Promise<void> {
 	updateCharacterCount();
 
 	renderPreview();
-	setStatus('Script loaded.', 'success');
 }
 
 async function copyJson(event: SubmitEvent): Promise<void> {
@@ -462,6 +506,7 @@ syncOfficialJinxDependencies();
 reloadButton.addEventListener('click', async () => {
 	try {
 		await loadLatestJson();
+		setStatus('Script reloaded.', 'success');
 	} catch (error: unknown) {
 		setStatus(error instanceof Error ? error.message : 'Unable to reload latest.json.', 'error');
 	}
@@ -479,6 +524,7 @@ form.addEventListener('submit', async (event) => {
 async function bootstrap(): Promise<void> {
 	try {
 		await loadLatestJson();
+		setStatus('Script loaded.', 'success');
 	} catch (error: unknown) {
 		const message = error instanceof Error ? error.message : 'Unable to load latest.json.';
 		setStatus(message, 'error');

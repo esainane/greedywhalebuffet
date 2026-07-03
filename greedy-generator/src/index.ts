@@ -87,7 +87,7 @@ const officialJinxDependentInputs = [
 	revertMathematicianJinxesInput,
 ];
 
-let latestJson: ScriptData | null = null;
+let greedyJson: ScriptData | null = null;
 let rolesData: CharacterEntry[] | null = null;
 const selectedCharacterIds = new Set<string>();
 
@@ -408,7 +408,7 @@ async function loadLatestJson(): Promise<void> {
 		throw new Error('latest.json has an unexpected shape.');
 	}
 
-	latestJson = latestParsed as ScriptData;
+	greedyJson = latestParsed as ScriptData;
 
 	if (!rolesResponse.ok) {
         throw new Error(`Failed to load roles.json (${rolesResponse.status})`);
@@ -419,10 +419,10 @@ async function loadLatestJson(): Promise<void> {
     }
 	rolesData = parsedRoles as CharacterEntry[];
 
-	const metaEntry = getMetaEntry(latestJson);
+	const metaEntry = getMetaEntry(greedyJson);
 	scriptName.textContent = metaEntry?.name ?? 'Unknown script';
 
-	const characters = getCharacters(latestJson, rolesData);
+	const characters = getCharacters(greedyJson, rolesData);
 	selectedCharacterIds.clear();
 	for (const char of characters) {
 		selectedCharacterIds.add(char.id);
@@ -437,12 +437,12 @@ async function loadLatestJson(): Promise<void> {
 async function copyJson(event: SubmitEvent): Promise<void> {
 	event.preventDefault();
 
-	if (!latestJson) {
+	if (!greedyJson) {
 		setStatus('Load latest.json before copying.', 'error');
 		return;
 	}
 
-	const payload = buildCopyPayload(latestJson);
+	const payload = buildCopyPayload(greedyJson);
 
 	await navigator.clipboard.writeText(payload);
 	setStatus('Copied!', 'success');

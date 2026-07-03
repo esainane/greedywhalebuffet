@@ -227,7 +227,7 @@ function applyAlejoRules(_data: ScriptData): void {
 	snakeCharmer.otherNight = 23; // Night order is entirely missing from roles.json
 
 	let index = _data.findIndex((entry) => entry === 'snakecharmer');
-	if (index !== -1) {
+	if (index === -1) {
 		index = _data.length;
 	}
 

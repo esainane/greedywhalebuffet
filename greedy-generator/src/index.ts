@@ -59,7 +59,6 @@ type GenerationOptions = {
 	alejoRules: boolean;
 	listOfficialJinxes: boolean;
 	revertRecluseMarionetteJinx: boolean;
-	revertMathematicianJinxes: boolean;
 	listGreedyJinxes: boolean;
 };
 
@@ -78,7 +77,6 @@ const appendDuplicateLineInput = requireElement('#append-duplicate-line', HTMLIn
 const alejoRulesInput = requireElement('#alejo-rules', HTMLInputElement);
 const listOfficialJinxesInput = requireElement('#list-official-jinxes', HTMLInputElement);
 const revertRecluseMarionetteJinxInput = requireElement('#revert-recluse-marionette-jinx', HTMLInputElement);
-const revertMathematicianJinxesInput = requireElement('#revert-mathematician-jinxes', HTMLInputElement);
 const listGreedyJinxesInput = requireElement('#list-greedy-jinxes', HTMLInputElement);
 const reloadButton = requireElement('#reload-button', HTMLButtonElement);
 const statusElement = requireElement('#status', HTMLParagraphElement);
@@ -92,13 +90,11 @@ const allOptionInputs = [
 	alejoRulesInput,
 	listOfficialJinxesInput,
 	revertRecluseMarionetteJinxInput,
-	revertMathematicianJinxesInput,
 	listGreedyJinxesInput,
 ];
 
 const officialJinxDependentInputs = [
 	revertRecluseMarionetteJinxInput,
-	revertMathematicianJinxesInput,
 ];
 
 let greedyJson: ScriptData | null = null;
@@ -232,7 +228,6 @@ function getGenerationOptions(): GenerationOptions {
 		alejoRules: alejoRulesInput.checked,
 		listOfficialJinxes: listOfficialJinxesInput.checked,
 		revertRecluseMarionetteJinx: revertRecluseMarionetteJinxInput.checked,
-		revertMathematicianJinxes: revertMathematicianJinxesInput.checked,
 		listGreedyJinxes: listGreedyJinxesInput.checked,
 	};
 }
@@ -282,10 +277,6 @@ function revertRecluseMarionetteJinx(_data: ScriptData): void {
 	// TODO: Implement Recluse-Marionette jinx revert.
 }
 
-function revertMathematicianJinxes(_data: ScriptData): void {
-	// TODO: Implement deterministic Mathematician jinx reverts.
-}
-
 function applyGreedyJinxes(_data: ScriptData): void {
 	// TODO: Implement Greedy Whalebuffet jinx injection.
 }
@@ -304,10 +295,6 @@ function applyOptions(data: ScriptData, options: GenerationOptions): void {
 
 		if (options.revertRecluseMarionetteJinx) {
 			revertRecluseMarionetteJinx(data);
-		}
-
-		if (options.revertMathematicianJinxes) {
-			revertMathematicianJinxes(data);
 		}
 	}
 

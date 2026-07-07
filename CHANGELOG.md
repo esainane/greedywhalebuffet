@@ -17,6 +17,7 @@
 
 ### Character Updates
 - Flowergirl: Added reminder tokens.
+- Heretic: Clarified Greedy's clause.
 - Magician: Fixed blank first-night reminder.
 - Riot: Added jinx selection reminder tokens.
 - Soldier: Can now also be woken on the first night, if a Demon would have acted harmfully on the first night.

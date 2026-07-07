@@ -1,7 +1,7 @@
 [
   {
     "id": "_meta",
-    "name": "Greedy Whalebuffet+ v2.1-rc2 (edited by Sai)",
+    "name": "Greedy Whalebuffet+ v2.1-rc3 (edited by Sai)",
     "author": "kianu",
     "almanac": "https://greedy.antihype.space/",
     "bootlegger": [
@@ -502,7 +502,7 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/evil_heretic_popppp.png"
     ],
     "team": "outsider",
-    "ability": "Whoever wins, loses, & whoever loses, wins, even if you are dead. If only evil players are alive, evil wins.",
+    "ability": "Whoever wins, loses, & whoever loses, wins. If only evil players are alive, evil wins (therefore good wins). This ability works even if you are dead.",
     "flavor": "I swear if it's a Heretic game. -Mole"
   },
   {

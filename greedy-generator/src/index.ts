@@ -42,7 +42,7 @@ type CharacterEntry = {
 	name?: string;
 	image?: string[];
 	team?: string;
-	jinx?: [{id: string, reason: string}];
+	jinx?: [{ id: string, reason: string }];
 	[key: string]: unknown;
 };
 
@@ -67,7 +67,7 @@ type GenerationOptions = {
 	listGreedyJinxes: boolean;
 };
 
-function requireElement<T extends Element>(selector: string, ctor: { new (): T }): T {
+function requireElement<T extends Element>(selector: string, ctor: { new(): T }): T {
 	const element = document.querySelector(selector);
 
 	if (!(element instanceof ctor)) {
@@ -136,7 +136,7 @@ function getCharacters(data: ScriptData, roles: CharacterEntry[] | null): Charac
 			// Simple string ID - look up in roles.json
 			const roleEntry = roles?.find(r => r.id === entry);
 			const team = roleEntry?.team as string | undefined;
-			
+
 			// Only include if team is valid
 			if (!team || !FILTERABLE_TEAMS.has(team)) {
 				continue;
@@ -151,8 +151,8 @@ function getCharacters(data: ScriptData, roles: CharacterEntry[] | null): Charac
 				imageUrl = roleImage[0];
 			} else {
 				// Fallback to Klutzbanana URL
-                // Work out whether to ask for g or e as the standard image
-                const team_id = ['townsfolk', 'outsider'].includes(team) ? 'g' : 'e';
+				// Work out whether to ask for g or e as the standard image
+				const team_id = ['townsfolk', 'outsider'].includes(team) ? 'g' : 'e';
 				imageUrl = `https://images.klutzbanana.com/characters_official/${entry}_${team_id}.png`;
 			}
 
@@ -163,7 +163,7 @@ function getCharacters(data: ScriptData, roles: CharacterEntry[] | null): Charac
 			});
 		} else if (typeof entry === 'object' && entry !== null && 'id' in entry) {
 			const charEntry = entry as CharacterEntry;
-			
+
 			// Skip the "Choose your characters" pseudo-character
 			if (charEntry.id === 'choose_your_chars') {
 				continue;
@@ -390,13 +390,13 @@ function renderCharacterList(container: HTMLDivElement, characters: Character[],
 		label.appendChild(checkbox);
 
 		if (character.imageUrl) {
-            let src: string;
-            const urlDef: string | Array<string> = character.imageUrl;
-            if (Array.isArray(urlDef)) {
-                src = urlDef[0];
-            } else {
-                src = urlDef;
-            }
+			let src: string;
+			const urlDef: string | Array<string> = character.imageUrl;
+			if (Array.isArray(urlDef)) {
+				src = urlDef[0];
+			} else {
+				src = urlDef;
+			}
 			const img = document.createElement('img');
 			img.src = src;
 			img.alt = character.name;
@@ -458,8 +458,8 @@ async function loadLatestJson(): Promise<void> {
 	idMappingsData = idMappingsParsed as IdMappings;
 
 	if (!Array.isArray(rolesParsed)) {
-        throw new Error('roles.json has an unexpected shape.');
-    }
+		throw new Error('roles.json has an unexpected shape.');
+	}
 	rolesData = rolesParsed as CharacterEntry[];
 
 	if (typeof nightsheetParsed !== 'object' || nightsheetParsed === null) {

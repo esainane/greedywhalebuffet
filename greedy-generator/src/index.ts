@@ -42,8 +42,13 @@ type CharacterEntry = {
 	name?: string;
 	image?: string[];
 	team?: string;
-	jinx?: [{ id: string, reason: string }];
+	jinxes?: { id: string, reason: string }[];
 	[key: string]: unknown;
+};
+
+type JinxEntry = {
+	id: string;
+	jinx?: { id: string, reason: string }[];
 };
 
 type ScriptData = (MetaEntry | CharacterEntry | string)[];
@@ -105,7 +110,7 @@ const officialJinxDependentInputs = [
 const CUSTOM_CHARACTER_ID_SUFFIX = '_custom';
 
 let greedyJson: ScriptData | null = null;
-let greedyJinxData: CharacterEntry[] | null = null;
+let greedyJinxData: JinxEntry[] | null = null;
 
 /// Greedy custom ID -> TPI ID
 let greedyToBaseID: IdMappings | null = null;
@@ -114,7 +119,7 @@ let baseToGreedyID: IdMappings | null = null;
 
 let rolesData: CharacterEntry[] | null = null;
 let nightsheetData: NightsheetData | null = null;
-let jinxData: CharacterEntry[] | null = null;
+let jinxData: JinxEntry[] | null = null;
 // TPI ID -> Auto custom ID
 let baseToAutoID: IdMappings = {};
 // Auto custom ID -> TPI ID
@@ -288,6 +293,66 @@ function findOrExpandCharacter(id: string, data: ScriptData): CharacterEntry | n
 	return clone;
 }
 
+function mergeJinxes(data: ScriptData, jinxEntries: CharacterEntry[]): void {
+	const mentionedIds = new Set<string>();
+
+	for (const source of jinxEntries) {
+		if (!source?.id) {
+			continue;
+		}
+
+		mentionedIds.add(source.id);
+
+		if (!Array.isArray(source.jinx)) {
+			continue;
+		}
+
+		for (const jinx of source.jinx) {
+			if (jinx?.id) {
+				mentionedIds.add(jinx.id);
+			}
+		}
+	}
+
+	for (const id of mentionedIds) {
+		findOrExpandCharacter(id, data);
+	}
+
+	for (const source of jinxEntries) {
+		if (!source?.id || !Array.isArray(source.jinx) || source.jinx.length === 0) {
+			continue;
+		}
+
+		const sourceEntry = findOrExpandCharacter(source.id, data);
+		if (!sourceEntry) {
+			continue;
+		}
+
+		const existingJinxes = Array.isArray(sourceEntry.jinx) ? sourceEntry.jinx : [];
+		const mergedJinxes = [...existingJinxes];
+
+		for (const jinx of source.jinx) {
+			if (!jinx?.id || typeof jinx.reason !== 'string') {
+				continue;
+			}
+
+			const targetEntry = findOrExpandCharacter(jinx.id, data);
+			if (!targetEntry) {
+				continue;
+			}
+
+			const alreadyPresent = mergedJinxes.some(
+				(existing) => existing.id === targetEntry.id && existing.reason === jinx.reason,
+			);
+			if (!alreadyPresent) {
+				mergedJinxes.push({ id: targetEntry.id, reason: jinx.reason });
+			}
+		}
+
+		sourceEntry.jinxes = mergedJinxes;
+	}
+}
+
 function getGenerationOptions(): GenerationOptions {
 	return {
 		appendDuplicateLine: appendDuplicateLineInput.checked,
@@ -334,7 +399,11 @@ function applyAlejoRules(_data: ScriptData): void {
 }
 
 function applyOfficialJinxes(_data: ScriptData): void {
-	// TODO: Implement official vanilla BotC jinx injection.
+	if (!jinxData || jinxData.length === 0) {
+		return;
+	}
+
+	mergeJinxes(_data, jinxData);
 }
 
 function revertRecluseMarionetteJinx(_data: ScriptData): void {
@@ -342,7 +411,11 @@ function revertRecluseMarionetteJinx(_data: ScriptData): void {
 }
 
 function applyGreedyJinxes(_data: ScriptData): void {
-	// TODO: Implement Greedy Whalebuffet jinx injection.
+	if (!greedyJinxData || greedyJinxData.length === 0) {
+		return;
+	}
+
+	mergeJinxes(_data, greedyJinxData);
 }
 
 function applyOptions(data: ScriptData, options: GenerationOptions): void {

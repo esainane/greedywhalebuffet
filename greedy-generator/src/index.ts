@@ -56,7 +56,7 @@ type NightsheetData = {
 type Character = {
 	id: string;
 	name: string;
-	imageUrl?: string | Array<string>;
+	imageUrl?: string | string[];
 };
 
 type GenerationOptions = {
@@ -102,14 +102,23 @@ const officialJinxDependentInputs = [
 	revertRecluseMarionetteJinxInput,
 ];
 
+const CUSTOM_CHARACTER_ID_SUFFIX = '_custom';
+
 let greedyJson: ScriptData | null = null;
 let greedyJinxData: CharacterEntry[] | null = null;
 
-let idMappingsData: IdMappings | null = null;
+/// Greedy custom ID -> TPI ID
+let greedyToBaseID: IdMappings | null = null;
+/// TPI ID -> Greedy custom ID
+let baseToGreedyID: IdMappings | null = null;
 
 let rolesData: CharacterEntry[] | null = null;
 let nightsheetData: NightsheetData | null = null;
 let jinxData: CharacterEntry[] | null = null;
+// TPI ID -> Auto custom ID
+let baseToAutoID: IdMappings = {};
+// Auto custom ID -> TPI ID
+let autoToBaseID: IdMappings = {};
 
 const selectedCharacterIds = new Set<string>();
 
@@ -126,6 +135,27 @@ function getMetaEntry(data: ScriptData): MetaEntry | null {
 	return Array.isArray(data) ? data[0] as MetaEntry ?? null : null;
 }
 
+function getImageArray(entry: CharacterEntry): string[] {
+	const roleImage = entry.image;
+	const team = entry?.team as string | undefined;
+	if (!team || !FILTERABLE_TEAMS.has(team)) {
+		throw new Error(`Could not find valid team for character ${entry.id}: ${team}`);
+	}
+	if (typeof roleImage === 'string') {
+		return [roleImage];
+	} else if (Array.isArray(roleImage)) {
+		return roleImage;
+	}
+	// Fallback to Klutzbanana URL
+	// Work out whether to ask for g or e as the standard image
+	const baseId = getBaseCharacterId(entry.id);
+	const [ teamId, otherId ] = ['townsfolk', 'outsider'].includes(team) ? ['g', 'e'] : ['e', 'g'];
+	return [
+		`https://images.klutzbanana.com/characters_official/${baseId}_${teamId}.png`,
+		`https://images.klutzbanana.com/characters_official/${baseId}_${otherId}.png`
+	];
+}
+
 function getCharacters(data: ScriptData, roles: CharacterEntry[] | null): Character[] {
 	const characters: Character[] = [];
 
@@ -138,30 +168,16 @@ function getCharacters(data: ScriptData, roles: CharacterEntry[] | null): Charac
 			const team = roleEntry?.team as string | undefined;
 
 			// Only include if team is valid
-			if (!team || !FILTERABLE_TEAMS.has(team)) {
+			if (!roleEntry || !team || !FILTERABLE_TEAMS.has(team)) {
 				continue;
-			}
-
-			const name = roleEntry?.name || (entry.charAt(0).toUpperCase() + entry.slice(1));
-			const roleImage = roleEntry?.image;
-			let imageUrl: string | undefined;
-			if (typeof roleImage === 'string') {
-				imageUrl = roleImage;
-			} else if (Array.isArray(roleImage)) {
-				imageUrl = roleImage[0];
-			} else {
-				// Fallback to Klutzbanana URL
-				// Work out whether to ask for g or e as the standard image
-				const team_id = ['townsfolk', 'outsider'].includes(team) ? 'g' : 'e';
-				imageUrl = `https://images.klutzbanana.com/characters_official/${entry}_${team_id}.png`;
 			}
 
 			characters.push({
 				id: entry,
-				name,
-				imageUrl,
+				name: roleEntry?.name || (entry.charAt(0).toUpperCase() + entry.slice(1)),
+				imageUrl: getImageArray(roleEntry)[0],
 			});
-		} else if (typeof entry === 'object' && entry !== null && 'id' in entry) {
+		} else if (typeof entry === 'object' && entry !== null) {
 			const charEntry = entry as CharacterEntry;
 
 			// Skip the "Choose your characters" pseudo-character
@@ -201,34 +217,72 @@ function splitCharactersByCommonBans(characters: Character[]): { quickRemove: Ch
 	return { quickRemove, remaining };
 }
 
+function getBaseCharacterId(id: string): string {
+	return greedyToBaseID![id] ?? autoToBaseID[id] ?? id;
+}
+
+function getCustomCharacterId(id: string): string {
+	const baseId = getBaseCharacterId(id);
+	if (baseId in baseToGreedyID!) {
+		return baseToGreedyID![baseId];
+	}
+	return baseToGreedyID![baseId] ?? baseToAutoID[baseId] ?? `${baseId}${CUSTOM_CHARACTER_ID_SUFFIX}`;
+}
+
+function nightOrder(id: string, ordering: string[]): number | undefined {
+	const baseId = getBaseCharacterId(id);
+	const pos = ordering.indexOf(baseId);
+	if (pos === -1) {
+		return undefined;
+	}
+	return pos + 1;
+}
+
+function firstNightOrder(id: string): number | undefined {
+	return nightOrder(id, nightsheetData?.firstNight ?? []);
+}
+
+function otherNightOrder(id: string): number | undefined {
+	return nightOrder(id, nightsheetData?.otherNight ?? []);
+}
+
 function findOrExpandCharacter(id: string, data: ScriptData): CharacterEntry | null {
-	// Return existing full object if already expanded
+	const baseId = getBaseCharacterId(id);
+	const customId = getCustomCharacterId(baseId);
+
+	const needle = [id, baseId, customId];
+
+	// Return existing full object if already expanded (base or custom ID).
 	const existing = data.find(
-		(entry) => typeof entry === 'object' && entry !== null && 'id' in entry && (entry as CharacterEntry).id === id
+		(entry) =>
+			typeof entry === 'object' &&
+			entry !== null &&
+			'id' in entry &&
+			needle.includes((entry as CharacterEntry).id)
 	) as CharacterEntry | undefined;
 	if (existing) {
 		return existing;
 	}
 
-	// Find the string entry index
-	const index = data.findIndex((d) => d === id);
+	// Find the string entry index (supports base and custom ID calls).
+	const index = data.findIndex((d) => typeof d === 'string' && needle.includes(d));
 	if (index === -1) {
 		return null;
 	}
 
-	const lookupId = idMappingsData && id in idMappingsData ? idMappingsData[id] : id;
-	const roleDef = rolesData?.find((d) => d.id === lookupId);
+	const roleDef = rolesData?.find((d) => d.id === baseId);
 	if (!roleDef) {
 		return null;
 	}
 
 	const clone = structuredClone(roleDef);
+	clone.id = customId;
+	baseToAutoID[baseId] = customId;
+	autoToBaseID[customId] = baseId;
 
-	const firstNight = nightsheetData?.firstNight?.indexOf(lookupId);
-	const otherNight = nightsheetData?.otherNight?.indexOf(lookupId);
-
-	clone.firstNight ??= firstNight === -1 ? undefined : firstNight;
-	clone.otherNight ??= otherNight === -1 ? undefined : otherNight;
+	clone.firstNight ??= firstNightOrder(baseId);
+	clone.otherNight ??= otherNightOrder(baseId);
+	clone.image ??= getImageArray(roleDef);
 
 	data[index] = clone;
 	return clone;
@@ -276,7 +330,7 @@ function applyAlejoRules(_data: ScriptData): void {
 		return;
 	}
 
-	snakeCharmer.firstNight = nightsheetData?.firstNight?.indexOf('philosopher');
+	snakeCharmer.firstNight = firstNightOrder('philosopher');
 }
 
 function applyOfficialJinxes(_data: ScriptData): void {
@@ -460,7 +514,8 @@ async function loadLatestJson(): Promise<void> {
 	if (typeof idMappingsParsed !== 'object' || idMappingsParsed === null) {
 		throw new Error('id-mappings.json has an unexpected shape.');
 	}
-	idMappingsData = idMappingsParsed as IdMappings;
+	greedyToBaseID = idMappingsParsed as IdMappings;
+	baseToGreedyID = Object.fromEntries(Object.entries(greedyToBaseID).map(([key, value]) => [value, key]));
 
 	if (!Array.isArray(rolesParsed)) {
 		throw new Error('roles.json has an unexpected shape.');
@@ -476,7 +531,8 @@ async function loadLatestJson(): Promise<void> {
 		throw new Error('jinx.json has an unexpected shape.');
 	}
 	jinxData = jinxParsed as CharacterEntry[];
-
+	baseToAutoID = {};
+	autoToBaseID = {};
 
 	const metaEntry = getMetaEntry(greedyJson);
 	scriptName.textContent = metaEntry?.name ?? 'Unknown script';

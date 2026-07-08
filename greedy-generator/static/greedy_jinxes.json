@@ -122,19 +122,6 @@
     ]
   },
   {
-    "id": "damsel",
-    "jinx": [
-      {
-        "id": "spy",
-        "reason": "The Damsel is drunk if the Spy is or has been in play."
-      },
-      {
-        "id": "widow",
-        "reason": "The Damsel is drunk if the Widow is or has been in play."
-      }
-    ]
-  },
-  {
     "id": "drunk",
     "jinx": [
       {

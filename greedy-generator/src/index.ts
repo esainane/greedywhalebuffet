@@ -223,6 +223,13 @@ function findOrExpandCharacter(id: string, data: ScriptData): CharacterEntry | n
 	}
 
 	const clone = structuredClone(roleDef);
+
+	const firstNight = nightsheetData?.firstNight?.indexOf(lookupId);
+	const otherNight = nightsheetData?.otherNight?.indexOf(lookupId);
+
+	clone.firstNight ??= firstNight === -1 ? undefined : firstNight;
+	clone.otherNight ??= otherNight === -1 ? undefined : otherNight;
+
 	data[index] = clone;
 	return clone;
 }

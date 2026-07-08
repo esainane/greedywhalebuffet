@@ -12,16 +12,21 @@ const JINX_JSON_URL = './jinxes.json';
 
 const FILTERABLE_TEAMS = new Set(['townsfolk', 'outsider', 'minion', 'demon']);
 const COMMON_BANS = [
-    'atheist',
-    'bountyhunter',
-    'cultleader_popppp',
-    'heretic_popppp',
-    'goon',
-    'pithag_ultimate',
-    'wizard_popppp',
-    'legion_popppp',
-    'leviathan_popppp',
-    'zombuul'
+	'alchemist_popppp',
+	'atheist',
+	'bountyhunter',
+	'cultleader_popppp',
+	'philosopher_ultimate',
+	'poppygrower_popppp',
+	'snakecharmer',
+	'heretic_popppp',
+	'goon',
+	'pithag_ultimate',
+	'wizard_popppp',
+	'legion_popppp',
+	'leviathan_popppp',
+	'riot_popppp',
+	'zombuul'
 ];
 
 type IdMappings = Record<string, string>;

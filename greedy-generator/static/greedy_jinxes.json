@@ -115,20 +115,12 @@
     "id": "cannibal",
     "jinx": [
       {
-        "id": "butler",
-        "reason": "If the Cannibal gains the Butler ability, the Cannibal learns this."
-      },
-      {
         "id": "juggler",
         "reason": "If the Cannibal gains the Juggler ability, they learn how many guesses the original Juggler got correct & can make a Juggle tomorrow."
       },
       {
         "id": "princess",
         "reason": "If the Cannibal with the Princess ability nominates & executes a player on their first day with the ability, the Demon doesn't kill tonight, even if they lose their Princess ability."
-      },
-      {
-        "id": "zealot",
-        "reason": "If the Cannibal gains the Zealot ability, the Cannibal learns this."
       }
     ]
   },
@@ -235,16 +227,8 @@
     "id": "kazali",
     "jinx": [
       {
-        "id": "bountyhunter",
-        "reason": "If the Kazali turns the Bounty Hunter into a Minion, an evil Townsfolk is not created."
-      },
-      {
         "id": "king",
         "reason": "The Kazali learns the King before choosing minions. The King cannot be chosen by the Kazali."
-      },
-      {
-        "id": "summoner",
-        "reason": "If the Summoner creates a second living Demon, deaths tonight are arbitrary."
       }
     ]
   },
@@ -256,16 +240,8 @@
         "reason": "If all of evil team agree to become Legion, majority of players (including ALL evil) become Legion. If Legion is in play, the Hatter has no ability."
       },
       {
-        "id": "minstrel",
-        "reason": "If Legion died by execution today, Legion keeps their ability, but the Minstrel might learn they are Legion."
-      },
-      {
         "id": "politician",
         "reason": "The Politician might register as evil to the Legion."
-      },
-      {
-        "id": "preacher",
-        "reason": "If the Preacher chooses Legion, Legion keeps their ability, but the Preacher might learn they are Legion."
       },
       {
         "id": "summoner",
@@ -281,10 +257,6 @@
     "id": "leviathan",
     "jinx": [
       {
-        "id": "banshee",
-        "reason": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Banshee dies & gains their ability."
-      },
-      {
         "id": "exorcist",
         "reason": "If an evil player nominates & executes the player chosen by the Exorcist, the Exorcist's team wins."
       },
@@ -293,20 +265,12 @@
         "reason": "Each night* the Leviathan chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but don't die."
       },
       {
-        "id": "grandmother",
-        "reason": "If the Leviathan is in play and the Grandchild dies by execution, evil wins."
-      },
-      {
         "id": "hatter",
         "reason": "The Leviathan can't be made after Day 5."
       },
       {
         "id": "innkeeper",
         "reason": "If an evil player nominates & executes a player protected by the Innkeeper, the Innkeeper's team wins."
-      },
-      {
-        "id": "king",
-        "reason": "If the Leviathan is in play, and at least 1 player is dead, the King learns an alive character each night."
       },
       {
         "id": "mayor",
@@ -336,28 +300,12 @@
       {
         "id": "goblin",
         "reason": "If the Goblin is babysitting Lil' Monsta and claims Goblin before being executed, good wins."
-      },
-      {
-        "id": "psychopath",
-        "reason": "If the Psychopath is babysitting Lil' Monsta, they die when executed."
-      },
-      {
-        "id": "vizier",
-        "reason": "If the Vizier is babysitting Lil' Monsta, they die when executed."
-      },
-      {
-        "id": "poppygrower",
-        "reason": "If Lil' Monsta & the Poppy Grower are alive, Minions wake one by one, until one of them chooses to take the Lil' Monsta token."
       }
     ]
   },
   {
     "id": "lleech",
     "jinx": [
-      {
-        "id": "mastermind",
-        "reason": "If the Mastermind is alive and the Lleech host dies by execution, the Lleech lives but loses their ability."
-      },
       {
         "id": "slayer",
         "reason": "If the Slayer shoots the Lleech Host, they die."
@@ -409,28 +357,8 @@
         "reason": "The Apprentice with the Marionette ability believes they are a good Apprentice with a Townsfolk ability, but they are not. The Demon knows the Apprentice is evil with the Marionette ability. The Apprentice doesn't learn the Demon."
       },
       {
-        "id": "balloonist",
-        "reason": "If the Marionette thinks that they are the Balloonist, an Outsider might have been added during setup."
-      },
-      {
         "id": "huntsman",
         "reason": "If the Marionette thinks that they are the Huntsman, an Outsider might have been added during setup."
-      },
-      {
-        "id": "kazali",
-        "reason": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor."
-      },
-      {
-        "id": "lilmonsta",
-        "reason": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor."
-      },
-      {
-        "id": "magician",
-        "reason": "If the Magician is alive, the Demon doesn't know which neighbor is the Marionette."
-      },
-      {
-        "id": "mathematician",
-        "reason": "The Mathematician might learn if the Marionette's ability yielded false info or failed to work properly."
       },
       {
         "id": "recluse",
@@ -439,10 +367,6 @@
       {
         "id": "snitch",
         "reason": "The Marionette might not learn an in-play good character."
-      },
-      {
-        "id": "summoner",
-        "reason": "If there would be a Marionette in play, they enter play after the Demon & must start as their neighbor."
       }
     ]
   },
@@ -452,10 +376,6 @@
       {
         "id": "recluse",
         "reason": "If the Recluse registers as evil to the Ogre, the Ogre learns they are evil."
-      },
-      {
-        "id": "spy",
-        "reason": "The Spy registers as evil to the Ogre."
       }
     ]
   },
@@ -515,20 +435,12 @@
       {
         "id": "summoner",
         "reason": "The Pit-Hag cannot create a Summoner."
-      },
-      {
-        "id": "villageidiot",
-        "reason": "If there is a spare token, the Pit-Hag can create an extra Village Idiot. If so, the drunk Village Idiot might change."
       }
     ]
   },
   {
     "id": "plaguedoctor",
     "jinx": [
-      {
-        "id": "baron",
-        "reason": "If the Storyteller would gain the Baron ability, up to two players become Outsiders."
-      },
       {
         "id": "boomdandy",
         "reason": "A player becomes the Boomdandy instead."
@@ -678,20 +590,12 @@
     "id": "summoner",
     "jinx": [
       {
-        "id": "clockmaker",
-        "reason": "The Summoner registers as the Demon to the Clockmaker."
-      },
-      {
         "id": "courtier",
         "reason": "If the Summoner is drunk due to the Courtier's ability, the Storyteller has the Summoner ability."
       },
       {
         "id": "golem",
         "reason": "The Summoner registers as the Demon to the Golem until they make a Demon."
-      },
-      {
-        "id": "hatter",
-        "reason": "If the Summoner creates a second living Demon, deaths tonight are arbitrary."
       },
       {
         "id": "lordoftyphon",
@@ -754,27 +658,6 @@
       {
         "id": "lilmonsta",
         "reason": "If the Vizier is holding Lil' Monsta, they die when executed."
-      },
-      {
-        "id": "politician",
-        "reason": "The Politician might register as evil to the Vizier."
-      },
-      {
-        "id": "preacher",
-        "reason": "If the Vizier loses their ability, they learn this, and cannot die during the day."
-      },
-      {
-        "id": "zealot",
-        "reason": "The Zealot might register as evil to the Vizier."
-      }
-    ]
-  },
-  {
-    "id": "yaggababble",
-    "jinx": [
-      {
-        "id": "exorcist",
-        "reason": "If the Exorcist chooses the Yaggababble, the Yaggababble does not kill tonight."
       }
     ]
   }

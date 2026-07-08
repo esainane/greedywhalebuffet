@@ -333,7 +333,7 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/e_poppygrower_popppp.png"
     ],
     "team": "townsfolk",
-    "ability": "Minions & Demons do not know each other. If you die (even if poisoned or drunk), they learn who each other are at night.",
+    "ability": "Minions & Demons do not know each other. If you die, even if drunk or poisoned, they learn who each other are at night.",
     "flavor": "We’re doing poppy’s on the dance floor! I feel the rush & I’m pissing all over this stage tonight! -Satyr",
     "firstNight": 16,
     "firstNightReminder": "Skip Minion Info and Demon Info.",

@@ -96,18 +96,6 @@
       {
         "id": "goon",
         "reason": "If the Demon has the Goon ability, they can't turn good."
-      },
-      {
-        "id": "heretic",
-        "reason": "The Demon can't have the Heretic ability."
-      },
-      {
-        "id": "ogre",
-        "reason": "The Demon can't have the Ogre ability."
-      },
-      {
-        "id": "politician",
-        "reason": "The Demon can't have the Politician ability."
       }
     ]
   },
@@ -240,16 +228,8 @@
         "reason": "If all of evil team agree to become Legion, majority of players (including ALL evil) become Legion. If Legion is in play, the Hatter has no ability."
       },
       {
-        "id": "politician",
-        "reason": "The Politician might register as evil to the Legion."
-      },
-      {
         "id": "summoner",
         "reason": "If Legion is summoned, majority of players (including ALL evil players) become Legion. They might all learn each other."
-      },
-      {
-        "id": "zealot",
-        "reason": "The Zealot might register as evil to the Legion."
       }
     ]
   },
@@ -271,10 +251,6 @@
       {
         "id": "innkeeper",
         "reason": "If an evil player nominates & executes a player protected by the Innkeeper, the Innkeeper's team wins."
-      },
-      {
-        "id": "mayor",
-        "reason": "If the Leviathan and Mayor are alive on day 5 & no execution occurs, your team wins."
       },
       {
         "id": "monk",
@@ -316,16 +292,8 @@
     "id": "magician",
     "jinx": [
       {
-        "id": "spy",
-        "reason": "When the Spy sees the Grimoire, the Demon & Magician's character tokens are removed."
-      },
-      {
         "id": "vizier",
         "reason": "If the Vizier is in-play, the Magician is immune to the Vizier's ability."
-      },
-      {
-        "id": "widow",
-        "reason": "When the Widow sees the Grimoire, the Demon & Magician's character tokens are removed."
       },
       {
         "id": "wraith",
@@ -537,10 +505,6 @@
         "reason": "If the Storyteller is the first nomination on Riot's 3rd day nothing happens. The Storyteller cannot be nominated in the middle of a Riot."
       },
       {
-        "id": "banshee",
-        "reason": "Each night*, the Riot chooses an alive good player (different to previous nights): a chosen Banshee dies & gains their ability."
-      },
-      {
         "id": "exorcist",
         "reason": "If an evil player nominates & executes the player chosen by the Exorcist, the Exorcist's team wins."
       },
@@ -549,20 +513,12 @@
         "reason": "Each night* the Riot chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but don't die."
       },
       {
-        "id": "grandmother",
-        "reason": "If the Riot is in play and the Grandchild dies by execution, evil wins."
-      },
-      {
         "id": "hatter",
         "reason": "If the Riot is created from the Hatter, the Riot day is the Riot's second day."
       },
       {
         "id": "innkeeper",
         "reason": "If an evil player nominates & executes a player protected by the Innkeeper, the Innkeeper's team wins."
-      },
-      {
-        "id": "king",
-        "reason": "If the Riot is in play, and at least 1 player is dead, the King learns an alive character each night."
       },
       {
         "id": "mayor",
@@ -616,10 +572,6 @@
       {
         "id": "slayer",
         "reason": "The Summoner registers as the Demon to the Slayer until they make a Demon."
-      },
-      {
-        "id": "zombuul",
-        "reason": "If the Summoner summons a dead player into the Zombuul, the Zombuul has already 'died once'."
       }
     ]
   },

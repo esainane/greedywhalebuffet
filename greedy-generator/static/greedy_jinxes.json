@@ -27,10 +27,6 @@
         "reason": "Alch Ability is: The Alchemist starts knowing a word. The first good player (not the Alchemist) to say the word is safe from all Minion abilities starting when they say it."
       },
       {
-        "id": "organgrinder",
-        "reason": "If both the Alchemist and Organ Grinder are sober, they are both drunk. [+Organ Grinder]"
-      },
-      {
         "id": "pithag",
         "reason": "The Alchemist Pit-Hag cannot create Minions or Demons."
       },
@@ -41,10 +37,6 @@
       {
         "id": "spy",
         "reason": "Alch Ability is: Each day, the Alchemist may publicly choose an alive player. If the Alchemist chooses the Spy, they die tonight & the Demon kills no-one. The Spy can't misregister to the Alchemist. [+Spy]"
-      },
-      {
-        "id": "summoner",
-        "reason": "Alch Ability is: The Alchemist chooses which Demon but not which player. If they die before this happens, evil wins. [No Demon]"
       },
       {
         "id": "vizier",
@@ -68,34 +60,8 @@
     "id": "alhadikhia",
     "jinx": [
       {
-        "id": "mastermind",
-        "reason": "The night before a Mastermind day, the Al-Hadikhia chooses 3 good players: if all 3 choose to live, evil wins. Otherwise, good wins."
-      },
-      {
         "id": "scarletwoman",
         "reason": "An Al-Hadikhia must choose to die if chosen by the Scarlet Woman turned into the Al-Hadikhia."
-      }
-    ]
-  },
-  {
-    "id": "banshee",
-    "jinx": [
-      {
-        "id": "vortox",
-        "reason": "When the Banshee dies by the Demon, all players learn the Banshee has died."
-      }
-    ]
-  },
-  {
-    "id": "boffin",
-    "jinx": [
-      {
-        "id": "cultleader",
-        "reason": "If the Demon has the Cult Leader ability, they can't turn good."
-      },
-      {
-        "id": "goon",
-        "reason": "If the Demon has the Goon ability, they can't turn good."
       }
     ]
   },
@@ -113,19 +79,10 @@
     ]
   },
   {
-    "id": "chambermaid",
+    "id": "boffin",
     "jinx": [
       {
-        "id": "mathematician",
-        "reason": "The Chambermaid learns if the Mathematician wakes tonight."
-      }
-    ]
-  },
-  {
-    "id": "drunk",
-    "jinx": [
-      {
-        "id": "boffin",
+        "id": "drunk",
         "reason": "If the Demon would have the Drunk ability, the Boffin chooses a Townsfolk player to have this ability instead."
       }
     ]
@@ -133,10 +90,6 @@
   {
     "id": "goblin",
     "jinx": [
-      {
-        "id": "cerenovus",
-        "reason": "The Cerenovus can make players mad as the Goblin."
-      },
       {
         "id": "vizier",
         "reason": "If the Vizier pushes on the Goblin after they've claimed to be Goblin during their defense, it might fail."
@@ -228,10 +181,6 @@
         "reason": "If an evil player nominates & executes the player chosen by the Exorcist, the Exorcist's team wins."
       },
       {
-        "id": "hatter",
-        "reason": "The Leviathan can't be made after Day 5."
-      },
-      {
         "id": "innkeeper",
         "reason": "If an evil player nominates & executes a player protected by the Innkeeper, the Innkeeper's team wins."
       },
@@ -251,15 +200,6 @@
       {
         "id": "goblin",
         "reason": "If the Goblin is babysitting Lil' Monsta and claims Goblin before being executed, good wins."
-      }
-    ]
-  },
-  {
-    "id": "lleech",
-    "jinx": [
-      {
-        "id": "slayer",
-        "reason": "If the Slayer shoots the Lleech Host, they die."
       }
     ]
   },
@@ -330,16 +270,8 @@
     "id": "pithag",
     "jinx": [
       {
-        "id": "damsel",
-        "reason": "If the Pit-Hag creates a Damsel, the Pit-Hag doesn't choose the player."
-      },
-      {
         "id": "heretic",
         "reason": "The Pit-Hag cannot create a Heretic."
-      },
-      {
-        "id": "leviathan",
-        "reason": "After day 5, the Pit-Hag cannot create a Leviathan."
       },
       {
         "id": "summoner",
@@ -351,36 +283,8 @@
     "id": "plaguedoctor",
     "jinx": [
       {
-        "id": "boomdandy",
-        "reason": "A player becomes the Boomdandy instead."
-      },
-      {
-        "id": "eviltwin",
-        "reason": "A player becomes the Evil Twin instead."
-      },
-      {
-        "id": "fearmonger",
-        "reason": "A Minion gains the Fearmonger ability instead & learns this."
-      },
-      {
-        "id": "goblin",
-        "reason": "A Minion gains the Goblin ability instead & learns this."
-      },
-      {
         "id": "marionette",
         "reason": "One of the Demon's good neighbors becomes the good Marionette instead."
-      },
-      {
-        "id": "scarletwoman",
-        "reason": "A Minion gains the Scarlet Woman ability instead & learns this."
-      },
-      {
-        "id": "spy",
-        "reason": "A Minion gains the Spy ability instead & learns this."
-      },
-      {
-        "id": "wraith",
-        "reason": "A Minion gains the Wraith ability instead & learns this."
       }
     ]
   },
@@ -394,18 +298,6 @@
       {
         "id": "kazali",
         "reason": "The Kazali chooses which minions, but not which players. The Poppy Grower cannot become a Minion by the Kazali."
-      },
-      {
-        "id": "spy",
-        "reason": "The Spy only starts seeing the grimoire when the Poppy Grower loses their ability."
-      },
-      {
-        "id": "summoner",
-        "reason": "If the Poppy Grower has their ability on the 3rd night, the Summoner chooses which Demon but not which player."
-      },
-      {
-        "id": "widow",
-        "reason": "The Widow only starts seeing the grimoire when the Poppy Grower loses their ability. The Widow chooses a poison target once they see the grimoire."
       },
       {
         "id": "wraith",
@@ -475,24 +367,12 @@
     "id": "summoner",
     "jinx": [
       {
-        "id": "courtier",
-        "reason": "If the Summoner is drunk due to the Courtier's ability, the Storyteller has the Summoner ability."
-      },
-      {
         "id": "golem",
         "reason": "The Summoner registers as the Demon to the Golem until they make a Demon."
       },
       {
         "id": "lordoftyphon",
         "reason": "If a Lord of Typhon is summoned, they must neighbor a Minion & their other neighbor might become an evil Minion. If another Minion isn't made, the Summoner will be told & asked to reconsider."
-      },
-      {
-        "id": "preacher",
-        "reason": "If the Summoner has been Preached, the Storyteller has the Summoner ability."
-      },
-      {
-        "id": "pukka",
-        "reason": "The Summoner may summon a Pukka on the 2nd night instead of the 3rd. They wake up on the 2nd night to potentially create a Pukka."
       },
       {
         "id": "riot",
@@ -505,36 +385,15 @@
     ]
   },
   {
-    "id": "vigormortis",
-    "jinx": [
-      {
-        "id": "mastermind",
-        "reason": "If the Mastermind is killed by the Vigormortis, they keep their ability when the Vigormortis is executed."
-      }
-    ]
-  },
-  {
     "id": "vizier",
     "jinx": [
-      {
-        "id": "alsaahir",
-        "reason": "The Vizier isn't announced if an Alsaahir is in play."
-      },
       {
         "id": "atheist",
         "reason": "The Vizier cannot push an execution on the Storyteller, whether or not an Atheist is in play."
       },
       {
-        "id": "courtier",
-        "reason": "If the Vizier is drunked by the Courtier, they learn this, and cannot die during the day."
-      },
-      {
         "id": "fearmonger",
         "reason": "The Vizier knows the Fearmonger chosen player. If the Vizier pushes on the target, it will fail."
-      },
-      {
-        "id": "investigator",
-        "reason": "The Vizier isn't announced if the Investigator is in play."
       },
       {
         "id": "lilmonsta",

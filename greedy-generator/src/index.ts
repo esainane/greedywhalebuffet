@@ -276,9 +276,7 @@ function applyAlejoRules(_data: ScriptData): void {
 		return;
 	}
 
-	// TODO: Load from nightorder.json
-	snakeCharmer.firstNight = 14;
-	snakeCharmer.otherNight = 23; // Night order is entirely missing from roles.json
+	snakeCharmer.firstNight = nightsheetData?.firstNight?.indexOf('philosopher');
 }
 
 function applyOfficialJinxes(_data: ScriptData): void {

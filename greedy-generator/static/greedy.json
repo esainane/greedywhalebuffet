@@ -751,7 +751,48 @@
   },
   "mastermind",
   "mezepheles",
-  "organgrinder",
+  {
+    "id": "organgrinder",
+    "name": "Organ Grinder",
+    "image": [
+      "https://images.klutzbanana.com/characters_official/organgrinder_e.png",
+      "https://images.klutzbanana.com/characters_official/organgrinder_g.png"
+    ],
+    "team": "minion",
+    "edition": "carousel",
+    "ability": "All players keep their eyes closed when voting and the vote tally is secret. Each night, choose if you are drunk until dusk.",
+    "flavor": "Round and round the handles go. The more you dance the less you know.",
+    "firstNight": 39,
+    "firstNightReminder": "The Organ Grinder either nods their head yes to be drunk, or shakes their head no to be sober. :reminder:",
+    "otherNight": 25,
+    "otherNightReminder": "The Organ Grinder either nods their head yes to be drunk, or shakes their head no to be sober. :reminder:",
+    "reminders": [
+      "About To Die",
+      "Drunk"
+    ],
+    "setup": false,
+    "special": [
+      {
+        "type": "vote",
+        "name": "hidden"
+      },
+      {
+        "type": "signal",
+        "name": "card",
+        "value": "Sober or Drunk?"
+      },
+      {
+        "type": "signal",
+        "name": "player",
+        "value": "Sober"
+      },
+      {
+        "type": "signal",
+        "name": "player",
+        "value": "Drunk"
+      }
+    ]
+  },
   {
     "id": "pithag_ultimate",
     "name": "Pit-Hag Ω",

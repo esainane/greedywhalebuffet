@@ -55,7 +55,7 @@
       {
         "type": "signal",
         "name": "card",
-        "value": "At least 2 normal per type, most wanted first"
+        "value": "2+ normal per type, most wanted first"
       },
       {
         "type": "signal",

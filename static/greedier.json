@@ -1771,7 +1771,7 @@
   "id": "bestower",
   "name": "Bestower Ω",
   "team": "traveller",
-  "ability": "Each night, choose a player & give them a boon or curse. The selected player is asked to accept.",
+  "ability": "Each night, choose a player (not yourself) & give them a boon or curse. The selected player is asked to accept.",
   "image": [
     "https://user-images.klutzbanana.com/q0pl1q7nky2b6s44t456qw9o.png",
     "https://user-images.klutzbanana.com/uhxluwi1fqn8kfql1qt7pu95.png",

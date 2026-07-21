@@ -2,7 +2,7 @@
   {
     "id": "_meta",
     "author": "kianu",
-    "name": "Greedier Whalebuffet+ - S8",
+    "name": "Greedier Whalebuffet+ - S9",
     "firstNight": [
       "dusk",
       "shushingstick_popppp",
@@ -14,7 +14,6 @@
       "barista",
       "bureaucrat",
       "hermit_popppp",
-"copycat_winningclub",
       "thief",
       "philosopher_ultimate",
       "lunatic_popppp",
@@ -27,6 +26,7 @@
       "magician_popppp",
       "minioninfo",
       "demoninfo",
+"sinofgluttony1_extraulti",
       "thegreed",
       "king",
       "sailor",
@@ -58,6 +58,7 @@
       "investigator",
       "chef",
       "empath",
+"suitor_extraulti",
       "fortuneteller",
       "butler_popppp",
       "grandmother",
@@ -68,13 +69,14 @@
       "knight",
       "noble",
       "balloonist",
+"buffetsgourmet_extraulti",
       "shugenja",
       "villageidiot",
       "bountyhunter",
       "nightwatchman",
       "spy_popppp",
-"potionseller_winningclub",
       "cultleader_popppp",
+"racketeer_extraulti",
       "ogre",
       "highpriestess",
       "general",
@@ -104,7 +106,6 @@
       "poisoner",
       "courtier_popppp",
       "innkeeper",
-"journalist_winningclub",
       "wizard_popppp",
       "gambler",
       "acrobat",
@@ -122,7 +123,6 @@
       "summoner_popppp",
       "exorcist",
       "lycanthrope",
-"lisarinna_winningclub",
       "legion_popppp",
       "imp",
       "zombuul",
@@ -138,6 +138,8 @@
       "alhadikhia_popppp",
       "lleech_popppp",
       "lilmonsta",
+"sinofgluttony1_extraulti",
+"dullahan_extraulti",
       "yaggababble_poppppp",
       "kazali_popppp",
       "leviathan_popppp",
@@ -149,7 +151,6 @@
       "barber",
       "sweetheart_wewew",
       "plaguedoctor_popppp",
-"copycat_winningclub",
       "sage",
       "banshee",
       "professor",
@@ -163,6 +164,7 @@
       "grandmother",
       "ravenkeeper",
       "empath",
+"suitor_extraulti",
       "fortuneteller",
       "undertaker",
       "dreamer",
@@ -172,14 +174,15 @@
       "seamstress",
       "juggler",
       "balloonist",
+"buffetsgourmet_extraulti",
       "villageidiot",
       "king",
       "bountyhunter",
       "nightwatchman",
       "butler_popppp",
       "spy_popppp",
-"potionseller_winningclub",
       "cultleader_popppp",
+"racketeer_extraulti",
       "highpriestess",
       "general",
       "soldier_popppp",
@@ -1768,118 +1771,122 @@
   },
 
 
-
-
-
-  {
-    "id": "eavesdropper_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/eavesdropper_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/eavesdropper_e_winningclub.png" ],
-    "name": "Eavesdropper Ω",
-    "team": "townsfolk",
-    "ability": "Each day, you may privately visit the storyteller to learn a phrase about the game.",
-    "flavor": "I heard Mole and Odysseus talking about how they were going to start a gang. Said they'd call it the Gayng. Pretty cringe if you ask me."
-  },
-
-
-  {
-    "id": "journalist_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/journalist_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/journalist_evil_winningclub.png" ],
-    "otherNightReminder": "They choose 2 players. The Demon learns the 2 players. If the Demon chooses them, the Journalist learns a true statement equal to the amount of the Journalist's chosen players are chosen.",
-    "name": "Journalist Ω",
-        "reminders": [
-      "Chosen",
-      "Chosen"
+ {
+    "id": "buffetsgourmet_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/buffetsgourmet_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/buffetsgourmet_e_winningclub.png" ],
+    "firstNightReminder": "They choose a character type.",
+    "otherNightReminder": "They choose a character type.",
+    "reminders": [
+      "Townsfolk",
+      "Outsider",
+      "Minion",
+      "Demon",
+      "Other Type"
     ],
+    "name": "Buffet's Gourmet",
     "team": "townsfolk",
-    "ability": "Each night*, choose 2 players: the Demon learns them. For each of these players the Demon chooses, you learn a true statement, even if dead.",
-    "flavor": "I see... Well, I'm not gonna let something as silly as threat-of-death stop me from getting the truth!",
-    "otherNight": 21
+    "ability": "On your 1st four nights, choose a character type (different from previous nights): you learn five characters of that type which are not in play.",
+    "flavor": "Oh no, those flavours couldn't possibly go together. Pass.",
+    "firstNight": 26,
+    "otherNight": 25
+  },
+
+
+  {
+    "id": "hero_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hero_winningclub.png",
+ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hero_e_winningclub.png" ],
+    "reminders": [
+      "Protected!"
+    ],
+    "name": "Hero",
+    "team": "townsfolk",
+    "ability": "The 2nd good player executed doesn't die & can't die tonight.",
+    "flavor": "A hero always arrives just in the nick of ti... Oh wait one died already."
   },
 
   {
-    "id": "lisarinna_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/lisarinna_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/lisarinna_e_winningclub.png" ],
-    "otherNightReminder": "They choose a player.",
-    "name": "Lisa Rinna Ω",
+    "id": "suitor_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/suitor_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/suitor_e_winningclub.png" ],
+    "firstNightReminder": "They choose a character. Tell them if it's in play.",
+    "otherNightReminder": "They choose a character. Tell them if it's in play.",
+    "reminders": [
+      "No Waking"
+    ],
+    "name": "Suitor",
     "team": "townsfolk",
-    "ability": "Once per game, during the night*, choose a player: if good, they die & keep their ability. If an Outsider, they instead are drunk.",
-    "flavor": "Well. I'm Lisa fuckin' Rinna.",
-        "reminders": [
+    "ability": "Each night, choose a character: learn if it is in play. The 2nd time you would learn a yes, you learn no, & stop waking.",
+    "flavor": "THIS IS THE HAPPIEST DAY OF MY LIFE!",
+    "firstNight": 23,
+    "otherNight": 26
+  },
+
+
+
+ {
+    "id": "racketeer_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/racketeer_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/racketeer_e_winningclub.png" ],
+    "firstNightReminder": "They learn how many Outsiders are alive.",
+    "otherNightReminder": "They learn how many Outsiders are alive.",
+    "reminders": [
+      "Racketed",
+      "Racketed"
+    ],
+    "name": "Racketeer",
+    "team": "outsider",
+    "ability": "Each night, you learn how many Outsiders are alive. Your 2 non-Traveller neighbours might register as evil & as Outsiders.",
+    "flavor": "Don't worry about my associates.",
+    "firstNight": 24,
+    "otherNight": 27
+  },
+
+
+  {
+    "id": "dullahan_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/dullahan_winningclub.png",
+ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/dullahan_g_winningclub.png" ],
+    "otherNightReminder": "They choose a player. ",
+    "reminders": [
       "Dead",
-      "Has Ability",
-      "No Ability",
-      "Drunk"
+      "Dead",
+      "Dullahan's Deception"
     ],
-    "otherNight": 23
+    "name": "Dullahan",
+    "team": "demon",
+    "ability": "Each night*, choose a player: they die. You & 1 Townsfolk neighbor register as a character of the opposite alignment to Townsfolk abilities.",
+    "flavor": "It is too late now. Death is coming and they are blind. You may know everything, but they will never believe you.",
+    "otherNight": 29
   },
-
 
 
 
   {
-    "id": "potionseller_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/potionseller_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/potionsellerg_winningclub.png" ],
-    "firstNightReminder": "They name up to 5 potions. They choose a player. The chosen player chooses 1 of them. ",
-    "otherNightReminder": "They choose a player. The chosen player chooses 1 of them. ",
+    "id": "sinofgluttony_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/sinofgluttony_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/sin_of_gluttony_g_winningclub.png" ],
+    "firstNightReminder": "Every other night, they choose 3 players. Kill the first 2 sometime in the next 2 nights & the last one sometime in the next 2 days.",
+    "otherNightReminder": "Every other night, they choose 3 players. Kill the first 2 sometime in the next 2 nights & the last one sometime in the next 2 days.",
     "reminders": [
-      "?",
-      "?",
-      "?",
-      "Customer"
+      "Dead",
+      "Dead",
+      "Dead",
+      "Midnight Snacks",
+      "Midnight Snacks",
+      "Midnight Snacks",
+      "Midnight Snacks",
+      "Lunch",
+      "Lunch"
     ],
-    "name": "Potion Seller Ω",
-    "team": "minion",
-    "ability": "On your 1st night, name up to 5 potions. Each night, choose a player: they choose one of your potions, receiving its effect & removing the option.",
-    "flavor": "I warned you, traveller. My potions would set the world on fire.",
-    "firstNight": 21,
-    "otherNight": 24
+    "name": "Sin of Gluttony ",
+    "team": "demon",
+    "ability": "Each other night, choose three players: the first two will die at any time within the next two nights & the third might die at any time during the next two days.",
+    "flavor": "You all look so tasty, it would be a shame to let you go to waste... ",
+    "firstNight": 25,
+    "otherNight": 28
   },
-
-  {
-    "id": "copycat_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/copycat_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/copycat_e_winningclub.png" ],
-    "firstNightReminder": "They gain an ability. Run it accordingly. ",
-    "otherNightReminder": "If they die, make the in-play Townsfolk a drunk Copycat.",
-    "reminders": [
-      "Copied!",
-      "Drunk"
-    ],
-    "name": "Copycat Ω",
-    "team": "outsider",
-    "ability": "On your first night, gain the ability of an in play townsfolk: they are drunk. When you die, they become a drunk Copycat.",
-    "flavor": "Stop copying me! - Satyr / Stoooop Copyiiiing Meeeee! - Orpheus",
-    "firstNight": 22,
-    "otherNight": 22
-  },
-
-
-  {
-    "id": "realtor_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/realtor_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/realtor_e_winningclub.png" ],
-    "reminders": [
-      "Used Guess"
-    ],
-    "setup": true,
-    "name": "Realtor Ω",
-    "team": "outsider",
-    "ability": "Once per game, during the day, guess your setup effect, you learn how accurate you are. [Something bad]",
-    "flavor": "This house has QUITE the history..."
-  },
-
-
-
-
-
-
-
-
-
 
 
 

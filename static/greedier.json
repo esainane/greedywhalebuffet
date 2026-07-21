@@ -28,7 +28,6 @@
       "minioninfo",
       "demoninfo",
       "thegreed",
-      "unfathomable_winningclub",
       "king",
       "sailor",
       "preacher_popppp",
@@ -79,6 +78,7 @@
       "highpriestess",
       "general",
       "chambermaid",
+      "informant_winningclub",
       "mathematician_popppp",
       "dawn",
       "leviathan_popppp",
@@ -86,8 +86,6 @@
     ],
     "otherNight": [
       "dusk",
-      "hypnotist_winningclub",
-      "unfathomable_winningclub",
       "hermit_popppp",
       "cacklejack_day2",
       "lunatic_popppp",
@@ -124,7 +122,10 @@
       "scarletwoman_popppp",
       "summoner_popppp",
       "exorcist",
+      "warden_winningclub",
+      "armageddon_winningclub",
       "lycanthrope",
+      "arsonist_winningclub",
       "legion_popppp",
       "imp",
       "zombuul",
@@ -184,10 +185,10 @@
       "general",
       "soldier_popppp",
       "chambermaid",
+      "informant_winningclub",
       "mathematician_popppp",
       "dawn"
     ],
-
 
 
 
@@ -436,6 +437,24 @@
     "flavor": "You don't get to be the Heretic -TrappedCosmos"
   },
 
+
+
+
+
+
+  {
+    "id": "informant_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/informant_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/informant_e_winningclub.png" ],
+    "firstNightReminder": "Show the Informant a player who woke up tonight. ",
+    "otherNightReminder": "Show the Informant a player who woke up tonight. ",
+    "name": "Informant",
+    "team": "townsfolk",
+    "ability": "Each night, learn a player who woke up tonight to use their ability.",
+    "flavor": "So you're just a Chambermaid?",
+    "firstNight": 12,
+    "otherNight": 6
+  },
 
 
 
@@ -831,19 +850,6 @@
 
 
 
-{
-    "id": "jester_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/jester_leftovers_whoops.png",
- "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/jester_e_leftovers_whoops.png" ],
-    "reminders": [
-      "Claimed"
-    ],
-    "name": "Jester",
-    "team": "outsider",
-    "ability": " If you are executed after voting on yourself & claim Jester, all other players of your alignment switch & your team wins.",
-    "flavor": "Gobble gobble gobble. -Satyr"
-    
-  },
 
 
 
@@ -1099,27 +1105,6 @@
 
 
 
-{
-    "id": "hypnotist_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hypnotist_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hypnotist_g_winningclub.png" ],
-    "otherNightReminder": "Send fake night cards as you want to players who were disruptive, broke madness or to anyone after an evil player is executed & dies.",
-    "reminders": [
-      "Hypnotized",
-      "Hypnotized",
-      "Hypnotized",
-      "Hypnotized",
-      "Hypnotized",
-      "Hypnotized",
-      "Hypnotized"
-    ],
-    "name": "Hypnotist",
-    "team": "minion",
-    "ability": "Each night*, players might recieve false night cards if they are disruptive in town, break madness, or after an evil player is executed & dies.",
-    "flavor": "Town is towning so hard right now -Nic",
-    "otherNight": 3
-  },
-
 
 
 
@@ -1252,7 +1237,7 @@
     "name": "Spy",
     "team": "minion",
     "ability": "Each night, you see the Grimoire. You might register as good & as a Townsfolk or Outsider, even if dead.",
-    "flavor": "The world's greatest actor doesn't need a stage...",
+    "flavor": "The world's greatest actor doesn't need a stage... -Soril",
      "special": [
     {
       "name": "grimoire",
@@ -1260,6 +1245,7 @@
       "time": "night"
     } ]
   },
+
 
 
 
@@ -1405,6 +1391,73 @@
 "https://www.bloodstar.xyz/p/ZuZuxy/popppp/alhad_g_popppp.png" ],
     "ability": "Each night*, you may choose 3 players (all players learn who): each silently chooses to live or die, but if all live, all die.",
     "flavor": "The first person to say \\\"Lollapalooza\\\" at me will get to pick the Al-Hadikhia quote! You can only choose 1 quote."
+  },
+
+
+
+
+
+
+
+
+
+
+  {
+    "id": "armageddon_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/armageddon_leftovers_whoops.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/armageddon_g_leftovers_whoops.png" ],
+    "otherNightReminder": "If tonight is Night 4, Armageddon chooses 3 players. 1 must be good, tell them to choose again if 1 isn't. The 3 chosen players can't switch alignment. Kill all players not 'Sheltered'. ",
+    "reminders": [
+      "Sheltered",
+      "Sheltered",
+      "Sheltered",
+      "Sheltered",
+      "Sheltered",
+      "Sheltered"
+    ],
+    "name": "Armageddon",
+    "team": "demon",
+    "ability": "On night four, choose three alive players, they can't switch alignment from now on, one must be good, & all other players die, even if for some reason they could not. If nobody dies on day 4, your team wins.",
+    "flavor": "I am become death, destroyer of worlds. - J. Robert Oppenheimer",
+    "otherNight": 5
+  },
+
+
+
+
+
+
+
+
+
+
+  {
+    "id": "arsonist_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/arsonist_leftovers_whoops.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/arsonist_g_leftovers_whoops.png" ],
+    "otherNightReminder": "They might choose a player. Put the 'Poisoned' reminder token on the chosen player. If the Arsonist chooses no one, kill all players that are Poisoned. Even if the Arsonist isn't Poisoning them. Then, make players the Arsonist is poisoning Healthy.",
+    "reminders": [
+      "Poisoned",
+      "Poisoned",
+      "Poisoned",
+      "Poisoned",
+      "Poisoned",
+      "Poisoned",
+      "Poisoned",
+      "Poisoned",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead"
+    ],
+    "name": "Arsonist",
+    "team": "demon",
+    "ability": "Each night*, you may choose a player: they are poisoned. If you choose no one, all poisoned players die then players you poisoned become healthy. ",
+    "flavor": "Some people just want to watch the world burn.",
+    "otherNight": 4
   },
 
 
@@ -1571,29 +1624,6 @@
 
   "shabaloth",
 
-{
-    "id": "unfathomable_winningclub",
-    "image":  [ "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/unfathomable_leftovers_whoops.png",
-   "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/unfathomable_g_leftovers_whoops.png" ],
-    "firstNightReminder": "They choose a player. Deaths each night are arbitrary.",
-    "otherNightReminder": "They choose a player. Deaths each night are arbitrary.",
-    "reminders": [
-      "Dead",
-      "Dead",
-      "Dead",
-      "Dead",
-      "Dead",
-      "Dead",
-      "Dead"
-    ],
-    "name": "Unfathomable",
-    "team": "demon",
-    "ability": "Each night, you may choose a player to guide the ST's decisions. Deaths each night are arbitrary.",
-    "flavor": "Your destiny is held firm no longer.",
-    "firstNight": 11,
-    "otherNight": 2
-  },
-
 
 
   {
@@ -1684,10 +1714,12 @@
 
 
 
-  "thief",
-  "bureaucrat",
+  "apprentice",
   "barista",
-  "harlot",
+  "beggar",
+  "bishop",
+  "bonecollector",
+  "bureaucrat",
   "butcher",
 
 
@@ -1698,9 +1730,9 @@
     "id": "cacklejack_day2",
     "name": "Cacklejack",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/Day2/cacklejack_day2.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/Day2/cacklejack1_day2.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/Day2/cacklejack2_day2.png"
+      "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/cacklejack_normal_leftovers_whoops.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/cacklejack_g_leftovers_whoops.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/cacklejack_e_leftovers_whoops.png"
     ],
     "team": "traveller",
     "ability": "Each day, choose a player: a different player changes character tonight.",
@@ -1715,20 +1747,41 @@
 
 
 
-
-
-  "gunslinger",
-  "matron",
-  "gangster",
-  "bonecollector",
-  "judge",
-  "apprentice",
-  "beggar",
   "deviant",
-  "scapegoat",
+  "gangster",
   "gnome",
-  "bishop",
+  "gunslinger",
+  "harlot",
+  "judge",
+  "matron",
+ "scapegoat",
+  "thief",
   "voudon",
+
+
+
+
+  {
+    "id": "warden_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/warden_leftovers_whoops.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/warden_g_leftovers_whoops.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/warden_e_leftovers_whoops.png" ],
+    "otherNightReminder": "The Warden chooses a player & if they want them to die or not. Put the Warden & chosen player in a chat. Leave it & let them determine the length of their chat. The chosen player might not wake to use their ability. ",
+ "reminders": [
+      "Lock Em' Up!",
+      "No More Killin'",
+      "Dead"
+    ],
+    "name": "Warden",
+    "team": "traveller",
+    "ability": "Each night*, choose a player: you have a private conversation with them during the night. They might not wake to use their ability tonight. Once per game, you can kill the player you chose.",
+    "flavor": "Lock me up baby! -Mole",
+    "otherNight": 7
+  },
+
+
+
+
   "gardener",
   "bootlegger",
 

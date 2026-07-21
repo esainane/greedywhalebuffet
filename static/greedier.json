@@ -10,13 +10,13 @@
       "wraith_popppp",
       "lordoftyphon",
       "kazali_popppp",
+      "monkeyspaw_winningclub",
       "apprentice",
       "barista",
       "bureaucrat",
       "asdasd_ultimate",
       "hermit_popppp",
       "thief",
-      "chocolatier_winningclub",
       "philosopher_ultimate",
       "lunatic_popppp",
       "alchemist_popppp",
@@ -46,6 +46,7 @@
       "eviltwin_popppp",
       "witch",
       "cerenovus_popppp",
+      "baffler_winningclub",
       "fearmonger",
       "harpy",
       "mezepheles",
@@ -65,9 +66,6 @@
       "clockmaker",
       "dreamer",
       "seamstress",
-      "secretary_winningclub",
-      "bingbong_winningclub",
-      "quitter_winningclub",
       "steward",
       "knight",
       "noble",
@@ -89,6 +87,7 @@
     ],
     "otherNight": [
       "dusk",
+      "monkeyspaw_winningclub",
       "hermit_popppp",
       "cacklejack_day2",
       "lunatic_popppp",
@@ -118,6 +117,7 @@
       "pithag_ultimate",
       "witch",
       "cerenovus_popppp",
+      "baffler_winningclub",
       "snitch_wewew",
       "fearmonger",
       "harpy",
@@ -127,6 +127,7 @@
       "exorcist",
       "lycanthrope",
       "legion_popppp",
+      "baroness_winningclub",
       "imp",
       "zombuul",
       "pukka",
@@ -181,6 +182,7 @@
       "butler_popppp",
       "spy_popppp",
       "cultleader_popppp",
+      "portiafeatherington_winningclub",
       "highpriestess",
       "general",
       "soldier_popppp",
@@ -198,7 +200,7 @@
 "There are Homebrew characters.",
 "The Drunk, Lunatic, and Marionette cannot be chosen, but can be given.",
 "*If a player chooses Choirboy, Alchemist, Amnesiac, Village Idiot, Kazali or Legion, other players may not get the character they asked for.",
-"For selection, the Atheist and Summoner count as your Demon choices. If you choose Atheist, Legion or Lil Monsta in your Demon picks you MUST pick another Demon not listed.",      
+"For selection, the Atheist and Summoner count as your Demon choices. If you choose Atheist, Legion or Lil Monsta in your Demon picks you MUST pick another Demon not listed. If you choose 1 of the following characters for selection, you cannot choose another: Alchemist, Cult Leader, Engineer, or Philosopher.",      
 "The Huntsman, Philosopher, Soldier, Courtier, Summoner, Wizard, Engineer, Cult Leader, Recluse, Hermit, Snitch, Sweetheart, Pit-Hag, and Psychopath abilities are adjusted."
     ]
   },
@@ -283,19 +285,6 @@
 
 
 
- {
-    "id": "bingbong_winningclub",
-    "image": [  "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/bingbong_winningclub.png",
-                "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/bingbong_e_winningclub.png" ],
-    "reminders": [
-      "Real Friend"
-    ],
-    "name": "Bing Bong",
-    "team": "townsfolk",
-    "ability": "You start knowing a player. When they die, you die instead & they can't change alignment & might not die from now on. ",
-    "firstNightReminder": "They learn a player.",
-    "flavor": "Take her to the moon for me."
-  },
 
 
 
@@ -662,23 +651,6 @@
 
 
 
-  {
-    "id": "secretary_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/secretary_winningclub.png",
-                 "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/secretary_e_winningclub.png" ],
-    "firstNightReminder": "Show them 2 in-play characters.",
-    "reminders": [
-      "Knows",
-      "Knows"
-    ],
-    "name": "Secretary",
-    "team": "townsfolk",
-    "ability": "You start knowing two in-play characters.",
-    "flavor": "Yes, Karen, the manager is on their way.",
-    "firstNight": 15
-  },
-
-
 
 
 
@@ -969,22 +941,24 @@
 
 
   "politician",
-  "puzzlemaster",
 
   {
-    "id": "quitter_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/quitter_winningclub.png",
-               "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/quitter_e_winningclub.png" ],
-    "firstNightReminder": "They choose a player.",
-    "reminders": [
-      "Rage Quit!"
-    ],
-    "name": "Quitter",
+    "id": "portiafeatherington_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/portiafeatherington_winningclub.png",
+               "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/portia_e_winningclub.png" ],
+    "otherNightReminder": "They swap alignment. Tell them",
+    "name": "Portia Featherington",
     "team": "outsider",
-    "ability": "On your 1st night, choose a player (not yourself): If they die, you can no longer vote on any nominations, even if you are dead.",
-    "flavor": "“We just lost our greatest information.. Evil must be stomping, there’s no more point in trying.”",
-    "firstNight": 17
+    "ability": "Each night*, swap alignment, even if dead.",
+    "flavor": "Nothing makes the ton come alive like a fresh scandal.",
+    "otherNight": 16
   },
+
+
+
+  "puzzlemaster",
+
+
 
 
   {
@@ -1067,6 +1041,29 @@
 
 
   "assassin",
+
+  {
+    "id": "baffler_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baffler_winningclub.png",
+               "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baffler_g_winningclub.png" ],
+    "firstNightReminder": "They choose a player. The chosen player chooses which convoluted way they must speak.",
+    "otherNightReminder": "They choose a player. The chosen player chooses which convoluted way they must speak.",
+    "reminders": [
+      "Baffled!",
+      "Baffled!",
+      "Baffled!",
+      "Baffled!",
+      "Baffled!"
+    ],
+    "name": "Baffler",
+    "team": "minion",
+    "ability": "Each night, choose a player: they must vote for every nomination as long as there are 5 or more players alive & must speak in rhymes, riddles, or another convoluted way, or might be executed.",
+    "flavor": "The guzzling puzzle is a perplexing muzzle.",
+    "firstNight": 18,
+    "otherNight": 14
+  },
+
+
   "baron",
 
 
@@ -1450,7 +1447,22 @@
 
 
 
-
+  {
+    "id": "baroness_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baroness_winningclub.png",
+                "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baroness_g_winningclub.png" ],
+    "otherNightReminder": "They choose a player. ",
+    "reminders": [
+      "Dead",
+      "Dead",
+      "Dead"
+    ],
+    "name": "Baroness",
+    "team": "demon",
+    "ability": "Each night*, choose a player: they might die. [0 Townsfolk]",
+    "flavor": "Not my circus, not my monkeys. But I'm the ringmaster of this carnival and, I promise, it is the greatest show you are ever going to see.",
+    "otherNight": 17
+  },
 
 
 
@@ -1755,24 +1767,7 @@
 
 
 
-  {
-    "id": "chocolatier_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/chocolatier_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/chocolatier_g_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/chocolatier_e_winningclub.png" ],
-    "firstNightReminder": "Tell them 2 phrases & what happens if they say each phrase.",
-    "reminders": [
-      "?",
-      "?",
-      "?",
-      "?"
-    ],
-    "name": "Chocolatier",
-    "team": "traveller",
-    "ability": "You start knowing 2 phrases & what happens when you say each for the first time phrase. Once you say a phrase, you immediately die if you say the other.",
-    "flavor": "White chocolate is SOOOOOOOOOOOOOOOOOOO good. But I see that dark chocolate eyeing me in the corner... stawp ittttt.",
-    "firstNight": 16
-  },
+
 
 
 
@@ -1799,6 +1794,28 @@
 
   "gardener",
   "bootlegger",
+
+
+  {
+    "id": "monkeyspaw_winningclub",
+    "image": "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/monkeyspaw_winningclub.png",
+    "firstNightReminder": "Ask a player to potentially make a wish. Run it as possible.",
+    "otherNightReminder": "Ask a player to potentially make a wish. Run it as possible.",
+    "reminders": [
+      "Tempted",
+      "Tempted",
+      "Tempted",
+      "?",
+      "?",
+      "?"
+    ],
+    "name": "Monkey's Paw",
+    "team": "loric",
+    "ability": "Each night, a player is told they may make a wish. The wish, if granted, might have a price, leave a clue as to its nature, or be granted unfavorably.",
+    "flavor": "Never mind, dear... perhaps you'll win the next one.",
+    "firstNight": 19,
+    "otherNight": 15
+  },
 
 
 

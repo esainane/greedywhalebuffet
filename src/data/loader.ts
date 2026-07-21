@@ -8,6 +8,7 @@ import type {
 	JinxEntry,
 	NightsheetData,
 	IdMappings,
+	MetaEntry,
 } from '../types.js';
 import Ajv2020, { type ValidateFunction } from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
@@ -67,9 +68,38 @@ function isCharacterEntryArray(value: unknown): value is CharacterEntry[] {
 				typeof entry === 'object' &&
 				entry !== null &&
 				!Array.isArray(entry) &&
-				typeof (entry as { id?: unknown }).id === 'string',
+				typeof (entry as { id?: unknown }).id === 'string' &&
+				(entry as { id: string }).id !== '_meta',
 		)
 	);
+}
+
+function isMetaEntry(value: unknown): value is MetaEntry {
+	if (typeof value !== 'object' || value === null || Array.isArray(value)) {
+		return false;
+	}
+
+	const entry = value as { id?: unknown; name?: unknown };
+	return entry.id === '_meta' && typeof entry.name === 'string';
+}
+
+function assertLeadingMetaEntry(data: ScriptData, sourceName: string): void {
+	if (data.length === 0) {
+		throw new Error(`${sourceName} must include a leading _meta entry.`);
+	}
+
+	if (!isMetaEntry(data[0])) {
+		throw new Error(`${sourceName} must begin with an object entry with id "_meta" and a string name.`);
+	}
+
+	for (let i = 1; i < data.length; i++) {
+		const entry = data[i];
+		if (typeof entry === 'object' && entry !== null && !Array.isArray(entry) && 'id' in entry) {
+			if ((entry as { id?: unknown }).id === '_meta') {
+				throw new Error(`${sourceName} must include only one _meta entry, and it must be the first item.`);
+			}
+		}
+	}
 }
 
 /**
@@ -114,6 +144,9 @@ export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Pr
 	assertSchemaValid(rolesParsed, validateScriptData, 'roles.json');
 	assertSchemaValid(jinxParsed, validateJinxData, 'jinxes.json');
 
+	const greedyScriptData = greedyParsed as ScriptData;
+	assertLeadingMetaEntry(greedyScriptData, 'greedy.json');
+
 	if (!isIdMappings(idMappingsParsed)) {
 		throw new Error('id_mappings.json has an unexpected shape.');
 	}
@@ -128,7 +161,7 @@ export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Pr
 
 	// Construct immutable FetchedData with all validated data
 	const fetchedData = new FetchedData({
-		greedyJson: greedyParsed as ScriptData,
+		greedyJson: greedyScriptData,
 		greedyJinxData: greedyJinxParsed as JinxEntry[],
 		greedyToBaseID: idMappingsParsed,
 		rolesData: rolesParsed,

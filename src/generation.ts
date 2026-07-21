@@ -2,7 +2,7 @@
  * Script generation logic and option application.
  */
 
-import type { ScriptData, GenerationOptions, MetaEntry, CharacterEntry } from './types.js';
+import type { ScriptData, GenerationOptions, CharacterEntry } from './types.js';
 import { DUPLICATE_LINE, REMOVED_CHARACTERS_PREFIX, FILTERABLE_TEAMS } from './constants.js';
 import {
 	getMetaEntry,
@@ -92,11 +92,14 @@ export function buildCopyPayload(
 ): string {
 	const nextData = fetchedData.cloneGreedyJson();
 	const metaEntry = getMetaEntry(nextData);
+	if (!metaEntry) {
+		throw new Error('Script metadata is missing or invalid.');
+	}
 	const removedCharacterNames: string[] = [];
 	const rolesData = fetchedData.getRolesData();
 
 	// Filter out deselected characters
-	const filteredData: ScriptData = [nextData[0] as MetaEntry]; // Keep metadata
+	const filteredData: ScriptData = [metaEntry];
 	for (let i = 1; i < nextData.length; i++) {
 		const entry = nextData[i];
 		let entryId: string | undefined;

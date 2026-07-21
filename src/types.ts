@@ -42,6 +42,5 @@ export type GenerationOptions = {
 	appendDuplicateLine: boolean;
 	alejoRules: boolean;
 	listOfficialJinxes: boolean;
-	revertRecluseMarionetteJinx: boolean;
 	listGreedyJinxes: boolean;
 };

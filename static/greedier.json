@@ -1042,7 +1042,7 @@
 
   "assassin",
 
-  {
+   {
     "id": "baffler_winningclub",
     "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baffler_winningclub.png",
                "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baffler_g_winningclub.png" ],
@@ -1057,7 +1057,7 @@
     ],
     "name": "Baffler",
     "team": "minion",
-    "ability": "Each night, choose a living player: they must vote for every nomination as long as there are 5 or more players alive & must speak in rhymes, riddles, or another convoluted way, or might be executed.",
+    "ability": "Each night, choose a living player: tomorrow, they must vote for every nomination as long as there are 5 or more players alive & must speak in rhymes, riddles, or another convoluted way, or might be executed.",
     "flavor": "The guzzling puzzle is a perplexing muzzle.",
     "firstNight": 18,
     "otherNight": 14

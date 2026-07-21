@@ -3,7 +3,7 @@
  */
 
 import type { ScriptData, JinxEntry } from './types.js';
-import { findOrExpandCharacter } from './character.js';
+import { findCharacterId, findOrExpandCharacter } from './character.js';
 import type { FetchedData } from './data/fetched.js';
 
 /**
@@ -25,12 +25,6 @@ export function mergeJinxes(
 
 		if (!Array.isArray(source.jinx)) {
 			continue;
-		}
-
-		for (const jinx of source.jinx) {
-			if (jinx?.id) {
-				mentionedIds.add(jinx.id);
-			}
 		}
 	}
 
@@ -56,16 +50,13 @@ export function mergeJinxes(
 				continue;
 			}
 
-			const targetEntry = findOrExpandCharacter(jinx.id, data, fetchedData);
-			if (!targetEntry) {
-				continue;
-			}
+			const targetId = findCharacterId(jinx.id, data, fetchedData);
 
 			const alreadyPresent = mergedJinxes.some(
-				(existing) => existing.id === targetEntry.id && existing.reason === jinx.reason,
+				(existing) => existing.id === targetId && existing.reason === jinx.reason,
 			);
 			if (!alreadyPresent) {
-				mergedJinxes.push({ id: targetEntry.id, reason: jinx.reason });
+				mergedJinxes.push({ id: targetId, reason: jinx.reason });
 			}
 		}
 

@@ -91,6 +91,25 @@ export function buildCopyPayload(
 	fetchedData: FetchedData,
 ): string {
 	const nextData = fetchedData.cloneGreedyJson();
+	if (options.addGreedierHomebrew) {
+		const existingIds = new Set(
+			nextData
+				.filter((entry): entry is string | CharacterEntry =>
+					typeof entry === 'string' || (typeof entry === 'object' && entry !== null && 'id' in entry),
+				)
+				.map((entry) => (typeof entry === 'string' ? entry : entry.id)),
+		);
+
+		for (const greedierCharacter of fetchedData.getGreedierCharactersData()) {
+			if (existingIds.has(greedierCharacter.id)) {
+				continue;
+			}
+
+			nextData.push(structuredClone(greedierCharacter));
+			existingIds.add(greedierCharacter.id);
+		}
+	}
+
 	const metaEntry = getMetaEntry(nextData);
 	if (!metaEntry) {
 		throw new Error('Script metadata is missing or invalid.');

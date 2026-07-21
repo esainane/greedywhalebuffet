@@ -47,6 +47,14 @@ export const GENERATION_OPTIONS: readonly OptionConfig[] = [
 		helpText:
 			'Adds all Greedy Whalebuffet-specific jinxes to the generated script sheet.',
 	},
+	{
+		id: 'add-greedier-homebrew',
+		name: 'addGreedierHomebrew',
+		label: 'WIP: Add Greedier homebrew characters',
+		defaultChecked: false,
+		helpText:
+			'Adds all characters from Greedier to the character pool. WARNING: This is a work-in-progress feature. Character definitions, including ability descriptions and night order information, may be missing or incorrect, and no Greedier jinxes will be listed on-script, regardless of other options.',
+	},
 ] as const;
 
 /**

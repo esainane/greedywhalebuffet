@@ -89,6 +89,7 @@ export class FetchedData {
 	// Core script data (read-only after construction)
 	private readonly greedyJson: ScriptData;
 	private readonly greedyJinxData: JinxEntry[];
+	private readonly greedierCharactersData: CharacterEntry[];
 
 	// ID mapping data (bidirectional, synchronized)
 	private readonly greedyIdMapping: BidirectionalMap;
@@ -102,6 +103,7 @@ export class FetchedData {
 	constructor(data: {
 		greedyJson: ScriptData;
 		greedyJinxData: JinxEntry[];
+		greedierCharactersData: CharacterEntry[];
 		greedyToBaseID: IdMappings;
 		rolesData: CharacterEntry[];
 		nightsheetData: NightsheetData;
@@ -109,6 +111,7 @@ export class FetchedData {
 	}) {
 		this.greedyJson = deepFreeze(data.greedyJson);
 		this.greedyJinxData = deepFreeze(data.greedyJinxData);
+		this.greedierCharactersData = deepFreeze(data.greedierCharactersData);
 		this.rolesData = deepFreeze(data.rolesData);
 		this.nightsheetData = deepFreeze(data.nightsheetData);
 		this.jinxData = deepFreeze(data.jinxData);
@@ -131,6 +134,10 @@ export class FetchedData {
 
 	getGreedyJinxData(): Readonly<JinxEntry[]> {
 		return this.greedyJinxData;
+	}
+
+	getGreedierCharactersData(): Readonly<CharacterEntry[]> {
+		return this.greedierCharactersData;
 	}
 
 	getRolesData(): Readonly<CharacterEntry[]> {

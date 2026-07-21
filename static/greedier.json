@@ -1312,7 +1312,7 @@
     "name": "Summoner",
     "team": "minion",
     "ability": "On the 3rd night, choose a player: they become an evil Demon of your choice. [No Demon]",
-    "flavor": "Well that's just useless! -Chara"
+    "flavor": "With this treasure, I summon…"
   },
 
 
@@ -1769,7 +1769,7 @@
     ],
     "name": "Chocolatier",
     "team": "traveller",
-    "ability": "You start knowing 2 phrases & what happens when you say each phrase. Once you say one phrase, you immediately die if you say the other.",
+    "ability": "You start knowing 2 phrases & what happens when you say each for the first time phrase. Once you say a phrase, you immediately die if you say the other.",
     "flavor": "White chocolate is SOOOOOOOOOOOOOOOOOOO good. But I see that dark chocolate eyeing me in the corner... stawp ittttt.",
     "firstNight": 16
   },

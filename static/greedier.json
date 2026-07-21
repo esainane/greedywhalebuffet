@@ -377,7 +377,7 @@
     ],
     "team": "townsfolk",
     "ability": "Once per game, during the day, visit the Storyteller to learn a number of in play Minion or Demon characters equal to the Day.",
-    "flavor": "Three goblins. We're playing Minesweeper. -Kag",
+    "flavor": "day 3: goblin, goblin, scarlet woman - Benny's the Kazali -the engineer",
     "reminders": [
       "No Ability"
     ]
@@ -1460,7 +1460,7 @@
     ],
     "name": "Daki",
     "team": "demon",
-    "ability": "Each night*, choose a player: they die. If 5 or more players are alive & you die, a player becomes an evil Gyutaro. ",
+    "ability": "Each night*, choose a player (not yourself): they die. If 5 or more players are alive & you die, a player becomes an evil Gyutaro. ",
     "flavor": "We beautiful, powerful demons can do whatever we want! ",
     "otherNight": 18
   },

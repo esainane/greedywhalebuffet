@@ -39,7 +39,7 @@ function CharacterList(props: CharacterListProps): React.JSX.Element {
 					<label
 						key={character.id}
 						className={`character-item ${isQuickRemove ? 'quick-remove-item' : ''} ${
-							isSelected ? '' : 'disabled'
+							isSelected ? '' : 'banned'
 						}`}
 					>
 						<input

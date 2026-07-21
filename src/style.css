@@ -427,14 +427,14 @@ button.secondary {
 	border-style: dashed;
 }
 
-.character-item:hover:not(.disabled) {
+.character-item:hover:not(.banned) {
 	background: var(--surface-strong);
 	border-color: var(--accent);
 }
 
-.character-item.disabled {
+.character-item.banned {
 	opacity: 0.45;
-	cursor: not-allowed;
+	cursor: pointer;
 	border-color: var(--danger);
 }
 

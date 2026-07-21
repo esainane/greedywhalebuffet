@@ -13,6 +13,8 @@ export type AppState = {
 	status: string;
 	statusTone: StatusTone;
 	scriptName: string;
+	lastLoadedAt: number | null;
+	usingStaleData: boolean;
 	fetchedData: FetchedData | null;
 	characters: Character[];
 	selectedCharacterIds: Set<string>;
@@ -51,11 +53,20 @@ const initialState: AppState = {
 	status: 'Loading latest script...',
 	statusTone: 'info',
 	scriptName: 'Loading...',
+	lastLoadedAt: null,
+	usingStaleData: false,
 	fetchedData: null,
 	characters: [],
 	selectedCharacterIds: new Set<string>(),
 	options: defaultOptions,
 };
+
+function formatLoadTime(timestamp: number): string {
+	return new Date(timestamp).toLocaleTimeString([], {
+		hour: '2-digit',
+		minute: '2-digit',
+	});
+}
 
 function applyDependentOptionRules(
 	nextOptions: GenerationOptions,
@@ -95,23 +106,42 @@ function appReducer(state: AppState, action: AppAction): AppState {
 		}
 		case 'load_success': {
 			const selectedCharacterIds = new Set(action.characters.map((character) => character.id));
+			const now = Date.now();
 			return {
 				...state,
 				loading: false,
 				status: 'Script loaded.',
 				statusTone: 'success',
 				scriptName: action.scriptName,
+				lastLoadedAt: now,
+				usingStaleData: false,
 				fetchedData: action.fetchedData,
 				characters: action.characters,
 				selectedCharacterIds,
 			};
 		}
 		case 'load_error': {
+			if (state.fetchedData && state.lastLoadedAt !== null) {
+				return {
+					...state,
+					loading: false,
+					status: `Reload failed; continuing to use data loaded at ${formatLoadTime(state.lastLoadedAt)}. (${action.message})`,
+					statusTone: 'error',
+					usingStaleData: true,
+				};
+			}
+
 			return {
 				...state,
 				loading: false,
-				status: action.message,
+				status: `Initial load failed: ${action.message}`,
 				statusTone: 'error',
+				scriptName: 'Unavailable',
+				lastLoadedAt: null,
+				usingStaleData: false,
+				fetchedData: null,
+				characters: [],
+				selectedCharacterIds: new Set<string>(),
 			};
 		}
 		case 'set_status': {

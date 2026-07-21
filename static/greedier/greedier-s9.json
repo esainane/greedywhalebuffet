@@ -1,0 +1,119 @@
+[
+  {
+    "id": "buffetsgourmet_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/buffetsgourmet_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/buffetsgourmet_e_winningclub.png"
+    ],
+    "firstNightReminder": "They choose a character type.",
+    "otherNightReminder": "They choose a character type.",
+    "reminders": [
+      "Townsfolk",
+      "Outsider",
+      "Minion",
+      "Demon",
+      "Other Type"
+    ],
+    "name": "Buffet's Gourmet Ω",
+    "team": "townsfolk",
+    "ability": "On your 1st four nights, choose a character type (different from previous nights): you learn five characters of that type which are not in play.",
+    "flavor": "Oh no, those flavours couldn't possibly go together. Pass.",
+    "firstNight": 26,
+    "otherNight": 25
+  },
+  {
+    "id": "hero_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hero_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hero_e_winningclub.png"
+    ],
+    "reminders": [
+      "Protected!"
+    ],
+    "name": "Hero Ω",
+    "team": "townsfolk",
+    "ability": "The 2nd good player executed doesn't die & can't die tonight.",
+    "flavor": "A hero always arrives just in the nick of ti... Oh wait one died already."
+  },
+  {
+    "id": "suitor_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/suitor1_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/suitor_e1_winningclub.png"
+    ],
+    "firstNightReminder": "They choose a character. Tell them if it's in play.",
+    "otherNightReminder": "They choose a character. Tell them if it's in play.",
+    "reminders": [
+      "No Waking"
+    ],
+    "name": "Suitor Ω",
+    "team": "townsfolk",
+    "ability": "Each night, choose a character: learn if it is in play. The 2nd time you would learn a yes, you learn no, & stop waking.",
+    "flavor": "THIS IS THE HAPPIEST DAY OF MY LIFE!",
+    "firstNight": 23,
+    "otherNight": 26
+  },
+  {
+    "id": "racketeer_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/racketeer_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/racketeer_e_winningclub.png"
+    ],
+    "firstNightReminder": "They learn how many Outsiders are alive.",
+    "otherNightReminder": "They learn how many Outsiders are alive.",
+    "reminders": [
+      "Racketed",
+      "Racketed"
+    ],
+    "name": "Racketeer Ω",
+    "team": "outsider",
+    "ability": "Each night, you learn how many Outsiders are alive. Your 2 non-Traveller neighbours might register as evil & as Outsiders.",
+    "flavor": "Don't worry about my associates.",
+    "firstNight": 24,
+    "otherNight": 27
+  },
+  {
+    "id": "dullahan_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/dullahan_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/dullahan_g_winningclub.png"
+    ],
+    "otherNightReminder": "They choose a player. ",
+    "reminders": [
+      "Dead",
+      "Dead",
+      "Dullahan's Deception"
+    ],
+    "name": "Dullahan Ω",
+    "team": "demon",
+    "ability": "Each night*, choose a player: they die. You & 1 Townsfolk neighbor register as a character of the opposite alignment to Townsfolk abilities.",
+    "flavor": "It is too late now. Death is coming and they are blind. You may know everything, but they will never believe you.",
+    "otherNight": 29
+  },
+  {
+    "id": "sinofgluttony_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/sinofgluttony_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/sin_of_gluttony_g_winningclub.png"
+    ],
+    "firstNightReminder": "Every other night, they choose 3 players. Kill the first 2 sometime in the next 2 nights & the last one sometime in the next 2 days.",
+    "otherNightReminder": "Every other night, they choose 3 players. Kill the first 2 sometime in the next 2 nights & the last one sometime in the next 2 days.",
+    "reminders": [
+      "Dead",
+      "Dead",
+      "Dead",
+      "Midnight Snacks",
+      "Midnight Snacks",
+      "Midnight Snacks",
+      "Midnight Snacks",
+      "Lunch",
+      "Lunch"
+    ],
+    "name": "Sin of Gluttony Ω",
+    "team": "demon",
+    "ability": "Each other night, choose three players: the first two will die at any time within the next two nights & the third might die at any time during the next two days.",
+    "flavor": "You all look so tasty, it would be a shame to let you go to waste... ",
+    "firstNight": 25,
+    "otherNight": 28
+  }
+]

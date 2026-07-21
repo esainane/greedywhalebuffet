@@ -1,0 +1,70 @@
+[
+  {
+    "id": "bingbong_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/bingbong_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/bingbong_e_winningclub.png"
+    ],
+    "reminders": [
+      "Real Friend"
+    ],
+    "name": "Bing Bong",
+    "team": "townsfolk",
+    "ability": "You start knowing a player. When they die, you die instead & they can't change alignment & might not die from now on. ",
+    "firstNightReminder": "They learn a player.",
+    "flavor": "Take her to the moon for me."
+  },
+  {
+    "id": "secretary_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/secretary_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/secretary_e_winningclub.png"
+    ],
+    "firstNightReminder": "Show them 2 in-play characters.",
+    "reminders": [
+      "Knows",
+      "Knows"
+    ],
+    "name": "Secretary",
+    "team": "townsfolk",
+    "ability": "You start knowing two in-play characters.",
+    "flavor": "Yes, Karen, the manager is on their way.",
+    "firstNight": 15
+  },
+  {
+    "id": "quitter_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/quitter_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/quitter_e_winningclub.png"
+    ],
+    "firstNightReminder": "They choose a player.",
+    "reminders": [
+      "Rage Quit!"
+    ],
+    "name": "Quitter",
+    "team": "outsider",
+    "ability": "On your 1st night, choose a player (not yourself): If they die, you can no longer vote on any nominations, even if you are dead.",
+    "flavor": "“We just lost our greatest information.. Evil must be stomping, there’s no more point in trying.”",
+    "firstNight": 17
+  },
+  {
+    "id": "chocolatier_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/chocolatier_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/chocolatier_g_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/chocolatier_e_winningclub.png"
+    ],
+    "firstNightReminder": "Tell them 2 phrases & what happens if they say each phrase.",
+    "reminders": [
+      "?",
+      "?",
+      "?",
+      "?"
+    ],
+    "name": "Chocolatier",
+    "team": "traveller",
+    "ability": "You start knowing 2 phrases & what happens when you say each for the first time phrase. Once you say a phrase, you immediately die if you say the other.",
+    "flavor": "White chocolate is SOOOOOOOOOOOOOOOOOOO good. But I see that dark chocolate eyeing me in the corner... stawp ittttt.",
+    "firstNight": 16
+  }
+]

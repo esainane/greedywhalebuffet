@@ -1,0 +1,91 @@
+[
+  {
+    "id": "grbh2",
+    "name": "Clergyman Ω",
+    "image": [
+      "https://user-images.klutzbanana.com/ttlk5o6xmq3ggssptcjq4oip.png",
+      "https://user-images.klutzbanana.com/iu4uxsww3tcd1g414hswe8cp.png"
+    ],
+    "team": "townsfolk",
+    "ability": "You start knowing all other clergymen. If one of you dies, the others might die as well. [+0 or +2 Clergymen]",
+    "flavor": "The church bell tolls. The masses gather. Choruses of choirboys and members of the clergy echo throughout the town. Devout believers of HIM join us in this heavenly parade. I thank you dear child for opening your arms to HIS embrace.",
+    "firstNight": 1,
+    "otherNight": 1,
+    "firstNightReminder": "Wake the Clergyman and tell them if there are any other clergymen and who they are.",
+    "otherNightReminder": "If a clergyman died tonight, the others might die.",
+    "reminders": [
+      "Dead"
+    ]
+  },
+  {
+    "id": "e7nfw",
+    "name": "Shepherd Ω",
+    "team": "townsfolk",
+    "ability": "Each night*, choose a Demon character: if in-play, you die.",
+    "flavor": "It is my duty as a Shepherd to guide these Lambs to a safer place, even if I lose myself in the process.",
+    "firstNight": 0,
+    "otherNight": 1,
+    "otherNightReminder": "The Shepherd might choose a demon."
+  },
+  {
+    "id": "xgl2d",
+    "name": "Yes Dashii Ω",
+    "image": [
+      "https://user-images.klutzbanana.com/z4zb5ed8sy3ey2yfhq2omw3k.png",
+      "https://user-images.klutzbanana.com/queucuwhbj1ixybxwcg3v7ha.png"
+    ],
+    "team": "townsfolk",
+    "ability": "Both of your townsfolk neighbors are sober and healthy.",
+    "flavor": "“By the virtues of Arnoch, I feel thy light scent. By the blessed moon and his pleasant few of large frowning mortals, I purify thee. By the cursed day and the revealed heights of the delightful and holy land, I begin thy aristocratic death underneath this void.”",
+    "firstNight": 0,
+    "otherNight": 0,
+    "reminders": [
+      "Sober"
+    ]
+  },
+  {
+    "id": "gj4ld",
+    "name": "Reflector Ω",
+    "team": "outsider",
+    "ability": "Each night, the first player’s ability to target you is instead reflected onto another player.",
+    "flavor": "Mayor under house arrest… :P",
+    "firstNight": 0,
+    "otherNight": 0,
+    "reminders": [
+      "Reflected"
+    ]
+  },
+  {
+    "id": "snk61",
+    "name": "Joe Ω",
+    "image": [
+      "https://user-images.klutzbanana.com/ukajti0iro74zb7njkajhe4g.png",
+      "https://user-images.klutzbanana.com/yulv5gd750wvo7w2uns5gj0f.png"
+    ],
+    "team": "minion",
+    "ability": "If you claim “Joe”, the storyteller will execute you at anytime of their choosing before the end of that day. This ability is disabled when 5 or fewer players remain.",
+    "flavor": "I’m just Joeking…",
+    "firstNight": 0,
+    "otherNight": 0,
+    "reminders": [
+      "Claimed"
+    ]
+  },
+  {
+    "id": "o2c2o",
+    "name": "Sniper Ω",
+    "image": [
+      "https://user-images.klutzbanana.com/czem9ucdri22ue7rhnz0arpm.png",
+      "https://user-images.klutzbanana.com/t9y6jvrjqrg01i569bhrcsbr.png"
+    ],
+    "team": "minion",
+    "ability": "Twice per game, during nominations, privately message the storyteller to guess a player’s role. If correct, the guessed player dies immediately.",
+    "flavor": "That’s why you shouldn’t hard claim on Day 1…",
+    "firstNight": 0,
+    "otherNight": 0,
+    "reminders": [
+      "One Shot",
+      "No Ability"
+    ]
+  }
+]

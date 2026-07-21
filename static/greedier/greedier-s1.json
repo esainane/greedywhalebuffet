@@ -1,0 +1,62 @@
+[
+  {
+    "id": "jester_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/jester_leftovers_whoops.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/jester_e_leftovers_whoops.png"
+    ],
+    "reminders": [
+      "Claimed"
+    ],
+    "name": "Jester",
+    "team": "outsider",
+    "ability": " If you are executed after voting on yourself & claim Jester, all other players of your alignment switch & your team wins.",
+    "flavor": "Gobble gobble gobble. -Satyr"
+  },
+  {
+    "id": "hypnotist_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hypnotist_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hypnotist_g_winningclub.png"
+    ],
+    "otherNightReminder": "Send fake night cards as you want to players who were disruptive, broke madness or to anyone after an evil player is executed & dies.",
+    "reminders": [
+      "Hypnotized",
+      "Hypnotized",
+      "Hypnotized",
+      "Hypnotized",
+      "Hypnotized",
+      "Hypnotized",
+      "Hypnotized"
+    ],
+    "name": "Hypnotist",
+    "team": "minion",
+    "ability": "Each night*, players might recieve false night cards if they are disruptive in town, break madness, or after an evil player is executed & dies.",
+    "flavor": "Town is towning so hard right now -Nic",
+    "otherNight": 3
+  },
+  {
+    "id": "unfathomable_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/unfathomable_leftovers_whoops.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/unfathomable_g_leftovers_whoops.png"
+    ],
+    "firstNightReminder": "They choose a player. Deaths each night are arbitrary.",
+    "otherNightReminder": "They choose a player. Deaths each night are arbitrary.",
+    "reminders": [
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead",
+      "Dead"
+    ],
+    "name": "Unfathomable",
+    "team": "demon",
+    "ability": "Each night, you may choose a player to guide the ST's decisions. Deaths each night are arbitrary.",
+    "flavor": "Your destiny is held firm no longer.",
+    "firstNight": 11,
+    "otherNight": 2
+  }
+]

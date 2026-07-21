@@ -170,6 +170,32 @@ export function getMetaEntry(data: Readonly<ScriptData>): MetaEntry | null {
 }
 
 /**
+ * Find a character in script data.
+ */
+export function findCharacterId(
+	id: string, data: ScriptData, fetchedData: FetchedData,
+): string {
+	const baseId = getBaseCharacterId(id, fetchedData);
+	const customId = getCustomCharacterId(baseId, fetchedData);
+
+	const needle = [id, baseId, customId];
+
+	// Return existing full object if already expanded (base or custom ID).
+	const existing = data.find(
+		(entry) =>
+			typeof entry === 'object' &&
+			entry !== null &&
+			'id' in entry &&
+			needle.includes((entry as CharacterEntry).id),
+	) as CharacterEntry | undefined;
+	if (existing) {
+		return existing.id;
+	}
+
+	return baseId;
+}
+
+/**
  * Find or expand a character in script data.
  * If the character is referenced as a string ID, expand it to a full object.
  */

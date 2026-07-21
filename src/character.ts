@@ -6,6 +6,15 @@ import type { ScriptData, CharacterEntry, Character, MetaEntry } from './types.j
 import { FILTERABLE_TEAMS, COMMON_BANS, CUSTOM_CHARACTER_ID_SUFFIX } from './constants.js';
 import type { FetchedData } from './data/fetched.js';
 
+function isMetaEntry(value: unknown): value is MetaEntry {
+	if (typeof value !== 'object' || value === null || Array.isArray(value)) {
+		return false;
+	}
+
+	const entry = value as { id?: unknown; name?: unknown };
+	return entry.id === '_meta' && typeof entry.name === 'string';
+}
+
 /**
  * Get base character ID from a potentially custom ID.
  */
@@ -84,8 +93,9 @@ export function getImageArray(entry: CharacterEntry, fetchedData: FetchedData): 
 export function getCharacters(data: Readonly<ScriptData>, fetchedData: FetchedData): Character[] {
 	const characters: Character[] = [];
 	const roles = fetchedData.getRolesData();
+	const startIndex = getMetaEntry(data) ? 1 : 0;
 
-	for (let i = 1; i < data.length; i++) {
+	for (let i = startIndex; i < data.length; i++) {
 		const entry = data[i];
 
 		if (typeof entry === 'string') {
@@ -152,7 +162,11 @@ export function splitCharactersByCommonBans(
  * Get metadata entry from script data.
  */
 export function getMetaEntry(data: Readonly<ScriptData>): MetaEntry | null {
-	return Array.isArray(data) ? (data[0] as MetaEntry) ?? null : null;
+	if (!Array.isArray(data) || data.length === 0) {
+		return null;
+	}
+
+	return isMetaEntry(data[0]) ? data[0] : null;
 }
 
 /**

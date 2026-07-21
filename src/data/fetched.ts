@@ -23,6 +23,16 @@ class BidirectionalMap {
 	 * Set a mapping in both directions atomically.
 	 */
 	set(key: string, value: string): void {
+		const previousValue = this.forward.get(key);
+		if (previousValue !== undefined && previousValue !== value) {
+			this.reverse.delete(previousValue);
+		}
+
+		const previousKey = this.reverse.get(value);
+		if (previousKey !== undefined && previousKey !== key) {
+			this.forward.delete(previousKey);
+		}
+
 		this.forward.set(key, value);
 		this.reverse.set(value, key);
 	}

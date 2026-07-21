@@ -1,0 +1,18 @@
+{
+	"json.schemas": [
+		{
+			"fileMatch": [
+				"/static/greedy.json",
+				"/static/roles.json",
+			],
+			"url": "./schemas/script-schema.json"
+		},
+		{
+			"fileMatch": [
+				"/static/greedy_jinxes.json",
+				"/static/jinxes.json",
+			],
+			"url": "./schemas/jinx-schema.json"
+		}
+	]
+}

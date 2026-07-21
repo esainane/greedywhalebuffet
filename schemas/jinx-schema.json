@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "default": [],
+  "title": "Blood on the Clocktower Supplementary Script Jinxes",
+  "minItems": 0,
+  "maxItems": 201,
+  "items": {
+    "oneOf": [
+      {
+        "type": "object",
+        "title": "Script Character",
+        "required": [
+          "id",
+					"jinx"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "title": "Character ID, alphanumeric lowercase",
+            "maxLength": 50,
+            "examples": [
+              "washerwoman",
+              "lilmonsta",
+              "fanggu",
+              "alhadikhia"
+            ]
+          },
+          "jinx": {
+            "type": "array",
+            "title": "Jinxes with other characters on this script",
+            "items": {
+              "type": "object",
+              "title": "An individual Jinx pair",
+              "required": [
+                "id",
+                "reason"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "title": "The ID of the other character this one is jinxed with.",
+                  "maxLength": 50,
+                  "examples": [
+                    "spy",
+                    "fanggu",
+                    "lilmonsta"
+                  ]
+                },
+                "reason": {
+                  "type": "string",
+                  "title": "The Jinx explanation",
+                  "maxLength": 500,
+                  "examples": [
+                    "If the Cannibal gains the Butler ability, the Cannibal learns this.",
+                    "The Mathematician learns if the Lunatic attacks a different player(s) than the real Demon attacked."
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "examples": [
+          {
+            "id": "alhadikhia",
+            "jinx": [
+              {
+                "id": "mastermind",
+                "reason": "If the Al-Hadikhia dies by execution, and the Mastermind is alive, the Al-Hadikhia chooses 3 good players tonight: if all 3 choose to live, evil wins. Otherwise, good wins."
+              },
+              {
+                "id": "princess",
+                "reason": "If the Princess nominated & executed a player on their 1st day, no one dies to the Al-Hadikhia tonight."
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

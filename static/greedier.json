@@ -1671,7 +1671,7 @@
     "name": "Vigormortis",
     "team": "demon",
     "ability": "Each night*, choose a player: they die. Minions you kill keep their ability & poison 1 Townsfolk neighbor. [-1 Outsider]",
-    "flavor": "The first person to say \"Underrated\" at me will get to pick the quote! You can only choose 1 quote.",
+    "flavor": "Your information? What information?",
     "otherNight": 29
   },
 
@@ -1829,11 +1829,26 @@
 
  {
     "id": "dealerschoice_popppp",
-    "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/dealerschoice_popppp.png",
+    "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/dealerschoice1_popppp.png",
     "name": "Dealer's Choice",
     "team": "fabled",
     "ability": "If a player chooses this during setup, the Storyteller chooses their character.",
-    "flavor": "I got $5 saying Iceni is the Wraith. $20 saying he's the King."
+    "flavor": "I got $5 saying Iceni is the Wraith. $20 saying he's the King.",
+    "reminders": [
+      "3 Vote",
+      "3 Vote",
+      "3 Vote",
+      "3 Vote",
+      "3 Vote",
+      "3 Vote"
+    ],
+    "special": [
+      {
+        "name": "multiplier",
+        "type": "vote",
+        "value": "3"
+      }
+    ]
   },
 
 
@@ -1863,32 +1878,16 @@
     "name": "Purgatory's Librarian",
     "team": "loric",
     "ability": "If you talk over someone without apologizing, you will be publicly shamed and might have something bad happen to you.",
-    "flavor": "Oh you wanna talk about mothersssss?",
-    "reminders": [
-      "3 Vote",
-      "3 Vote",
-      "3 Vote",
-      "3 Vote",
-      "3 Vote",
-      "3 Vote"
-    ],
-    "special": [
-      {
-        "name": "multiplier",
-        "type": "vote",
-        "value": "3"
-      }
-    ]
+    "flavor": "Oh you wanna talk about mothersssss?"
   },
 
  {
-    "id": "1_poppppp",
-    "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/jinxeslist_popppp.png",
-    "name": "Jinx List",
+    "id": "jinx_popppp",
+    "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/jinx_popppp.png",
+    "name": "Jinx",
     "team": "fabled",
-    "ability": "Our jinxes are on the Discord. Join from this link: https://discord.gg/kZC9gyWFye",
-     "reminders": [
-      "5 Vote",
+    "ability": "This QR directs to our Jinxes. The jinxes are also on our discord server, here is the link: https://discord.gg/Px3wvyGC4w",
+    "reminders": [
       "5 Vote",
       "5 Vote",
       "5 Vote",
@@ -1896,7 +1895,7 @@
       "5 Vote",
       "5 Vote"
     ],
-    "special": [
+ "special": [
       {
         "name": "multiplier",
         "type": "vote",
@@ -1904,7 +1903,6 @@
       }
     ]
   },
-
 
 
 

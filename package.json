@@ -1,11 +1,13 @@
 {
   "name": "parcel-vanilla-starter",
   "private": true,
+  "type": "module",
   "version": "0.0.0",
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
+    "lint": "eslint src --max-warnings=0",
     "type-check": "tsc --noEmit"
   },
   "staticFiles": {

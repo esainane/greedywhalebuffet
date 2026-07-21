@@ -10,7 +10,7 @@ export default defineConfig([
 	]),
 
 	{
-		files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
+		files: ["**/*.{js,mjs,cjs,jsx,ts,mts,cts,tsx}"],
 
 		extends: [
 			js.configs.recommended,

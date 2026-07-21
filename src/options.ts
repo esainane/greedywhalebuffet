@@ -40,15 +40,6 @@ export const GENERATION_OPTIONS: readonly OptionConfig[] = [
 			'Adds all vanilla Blood on the Clocktower official jinxes to the generated script sheet.',
 	},
 	{
-		id: 'revert-recluse-marionette-jinx',
-		name: 'revertRecluseMarionetteJinx',
-		label: 'TODO: Revert Recluse-Marionette jinx',
-		defaultChecked: false,
-		helpText:
-			'Restores the removed Recluse-Marionette jinx behavior so a Marionette may neighbor the Recluse again.',
-		dependsOn: ['list-official-jinxes'],
-	},
-	{
 		id: 'list-greedy-jinxes',
 		name: 'listGreedyJinxes',
 		label: 'List Greedy jinxes',

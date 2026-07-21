@@ -50,14 +50,6 @@ export function applyOfficialJinxes(data: ScriptData, fetchedData: FetchedData):
 }
 
 /**
- * Revert Recluse-Marionette jinx.
- * TODO: Implement this functionality.
- */
-export function revertRecluseMarionetteJinx(_data: ScriptData): void {
-	// TODO: Implement Recluse-Marionette jinx revert.
-}
-
-/**
  * Apply Greedy-specific jinxes to script data.
  */
 export function applyGreedyJinxes(data: ScriptData, fetchedData: FetchedData): void {
@@ -83,10 +75,6 @@ export function applyOptions(data: ScriptData, options: GenerationOptions, fetch
 
 	if (options.listOfficialJinxes) {
 		applyOfficialJinxes(data, fetchedData);
-
-		if (options.revertRecluseMarionetteJinx) {
-			revertRecluseMarionetteJinx(data);
-		}
 	}
 
 	if (options.listGreedyJinxes) {

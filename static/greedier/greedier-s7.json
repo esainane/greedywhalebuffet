@@ -1,0 +1,76 @@
+[
+  {
+    "id": "hulijing_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hulijing_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hulijing_g_winningclub.png"
+    ],
+    "firstNightReminder": "Show them 5 out of play characters. They choose 1 of the characters. Run their ability as needed.",
+    "otherNightReminder": "They choose 1 of the characters. Run their ability as needed.",
+    "name": "Huli Jing Ω",
+    "team": "minion",
+    "ability": "You start knowing 5 out-of-play characters. Each night, choose one of them: you have its ability & might register as it would until dusk.",
+    "flavor": "For shame! How dare you accuse me of being a mischievous fox spirit when I have been nothing but loyal as your… uhm, baker? Wait, no, I misspoke, I’m a fisherwoman.",
+    "firstNight": 20,
+    "otherNight": 20
+  },
+  {
+    "id": "daki_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/daki_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/daki_g_winningclub.png"
+    ],
+    "otherNightReminder": "They choose a player. If a player has become Gyutaro, tell them. ",
+    "reminders": [
+      "Dead"
+    ],
+    "name": "Daki Ω",
+    "team": "demon",
+    "ability": "Each night*, choose a player (not yourself): they die. If 5 or more players are alive & you die, a player becomes an evil Gyutaro. ",
+    "flavor": "We beautiful, powerful demons can do whatever we want! ",
+    "otherNight": 18
+  },
+  {
+    "id": "gyutaro_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/gyutaro_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/gyutaro_g_winningclub.png"
+    ],
+    "otherNightReminder": "They choose a player. If it was the first time an evil player was executed today, tell a good player Gyutaro is in-play.",
+    "reminders": [
+      "Dead",
+      "Reveal Tonight"
+    ],
+    "name": "Gyutaro Ω",
+    "team": "demon",
+    "ability": "Each night*, choose a player, they might die. The first time an evil player is executed, a good player learns you are in-play tonight. [This cannot be chosen during setup]",
+    "flavor": "The two of us, together, we’re invincible. We can stand the cold. We can stand the hunger.",
+    "otherNight": 19
+  },
+  {
+    "id": "rasputin_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/rasputin_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/rasputin_g_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/rasputin_e_winningclub.png"
+    ],
+    "reminders": [
+      "Chosen"
+    ],
+    "name": "Rasputin Ω",
+    "team": "traveller",
+    "ability": "You are a co-storyteller. Each night, you may choose the information given to a player. You can not speak (except to the storyteller) or vote.",
+    "flavor": "Oh, those ravenswoodbluffians..."
+  },
+  {
+    "id": "hopeful_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hopeful1_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hopeful_e1_winningclub.png"
+    ],
+    "name": "Hopeful Ω",
+    "team": "townsfolk",
+    "ability": "If evil has won, publicly guess each players character: if correct, good wins instead, even if dead.",
+    "flavor": "Dum Spiro, Spero."
+  }
+]

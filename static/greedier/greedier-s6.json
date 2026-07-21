@@ -1,0 +1,75 @@
+[
+  {
+    "id": "portiafeatherington_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/portiafeatherington_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/portia_e_winningclub.png"
+    ],
+    "otherNightReminder": "They swap alignment. Tell them",
+    "name": "Portia Featherington",
+    "team": "outsider",
+    "ability": "Each night*, swap alignment, even if dead.",
+    "flavor": "Nothing makes the ton come alive like a fresh scandal.",
+    "otherNight": 16
+  },
+  {
+    "id": "baffler_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baffler_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baffler_g_winningclub.png"
+    ],
+    "firstNightReminder": "They choose a player. The chosen player chooses which convoluted way they must speak.",
+    "otherNightReminder": "They choose a player. The chosen player chooses which convoluted way they must speak.",
+    "reminders": [
+      "Baffled!",
+      "Baffled!",
+      "Baffled!",
+      "Baffled!",
+      "Baffled!"
+    ],
+    "name": "Baffler",
+    "team": "minion",
+    "ability": "Each night, choose a living player: tomorrow, they must vote for every nomination as long as there are 5 or more players alive & must speak in rhymes, riddles, or another convoluted way, or might be executed.",
+    "flavor": "The guzzling puzzle is a perplexing muzzle.",
+    "firstNight": 18,
+    "otherNight": 14
+  },
+  {
+    "id": "baroness_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baroness_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baroness_g_winningclub.png"
+    ],
+    "otherNightReminder": "They choose a player. ",
+    "reminders": [
+      "Dead",
+      "Dead",
+      "Dead"
+    ],
+    "name": "Baroness",
+    "team": "demon",
+    "ability": "Each night*, choose a player: they might die. Good Minions do not learn or are shown in Minion or Demon info. [0 Townfolk. +0 to +2 Good Minions]",
+    "flavor": "Not my circus, not my monkeys. But I'm the ringmaster of this carnival and, I promise, it is the greatest show you are ever going to see.",
+    "otherNight": 17
+  },
+  {
+    "id": "monkeyspaw_winningclub",
+    "image": "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/monkeyspaw_winningclub.png",
+    "firstNightReminder": "Ask a player to potentially make a wish. Run it as possible.",
+    "otherNightReminder": "Ask a player to potentially make a wish. Run it as possible.",
+    "reminders": [
+      "Tempted",
+      "Tempted",
+      "Tempted",
+      "?",
+      "?",
+      "?"
+    ],
+    "name": "Monkey's Paw",
+    "team": "loric",
+    "ability": "Each night, a player might be told they may make a wish. The wish, if granted, might have a price, leave a clue as to its nature, or be granted unfavorably.",
+    "flavor": "Never mind, dear... perhaps you'll win the next one.",
+    "firstNight": 19,
+    "otherNight": 15
+  }
+]

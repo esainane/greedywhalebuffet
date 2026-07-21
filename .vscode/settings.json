@@ -9,6 +9,12 @@
 		},
 		{
 			"fileMatch": [
+				"/static/greedier/*.json",
+			],
+			"url": "./schemas/script-extra-schema.json"
+		},
+		{
+			"fileMatch": [
 				"/static/greedy_jinxes.json",
 				"/static/jinxes.json",
 			],

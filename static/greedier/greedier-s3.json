@@ -1,0 +1,94 @@
+[
+  {
+    "id": "immortalized_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/immortalized_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/immortalized_e_winningclub.png"
+    ],
+    "otherNightReminder": "If they die, they gain a Townsfolk ability. They learn it & might use it tonight.",
+    "reminders": [
+      "Has Ability"
+    ],
+    "name": "Immortalized",
+    "team": "townsfolk",
+    "ability": "If you die at night, you gain a Townsfolk ability (you learn it), you keep this ability, even if dead.",
+    "flavor": "Those with a legacy larger than their life are the only that are truly successful.",
+    "otherNight": 9,
+    "remindersGlobal": [
+      "Is the Immortalized",
+      "Is the Immortalized",
+      "Is the Immortalized",
+      "Is the Immortalized",
+      "Is the Immortalized",
+      "Is the Immortalized"
+    ],
+    "setup": true,
+    "special": [
+      {
+        "name": "replace-character",
+        "type": "reveal"
+      }
+    ]
+  },
+  {
+    "id": "pathologist_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/pathologist_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/pathologist_e_winningclub.png"
+    ],
+    "reminders": [
+      "Chosen"
+    ],
+    "name": "Pathologist",
+    "team": "townsfolk",
+    "ability": "Each night*, choose a player: if they die tonight, learn which character killed them.",
+    "flavor": "Eyewitness account report that the victim died while in the middle of rolling dies; perhaps due to a stress-induced cardiac arrest. Interesting, there is a scratch mark on the victim's wrist and almost untraceable slow-acting poison in their system. It'd seem our gambler die not of bad gambling skills but of demonic poison!",
+    "otherNightReminder": "They choose a player. If that player dies, tell the Pathologist which character killed the chosen player."
+  },
+  {
+    "id": "hypochondriac_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hypochondriac_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hypochondriac_e_winningclub.png"
+    ],
+    "firstNightReminder": "Tell the Hypochondriac their Townsfolk ability. Run their ability accordingly.",
+    "otherNightReminder": "Run their ability accordingly.",
+    "name": "Hypochondriac",
+    "team": "outsider",
+    "ability": "You have a Townsfolk ability. You are mad you have false information or you might be executed.",
+    "flavor": "I think I'm poisoned! -Orpheus",
+    "firstNight": 13,
+    "otherNight": 8,
+    "remindersGlobal": [
+      "Is the Hypochondriac",
+      "Is the Hypochondriac",
+      "Is the Hypochondriac",
+      "Is the Hypochondriac",
+      "Is the Hypochondriac",
+      "Is the Hypochondriac"
+    ],
+    "setup": true,
+    "special": [
+      {
+        "name": "replace-character",
+        "type": "reveal"
+      }
+    ]
+  },
+  {
+    "id": "lolth_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/lolth_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/lolth_g_winningclub.png"
+    ],
+    "otherNightReminder": "They choose a player.",
+    "reminders": [
+      "Dead"
+    ],
+    "name": "Lolth",
+    "team": "demon",
+    "ability": "Each night*, choose a player: they die. [-X Minions, X+1 Townsfolk are Evil]",
+    "flavor": "Kill for me. Die for me. You just might earn my favour...",
+    "otherNight": 10
+  }
+]

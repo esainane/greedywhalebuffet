@@ -2,7 +2,7 @@
   {
     "id": "_meta",
     "author": "kianu",
-    "name": "Greedier Whalebuffet+ v2 - Set 13",
+    "name": "Greedier Whalebuffet+ v2",
     "firstNight": [
       "dusk",
       "shushingstick_popppp",
@@ -84,6 +84,7 @@
       "vizier_popppp"
     ],
     "otherNight": [
+      "e7nfw",
       "dusk",
       "hermit_popppp",
       "cacklejack_day2",
@@ -106,7 +107,6 @@
       "wizard_popppp",
       "gambler",
       "acrobat",
-      "e7nfw",
       "snakecharmer",
       "monk",
       "organgrinder",
@@ -568,7 +568,7 @@
   "washerwoman",
   {
     "id": "grbh2",
-    "name": "Clergyman",
+    "name": "Clergyman Ω",
     "image": [
       "https://user-images.klutzbanana.com/ttlk5o6xmq3ggssptcjq4oip.png",
       "https://user-images.klutzbanana.com/iu4uxsww3tcd1g414hswe8cp.png"
@@ -584,10 +584,9 @@
       "Dead"
     ]
   },
-  "magician",
   {
     "id": "e7nfw",
-    "name": "Shepherd",
+    "name": "Shepherd Ω",
     "team": "townsfolk",
     "ability": "Each night*, choose a Demon character: if in-play, you die.",
     "flavor": "It is my duty as a Shepherd to guide these Lambs to a safer place, even if I lose myself in the process.",
@@ -597,7 +596,7 @@
   },
   {
     "id": "xgl2d",
-    "name": "Yes Dashii",
+    "name": "Yes Dashii Ω",
     "image": [
       "https://user-images.klutzbanana.com/z4zb5ed8sy3ey2yfhq2omw3k.png",
       "https://user-images.klutzbanana.com/queucuwhbj1ixybxwcg3v7ha.png"
@@ -866,7 +865,7 @@
   "zealot",
   {
     "id": "gj4ld",
-    "name": "Reflector",
+    "name": "Reflector Ω",
     "team": "outsider",
     "ability": "Each night, the first player’s ability to target you is instead reflected onto another player.",
     "flavor": "Mayor under house arrest… :P",
@@ -1167,7 +1166,7 @@
   "xaan",
   {
     "id": "snk61",
-    "name": "Joe",
+    "name": "Joe Ω",
     "image": [
       "https://user-images.klutzbanana.com/ukajti0iro74zb7njkajhe4g.png",
       "https://user-images.klutzbanana.com/yulv5gd750wvo7w2uns5gj0f.png"
@@ -1183,7 +1182,7 @@
   },
   {
     "id": "o2c2o",
-    "name": "Assassin",
+    "name": "Sniper Ω",
     "image": [
       "https://user-images.klutzbanana.com/czem9ucdri22ue7rhnz0arpm.png",
       "https://user-images.klutzbanana.com/t9y6jvrjqrg01i569bhrcsbr.png"

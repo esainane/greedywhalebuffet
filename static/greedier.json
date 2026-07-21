@@ -503,7 +503,21 @@
 
 
 
-  "mayor",
+  {
+  "id": "mayor_mayor",
+  "name": "Mayor Ω",
+  "image": [
+    "https://user-images.klutzbanana.com/t8l09cni5taf77whss4b401p.png",
+    "https://user-images.klutzbanana.com/ok4jaac7r1pbp9edrhrqtg8m.webp"
+  ],
+  "team": "townsfolk",
+  "edition": "gwb",
+  "ability": "If only 3 players live (travellers don't count) & no execution occurs, your team wins. If you die at night, another player might die instead.",
+  "flavor": "The first player to come up to Kianu and say \"Dollar\" can change this Flavor text.",
+  "setup": false
+},
+
+
   "minstrel",
   "monk",
   "nightwatchman",
@@ -798,11 +812,12 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/evil_heretic_popppp.png"
     ],
     "team": "outsider",
-    "ability": "Whoever wins, loses & whoever loses, wins, even if you are dead. If only evil players are alive, good wins (this is not reversed by your ability).",
+    "ability": "Whoever wins, loses, & whoever loses, wins, even if you are dead. If only evil players are alive, evil wins.",
     "flavor": "I swear if it's a Heretic game. -Mole",
     "firstNight": 0,
     "otherNight": 0
   },
+
 
 
 

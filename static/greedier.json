@@ -1808,8 +1808,8 @@
 
   {
     "id": "suitor_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/suitor_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/suitor_e_winningclub.png" ],
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/suitor1_winningclub.png",
+ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/suitor_e1_winningclub.png" ],
     "firstNightReminder": "They choose a character. Tell them if it's in play.",
     "otherNightReminder": "They choose a character. Tell them if it's in play.",
     "reminders": [

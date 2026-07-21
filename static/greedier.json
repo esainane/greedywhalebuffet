@@ -1660,7 +1660,7 @@
 
 {
     "id": "choose_a_own_trv",
-    "name": "Choose a Traveller",
+    "name": "Choose a Traveller Ω",
     "team": "traveller",
     "ability": "On the 1st night, choose a Traveller character to become.",
     "firstNight": 1,
@@ -1679,83 +1679,7 @@
   },
 
 
-
-
-
-  "apprentice",
-  "barista",
-  "beggar",
-  "bishop",
-  "bonecollector",
-  "bureaucrat",
-  "butcher",
-
-
-
-
-
-  {
-    "id": "cacklejack_day2",
-    "name": "Cacklejack",
-    "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/cacklejack_normal_leftovers_whoops.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/cacklejack_g_leftovers_whoops.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/cacklejack_e_leftovers_whoops.png"
-    ],
-    "team": "traveller",
-    "ability": "Each day, choose a player: a different player changes character tonight.",
-    "flavor": "\"Wire α To wire β. LigHt oN. BuZZer off. GAzOinks! Arms STra1ght. FingER 2 nose. hOooLd stiLL. BoiNgo-banGo!LABRASKA Ha-ha-ha!\\",
-    "firstNight": 0,
-    "otherNight": 2,
-    "otherNightReminder": "At ANY point in the night, change a character besides the Cacklejack chosen player into a different character.",
-    "reminders": [
-      "Not Me!"
-    ]
-  },
-
-
-
-
-
-
-
-
-
-
-
-
-  "deviant",
-  "gangster",
-  "gnome",
-  "gunslinger",
-  "harlot",
-  "judge",
-  "matron",
-
-
-
-
-
-
-
-
-
- "scapegoat",
-  "thief",
-  "voudon",
-
-
-
-
-
-
-
-
-
   "gardener",
-  "bootlegger",
-
-
 
 
 
@@ -1809,37 +1733,6 @@
     ]
   },
 
-
-
-
-
-
-
-
-
-
-
-
-
-{
-    "id": "purgatoryslibrarian_popppp",
-    "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/purgatoryslibrarian_popppp.png",
-    "reminders": [
-      "Something Bad",
-      "Something Bad",
-      "Something Bad",
-      "Something Bad",
-      "Something Bad",
-      "Something Bad",
-      "Something Bad",
-      "Something Bad"
-    ],
-    "name": "Purgatory's Librarian Ω",
-    "team": "loric",
-    "ability": "If you talk over someone without apologizing, you will be publicly shamed and might have something bad happen to you.",
-    "flavor": "Oh you wanna talk about mothersssss?"
-  },
-
  {
     "id": "jinx_popppp",
     "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/jinx_popppp.png",
@@ -1865,28 +1758,6 @@
 
 
 
-
-
-{
-    "id": "masterbaiter_popppp",
-    "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/masterbaiter_popppp.png",
-    "name": "Jabaiter Ω",
-    "team": "loric",
-    "ability": "If you bait someone, something bad might happen to you. The Storyteller determines what 'baiting' refers to.",
-    "flavor": "Silly Caucasian girl playing with samurai swords."
-  },
-
-  {
-    "id": "shushingstick_popppp",
-    "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/shushingstick_popppp.png",
-    "name": "Shushing-Stick Ω",
-    "team": "loric",
-   "firstNightReminder": "Announce how many players you will let have pertinent per nomination.",
-    "ability": "The Storyteller announces how many players may have 'pertinent' per nomination at the start of the game. If a player talks too long or deviates from topic during 'pertinent' or before nominations they may be skipped.",
-    "flavor": "Shut up. Like, please."
-  },
-
-
   {
     "id": "fussy1_popppp",
     "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/fussy1_popppp.png",
@@ -1895,6 +1766,7 @@
     "ability": "One or more characters might be publicly banned before players start selecting.",
     "flavor": "I'd like a cheeseburger without cheese, please."
   },
+
 
 
 
@@ -2027,7 +1899,7 @@
     ],
     "name": "Ban Hammer Ω",
     "team": "fabled",
-    "ability": "If you have to be told to be quiet, stop being disruptive, stop interrupting people or anything of the sort more than once, the Storyteller may kick you. If a player is kicked or has to leave, a player of your alignment has 2 votes & gains your ability for as long as your seat lives.",
+    "ability": "If the Storyteller deems a player a threat to the peaceful, fun environment of a Greedy lobby (overtalking, misgendering, talking for too long, baiting players), the player may be kicked or de-seated. The Storyteller can change the game as needed to balance any player's absence.",
     "flavor": "I'm tired of seeing Tean get disrespected -Kianu",
     "special": [
       {

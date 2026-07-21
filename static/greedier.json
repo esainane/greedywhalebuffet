@@ -114,7 +114,6 @@
       "pithag_ultimate",
       "witch",
       "cerenovus_popppp",
-      "snitch_wewew",
       "fearmonger",
       "harpy",
       "mezepheles",
@@ -196,7 +195,7 @@
 "There are Homebrew characters.",
 "The Drunk, Lunatic, and Marionette cannot be chosen, but can be given.",
 "*If a player chooses Choirboy, Alchemist, Amnesiac, Village Idiot, Kazali or Legion, other players may not get the character they asked for.",
-"For selection, the Atheist and Summoner count as your Demon choices. If you choose Atheist, Legion or Lil Monsta in your Demon picks you MUST pick another Demon not listed. If you choose 1 of the following characters for selection, you cannot choose another: Alchemist, Cult Leader, Engineer, or Philosopher.",      
+"For selection, the Atheist and Summoner count as your Demon choices. If you choose Atheist, Legion or Lil Monsta in your Demon picks you MUST pick another Demon not listed. If you choose 1 of the following characters for selection, you cannot choose another: Alchemist, Cult Leader, or Philosopher.",      
 "The Huntsman, Philosopher, Soldier, Courtier, Summoner, Wizard, Engineer, Cult Leader, Recluse, Hermit, Snitch, Sweetheart, Pit-Hag, and Psychopath abilities are adjusted."
     ]
   },
@@ -983,18 +982,16 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/Day6/newcharacter4_day6.png"
     ],
     "team": "outsider",
-    "ability": "Each Minion gets 3 bluffs. If a Minion guesses you during the day, you turn evil tonight. Each Minion has 1 guess.",
+    "ability": "Each Minion starts knowing a different in-play good character.",
     "flavor": "It was Al-Hadashi -Taken Kianu",
-    "firstNight": 16,
-    "otherNight": 29,
-    "firstNightReminder": "After Minion info wake each Minion & show them three not-in-play character tokens. These may be the same or different to each other & the ones shown to the Demon. Show the Snitch one of the bluffs you showed the Minions.",
-    "otherNightReminder": "If a Minion guessed the Snitch, turn their token upside down. Wake them up. Show them 'YOU ARE' & a Thumbs Down.",
+    "firstNightReminder": "Show each Minion a different in-play good character.",
     "reminders": [
-      "Guess Used",
-      "Guess Used",
-      "Guess Used",
-      "Guess Used",
-      "Turns Evil Tonight"
+      "Knows",
+      "Knows",
+      "Knows",
+      "Knows",
+      "Knows",
+      "Knows"
     ]
   },
 
@@ -1603,7 +1600,7 @@
     "name": "Lleech",
     "team": "demon",
     "ability": "Each night*, choose a player: they die. You start by choosing a player: they are poisoned. You die if & only if they are dead.",
-    "flavor": "The first person to say \"Pokemon\" at me will get to pick the quote! You can only choose 1 quote.",
+    "flavor": "'For Science!' said definitely the Sailor -boypower",
     "firstNight": 34,
     "otherNight": 26
   },

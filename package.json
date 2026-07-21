@@ -12,6 +12,9 @@
     "staticOutPath": "."
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^8.65.0",
+    "@typescript-eslint/parser": "^8.65.0",
+    "eslint": "^10.7.0",
     "parcel": "^2.14.0",
     "parcel-reporter-static-files-copy": "^1.5.3",
     "typescript": "^6.0.3"

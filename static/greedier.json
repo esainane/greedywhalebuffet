@@ -1903,7 +1903,18 @@
   "setup": false
 },
 
-
+{
+  "id": "evilOverload",
+  "name": "Evil Overload",
+  "image": [
+    "https://user-images.klutzbanana.com/ymotc6mn7t9s4rjyxebgkcx2.png"
+  ],
+  "team": "fabled",
+  "edition": "gwb",
+  "ability": "If you choose a character that changes alignments of yourself or others, you must choose 1 more of that character type.",
+  "flavor": "The Storyteller would like to remind everyone that this was not a good idea.",
+  "setup": false
+},
  {
     "id": "banhammer_popppp",
     "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/banhammer_popppp.png",

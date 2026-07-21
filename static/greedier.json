@@ -192,11 +192,10 @@
 
     "bootlegger": [
       "The Demon doesn't get bluffs.",
-"There are Homebrew characters.",
-"The Drunk, Lunatic, and Marionette cannot be chosen, but can be given.",
+"Any character with Ω in the name is adjusted or a Homebrew character.",
+"The Drunk, Lunatic and Marionette cannot be chosen, but can be given.",
 "*If a player chooses Choirboy, Alchemist, Amnesiac, Village Idiot, Kazali or Legion, other players may not get the character they asked for.",
-"For selection, the Atheist and Summoner count as your Demon choices. If you choose Atheist, Legion or Lil Monsta in your Demon picks you MUST pick another Demon not listed. If you choose 1 of the following characters for selection, you cannot choose another: Alchemist, Cult Leader, or Philosopher.",      
-"The Huntsman, Philosopher, Soldier, Courtier, Summoner, Wizard, Engineer, Cult Leader, Recluse, Hermit, Snitch, Sweetheart, Pit-Hag, and Psychopath abilities are adjusted."
+"For selection, the Atheist and Summoner count as your Demon choices. If you choose Atheist, Legion or Lil Monsta in your Demon picks you MUST pick another Demon not listed. If you choose 1 of the following characters for selection, you cannot choose another: Alchemist, Cult Leader, or Philosopher."    
     ]
   },
 
@@ -329,7 +328,7 @@
       "No Ability",
       "1 Use Left"
     ],
-    "name": "Courtier",
+    "name": "Courtier Ω",
     "team": "townsfolk",
     "ability": "Twice per game, at night, choose a character (different than last time): they are drunk for 3 nights & 3 days.",
     "flavor": "Remember kids, alcohol is poison, and royalty doesn't have to follow the rules! -Aloe"
@@ -342,7 +341,7 @@
 
   {
     "id": "cultleader_popppp",
-    "name": "Cult Leader",
+    "name": "Cult Leader Ω",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/cultleader_popppp.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/cultleader_evil_popppp.png"
@@ -369,7 +368,7 @@
 
   {
     "id": "asdasd_ultimate",
-    "name": "Engineer",
+    "name": "Engineer Ω",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/nothing/engineer_token_nothing.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/nothing/enge_nothing.png"
@@ -420,17 +419,6 @@
 
 
 
-  {
-    "id": "hopeful_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hopeful1_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hopeful_e1_winningclub.png" ],
-    "name": "Hopeful",
-    "team": "townsfolk",
-    "ability": "If evil has won, publicly guess each players character: if correct, good wins instead, even if dead.",
-    "flavor": "Dum Spiro, Spero."
-  },
-
-
 
   {
     "id": "huntsman_popppp",
@@ -443,7 +431,7 @@
 "No Ability"
     ],
     "setup": true,
-    "name": "Huntsman",
+    "name": "Huntsman Ω",
     "team": "townsfolk",
     "ability": "You start knowing an in play Outsider. They can't change character from other abilities. Once per game, at night, choose a player: if you choose that Outsider they become a not in play good Townsfolk. [+0 or +1 Outsider.]",
     "flavor": "You don't get to be the Heretic -TrappedCosmos"
@@ -532,7 +520,7 @@
 
   {
     "id": "philosopher_ultimate",
-    "name": "Philosopher",
+    "name": "Philosopher Ω",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/good_philo_popppp.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/vil_philo_popppp.png"
@@ -575,7 +563,7 @@
 
   {
     "id": "poppygrower_popppp",
-    "name": "Poppy Grower",
+    "name": "Poppy Grower Ω",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/poppygrower_popppp.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/e_poppygrower_popppp.png"
@@ -591,6 +579,7 @@
       "Evil Wakes"
     ]
   },
+
 
 
 
@@ -676,7 +665,7 @@
     "reminders": [
       "Protected"
     ],
-    "name": "Soldier",
+    "name": "Soldier Ω",
     "team": "townsfolk",
     "ability": "You are safe from the Demon. Each night*, if your ability protected you from the Demon, wake up & learn so.",
     "flavor": "As The Spy said to the Heretic, as Mole said to Al-Hadashi, as people believing I’m not the Wraith… No. -Iceni"
@@ -790,7 +779,7 @@
       "Tea Party Tonight",
       "Tea Party Tonight"
     ],
-    "name": "Hatter",
+    "name": "Hatter Ω",
     "team": "outsider",
     "ability": "If you die, at night, choose Minions or Demons. All players of the type you chose picks new characters of the same type to be.",
     "flavor": "10/6 is a much greater number than 6 - 7  -Soril"
@@ -802,7 +791,7 @@
 
   {
     "id": "heretic_popppp",
-    "name": "Heretic",
+    "name": "Heretic Ω",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/heretic_popppp.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/evil_heretic_popppp.png"
@@ -818,9 +807,10 @@
 
 
 
+
   {
     "id": "hermit_popppp",
-    "name": "Hermit",
+    "name": "Hermit Ω",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/hermit_popppp.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/hermit_evil_popppp.png"
@@ -874,13 +864,13 @@
 
   {
     "id": "lunatic_popppp",
-    "name": "Lunatic",
+    "name": "Lunatic Ω",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/lunatic_popppp.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/evillunatic_popppp.png"
     ],
     "team": "outsider",
-    "ability": "You think you are a Demon, but you are not. The Demon knows who you are & who you choose at night.",
+    "ability": "You think you are a Demon, but you are not. The Demon knows you are the Lunatic & who you choose at night.",
     "flavor": "If I'm the Lunatic I'm gonna be very angry -Sam",
     "firstNight": 12,
     "otherNight": 3,
@@ -954,7 +944,7 @@
 
   {
     "id": "recluse_wewew",
-    "name": "Recluse",
+    "name": "Recluse Ω",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/nothing/reclusegood_nothing.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/nothing/recluseevil_nothing.png"
@@ -976,7 +966,7 @@
 
   {
     "id": "snitch_wewew",
-    "name": "Snitch",
+    "name": "Snitch Ω",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/Day6/newcharacter3_day6.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/Day6/newcharacter4_day6.png"
@@ -1001,7 +991,7 @@
 
   {
     "id": "sweetheart_wewew",
-    "name": "Sweetheart",
+    "name": "Sweetheart Ω",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/Day6/good_sweetheart_day6.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/Day6/evil_sweetheart_day6.png"
@@ -1119,19 +1109,7 @@
 
 
 
-  {
-    "id": "hulijing_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hulijing_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hulijing_g_winningclub.png" ],
-    "firstNightReminder": "Show them 5 out of play characters. They choose 1 of the characters. Run their ability as needed.",
-    "otherNightReminder": "They choose 1 of the characters. Run their ability as needed.",
-    "name": "Huli Jing",
-    "team": "minion",
-    "ability": "You start knowing 5 out-of-play characters. Each night, choose one of them: you have its ability & might register as it would until dusk.",
-    "flavor": "For shame! How dare you accuse me of being a mischievous fox spirit when I have been nothing but loyal as your… uhm, baker? Wait, no, I misspoke, I’m a fisherwoman.",
-    "firstNight": 20,
-    "otherNight": 20
-  },
+
 
 
 
@@ -1178,9 +1156,9 @@
 
 
 
-  {
+   {
     "id": "pithag_ultimate",
-    "name": "Pit-Hag",
+    "name": "Pit-Hag Ω",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/Day6/evil_pithag_day6.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/Day6/good_pithag_day6.png"
@@ -1199,7 +1177,6 @@
 
 
 
-
   "poisoner",
 
 
@@ -1208,7 +1185,7 @@
 
   {
     "id": "psychopath_ultimate",
-    "name": "Psychopath",
+    "name": "Psychopath Ω",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/Day6/evil_psychopath_day6.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/Day6/newcharacter_day6.png"
@@ -1288,7 +1265,7 @@
       "Night 3",
       "Summoned"
     ],
-    "name": "Summoner",
+    "name": "Summoner Ω",
     "team": "minion",
     "ability": "On the 3rd night, choose a player: they become an evil Demon of your choice. [No Demon]",
     "flavor": "With this treasure, I summon… -Chara"
@@ -1363,7 +1340,7 @@
 "?",
 "?"
     ],
-    "name": "Wizard",
+    "name": "Wizard Ω",
     "team": "minion",
     "ability": "Once per game, choose to make a wish. If granted, it might have a price & leave a clue as to its nature. If you propose a declined wish for your team 3 times, you turn into a character of the same type.",
     "flavor": "Madam Morrible-- MM, flip it around? Wicked Witch!! -Orpheus"
@@ -1446,44 +1423,8 @@
   "fanggu",
 
 
+ "imp",
 
-  {
-    "id": "daki_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/daki_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/daki_g_winningclub.png" ],
-    "otherNightReminder": "They choose a player. If a player has become Gyutaro, tell them. ",
-    "reminders": [
-      "Dead"
-    ],
-    "name": "Daki",
-    "team": "demon",
-    "ability": "Each night*, choose a player (not yourself): they die. If 5 or more players are alive & you die, a player becomes an evil Gyutaro. ",
-    "flavor": "We beautiful, powerful demons can do whatever we want! ",
-    "otherNight": 18
-  },
-
-
-
-  "imp",
-
-
-
-
-  {
-    "id": "gyutaro_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/gyutaro_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/gyutaro_g_winningclub.png" ],
-    "otherNightReminder": "They choose a player. If it was the first time an evil player was executed today, tell a good player Gyutaro is in-play.",
-    "reminders": [
-      "Dead",
-      "Reveal Tonight"
-    ],
-    "name": "Gyutaro",
-    "team": "demon",
-    "ability": "Each night*, choose a player, they might die. The first time an evil player is executed, a good player learns you are in-play tonight. [This cannot be chosen during setup]",
-    "flavor": "The two of us, together, we’re invincible. We can stand the cold. We can stand the hunger.",
-    "otherNight": 19
-  },
 
 
 
@@ -1497,7 +1438,7 @@
       "Dead"
     ],
     "setup": true,
-    "name": "Kazali",
+    "name": "Kazali Ω",
     "team": "demon",
     "ability": "Each night*, choose a player: they die. [You choose which players are which Minions, your Minion choices may be denied. -? to +? Outsiders]",
     "flavor": "Let's lock in besties. -Nic",
@@ -1791,19 +1732,7 @@
 
 
 
-  {
-    "id": "rasputin_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/rasputin_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/rasputin_g_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/rasputin_e_winningclub.png" ],
-    "reminders": [
-      "Chosen"
-    ],
-    "name": "Rasputin",
-    "team": "traveller",
-    "ability": "You are a co-storyteller. Each night, you may choose the information given to a player. You can not speak (except to the storyteller) or vote.",
-    "flavor": "Oh, those ravenswoodbluffians..."
-  },
+
 
 
 
@@ -1831,7 +1760,7 @@
 
   {
     "id": "thegreed",
-    "name": "Greedbuffet",
+    "name": "Greedbuffet Ω",
     "team": "fabled",
     "ability": "On the 1st night, all players choose 8 characters. 2 Townsfolk, 2 Outsiders, 2 Minions and 2 Demons. The Storyteller assigns characters until all setup abilities have been met around the Grimiore. Everyone* is given one of the characters they chose. There can be more than one of the same character on the grimiore.",
     "firstNightReminder": "OPTIONALLY: Ask all evil players what they will be bluffing. This is simply an open chance to get their claims for Dreamer or things of the such. You may not do this anytime else.",
@@ -1857,7 +1786,7 @@
  {
     "id": "dealerschoice_popppp",
     "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/dealerschoice1_popppp.png",
-    "name": "Dealer's Choice",
+    "name": "Dealer's Choice Ω",
     "team": "fabled",
     "ability": "If a player chooses this during setup, the Storyteller chooses their character.",
     "flavor": "I got $5 saying Iceni is the Wraith. $20 saying he's the King.",
@@ -1889,6 +1818,7 @@
 
 
 
+
 {
     "id": "purgatoryslibrarian_popppp",
     "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/purgatoryslibrarian_popppp.png",
@@ -1902,7 +1832,7 @@
       "Something Bad",
       "Something Bad"
     ],
-    "name": "Purgatory's Librarian",
+    "name": "Purgatory's Librarian Ω",
     "team": "loric",
     "ability": "If you talk over someone without apologizing, you will be publicly shamed and might have something bad happen to you.",
     "flavor": "Oh you wanna talk about mothersssss?"
@@ -1938,15 +1868,16 @@
 {
     "id": "masterbaiter_popppp",
     "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/masterbaiter_popppp.png",
-    "name": "Jabaiter",
+    "name": "Jabaiter Ω",
     "team": "loric",
     "ability": "If you bait someone, something bad might happen to you. The Storyteller determines what 'baiting' refers to.",
     "flavor": "Silly Caucasian girl playing with samurai swords."
   },
+
   {
     "id": "shushingstick_popppp",
     "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/shushingstick_popppp.png",
-    "name": "Shushing-Stick",
+    "name": "Shushing-Stick Ω",
     "team": "loric",
    "firstNightReminder": "Announce how many players you will let have pertinent per nomination.",
     "ability": "The Storyteller announces how many players may have 'pertinent' per nomination at the start of the game. If a player talks too long or deviates from topic during 'pertinent' or before nominations they may be skipped.",
@@ -1957,11 +1888,105 @@
   {
     "id": "fussy1_popppp",
     "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/fussy1_popppp.png",
-    "name": "Fussy",
+    "name": "Fussy Ω",
     "team": "fabled",
     "ability": "One or more characters might be publicly banned before players start selecting.",
     "flavor": "I'd like a cheeseburger without cheese, please."
   },
+
+
+
+
+
+
+
+
+
+  {
+    "id": "hulijing_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hulijing_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hulijing_g_winningclub.png" ],
+    "firstNightReminder": "Show them 5 out of play characters. They choose 1 of the characters. Run their ability as needed.",
+    "otherNightReminder": "They choose 1 of the characters. Run their ability as needed.",
+    "name": "Huli Jing Ω",
+    "team": "minion",
+    "ability": "You start knowing 5 out-of-play characters. Each night, choose one of them: you have its ability & might register as it would until dusk.",
+    "flavor": "For shame! How dare you accuse me of being a mischievous fox spirit when I have been nothing but loyal as your… uhm, baker? Wait, no, I misspoke, I’m a fisherwoman.",
+    "firstNight": 20,
+    "otherNight": 20
+  },
+
+
+
+  {
+    "id": "daki_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/daki_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/daki_g_winningclub.png" ],
+    "otherNightReminder": "They choose a player. If a player has become Gyutaro, tell them. ",
+    "reminders": [
+      "Dead"
+    ],
+    "name": "Daki Ω",
+    "team": "demon",
+    "ability": "Each night*, choose a player (not yourself): they die. If 5 or more players are alive & you die, a player becomes an evil Gyutaro. ",
+    "flavor": "We beautiful, powerful demons can do whatever we want! ",
+    "otherNight": 18
+  },
+
+
+
+  {
+    "id": "gyutaro_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/gyutaro_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/gyutaro_g_winningclub.png" ],
+    "otherNightReminder": "They choose a player. If it was the first time an evil player was executed today, tell a good player Gyutaro is in-play.",
+    "reminders": [
+      "Dead",
+      "Reveal Tonight"
+    ],
+    "name": "Gyutaro Ω",
+    "team": "demon",
+    "ability": "Each night*, choose a player, they might die. The first time an evil player is executed, a good player learns you are in-play tonight. [This cannot be chosen during setup]",
+    "flavor": "The two of us, together, we’re invincible. We can stand the cold. We can stand the hunger.",
+    "otherNight": 19
+  },
+
+
+
+
+  {
+    "id": "rasputin_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/rasputin_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/rasputin_g_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/rasputin_e_winningclub.png" ],
+    "reminders": [
+      "Chosen"
+    ],
+    "name": "Rasputin Ω",
+    "team": "traveller",
+    "ability": "You are a co-storyteller. Each night, you may choose the information given to a player. You can not speak (except to the storyteller) or vote.",
+    "flavor": "Oh, those ravenswoodbluffians..."
+  },
+
+
+
+  {
+    "id": "hopeful_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hopeful1_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hopeful_e1_winningclub.png" ],
+    "name": "Hopeful Ω",
+    "team": "townsfolk",
+    "ability": "If evil has won, publicly guess each players character: if correct, good wins instead, even if dead.",
+    "flavor": "Dum Spiro, Spero."
+  },
+
+
+
+
+
+
+
+
 
 
  {
@@ -1970,9 +1995,9 @@
     "reminders": [
       "2 Votes"
     ],
-    "name": "Ban Hammer",
+    "name": "Ban Hammer Ω",
     "team": "fabled",
-    "ability": "If you have to be told to be quiet, stop being disruptive, stop interrupting people or anything of the sort more than once, the Storyteller may kick you. A player of your alignment has 2 votes & gains your ability for as long as your seat lives.",
+    "ability": "If you have to be told to be quiet, stop being disruptive, stop interrupting people or anything of the sort more than once, the Storyteller may kick you. If a player is kicked or has to leave, a player of your alignment has 2 votes & gains your ability for as long as your seat lives.",
     "flavor": "I'm tired of seeing Tean get disrespected -Kianu",
     "special": [
       {
@@ -1982,4 +2007,5 @@
       }
     ]
   }
+
 ]

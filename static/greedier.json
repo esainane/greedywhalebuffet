@@ -2,7 +2,7 @@
   {
     "id": "_meta",
     "author": "kianu",
-    "name": "Greedier Whalebuffet+ - W3",
+    "name": "Greedier Whalebuffet+ - W4",
     "firstNight": [
       "dusk",
       "shushingstick_popppp",
@@ -19,7 +19,6 @@
       "philosopher_ultimate",
       "lunatic_popppp",
       "alchemist_popppp",
-      "hypochondriac_winningclub",
       "boffin_popppp",
       "marionette_popppp",
       "poppygrower_popppp",
@@ -27,6 +26,7 @@
       "yaggababble_poppppp",
       "magician_popppp",
       "minioninfo",
+      "theancientone_winningclub",
       "demoninfo",
       "thegreed",
       "king",
@@ -87,7 +87,6 @@
     "otherNight": [
       "dusk",
       "hermit_popppp",
-      "hypochondriac_winningclub",
       "cacklejack_day2",
       "lunatic_popppp",
       "philosopher_ultimate",
@@ -115,6 +114,7 @@
       "devilsadvocate",
       "pithag_ultimate",
       "witch",
+      "sybil_winningclub",
       "cerenovus_popppp",
       "snitch_wewew",
       "fearmonger",
@@ -123,8 +123,8 @@
       "scarletwoman_popppp",
       "summoner_popppp",
       "exorcist",
-      "pathologist_winningclub",
       "lycanthrope",
+      "theancientone_winningclub",
       "legion_popppp",
       "imp",
       "zombuul",
@@ -142,7 +142,6 @@
       "lilmonsta",
       "yaggababble_poppppp",
       "kazali_popppp",
-      "lolth_winningclub",
       "leviathan_popppp",
       "riot_popppp",
       "assassin",
@@ -152,9 +151,9 @@
       "barber",
       "sweetheart_wewew",
       "plaguedoctor_popppp",
+      "crow_winningclub",
       "sage",
       "banshee",
-      "immortalized_winningclub",
       "professor",
       "choirboy",
       "huntsman_popppp",
@@ -334,6 +333,33 @@
 
 
 
+  {
+    "id": "crow_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/crow_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/crow_e_winningclub.png" ],
+    "otherNightReminder": "If they died, show them a character of a living neighbor.",
+    "remindersGlobal": [
+      "Is the Crow",
+      "Is the Crow",
+      "Is the Crow",
+      "Is the Crow",
+      "Is the Crow"
+    ],
+    "name": "Crow",
+    "team": "townsfolk",
+    "ability": "You think you are an Outsider, but you are not. If you die, you learn the character of a living neighbor tonight. [ -0 or -1 Outsider]",
+    "flavor": "Mind your omens. They may be boons in disguise.",
+    "otherNight": 11,
+     "special": [
+      {
+        "name": "replace-character",
+        "type": "reveal"
+      }
+    ]
+  },
+
+
+
 
   {
     "id": "cultleader_popppp",
@@ -441,35 +467,6 @@
 
 
 
-  {
-    "id": "immortalized_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/immortalized_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/immortalized_e_winningclub.png" ],
-    "otherNightReminder": "If they die, they gain a Townsfolk ability. They learn it & might use it tonight.",
-    "reminders": [
-      "Has Ability"
-    ],
-    "name": "Immortalized",
-    "team": "townsfolk",
-    "ability": "If you die at night, you gain a Townsfolk ability (you learn it), you keep this ability, even if dead.",
-    "flavor": "Those with a legacy larger than their life are the only that are truly successful.",
-    "otherNight": 9,
-    "remindersGlobal": [
-      "Is the Immortalized",
-      "Is the Immortalized",
-      "Is the Immortalized",
-      "Is the Immortalized",
-      "Is the Immortalized",
-      "Is the Immortalized"
-    ],
-    "setup": true,
-    "special": [
-      {
-        "name": "replace-character",
-        "type": "reveal"
-      } ]
-  },
-
 
 
 
@@ -540,20 +537,6 @@
   "pacifist",
 
 
-
- {
-    "id": "pathologist_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/pathologist_winningclub.png",
- "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/pathologist_e_winningclub.png" ],
-    "reminders": [
-      "Chosen"
-    ],
-    "name": "Pathologist",
-    "team": "townsfolk",
-    "ability": "Each night*, choose a player: if they die tonight, learn which character killed them.",
-    "flavor": "Eyewitness account report that the victim died while in the middle of rolling dies; perhaps due to a stress-induced cardiac arrest. Interesting, there is a scratch mark on the victim's wrist and almost untraceable slow-acting poison in their system. It'd seem our gambler die not of bad gambling skills but of demonic poison!",
-    "otherNightReminder": "They choose a player. If that player dies, tell the Pathologist which character killed the chosen player."
-  },
 
 
 
@@ -882,34 +865,6 @@
 
 
 
-
-  {
-    "id": "hypochondriac_winningclub",
-    "image":  [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hypochondriac_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hypochondriac_e_winningclub.png" ],
-    "firstNightReminder": "Tell the Hypochondriac their Townsfolk ability. Run their ability accordingly.",
-    "otherNightReminder": "Run their ability accordingly.",
-    "name": "Hypochondriac",
-    "team": "outsider",
-    "ability": "You have a Townsfolk ability. You are mad you have false information or you might be executed.",
-    "flavor": "I think I'm poisoned! -Orpheus",
-    "firstNight": 13,
-    "otherNight": 8,
-    "remindersGlobal": [
-      "Is the Hypochondriac",
-      "Is the Hypochondriac",
-      "Is the Hypochondriac",
-      "Is the Hypochondriac",
-      "Is the Hypochondriac",
-      "Is the Hypochondriac"
-    ],
-    "setup": true,
-    "special": [
-      {
-        "name": "replace-character",
-        "type": "reveal"
-      } ]
-  },
 
 
 
@@ -1328,6 +1283,50 @@
   },
 
 
+  {
+    "id": "sybil_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/sybil_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/sybil_g_winningclub.png" ],
+    "otherNightReminder": "They choose a player & a word. Something happens.",
+    "reminders": [
+      "Chosen",
+      "?",
+      "?",
+      "?",
+      "?"
+    ],
+    "name": "Sybil",
+    "team": "minion",
+    "ability": "Each night*, choose a player & a word: something related to the word happens to the player.",
+    "flavor": "Wdym nothing happens if I choose Orpheus and say bitch?",
+    "otherNight": 13
+  },
+
+
+
+
+
+
+  {
+    "id": "truthsayer_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/truthsayer_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/truthsayer_g_winningclub.png" ],
+    "reminders": [
+      "Liar!",
+      "Liar!",
+      "Liar!",
+      "Liar!",
+      "Liar!",
+      "Liar!",
+      "Liar!",
+      "Liar!",
+      "Liar!"
+    ],
+    "name": "Truthsayer",
+    "team": "minion",
+    "ability": "Once per game, during the day, you may publicly claim Truthsayer & choose to initiate a round robin. If good players are not mad as the character they are during the round robin, they might turn into an Outsider tonight.",
+    "flavor": "Speak your truth—or be judged unworthy."
+  },
 
 
 
@@ -1605,20 +1604,6 @@
 
 
 
- {
-    "id": "lolth_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/lolth_winningclub.png",
-            "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/lolth_g_winningclub.png"    ],
-    "otherNightReminder": "They choose a player.",
-    "reminders": [
-      "Dead"
-    ],
-    "name": "Lolth",
-    "team": "demon",
-    "ability": "Each night*, choose a player: they die. [-X Minions, X+1 Townsfolk are Evil]",
-    "flavor": "Kill for me. Die for me. You just might earn my favour...",
-    "otherNight": 10
-  },
 
 
 
@@ -1653,6 +1638,27 @@
 
 
   "shabaloth",
+
+
+
+  {
+    "id": "theancientone_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/theancientone_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/ancient_one_g_winningclub.png" ],
+    "firstNightReminder": "Show the Minions the 2 Townsfolk The Ancient One made evil.",
+    "otherNightReminder": "A player might die.",
+    "reminders": [
+      "Dead",
+      "Vessel",
+      "Vessel"
+    ],
+    "name": "The Ancient One",
+    "team": "demon",
+    "ability": "Each night*, a player might die. Minions start knowing who the 2 evil townsfolk are. The 2 evil townsfolk hold The Ancient One (they don't learn) & \"are the Demon\". [2 Townsfolk are evil (they don't know)]",
+    "flavor": "We worship you O Ancient one. We shall punish those who sealed you. We bring forth two sinners from the town for you to feast on their souls and return to the mortal plane.",
+    "firstNight": 14,
+    "otherNight": 12
+  },
 
 
 

@@ -69,7 +69,7 @@ export function CharactersPanel(): React.JSX.Element {
 	return (
 		<section className="panel characters">
 			<p className="eyebrow">Characters</p>
-			<p className="lede">Click to deselect characters from the script</p>
+			<p className="lede">Click to remove characters from the script</p>
 			<div className="quick-remove-box">
 				<p className="quick-remove-title">Common bans</p>
 				<CharacterList

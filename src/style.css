@@ -61,6 +61,11 @@ body {
 	gap: 1.25rem;
 }
 
+#app-root {
+	display: grid;
+	gap: 1.25rem;
+}
+
 .panel {
 	background: var(--panel);
 	backdrop-filter: blur(10px);
@@ -147,9 +152,18 @@ h1 {
 	font-size: 0.95em;
 }
 
-.controls {
+
+.controls-layout {
 	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
 	gap: 1.25rem;
+	align-items: start;
+}
+
+.status-copy-panel,
+.options-panel {
+	display: grid;
+	gap: 1rem;
 }
 
 .copy-form {

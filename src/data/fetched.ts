@@ -12,6 +12,17 @@ import type {
 	IdMappings,
 } from '../types.js';
 
+function deepFreeze<T>(value: T): T {
+	if (value !== null && typeof value === 'object' && !Object.isFrozen(value)) {
+		for (const nested of Object.values(value as Record<string, unknown>)) {
+			deepFreeze(nested);
+		}
+		Object.freeze(value);
+	}
+
+	return value;
+}
+
 /**
  * Bidirectional mapping that keeps both directions synchronized.
  */
@@ -96,11 +107,11 @@ export class FetchedData {
 		nightsheetData: NightsheetData;
 		jinxData: JinxEntry[];
 	}) {
-		this.greedyJson = data.greedyJson;
-		this.greedyJinxData = data.greedyJinxData;
-		this.rolesData = data.rolesData;
-		this.nightsheetData = data.nightsheetData;
-		this.jinxData = data.jinxData;
+		this.greedyJson = deepFreeze(data.greedyJson);
+		this.greedyJinxData = deepFreeze(data.greedyJinxData);
+		this.rolesData = deepFreeze(data.rolesData);
+		this.nightsheetData = deepFreeze(data.nightsheetData);
+		this.jinxData = deepFreeze(data.jinxData);
 
 		// Initialize bidirectional mappings
 		this.greedyIdMapping = new BidirectionalMap();

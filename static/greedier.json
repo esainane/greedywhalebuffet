@@ -1460,10 +1460,11 @@
     ],
     "name": "Baroness",
     "team": "demon",
-    "ability": "Each night*, choose a player: they might die. [0 Townsfolk]",
+    "ability": "Each night*, choose a player: they might die. Good Minions do not learn or are shown in Minion or Demon info. [0 Townfolk. +0 to +2 Good Minions]",
     "flavor": "Not my circus, not my monkeys. But I'm the ringmaster of this carnival and, I promise, it is the greatest show you are ever going to see.",
     "otherNight": 17
   },
+
 
 
 
@@ -1651,10 +1652,14 @@
     "otherNightReminder": "The Vigormortis chooses a player. If that player is a Minion & dies, choose 1 of their neighbours to be poisoned.",
     "reminders": [
       "Dead",
-      "Dead",
-      "Dead",
-      "Dead",
-      "Poisoned"
+      "Poisoned",
+      "Poisoned",
+      "Poisoned",
+      "Poisoned",
+      "Has Ability",
+      "Has Ability",
+      "Has Ability",
+      "Has Ability"
     ],
     "name": "Vigormortis",
     "team": "demon",

@@ -1802,90 +1802,13 @@
 
 
 
-
   {
     "id": "thegreed",
     "name": "Greedbuffet",
     "team": "fabled",
     "ability": "On the 1st night, all players choose 8 characters. 2 Townsfolk, 2 Outsiders, 2 Minions and 2 Demons. The Storyteller assigns characters until all setup abilities have been met around the Grimiore. Everyone* is given one of the characters they chose. There can be more than one of the same character on the grimioire.",
-    "firstNightReminder": "OPTIONALLY: Ask all evil players what they will be bluffing. This is simply an open chance to get their claims for Dreamer or things of the such. You may not do this anytime else."
-  },
-
-
-
-
-
-  {
-    "id": "3 ST Tool",
-    "name": "3 ST Tool",
-    "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/yellowbootlegger_popppp.png",
-    "team": "fabled",
-    "ability": "If you select this character during selection, the ST will choose your character. The ST uses this character for shennanigans.",
-    "flavor": "Trust you will be dealt with.",
-    "firstNight": 0,
-    "otherNight": 0,
-    "reminders": [
-      "3 Vote",
-      "3 Vote",
-      "3 Vote",
-      "3 Vote",
-      "3 Vote",
-      "3 Vote"
-    ],
-    "special": [
-      {
-        "name": "multiplier",
-        "type": "vote",
-        "value": "3"
-      }
-    ]
-  },
-
-
-
-
-
-  {
-    "id": "5 ST Tool",
-    "name": "5 ST Tool",
-    "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/yellowbootlegger_popppp.png",
-    "team": "fabled",
-    "ability": "If you select this character during selection, the ST will choose your character. The ST uses this character for shennanigans.",
-    "flavor": "Putting Greedy in Greedy Whalebuffet.",
-    "firstNight": 0,
-    "otherNight": 0,
-    "reminders": [
-      "5 Vote",
-      "5 Vote",
-      "5 Vote",
-      "5 Vote",
-      "5 Vote",
-      "5 Vote",
-      "5 Vote"
-    ],
-    "special": [
-      {
-        "name": "multiplier",
-        "type": "vote",
-        "value": "5"
-      }
-    ]
-  },
-
-
-
-
-
-  {
-    "id": "-1 ST Tool",
-    "name": "-1 ST Tool",
-    "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/yellowbootlegger_popppp.png",
-    "team": "fabled",
-    "ability": "If you select this character during selection, the ST will choose your character. The ST uses this character for shennanigans.",
-    "flavor": "Fiveeeeee is a magic numbaaa.",
-    "firstNight": 0,
-    "otherNight": 0,
-    "reminders": [
+    "firstNightReminder": "OPTIONALLY: Ask all evil players what they will be bluffing. This is simply an open chance to get their claims for Dreamer or things of the such. You may not do this anytime else.",
+      "reminders": [
       "Negative Vote",
       "Negative Vote",
       "Negative Vote",
@@ -1900,6 +1823,25 @@
       }
     ]
   },
+
+
+
+
+ {
+    "id": "dealerschoice_popppp",
+    "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/dealerschoice_popppp.png",
+    "name": "Dealer's Choice",
+    "team": "fabled",
+    "ability": "If a player chooses this during setup, the Storyteller chooses their character.",
+    "flavor": "I got $5 saying Iceni is the Wraith. $20 saying he's the King."
+  },
+
+
+
+
+
+
+
 
 
 
@@ -1921,18 +1863,47 @@
     "name": "Purgatory's Librarian",
     "team": "loric",
     "ability": "If you talk over someone without apologizing, you will be publicly shamed and might have something bad happen to you.",
-    "flavor": "Oh you wanna talk about mothersssss?"
+    "flavor": "Oh you wanna talk about mothersssss?",
+    "reminders": [
+      "3 Vote",
+      "3 Vote",
+      "3 Vote",
+      "3 Vote",
+      "3 Vote",
+      "3 Vote"
+    ],
+    "special": [
+      {
+        "name": "multiplier",
+        "type": "vote",
+        "value": "3"
+      }
+    ]
   },
 
  {
     "id": "1_poppppp",
-    "image": "https://www.bloodstar.xyz/p/ZuZuxy/poppppp/2_poppppp.png",
-    "name": ".",
+    "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/jinxeslist_popppp.png",
+    "name": "Jinx List",
     "team": "fabled",
-    "ability": "I'm the QR code to the Greedy Whalebuffet+ jinxes. Scan me! If you can't scan me, join from this link: https://discord.gg/kZC9gyWFye"
+    "ability": "Our jinxes are on the Discord. Join from this link: https://discord.gg/kZC9gyWFye",
+     "reminders": [
+      "5 Vote",
+      "5 Vote",
+      "5 Vote",
+      "5 Vote",
+      "5 Vote",
+      "5 Vote",
+      "5 Vote"
+    ],
+    "special": [
+      {
+        "name": "multiplier",
+        "type": "vote",
+        "value": "5"
+      }
+    ]
   },
-
-
 
 
 
@@ -1956,17 +1927,6 @@
     "ability": "The Storyteller announces how many players may have 'pertinent' per nomination at the start of the game. If a player talks too long or deviates from topic during 'pertinent' or before nominations they may be skipped.",
     "flavor": "Shut up. Like, please."
   },
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -2,7 +2,7 @@
   {
     "id": "_meta",
     "author": "kianu",
-    "name": "Greedier Whalebuffet+ - S11",
+    "name": "Greedier Whalebuffet+ - S12",
     "firstNight": [
       "dusk",
       "shushingstick_popppp",
@@ -32,14 +32,15 @@
       "preacher_popppp",
       "lilmonsta",
       "lleech_popppp",
+"Hawkmoth",
       "xaan",
       "poisoner",
       "widow_popppp",
       "courtier_popppp",
+"songtress",
       "wizard_popppp",
       "snakecharmer",
       "godfather",
-"advisor",
       "organgrinder",
       "devilsadvocate",
       "eviltwin_popppp",
@@ -53,11 +54,11 @@
       "huntsman_popppp",
       "damsel",
       "amnesiac",
+"Prince",
       "washerwoman",
       "librarian",
       "investigator",
       "chef",
-"trainconductor",
       "empath",
       "fortuneteller",
       "butler_popppp",
@@ -69,6 +70,7 @@
       "knight",
       "noble",
       "balloonist",
+"Archivist",
       "shugenja",
       "villageidiot",
       "bountyhunter",
@@ -102,9 +104,9 @@
       "preacher_popppp",
       "xaan",
       "poisoner",
-"corpseeater",
       "courtier_popppp",
       "innkeeper",
+"songtress",
       "wizard_popppp",
       "gambler",
       "acrobat",
@@ -126,6 +128,7 @@
       "imp",
       "zombuul",
       "pukka",
+"Hawkmoth",
       "shabaloth",
       "po",
       "fanggu",
@@ -142,11 +145,8 @@
       "leviathan_popppp",
       "riot_popppp",
       "assassin",
-"vengeance",
       "godfather",
-"advisor",
       "gossip",
-"veteran",
       "hatter_popppp",
       "barber",
       "sweetheart_wewew",
@@ -162,6 +162,7 @@
       "tinker",
       "moonchild",
       "grandmother",
+"Prince",
       "ravenkeeper",
       "empath",
       "fortuneteller",
@@ -1085,6 +1086,7 @@
     ],
     "name": "Cerenovus",
     "team": "minion",
+    "flavor": "what are you on about, im definitely the politician, yep, nothing to see here - SereNOvus Shrek",
     "ability": "Each night, choose a player & a good character: they are \"mad\" they are this character tomorrow, or might be executed.",
     "firstNight": 31,
     "otherNight": 23
@@ -1784,116 +1786,122 @@
 
 
 {
-  "id": "advisor",
-  "name": "Advisor Ω",
-  "team": "townsfolk",
-  "ability": "Each night, you learn two statements & choose one: it becomes true (if not true already).",
+  "id": "Aha",
+  "name": "Aha Ω",
+  "team": "loric",
+  "ability": "Each day, the player that the storyteller thinks is the funniest might get a boon.",
   "image": [
-    "https://user-images.klutzbanana.com/xvcamy61ndx6ccx8rxan59fq.png",
-    "https://user-images.klutzbanana.com/duez5eghnj7k7lada5lncvvy.png"
+    "https://user-images.klutzbanana.com/n56ij3go9e9gmty4f9vdtbs0.png"
   ],
   "edition": "gwb",
-  "flavor": "It comes down to this, so it's up to you. All that's left: choose right.",
-  "firstNightReminder": "Give two statements. The Advisor chooses one.",
-  "otherNightReminder": "Give two statements. The Advisor chooses one.",
-  "setup": false
-},
-
-{
-  "id": "corpseeater",
-  "name": "Corpse Eater Ω",
-  "team": "minion",
-  "ability": "If a good player was executed today, their Townsfolk neighbors are poisoned tonight & tomorrow day.",
-  "image": [
-    "https://user-images.klutzbanana.com/lm7l6bb5vxpk3s5x6cd10mhi.png",
-    "https://user-images.klutzbanana.com/lpccx72m05z25b0ku1mrdz8d.png"
-  ],
-  "edition": "gwb",
-  "flavor": "Munch munch",
-  "otherNightReminder": "If a good player was executed today, mark their Townsfolk neighbors with Poisoned token.",
+  "flavor": "The Masked Fools share a parable about the Aeon: When Aha climbed to the highest branch of the Imaginary Tree, THEY saw the void, the stars operating like machinery, and how meaning bows before nothingness. THEY continued looking until THEY saw a baby fall to the ground and cry. THEY burst into laughter so clear it tore through the universe and still reverberates to this day.",
   "reminders": [
-    "Poisoned",
-    "Poisoned"
+    "Elated"
   ],
   "setup": false
 },
 
 {
-  "id": "sol",
-  "name": "Sol Ω",
+  "id": "Archivist",
+  "name": "Archivist Ω",
   "team": "townsfolk",
-  "ability": "If evil would win, but your 1st vote today was for the demon, good wins instead.",
+  "ability": "Each night, choose two players (not yourself): learn which player's character goes first alphabetically.",
   "image": [
-    "https://user-images.klutzbanana.com/ul6uduww8bmqwiwzsddvoqvj.png",
-    "https://user-images.klutzbanana.com/yb0s7fckmcb5xdp0k22jekk1.png"
+    "https://user-images.klutzbanana.com/xm60c7m4990ilmgddrl4gepr.png",
+    "https://user-images.klutzbanana.com/oz1qzn8oe5oa5k9cqz4idgjr.png"
   ],
   "edition": "gwb",
-  "flavor": "BECAUSE I'M ME!!",
+  "flavor": "These records are impeccably kept. The answer you seek will be here.",
+  "firstNight": 1,
+  "firstNightReminder": "They choose 2 players. Show them the player who goes first alphabetically.",
+  "otherNight": 1,
+  "otherNightReminder": "They choose 2 players. Show them the player who goes first alphabetically.",
   "reminders": [
-    "Sunkissed"
+    "Archives Checked",
+    "Archives Checked"
   ],
   "setup": false
 },
 
 {
-  "id": "trainconductor",
-  "name": "Train Conductor Ω",
+  "id": "Emperor",
+  "name": "Emperor Ω",
   "team": "townsfolk",
-  "ability": "You start knowing how many sources of poisoning & drunkeness is in-play.",
+  "ability": "If you were mad that you were not the Emperor, you can't die.",
   "image": [
-    "https://user-images.klutzbanana.com/c8gex4peqbj61t1ihlyimwzv.png",
-    "https://user-images.klutzbanana.com/is71mo4r63cyhls0t2bcp1g7.png"
+    "https://user-images.klutzbanana.com/l5myr2cnzgy91ctpvpo2bcox.png",
+    "https://user-images.klutzbanana.com/wbz25wvpmuk7vxs62ps4n6td.png"
   ],
   "edition": "gwb",
-  "flavor": "Next stop Ravenwoods Bluff!",
-  "firstNightReminder": "Show how many sources of posion and drunking is in play. If a drunk in play they also learn this.",
+  "flavor": "Any man who must say \"I am the King\" is no true king.",
   "reminders": [
-    "Source",
-    "Source",
-    "Source",
-    "Source"
+    "Mad"
   ],
   "setup": false
 },
+
 {
-  "id": "vengeance",
-  "name": "Vengeance Ω",
-  "team": "minion",
-  "ability": "Each night*, the last player that nominated you dies, even if you are dead.",
+  "id": "Hawkmoth",
+  "name": "Hawkmoth Ω",
+  "team": "demon",
+  "ability": "Each night*, choose a player: they die. You start by choosing a good player: they become evil & gain an ability of your choice. The Storyteller may choose the ability if your chosen abilities ruin the game balance more than 3 times. [-1 Minion]",
   "image": [
-    "https://user-images.klutzbanana.com/d7fjrg1ahuexsovhh1pzfrl1.png",
-    "https://user-images.klutzbanana.com/g58ggb3pjy7ncnngupqtguhk.png"
+    "https://user-images.klutzbanana.com/t1aq0stecddaqlofnps3v4y6.png",
+    "https://user-images.klutzbanana.com/gs0doxeic2tjufg1e2b7qbox.png"
   ],
   "edition": "gwb",
-  "flavor": "HOW DARE YOU !!!!!",
-  "otherNightReminder": "If a player nominated Vengeance, they die.",
+  "flavor": "This is just the beginning, Ladybug. You and Cat Noir may have won this battle, but I will win the war.",
+  "firstNight": 1,
+  "firstNightReminder": "They choose a player & an ability they want to give the player. If it ruins the balance of the game more than 3 times, choose the ability. Tell the chosen player they are evil.",
+  "otherNight": 1,
+  "otherNightReminder": "They choose a player. They die.",
   "reminders": [
-    "Marked",
-    "Dead"
-  ],
-  "setup": false
-},
-{
-  "id": "veteran",
-  "name": "Veteran Ω",
-  "team": "townsfolk",
-  "ability": "Each night*, learn which players died. Once per game, you may choose 1 of these players: they live & you die instead.",
-  "image": [
-    "https://user-images.klutzbanana.com/z7lct49eptfrgpv8d8uyy96b.png",
-    "https://user-images.klutzbanana.com/z68g62qcpe96kvketno5tapv.png"
-  ],
-  "edition": "gwb",
-  "flavor": "I have fought my battles. These children, they are the future!!",
-  "otherNightReminder": "Point to the players that died. Ask the veteran if they want to use their ability. If they do they choose a player, that player lives & the veteran dies",
-  "reminders": [
-    "No Ability",
+    "Akumatized",
     "Dead"
   ],
   "setup": false
 },
 
+{
+  "id": "Prince",
+  "name": "Prince Ω",
+  "team": "townsfolk",
+  "ability": "1 player starts knowing you are the Prince. If you are nominated by an evil player & executed during the day, a good player becomes the Prince.",
+  "image": [
+    "https://user-images.klutzbanana.com/venwd01czlpawv6padf2p9b6.png",
+    "https://user-images.klutzbanana.com/c1vjvi5e4bkyn91s7b3nn2yz.png"
+  ],
+  "edition": "gwb",
+  "flavor": "This is my father's land to rule over! How dare these damned demons try take what has been destined to be mine!",
+  "firstNightReminder": "Wake a player and point to the Prince.",
+  "otherNightReminder": "If the Prince was nominated and executed by an evil player the previous day, wake a good player and point to the Prince character.",
+  "reminders": [
+    "Coronation Tonight"
+  ],
+  "setup": false
+},
 
-
+{
+  "id": "songtress",
+  "name": "Songstress Ω",
+  "team": "townsfolk",
+  "ability": "Each night, choose any amount of players: if all are your alignment, they are all sober & healthy until dusk. An opposing player, if chosen, might learn who you are.",
+  "image": [
+    "https://user-images.klutzbanana.com/ape65gn9rl0q2p4ye3skbi8j.png",
+    "https://user-images.klutzbanana.com/mgi52jmarmmbma9fierq5lcz.png"
+  ],
+  "edition": "gwb",
+  "flavor": "How beautiful! My beautiful melodies have touched that hearts of Ravenswood Bluff. May you rejoice forever in song and dance.",
+  "firstNight": 1,
+  "firstNightReminder": "Wake the Songstress and have them choose as many players as they want.",
+  "otherNight": 1,
+  "otherNightReminder": "Wake the Songstress and have them choose as many players as they want.",
+  "reminders": [
+    "Sober and healthy",
+    "Sober and healthy"
+  ],
+  "setup": false
+},
 
 
  {

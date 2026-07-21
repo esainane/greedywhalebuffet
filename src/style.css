@@ -418,7 +418,7 @@ button.secondary {
 	background: var(--surface);
 	border: 2px solid var(--surface-border);
 	cursor: pointer;
-	transition: all 140ms ease;
+	transition: background-color 140ms ease, border-color 140ms ease, opacity 140ms ease;
 	opacity: 1;
 }
 

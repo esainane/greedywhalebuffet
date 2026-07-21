@@ -87,6 +87,7 @@
     "otherNight": [
       "dusk",
       "hermit_popppp",
+      "warden_winningclub",
       "cacklejack_day2",
       "lunatic_popppp",
       "philosopher_ultimate",
@@ -122,7 +123,6 @@
       "scarletwoman_popppp",
       "summoner_popppp",
       "exorcist",
-      "warden_winningclub",
       "armageddon_winningclub",
       "lycanthrope",
       "arsonist_winningclub",
@@ -450,7 +450,7 @@
     "otherNightReminder": "Show the Informant a player who woke up tonight. ",
     "name": "Informant",
     "team": "townsfolk",
-    "ability": "Each night, learn a player who woke up tonight to use their ability.",
+    "ability": "Each night, learn a player who woke up tonight due to their own ability.",
     "flavor": "So you're just a Chambermaid?",
     "firstNight": 12,
     "otherNight": 6
@@ -1455,7 +1455,7 @@
     ],
     "name": "Arsonist",
     "team": "demon",
-    "ability": "Each night*, you may choose a player: they are poisoned. If you choose no one, all poisoned players die then players you poisoned become healthy. ",
+    "ability": "Each night*, you may choose a player: they are poisoned. If you choose no one, all poisoned players die then become healthy if you poisoned them.",
     "flavor": "Some people just want to watch the world burn.",
     "otherNight": 4
   },
@@ -1766,7 +1766,7 @@
     "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/warden_leftovers_whoops.png",
 "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/warden_g_leftovers_whoops.png",
 "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/warden_e_leftovers_whoops.png" ],
-    "otherNightReminder": "The Warden chooses a player & if they want them to die or not. Put the Warden & chosen player in a chat. Leave it & let them determine the length of their chat. The chosen player might not wake to use their ability. ",
+    "otherNightReminder": "The Warden chooses a player & has a chat with them. At any point in the chat, the Warden chooses if they want the player to die or not. If yes, they die right before dawn.",
  "reminders": [
       "Lock Em' Up!",
       "No More Killin'",
@@ -1915,7 +1915,7 @@
     "image": "https://www.bloodstar.xyz/p/ZuZuxy/poppppp/_poppppp.png",
     "name": ".",
     "team": "fabled",
-    "ability": "I'm the QR code to the Greedy Whalebuffet+ jinxes. Scan me! If you can't scan me, go to this discord server! https://discord.gg/p4tyx4Kn"
+    "ability": "I'm the QR code to the Greedy Whalebuffet+ jinxes. Scan me! If you can't scan me, go to this discord server! https://discord.gg/7xVAXn3QKc"
   },
 
 
@@ -1957,12 +1957,23 @@
 
 
 
-  {
-    "id": "patchnotes",
-    "name": "Patch Notes",
+
+ {
+    "id": "banhammer_popppp",
+    "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/banhammer_popppp.png",
+    "reminders": [
+      "2 Votes"
+    ],
+    "name": "Ban Hammer",
     "team": "fabled",
-    "ability": "A LOT of characters forced into Homebrew to get rid of Jinxes. New QR code to full list of jinxes for Greedy Whalebuffet+",
-    "firstNight": 0,
-    "otherNight": 0
+    "ability": "If you have to be told to be quiet, stop being disruptive, stop interrupting people or anything of the sort more than once, the Storyteller may kick you. A player of your alignment has 2 votes & gains your ability for as long as your seat lives.",
+    "flavor": "I'm tired of seeing Tean get disrespected -Kianu",
+    "special": [
+      {
+        "name": "multiplier",
+        "type": "vote",
+        "value": "2"
+      }
+    ]
   }
 ]

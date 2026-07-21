@@ -16,6 +16,8 @@ export type AppState = {
 	lastLoadedAt: number | null;
 	usingStaleData: boolean;
 	fetchedData: FetchedData | null;
+	baseCharacters: Character[];
+	greedierCharacters: Character[];
 	characters: Character[];
 	selectedCharacterIds: Set<string>;
 	options: GenerationOptions;
@@ -28,7 +30,8 @@ type AppAction =
 			fetchedData: FetchedData;
 			greedyJson: ScriptData;
 			scriptName: string;
-			characters: Character[];
+			baseCharacters: Character[];
+			greedierCharacters: Character[];
 	  }
 	| { type: 'load_error'; message: string }
 	| { type: 'set_status'; message: string; tone: StatusTone }
@@ -56,10 +59,24 @@ const initialState: AppState = {
 	lastLoadedAt: null,
 	usingStaleData: false,
 	fetchedData: null,
+	baseCharacters: [],
+	greedierCharacters: [],
 	characters: [],
 	selectedCharacterIds: new Set<string>(),
 	options: defaultOptions,
 };
+
+function buildCharacterPool(
+	baseCharacters: Character[],
+	greedierCharacters: Character[],
+	options: GenerationOptions,
+): Character[] {
+	if (!options.addGreedierHomebrew) {
+		return baseCharacters;
+	}
+
+	return [...baseCharacters, ...greedierCharacters];
+}
 
 function formatLoadTime(timestamp: number): string {
 	return new Date(timestamp).toLocaleTimeString([], {
@@ -105,7 +122,12 @@ function appReducer(state: AppState, action: AppAction): AppState {
 			};
 		}
 		case 'load_success': {
-			const selectedCharacterIds = new Set(action.characters.map((character) => character.id));
+			const characters = buildCharacterPool(
+				action.baseCharacters,
+				action.greedierCharacters,
+				state.options,
+			);
+			const selectedCharacterIds = new Set(characters.map((character) => character.id));
 			const now = Date.now();
 			return {
 				...state,
@@ -116,7 +138,9 @@ function appReducer(state: AppState, action: AppAction): AppState {
 				lastLoadedAt: now,
 				usingStaleData: false,
 				fetchedData: action.fetchedData,
-				characters: action.characters,
+				baseCharacters: action.baseCharacters,
+				greedierCharacters: action.greedierCharacters,
+				characters,
 				selectedCharacterIds,
 			};
 		}
@@ -140,6 +164,8 @@ function appReducer(state: AppState, action: AppAction): AppState {
 				lastLoadedAt: null,
 				usingStaleData: false,
 				fetchedData: null,
+				baseCharacters: [],
+				greedierCharacters: [],
 				characters: [],
 				selectedCharacterIds: new Set<string>(),
 			};
@@ -154,9 +180,42 @@ function appReducer(state: AppState, action: AppAction): AppState {
 		case 'toggle_option': {
 			const nextOptions = { ...state.options, [action.optionName]: action.checked };
 			const adjustedOptions = applyDependentOptionRules(nextOptions, action.optionName, action.checked);
+
+			if (action.optionName !== 'addGreedierHomebrew') {
+				return {
+					...state,
+					options: adjustedOptions,
+				};
+			}
+
+			if (adjustedOptions.addGreedierHomebrew) {
+				const nextCharacters = buildCharacterPool(
+					state.baseCharacters,
+					state.greedierCharacters,
+					adjustedOptions,
+				);
+				const nextSelectedCharacterIds = new Set(state.selectedCharacterIds);
+				for (const character of state.greedierCharacters) {
+					nextSelectedCharacterIds.add(character.id);
+				}
+
+				return {
+					...state,
+					options: adjustedOptions,
+					characters: nextCharacters,
+					selectedCharacterIds: nextSelectedCharacterIds,
+				};
+			}
+
+			const greedierIds = new Set(state.greedierCharacters.map((character) => character.id));
+			const nextSelectedCharacterIds = new Set(
+				[...state.selectedCharacterIds].filter((id) => !greedierIds.has(id)),
+			);
 			return {
 				...state,
 				options: adjustedOptions,
+				characters: state.baseCharacters,
+				selectedCharacterIds: nextSelectedCharacterIds,
 			};
 		}
 		case 'toggle_character': {
@@ -221,14 +280,23 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 			}
 			const greedyJson = fetchedData.cloneGreedyJson();
 			const metaEntry = getMetaEntry(greedyJson);
-			const characters = getCharacters(greedyJson, fetchedData);
+			const baseCharacters = getCharacters(greedyJson, fetchedData);
+			const greedierCharacters = fetchedData.getGreedierCharactersData().map((entry) => {
+				const imageUrl = Array.isArray(entry.image) ? entry.image[0] : entry.image;
+				return {
+					id: entry.id,
+					name: entry.name || entry.id,
+					imageUrl,
+				};
+			});
 
 			dispatch({
 				type: 'load_success',
 				fetchedData,
 				greedyJson,
 				scriptName: metaEntry?.name ?? 'Unknown script',
-				characters,
+				baseCharacters,
+				greedierCharacters,
 			});
 		} catch (error: unknown) {
 			if (controller.signal.aborted) {

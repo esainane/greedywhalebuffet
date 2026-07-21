@@ -113,6 +113,7 @@
       "organgrinder",
       "devilsadvocate",
       "pithag_ultimate",
+      "truthsayer_winningclub",
       "witch",
       "sybil_winningclub",
       "cerenovus_popppp",
@@ -196,7 +197,7 @@
     "bootlegger": [
       "The Demon doesn't get bluffs.",
 "There are Homebrew characters.",
-"The Drunk, Lunatic and Marionette cannot be chosen, but can be given.",
+"The Drunk, Lunatic, and Marionette cannot be chosen, but can be given.",
 "*If a player chooses Choirboy, Alchemist, Amnesiac, Village Idiot, Kazali or Legion, other players may not get the character they asked for.",
 "For selection, the Atheist and Summoner count as your Demon choices. If you choose Atheist, Legion or Lil Monsta in your Demon picks you MUST pick another Demon not listed.",      
 "The Huntsman, Philosopher, Soldier, Courtier, Preacher, Summoner, Wizard, Engineer, Cult Leader, Recluse, Hermit, Snitch, Sweetheart, Pit-Hag, and Psychopath abilities are adjusted."
@@ -1324,8 +1325,9 @@
     ],
     "name": "Truthsayer",
     "team": "minion",
-    "ability": "Once per game, during the day, you may publicly claim Truthsayer & choose to initiate a round robin. If good players are not mad as the character they are during the round robin, they might turn into an Outsider tonight.",
-    "flavor": "Speak your truth—or be judged unworthy."
+    "ability": "Once per game, during the day, you may publicly claim Truthsayer & choose to initiate a round robin. If good players are not mad as the character they are during the round robin, they might turn into an Outsider tonight, even if dead.",
+    "flavor": "Speak your truth—or be judged unworthy.",
+    "otherNightReminder": "Players who failed the Truthsayer's round robin might turn into an Outsider."
   },
 
 

@@ -1291,7 +1291,7 @@
     "name": "Summoner",
     "team": "minion",
     "ability": "On the 3rd night, choose a player: they become an evil Demon of your choice. [No Demon]",
-    "flavor": "With this treasure, I summon…"
+    "flavor": "With this treasure, I summon… -Chara"
   },
 
 
@@ -1954,7 +1954,14 @@
   },
 
 
-
+  {
+    "id": "fussy1_popppp",
+    "image": "https://www.bloodstar.xyz/p/ZuZuxy/popppp/fussy1_popppp.png",
+    "name": "Fussy",
+    "team": "fabled",
+    "ability": "One or more characters might be publicly banned before players start selecting.",
+    "flavor": "I'd like a cheeseburger without cheese, please."
+  },
 
 
  {

@@ -15,7 +15,6 @@
       "bureaucrat",
       "hermit_popppp",
       "thief",
-"bestower",
       "philosopher_ultimate",
       "lunatic_popppp",
       "alchemist_popppp",
@@ -40,6 +39,7 @@
       "wizard_popppp",
       "snakecharmer",
       "godfather",
+"advisor",
       "organgrinder",
       "devilsadvocate",
       "eviltwin_popppp",
@@ -49,7 +49,6 @@
       "harpy",
       "mezepheles",
       "pukka",
-"watcher",
       "pixie",
       "huntsman_popppp",
       "damsel",
@@ -58,6 +57,7 @@
       "librarian",
       "investigator",
       "chef",
+"trainconductor",
       "empath",
       "fortuneteller",
       "butler_popppp",
@@ -95,7 +95,6 @@
       "barista",
       "bureaucrat",
       "thief",
-"bestower",
       "harlot",
       "bonecollector",
       "poppygrower_popppp",
@@ -103,6 +102,7 @@
       "preacher_popppp",
       "xaan",
       "poisoner",
+"corpseeater",
       "courtier_popppp",
       "innkeeper",
       "wizard_popppp",
@@ -142,9 +142,11 @@
       "leviathan_popppp",
       "riot_popppp",
       "assassin",
+"vengeance",
       "godfather",
+"advisor",
       "gossip",
-"watcher",
+"veteran",
       "hatter_popppp",
       "barber",
       "sweetheart_wewew",
@@ -177,7 +179,6 @@
       "nightwatchman",
       "butler_popppp",
       "spy_popppp",
-"sympath",
       "cultleader_popppp",
       "highpriestess",
       "general",
@@ -194,7 +195,7 @@
     "bootlegger": [
       "The Demon doesn't get bluffs.",
 "Any character with Ω in the name is adjusted or a Homebrew character.",
-"The Drunk, Lunatic and Marionette cannot be chosen, but can be given.",
+"The Drunk, Lunatic and Marionette cannot be chosen, but can be given. The Hermit can be given (with the Lunatic or Drunk ability), even if not chosen.",
 "*If a player chooses Choirboy, Alchemist, Amnesiac, Village Idiot, Kazali or Legion, other players may not get the character they asked for.",
 "For selection, the Atheist and Summoner count as your Demon choices. If you choose Atheist, Legion or Lil Monsta in your Demon picks you MUST pick another Demon not listed. If you choose 1 of the following characters for selection, you cannot choose another: Alchemist, Cult Leader, or Philosopher."    
     ]
@@ -299,7 +300,7 @@
     "name": "Cannibal",
     "team": "townsfolk",
     "ability": "You have the ability of the recently killed executee. If they are evil, you are poisoned until a good player dies by execution.",
-    "flavor": "The first person to say \"Yummerz\" at me will get to pick the quote! You can only choose 1 quote."
+    "flavor": "If you are what you eat, then I am an innocent being!"
   },
 
 
@@ -513,7 +514,7 @@
   "team": "townsfolk",
   "edition": "gwb",
   "ability": "If only 3 players live (travellers don't count) & no execution occurs, your team wins. If you die at night, another player might die instead.",
-  "flavor": "The first player to come up to Kianu and say \"Dollar\" can change this Flavor text.",
+  "flavor": "Entrust in my rightfully elected position against the dark ages that fall before us. You do not recall your vote? Don't worry about it; for I am the legitimate, healthy, and fairly elected Mayor of this town. Putting trust in politics has never failed you before.",
   "setup": false
 },
 
@@ -1783,115 +1784,110 @@
 
 
 {
-  "id": "bestower",
-  "name": "Bestower Ω",
-  "team": "traveller",
-  "ability": "Each night, choose a player (not yourself) & give them a boon or curse. The selected player is asked to accept.",
-  "image": [
-    "https://user-images.klutzbanana.com/q0pl1q7nky2b6s44t456qw9o.png",
-    "https://user-images.klutzbanana.com/uhxluwi1fqn8kfql1qt7pu95.png",
-    "https://user-images.klutzbanana.com/culc6x5z76hpfcmc4ixh8qi2.png"
-  ],
-  "edition": "gwb",
-  "flavor": "I bestow upon you this gift.",
-  "firstNight": 1,
-  "firstNightReminder": "Wake the Bestower to select a player. Then the Bestower to select boon or curse. Wake the selected character and ask if they accept. Give them the boon/curse if they accept.",
-  "otherNight": 1,
-  "otherNightReminder": "The Bestower chooses a player and chooses either boon or curse. Wake the chosen player and ask if they would like to accept. If they accept give them either a boon or curse based on the choice.",
-  "reminders": [
-    "Boon",
-    "Curse"
-  ],
-  "setup": false
-},
-
-{
-  "id": "cat",
-  "name": "Cat Ω",
-  "team": "traveller",
-  "ability": "Each day, you publicly choose a player: swap seats with them. If you swap seats with a player of your alignment, you can't die until you swap again. One opposing player registers as your alignment to your ability.",
-  "image": [
-    "https://user-images.klutzbanana.com/kj0kg574vbpjugzaowo9fhxl.png",
-    "https://user-images.klutzbanana.com/ira66u7q6eriz6ttg22cjr98.png",
-    "https://user-images.klutzbanana.com/ubsox5fsgh4g97sr6zuthyso.png"
-  ],
-  "edition": "gwb",
-  "flavor": "Meow.",
-  "reminders": [
-    "Can't Die",
-    "Laser Pointer"
-  ],
-  "setup": false
-},
-
-{
-  "id": "pilgrim",
-  "name": "Pilgrim Ω",
-  "team": "traveller",
-  "ability": "Each day, you may visit the Storyteller to make a decision or learn information relating to a Loric or Fabled. (+0 or +1 Loric or Fabled while you are alive)",
-  "image": [
-    "https://user-images.klutzbanana.com/bshoboh4z3pkev41ubvsrri0.png",
-    "https://user-images.klutzbanana.com/sm2gsmg5yi5413ag5fqeqwmq.png",
-    "https://user-images.klutzbanana.com/o24xi9ln6pbq5bqagvi8ffbq.png"
-  ],
-  "edition": "gwb",
-  "flavor": "Long roads make friends of strange fellows and faiths.",
-  "setup": false
-},
-
-{
-  "id": "skaldi",
-  "name": "Skaldi Ω",
+  "id": "advisor",
+  "name": "Advisor Ω",
   "team": "townsfolk",
-  "ability": "If at least one of your alive neighbors is a Minion, you can't die.",
+  "ability": "Each night, you learn two statements & choose one: it becomes true (if not true already).",
   "image": [
-    "https://user-images.klutzbanana.com/bfgh8rf0qwdq7dflqp87jtx8.png",
-    "https://user-images.klutzbanana.com/y339ktxej40lgja5xw3hatt2.png"
+    "https://user-images.klutzbanana.com/xvcamy61ndx6ccx8rxan59fq.png",
+    "https://user-images.klutzbanana.com/duez5eghnj7k7lada5lncvvy.png"
   ],
   "edition": "gwb",
-  "flavor": "The harsh winds of the North gloss my lips. My skin bears no ill intent to the force of nature it's encompassed by every day. To be cold, is to be me.",
-  "reminders": [
-    "Can't Die"
-  ],
+  "flavor": "It comes down to this, so it's up to you. All that's left: choose right.",
+  "firstNightReminder": "Give two statements. The Advisor chooses one.",
+  "otherNightReminder": "Give two statements. The Advisor chooses one.",
   "setup": false
 },
 
 {
-  "id": "sympath",
-  "name": "Sympath",
-  "team": "outsider",
-  "ability": "Each night*, you become the alignment of the recently killed executee.",
-  "image": [
-    "https://user-images.klutzbanana.com/rulznb3340pju4ce154a3gda.png",
-    "https://user-images.klutzbanana.com/mpl9wq7o9daoobjfyoky76gl.png"
-  ],
-  "edition": "gwb",
-  "flavor": "I feel your pain, let me join you.",
-  "otherNight": 1,
-  "otherNightReminder": "They become the alignment of the most recently killed executee.",
-  "reminders": [
-    "Executed"
-  ],
-  "setup": false
-},
-
-{
-  "id": "watcher",
-  "name": "Watcher Ω",
+  "id": "corpseeater",
+  "name": "Corpse Eater Ω",
   "team": "minion",
-  "ability": "Each night, choose a player (different from last night). You learn their information instead of them; the player is told they are being watched. If a player is mad about being watched today, they might die.",
+  "ability": "If a good player was executed today, their Townsfolk neighbors are poisoned tonight & tomorrow day.",
   "image": [
-    "https://user-images.klutzbanana.com/aj9jfoomqon0fj0mk5kxbrwk.png",
-    "https://user-images.klutzbanana.com/fhbl0hte0f1kuo3yfdut8wnn.png"
+    "https://user-images.klutzbanana.com/lm7l6bb5vxpk3s5x6cd10mhi.png",
+    "https://user-images.klutzbanana.com/lpccx72m05z25b0ku1mrdz8d.png"
   ],
   "edition": "gwb",
-  "flavor": "He was never meant to be there...He was only ever meant to watch",
-  "firstNight": 1,
-  "firstNightReminder": "wake and choose a player, if the player learns information, inform the watcher of the info and inform the player they are watched",
-  "otherNight": 1,
-  "otherNightReminder": "wake and choose a player, if the player learns information, inform the watcher of the info and inform the player they are watched",
+  "flavor": "Munch munch",
+  "otherNightReminder": "If a good player was executed today, mark their Townsfolk neighbors with Poisoned token.",
   "reminders": [
-    "Watched"
+    "Poisoned",
+    "Poisoned"
+  ],
+  "setup": false
+},
+
+{
+  "id": "sol",
+  "name": "Sol Ω",
+  "team": "townsfolk",
+  "ability": "If evil would win, but your 1st vote today was for the demon, good wins instead.",
+  "image": [
+    "https://user-images.klutzbanana.com/ul6uduww8bmqwiwzsddvoqvj.png",
+    "https://user-images.klutzbanana.com/yb0s7fckmcb5xdp0k22jekk1.png"
+  ],
+  "edition": "gwb",
+  "flavor": "BECAUSE I'M ME!!",
+  "reminders": [
+    "Sunkissed"
+  ],
+  "setup": false
+},
+
+{
+  "id": "trainconductor",
+  "name": "Train Conductor Ω",
+  "team": "townsfolk",
+  "ability": "You start knowing how many sources of poisoning & drunkeness is in-play.",
+  "image": [
+    "https://user-images.klutzbanana.com/c8gex4peqbj61t1ihlyimwzv.png",
+    "https://user-images.klutzbanana.com/is71mo4r63cyhls0t2bcp1g7.png"
+  ],
+  "edition": "gwb",
+  "flavor": "Next stop Ravenwoods Bluff!",
+  "firstNightReminder": "Show how many sources of posion and drunking is in play. If a drunk in play they also learn this.",
+  "reminders": [
+    "Source",
+    "Source",
+    "Source",
+    "Source"
+  ],
+  "setup": false
+},
+{
+  "id": "vengeance",
+  "name": "Vengeance Ω",
+  "team": "minion",
+  "ability": "Each night*, the last player that nominated you dies, even if you are dead.",
+  "image": [
+    "https://user-images.klutzbanana.com/d7fjrg1ahuexsovhh1pzfrl1.png",
+    "https://user-images.klutzbanana.com/g58ggb3pjy7ncnngupqtguhk.png"
+  ],
+  "edition": "gwb",
+  "flavor": "HOW DARE YOU !!!!!",
+  "otherNightReminder": "If a player nominated Vengeance, they die.",
+  "reminders": [
+    "Marked",
+    "Dead"
+  ],
+  "setup": false
+},
+{
+  "id": "veteran",
+  "name": "Veteran Ω",
+  "team": "townsfolk",
+  "ability": "Each night*, learn which players died. Once per game, you may choose 1 of these players: they live & you die instead.",
+  "image": [
+    "https://user-images.klutzbanana.com/z7lct49eptfrgpv8d8uyy96b.png",
+    "https://user-images.klutzbanana.com/z68g62qcpe96kvketno5tapv.png"
+  ],
+  "edition": "gwb",
+  "flavor": "I have fought my battles. These children, they are the future!!",
+  "otherNightReminder": "Point to the players that died. Ask the veteran if they want to use their ability. If they do they choose a player, that player lives & the veteran dies",
+  "reminders": [
+    "No Ability",
+    "Dead"
   ],
   "setup": false
 },

@@ -198,7 +198,7 @@
 "There are Homebrew characters.",
 "The Drunk, Lunatic, and Marionette cannot be chosen, but can be given.",
 "*If a player chooses Choirboy, Alchemist, Amnesiac, Village Idiot, Kazali or Legion, other players may not get the character they asked for.",
-"For selection, the Atheist and Summoner count as your Demon choices. If you choose The Ancient One, Atheist, Legion or Lil Monsta in your Demon picks you MUST pick another Demon not listed.",      
+"For selection, the Atheist and Summoner count as your Demon choices. If you choose Atheist, Legion or Lil Monsta in your Demon picks you MUST pick another Demon not listed.",      
 "The Huntsman, Philosopher, Soldier, Courtier, Preacher, Summoner, Wizard, Engineer, Cult Leader, Recluse, Hermit, Snitch, Sweetheart, Pit-Hag, and Psychopath abilities are adjusted."
     ]
   },
@@ -975,7 +975,7 @@
     "id": "quitter_winningclub",
     "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/quitter_winningclub.png",
                "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/quitter_e_winningclub.png" ],
-    "firstNightReminder": "They learn a player.",
+    "firstNightReminder": "They choose a player.",
     "reminders": [
       "Rage Quit!"
     ],
@@ -985,7 +985,6 @@
     "flavor": "“We just lost our greatest information.. Evil must be stomping, there’s no more point in trying.”",
     "firstNight": 17
   },
-
 
 
   {

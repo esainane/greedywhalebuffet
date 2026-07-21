@@ -1817,7 +1817,7 @@
     ],
     "name": "Monkey's Paw",
     "team": "loric",
-    "ability": "Each night, a player is told they may make a wish. The wish, if granted, might have a price, leave a clue as to its nature, or be granted unfavorably.",
+    "ability": "Each night, a player might be told they may make a wish. The wish, if granted, might have a price, leave a clue as to its nature, or be granted unfavorably.",
     "flavor": "Never mind, dear... perhaps you'll win the next one.",
     "firstNight": 19,
     "otherNight": 15

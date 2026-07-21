@@ -287,10 +287,7 @@ h1 {
 }
 
 .help-tooltip {
-	position: absolute;
-	right: 0;
-	top: calc(100% + 0.5rem);
-	width: min(300px, calc(100vw - 3.5rem));
+	position: fixed;
 	padding: 0.7rem 0.85rem;
 	border-radius: 12px;
 	background: var(--bg-strong);
@@ -299,18 +296,11 @@ h1 {
 	font-size: 0.86rem;
 	line-height: 1.35;
 	box-shadow: var(--shadow);
-	opacity: 0;
-	transform: translateY(-4px);
 	pointer-events: none;
-	transition: opacity 140ms ease, transform 140ms ease;
-	z-index: 2;
 }
 
-.help-bubble:hover .help-tooltip,
-.help-bubble:focus-within .help-tooltip {
-	opacity: 1;
-	transform: translateY(0);
-	pointer-events: auto;
+.help-tooltip-layer {
+	z-index: 1234;
 }
 
 .actions {

@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useReducer } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useReducer, useRef } from 'react';
 import type { Character, GenerationOptions, ScriptData } from '../../types.js';
 import type { FetchedData } from '../../data/fetched.js';
 import { GENERATION_OPTIONS, getDependentOptions } from '../../options.js';
@@ -172,15 +172,23 @@ type AppProviderProps = {
 export function AppProvider(props: AppProviderProps): React.JSX.Element {
 	const { children } = props;
 	const [state, dispatch] = useReducer(appReducer, initialState);
+	const activeLoadController = useRef<AbortController | null>(null);
 
 	const setStatus = useCallback((message: string, tone: StatusTone = 'info') => {
 		dispatch({ type: 'set_status', message, tone });
 	}, []);
 
 	const reload = useCallback(async () => {
+		activeLoadController.current?.abort();
+		const controller = new AbortController();
+		activeLoadController.current = controller;
+
 		dispatch({ type: 'load_start', status: 'Loading latest script...' });
 		try {
-			const { fetchedData } = await loadLatestJson();
+			const { fetchedData } = await loadLatestJson({ signal: controller.signal });
+			if (controller.signal.aborted) {
+				return;
+			}
 			const greedyJson = fetchedData.cloneGreedyJson();
 			const metaEntry = getMetaEntry(greedyJson);
 			const characters = getCharacters(greedyJson, fetchedData);
@@ -193,10 +201,18 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 				characters,
 			});
 		} catch (error: unknown) {
+			if (controller.signal.aborted) {
+				return;
+			}
+
 			dispatch({
 				type: 'load_error',
 				message: error instanceof Error ? error.message : 'Unable to reload latest script.',
 			});
+		} finally {
+			if (activeLoadController.current === controller) {
+				activeLoadController.current = null;
+			}
 		}
 	}, []);
 
@@ -229,6 +245,9 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 
 	useEffect(() => {
 		void reload();
+		return () => {
+			activeLoadController.current?.abort();
+		};
 	}, [reload]);
 
 	const actions = useMemo<AppActions>(

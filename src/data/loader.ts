@@ -23,7 +23,7 @@ import { FetchedData } from './fetched.js';
  * Load all JSON data sources in parallel.
  * Constructs and returns immutable FetchedData.
  */
-export async function loadLatestJson(): Promise<{ fetchedData: FetchedData }> {
+export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Promise<{ fetchedData: FetchedData }> {
 	const dataSources = [
 		GREEDY_JSON_URL,
 		GREEDY_JINX_JSON_URL,
@@ -34,7 +34,7 @@ export async function loadLatestJson(): Promise<{ fetchedData: FetchedData }> {
 	];
 
 	const responses = await Promise.all(
-		dataSources.map((url) => fetch(url, { cache: 'no-store' })),
+		dataSources.map((url) => fetch(url, { cache: 'no-store', signal: options.signal })),
 	);
 
 	if (responses.some((r) => !r.ok)) {

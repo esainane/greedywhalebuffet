@@ -18,7 +18,6 @@ export type CharacterEntry = {
 	jinxes?: { id: string; reason: string }[];
 	firstNight?: number;
 	otherNight?: number;
-	[key: string]: unknown;
 };
 
 export type ScriptData = (MetaEntry | CharacterEntry | string)[];

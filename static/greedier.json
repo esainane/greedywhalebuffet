@@ -16,6 +16,7 @@
       "asdasd_ultimate",
       "hermit_popppp",
       "thief",
+      "chocolatier_winningclub",
       "philosopher_ultimate",
       "lunatic_popppp",
       "alchemist_popppp",
@@ -26,7 +27,6 @@
       "yaggababble_poppppp",
       "magician_popppp",
       "minioninfo",
-      "theancientone_winningclub",
       "demoninfo",
       "thegreed",
       "king",
@@ -65,6 +65,9 @@
       "clockmaker",
       "dreamer",
       "seamstress",
+      "secretary_winningclub",
+      "bingbong_winningclub",
+      "quitter_winningclub",
       "steward",
       "knight",
       "noble",
@@ -113,9 +116,7 @@
       "organgrinder",
       "devilsadvocate",
       "pithag_ultimate",
-      "truthsayer_winningclub",
       "witch",
-      "sybil_winningclub",
       "cerenovus_popppp",
       "snitch_wewew",
       "fearmonger",
@@ -125,7 +126,6 @@
       "summoner_popppp",
       "exorcist",
       "lycanthrope",
-      "theancientone_winningclub",
       "legion_popppp",
       "imp",
       "zombuul",
@@ -152,7 +152,6 @@
       "barber",
       "sweetheart_wewew",
       "plaguedoctor_popppp",
-      "crow_winningclub",
       "sage",
       "banshee",
       "professor",
@@ -281,6 +280,27 @@
   "atheist",
   "balloonist",
   "banshee",
+
+
+
+ {
+    "id": "bingbong_winningclub",
+    "image": [  "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/bingbong_winningclub.png",
+                "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/bingbong_e_winningclub.png" ],
+    "reminders": [
+      "Real Friend"
+    ],
+    "name": "Bing Bong",
+    "team": "townsfolk",
+    "ability": "You start knowing a player. When they die, you die instead & they can't change alignment & might not die from now on. ",
+    "firstNightReminder": "They learn a player.",
+    "flavor": "Take her to the moon for me."
+  },
+
+
+
+
+
   "bountyhunter",
 
 
@@ -332,32 +352,6 @@
   },
 
 
-
-
-  {
-    "id": "crow_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/crow_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/crow_e_winningclub.png" ],
-    "otherNightReminder": "If they died, show them a character of a living neighbor.",
-    "remindersGlobal": [
-      "Is the Crow",
-      "Is the Crow",
-      "Is the Crow",
-      "Is the Crow",
-      "Is the Crow"
-    ],
-    "name": "Crow",
-    "team": "townsfolk",
-    "ability": "You think you are an Outsider, but you are not. If you die, you learn the character of a living neighbor tonight. [ -0 or -1 Outsider]",
-    "flavor": "Mind your omens. They may be boons in disguise.",
-    "otherNight": 11,
-     "special": [
-      {
-        "name": "replace-character",
-        "type": "reveal"
-      }
-    ]
-  },
 
 
 
@@ -616,7 +610,7 @@
     "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/preacher_popppp.png",
  "https://www.bloodstar.xyz/p/ZuZuxy/popppp/preacher_e_popppp.png"],
     "firstNightReminder": "The Preacher chooses a player. If they chose a Minion: Put the Preacher to sleep. Wake the Minion. Show THIS CHARACTER SELECTED YOU token & the Preacher token. Don't wake the chosen Minions unless the Preacher is dead, poisoned or drunk. ",
-    "otherNightReminder": "The Preacher chooses a player. If they chose a Minion: Put the Preacher to sleep. Wake the Minion. Show THIS CHARACTER SELECTED YOU token & the Preacher token. Don't wake the chosen Minions unless the Preacher is dead, poisoned or drunk. If the Preacher dies, tell them Yes or No if they ever chose a Minion.",
+    "otherNightReminder": "The Preacher chooses a player. If they chose a Minion: Put the Preacher to sleep. Wake the Minion. Show THIS CHARACTER SELECTED YOU token & the Preacher token. Don't wake the chosen Minions unless the Preacher is dead, poisoned or drunk.",
     "reminders": [
       "No Ability",
       "No Ability",
@@ -627,7 +621,7 @@
     ],
     "name": "Preacher",
     "team": "townsfolk",
-    "ability": "Each night, choose a player: a Minion, if chosen, learns this. All chosen Minions have no ability. When you die, tonight learn if you ever chose a Minion.",
+    "ability": "Each night, choose a player: a Minion, if chosen, learns this. All chosen Minions have no ability.",
     "flavor": "People are getting too loud. -Al-Hadashi"
   },
 
@@ -664,6 +658,34 @@
   "sailor",
   "savant",
   "seamstress",
+
+
+
+
+  {
+    "id": "secretary_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/secretary_winningclub.png",
+                 "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/secretary_e_winningclub.png" ],
+    "firstNightReminder": "Show them 2 in-play characters.",
+    "reminders": [
+      "Knows",
+      "Knows"
+    ],
+    "name": "Secretary",
+    "team": "townsfolk",
+    "ability": "You start knowing two in-play characters.",
+    "flavor": "Yes, Karen, the manager is on their way.",
+    "firstNight": 15
+  },
+
+
+
+
+
+
+
+
+
   "shugenja",
   "slayer",
   "snakecharmer",
@@ -949,7 +971,20 @@
   "politician",
   "puzzlemaster",
 
-
+  {
+    "id": "quitter_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/quitter_winningclub.png",
+               "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/quitter_e_winningclub.png" ],
+    "firstNightReminder": "They learn a player.",
+    "reminders": [
+      "Rage Quit!"
+    ],
+    "name": "Quitter",
+    "team": "outsider",
+    "ability": "On your 1st night, choose a player (not yourself): If they die, you can no longer vote on any nominations, even if you are dead.",
+    "flavor": "“We just lost our greatest information.. Evil must be stomping, there’s no more point in trying.”",
+    "firstNight": 17
+  },
 
 
 
@@ -1284,63 +1319,6 @@
 
 
 
-
-  {
-    "id": "sybil_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/sybil_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/sybil_g_winningclub.png" ],
-    "otherNightReminder": "They choose a player & a word. Something happens. Announce the chosen word.",
-    "reminders": [
-      "Chosen",
-      "?",
-      "?",
-      "?",
-      "?"
-    ],
-    "name": "Sybil",
-    "team": "minion",
-    "ability": "Each night*, choose a player & a word: something related to the word happens to the player. All players know the chosen word.",
-    "flavor": "Wdym nothing happens if I choose Orpheus and say bitch?",
-    "otherNight": 13
-  },
-
-
-
-
-
-
-  {
-    "id": "truthsayer_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/truthsayer_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/truthsayer_g_winningclub.png" ],
-    "reminders": [
-      "Liar!",
-      "Liar!",
-      "Liar!",
-      "Liar!",
-      "Liar!",
-      "Liar!",
-      "Liar!",
-      "Liar!",
-      "Liar!",
-      "Liar!",
-      "Liar!",
-      "Liar!",
-      "Liar!",
-      "Liar!",
-      "Liar!",
-      "Liar!",
-      "Liar!"
-    ],
-    "name": "Truthsayer",
-    "team": "minion",
-    "ability": "Once per game, during the day, you may publicly claim Truthsayer & choose to initiate a round robin. If good players are not mad as the character they are during the round robin, they might turn into an Outsider tonight, even if dead.",
-    "flavor": "Speak your truth—or be judged unworthy.",
-    "otherNightReminder": "Players who failed the Truthsayer's round robin might turn into an Outsider."
-  },
-
-
-
   {
     "id": "vizier_popppp",
     "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/vizier_popppp.png",
@@ -1652,25 +1630,6 @@
 
 
 
-  {
-    "id": "theancientone_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/theancientone_winningclub.png",
-"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/ancient_one_g_winningclub.png" ],
-    "firstNightReminder": "Show the Minions the 2 Townsfolk The Ancient One made evil.",
-    "otherNightReminder": "A player might die.",
-    "reminders": [
-      "Dead",
-      "Vessel",
-      "Vessel"
-    ],
-    "name": "The Ancient One",
-    "team": "demon",
-    "ability": "Each night*, a player might die. Minions start knowing who the 2 evil townsfolk are. The 2 evil townsfolk hold The Ancient One (they don't learn) & \"are the Demon\". [2 Townsfolk are evil (they don't know)]",
-    "flavor": "We worship you O Ancient one. We shall punish those who sealed you. We bring forth two sinners from the town for you to feast on their souls and return to the mortal plane.",
-    "firstNight": 14,
-    "otherNight": 12
-  },
-
 
 
   {
@@ -1794,6 +1753,32 @@
 
 
 
+
+
+
+  {
+    "id": "chocolatier_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/chocolatier_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/chocolatier_g_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/chocolatier_e_winningclub.png" ],
+    "firstNightReminder": "Tell them 2 phrases & what happens if they say each phrase.",
+    "reminders": [
+      "?",
+      "?",
+      "?",
+      "?"
+    ],
+    "name": "Chocolatier",
+    "team": "traveller",
+    "ability": "You start knowing 2 phrases & what happens when you say each phrase. Once you say one phrase, you immediately die if you say the other.",
+    "flavor": "White chocolate is SOOOOOOOOOOOOOOOOOOO good. But I see that dark chocolate eyeing me in the corner... stawp ittttt.",
+    "firstNight": 16
+  },
+
+
+
+
+
   "deviant",
   "gangster",
   "gnome",
@@ -1823,7 +1808,7 @@
     "id": "thegreed",
     "name": "Greedbuffet",
     "team": "fabled",
-    "ability": "On the 1st night, all players choose 8 characters. 2 Townsfolk, 2 Outsiders, 2 Minions and 2 Demons. The Storyteller assigns characters until all setup abilities have been met around the Grimiore. Everyone* is given one of the characters they chose. There can be more than one of the same character on the grimioire.",
+    "ability": "On the 1st night, all players choose 8 characters. 2 Townsfolk, 2 Outsiders, 2 Minions and 2 Demons. The Storyteller assigns characters until all setup abilities have been met around the Grimiore. Everyone* is given one of the characters they chose. There can be more than one of the same character on the grimiore.",
     "firstNightReminder": "OPTIONALLY: Ask all evil players what they will be bluffing. This is simply an open chance to get their claims for Dreamer or things of the such. You may not do this anytime else.",
       "reminders": [
       "Negative Vote",

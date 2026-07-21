@@ -48,7 +48,7 @@ export function mergeJinxes(
 			continue;
 		}
 
-		const existingJinxes = Array.isArray(sourceEntry.jinx) ? sourceEntry.jinx : [];
+		const existingJinxes = Array.isArray(sourceEntry.jinxes) ? sourceEntry.jinxes : [];
 		const mergedJinxes = [...existingJinxes];
 
 		for (const jinx of source.jinx) {

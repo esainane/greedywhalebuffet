@@ -41,6 +41,7 @@ export function ControlsPanel(): React.JSX.Element {
 				{GENERATION_OPTIONS.map((option) => {
 					const checked = state.options[option.name];
 					const isEnabled = optionIsEnabled(option.id, state.options);
+					const optionLabelId = `${option.id}-label`;
 
 					return (
 						<div
@@ -49,12 +50,13 @@ export function ControlsPanel(): React.JSX.Element {
 							data-dependencies={option.dependsOn?.join(',')}
 						>
 							<div className="toggle-main">
-								<span className="toggle-label">{option.label}</span>
+								<span id={optionLabelId} className="toggle-label">{option.label}</span>
 								<label className="switch" htmlFor={option.id}>
 									<input
 										id={option.id}
 										name={option.id}
 										type="checkbox"
+										aria-labelledby={optionLabelId}
 										checked={checked}
 										disabled={!isEnabled}
 										onChange={(event) => {
@@ -69,6 +71,7 @@ export function ControlsPanel(): React.JSX.Element {
 								<button
 									type="button"
 									className="help-trigger"
+									aria-label={`Help for ${option.label}`}
 									aria-describedby={`${option.id}-help-text`}
 								>
 									?

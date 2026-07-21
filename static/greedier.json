@@ -2,7 +2,7 @@
   {
     "id": "_meta",
     "author": "kianu",
-    "name": "Greedier Whalebuffet+ - W6",
+    "name": "Greedier Whalebuffet+ - W7",
     "firstNight": [
       "dusk",
       "shushingstick_popppp",
@@ -10,11 +10,9 @@
       "wraith_popppp",
       "lordoftyphon",
       "kazali_popppp",
-      "monkeyspaw_winningclub",
       "apprentice",
       "barista",
       "bureaucrat",
-      "asdasd_ultimate",
       "hermit_popppp",
       "thief",
       "philosopher_ultimate",
@@ -38,6 +36,7 @@
       "poisoner",
       "widow_popppp",
       "courtier_popppp",
+      "hulijing_winningclub",
       "wizard_popppp",
       "snakecharmer",
       "godfather",
@@ -46,7 +45,6 @@
       "eviltwin_popppp",
       "witch",
       "cerenovus_popppp",
-      "baffler_winningclub",
       "fearmonger",
       "harpy",
       "mezepheles",
@@ -87,7 +85,6 @@
     ],
     "otherNight": [
       "dusk",
-      "monkeyspaw_winningclub",
       "hermit_popppp",
       "cacklejack_day2",
       "lunatic_popppp",
@@ -95,7 +92,6 @@
       "princess_popppp",
       "wraith_popppp",
       "barista",
-      "asdasd_ultimate",
       "bureaucrat",
       "thief",
       "harlot",
@@ -107,6 +103,7 @@
       "poisoner",
       "courtier_popppp",
       "innkeeper",
+      "hulijing_winningclub",
       "wizard_popppp",
       "gambler",
       "acrobat",
@@ -117,7 +114,6 @@
       "pithag_ultimate",
       "witch",
       "cerenovus_popppp",
-      "baffler_winningclub",
       "snitch_wewew",
       "fearmonger",
       "harpy",
@@ -127,7 +123,6 @@
       "exorcist",
       "lycanthrope",
       "legion_popppp",
-      "baroness_winningclub",
       "imp",
       "zombuul",
       "pukka",
@@ -143,6 +138,8 @@
       "lleech_popppp",
       "lilmonsta",
       "yaggababble_poppppp",
+      "daki_winningclub",
+      "gyutaro_winningclub",
       "kazali_popppp",
       "leviathan_popppp",
       "riot_popppp",
@@ -182,7 +179,6 @@
       "butler_popppp",
       "spy_popppp",
       "cultleader_popppp",
-      "portiafeatherington_winningclub",
       "highpriestess",
       "general",
       "soldier_popppp",
@@ -380,12 +376,8 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/nothing/enge_nothing.png"
     ],
     "team": "townsfolk",
-    "ability": "Once per game, any night after Night 2, choose which Minions or which Demon is in play. You may be told to reconsider if suspected of trolling. The Minions & Demon knows an Engineer is in-play.",
+    "ability": "Once per game, during the day, visit the Storyteller to learn a number of in play Minion or Demon characters equal to the Day.",
     "flavor": "Three goblins. We're playing Minesweeper. -Kag",
-    "firstNight": 2,
-    "otherNight": 5,
-    "firstNightReminder": "Tell the Minions & Demons an Engineer is in play.",
-    "otherNightReminder": "If its Night 1 or 2, don't wake the Engineer. The Engineer shows a 'no' head signal, or points to a Demon or points to the relevant number of Minions. If the Engineer chose characters, replace the Demon or Minions with the choices, then wake the relevant players & show them the 'You are' card & the relevant character tokens.",
     "reminders": [
       "No Ability"
     ]
@@ -427,6 +419,17 @@
   "highpriestess",
 
 
+
+
+  {
+    "id": "hopeful_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hopeful1_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hopeful_e1_winningclub.png" ],
+    "name": "Hopeful",
+    "team": "townsfolk",
+    "ability": "If evil has won, publicly guess each players character: if correct, good wins instead, even if dead.",
+    "flavor": "Dum Spiro, Spero."
+  },
 
 
 
@@ -942,17 +945,6 @@
 
   "politician",
 
-  {
-    "id": "portiafeatherington_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/portiafeatherington_winningclub.png",
-               "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/portia_e_winningclub.png" ],
-    "otherNightReminder": "They swap alignment. Tell them",
-    "name": "Portia Featherington",
-    "team": "outsider",
-    "ability": "Each night*, swap alignment, even if dead.",
-    "flavor": "Nothing makes the ton come alive like a fresh scandal.",
-    "otherNight": 16
-  },
 
 
 
@@ -1042,26 +1034,6 @@
 
   "assassin",
 
-   {
-    "id": "baffler_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baffler_winningclub.png",
-               "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baffler_g_winningclub.png" ],
-    "firstNightReminder": "They choose a player. The chosen player chooses which convoluted way they must speak.",
-    "otherNightReminder": "They choose a player. The chosen player chooses which convoluted way they must speak.",
-    "reminders": [
-      "Baffled!",
-      "Baffled!",
-      "Baffled!",
-      "Baffled!",
-      "Baffled!"
-    ],
-    "name": "Baffler",
-    "team": "minion",
-    "ability": "Each night, choose a living player: tomorrow, they must vote for every nomination as long as there are 5 or more players alive & must speak in rhymes, riddles, or another convoluted way, or might be executed.",
-    "flavor": "The guzzling puzzle is a perplexing muzzle.",
-    "firstNight": 18,
-    "otherNight": 14
-  },
 
 
 
@@ -1150,7 +1122,19 @@
 
 
 
-
+  {
+    "id": "hulijing_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hulijing_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hulijing_g_winningclub.png" ],
+    "firstNightReminder": "Show them 5 out of play characters. They choose 1 of the characters. Run their ability as needed.",
+    "otherNightReminder": "They choose 1 of the characters. Run their ability as needed.",
+    "name": "Huli Jing",
+    "team": "minion",
+    "ability": "You start knowing 5 out-of-play characters. Each night, choose one of them: you have its ability & might register as it would until dusk.",
+    "flavor": "For shame! How dare you accuse me of being a mischievous fox spirit when I have been nothing but loyal as your… uhm, baker? Wait, no, I misspoke, I’m a fisherwoman.",
+    "firstNight": 20,
+    "otherNight": 20
+  },
 
 
 
@@ -1448,22 +1432,6 @@
 
 
 
-  {
-    "id": "baroness_winningclub",
-    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baroness_winningclub.png",
-                "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baroness_g_winningclub.png" ],
-    "otherNightReminder": "They choose a player. ",
-    "reminders": [
-      "Dead",
-      "Dead",
-      "Dead"
-    ],
-    "name": "Baroness",
-    "team": "demon",
-    "ability": "Each night*, choose a player: they might die. Good Minions do not learn or are shown in Minion or Demon info. [0 Townfolk. +0 to +2 Good Minions]",
-    "flavor": "Not my circus, not my monkeys. But I'm the ringmaster of this carnival and, I promise, it is the greatest show you are ever going to see.",
-    "otherNight": 17
-  },
 
 
 
@@ -1479,9 +1447,46 @@
 
 
   "fanggu",
+
+
+
+  {
+    "id": "daki_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/daki_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/daki_g_winningclub.png" ],
+    "otherNightReminder": "They choose a player. If a player has become Gyutaro, tell them. ",
+    "reminders": [
+      "Dead"
+    ],
+    "name": "Daki",
+    "team": "demon",
+    "ability": "Each night*, choose a player: they die. If 5 or more players are alive & you die, a player becomes an evil Gyutaro. ",
+    "flavor": "We beautiful, powerful demons can do whatever we want! ",
+    "otherNight": 18
+  },
+
+
+
   "imp",
 
 
+
+
+  {
+    "id": "gyutaro_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/gyutaro_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/gyutaro_g_winningclub.png" ],
+    "otherNightReminder": "They choose a player. If it was the first time an evil player was executed today, tell a good player Gyutaro is in-play.",
+    "reminders": [
+      "Dead",
+      "Reveal Tonight"
+    ],
+    "name": "Gyutaro",
+    "team": "demon",
+    "ability": "Each night*, choose a player, they might die. The first time an evil player is executed, a good player learns you are in-play tonight. [This cannot be chosen during setup]",
+    "flavor": "The two of us, together, we’re invincible. We can stand the cold. We can stand the hunger.",
+    "otherNight": 19
+  },
 
 
 
@@ -1786,6 +1791,27 @@
   "harlot",
   "judge",
   "matron",
+
+
+
+  {
+    "id": "rasputin_winningclub",
+    "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/rasputin_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/rasputin_g_winningclub.png",
+"https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/rasputin_e_winningclub.png" ],
+    "reminders": [
+      "Chosen"
+    ],
+    "name": "Rasputin",
+    "team": "traveller",
+    "ability": "You are a co-storyteller. Each night, you may choose the information given to a player. You can not speak (except to the storyteller) or vote.",
+    "flavor": "Oh, those ravenswoodbluffians..."
+  },
+
+
+
+
+
  "scapegoat",
   "thief",
   "voudon",
@@ -1802,26 +1828,6 @@
   "bootlegger",
 
 
-  {
-    "id": "monkeyspaw_winningclub",
-    "image": "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/monkeyspaw_winningclub.png",
-    "firstNightReminder": "Ask a player to potentially make a wish. Run it as possible.",
-    "otherNightReminder": "Ask a player to potentially make a wish. Run it as possible.",
-    "reminders": [
-      "Tempted",
-      "Tempted",
-      "Tempted",
-      "?",
-      "?",
-      "?"
-    ],
-    "name": "Monkey's Paw",
-    "team": "loric",
-    "ability": "Each night, a player might be told they may make a wish. The wish, if granted, might have a price, leave a clue as to its nature, or be granted unfavorably.",
-    "flavor": "Never mind, dear... perhaps you'll win the next one.",
-    "firstNight": 19,
-    "otherNight": 15
-  },
 
 
 

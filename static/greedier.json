@@ -23,7 +23,7 @@
       "marionette_popppp",
       "poppygrower_popppp",
       "snitch_wewew",
-      "yaggababble_popppp",
+      "yaggababble_poppppp",
       "magician_popppp",
       "minioninfo",
       "demoninfo",
@@ -134,14 +134,14 @@
       "po",
       "fanggu",
       "nodashii",
-      "vortox_popppp",
+      "vortox_poppppp",
       "lordoftyphon",
       "vigormortis_popppp",
       "ojo",
       "alhadikhia_popppp",
       "lleech_popppp",
       "lilmonsta",
-      "yaggababble_popppp",
+      "yaggababble_poppppp",
       "kazali_popppp",
       "leviathan_popppp",
       "riot_popppp",
@@ -1034,7 +1034,7 @@
     "name": "Boffin",
     "team": "minion",
     "ability": "The Demon (even if drunk or poisoned) has a not-in-play good character's ability. You both know which.",
-    "flavor": "The first person to say \"Fizzle\" at me will get to pick the quote! You can only choose 1 quote.",
+    "flavor": "Sometimes the questions are complicated and the answers are simple. -Dr. Seuss",
     "firstNight": 30
   },
 
@@ -1390,7 +1390,7 @@
     "image": [ "https://www.bloodstar.xyz/p/ZuZuxy/popppp/alhadikhia_popppp.png",
 "https://www.bloodstar.xyz/p/ZuZuxy/popppp/alhad_g_popppp.png" ],
     "ability": "Each night*, you may choose 3 players (all players learn who): each silently chooses to live or die, but if all live, all die.",
-    "flavor": "The first person to say \\\"Lollapalooza\\\" at me will get to pick the Al-Hadikhia quote! You can only choose 1 quote."
+    "flavor": "This is for all my demons who don’t get hyped enough"
   },
 
 
@@ -1417,8 +1417,8 @@
     ],
     "name": "Armageddon",
     "team": "demon",
-    "ability": "On night four, choose three alive players, they can't switch alignment from now on, one must be good, & all other players die, even if for some reason they could not. If nobody dies on day 4, your team wins.",
-    "flavor": "I am become death, destroyer of worlds. - J. Robert Oppenheimer",
+    "ability": "On night four, choose three alive players (not travellers), they can't switch alignment from now on, one must be good, & all other players die, even if for some reason they could not. If nobody dies on day 4, your team wins.",
+    "flavor": "I am become death, destroyer of worlds. -J. Robert Oppenheimer",
     "otherNight": 5
   },
 
@@ -1455,7 +1455,7 @@
     ],
     "name": "Arsonist",
     "team": "demon",
-    "ability": "Each night*, you may choose a player: they are poisoned. If you choose no one, all poisoned players die then become healthy if you poisoned them.",
+    "ability": "Each night, you may choose a player: they are poisoned. If you choose no one, all poisoned players die then become healthy if you poisoned them. No one dies on night 1.",
     "flavor": "Some people just want to watch the world burn.",
     "otherNight": 4
   },

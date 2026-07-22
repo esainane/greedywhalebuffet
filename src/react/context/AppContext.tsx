@@ -435,6 +435,10 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 	}, [reload]);
 
 	useEffect(() => {
+		if (!state.fetchedData) {
+			return;
+		}
+
 		const allKnownCharacters = [...state.baseCharacters, ...state.greedierCharacters];
 		const bannedCharacterIds = allKnownCharacters
 			.filter((character) => !state.selectedCharacterIds.has(character.id))
@@ -444,7 +448,7 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 			options: state.options,
 			bannedCharacterIds,
 		});
-	}, [state.characters, state.options, state.selectedCharacterIds]);
+	}, [state.characters, state.fetchedData, state.options, state.selectedCharacterIds]);
 
 	const actions = useMemo<AppActions>(
 		() => ({

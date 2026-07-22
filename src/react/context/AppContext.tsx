@@ -6,6 +6,13 @@ import { loadLatestJson } from '../../data/loader.js';
 import { getCharacters, getMetaEntry } from '../../character.js';
 import { buildCopyPayload } from '../../generation.js';
 
+const PREFERENCES_STORAGE_KEY = 'gwb:preferences:v1';
+
+type StoredPreferences = {
+	options: GenerationOptions;
+	bannedCharacterIds: string[];
+};
+
 export type StatusTone = 'info' | 'success' | 'error';
 
 export type AppState = {
@@ -32,6 +39,7 @@ type AppAction =
 			scriptName: string;
 			baseCharacters: Character[];
 			greedierCharacters: Character[];
+			bannedCharacterIds: Set<string>;
 	  }
 	| { type: 'load_error'; message: string }
 	| { type: 'set_status'; message: string; tone: StatusTone }
@@ -51,6 +59,87 @@ const defaultOptions = GENERATION_OPTIONS.reduce((acc, option) => {
 	return acc;
 }, {} as GenerationOptions);
 
+function cloneDefaultOptions(): GenerationOptions {
+	return { ...defaultOptions };
+}
+
+function isValidOptionName(value: string): value is keyof GenerationOptions {
+	return GENERATION_OPTIONS.some((option) => option.name === value);
+}
+
+function parseStoredPreferences(rawValue: string): StoredPreferences | null {
+	let parsed: unknown;
+	try {
+		parsed = JSON.parse(rawValue);
+	} catch {
+		return null;
+	}
+
+	if (!parsed || typeof parsed !== 'object') {
+		return null;
+	}
+
+	const rawOptions =
+		'options' in parsed && parsed.options && typeof parsed.options === 'object'
+			? parsed.options
+			: {};
+	const options = cloneDefaultOptions();
+
+	for (const [key, value] of Object.entries(rawOptions)) {
+		if (!isValidOptionName(key) || typeof value !== 'boolean') {
+			continue;
+		}
+		options[key] = value;
+	}
+
+	const bannedCharacterIds =
+		'bannedCharacterIds' in parsed && Array.isArray(parsed.bannedCharacterIds)
+			? parsed.bannedCharacterIds.filter((entry): entry is string => typeof entry === 'string')
+			: [];
+
+	return {
+		options,
+		bannedCharacterIds,
+	};
+}
+
+function loadStoredPreferences(): StoredPreferences {
+	const defaults: StoredPreferences = { options: cloneDefaultOptions(), bannedCharacterIds: [] };
+	if (typeof window === 'undefined') {
+		return defaults;
+	}
+
+	try {
+		const rawValue = window.localStorage.getItem(PREFERENCES_STORAGE_KEY);
+		if (!rawValue) {
+			return defaults;
+		}
+
+		const parsed = parseStoredPreferences(rawValue);
+		if (!parsed) {
+			return defaults;
+		}
+
+		return parsed;
+	} catch {
+		return defaults;
+	}
+}
+
+function saveStoredPreferences(preferences: StoredPreferences): void {
+	if (typeof window === 'undefined') {
+		return;
+	}
+
+	try {
+		window.localStorage.setItem(PREFERENCES_STORAGE_KEY, JSON.stringify(preferences));
+	} catch {
+		// Ignore persistence failures (private mode, storage quota, etc.)
+	}
+}
+
+const storedPreferencesAtStartup = loadStoredPreferences();
+
 const initialState: AppState = {
 	loading: true,
 	status: 'Loading latest script...',
@@ -63,7 +152,7 @@ const initialState: AppState = {
 	greedierCharacters: [],
 	characters: [],
 	selectedCharacterIds: new Set<string>(),
-	options: defaultOptions,
+	options: storedPreferencesAtStartup.options,
 };
 
 function buildCharacterPool(
@@ -127,7 +216,11 @@ function appReducer(state: AppState, action: AppAction): AppState {
 				action.greedierCharacters,
 				state.options,
 			);
-			const selectedCharacterIds = new Set(characters.map((character) => character.id));
+			const selectedCharacterIds = new Set(
+				characters
+					.map((character) => character.id)
+					.filter((characterId) => !action.bannedCharacterIds.has(characterId)),
+			);
 			const now = Date.now();
 			return {
 				...state,
@@ -289,6 +382,7 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 					imageUrl,
 				};
 			});
+			const storedPreferences = loadStoredPreferences();
 
 			dispatch({
 				type: 'load_success',
@@ -297,6 +391,7 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 				scriptName: metaEntry?.name ?? 'Unknown script',
 				baseCharacters,
 				greedierCharacters,
+				bannedCharacterIds: new Set(storedPreferences.bannedCharacterIds),
 			});
 		} catch (error: unknown) {
 			if (controller.signal.aborted) {
@@ -347,6 +442,17 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 			activeLoadController.current?.abort();
 		};
 	}, [reload]);
+
+	useEffect(() => {
+		const bannedCharacterIds = state.characters
+			.filter((character) => !state.selectedCharacterIds.has(character.id))
+			.map((character) => character.id);
+
+		saveStoredPreferences({
+			options: state.options,
+			bannedCharacterIds,
+		});
+	}, [state.characters, state.options, state.selectedCharacterIds]);
 
 	const actions = useMemo<AppActions>(
 		() => ({

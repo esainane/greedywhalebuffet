@@ -211,13 +211,14 @@ function appReducer(state: AppState, action: AppAction): AppState {
 			};
 		}
 		case 'load_success': {
+			const allCharacters = [...action.baseCharacters, ...action.greedierCharacters];
 			const characters = buildCharacterPool(
 				action.baseCharacters,
 				action.greedierCharacters,
 				state.options,
 			);
 			const selectedCharacterIds = new Set(
-				characters
+				allCharacters
 					.map((character) => character.id)
 					.filter((characterId) => !action.bannedCharacterIds.has(characterId)),
 			);
@@ -287,28 +288,18 @@ function appReducer(state: AppState, action: AppAction): AppState {
 					state.greedierCharacters,
 					adjustedOptions,
 				);
-				const nextSelectedCharacterIds = new Set(state.selectedCharacterIds);
-				for (const character of state.greedierCharacters) {
-					nextSelectedCharacterIds.add(character.id);
-				}
-
 				return {
 					...state,
 					options: adjustedOptions,
 					characters: nextCharacters,
-					selectedCharacterIds: nextSelectedCharacterIds,
+					selectedCharacterIds: new Set(state.selectedCharacterIds),
 				};
 			}
-
-			const greedierIds = new Set(state.greedierCharacters.map((character) => character.id));
-			const nextSelectedCharacterIds = new Set(
-				[...state.selectedCharacterIds].filter((id) => !greedierIds.has(id)),
-			);
 			return {
 				...state,
 				options: adjustedOptions,
 				characters: state.baseCharacters,
-				selectedCharacterIds: nextSelectedCharacterIds,
+				selectedCharacterIds: new Set(state.selectedCharacterIds),
 			};
 		}
 		case 'toggle_character': {
@@ -444,7 +435,8 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 	}, [reload]);
 
 	useEffect(() => {
-		const bannedCharacterIds = state.characters
+		const allKnownCharacters = [...state.baseCharacters, ...state.greedierCharacters];
+		const bannedCharacterIds = allKnownCharacters
 			.filter((character) => !state.selectedCharacterIds.has(character.id))
 			.map((character) => character.id);
 

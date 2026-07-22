@@ -37,7 +37,7 @@ export const GENERATION_OPTIONS: readonly OptionConfig[] = [
 		label: 'Alejo rules',
 		defaultChecked: false,
 		helpText:
-			'Enforces Alejo first-night ordering: Philosopher and Snake Charmer appear before Minion and Demon information.',
+			'Run Alejo ordering for the first night: Snake Charmer acts before Minion and Demon information.',
 	},
 	{
 		id: 'list-official-jinxes',

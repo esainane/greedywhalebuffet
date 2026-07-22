@@ -24,6 +24,14 @@ export const GENERATION_OPTIONS: readonly OptionConfig[] = [
 		helpText: 'Duplicate characters might be added during setup, even without setup abilities.',
 	},
 	{
+		id: 'add-spirit-of-ivory',
+		name: 'addSpiritOfIvory',
+		label: 'Add Spirit of Ivory',
+		defaultChecked: true,
+		helpText:
+			"Adds the Spirit of Ivory NPC. This prevents there being any more than one Evil over the base Evil count in the game.",
+	},
+	{
 		id: 'alejo-rules',
 		name: 'alejoRules',
 		label: 'Alejo rules',

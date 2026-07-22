@@ -12,6 +12,20 @@ import {
 import { mergeJinxes } from './jinxes.js';
 import type { FetchedData } from './data/fetched.js';
 
+const SPIRIT_OF_IVORY_ID = 'spiritofivory';
+
+function getEntryId(entry: ScriptData[number]): string | undefined {
+	if (typeof entry === 'string') {
+		return entry;
+	}
+
+	if (typeof entry === 'object' && entry !== null && 'id' in entry && typeof entry.id === 'string') {
+		return entry.id;
+	}
+
+	return undefined;
+}
+
 /**
  * Apply duplicate line to meta entry.
  */
@@ -22,6 +36,17 @@ export function applyDuplicateLine(data: ScriptData): void {
 	}
 
 	metaEntry.bootlegger = [...(metaEntry.bootlegger ?? []), DUPLICATE_LINE];
+}
+
+/**
+ * Ensure Spirit of Ivory appears in the script character list.
+ */
+export function applySpiritOfIvory(data: ScriptData): void {
+	if (data.find((entry) => getEntryId(entry) === SPIRIT_OF_IVORY_ID)) {
+		return;
+	}
+
+	data.push(SPIRIT_OF_IVORY_ID);
 }
 
 /**
@@ -67,6 +92,10 @@ export function applyGreedyJinxes(data: ScriptData, fetchedData: FetchedData): v
 export function applyOptions(data: ScriptData, options: GenerationOptions, fetchedData: FetchedData): void {
 	if (options.appendDuplicateLine) {
 		applyDuplicateLine(data);
+	}
+
+	if (options.addSpiritOfIvory) {
+		applySpiritOfIvory(data);
 	}
 
 	if (options.alejoRules) {

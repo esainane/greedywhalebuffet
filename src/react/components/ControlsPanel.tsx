@@ -189,6 +189,9 @@ function optionIsEnabled(optionId: string, options: GenerationOptions): boolean 
 export function ControlsPanel(): React.JSX.Element {
 	const state = useAppState();
 	const actions = useAppActions();
+	const enabledVisibleCharacterCount = state.characters.filter((character) =>
+		state.selectedCharacterIds.has(character.id),
+	).length;
 
 	const onSubmit = useCallback(
 		async (event: React.FormEvent<HTMLFormElement>) => {
@@ -230,7 +233,7 @@ export function ControlsPanel(): React.JSX.Element {
 					</div>
 					<div>
 						<dt>Enabled characters</dt>
-						<dd id="character-count">{state.selectedCharacterIds.size}</dd>
+						<dd id="character-count">{enabledVisibleCharacterCount}</dd>
 					</div>
 				</dl>
 

@@ -43,12 +43,14 @@ type AppAction =
 	  }
 	| { type: 'load_error'; message: string }
 	| { type: 'set_status'; message: string; tone: StatusTone }
+	| { type: 'reset_preferences' }
 	| { type: 'toggle_option'; optionName: keyof GenerationOptions; checked: boolean }
 	| { type: 'toggle_character'; id: string; checked: boolean };
 
 export type AppActions = {
 	reload: () => Promise<void>;
 	setStatus: (message: string, tone?: StatusTone) => void;
+	resetPreferences: () => void;
 	toggleOption: (optionName: keyof GenerationOptions, checked: boolean) => void;
 	toggleCharacter: (id: string, checked: boolean) => void;
 	copyToClipboard: () => Promise<void>;
@@ -271,6 +273,22 @@ function appReducer(state: AppState, action: AppAction): AppState {
 				statusTone: action.tone,
 			};
 		}
+		case 'reset_preferences': {
+			const options = cloneDefaultOptions();
+			const characters = buildCharacterPool(state.baseCharacters, state.greedierCharacters, options);
+			const allCharacterIds = [...state.baseCharacters, ...state.greedierCharacters].map(
+				(character) => character.id,
+			);
+
+			return {
+				...state,
+				status: 'Preferences reset to defaults.',
+				statusTone: 'success',
+				options,
+				characters,
+				selectedCharacterIds: new Set(allCharacterIds),
+			};
+		}
 		case 'toggle_option': {
 			const nextOptions = { ...state.options, [action.optionName]: action.checked };
 			const adjustedOptions = applyDependentOptionRules(nextOptions, action.optionName, action.checked);
@@ -404,6 +422,10 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 		dispatch({ type: 'toggle_option', optionName, checked });
 	}, []);
 
+	const resetPreferences = useCallback(() => {
+		dispatch({ type: 'reset_preferences' });
+	}, []);
+
 	const toggleCharacter = useCallback((id: string, checked: boolean) => {
 		dispatch({ type: 'toggle_character', id, checked });
 	}, []);
@@ -454,11 +476,12 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 		() => ({
 			reload,
 			setStatus,
+			resetPreferences,
 			toggleOption,
 			toggleCharacter,
 			copyToClipboard,
 		}),
-		[copyToClipboard, reload, setStatus, toggleCharacter, toggleOption],
+		[copyToClipboard, reload, resetPreferences, setStatus, toggleCharacter, toggleOption],
 	);
 
 	return (

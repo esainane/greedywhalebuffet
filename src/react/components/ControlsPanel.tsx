@@ -205,6 +205,10 @@ export function ControlsPanel(): React.JSX.Element {
 		await actions.reload();
 	}, [actions]);
 
+	const onReset = useCallback(() => {
+		actions.resetPreferences();
+	}, [actions]);
+
 	return (
 		<div className="controls-layout">
 			<section className="panel status-copy-panel">
@@ -222,6 +226,15 @@ export function ControlsPanel(): React.JSX.Element {
 							onClick={onReload}
 						>
 							Reload
+						</button>
+						<button
+							id="reset-button"
+							type="button"
+							className="danger"
+							disabled={state.loading}
+							onClick={onReset}
+						>
+							Reset
 						</button>
 					</div>
 				</form>

@@ -335,6 +335,17 @@ button.secondary {
 	border: 1px solid var(--surface-border);
 }
 
+button.danger {
+	color: #fff7f5;
+	background: linear-gradient(135deg, #b49f28, #a87323);
+	box-shadow: 0 10px 30px rgba(183, 77, 44, 0.34);
+}
+
+button.danger:hover,
+button.danger:focus-visible {
+	opacity: 0.94;
+}
+
 .meta {
 	margin: 0;
 	display: grid;

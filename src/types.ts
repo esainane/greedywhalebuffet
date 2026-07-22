@@ -40,6 +40,7 @@ export type Character = {
 
 export type GenerationOptions = {
 	appendDuplicateLine: boolean;
+	addSpiritOfIvory: boolean;
 	alejoRules: boolean;
 	listOfficialJinxes: boolean;
 	listGreedyJinxes: boolean;

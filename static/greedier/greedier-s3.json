@@ -9,7 +9,7 @@
     "reminders": [
       "Has Ability"
     ],
-    "name": "Immortalized",
+    "name": "Immortalized Ω",
     "team": "townsfolk",
     "ability": "If you die at night, you gain a Townsfolk ability (you learn it), you keep this ability, even if dead.",
     "flavor": "Those with a legacy larger than their life are the only that are truly successful.",
@@ -39,7 +39,7 @@
     "reminders": [
       "Chosen"
     ],
-    "name": "Pathologist",
+    "name": "Pathologist Ω",
     "team": "townsfolk",
     "ability": "Each night*, choose a player: if they die tonight, learn which character killed them.",
     "flavor": "Eyewitness account report that the victim died while in the middle of rolling dies; perhaps due to a stress-induced cardiac arrest. Interesting, there is a scratch mark on the victim's wrist and almost untraceable slow-acting poison in their system. It'd seem our gambler die not of bad gambling skills but of demonic poison!",
@@ -53,7 +53,7 @@
     ],
     "firstNightReminder": "Tell the Hypochondriac their Townsfolk ability. Run their ability accordingly.",
     "otherNightReminder": "Run their ability accordingly.",
-    "name": "Hypochondriac",
+    "name": "Hypochondriac Ω",
     "team": "outsider",
     "ability": "You have a Townsfolk ability. You are mad you have false information or you might be executed.",
     "flavor": "I think I'm poisoned! -Orpheus",
@@ -85,7 +85,7 @@
     "reminders": [
       "Dead"
     ],
-    "name": "Lolth",
+    "name": "Lolth Ω",
     "team": "demon",
     "ability": "Each night*, choose a player: they die. [-X Minions, X+1 Townsfolk are Evil]",
     "flavor": "Kill for me. Die for me. You just might earn my favour...",

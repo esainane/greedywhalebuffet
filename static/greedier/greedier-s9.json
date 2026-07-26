@@ -86,7 +86,7 @@
     ],
     "name": "Dullahan Ω",
     "team": "demon",
-    "ability": "Each night*, choose a player: they die. You & 1 Townsfolk neighbor register as a character of the opposite alignment to Townsfolk abilities.",
+    "ability": "Each night*, choose a player: they die. You & 1 good neighbor may register as a character of the opposite alignment to Townsfolk abilities.",
     "flavor": "It is too late now. Death is coming and they are blind. You may know everything, but they will never believe you.",
     "otherNight": 29
   },

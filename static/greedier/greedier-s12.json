@@ -11,8 +11,7 @@
     "flavor": "The Masked Fools share a parable about the Aeon: When Aha climbed to the highest branch of the Imaginary Tree, THEY saw the void, the stars operating like machinery, and how meaning bows before nothingness. THEY continued looking until THEY saw a baby fall to the ground and cry. THEY burst into laughter so clear it tore through the universe and still reverberates to this day.",
     "reminders": [
       "Elated"
-    ],
-    "setup": false
+    ]
   },
   {
     "id": "Archivist",
@@ -32,8 +31,7 @@
     "reminders": [
       "Archives Checked",
       "Archives Checked"
-    ],
-    "setup": false
+    ]
   },
   {
     "id": "Emperor",
@@ -48,8 +46,7 @@
     "flavor": "Any man who must say \"I am the King\" is no true king.",
     "reminders": [
       "Mad"
-    ],
-    "setup": false
+    ]
   },
   {
     "id": "Hawkmoth",
@@ -69,8 +66,7 @@
     "reminders": [
       "Akumatized",
       "Dead"
-    ],
-    "setup": false
+    ]
   },
   {
     "id": "Prince",
@@ -87,8 +83,7 @@
     "otherNightReminder": "If the Prince was nominated and executed by an evil player the previous day, wake a good player and point to the Prince character.",
     "reminders": [
       "Coronation Tonight"
-    ],
-    "setup": false
+    ]
   },
   {
     "id": "songtress",
@@ -108,7 +103,6 @@
     "reminders": [
       "Sober and healthy",
       "Sober and healthy"
-    ],
-    "setup": false
+    ]
   }
 ]

@@ -7,7 +7,7 @@
     ],
     "firstNightReminder": "Show the Informant a player who woke up tonight. ",
     "otherNightReminder": "Show the Informant a player who woke up tonight. ",
-    "name": "Informant",
+    "name": "Informant Ω",
     "team": "townsfolk",
     "ability": "Each night, learn a player who woke up tonight due to their own ability.",
     "flavor": "So you're just a Chambermaid?",
@@ -29,9 +29,9 @@
       "Sheltered",
       "Sheltered"
     ],
-    "name": "Armageddon",
+    "name": "Armageddon Ω",
     "team": "demon",
-    "ability": "On night four, choose three alive players (not travellers), they can't switch alignment from now on, one must be good, & all other players die, even if for some reason they could not. If nobody dies on day 4, your team wins.",
+    "ability": "On night four, choose three alive players (not travellers), they can't switch alignment from now on, one must be good, they can't die tonight & all other players die, even if for some reason they could not. If nobody dies on day 4, your team wins.",
     "flavor": "I am become death, destroyer of worlds. -J. Robert Oppenheimer",
     "otherNight": 5
   },
@@ -59,7 +59,7 @@
       "Dead",
       "Dead"
     ],
-    "name": "Arsonist",
+    "name": "Arsonist Ω",
     "team": "demon",
     "ability": "Each night, you may choose a player: they are poisoned. If you choose no one, all poisoned players die then become healthy if you poisoned them. No one dies on night 1.",
     "flavor": "Some people just want to watch the world burn.",
@@ -78,7 +78,7 @@
       "No More Killin'",
       "Dead"
     ],
-    "name": "Warden",
+    "name": "Warden Ω",
     "team": "traveller",
     "ability": "Each night*, choose a player: you have a private conversation with them during the night. They might not wake to use their ability tonight. Once per game, you can kill the player you chose.",
     "flavor": "Lock me up baby! -Mole",

@@ -6,7 +6,7 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/portia_e_winningclub.png"
     ],
     "otherNightReminder": "They swap alignment. Tell them",
-    "name": "Portia Featherington",
+    "name": "Portia Featherington Ω",
     "team": "outsider",
     "ability": "Each night*, swap alignment, even if dead.",
     "flavor": "Nothing makes the ton come alive like a fresh scandal.",
@@ -27,7 +27,7 @@
       "Baffled!",
       "Baffled!"
     ],
-    "name": "Baffler",
+    "name": "Baffler Ω",
     "team": "minion",
     "ability": "Each night, choose a living player: tomorrow, they must vote for every nomination as long as there are 5 or more players alive & must speak in rhymes, riddles, or another convoluted way, or might be executed.",
     "flavor": "The guzzling puzzle is a perplexing muzzle.",
@@ -46,7 +46,7 @@
       "Dead",
       "Dead"
     ],
-    "name": "Baroness",
+    "name": "Baroness Ω",
     "team": "demon",
     "ability": "Each night*, choose a player: they might die. Good Minions do not learn or are shown in Minion or Demon info. [0 Townfolk. +0 to +2 Good Minions]",
     "flavor": "Not my circus, not my monkeys. But I'm the ringmaster of this carnival and, I promise, it is the greatest show you are ever going to see.",
@@ -65,7 +65,7 @@
       "?",
       "?"
     ],
-    "name": "Monkey's Paw",
+    "name": "Monkey's Paw Ω",
     "team": "loric",
     "ability": "Each night, a player might be told they may make a wish. The wish, if granted, might have a price, leave a clue as to its nature, or be granted unfavorably.",
     "flavor": "Never mind, dear... perhaps you'll win the next one.",

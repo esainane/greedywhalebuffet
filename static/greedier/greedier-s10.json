@@ -18,8 +18,7 @@
     "reminders": [
       "Boon",
       "Curse"
-    ],
-    "setup": false
+    ]
   },
   {
     "id": "cat",
@@ -36,8 +35,7 @@
     "reminders": [
       "Can't Die",
       "Laser Pointer"
-    ],
-    "setup": false
+    ]
   },
   {
     "id": "pilgrim",
@@ -50,8 +48,7 @@
       "https://user-images.klutzbanana.com/o24xi9ln6pbq5bqagvi8ffbq.png"
     ],
     "edition": "gwb",
-    "flavor": "Long roads make friends of strange fellows and faiths.",
-    "setup": false
+    "flavor": "Long roads make friends of strange fellows and faiths."
   },
   {
     "id": "skaldi",
@@ -66,8 +63,7 @@
     "flavor": "The harsh winds of the North gloss my lips. My skin bears no ill intent to the force of nature it's encompassed by every day. To be cold, is to be me.",
     "reminders": [
       "Can't Die"
-    ],
-    "setup": false
+    ]
   },
   {
     "id": "sympath",
@@ -84,8 +80,7 @@
     "otherNightReminder": "They become the alignment of the most recently killed executee.",
     "reminders": [
       "Executed"
-    ],
-    "setup": false
+    ]
   },
   {
     "id": "watcher",
@@ -104,7 +99,6 @@
     "otherNightReminder": "wake and choose a player, if the player learns information, inform the watcher of the info and inform the player they are watched",
     "reminders": [
       "Watched"
-    ],
-    "setup": false
+    ]
   }
 ]

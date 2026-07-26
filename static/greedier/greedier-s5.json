@@ -8,7 +8,7 @@
     "reminders": [
       "Real Friend"
     ],
-    "name": "Bing Bong",
+    "name": "Bing Bong Ω",
     "team": "townsfolk",
     "ability": "You start knowing a player. When they die, you die instead & they can't change alignment & might not die from now on. ",
     "firstNightReminder": "They learn a player.",
@@ -25,7 +25,7 @@
       "Knows",
       "Knows"
     ],
-    "name": "Secretary",
+    "name": "Secretary Ω",
     "team": "townsfolk",
     "ability": "You start knowing two in-play characters.",
     "flavor": "Yes, Karen, the manager is on their way.",
@@ -41,7 +41,7 @@
     "reminders": [
       "Rage Quit!"
     ],
-    "name": "Quitter",
+    "name": "Quitter Ω",
     "team": "outsider",
     "ability": "On your 1st night, choose a player (not yourself): If they die, you can no longer vote on any nominations, even if you are dead.",
     "flavor": "“We just lost our greatest information.. Evil must be stomping, there’s no more point in trying.”",
@@ -61,7 +61,7 @@
       "?",
       "?"
     ],
-    "name": "Chocolatier",
+    "name": "Chocolatier Ω",
     "team": "traveller",
     "ability": "You start knowing 2 phrases & what happens when you say each for the first time phrase. Once you say a phrase, you immediately die if you say the other.",
     "flavor": "White chocolate is SOOOOOOOOOOOOOOOOOOO good. But I see that dark chocolate eyeing me in the corner... stawp ittttt.",

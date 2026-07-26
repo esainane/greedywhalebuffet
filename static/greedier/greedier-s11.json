@@ -11,8 +11,7 @@
     "edition": "gwb",
     "flavor": "It comes down to this, so it's up to you. All that's left: choose right.",
     "firstNightReminder": "Give two statements. The Advisor chooses one.",
-    "otherNightReminder": "Give two statements. The Advisor chooses one.",
-    "setup": false
+    "otherNightReminder": "Give two statements. The Advisor chooses one."
   },
   {
     "id": "corpseeater",
@@ -29,8 +28,7 @@
     "reminders": [
       "Poisoned",
       "Poisoned"
-    ],
-    "setup": false
+    ]
   },
   {
     "id": "sol",
@@ -45,8 +43,7 @@
     "flavor": "BECAUSE I'M ME!!",
     "reminders": [
       "Sunkissed"
-    ],
-    "setup": false
+    ]
   },
   {
     "id": "trainconductor",
@@ -65,8 +62,7 @@
       "Source",
       "Source",
       "Source"
-    ],
-    "setup": false
+    ]
   },
   {
     "id": "vengeance",
@@ -83,8 +79,7 @@
     "reminders": [
       "Marked",
       "Dead"
-    ],
-    "setup": false
+    ]
   },
   {
     "id": "veteran",
@@ -101,7 +96,6 @@
     "reminders": [
       "No Ability",
       "Dead"
-    ],
-    "setup": false
+    ]
   }
 ]

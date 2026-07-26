@@ -8,9 +8,9 @@
     "reminders": [
       "Claimed"
     ],
-    "name": "Jester",
+    "name": "Jester Ω",
     "team": "outsider",
-    "ability": " If you are executed after voting on yourself & claim Jester, all other players of your alignment switch & your team wins.",
+    "ability": "If you are executed after voting on yourself & claim Jester, all other players of your alignment switch & your team wins.",
     "flavor": "Gobble gobble gobble. -Satyr"
   },
   {
@@ -19,7 +19,8 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hypnotist_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hypnotist_g_winningclub.png"
     ],
-    "otherNightReminder": "Send fake night cards as you want to players who were disruptive, broke madness or to anyone after an evil player is executed & dies.",
+    "firstNightReminder": "They choose a player. That player might receive false night cards.",
+    "otherNightReminder": "They choose a player. That player might receive false night cards. If anyone is marked as Hypnotized from the day, they might receive false night cards.",
     "reminders": [
       "Hypnotized",
       "Hypnotized",
@@ -29,10 +30,11 @@
       "Hypnotized",
       "Hypnotized"
     ],
-    "name": "Hypnotist",
+    "name": "Hypnotist Ω",
     "team": "minion",
-    "ability": "Each night*, players might recieve false night cards if they are disruptive in town, break madness, or after an evil player is executed & dies.",
+    "ability": "Each night, choose a player: they might receive false night cards. Players who break madness or are publicly disruptive might receive false night cards tonight.",
     "flavor": "Town is towning so hard right now -Nic",
+    "firstNight": 40,
     "otherNight": 3
   },
   {
@@ -52,7 +54,7 @@
       "Dead",
       "Dead"
     ],
-    "name": "Unfathomable",
+    "name": "Unfathomable Ω",
     "team": "demon",
     "ability": "Each night, you may choose a player to guide the ST's decisions. Deaths each night are arbitrary.",
     "flavor": "Your destiny is held firm no longer.",

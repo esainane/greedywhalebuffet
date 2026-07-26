@@ -155,13 +155,17 @@ export function buildCopyPayload(
 		metaEntry.name = metaEntry.name.replace(/\bGreedy\b/g, 'Greedier');
 	}
 
-	const removedCharacterNames: string[] = [];
+	const removedBaseCharacterNames: string[] = [];
+	const removedGreedierCharacterNames: string[] = [];
 	const rolesData = fetchedData.getRolesData();
 
 	// Filter out deselected characters
 	const filteredData: ScriptData = [metaEntry];
-	for (let i = 1; i < nextData.length; i++) {
-		const entry = nextData[i];
+	for (const entry of nextData) {
+		if (entry === metaEntry) {
+			continue;
+		}
+
 		let entryId: string | undefined;
 		let entryName: string | undefined;
 		let shouldAlwaysInclude = false;
@@ -188,13 +192,48 @@ export function buildCopyPayload(
 		) {
 			filteredData.push(entry);
 		} else if (isFilterableCharacter && entryId && entryName) {
-			removedCharacterNames.push(entryName);
+			if (greedierCharacterIds.has(entryId)) {
+				removedGreedierCharacterNames.push(entryName);
+			} else {
+				removedBaseCharacterNames.push(entryName);
+			}
 		}
 	}
 
-	if (metaEntry && removedCharacterNames.length > 0) {
+	if (metaEntry && (removedBaseCharacterNames.length > 0 || removedGreedierCharacterNames.length > 0)) {
 		const bootlegger = Array.isArray(metaEntry.bootlegger) ? metaEntry.bootlegger : [];
-		bootlegger.push(`${REMOVED_CHARACTERS_PREFIX}${removedCharacterNames.join(', ')}`);
+		const allRemovedCharacterNames = [
+			...removedBaseCharacterNames,
+			...removedGreedierCharacterNames,
+		];
+		const allRemovedLine = `${REMOVED_CHARACTERS_PREFIX}${allRemovedCharacterNames.join(', ')}`;
+		const addedGreedierCharacterNames = fetchedData
+			.getGreedierCharactersData()
+			.filter((character) => selectedCharacterIds.has(character.id))
+			.map((character) => character.name || character.id);
+		const addedGreedierLine = `The following Greedier characters have been added: ${addedGreedierCharacterNames.join(', ')}`;
+
+		const canUseMixedLine =
+			removedBaseCharacterNames.length > 0 &&
+			removedGreedierCharacterNames.length > 0 &&
+			addedGreedierCharacterNames.length > 0;
+
+		if (canUseMixedLine) {
+			const baseRemovedLine = `${REMOVED_CHARACTERS_PREFIX}${removedBaseCharacterNames.join(', ')}`;
+			const mixedLine = `${baseRemovedLine}. ${addedGreedierLine}`;
+
+			bootlegger.push(mixedLine.length < allRemovedLine.length ? mixedLine : allRemovedLine);
+		} else if (
+			removedBaseCharacterNames.length === 0 &&
+			removedGreedierCharacterNames.length > 0 &&
+			addedGreedierCharacterNames.length > 0 &&
+			addedGreedierLine.length < allRemovedLine.length
+		) {
+			bootlegger.push(addedGreedierLine);
+		} else {
+			bootlegger.push(allRemovedLine);
+		}
+
 		metaEntry.bootlegger = bootlegger;
 	}
 

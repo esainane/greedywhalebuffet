@@ -119,6 +119,13 @@ export function buildCopyPayload(
 	options: GenerationOptions,
 	fetchedData: FetchedData,
 ): string {
+	const greedierCharacterIds = new Set(
+		fetchedData.getGreedierCharactersData().map((character) => character.id),
+	);
+	const hasSelectedGreedierCharacter =
+		options.addGreedierHomebrew &&
+		Array.from(selectedCharacterIds).some((characterId) => greedierCharacterIds.has(characterId));
+
 	const nextData = fetchedData.cloneGreedyJson();
 	if (options.addGreedierHomebrew) {
 		const existingIds = new Set(
@@ -143,6 +150,11 @@ export function buildCopyPayload(
 	if (!metaEntry) {
 		throw new Error('Script metadata is missing or invalid.');
 	}
+
+	if (hasSelectedGreedierCharacter && typeof metaEntry.name === 'string') {
+		metaEntry.name = metaEntry.name.replace(/\bGreedy\b/g, 'Greedier');
+	}
+
 	const removedCharacterNames: string[] = [];
 	const rolesData = fetchedData.getRolesData();
 

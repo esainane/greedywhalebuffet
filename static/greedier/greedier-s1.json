@@ -10,7 +10,7 @@
     ],
     "name": "Jester Ω",
     "team": "outsider",
-    "ability": "If you are executed after voting on yourself & claim Jester, all other players of your alignment switch & your team wins.",
+    "ability": "If you publicly claim to be the Jester when nominated, vote on yourself, & are executed that day, you immediately win alone.",
     "flavor": "Gobble gobble gobble. -Satyr"
   },
   {

@@ -102,15 +102,15 @@
     "jinx": [
       {
         "id": "drunk",
-        "reason": "You don't learn your other Outsider abilities."
+        "reason": "If the Hermit has the Drunk ability, the Hermit does not learn their other Outsider abilities."
       },
       {
         "id": "lunatic",
-        "reason": "You don't learn your other Outsider abilities."
+        "reason": "If the Hermit has the Lunatic ability, the Hermit does not learn their other Outsider abilities."
       },
       {
         "id": "heretic",
-        "reason": "You might only have 2 Outsider abilities."
+        "reason": "If the Hermit has the Heretic ability, the Hermit might have only 2 Outsider abilities."
       }
     ]
   },

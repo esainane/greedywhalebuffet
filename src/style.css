@@ -7,6 +7,7 @@
 	--panel-border: rgba(196, 222, 214, 0.14);
 	--text: #edf3ee;
 	--muted: #adc0b8;
+	--accent-light: #3cb091;
 	--accent: #4bc2ae;
 	--accent-strong: #8ce4d6;
 	--warning: #f7cf54;
@@ -28,6 +29,7 @@
 		--panel-border: rgba(88, 57, 24, 0.16);
 		--text: #2e2216;
 		--muted: #6d5a45;
+		--accent-light: #6ce0d1;
 		--accent: #0d6b5f;
 		--accent-strong: #084b43;
 		--warning: #9f7700;
@@ -245,7 +247,7 @@ h1 {
 }
 
 .switch input:checked + .slider {
-	background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+	background: var(--accent-light);
 	border-color: transparent;
 }
 

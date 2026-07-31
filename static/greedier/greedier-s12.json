@@ -1,6 +1,6 @@
 [
   {
-    "id": "Aha",
+    "id": "aha",
     "name": "Aha Ω",
     "team": "loric",
     "ability": "Each day, the player that the storyteller thinks is the funniest might get a boon.",
@@ -14,7 +14,7 @@
     ]
   },
   {
-    "id": "Archivist",
+    "id": "archivist",
     "name": "Archivist Ω",
     "team": "townsfolk",
     "ability": "Each night, choose two players (not yourself): learn which player's character goes first alphabetically.",
@@ -34,7 +34,7 @@
     ]
   },
   {
-    "id": "Emperor",
+    "id": "emperor",
     "name": "Emperor Ω",
     "team": "townsfolk",
     "ability": "If you were mad that you were not the Emperor, you can't die.",
@@ -49,7 +49,7 @@
     ]
   },
   {
-    "id": "Hawkmoth",
+    "id": "hawkmoth",
     "name": "Hawkmoth Ω",
     "team": "demon",
     "ability": "Each night*, choose a player: they die. You start by choosing a good player: they become evil & gain an ability of your choice. The Storyteller may choose the ability if your chosen abilities ruin the game balance more than 3 times. [-1 Minion]",
@@ -69,7 +69,7 @@
     ]
   },
   {
-    "id": "Prince",
+    "id": "prince",
     "name": "Prince Ω",
     "team": "townsfolk",
     "ability": "1 player starts knowing you are the Prince. If you are nominated by an evil player & executed during the day, a good player becomes the Prince.",

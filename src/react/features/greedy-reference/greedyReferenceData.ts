@@ -62,26 +62,19 @@ function createCharacterSummary(entry: CharacterEntry, fetchedData: FetchedData)
 	};
 }
 
-function buildScriptOrderLookup(fetchedData: FetchedData): Map<string, number> {
-	const order = new Map<string, number>();
-	let cursor = 0;
-
-	for (const entry of fetchedData.getGreedyJson()) {
-		if (!isCharacterObject(entry) || entry.id === 'choose_your_chars' || !hasFilterableTeam(entry)) {
-			continue;
-		}
-
-		if (!order.has(entry.id)) {
-			order.set(entry.id, cursor++);
-		}
-
-		const baseId = getBaseCharacterId(entry.id, fetchedData);
-		if (!order.has(baseId)) {
-			order.set(baseId, cursor++);
-		}
+function getTeamSortRank(team: string): number {
+	switch (team) {
+		case 'townsfolk':
+			return 0;
+		case 'outsider':
+			return 1;
+		case 'minion':
+			return 2;
+		case 'demon':
+			return 3;
+		default:
+			return Number.MAX_SAFE_INTEGER;
 	}
-
-	return order;
 }
 
 function buildCharacterLookup(fetchedData: FetchedData): Map<string, CharacterEntry> {
@@ -171,9 +164,12 @@ export function deriveGreedyDifferences(fetchedData: FetchedData): GreedyDiffere
 }
 
 export function deriveGreedyJinxes(fetchedData: FetchedData): GreedyJinxDetail[] {
-	const details: (GreedyJinxDetail & { sourceOrder: number; targetOrder: number; originalOrder: number })[] = [];
+	const details: (GreedyJinxDetail & {
+		sourceTeamRank: number;
+		targetTeamRank: number;
+		originalOrder: number;
+	})[] = [];
 	const lookup = buildCharacterLookup(fetchedData);
-	const scriptOrderLookup = buildScriptOrderLookup(fetchedData);
 	const officialJinxLookup = buildOfficialJinxLookup(fetchedData);
 	let originalOrder = 0;
 
@@ -193,14 +189,8 @@ export function deriveGreedyJinxes(fetchedData: FetchedData): GreedyJinxDetail[]
 				continue;
 			}
 
-			const sourceOrder =
-				scriptOrderLookup.get(sourceCharacter.id) ??
-				scriptOrderLookup.get(getBaseCharacterId(sourceCharacter.id, fetchedData)) ??
-				Number.MAX_SAFE_INTEGER;
-			const targetOrder =
-				scriptOrderLookup.get(targetCharacter.id) ??
-				scriptOrderLookup.get(getBaseCharacterId(targetCharacter.id, fetchedData)) ??
-				Number.MAX_SAFE_INTEGER;
+			const sourceSummary = createCharacterSummary(sourceCharacter, fetchedData);
+			const targetSummary = createCharacterSummary(targetCharacter, fetchedData);
 			const sourceBaseId = getBaseCharacterId(sourceCharacter.id, fetchedData);
 			const targetBaseId = getBaseCharacterId(targetCharacter.id, fetchedData);
 			const officialReason =
@@ -209,12 +199,12 @@ export function deriveGreedyJinxes(fetchedData: FetchedData): GreedyJinxDetail[]
 				null;
 
 			details.push({
-				source: createCharacterSummary(sourceCharacter, fetchedData),
-				target: createCharacterSummary(targetCharacter, fetchedData),
+				source: sourceSummary,
+				target: targetSummary,
 				officialReason,
 				reason: jinx.reason,
-				sourceOrder,
-				targetOrder,
+				sourceTeamRank: getTeamSortRank(sourceSummary.team),
+				targetTeamRank: getTeamSortRank(targetSummary.team),
 				originalOrder,
 			});
 			originalOrder += 1;
@@ -223,12 +213,26 @@ export function deriveGreedyJinxes(fetchedData: FetchedData): GreedyJinxDetail[]
 
 	return details
 		.sort((a, b) => {
-			if (a.sourceOrder !== b.sourceOrder) {
-				return a.sourceOrder - b.sourceOrder;
+			if (a.sourceTeamRank !== b.sourceTeamRank) {
+				return a.sourceTeamRank - b.sourceTeamRank;
 			}
 
-			if (a.targetOrder !== b.targetOrder) {
-				return a.targetOrder - b.targetOrder;
+			const sourceNameCompare = a.source.name.localeCompare(b.source.name, undefined, {
+				sensitivity: 'base',
+			});
+			if (sourceNameCompare !== 0) {
+				return sourceNameCompare;
+			}
+
+			if (a.targetTeamRank !== b.targetTeamRank) {
+				return a.targetTeamRank - b.targetTeamRank;
+			}
+
+			const targetNameCompare = a.target.name.localeCompare(b.target.name, undefined, {
+				sensitivity: 'base',
+			});
+			if (targetNameCompare !== 0) {
+				return targetNameCompare;
 			}
 
 			return a.originalOrder - b.originalOrder;

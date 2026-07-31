@@ -149,10 +149,6 @@
     "id": "magician",
     "jinx": [
       {
-        "id": "vizier",
-        "reason": "If the Vizier is in play, the Magician is immune to the Vizier's ability."
-      },
-      {
         "id": "wraith",
         "reason": "The Magician starts knowing a Wraith is in play. Each day, the living Magician may publicly guess a living player as the Wraith. If correct, the Wraith dies tonight & the Demon doesn’t kill tonight."
       },

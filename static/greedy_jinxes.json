@@ -4,27 +4,23 @@
     "jinx": [
       {
         "id": "baron",
-        "reason": "Alch Ability is: You know how many Outsiders are in play. Learn if an Outsider ever leaves play. [+0 or +1 Outsider]"
+        "reason": "An Alchemist-Baron has no Baron ability, knows how many Outsiders are in play, & learns if an Outsider ever leaves play. [+0 or +1 Outsider]"
       },
       {
         "id": "boffin",
-        "reason": "The Alchemist might not learn what ability the Demon has."
+        "reason": "If the Alchemist has the Boffin ability, the Alchemist might not learn what ability the Demon has."
       },
       {
         "id": "fearmonger",
-        "reason": "Alch Ability is: Each night, choose a player: if they are nominated & executed by an opposing player, your team wins. All players know if you choose a new player. (as a Fearmonger?)"
-      },
-      {
-        "id": "marionette",
-        "reason": "Alch Ability is: If 4 or less players are alive, the Alchemist learns who the Marionette is. [+Marionette]"
+        "reason": "An Alchemist-Fearmonger has no Fearmonger ability, & each night, chooses a player: if they are nominated & executed by an opposing player, your team wins. All players know if you choose a new player, as a Fearmonger."
       },
       {
         "id": "mastermind",
-        "reason": "Alch Ability is: The Alchemist knows when all Minions are dead. [-Mastermind]"
+        "reason": "An Alchemist-Mastermind has no Mastermind ability, the Mastermind is not-in-play, & knows when all Minions are dead."
       },
       {
         "id": "mezepheles",
-        "reason": "Alch Ability is: The Alchemist starts knowing a word. The first good player (not the Alchemist) to say the word is safe from all Minion abilities starting when they say it."
+        "reason": "An Alchemist-Mezepheles has no Mezepheles ability, & starts knowing a word. The first good player (not the Alchemist) to say the word is safe from all Minion abilities after saying it."
       },
       {
         "id": "pithag",
@@ -32,27 +28,27 @@
       },
       {
         "id": "scarletwoman",
-        "reason": "Alch Ability is: The Alchemist gains the ability of the first Minion to die. They learn which ability they gain."
+        "reason": "An Alchemist-Scarlet Woman has no Scarlet Woman ability, & gains the ability of the first Minion to die. They learn which ability they gain."
       },
       {
         "id": "spy",
-        "reason": "Alch Ability is: Each day, the Alchemist may publicly choose an alive player. If the Alchemist chooses the Spy, they die tonight & the Demon kills no-one. The Spy can't misregister to the Alchemist. [+Spy]"
+        "reason": "An Alchemist-Spy has no Spy ability, a Spy is in play, & each day, a living Alchemist-Spy may publicly guess a living player as the Spy. If correct, the Spy dies tonight & the Demon doesn’t kill tonight. The Spy can't misregister to the Alchemist."
       },
       {
         "id": "vizier",
-        "reason": "The Alchemist might not be able to push an execution through if only they voted."
+        "reason": "The Alchemist might register as Evil to their own ability."
       },
       {
         "id": "widow",
-        "reason": "Alch Ability is: Each day, the Alchemist may publicly choose an alive player. If the Alchemist chooses the Widow, they die tonight & the Demon kills no-one. The Widow can't poison the Alchemist. [+Widow]"
+        "reason": "An Alchemist-Widow has no Widow ability, a Widow is in play, & each day, a living Alchemist-Widow may publicly guess a living player as the Widow. If correct, the Widow dies tonight & the Demon doesn’t kill tonight. The Widow can't poison the Alchemist."
       },
       {
         "id": "wraith",
-        "reason": "Alch Ability is: Each day, the Alchemist may publicly choose an alive player. If the Alchemist chooses the Wraith, they die tonight & the Demon kills no-one. [+Wraith]"
+        "reason": "An Alchemist-Wraith has no Wraith ability, a Wraith is in play, & each day, a living Alchemist-Wraith may publicly guess a living player as the Wraith. If correct, the Wraith dies tonight & the Demon doesn’t kill tonight."
       },
       {
         "id": "xaan",
-        "reason": "Alch Ability is: On night X, all Minions are poisoned until dusk. [X Outsiders]"
+        "reason": "An Alchemist-Xaan has no Xaan ability, & on night X, all Minions are poisoned until dusk. [X Outsiders]"
       }
     ]
   },
@@ -69,12 +65,8 @@
     "id": "cannibal",
     "jinx": [
       {
-        "id": "juggler",
-        "reason": "If the Cannibal gains the Juggler ability, they learn how many guesses the original Juggler got correct & can make a Juggle tomorrow."
-      },
-      {
         "id": "princess",
-        "reason": "If the Cannibal with the Princess ability nominates & executes a player on their first day with the ability, the Demon doesn't kill tonight, even if they lose their Princess ability."
+        "reason": "If the Cannibal with the Princess ability nominates & executes a player on their first day with the ability, the Demon doesn’t kill tonight, even if they lose their Princess ability."
       }
     ]
   },
@@ -92,23 +84,11 @@
     "jinx": [
       {
         "id": "baron",
-        "reason": "The Baron might only add 1 Outsider if the added Outsider is Heretic."
+        "reason": ""
       },
       {
-        "id": "godfather",
-        "reason": "The Heretic is poisoned if the Godfather is or was in play. If the Godfather dies or leaves play, a Heretic learns a Godfather was in play."
-      },
-      {
-        "id": "lleech",
-        "reason": "If the Heretic is the Lleech host, the Heretic has no ability as long as the Lleech is in-play."
-      },
-      {
-        "id": "spy",
-        "reason": "The Heretic is poisoned if the Spy is or was in play. If the Spy dies or leaves play, a Heretic learns a Spy was in play."
-      },
-      {
-        "id": "widow",
-        "reason": "The Heretic is poisoned if the Widow is or was in play. The Widow will send out a ping even if poisoned."
+        "id": "kazali",
+        "reason": "Only 1 jinxed character can be in play."
       }
     ]
   },
@@ -126,19 +106,6 @@
       {
         "id": "heretic",
         "reason": "You might only have 2 Outsider abilities."
-      }
-    ]
-  },
-  {
-    "id": "huntsman",
-    "jinx": [
-      {
-        "id": "summoner",
-        "reason": "If the Summoner chooses the Target, they are told to choose again."
-      },
-      {
-        "id": "fanggu",
-        "reason": "The Target doesn't register as Outsider to the Fang Gu."
       }
     ]
   },
@@ -168,24 +135,8 @@
     "id": "leviathan",
     "jinx": [
       {
-        "id": "exorcist",
-        "reason": "If an evil player nominates & executes the player chosen by the Exorcist, the Exorcist's team wins."
-      },
-      {
-        "id": "innkeeper",
-        "reason": "If an evil player nominates & executes a player protected by the Innkeeper, the Innkeeper's team wins."
-      },
-      {
         "id": "mayor",
         "reason": "If the Leviathan and the Mayor are alive on day 5 & no execution occurs, the Mayor's team wins."
-      },
-      {
-        "id": "monk",
-        "reason": "If an evil player nominates & executes a player protected by the Monk, the Monk's team wins."
-      },
-      {
-        "id": "soldier",
-        "reason": "If an evil player nominates & executes the Soldier, the Soldier's team wins."
       }
     ]
   },
@@ -203,11 +154,11 @@
     "jinx": [
       {
         "id": "vizier",
-        "reason": "If the Vizier is in-play, the Magician is immune to the Vizier's ability."
+        "reason": "If the Vizier is in play, the Magician is immune to the Vizier's ability."
       },
       {
         "id": "wraith",
-        "reason": "The Magician starts knowing a Wraith is in play. Each day, the Magician may choose a living player: the Wraith, if chosen, is the only person that dies tonight."
+        "reason": "The Magician starts knowing a Wraith is in play. Each day, the living Magician may publicly guess a living player as the Wraith. If correct, the Wraith dies tonight & the Demon doesn’t kill tonight."
       },
       {
         "id": "legion",
@@ -241,33 +192,21 @@
       {
         "id": "recluse",
         "reason": "The Marionette can sit next to the Recluse."
-      },
-      {
-        "id": "snitch",
-        "reason": "The Marionette might not learn an in-play good character."
       }
     ]
   },
   {
-    "id": "organgrinder",
+    "id": "flowergirl",
     "jinx": [
       {
-        "id": "flowergirl",
-        "reason": "Each night*, if the votes were secret the Flowergirl chooses a player: if they were nominated, they learn all players who voted on them."
-      },
-      {
-        "id": "butler",
-        "reason": "The Butler's vote doesn't count if their master didn't vote."
+        "id": "organgrinder",
+        "reason": "If the Organ Grinder caused eyes closed voting, at night, the Flowergirl chooses a player: they learn all players who voted when they were nominated yesterday."
       }
     ]
   },
   {
     "id": "pithag",
     "jinx": [
-      {
-        "id": "heretic",
-        "reason": "The Pit-Hag cannot create a Heretic."
-      },
       {
         "id": "summoner",
         "reason": "The Pit-Hag cannot create a Summoner."
@@ -324,28 +263,12 @@
         "reason": "If the Storyteller is the first nomination on Riot's 3rd day nothing happens. The Storyteller cannot be nominated in the middle of a Riot."
       },
       {
-        "id": "exorcist",
-        "reason": "If an evil player nominates & executes the player chosen by the Exorcist, the Exorcist's team wins."
-      },
-      {
         "id": "hatter",
         "reason": "If the Riot is created from the Hatter, the Riot day is the Riot's second day."
       },
       {
-        "id": "innkeeper",
-        "reason": "If an evil player nominates & executes a player protected by the Innkeeper, the Innkeeper's team wins."
-      },
-      {
         "id": "mayor",
         "reason": "The Mayor may choose to stop the riot. If they do so when only 1 Riot is alive, the Mayor's team wins. Otherwise, evil wins."
-      },
-      {
-        "id": "monk",
-        "reason": "If an evil player nominates & executes a player protected by the Monk, the Monk's team wins."
-      },
-      {
-        "id": "soldier",
-        "reason": "If an evil player nominates & executes the Soldier, the Soldier's team wins."
       }
     ]
   },
@@ -355,10 +278,6 @@
       {
         "id": "golem",
         "reason": "The Summoner registers as the Demon to the Golem until they make a Demon."
-      },
-      {
-        "id": "lordoftyphon",
-        "reason": "If a Lord of Typhon is summoned, they must neighbor a Minion & their other neighbor might become an evil Minion. If another Minion isn't made, the Summoner will be told & asked to reconsider."
       },
       {
         "id": "riot",

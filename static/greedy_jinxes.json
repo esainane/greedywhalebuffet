@@ -188,15 +188,6 @@
     ]
   },
   {
-    "id": "pithag",
-    "jinx": [
-      {
-        "id": "summoner",
-        "reason": "The Pit-Hag cannot create a Summoner."
-      }
-    ]
-  },
-  {
     "id": "poppygrower",
     "jinx": [
       {

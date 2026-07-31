@@ -879,7 +879,7 @@
       "https://greedy.antihype.space/icons/carousel/summoner_g.webp"
     ],
     "team": "minion",
-    "ability": "On the 3rd night, choose a player: they become an evil Demon of your choice. If not, you learn this, and are asked to reconsider. [No Demon]",
+    "ability": "On your 3rd night, choose a player: they become an evil Demon of your choice. If not, you learn this, and are asked to reconsider. [No Demon]",
     "flavor": "With this treasure, I summon… -Chara",
     "otherNight": 34,
     "otherNightReminder": "Change the Summoner reminder token to the relevant night. :reminder: If it's night 2, ask the Summoner if they want to create a Pukka. If it is night 3, the Summoner chooses a player & a Demon character. Put the Summoner to sleep. Wake the target. Show the *YOU ARE* and Demon tokens & give a thumbs-down.",

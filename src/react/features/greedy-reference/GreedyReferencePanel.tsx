@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { useAppState } from '../context/AppContext.js';
+import { useAppState } from '../../context/AppContext.js';
 import {
 	deriveGreedyDifferences,
 	deriveGreedyHomebrew,

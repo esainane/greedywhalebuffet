@@ -1,7 +1,7 @@
-import { FILTERABLE_TEAMS } from '../../constants.js';
-import { getBaseCharacterId, getImageArray } from '../../character.js';
-import type { FetchedData } from '../../data/fetched.js';
-import type { CharacterEntry, ScriptData } from '../../types.js';
+import { FILTERABLE_TEAMS } from '../../../constants.js';
+import { getBaseCharacterId, getImageArray } from '../../../character.js';
+import type { FetchedData } from '../../../data/fetched.js';
+import type { CharacterEntry, ScriptData } from '../../../types.js';
 
 export type CharacterSummary = {
 	id: string;

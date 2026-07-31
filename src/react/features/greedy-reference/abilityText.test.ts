@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { splitAbilityText } from './characterHelpers.js';
+import { splitAbilityText } from './abilityText.js';
 
 describe('splitAbilityText', () => {
 	it('leaves ability text intact when there is no trailing setup effect', () => {

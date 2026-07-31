@@ -1,8 +1,9 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
-import type { GenerationOptions } from '../../types.js';
-import { GENERATION_OPTIONS, getOptionDependencies } from '../../options.js';
-import { useAppActions, useAppState } from '../context/AppContext.js';
+import type { GenerationOptions } from '../../../types.js';
+import { GENERATION_OPTIONS, getOptionDependencies } from '../../../options.js';
+import { Switch } from '../../components/Switch.js';
+import { useAppActions, useAppState } from '../../context/AppContext.js';
 
 type TooltipPosition = {
 	top: number;
@@ -271,21 +272,17 @@ export function ControlsPanel(): React.JSX.Element {
 							>
 								<div className="toggle-main">
 									<span id={optionLabelId} className="toggle-label">{option.label}</span>
-									<label className="switch" htmlFor={option.id}>
-										<input
-											id={option.id}
-											name={option.id}
-											type="checkbox"
-											aria-labelledby={optionLabelId}
-											checked={checked}
-											disabled={!isEnabled}
-											onChange={(event) => {
-												actions.toggleOption(option.name, event.currentTarget.checked);
-											}}
-											data-option-name={option.name}
-										/>
-										<span className="slider" aria-hidden="true" />
-									</label>
+									<Switch
+										id={option.id}
+										name={option.id}
+										ariaLabelledBy={optionLabelId}
+										checked={checked}
+										disabled={!isEnabled}
+										dataOptionName={option.name}
+										onChange={(event) => {
+											actions.toggleOption(option.name, event.currentTarget.checked);
+										}}
+									/>
 								</div>
 								<HelpBubble optionId={option.id} label={option.label} helpText={option.helpText} />
 							</div>

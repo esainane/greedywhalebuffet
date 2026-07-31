@@ -1,8 +1,8 @@
 import React, { useMemo } from 'react';
-import type { Character } from '../../types.js';
-import { splitCharactersByCommonBans } from '../../character.js';
-import { useAppActions, useAppState } from '../context/AppContext.js';
-import { getTeamLabel } from './characterHelpers.js';
+import type { Character } from '../../../types.js';
+import { splitCharactersByCommonBans } from '../../../character.js';
+import { useAppActions, useAppState } from '../../context/AppContext.js';
+import { TeamLabel } from '../../shared/TeamLabel.js';
 
 // Stub list for future tuning of the "Include popular" action.
 const POPULAR_GREEDIER_CHARACTER_IDS: readonly string[] = [
@@ -47,7 +47,6 @@ function CharacterCard(props: CharacterCardProps): React.JSX.Element {
 		showTeamSubtitle,
 		onToggle,
 	} = props;
-	const teamLabel = getTeamLabel(character.team);
 	const imageSrc =
 		typeof character.imageUrl === 'string'
 			? character.imageUrl
@@ -74,9 +73,7 @@ function CharacterCard(props: CharacterCardProps): React.JSX.Element {
 			{imageSrc ? <img src={imageSrc} alt={character.name} className="character-icon" /> : null}
 			<div className="character-label-stack">
 				<span className="character-name">{character.name}</span>
-				{showTeamSubtitle && teamLabel ? (
-					<span className={`team-label ${teamLabel.className}`}>{teamLabel.label}</span>
-				) : null}
+				{showTeamSubtitle ? <TeamLabel team={character.team} /> : null}
 			</div>
 		</label>
 	);

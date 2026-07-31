@@ -1,8 +1,8 @@
 import React from 'react';
 import { AppProvider } from './context/AppContext.js';
-import { ControlsPanel } from './components/ControlsPanel.js';
-import { CharactersPanel } from './components/CharactersPanel.js';
-import { GreedyReferencePanel } from './components/GreedyReferencePanel.js';
+import { ControlsPanel } from './features/controls/ControlsPanel.js';
+import { CharactersPanel } from './features/characters/CharactersPanel.js';
+import { GreedyReferencePanel } from './features/greedy-reference/GreedyReferencePanel.js';
 
 function AppShell(): React.JSX.Element {
 	return (

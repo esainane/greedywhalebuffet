@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import type { Character } from '../../types.js';
 import { splitCharactersByCommonBans } from '../../character.js';
 import { useAppActions, useAppState } from '../context/AppContext.js';
+import { getTeamLabel } from './characterHelpers.js';
 
 // Stub list for future tuning of the "Include popular" action.
 const POPULAR_GREEDIER_CHARACTER_IDS: readonly string[] = [
@@ -25,10 +26,64 @@ type CharacterListProps = {
 	characters: Character[];
 	emptyText: string;
 	isQuickRemove: boolean;
+	showTeamSubtitle?: boolean;
 };
 
+type CharacterCardProps = {
+	character: Character;
+	isSelected: boolean;
+	hasMissingDependencies: boolean;
+	isQuickRemove: boolean;
+	showTeamSubtitle: boolean;
+	onToggle: (checked: boolean) => void;
+};
+
+function CharacterCard(props: CharacterCardProps): React.JSX.Element {
+	const {
+		character,
+		isSelected,
+		hasMissingDependencies,
+		isQuickRemove,
+		showTeamSubtitle,
+		onToggle,
+	} = props;
+	const teamLabel = getTeamLabel(character.team);
+	const imageSrc =
+		typeof character.imageUrl === 'string'
+			? character.imageUrl
+			: Array.isArray(character.imageUrl)
+				? character.imageUrl[0]
+				: undefined;
+
+	return (
+		<label
+			key={character.id}
+			className={`character-item ${isQuickRemove ? 'quick-remove-item' : ''} ${
+				isSelected ? '' : 'banned'
+			} ${hasMissingDependencies ? 'dependency-missing' : ''}`}
+			title={hasMissingDependencies ? 'Missing required character' : undefined}
+		>
+			<input
+				type="checkbox"
+				value={character.id}
+				checked={isSelected}
+				onChange={(event) => {
+					onToggle(event.currentTarget.checked);
+				}}
+			/>
+			{imageSrc ? <img src={imageSrc} alt={character.name} className="character-icon" /> : null}
+			<div className="character-label-stack">
+				<span className="character-name">{character.name}</span>
+				{showTeamSubtitle && teamLabel ? (
+					<span className={`team-label ${teamLabel.className}`}>{teamLabel.label}</span>
+				) : null}
+			</div>
+		</label>
+	);
+}
+
 function CharacterList(props: CharacterListProps): React.JSX.Element {
-	const { id, className, characters, emptyText, isQuickRemove } = props;
+	const { id, className, characters, emptyText, isQuickRemove, showTeamSubtitle = true } = props;
 	const state = useAppState();
 	const actions = useAppActions();
 
@@ -46,32 +101,19 @@ function CharacterList(props: CharacterListProps): React.JSX.Element {
 				const isSelected = state.selectedCharacterIds.has(character.id);
 				const hasMissingDependencies =
 					isSelected && state.unsatisfiedDependencyCharacterIds.has(character.id);
-				const imageSrc =
-					typeof character.imageUrl === 'string'
-						? character.imageUrl
-						: Array.isArray(character.imageUrl)
-							? character.imageUrl[0]
-							: undefined;
 
 				return (
-					<label
+					<CharacterCard
 						key={character.id}
-						className={`character-item ${isQuickRemove ? 'quick-remove-item' : ''} ${
-							isSelected ? '' : 'banned'
-						} ${hasMissingDependencies ? 'dependency-missing' : ''}`}
-						title={hasMissingDependencies ? 'Missing required character' : undefined}
-					>
-						<input
-							type="checkbox"
-							value={character.id}
-							checked={isSelected}
-							onChange={(event) => {
-								actions.toggleCharacter(character.id, event.currentTarget.checked);
-							}}
-						/>
-						{imageSrc ? <img src={imageSrc} alt={character.name} className="character-icon" /> : null}
-						<span className="character-name">{character.name}</span>
-					</label>
+						character={character}
+						isSelected={isSelected}
+						hasMissingDependencies={hasMissingDependencies}
+						isQuickRemove={isQuickRemove}
+						showTeamSubtitle={showTeamSubtitle}
+						onToggle={(checked) => {
+							actions.toggleCharacter(character.id, checked);
+						}}
+					/>
 				);
 			})}
 		</div>

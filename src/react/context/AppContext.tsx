@@ -406,6 +406,7 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 				return {
 					id: entry.id,
 					name: entry.name || entry.id,
+					team: entry.team,
 					imageUrl,
 				};
 			});

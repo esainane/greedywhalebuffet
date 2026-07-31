@@ -120,6 +120,7 @@ export function getCharacters(data: Readonly<ScriptData>, fetchedData: FetchedDa
 			characters.push({
 				id: entry,
 				name: roleEntry?.name || entry.charAt(0).toUpperCase() + entry.slice(1),
+				team,
 				imageUrl: getImageArray(roleEntry, fetchedData)[0],
 			});
 		} else if (typeof entry === 'object' && entry !== null) {
@@ -139,6 +140,7 @@ export function getCharacters(data: Readonly<ScriptData>, fetchedData: FetchedDa
 			characters.push({
 				id: charEntry.id,
 				name: charEntry.name || charEntry.id,
+				team: charEntry.team,
 				imageUrl: imageUrl ? normalizeImageUrl(imageUrl) : undefined,
 			});
 		}

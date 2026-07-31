@@ -13,12 +13,20 @@ export type MetaEntry = {
 export type CharacterEntry = {
 	id: string;
 	name?: string;
+	ability?: string;
 	image?: string | string[];
 	team?: string;
 	edition?: string;
+	flavor?: string;
 	jinxes?: { id: string; reason: string }[];
+	firstNightReminder?: string;
 	firstNight?: number;
+	otherNightReminder?: string;
 	otherNight?: number;
+	reminders?: string[];
+	remindersGlobal?: string[];
+	setup?: boolean;
+	special?: unknown[];
 };
 
 export type ScriptData = (MetaEntry | CharacterEntry | string)[];
@@ -36,6 +44,7 @@ export type NightsheetData = {
 export type Character = {
 	id: string;
 	name: string;
+	team?: string;
 	imageUrl?: string | string[];
 };
 

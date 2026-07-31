@@ -20,6 +20,10 @@
   {
     "id": "e7nfw",
     "name": "Shepherd Ω",
+    "image": [
+      "https://greedy.antihype.space/icons/greedier/shepherd_g.webp",
+      "https://greedy.antihype.space/icons/greedier/shepherd_e.webp"
+    ],
     "team": "townsfolk",
     "ability": "Each night*, choose a Demon character: if in-play, you die.",
     "flavor": "It is my duty as a Shepherd to guide these Lambs to a safer place, even if I lose myself in the process.",
@@ -46,6 +50,10 @@
   {
     "id": "gj4ld",
     "name": "Reflector Ω",
+    "image": [
+      "https://greedy.antihype.space/icons/greedier/reflector_g.webp",
+      "https://greedy.antihype.space/icons/greedier/reflector_e.webp"
+    ],
     "team": "outsider",
     "ability": "Each night, the first player’s ability to target you is instead reflected onto another player.",
     "flavor": "Mayor under house arrest… :P",

@@ -2,6 +2,7 @@ import { FILTERABLE_TEAMS } from '../../../constants.js';
 import { getBaseCharacterId, getImageArray } from '../../../character.js';
 import type { FetchedData } from '../../../data/fetched.js';
 import type { CharacterEntry, ScriptData } from '../../../types.js';
+import { compareCanonicalJinxOrder } from '../../../jinxOrder.js';
 
 export type CharacterSummary = {
 	id: string;
@@ -60,21 +61,6 @@ function createCharacterSummary(entry: CharacterEntry, fetchedData: FetchedData)
 		edition: entry.edition,
 		imageUrl: getPrimaryImage(entry, fetchedData),
 	};
-}
-
-function getTeamSortRank(team: string): number {
-	switch (team) {
-		case 'townsfolk':
-			return 0;
-		case 'outsider':
-			return 1;
-		case 'minion':
-			return 2;
-		case 'demon':
-			return 3;
-		default:
-			return Number.MAX_SAFE_INTEGER;
-	}
 }
 
 function buildCharacterLookup(fetchedData: FetchedData): Map<string, CharacterEntry> {
@@ -165,8 +151,6 @@ export function deriveGreedyDifferences(fetchedData: FetchedData): GreedyDiffere
 
 export function deriveGreedyJinxes(fetchedData: FetchedData): GreedyJinxDetail[] {
 	const details: (GreedyJinxDetail & {
-		sourceTeamRank: number;
-		targetTeamRank: number;
 		originalOrder: number;
 	})[] = [];
 	const lookup = buildCharacterLookup(fetchedData);
@@ -203,8 +187,6 @@ export function deriveGreedyJinxes(fetchedData: FetchedData): GreedyJinxDetail[]
 				target: targetSummary,
 				officialReason,
 				reason: jinx.reason,
-				sourceTeamRank: getTeamSortRank(sourceSummary.team),
-				targetTeamRank: getTeamSortRank(targetSummary.team),
 				originalOrder,
 			});
 			originalOrder += 1;
@@ -212,31 +194,7 @@ export function deriveGreedyJinxes(fetchedData: FetchedData): GreedyJinxDetail[]
 	}
 
 	return details
-		.sort((a, b) => {
-			if (a.sourceTeamRank !== b.sourceTeamRank) {
-				return a.sourceTeamRank - b.sourceTeamRank;
-			}
-
-			const sourceNameCompare = a.source.name.localeCompare(b.source.name, undefined, {
-				sensitivity: 'base',
-			});
-			if (sourceNameCompare !== 0) {
-				return sourceNameCompare;
-			}
-
-			if (a.targetTeamRank !== b.targetTeamRank) {
-				return a.targetTeamRank - b.targetTeamRank;
-			}
-
-			const targetNameCompare = a.target.name.localeCompare(b.target.name, undefined, {
-				sensitivity: 'base',
-			});
-			if (targetNameCompare !== 0) {
-				return targetNameCompare;
-			}
-
-			return a.originalOrder - b.originalOrder;
-		})
+		.sort(compareCanonicalJinxOrder)
 		.map(({ source, target, officialReason, reason }) => ({ source, target, officialReason, reason }));
 }
 

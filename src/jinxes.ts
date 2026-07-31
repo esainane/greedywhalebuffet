@@ -3,8 +3,14 @@
  */
 
 import type { ScriptData, JinxEntry } from './types.js';
-import { findCharacterId, findOrExpandCharacter } from './character.js';
+import { findCharacterId, findOrExpandCharacter, getBaseCharacterId } from './character.js';
 import type { FetchedData } from './data/fetched.js';
+import {
+	compareCanonicalJinxOrder,
+	characterToSortCharacter,
+	scriptEntryToSortCharacter,
+	type JinxSortCharacter,
+} from './jinxOrder.js';
 
 function expandJinxSources(
 	data: ScriptData,
@@ -18,6 +24,65 @@ function expandJinxSources(
 
 		findOrExpandCharacter(source.id, data, fetchedData);
 	}
+}
+
+function getSortCharacterById(
+	id: string,
+	data: ScriptData,
+	fetchedData: FetchedData,
+): JinxSortCharacter {
+	const expandedCharacter = data.find(
+		(entry) =>
+			typeof entry === 'object' &&
+			entry !== null &&
+			'id' in entry &&
+			typeof entry.id === 'string' &&
+			entry.id === id,
+	);
+	const expandedSortCharacter = scriptEntryToSortCharacter(expandedCharacter);
+	if (expandedSortCharacter) {
+		return expandedSortCharacter;
+	}
+
+	const baseId = getBaseCharacterId(id, fetchedData);
+	const role = fetchedData.getRolesData().find((entry) => entry.id === baseId);
+	if (role) {
+		return characterToSortCharacter(role);
+	}
+
+	return { id, name: id, team: undefined };
+}
+
+function toSortedJinxes(
+	sourceId: string,
+	mergedByTargetId: ReadonlyMap<string, string>,
+	data: ScriptData,
+	fetchedData: FetchedData,
+): { id: string; reason: string }[] {
+	const sourceCharacter = getSortCharacterById(sourceId, data, fetchedData);
+	const sortable = Array.from(mergedByTargetId, ([targetId, reason], index) => ({
+		targetId,
+		reason,
+		originalOrder: index,
+		targetCharacter: getSortCharacterById(targetId, data, fetchedData),
+	}));
+
+	sortable.sort((a, b) =>
+		compareCanonicalJinxOrder(
+			{
+				source: sourceCharacter,
+				target: a.targetCharacter,
+				originalOrder: a.originalOrder,
+			},
+			{
+				source: sourceCharacter,
+				target: b.targetCharacter,
+				originalOrder: b.originalOrder,
+			},
+		),
+	);
+
+	return sortable.map(({ targetId, reason }) => ({ id: targetId, reason }));
 }
 
 /**
@@ -64,7 +129,7 @@ export function mergeJinxes(
 			mergedByTargetId.set(targetId, jinx.reason);
 		}
 
-		sourceEntry.jinxes = Array.from(mergedByTargetId, ([id, reason]) => ({ id, reason }));
+		sourceEntry.jinxes = toSortedJinxes(sourceEntry.id, mergedByTargetId, data, fetchedData);
 	}
 }
 

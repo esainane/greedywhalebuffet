@@ -72,4 +72,39 @@ describe('applySelectedJinxes', () => {
 		const source = getSourceEntry(data);
 		expect(source?.jinxes ?? []).toEqual([]);
 	});
+
+	it('sorts final jinxes by canonical target order for a source', () => {
+		const rolesData: CharacterEntry[] = [
+			{ id: 'heretic', name: 'Heretic', team: 'outsider' },
+			{ id: 'empath', name: 'Empath', team: 'townsfolk' },
+			{ id: 'baron', name: 'Baron', team: 'minion' },
+			{ id: 'devilsadvocate', name: 'Devil\'s Advocate', team: 'minion' },
+			{ id: 'imp', name: 'Imp', team: 'demon' },
+		];
+		const official: JinxEntry[] = [];
+		const greedy: JinxEntry[] = [
+			{
+				id: 'heretic',
+				jinx: [
+					{ id: 'imp', reason: 'Demon jinx' },
+					{ id: 'devilsadvocate', reason: 'Minion jinx B' },
+					{ id: 'empath', reason: 'Townsfolk jinx' },
+					{ id: 'baron', reason: 'Minion jinx A' },
+				],
+			},
+		];
+
+		const fetchedData = makeFetchedData({ rolesData, official, greedy });
+		const data = fetchedData.cloneGreedyJson();
+
+		applySelectedJinxes(data, fetchedData, { includeOfficial: true, includeGreedy: true });
+
+		const source = getSourceEntry(data);
+		expect(source?.jinxes).toEqual([
+			{ id: 'empath', reason: 'Townsfolk jinx' },
+			{ id: 'baron', reason: 'Minion jinx A' },
+			{ id: 'devilsadvocate', reason: 'Minion jinx B' },
+			{ id: 'imp', reason: 'Demon jinx' },
+		]);
+	});
 });

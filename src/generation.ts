@@ -9,7 +9,7 @@ import {
 	findOrExpandCharacter,
 	firstNightOrder,
 } from './character.js';
-import { mergeJinxes } from './jinxes.js';
+import { applySelectedJinxes } from './jinxes.js';
 import type { FetchedData } from './data/fetched.js';
 import { getUnsatisfiedDependencyCharacterIds } from './dependencies.js';
 
@@ -64,30 +64,6 @@ export function applyAlejoRules(data: ScriptData, fetchedData: FetchedData): voi
 }
 
 /**
- * Apply official jinxes to script data.
- */
-export function applyOfficialJinxes(data: ScriptData, fetchedData: FetchedData): void {
-	const jinxData = fetchedData.getJinxData();
-	if (jinxData.length === 0) {
-		return;
-	}
-
-	mergeJinxes(data, jinxData, fetchedData);
-}
-
-/**
- * Apply Greedy-specific jinxes to script data.
- */
-export function applyGreedyJinxes(data: ScriptData, fetchedData: FetchedData): void {
-	const greedyJinxData = fetchedData.getGreedyJinxData();
-	if (greedyJinxData.length === 0) {
-		return;
-	}
-
-	mergeJinxes(data, greedyJinxData, fetchedData);
-}
-
-/**
  * Apply all selected generation options to script data.
  */
 export function applyOptions(data: ScriptData, options: GenerationOptions, fetchedData: FetchedData): void {
@@ -103,12 +79,11 @@ export function applyOptions(data: ScriptData, options: GenerationOptions, fetch
 		applyAlejoRules(data, fetchedData);
 	}
 
-	if (options.listOfficialJinxes) {
-		applyOfficialJinxes(data, fetchedData);
-	}
-
-	if (options.listGreedyJinxes) {
-		applyGreedyJinxes(data, fetchedData);
+	if (options.listOfficialJinxes || options.listGreedyJinxes) {
+		applySelectedJinxes(data, fetchedData, {
+			includeOfficial: options.listOfficialJinxes,
+			includeGreedy: options.listGreedyJinxes,
+		});
 	}
 }
 

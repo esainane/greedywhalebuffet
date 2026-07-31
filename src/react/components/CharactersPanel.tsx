@@ -64,9 +64,16 @@ function CharacterList(props: CharacterListProps): React.JSX.Element {
 
 export function CharactersPanel(): React.JSX.Element {
 	const state = useAppState();
-	const { quickRemove, remaining } = useMemo(
-		() => splitCharactersByCommonBans(state.characters),
-		[state.characters],
+	const { quickRemove, remaining: baseCharacters } = useMemo(
+		() => splitCharactersByCommonBans(state.baseCharacters),
+		[state.baseCharacters],
+	);
+	const greedierCharacters = useMemo(
+		() =>
+			state.options.addGreedierHomebrew
+				? state.greedierCharacters
+				: [],
+		[state.greedierCharacters, state.options.addGreedierHomebrew],
 	);
 
 	return (
@@ -83,11 +90,23 @@ export function CharactersPanel(): React.JSX.Element {
 					isQuickRemove
 				/>
 			</div>
+			{greedierCharacters.length > 0 ? (
+				<div className="quick-remove-box">
+					<p className="quick-remove-title">Greedier homebrew</p>
+					<CharacterList
+						id="greedier-character-list"
+						className="character-list"
+						characters={greedierCharacters}
+						emptyText="No greedier homebrew characters available."
+						isQuickRemove={false}
+					/>
+				</div>
+			) : null}
 			<CharacterList
 				id="character-list"
 				className="character-list"
-				characters={remaining}
-				emptyText={state.loading ? 'Loading characters...' : 'No characters available.'}
+				characters={baseCharacters}
+				emptyText={state.loading ? 'Loading base characters...' : 'No base characters available.'}
 				isQuickRemove={false}
 			/>
 		</section>

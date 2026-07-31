@@ -222,7 +222,7 @@
     "jinx": [
       {
         "id": "atheist",
-        "reason": "If the Storyteller is the first nomination on Riot's 3rd day nothing happens. The Storyteller cannot be nominated in the middle of a Riot."
+        "reason": "During a riot, if the Storyteller is nominated and a majority of players vote, the game ends. If not, they nominate again."
       },
       {
         "id": "hatter",

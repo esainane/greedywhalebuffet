@@ -11,10 +11,6 @@
         "reason": "If the Alchemist has the Boffin ability, the Alchemist might not learn what ability the Demon has."
       },
       {
-        "id": "fearmonger",
-        "reason": "An Alchemist-Fearmonger has no Fearmonger ability, & each night, chooses a player: if they are nominated & executed by an opposing player, your team wins. All players know if you choose a new player, as a Fearmonger."
-      },
-      {
         "id": "mastermind",
         "reason": "An Alchemist-Mastermind has no Mastermind ability, the Mastermind is not-in-play, & knows when all Minions are dead."
       },
@@ -120,19 +116,6 @@
       {
         "id": "king",
         "reason": "The Kazali learns the King before choosing minions. The King cannot be chosen by the Kazali."
-      }
-    ]
-  },
-  {
-    "id": "legion",
-    "jinx": [
-      {
-        "id": "hatter",
-        "reason": "If all of evil team agree to become Legion, majority of players (including ALL evil) become Legion. If Legion is in play, the Hatter has no ability."
-      },
-      {
-        "id": "summoner",
-        "reason": "If Legion is summoned, majority of players (including ALL evil players) become Legion. They might all learn each other."
       }
     ]
   },

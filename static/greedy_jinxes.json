@@ -101,12 +101,12 @@
         "reason": "If the Hermit has the Drunk ability, the Hermit does not learn their other Outsider abilities."
       },
       {
-        "id": "lunatic",
-        "reason": "If the Hermit has the Lunatic ability, the Hermit does not learn their other Outsider abilities."
-      },
-      {
         "id": "heretic",
         "reason": "If the Hermit has the Heretic ability, the Hermit might have only 2 Outsider abilities."
+      },
+      {
+        "id": "lunatic",
+        "reason": "If the Hermit has the Lunatic ability, the Hermit does not learn their other Outsider abilities."
       }
     ]
   },
@@ -136,16 +136,16 @@
         "reason": "The Magician starts knowing if a Wraith is in play. Each day, the living Magician may publicly guess a living player as the Wraith. If correct, the Wraith dies tonight & the Demon doesn’t kill tonight."
       },
       {
+        "id": "kazali",
+        "reason": "The Magician starts knowing if a Kazali is in-play."
+      },
+      {
         "id": "lilmonsta",
         "reason": "If the Magician is alive, the Storyteller chooses which Minion babysits Lil' Monsta. The Minions see the Magician as a minion."
       },
       {
         "id": "lordoftyphon",
         "reason": "The Magician starts knowing if a Lord of Typhon is in-play."
-      },
-      {
-        "id": "kazali",
-        "reason": "The Magician starts knowing if a Kazali is in-play."
       }
     ]
   },
@@ -166,18 +166,22 @@
     "id": "poppygrower",
     "jinx": [
       {
-        "id": "kazali",
-        "reason": "If the Poppy Grower is in play, the Kazali chooses which minions, but not which players. The Poppy Grower cannot become a Minion by the Kazali."
-      },
-      {
         "id": "wraith",
         "reason": "If the Poppy Grower has their ability, the Wraith doesn't wake with evil players, but still opens their eyes."
+      },
+      {
+        "id": "kazali",
+        "reason": "If the Poppy Grower is in play, the Kazali chooses which minions, but not which players. The Poppy Grower cannot become a Minion by the Kazali."
       }
     ]
   },
   {
     "id": "princess",
     "jinx": [
+      {
+        "id": "summoner",
+        "reason": "If the Princess nominates & executes on their first day, the Princess learns if a Summoner is in-play tonight."
+      },
       {
         "id": "leviathan",
         "reason": "If the Princess nominates & executes on their first day and the Leviathan is in play, the Princess learns an alive player isn't the Leviathan. This doesn't doesn't register to the Leviathan."
@@ -189,10 +193,6 @@
       {
         "id": "riot",
         "reason": "If the Princess nominates & executes on their first day, the Princess learns if a Riot is in-play tonight."
-      },
-      {
-        "id": "summoner",
-        "reason": "If the Princess nominates & executes on their first day, the Princess learns if a Summoner is in-play tonight."
       },
       {
         "id": "zombuul",
@@ -217,16 +217,16 @@
     "id": "summoner",
     "jinx": [
       {
+        "id": "slayer",
+        "reason": "An unused Summoner registers as the Demon to the Slayer."
+      },
+      {
         "id": "golem",
         "reason": "An unused Summoner registers as the Demon to the Golem."
       },
       {
         "id": "riot",
         "reason": "If the Summoner summons a Riot, the Riot happens the next day."
-      },
-      {
-        "id": "slayer",
-        "reason": "An unused Summoner registers as the Demon to the Slayer."
       }
     ]
   },

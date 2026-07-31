@@ -23,10 +23,6 @@
         "reason": "An Alchemist-Mezepheles has no Mezepheles ability, & starts knowing a word. The first good player (not the Alchemist) to say the word is safe from all Minion abilities after saying it."
       },
       {
-        "id": "pithag",
-        "reason": "The Alchemist Pit-Hag cannot create Minions or Demons."
-      },
-      {
         "id": "scarletwoman",
         "reason": "An Alchemist-Scarlet Woman has no Scarlet Woman ability, & gains the ability of the first Minion to die. They learn which ability they gain."
       },
@@ -150,15 +146,6 @@
     ]
   },
   {
-    "id": "lilmonsta",
-    "jinx": [
-      {
-        "id": "goblin",
-        "reason": "If the Goblin is babysitting Lil' Monsta and claims Goblin before being executed, good wins."
-      }
-    ]
-  },
-  {
     "id": "magician",
     "jinx": [
       {
@@ -191,10 +178,6 @@
     "id": "marionette",
     "jinx": [
       {
-        "id": "apprentice",
-        "reason": "The Apprentice with the Marionette ability believes they are a good Apprentice with a Townsfolk ability, but they are not. The Demon knows the Apprentice is evil with the Marionette ability. The Apprentice doesn't learn the Demon."
-      },
-      {
         "id": "huntsman",
         "reason": "If the Marionette thinks that they are the Huntsman, an Outsider might have been added during setup."
       },
@@ -216,10 +199,6 @@
   {
     "id": "poppygrower",
     "jinx": [
-      {
-        "id": "cannibal",
-        "reason": "If the Cannibal gains the Poppy Grower ability, the Minion(s) & Demon(s) learn each other once the Cannibal loses the ability."
-      },
       {
         "id": "kazali",
         "reason": "The Kazali chooses which minions, but not which players. The Poppy Grower cannot become a Minion by the Kazali."

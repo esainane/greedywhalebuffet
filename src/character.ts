@@ -89,10 +89,17 @@ function normalizeImageUrl(url: string): string {
 }
 
 /**
+ * Get image array for script payload expansion (no URL normalization).
+ */
+export function getScriptImageArray(entry: CharacterEntry, fetchedData: FetchedData): string[] {
+	return getImageArrayRaw(entry, fetchedData);
+}
+
+/**
  * Get image array for a character entry.
  */
 export function getImageArray(entry: CharacterEntry, fetchedData: FetchedData): string[] {
-	const images = getImageArrayRaw(entry, fetchedData);
+	const images = getScriptImageArray(entry, fetchedData);
 	return images.map(normalizeImageUrl);
 }
 
@@ -251,7 +258,7 @@ export function findOrExpandCharacter(
 
 	clone.firstNight ??= firstNightOrder(baseId, fetchedData);
 	clone.otherNight ??= otherNightOrder(baseId, fetchedData);
-	clone.image ??= getImageArray(roleDef, fetchedData);
+	clone.image ??= getScriptImageArray(roleDef, fetchedData);
 
 	data[index] = clone;
 	return clone;

@@ -185,6 +185,10 @@
         "reason": "If an evil player nominates & executes a player protected by the Innkeeper, the Innkeeper's team wins."
       },
       {
+        "id": "mayor",
+        "reason": "If the Leviathan and the Mayor are alive on day 5 & no execution occurs, the Mayor's team wins."
+      },
+      {
         "id": "monk",
         "reason": "If an evil player nominates & executes a player protected by the Monk, the Monk's team wins."
       },

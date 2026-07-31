@@ -244,10 +244,6 @@
       {
         "id": "hatter",
         "reason": "If the Riot is created from the Hatter, the Riot day is the Riot's second day."
-      },
-      {
-        "id": "mayor",
-        "reason": "The Mayor may choose to stop the riot. If they do so when only 1 Riot is alive, the Mayor's team wins. Otherwise, evil wins."
       }
     ]
   },

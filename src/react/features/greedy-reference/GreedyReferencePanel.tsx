@@ -38,13 +38,13 @@ export function GreedyReferencePanel(): React.JSX.Element {
 
 			<section className="panel reference-panel">
 				<p className="eyebrow">Greedy Jinxes</p>
-				<p className="lede">Detailed incompatibility notes for Greedy jinx pairs.</p>
+				<p className="lede">Greedy jinxes add, remove, or change jinxes from the base version. Changes are made for the same reasons character changes are made, but cover specific interactions between two characters.</p>
 				<GreedyJinxesDetail items={details.jinxes} loading={state.loading} />
 			</section>
 
 			<section className="panel reference-panel">
 				<p className="eyebrow">Greedier Characters</p>
-				<p className="lede">Detailed listing of Greedier homebrew characters.</p>
+				<p className="lede">The Greedy community runs community contests for homebrew "Greedier" characters, with a variety of exotic abilities.</p>
 				<GreedyHomebrewDetail items={details.homebrew} loading={state.loading} />
 			</section>
 		</>

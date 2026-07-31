@@ -3,7 +3,7 @@ import type { Character, GenerationOptions, ScriptData } from '../../types.js';
 import type { FetchedData } from '../../data/fetched.js';
 import { GENERATION_OPTIONS, getDependentOptions } from '../../options.js';
 import { loadLatestJson } from '../../data/loader.js';
-import { getCharacters, getMetaEntry } from '../../character.js';
+import { getCharacters, getImageArray, getMetaEntry } from '../../character.js';
 import { buildCopyPayload } from '../../generation.js';
 import { getUnsatisfiedDependencyCharacterIds } from '../../dependencies.js';
 
@@ -402,7 +402,7 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 			const metaEntry = getMetaEntry(greedyJson);
 			const baseCharacters = getCharacters(greedyJson, fetchedData);
 			const greedierCharacters = fetchedData.getGreedierCharactersData().map((entry) => {
-				const imageUrl = Array.isArray(entry.image) ? entry.image[0] : entry.image;
+				const imageUrl = getImageArray(entry, fetchedData)[0];
 				return {
 					id: entry.id,
 					name: entry.name || entry.id,

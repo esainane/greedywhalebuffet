@@ -63,10 +63,7 @@ export function otherNightOrder(id: string, fetchedData: FetchedData): number | 
 	return nightOrder(id, fetchedData.getNightsheetData().otherNight, fetchedData);
 }
 
-/**
- * Get image array for a character entry.
- */
-export function getImageArray(entry: CharacterEntry, fetchedData: FetchedData): string[] {
+function getImageArrayRaw(entry: CharacterEntry, fetchedData: FetchedData): string[] {
 	const roleImage = entry.image;
 	const team = entry?.team as string | undefined;
 	if (!team || !FILTERABLE_TEAMS.has(team)) {
@@ -85,6 +82,18 @@ export function getImageArray(entry: CharacterEntry, fetchedData: FetchedData): 
 		`https://images.klutzbanana.com/characters_official/${baseId}_${teamId}.png`,
 		`https://images.klutzbanana.com/characters_official/${baseId}_${otherId}.png`,
 	];
+}
+
+function normalizeImageUrl(url: string): string {
+	return url.replace(/^https:\/\/greedy\.antihype\.space\//, '');
+}
+
+/**
+ * Get image array for a character entry.
+ */
+export function getImageArray(entry: CharacterEntry, fetchedData: FetchedData): string[] {
+	const images = getImageArrayRaw(entry, fetchedData);
+	return images.map(normalizeImageUrl);
 }
 
 /**
@@ -130,7 +139,7 @@ export function getCharacters(data: Readonly<ScriptData>, fetchedData: FetchedDa
 			characters.push({
 				id: charEntry.id,
 				name: charEntry.name || charEntry.id,
-				imageUrl,
+				imageUrl: imageUrl ? normalizeImageUrl(imageUrl) : undefined,
 			});
 		}
 	}

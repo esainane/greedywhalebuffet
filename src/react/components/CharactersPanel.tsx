@@ -28,6 +28,8 @@ function CharacterList(props: CharacterListProps): React.JSX.Element {
 		<div id={id} className={className}>
 			{characters.map((character) => {
 				const isSelected = state.selectedCharacterIds.has(character.id);
+				const hasMissingDependencies =
+					isSelected && state.unsatisfiedDependencyCharacterIds.has(character.id);
 				const imageSrc =
 					typeof character.imageUrl === 'string'
 						? character.imageUrl
@@ -40,7 +42,8 @@ function CharacterList(props: CharacterListProps): React.JSX.Element {
 						key={character.id}
 						className={`character-item ${isQuickRemove ? 'quick-remove-item' : ''} ${
 							isSelected ? '' : 'banned'
-						}`}
+						} ${hasMissingDependencies ? 'dependency-missing' : ''}`}
+						title={hasMissingDependencies ? 'Missing required character' : undefined}
 					>
 						<input
 							type="checkbox"

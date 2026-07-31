@@ -11,6 +11,7 @@ import {
 } from './character.js';
 import { mergeJinxes } from './jinxes.js';
 import type { FetchedData } from './data/fetched.js';
+import { getUnsatisfiedDependencyCharacterIds } from './dependencies.js';
 
 const SPIRIT_OF_IVORY_ID = 'spiritofivory';
 
@@ -119,12 +120,21 @@ export function buildCopyPayload(
 	options: GenerationOptions,
 	fetchedData: FetchedData,
 ): string {
+	const unsatisfiedDependencyCharacterIds = getUnsatisfiedDependencyCharacterIds(
+		selectedCharacterIds,
+		fetchedData,
+	);
+	const exportableSelectedCharacterIds = new Set(
+		Array.from(selectedCharacterIds).filter(
+			(characterId) => !unsatisfiedDependencyCharacterIds.has(characterId),
+		),
+	);
 	const greedierCharacterIds = new Set(
 		fetchedData.getGreedierCharactersData().map((character) => character.id),
 	);
 	const hasSelectedGreedierCharacter =
 		options.addGreedierHomebrew &&
-		Array.from(selectedCharacterIds).some((characterId) => greedierCharacterIds.has(characterId));
+		Array.from(exportableSelectedCharacterIds).some((characterId) => greedierCharacterIds.has(characterId));
 
 	const nextData = fetchedData.cloneGreedyJson();
 	if (options.addGreedierHomebrew) {
@@ -188,7 +198,7 @@ export function buildCopyPayload(
 		if (
 			!isFilterableCharacter ||
 			shouldAlwaysInclude ||
-			(entryId && selectedCharacterIds.has(entryId))
+			(entryId && exportableSelectedCharacterIds.has(entryId))
 		) {
 			filteredData.push(entry);
 		} else if (isFilterableCharacter && entryId && entryName) {
@@ -209,7 +219,7 @@ export function buildCopyPayload(
 		const allRemovedLine = `${REMOVED_CHARACTERS_PREFIX}${allRemovedCharacterNames.join(', ')}`;
 		const addedGreedierCharacterNames = fetchedData
 			.getGreedierCharactersData()
-			.filter((character) => selectedCharacterIds.has(character.id))
+			.filter((character) => exportableSelectedCharacterIds.has(character.id))
 			.map((character) => character.name || character.id);
 		const addedGreedierLine = `The following Greedier characters have been added: ${addedGreedierCharacterNames.join(', ')}`;
 

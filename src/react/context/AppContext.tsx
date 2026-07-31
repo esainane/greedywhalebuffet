@@ -5,6 +5,7 @@ import { GENERATION_OPTIONS, getDependentOptions } from '../../options.js';
 import { loadLatestJson } from '../../data/loader.js';
 import { getCharacters, getMetaEntry } from '../../character.js';
 import { buildCopyPayload } from '../../generation.js';
+import { getUnsatisfiedDependencyCharacterIds } from '../../dependencies.js';
 
 const PREFERENCES_STORAGE_KEY = 'gwb:preferences:v1';
 
@@ -27,6 +28,7 @@ export type AppState = {
 	greedierCharacters: Character[];
 	characters: Character[];
 	selectedCharacterIds: Set<string>;
+	unsatisfiedDependencyCharacterIds: Set<string>;
 	options: GenerationOptions;
 };
 
@@ -154,6 +156,7 @@ const initialState: AppState = {
 	greedierCharacters: [],
 	characters: [],
 	selectedCharacterIds: new Set<string>(),
+	unsatisfiedDependencyCharacterIds: new Set<string>(),
 	options: storedPreferencesAtStartup.options,
 };
 
@@ -364,6 +367,21 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 	const { children } = props;
 	const [state, dispatch] = useReducer(appReducer, initialState);
 	const activeLoadController = useRef<AbortController | null>(null);
+	const unsatisfiedDependencyCharacterIds = useMemo(() => {
+		if (!state.fetchedData) {
+			return new Set<string>();
+		}
+
+		return getUnsatisfiedDependencyCharacterIds(state.selectedCharacterIds, state.fetchedData);
+	}, [state.fetchedData, state.selectedCharacterIds]);
+
+	const appState = useMemo<AppState>(
+		() => ({
+			...state,
+			unsatisfiedDependencyCharacterIds,
+		}),
+		[state, unsatisfiedDependencyCharacterIds],
+	);
 
 	const setStatus = useCallback((message: string, tone: StatusTone = 'info') => {
 		dispatch({ type: 'set_status', message, tone });
@@ -485,7 +503,7 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 	);
 
 	return (
-		<AppStateContext.Provider value={state}>
+		<AppStateContext.Provider value={appState}>
 			<AppActionsContext.Provider value={actions}>{children}</AppActionsContext.Provider>
 		</AppStateContext.Provider>
 	);

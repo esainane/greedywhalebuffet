@@ -9,6 +9,7 @@
 	--muted: #adc0b8;
 	--accent: #4bc2ae;
 	--accent-strong: #8ce4d6;
+	--warning: #f7cf54;
 	--danger: #ff8d6a;
 	--surface: rgba(255, 255, 255, 0.05);
 	--surface-strong: rgba(255, 255, 255, 0.08);
@@ -29,6 +30,7 @@
 		--muted: #6d5a45;
 		--accent: #0d6b5f;
 		--accent-strong: #084b43;
+		--warning: #9f7700;
 		--danger: #b74d2c;
 		--surface: rgba(255, 255, 255, 0.72);
 		--surface-strong: rgba(255, 255, 255, 0.82);
@@ -451,6 +453,15 @@ button.danger:focus-visible {
 	opacity: 0.45;
 	cursor: pointer;
 	border-color: var(--danger);
+}
+
+.character-item.dependency-missing {
+	border-color: var(--warning);
+	background: color-mix(in srgb, var(--warning) 12%, var(--surface));
+}
+
+.character-item.dependency-missing:hover {
+	border-color: var(--warning);
 }
 
 .character-item input {

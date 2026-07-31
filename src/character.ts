@@ -79,8 +79,8 @@ function getImageArrayRaw(entry: CharacterEntry, fetchedData: FetchedData): stri
 	const baseId = getBaseCharacterId(entry.id, fetchedData);
 	const [teamId, otherId] = ['townsfolk', 'outsider'].includes(team) ? ['g', 'e'] : ['e', 'g'];
 	return [
-		`https://images.klutzbanana.com/characters_official/${baseId}_${teamId}.png`,
-		`https://images.klutzbanana.com/characters_official/${baseId}_${otherId}.png`,
+		`https://greedy.antihype.space/icons/${entry.edition ?? "carousel"}/${baseId}_${teamId}.webp`,
+		`https://greedy.antihype.space/icons/${entry.edition ?? "carousel"}/${baseId}_${otherId}.webp`,
 	];
 }
 

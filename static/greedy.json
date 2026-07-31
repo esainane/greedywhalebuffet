@@ -18,7 +18,7 @@
     "id": "choose_your_chars",
     "name": "Choose your characters",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/thebootleggericon_popppp.png"
+      "https://greedy.antihype.space/icons/loric/bootlegger.webp"
     ],
     "team": "townsfolk",
     "ability": "Choose what you want to play. Choose at least 2 normal characters of each type: Townsfolk, Outsider, Minion, and Demon. You learn your actual character before the game starts.",
@@ -74,8 +74,8 @@
     "id": "alchemist_popppp",
     "name": "Alchemist",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/g_alchemist_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/e_alchemist_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/alchemist_g.webp",
+      "https://greedy.antihype.space/icons/carousel/alchemist_e.webp"
     ],
     "team": "townsfolk",
     "ability": "You have a Minion ability. When using this, the Storyteller may prompt you to choose differently.",
@@ -110,8 +110,8 @@
     "id": "cannibal_popppp",
     "name": "Cannibal",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/cannibal_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/cannibal_e_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/cannibal_g.webp",
+      "https://greedy.antihype.space/icons/carousel/cannibal_e.webp"
     ],
     "team": "townsfolk",
     "ability": "You have the ability of the recently killed executee. If they are evil, you are poisoned until a good player dies by execution.",
@@ -129,8 +129,8 @@
     "id": "courtier_popppp",
     "name": "Courtier Ω",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/courtier_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/courtier_e_popppp.png"
+      "https://greedy.antihype.space/icons/bmr/courtier_g.webp",
+      "https://greedy.antihype.space/icons/bmr/courtier_e.webp"
     ],
     "team": "townsfolk",
     "ability": "Twice per game, at night, choose a different character: they are drunk for 3 nights & 3 days.",
@@ -154,8 +154,8 @@
     "id": "cultleader_popppp",
     "name": "Cult Leader Ω",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/cultleader_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/cultleader_evil_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/cultleader_g.webp",
+      "https://greedy.antihype.space/icons/carousel/cultleader_e.webp"
     ],
     "team": "townsfolk",
     "ability": "Each night, you become the alignment of an alive neighbour. If all good players choose to join your cult, your team wins. If you die at night, become good.",
@@ -168,11 +168,11 @@
   "dreamer",
   "empath",
   {
-    "id": "asdasd_ultimate",
+    "id": "engineer_ultimate",
     "name": "Engineer Ω",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/nothing/engineer_token_nothing.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/nothing/enge_nothing.png"
+      "https://greedy.antihype.space/icons/carousel/engineer_g.webp",
+      "https://greedy.antihype.space/icons/carousel/engineer_e.webp"
     ],
     "team": "townsfolk",
     "ability": "Once per game, during the day, visit the Storyteller to learn a number of in play Minion or Demon characters equal to the Day.",
@@ -188,8 +188,8 @@
     "id": "flowergirl_popppp",
     "name": "Flowergirl",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/flowergirl_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/flowergirl_evil_popppp.png"
+      "https://greedy.antihype.space/icons/snv/flowergirl_g.webp",
+      "https://greedy.antihype.space/icons/snv/flowergirl_e.webp"
     ],
     "team": "townsfolk",
     "ability": "Each night*, you learn if a Demon voted today.",
@@ -212,8 +212,8 @@
     "id": "huntsman_popppp",
     "name": "Huntsman Ω",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/huntsman_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/huntsman_e_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/huntsman_g.webp",
+      "https://greedy.antihype.space/icons/carousel/huntsman_e.webp"
     ],
     "team": "townsfolk",
     "ability": "You start knowing an in play Outsider. They can't change character from other abilities. Once per game, at night, choose a player: that Outsider, if chosen, becomes a not in play good Townsfolk. [+0 or +1 Outsider]",
@@ -239,8 +239,8 @@
     "id": "magician_popppp",
     "name": "Magician",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/magician_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/evil_magician_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/magician_g.webp",
+      "https://greedy.antihype.space/icons/carousel/magician_e.webp"
     ],
     "team": "townsfolk",
     "ability": "The Demon thinks you are a Minion. Minions think you are a Demon.",
@@ -252,8 +252,8 @@
     "id": "mathematician_popppp",
     "name": "Mathematician",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/mathematician_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/amath_e_popppp.png"
+      "https://greedy.antihype.space/icons/snv/mathematician_g.webp",
+      "https://greedy.antihype.space/icons/snv/mathematician_e.webp"
     ],
     "team": "townsfolk",
     "ability": "Each night, you learn how many players' abilities worked abnormally (since dawn) due to another character's ability.",
@@ -278,8 +278,8 @@
     "id": "mayor_mayor",
     "name": "Mayor Ω",
     "image": [
-      "https://user-images.klutzbanana.com/t8l09cni5taf77whss4b401p.png",
-      "https://user-images.klutzbanana.com/ok4jaac7r1pbp9edrhrqtg8m.webp"
+      "https://greedy.antihype.space/icons/tb/mayor_g.webp",
+      "https://greedy.antihype.space/icons/tb/mayor_e.webp"
     ],
     "team": "townsfolk",
     "edition": "gwb",
@@ -296,8 +296,8 @@
     "id": "philosopher_ultimate",
     "name": "Philosopher Ω",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/good_philo_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/vil_philo_popppp.png"
+      "https://greedy.antihype.space/icons/snv/philosopher_g.webp",
+      "https://greedy.antihype.space/icons/snv/philosopher_e.webp"
     ],
     "team": "townsfolk",
     "ability": "Once per game, at night, choose a good character: gain that ability. You may be told to reconsider. If you pick a character that's not helpful to your team or ruins the games balance 3 times, you become Drunk.",
@@ -329,8 +329,8 @@
     "id": "poppygrower_popppp",
     "name": "Poppy Grower Ω",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/poppygrower_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/e_poppygrower_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/poppygrower_g.webp",
+      "https://greedy.antihype.space/icons/carousel/poppygrower_e.webp"
     ],
     "team": "townsfolk",
     "ability": "Minions & Demons do not know each other. If you die, even if drunk or poisoned, they learn who each other are at night.",
@@ -347,8 +347,8 @@
     "id": "preacher_popppp",
     "name": "Preacher",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/preacher_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/preacher_e_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/preacher_g.webp",
+      "https://greedy.antihype.space/icons/carousel/preacher_e.webp"
     ],
     "team": "townsfolk",
     "ability": "Each night, choose a player: a Minion, if chosen, learns this. All chosen Minions have no ability.",
@@ -370,8 +370,8 @@
     "id": "princess_popppp",
     "name": "Princess",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/princess_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/evil_princess_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/princess_g.webp",
+      "https://greedy.antihype.space/icons/carousel/princess_e.webp"
     ],
     "team": "townsfolk",
     "ability": "On your 1st day, if you nominated & executed a player, the Demon doesn't kill tonight.",
@@ -396,8 +396,8 @@
     "id": "soldier_popppp",
     "name": "Soldier Ω",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/soldier_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/soldier_e_popppp.png"
+      "https://greedy.antihype.space/icons/tb/soldier_g.webp",
+      "https://greedy.antihype.space/icons/tb/soldier_e.webp"
     ],
     "team": "townsfolk",
     "ability": "You are safe from the Demon. Each night, if your ability protected you from the Demon, wake and learn this.",
@@ -422,8 +422,8 @@
     "id": "butler_popppp",
     "name": "Butler",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/butler_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/butler_e_popppp.png"
+      "https://greedy.antihype.space/icons/tb/butler_g.webp",
+      "https://greedy.antihype.space/icons/tb/butler_e.webp"
     ],
     "team": "outsider",
     "ability": "Each night, choose a player (not yourself): tomorrow, you may only vote if they are voting too.",
@@ -445,8 +445,8 @@
     "id": "drunk_popppp",
     "name": "Drunk",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/drunk_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/evil_drunk_popppp.png"
+      "https://greedy.antihype.space/icons/tb/drunk_g.webp",
+      "https://greedy.antihype.space/icons/tb/drunk_e.webp"
     ],
     "team": "outsider",
     "ability": "You do not know you are the Drunk. You think you are a Townsfolk character, but you are not.",
@@ -475,8 +475,8 @@
     "id": "hatter_popppp",
     "name": "Hatter Ω",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/hatter_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/hatter_e_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/hatter_g.webp",
+      "https://greedy.antihype.space/icons/carousel/hatter_e.webp"
     ],
     "team": "outsider",
     "ability": "If you die, at night, choose Minions or Demons. All players of the type you chose picks new characters of the same type to be.",
@@ -498,8 +498,8 @@
     "id": "heretic_popppp",
     "name": "Heretic Ω",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/heretic_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/evil_heretic_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/heretic_g.webp",
+      "https://greedy.antihype.space/icons/carousel/heretic_e.webp"
     ],
     "team": "outsider",
     "ability": "Whoever wins, loses, & whoever loses, wins. If only evil players are alive, evil wins (therefore good wins). This ability works even if you are dead.",
@@ -509,8 +509,8 @@
     "id": "hermit_popppp",
     "name": "Hermit Ω",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/hermit_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/hermit_evil_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/hermit_g.webp",
+      "https://greedy.antihype.space/icons/carousel/hermit_e.webp"
     ],
     "team": "outsider",
     "ability": "You have 3 Outsider abilities. You know each, even if drunk or poisoned. [-0 or -1 Outsiders]",
@@ -552,8 +552,8 @@
     "id": "lunatic_popppp",
     "name": "Lunatic Ω",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/lunatic_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/evillunatic_popppp.png"
+      "https://greedy.antihype.space/icons/bmr/lunatic_g.webp",
+      "https://greedy.antihype.space/icons/bmr/lunatic_e.webp"
     ],
     "team": "outsider",
     "ability": "You think you are a Demon, but you are not. The Demon knows who you are & who you choose at night.",
@@ -594,8 +594,8 @@
     "id": "plaguedoctor_popppp",
     "name": "Plague Doctor",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/plaguedoctor_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/plaguedoctor_e_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/plaguedoctor_g.webp",
+      "https://greedy.antihype.space/icons/carousel/plaguedoctor_e.webp"
     ],
     "team": "outsider",
     "ability": "When you die, the Storyteller gains a Minion ability.",
@@ -612,8 +612,8 @@
     "id": "recluse_wewew",
     "name": "Recluse Ω",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/nothing/reclusegood_nothing.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/nothing/recluseevil_nothing.png"
+      "https://greedy.antihype.space/icons/tb/recluse_g.webp",
+      "https://greedy.antihype.space/icons/tb/recluse_e.webp"
     ],
     "team": "outsider",
     "ability": "You might register as any character, alignment, or living status, even if dead.",
@@ -624,8 +624,8 @@
     "id": "snitch_wewew",
     "name": "Snitch Ω",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/Day6/newcharacter3_day6.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/Day6/newcharacter4_day6.png"
+      "https://greedy.antihype.space/icons/carousel/snitch_g.webp",
+      "https://greedy.antihype.space/icons/carousel/snitch_e.webp"
     ],
     "team": "outsider",
     "ability": "Each Minion starts knowing a different in-play good character.",
@@ -645,8 +645,8 @@
     "id": "sweetheart_wewew",
     "name": "Sweetheart Ω",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/Day6/good_sweetheart_day6.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/Day6/evil_sweetheart_day6.png"
+      "https://greedy.antihype.space/icons/snv/sweetheart_g.webp",
+      "https://greedy.antihype.space/icons/snv/sweetheart_e.webp"
     ],
     "team": "outsider",
     "ability": "When you die, 1 player is drunk from now on. When dead, you may guess (once) which. If correct, all players learn you are the Sweetheart tonight.",
@@ -666,8 +666,8 @@
     "id": "boffin_popppp",
     "name": "Boffin",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/boffin_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/boffing_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/boffin_e.webp",
+      "https://greedy.antihype.space/icons/carousel/boffin_g.webp"
     ],
     "team": "minion",
     "ability": "The Demon (even if drunk or poisoned) has a not-in-play good character's ability. You both know which.",
@@ -680,8 +680,8 @@
     "id": "cerenovus_popppp",
     "name": "Cerenovus",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/cerenovus_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/cerenovusg_popppp.png"
+      "https://greedy.antihype.space/icons/snv/cerenovus_e.webp",
+      "https://greedy.antihype.space/icons/snv/cerenovus_g.webp"
     ],
     "team": "minion",
     "ability": "Each night, choose a player & a good character: they are \"mad\" they are this character tomorrow, or might be executed.",
@@ -705,8 +705,8 @@
     "id": "eviltwin_popppp",
     "name": "Evil Twin",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/eviltwin_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/eviltwin_g_popppp.png"
+      "https://greedy.antihype.space/icons/snv/eviltwin_e.webp",
+      "https://greedy.antihype.space/icons/snv/eviltwin_g.webp"
     ],
     "team": "minion",
     "ability": "You & an opposing player know each other. If the good player is executed, evil wins. Good can't win if you both live.",
@@ -725,8 +725,8 @@
     "id": "marionette_popppp",
     "name": "Marionette",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/marionette_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/g_marionette_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/marionette_e.webp",
+      "https://greedy.antihype.space/icons/carousel/marionette_g.webp"
     ],
     "team": "minion",
     "ability": "You think you are a good character, but you are not. The Demon knows who you are. [You neighbor the Demon]",
@@ -755,8 +755,8 @@
     "id": "organgrinder",
     "name": "Organ Grinder",
     "image": [
-      "https://images.klutzbanana.com/characters_official/organgrinder_e.png",
-      "https://images.klutzbanana.com/characters_official/organgrinder_g.png"
+      "https://greedy.antihype.space/icons/carousel/organgrinder_e.webp",
+      "https://greedy.antihype.space/icons/carousel/organgrinder_g.webp"
     ],
     "team": "minion",
     "edition": "carousel",
@@ -797,8 +797,8 @@
     "id": "pithag_ultimate",
     "name": "Pit-Hag Ω",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/Day6/evil_pithag_day6.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/Day6/good_pithag_day6.png"
+      "https://greedy.antihype.space/icons/snv/pithag_e.webp",
+      "https://greedy.antihype.space/icons/snv/pithag_g.webp"
     ],
     "team": "minion",
     "ability": "Each other night*, you may choose a player & character they become (if not in play). If a potential evil-making character or Demon is made, deaths tonight are arbitrary.",
@@ -814,8 +814,8 @@
     "id": "psychopath_ultimate",
     "name": "Psychopath Ω",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/Day6/evil_psychopath_day6.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/Day6/newcharacter_day6.png"
+      "https://greedy.antihype.space/icons/carousel/psychopath_e.webp",
+      "https://greedy.antihype.space/icons/carousel/psychopath_g.webp"
     ],
     "team": "minion",
     "ability": "If there are 5 or more alive players (not including travellers), each day, before nominations, you may publicly choose a player: they die. If executed, you only die if you lose roshambo.",
@@ -828,8 +828,8 @@
     "id": "scarletwoman_popppp",
     "name": "Scarlet Woman",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/scarletwoman_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/scarlet_g_popppp.png"
+      "https://greedy.antihype.space/icons/tb/scarletwoman_e.webp",
+      "https://greedy.antihype.space/icons/tb/scarletwoman_g.webp"
     ],
     "team": "minion",
     "ability": "If there are 5 or more players alive & the Demon dies, you become the Demon. (Travellers don't count.)",
@@ -853,8 +853,8 @@
     "id": "spy_popppp",
     "name": "Spy",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/spy_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/spy_g_popppp.png"
+      "https://greedy.antihype.space/icons/tb/spy_e.webp",
+      "https://greedy.antihype.space/icons/tb/spy_g.webp"
     ],
     "team": "minion",
     "ability": "Each night, you see the Grimoire. You might register as good & as a Townsfolk or Outsider, even if dead.",
@@ -875,8 +875,8 @@
     "id": "summoner_popppp",
     "name": "Summoner Ω",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/summoner_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/summoner_g_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/summoner_e.webp",
+      "https://greedy.antihype.space/icons/carousel/summoner_g.webp"
     ],
     "team": "minion",
     "ability": "On the 3rd night, choose a player: they become an evil Demon of your choice. [No Demon]",
@@ -894,8 +894,8 @@
     "id": "vizier_popppp",
     "name": "Vizier",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/vizier_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/vizier_good_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/vizier_e.webp",
+      "https://greedy.antihype.space/icons/carousel/vizier_g.webp"
     ],
     "team": "minion",
     "ability": "All players know you are the Vizier. You cannot die during the day. If good voted, you may choose to execute immediately.",
@@ -917,8 +917,8 @@
     "id": "widow_popppp",
     "name": "Widow",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/widow_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/widow_g_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/widow_e.webp",
+      "https://greedy.antihype.space/icons/carousel/widow_g.webp"
     ],
     "team": "minion",
     "ability": "On your 1st night, look at the Grimoire & choose a player: they are poisoned. 1 good player knows a Widow is in play.",
@@ -944,8 +944,8 @@
     "id": "wizard_popppp",
     "name": "Wizard Ω",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/wizard_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/wizard_g_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/wizard_e.webp",
+      "https://greedy.antihype.space/icons/carousel/wizard_g.webp"
     ],
     "team": "minion",
     "ability": "Once per game, choose to make a wish. If granted, it might have a price & leave a clue as to its nature. If you propose a declined wish for your team 3 times, you turn into a character of the same type.",
@@ -971,8 +971,8 @@
     "id": "wraith_popppp",
     "name": "Wraith",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/wraith_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/wraith_g_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/wraith_e.webp",
+      "https://greedy.antihype.space/icons/carousel/wraith_g.webp"
     ],
     "team": "minion",
     "ability": "You may choose to open your eyes at night. You wake when other evil players do.",
@@ -994,8 +994,8 @@
     "id": "alhadikhia_popppp",
     "name": "Al-Hadikhia",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/alhadikhia_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/alhad_g_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/alhadikhia_e.webp",
+      "https://greedy.antihype.space/icons/carousel/alhadikhia_g.webp"
     ],
     "team": "demon",
     "ability": "Each night*, you may choose 3 players (all players learn who): each silently chooses to live or die, but if all live, all die.",
@@ -1014,8 +1014,8 @@
     "id": "kazali_popppp",
     "name": "Kazali Ω",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/kazali_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/kazaligood_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/kazali_e.webp",
+      "https://greedy.antihype.space/icons/carousel/kazali_g.webp"
     ],
     "team": "demon",
     "ability": "Each night*, choose a player: they die. [You choose which players are which Minions, your Minion choices may be denied. -? to +? Outsiders]",
@@ -1033,8 +1033,8 @@
     "id": "legion_popppp",
     "name": "Legion",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/legion_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/legio_g_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/legion_e.webp",
+      "https://greedy.antihype.space/icons/carousel/legion_g.webp"
     ],
     "team": "demon",
     "ability": "Each night*, a player might die. Executions fail if only evil voted. You register as a Minion too. [Most players are Legion]",
@@ -1068,8 +1068,8 @@
     "id": "leviathan_popppp",
     "name": "Leviathan",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/leviathan_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/levi_g_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/leviathan_e.webp",
+      "https://greedy.antihype.space/icons/carousel/leviathan_g.webp"
     ],
     "team": "demon",
     "ability": "If more than 1 good player is executed, evil wins. All players know you are in play. After day 5, evil wins.",
@@ -1101,8 +1101,8 @@
     "id": "lleech_popppp",
     "name": "Lleech",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/lleech_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/lleechgood_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/lleech_e.webp",
+      "https://greedy.antihype.space/icons/carousel/lleech_g.webp"
     ],
     "team": "demon",
     "ability": "Each night*, choose a player: they die. You start by choosing a player: they are poisoned. You die if & only if they are dead.",
@@ -1127,8 +1127,8 @@
     "id": "riot_popppp",
     "name": "Riot",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/riot_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/riot_g_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/riot_e.webp",
+      "https://greedy.antihype.space/icons/carousel/riot_g.webp"
     ],
     "team": "demon",
     "ability": "On your third day, Minions become Riot & nominees die but nominate an alive player immediately. This must happen.",
@@ -1155,8 +1155,8 @@
     "id": "vigormortis_popppp",
     "name": "Vigormortis",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/vigormortis_popppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/newcharacter8_popppp.png"
+      "https://greedy.antihype.space/icons/snv/vigormortis_e.webp",
+      "https://greedy.antihype.space/icons/snv/vigormortis_g.webp"
     ],
     "team": "demon",
     "ability": "Each night*, choose a player: they die. Minions you kill keep their ability & poison 1 Townsfolk neighbor. [-1 Outsider]",
@@ -1179,8 +1179,8 @@
     "id": "vortox_poppppp",
     "name": "Vortox",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/poppppp/vortox_poppppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/vortoxgood_popppp.png"
+      "https://greedy.antihype.space/icons/snv/vortox_e.webp",
+      "https://greedy.antihype.space/icons/snv/vortox_g.webp"
     ],
     "team": "demon",
     "ability": "Each night*, choose a player: they die. Townsfolk abilities yield false info. Each day, if no-one is executed, evil wins.",
@@ -1195,8 +1195,8 @@
     "id": "yaggababble_poppppp",
     "name": "Yaggababble",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/poppppp/yaggababble_poppppp.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/yaggababblegood_popppp.png"
+      "https://greedy.antihype.space/icons/carousel/yaggababble_e.webp",
+      "https://greedy.antihype.space/icons/carousel/yaggababble_g.webp"
     ],
     "team": "demon",
     "ability": "You start knowing a secret phrase. For each time you said it publicly today, a player might die.",
@@ -1271,7 +1271,7 @@
     "id": "choose_your_chars_dummy",
     "name": "Choose your characters",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/popppp/thebootleggericon_popppp.png"
+      "https://greedy.antihype.space/icons/loric/bootlegger.webp"
     ],
     "team": "traveller",
     "ability": "This is a dummy duplicate of Choose your characters, so that Minions and Demons can be asked what they are mechanically bluffing as, without this cluttering the main Choose your characters night interface.",

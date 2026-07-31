@@ -15,6 +15,7 @@ export type CharacterEntry = {
 	name?: string;
 	image?: string | string[];
 	team?: string;
+	edition?: string;
 	jinxes?: { id: string; reason: string }[];
 	firstNight?: number;
 	otherNight?: number;

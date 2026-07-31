@@ -355,7 +355,7 @@
       },
       {
         "id": "mayor",
-        "reason": "The Mayor may choose to stop the riot. If they do so when only 1 Riot is alive, your team wins. Otherwise, evil wins."
+        "reason": "The Mayor may choose to stop the riot. If they do so when only 1 Riot is alive, the Mayor's team wins. Otherwise, evil wins."
       },
       {
         "id": "monk",

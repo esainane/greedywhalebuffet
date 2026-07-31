@@ -158,7 +158,7 @@
       "https://greedy.antihype.space/icons/carousel/cultleader_e.webp"
     ],
     "team": "townsfolk",
-    "ability": "Each night, you become the alignment of an alive neighbour. If all good players choose to join your cult, your team wins. If you die at night, become good.",
+    "ability": "Each night, you become the alignment of an alive neighbor. If all good players choose to join your cult, your team wins. If you die at night, become good.",
     "flavor": "I'd like to start the cult of chaos. -Evan (Evil Twin)",
     "firstNight": 71,
     "firstNightReminder": "The Cult Leader might change alignment. If so, show the *YOU ARE* info token & give a thumb signal.",
@@ -216,7 +216,7 @@
       "https://greedy.antihype.space/icons/carousel/huntsman_e.webp"
     ],
     "team": "townsfolk",
-    "ability": "You start knowing an in play Outsider. They can't change character from other abilities. Once per game, at night, choose a player: that Outsider, if chosen, becomes a not in play good Townsfolk. [+0 or +1 Outsider]",
+    "ability": "You start knowing an in play Outsider. They can't change character from other abilities. Once per game, at night, choose a player: that Outsider, if chosen, becomes a not-in-play good Townsfolk. [+0 or +1 Outsider]",
     "flavor": "You don't get to be the Heretic -TrappedCosmos",
     "firstNight": 49,
     "firstNightReminder": "Wake the Huntsman & show the token of their target Outsider. They might choose a player. :reminder: If they choose the Outsider they learned: Put the Huntsman to sleep. Wake the target. Show the *YOU ARE* info token & their new character token.",
@@ -256,7 +256,7 @@
       "https://greedy.antihype.space/icons/snv/mathematician_e.webp"
     ],
     "team": "townsfolk",
-    "ability": "Each night, you learn how many players' abilities worked abnormally (since dawn) due to another character's ability.",
+    "ability": "Each night, you learn how many players’ abilities worked abnormally (since dawn) due to another character's ability.",
     "flavor": "Math is like clocktower. You don't know what you're trying to do, nor do you know how to accomplish it. And yet, you succeed -iexistlol",
     "firstNight": 77,
     "firstNightReminder": "Give a finger signal.",
@@ -333,7 +333,7 @@
       "https://greedy.antihype.space/icons/carousel/poppygrower_e.webp"
     ],
     "team": "townsfolk",
-    "ability": "Minions & Demons do not know each other. If you die, even if drunk or poisoned, they learn who each other are at night.",
+    "ability": "Minions & Demons do not know each other. If you die, even if drunk or poisoned, they learn who each other are that night.",
     "flavor": "We’re doing poppy’s on the dance floor! I feel the rush & I’m pissing all over this stage tonight! -Satyr",
     "firstNight": 16,
     "firstNightReminder": "Skip Minion Info and Demon Info.",
@@ -513,7 +513,7 @@
       "https://greedy.antihype.space/icons/carousel/hermit_e.webp"
     ],
     "team": "outsider",
-    "ability": "You have 3 Outsider abilities. You know each, even if drunk or poisoned. [-0 or -1 Outsiders]",
+    "ability": "You have 3 Outsider abilities. You know each, even if drunk or poisoned. [-0 or -1 Outsider]",
     "flavor": "Goon Goon Goon! - Satyr",
     "firstNight": 11,
     "firstNightReminder": "If the Hermit does not have the Drunk or Lunatic abilities, wake the Hermit. Show the character token of each ability they have. Run any Outsider abilities the Hermit has.",
@@ -670,7 +670,7 @@
       "https://greedy.antihype.space/icons/carousel/boffin_g.webp"
     ],
     "team": "minion",
-    "ability": "The Demon (even if drunk or poisoned) has a not-in-play good character's ability. You both know which.",
+    "ability": "The Demon (even if drunk or poisoned) has a not-in-play good character’s ability. You both know which.",
     "flavor": "Sometimes the questions are complicated and the answers are simple. -Dr. Seuss",
     "firstNight": 13,
     "firstNightReminder": "Wake the Boffin and the Demon. Show the *THIS CHARACTER SELECTED YOU* & Boffin tokens, then the not-in-play good character token."
@@ -801,7 +801,7 @@
       "https://greedy.antihype.space/icons/snv/pithag_g.webp"
     ],
     "team": "minion",
-    "ability": "Each other night*, you may choose a player & character they become (if not in play). If a potential evil-making character or Demon is made, deaths tonight are arbitrary.",
+    "ability": "Each other night*, you may choose a player & a character they become (if not in play). If a potential evil-making character or Demon is made, deaths tonight are arbitrary.",
     "flavor": "Its definetly not a Vortox game... yet -Fleuris",
     "otherNight": 29,
     "otherNightReminder": "The Pit-Hag chooses a player & a character. If they chose a character that is not in play: Put the Pit-Hag to sleep. Wake the target. Show the *YOU ARE* token & their new character token.",

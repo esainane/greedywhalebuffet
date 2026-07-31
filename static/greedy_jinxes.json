@@ -133,7 +133,7 @@
     "jinx": [
       {
         "id": "wraith",
-        "reason": "The Magician starts knowing a Wraith is in play. Each day, the living Magician may publicly guess a living player as the Wraith. If correct, the Wraith dies tonight & the Demon doesn’t kill tonight."
+        "reason": "The Magician starts knowing if a Wraith is in play. Each day, the living Magician may publicly guess a living player as the Wraith. If correct, the Wraith dies tonight & the Demon doesn’t kill tonight."
       },
       {
         "id": "lilmonsta",
@@ -141,11 +141,11 @@
       },
       {
         "id": "lordoftyphon",
-        "reason": "The Magician starts knowing a Lord of Typhon is in-play."
+        "reason": "The Magician starts knowing if a Lord of Typhon is in-play."
       },
       {
         "id": "kazali",
-        "reason": "The Magician starts knowing a Kazali is in-play."
+        "reason": "The Magician starts knowing if a Kazali is in-play."
       }
     ]
   },
@@ -158,7 +158,7 @@
       },
       {
         "id": "recluse",
-        "reason": "The Marionette can sit next to the Recluse."
+        "reason": "The Marionette can neighbor the Recluse."
       }
     ]
   },
@@ -167,11 +167,11 @@
     "jinx": [
       {
         "id": "kazali",
-        "reason": "The Kazali chooses which minions, but not which players. The Poppy Grower cannot become a Minion by the Kazali."
+        "reason": "If the Poppy Grower is in play, the Kazali chooses which minions, but not which players. The Poppy Grower cannot become a Minion by the Kazali."
       },
       {
         "id": "wraith",
-        "reason": "The Wraith doesn't wake with evil players, but still open their eyes."
+        "reason": "If the Poppy Grower has their ability, the Wraith doesn't wake with evil players, but still opens their eyes."
       }
     ]
   },
@@ -180,7 +180,7 @@
     "jinx": [
       {
         "id": "leviathan",
-        "reason": "If the Princess nominates & executes on their first day, the Princess learns an alive player isn't the Leviathan. The Princess' nomination on their first day doesn't count for the Leviathan's ability."
+        "reason": "If the Princess nominates & executes on their first day and the Leviathan is in play, the Princess learns an alive player isn't the Leviathan. This doesn't doesn't register to the Leviathan."
       },
       {
         "id": "po",
@@ -188,11 +188,11 @@
       },
       {
         "id": "riot",
-        "reason": "If the Princess nominates & executes on their first day, the Princess learns a Riot is in-play tonight."
+        "reason": "If the Princess nominates & executes on their first day, the Princess learns if a Riot is in-play tonight."
       },
       {
         "id": "summoner",
-        "reason": "If the Princess nominates & executes on their first day, the Princess learns a Summoner is in-play tonight."
+        "reason": "If the Princess nominates & executes on their first day, the Princess learns if a Summoner is in-play tonight."
       },
       {
         "id": "zombuul",
@@ -218,7 +218,7 @@
     "jinx": [
       {
         "id": "golem",
-        "reason": "The Summoner registers as the Demon to the Golem until they make a Demon."
+        "reason": "An unused Summoner registers as the Demon to the Golem."
       },
       {
         "id": "riot",
@@ -226,7 +226,7 @@
       },
       {
         "id": "slayer",
-        "reason": "The Summoner registers as the Demon to the Slayer until they make a Demon."
+        "reason": "An unused Summoner registers as the Demon to the Slayer."
       }
     ]
   },
@@ -235,11 +235,11 @@
     "jinx": [
       {
         "id": "atheist",
-        "reason": "The Vizier cannot push an execution on the Storyteller, whether or not an Atheist is in play."
+        "reason": "The Vizier cannot push an execution on the Storyteller."
       },
       {
         "id": "fearmonger",
-        "reason": "The Vizier knows the Fearmonger chosen player. If the Vizier pushes on the target, it will fail."
+        "reason": "The Vizier knows any Fearmonger chosen players. If the Vizier pushes on a target, it will fail."
       },
       {
         "id": "goblin",

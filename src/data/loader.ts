@@ -174,9 +174,6 @@ export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Pr
 
 	for (const [i, parsed] of greedierParsed.entries()) {
 		assertSchemaValid(parsed, validateScriptExtraData, GREEDIER_SCRIPT_URLS[i]);
-		greedierParsed[i].forEach((entry: CharacterEntry) => {
-			entry.edition = 'greedier';
-		});
 	}
 
 	const greedyScriptData = greedyParsed as ScriptData;

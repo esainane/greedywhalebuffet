@@ -111,6 +111,11 @@ export class FetchedData {
 	}) {
 		this.greedyJson = deepFreeze(data.greedyJson);
 		this.greedyJinxData = deepFreeze(data.greedyJinxData);
+
+		data.greedierCharactersData.forEach((entry: CharacterEntry) => {
+			entry.edition = 'greedier';
+		});
+
 		this.greedierCharactersData = deepFreeze(data.greedierCharactersData);
 		this.rolesData = deepFreeze(data.rolesData);
 		this.nightsheetData = deepFreeze(data.nightsheetData);

@@ -284,15 +284,6 @@
     ]
   },
   {
-    "id": "plaguedoctor",
-    "jinx": [
-      {
-        "id": "marionette",
-        "reason": "One of the Demon's good neighbors becomes the good Marionette instead."
-      }
-    ]
-  },
-  {
     "id": "poppygrower",
     "jinx": [
       {
@@ -398,10 +389,6 @@
       {
         "id": "fearmonger",
         "reason": "The Vizier knows the Fearmonger chosen player. If the Vizier pushes on the target, it will fail."
-      },
-      {
-        "id": "lilmonsta",
-        "reason": "If the Vizier is holding Lil' Monsta, they die when executed."
       }
     ]
   }

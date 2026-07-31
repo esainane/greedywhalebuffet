@@ -409,6 +409,10 @@ button.danger:focus-visible {
 	border: 1px solid var(--surface-border);
 }
 
+.quick-remove-box .actions {
+	margin: 0 0 .75rem;
+}
+
 .quick-remove-title {
 	margin: 0 0 0.75rem;
 	font-size: 0.85rem;

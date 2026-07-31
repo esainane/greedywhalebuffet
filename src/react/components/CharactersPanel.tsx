@@ -3,6 +3,22 @@ import type { Character } from '../../types.js';
 import { splitCharactersByCommonBans } from '../../character.js';
 import { useAppActions, useAppState } from '../context/AppContext.js';
 
+// Stub list for future tuning of the "Include popular" action.
+const POPULAR_GREEDIER_CHARACTER_IDS: readonly string[] = [
+	'hypnotist_winningclub',
+	'lolth_winningclub',
+	'bingbong_winningclub',
+	'secretary_winningclub',
+	'baffler_winningclub',
+	'hopeful_winningclub',
+	'potionseller_winningclub',
+	'buffetsgourmet_winningclub',
+	'skaldi',
+	'archivist',
+	'hawkmoth',
+	'joe',
+];
+
 type CharacterListProps = {
 	id: string;
 	className: string;
@@ -64,9 +80,14 @@ function CharacterList(props: CharacterListProps): React.JSX.Element {
 
 export function CharactersPanel(): React.JSX.Element {
 	const state = useAppState();
+	const actions = useAppActions();
 	const { quickRemove, remaining: baseCharacters } = useMemo(
 		() => splitCharactersByCommonBans(state.baseCharacters),
 		[state.baseCharacters],
+	);
+	const popularGreedierCharacterIdSet = useMemo(
+		() => new Set(POPULAR_GREEDIER_CHARACTER_IDS),
+		[],
 	);
 	const greedierCharacters = useMemo(
 		() =>
@@ -75,6 +96,12 @@ export function CharactersPanel(): React.JSX.Element {
 				: [],
 		[state.greedierCharacters, state.options.addGreedierHomebrew],
 	);
+
+	const setGreedierSelection = (isSelected: (characterId: string) => boolean): void => {
+		for (const character of greedierCharacters) {
+			actions.toggleCharacter(character.id, isSelected(character.id));
+		}
+	};
 
 	return (
 		<section className="panel characters">
@@ -93,6 +120,36 @@ export function CharactersPanel(): React.JSX.Element {
 			{greedierCharacters.length > 0 ? (
 				<div className="quick-remove-box">
 					<p className="quick-remove-title">Greedier homebrew</p>
+					<div className="actions">
+						<button
+							type="button"
+							className="secondary"
+							onClick={() => {
+								setGreedierSelection(() => true);
+							}}
+						>
+							Include all
+						</button>
+						<button
+							type="button"
+							className="secondary"
+							onClick={() => {
+								setGreedierSelection((characterId) =>
+									popularGreedierCharacterIdSet.has(characterId));
+							}}
+						>
+							Include popular
+						</button>
+						<button
+							type="button"
+							className="secondary"
+							onClick={() => {
+								setGreedierSelection(() => false);
+							}}
+						>
+							Include none
+						</button>
+					</div>
 					<CharacterList
 						id="greedier-character-list"
 						className="character-list"

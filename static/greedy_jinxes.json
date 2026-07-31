@@ -88,15 +88,6 @@
     ]
   },
   {
-    "id": "goblin",
-    "jinx": [
-      {
-        "id": "vizier",
-        "reason": "If the Vizier pushes on the Goblin after they've claimed to be Goblin during their defense, it might fail."
-      }
-    ]
-  },
-  {
     "id": "heretic",
     "jinx": [
       {
@@ -389,6 +380,10 @@
       {
         "id": "fearmonger",
         "reason": "The Vizier knows the Fearmonger chosen player. If the Vizier pushes on the target, it will fail."
+      },
+      {
+        "id": "goblin",
+        "reason": "If the Vizier pushes on the Goblin after they've claimed to be Goblin during their defense, it might fail."
       }
     ]
   }

@@ -9,7 +9,7 @@
     "noEmit": true,
     "allowJs": false,
     "skipLibCheck": true,
-    "types": ["react", "react-dom"]
+    "types": ["react", "react-dom", "node"]
   },
   "include": ["src/**/*.ts", "src/**/*.tsx"]
 }

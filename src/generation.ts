@@ -27,6 +27,16 @@ function getEntryId(entry: ScriptData[number]): string | undefined {
 	return undefined;
 }
 
+function stripTransientCharacterFields(data: ScriptData): void {
+	for (const entry of data) {
+		if (typeof entry !== 'object' || entry === null || !('id' in entry) || entry.id === '_meta') {
+			continue;
+		}
+
+		delete (entry as CharacterEntry).sourceSet;
+	}
+}
+
 /**
  * Apply duplicate line to meta entry.
  */
@@ -223,6 +233,7 @@ export function buildCopyPayload(
 	}
 
 	applyOptions(filteredData, options, fetchedData);
+	stripTransientCharacterFields(filteredData);
 
 	return JSON.stringify(filteredData, null, 2);
 }

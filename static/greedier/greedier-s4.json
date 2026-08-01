@@ -22,6 +22,10 @@
       {
         "name": "replace-character",
         "type": "reveal"
+      },
+      {
+        "type": "selection",
+        "name": "bag-disabled"
       }
     ]
   },

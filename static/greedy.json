@@ -465,6 +465,10 @@
       {
         "type": "reveal",
         "name": "replace-character"
+      },
+      {
+        "type": "selection",
+        "name": "bag-disabled"
       }
     ]
   },
@@ -583,6 +587,10 @@
       {
         "type": "reveal",
         "name": "replace-character"
+      },
+      {
+        "type": "selection",
+        "name": "bag-disabled"
       }
     ]
   },
@@ -745,6 +753,10 @@
       {
         "type": "reveal",
         "name": "replace-character"
+      },
+      {
+        "type": "selection",
+        "name": "bag-disabled"
       }
     ]
   },

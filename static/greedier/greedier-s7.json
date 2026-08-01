@@ -20,14 +20,14 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/daki_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/daki_g_winningclub.png"
     ],
-    "otherNightReminder": "They choose a player. If a player has become Gyutaro, tell them. ",
+    "otherNightReminder": "They choose a player. If a player has become Gyutaro, tell them.",
     "reminders": [
       "Dead"
     ],
     "name": "Daki Ω",
     "team": "demon",
     "ability": "Each night*, choose a player (not yourself): they die. If 5 or more players are alive & you die, a player becomes an evil Gyutaro.",
-    "flavor": "We beautiful, powerful demons can do whatever we want! ",
+    "flavor": "We beautiful, powerful demons can do whatever we want!",
     "otherNight": 18
   },
   {

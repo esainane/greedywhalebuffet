@@ -15,7 +15,7 @@
     ],
     "name": "Crow Ω",
     "team": "townsfolk",
-    "ability": "You think you are an Outsider, but you are not. If you die, you learn the character of a living neighbor tonight. [ -0 or -1 Outsider]",
+    "ability": "You think you are an Outsider, but you are not. If you die, you learn the character of a living neighbor tonight. [-0 or -1 Outsider]",
     "flavor": "Mind your omens. They may be boons in disguise.",
     "otherNight": 11,
     "special": [

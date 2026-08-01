@@ -5,8 +5,8 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/informant_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/informant_e_winningclub.png"
     ],
-    "firstNightReminder": "Show the Informant a player who woke up tonight. ",
-    "otherNightReminder": "Show the Informant a player who woke up tonight. ",
+    "firstNightReminder": "Show the Informant a player who woke up tonight.",
+    "otherNightReminder": "Show the Informant a player who woke up tonight.",
     "name": "Informant Ω",
     "team": "townsfolk",
     "ability": "Each night, learn a player who woke up tonight due to their own ability.",
@@ -20,7 +20,7 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/armageddon_leftovers_whoops.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/armageddon_g_leftovers_whoops.png"
     ],
-    "otherNightReminder": "If tonight is Night 4, Armageddon chooses 3 players. 1 must be good, tell them to choose again if 1 isn't. The 3 chosen players can't switch alignment. Kill all players not 'Sheltered'. ",
+    "otherNightReminder": "If tonight is Night 4, Armageddon chooses 3 players. 1 must be good, tell them to choose again if 1 isn't. The 3 chosen players can't switch alignment. Kill all players not 'Sheltered'.",
     "reminders": [
       "Sheltered",
       "Sheltered",

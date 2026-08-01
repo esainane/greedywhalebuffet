@@ -78,7 +78,7 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/dullahan_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/dullahan_g_winningclub.png"
     ],
-    "otherNightReminder": "They choose a player. ",
+    "otherNightReminder": "They choose a player.",
     "reminders": [
       "Dead",
       "Dead",
@@ -112,7 +112,7 @@
     "name": "Sin of Gluttony Ω",
     "team": "demon",
     "ability": "Each other night, choose three players: the first two will die at any time within the next two nights & the third might die at any time during the next two days.",
-    "flavor": "You all look so tasty, it would be a shame to let you go to waste... ",
+    "flavor": "You all look so tasty, it would be a shame to let you go to waste...",
     "firstNight": 25,
     "otherNight": 28
   }

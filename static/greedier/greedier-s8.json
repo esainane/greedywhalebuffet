@@ -52,8 +52,8 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/potionseller_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/potionsellerg_winningclub.png"
     ],
-    "firstNightReminder": "They name up to 5 potions. They choose a player. The chosen player chooses 1 of them. ",
-    "otherNightReminder": "They choose a player. The chosen player chooses 1 of them. ",
+    "firstNightReminder": "They name up to 5 potions. They choose a player. The chosen player chooses 1 of them.",
+    "otherNightReminder": "They choose a player. The chosen player chooses 1 of them.",
     "reminders": [
       "?",
       "?",
@@ -73,7 +73,7 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/copycat_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/copycat_e_winningclub.png"
     ],
-    "firstNightReminder": "They gain an ability. Run it accordingly. ",
+    "firstNightReminder": "They gain an ability. Run it accordingly.",
     "otherNightReminder": "If they die, make the in-play Townsfolk a drunk Copycat.",
     "reminders": [
       "Copied!",

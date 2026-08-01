@@ -74,7 +74,11 @@ export function GreedyJinxesDetail(props: GreedyJinxesDetailProps): React.JSX.El
 								</div>
 							}
 						>
-							<AbilityBlock label={status.label} labelClassName={status.labelClassName}>
+							<AbilityBlock
+								label={status.label}
+								labelClassName={status.labelClassName}
+								className={status.labelClassName}
+							>
 								{isChangedJinx ? (
 									<InlineWordDiff
 										before={status.before}

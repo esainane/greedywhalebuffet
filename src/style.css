@@ -10,6 +10,7 @@
 	--accent-light: #3cb091;
 	--accent: #4bc2ae;
 	--accent-strong: #8ce4d6;
+	--success: #2db567;
 	--warning: #f7cf54;
 	--danger: #ff8d6a;
 	--team-townsfolk: #75b9ff;
@@ -36,6 +37,7 @@
 		--accent-light: #6ce0d1;
 		--accent: #0d6b5f;
 		--accent-strong: #084b43;
+		--success: #0c8a4a;
 		--warning: #9f7700;
 		--danger: #b74d2c;
 		--team-townsfolk: #0d66c5;
@@ -656,6 +658,18 @@ button.danger:focus-visible {
 	border: 1px solid var(--surface-border);
 }
 
+.ability-block.jinx-status-new {
+	border-color: color-mix(in srgb, var(--surface-border) 67%, var(--success));
+}
+
+.ability-block.jinx-status-changed {
+	border-color: color-mix(in srgb, var(--surface-border) 67%, var(--warning));
+}
+
+.ability-block.jinx-status-removed {
+	border-color: color-mix(in srgb, var(--surface-border) 67%, var(--danger));
+}
+
 .ability-label {
 	margin: 0 0 0.4rem;
 	font-size: 0.78rem;
@@ -666,7 +680,7 @@ button.danger:focus-visible {
 }
 
 .ability-label.jinx-status-new {
-	color: #2db567;
+	color: var(--success);
 }
 
 .ability-label.jinx-status-changed {
@@ -711,20 +725,10 @@ button.danger:focus-visible {
 }
 
 .diff-added {
-	color: #2db567;
+	color: var(--success);
 	text-decoration: underline;
 	text-decoration-thickness: 2px;
 	text-underline-offset: 2px;
-}
-
-@media (prefers-color-scheme: light) {
-	.ability-label.jinx-status-new {
-		color: #0c8a4a;
-	}
-
-	.diff-added {
-		color: #0c8a4a;
-	}
 }
 
 @media (max-width: 640px) {

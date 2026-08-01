@@ -12,6 +12,7 @@ const PREFERENCES_STORAGE_KEY = 'gwb:preferences:v1';
 type StoredPreferences = {
 	options: GenerationOptions;
 	bannedCharacterIds: string[];
+	greedierSortBySet: boolean;
 };
 
 export type StatusTone = 'info' | 'success' | 'error';
@@ -30,6 +31,7 @@ export type AppState = {
 	selectedCharacterIds: Set<string>;
 	unsatisfiedDependencyCharacterIds: Set<string>;
 	options: GenerationOptions;
+	greedierSortBySet: boolean;
 };
 
 type AppAction =
@@ -46,6 +48,7 @@ type AppAction =
 	| { type: 'load_error'; message: string }
 	| { type: 'set_status'; message: string; tone: StatusTone }
 	| { type: 'reset_preferences' }
+	| { type: 'set_greedier_sort_by_set'; checked: boolean }
 	| { type: 'toggle_option'; optionName: keyof GenerationOptions; checked: boolean }
 	| { type: 'toggle_character'; id: string; checked: boolean };
 
@@ -53,6 +56,7 @@ export type AppActions = {
 	reload: () => Promise<void>;
 	setStatus: (message: string, tone?: StatusTone) => void;
 	resetPreferences: () => void;
+	setGreedierSortBySet: (checked: boolean) => void;
 	toggleOption: (optionName: keyof GenerationOptions, checked: boolean) => void;
 	toggleCharacter: (id: string, checked: boolean) => void;
 	copyToClipboard: () => Promise<void>;
@@ -100,15 +104,24 @@ function parseStoredPreferences(rawValue: string): StoredPreferences | null {
 		'bannedCharacterIds' in parsed && Array.isArray(parsed.bannedCharacterIds)
 			? parsed.bannedCharacterIds.filter((entry): entry is string => typeof entry === 'string')
 			: [];
+	const greedierSortBySet =
+		'greedierSortBySet' in parsed && typeof parsed.greedierSortBySet === 'boolean'
+			? parsed.greedierSortBySet
+			: true;
 
 	return {
 		options,
 		bannedCharacterIds,
+		greedierSortBySet,
 	};
 }
 
 function loadStoredPreferences(): StoredPreferences {
-	const defaults: StoredPreferences = { options: cloneDefaultOptions(), bannedCharacterIds: [] };
+	const defaults: StoredPreferences = {
+		options: cloneDefaultOptions(),
+		bannedCharacterIds: [],
+		greedierSortBySet: true,
+	};
 	if (typeof window === 'undefined') {
 		return defaults;
 	}
@@ -158,6 +171,7 @@ const initialState: AppState = {
 	selectedCharacterIds: new Set<string>(),
 	unsatisfiedDependencyCharacterIds: new Set<string>(),
 	options: storedPreferencesAtStartup.options,
+	greedierSortBySet: storedPreferencesAtStartup.greedierSortBySet,
 };
 
 function buildCharacterPool(
@@ -288,8 +302,15 @@ function appReducer(state: AppState, action: AppAction): AppState {
 				status: 'Preferences reset to defaults.',
 				statusTone: 'success',
 				options,
+				greedierSortBySet: true,
 				characters,
 				selectedCharacterIds: new Set(allCharacterIds),
+			};
+		}
+		case 'set_greedier_sort_by_set': {
+			return {
+				...state,
+				greedierSortBySet: action.checked,
 			};
 		}
 		case 'toggle_option': {
@@ -441,6 +462,10 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 		dispatch({ type: 'toggle_option', optionName, checked });
 	}, []);
 
+	const setGreedierSortBySet = useCallback((checked: boolean) => {
+		dispatch({ type: 'set_greedier_sort_by_set', checked });
+	}, []);
+
 	const resetPreferences = useCallback(() => {
 		dispatch({ type: 'reset_preferences' });
 	}, []);
@@ -488,19 +513,29 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 		saveStoredPreferences({
 			options: state.options,
 			bannedCharacterIds,
+			greedierSortBySet: state.greedierSortBySet,
 		});
-	}, [state.characters, state.fetchedData, state.options, state.selectedCharacterIds]);
+	}, [state.characters, state.fetchedData, state.greedierSortBySet, state.options, state.selectedCharacterIds]);
 
 	const actions = useMemo<AppActions>(
 		() => ({
 			reload,
 			setStatus,
 			resetPreferences,
+			setGreedierSortBySet,
 			toggleOption,
 			toggleCharacter,
 			copyToClipboard,
 		}),
-		[copyToClipboard, reload, resetPreferences, setStatus, toggleCharacter, toggleOption],
+		[
+			copyToClipboard,
+			reload,
+			resetPreferences,
+			setGreedierSortBySet,
+			setStatus,
+			toggleCharacter,
+			toggleOption,
+		],
 	);
 
 	return (

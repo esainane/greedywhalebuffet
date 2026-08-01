@@ -421,6 +421,20 @@ button.danger:focus-visible {
 	margin: 0 0 .75rem;
 }
 
+.inline-switch-control {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.7rem;
+	padding: 0.35rem 0.2rem;
+	font-weight: 600;
+	color: var(--text);
+}
+
+.inline-switch-label {
+	font-size: 0.9rem;
+	line-height: 1;
+}
+
 .quick-remove-title {
 	margin: 0 0 0.75rem;
 	font-size: 0.85rem;
@@ -527,6 +541,12 @@ button.danger:focus-visible {
 .reference-list {
 	display: grid;
 	gap: 0.75rem;
+}
+
+.reference-toolbar {
+	display: flex;
+	justify-content: flex-start;
+	margin-top: -0.25rem;
 }
 
 .reference-card {

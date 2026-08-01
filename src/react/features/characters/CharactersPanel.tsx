@@ -1,7 +1,9 @@
 import React, { useMemo } from 'react';
 import type { Character } from '../../../types.js';
 import { splitCharactersByCommonBans } from '../../../character.js';
+import { compareCanonicalCharacterOrder } from '../../../jinxOrder.js';
 import { useAppActions, useAppState } from '../../context/AppContext.js';
+import { Switch } from '../../components/Switch.js';
 import { TeamLabel } from '../../shared/TeamLabel.js';
 
 // Stub list for future tuning of the "Include popular" action.
@@ -129,11 +131,18 @@ export function CharactersPanel(): React.JSX.Element {
 		[],
 	);
 	const greedierCharacters = useMemo(
-		() =>
-			state.options.addGreedierHomebrew
-				? state.greedierCharacters
-				: [],
-		[state.greedierCharacters, state.options.addGreedierHomebrew],
+		() => {
+			if (!state.options.addGreedierHomebrew) {
+				return [];
+			}
+
+			if (state.greedierSortBySet) {
+				return state.greedierCharacters;
+			}
+
+			return [...state.greedierCharacters].sort(compareCanonicalCharacterOrder);
+		},
+		[state.greedierCharacters, state.greedierSortBySet, state.options.addGreedierHomebrew],
 	);
 
 	const setGreedierSelection = (isSelected: (characterId: string) => boolean): void => {
@@ -188,6 +197,17 @@ export function CharactersPanel(): React.JSX.Element {
 						>
 							Include none
 						</button>
+						<label className="inline-switch-control" htmlFor="greedier-sort-by-set-characters">
+							<span className="inline-switch-label">Sort by set</span>
+							<Switch
+								id="greedier-sort-by-set-characters"
+								name="greedier-sort-by-set-characters"
+								checked={state.greedierSortBySet}
+								onChange={(event) => {
+									actions.setGreedierSortBySet(event.currentTarget.checked);
+								}}
+							/>
+						</label>
 					</div>
 					<CharacterList
 						id="greedier-character-list"

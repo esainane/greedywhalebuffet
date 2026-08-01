@@ -5,6 +5,8 @@ import { AbilityBlock } from './AbilityBlock.js';
 import { CharacterHeader } from './CharacterHeader.js';
 import { DetailListState } from './DetailListState.js';
 import { ReferenceCard } from './ReferenceCard.js';
+import { Switch } from '../../components/Switch.js';
+import { useAppActions, useAppState } from '../../context/AppContext.js';
 
 type GreedyHomebrewDetailProps = {
 	items: GreedyHomebrewDetail[];
@@ -13,6 +15,8 @@ type GreedyHomebrewDetailProps = {
 
 export function GreedyHomebrewDetail(props: GreedyHomebrewDetailProps): React.JSX.Element {
 	const { items, loading } = props;
+	const state = useAppState();
+	const actions = useAppActions();
 
 	return (
 		<DetailListState
@@ -21,6 +25,19 @@ export function GreedyHomebrewDetail(props: GreedyHomebrewDetailProps): React.JS
 			loadingText="Loading Greedier homebrew details..."
 			emptyText="No Greedier homebrew characters were found."
 		>
+			<div className="reference-toolbar">
+				<label className="inline-switch-control" htmlFor="greedier-sort-by-set-detail">
+					<span className="inline-switch-label">Sort by set</span>
+					<Switch
+						id="greedier-sort-by-set-detail"
+						name="greedier-sort-by-set-detail"
+						checked={state.greedierSortBySet}
+						onChange={(event) => {
+							actions.setGreedierSortBySet(event.currentTarget.checked);
+						}}
+					/>
+				</label>
+			</div>
 			<div className="reference-list">
 				{items.map((item) => {
 					const abilityParts = splitAbilityText(item.ability);

@@ -6,6 +6,12 @@ export type JinxSortCharacter = {
 	team?: string;
 };
 
+export type CanonicalCharacterOrderEntry = {
+	id: string;
+	name?: string;
+	team?: string;
+};
+
 export type CanonicalJinxOrderEntry = {
 	source: JinxSortCharacter;
 	target: JinxSortCharacter;
@@ -37,28 +43,33 @@ function compareDisplayNames(a: JinxSortCharacter, b: JinxSortCharacter): number
 	return NAME_COLLATOR.compare(getDisplayName(a), getDisplayName(b));
 }
 
+export function compareCanonicalCharacterOrder(
+	a: CanonicalCharacterOrderEntry,
+	b: CanonicalCharacterOrderEntry,
+): number {
+	const teamRankDifference = getTeamSortRank(a.team) - getTeamSortRank(b.team);
+	if (teamRankDifference !== 0) {
+		return teamRankDifference;
+	}
+
+	const nameCompare = compareDisplayNames(a, b);
+	if (nameCompare !== 0) {
+		return nameCompare;
+	}
+
+	return a.id.localeCompare(b.id);
+}
+
 export function compareCanonicalJinxOrder(
 	a: CanonicalJinxOrderEntry,
 	b: CanonicalJinxOrderEntry,
 ): number {
-	const aSourceTeamRank = getTeamSortRank(a.source.team);
-	const bSourceTeamRank = getTeamSortRank(b.source.team);
-	if (aSourceTeamRank !== bSourceTeamRank) {
-		return aSourceTeamRank - bSourceTeamRank;
-	}
-
-	const sourceNameCompare = compareDisplayNames(a.source, b.source);
+	const sourceNameCompare = compareCanonicalCharacterOrder(a.source, b.source);
 	if (sourceNameCompare !== 0) {
 		return sourceNameCompare;
 	}
 
-	const aTargetTeamRank = getTeamSortRank(a.target.team);
-	const bTargetTeamRank = getTeamSortRank(b.target.team);
-	if (aTargetTeamRank !== bTargetTeamRank) {
-		return aTargetTeamRank - bTargetTeamRank;
-	}
-
-	const targetNameCompare = compareDisplayNames(a.target, b.target);
+	const targetNameCompare = compareCanonicalCharacterOrder(a.target, b.target);
 	if (targetNameCompare !== 0) {
 		return targetNameCompare;
 	}

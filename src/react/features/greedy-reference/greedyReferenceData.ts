@@ -2,7 +2,7 @@ import { FILTERABLE_TEAMS } from '../../../constants.js';
 import { getBaseCharacterId, getImageArray } from '../../../character.js';
 import type { FetchedData } from '../../../data/fetched.js';
 import type { CharacterEntry, ScriptData } from '../../../types.js';
-import { compareCanonicalJinxOrder } from '../../../jinxOrder.js';
+import { compareCanonicalCharacterOrder, compareCanonicalJinxOrder } from '../../../jinxOrder.js';
 
 export type CharacterSummary = {
 	id: string;
@@ -198,7 +198,10 @@ export function deriveGreedyJinxes(fetchedData: FetchedData): GreedyJinxDetail[]
 		.map(({ source, target, officialReason, reason }) => ({ source, target, officialReason, reason }));
 }
 
-export function deriveGreedyHomebrew(fetchedData: FetchedData): GreedyHomebrewDetail[] {
+export function deriveGreedyHomebrew(
+	fetchedData: FetchedData,
+	sortBySet = true,
+): GreedyHomebrewDetail[] {
 	const details: GreedyHomebrewDetail[] = [];
 
 	for (const entry of fetchedData.getGreedierCharactersData()) {
@@ -212,6 +215,10 @@ export function deriveGreedyHomebrew(fetchedData: FetchedData): GreedyHomebrewDe
 			firstNight: entry.firstNight,
 			otherNight: entry.otherNight,
 		});
+	}
+
+	if (!sortBySet) {
+		details.sort((a, b) => compareCanonicalCharacterOrder(a.character, b.character));
 	}
 
 	return details;

@@ -40,7 +40,7 @@
       },
       {
         "id": "xaan",
-        "reason": "An Alchemist-Xaan has no Xaan ability, & on night X, all Minions are poisoned until dusk. [X Outsiders]"
+        "reason": "An Alchemist-Xaan has no Xaan ability & on night X, all Minions are poisoned until dusk. [X Outsiders]"
       }
     ]
   },
@@ -235,15 +235,15 @@
     "jinx": [
       {
         "id": "atheist",
-        "reason": "The Vizier cannot push an execution on the Storyteller."
+        "reason": "The Vizier cannot immediately execute the Storyteller."
       },
       {
         "id": "fearmonger",
-        "reason": "The Vizier knows any Fearmonger chosen players. If the Vizier pushes on a target, it will fail."
+        "reason": "The Vizier knows any Fearmonger chosen players. The Vizier might fail to immediately execute them."
       },
       {
         "id": "goblin",
-        "reason": "If the Vizier pushes on the Goblin after they've claimed to be Goblin during their defense, it might fail."
+        "reason": "The Vizier might fail to immediately execute a Goblin that claimed Goblin during their defense."
       }
     ]
   }

@@ -4,7 +4,7 @@
     "jinx": [
       {
         "id": "baron",
-        "reason": "An Alchemist-Baron has no Baron ability, knows how many Outsiders are in play, & learns if an Outsider ever leaves play. [+0 or +1 Outsider]"
+        "reason": "An Alchemist-Baron has no Baron ability & knows how many Outsiders are in play. They learn if this ever changes. [+0 or +1 Outsider]"
       },
       {
         "id": "boffin",
@@ -12,19 +12,19 @@
       },
       {
         "id": "mastermind",
-        "reason": "An Alchemist-Mastermind has no Mastermind ability, the Mastermind is not-in-play, & knows when all Minions are dead."
+        "reason": "An Alchemist-Mastermind has no Mastermind ability & the Mastermind is not-in-play. They learn when all Minions are dead."
       },
       {
         "id": "mezepheles",
-        "reason": "An Alchemist-Mezepheles has no Mezepheles ability, & starts knowing a word. The first good player (not the Alchemist) to say the word is safe from all Minion abilities after saying it."
+        "reason": "An Alchemist-Mezepheles has no Mezepheles ability & starts knowing a secret word. The 1st good player (not the Alchemist) to say this word is immediately safe from all Minion abilities."
       },
       {
         "id": "scarletwoman",
-        "reason": "An Alchemist-Scarlet Woman has no Scarlet Woman ability, gains the ability of the first Minion to die, & learns which ability they gain."
+        "reason": "An Alchemist-Scarlet Woman has no Scarlet Woman ability. When the 1st Minion dies, they learn which, and may choose to gain their ability."
       },
       {
         "id": "spy",
-        "reason": "An Alchemist-Spy has no Spy ability, a Spy is in play, & each day, a living Alchemist-Spy may publicly guess a living player as the Spy. If correct, the Spy dies tonight & the Demon doesn’t kill tonight. The Spy can't misregister to the Alchemist."
+        "reason": "An Alchemist-Spy has no Spy ability & a Spy is in play. Each day, a living Alchemist-Spy may publicly guess a living player as the Spy. If correct, the Spy dies tonight & the Demon doesn’t kill tonight. The Spy can't misregister to the Alchemist."
       },
       {
         "id": "vizier",
@@ -32,15 +32,15 @@
       },
       {
         "id": "widow",
-        "reason": "An Alchemist-Widow has no Widow ability, a Widow is in play, & each day, a living Alchemist-Widow may publicly guess a living player as the Widow. If correct, the Widow dies tonight & the Demon doesn’t kill tonight. The Widow can't poison the Alchemist."
+        "reason": "An Alchemist-Widow has no Widow ability & a Widow is in play. Each day, a living Alchemist-Widow may publicly guess a living player as the Widow. If correct, the Widow dies tonight & the Demon doesn’t kill tonight. The Widow can't poison the Alchemist."
       },
       {
         "id": "wraith",
-        "reason": "An Alchemist-Wraith has no Wraith ability, a Wraith is in play, & each day, a living Alchemist-Wraith may publicly guess a living player as the Wraith. If correct, the Wraith dies tonight & the Demon doesn’t kill tonight."
+        "reason": "An Alchemist-Wraith has no Wraith ability & a Wraith is in play. Each day, a living Alchemist-Wraith may publicly guess a living player as the Wraith. If correct, the Wraith dies tonight & the Demon doesn’t kill tonight."
       },
       {
         "id": "xaan",
-        "reason": "An Alchemist-Xaan has no Xaan ability & on night X, all Minions are poisoned until dusk. [X Outsiders]"
+        "reason": "An Alchemist-Xaan has no Xaan ability. On night X, all Minions are poisoned until dusk. [X Outsiders]"
       }
     ]
   },
@@ -76,7 +76,7 @@
     "jinx": [
       {
         "id": "organgrinder",
-        "reason": "If the Organ Grinder caused eyes closed voting, at night, the Flowergirl chooses a player: they learn all players who voted when they were nominated yesterday."
+        "reason": "If the Organ Grinder caused eyes closed voting, at night, the Flowergirl chooses a player: they learn all players that voted on them that day."
       }
     ]
   },
@@ -102,7 +102,7 @@
       },
       {
         "id": "heretic",
-        "reason": "If the Hermit has the Heretic ability, the Hermit might have only 2 Outsider abilities."
+        "reason": "If the Hermit has the Heretic ability, the Hermit might only have 2 Outsider abilities."
       },
       {
         "id": "lunatic",
@@ -141,7 +141,7 @@
       },
       {
         "id": "lilmonsta",
-        "reason": "If the Magician is alive, the Storyteller chooses which Minion babysits Lil' Monsta. The Minions see the Magician as a minion."
+        "reason": "If the Magician is alive, the Storyteller chooses which Minion babysits Lil' Monsta. The Minions see the Magician as a Minion."
       },
       {
         "id": "lordoftyphon",
@@ -176,7 +176,7 @@
     "jinx": [
       {
         "id": "wraith",
-        "reason": "If the Poppy Grower has their ability, the Wraith doesn't wake with evil players, but still opens their eyes."
+        "reason": "If the Poppy Grower has their ability, the Wraith doesn't wake with evil players, but may still open their eyes."
       },
       {
         "id": "kazali",
@@ -193,7 +193,7 @@
       },
       {
         "id": "leviathan",
-        "reason": "If the Princess nominated & executed a player on their 1st day and the Leviathan is in play, the Princess learns an alive player isn't the Leviathan tonight & this doesn't register to the Leviathan."
+        "reason": "If the Princess nominated & executed a player on their 1st day and the Leviathan is in play, this doesn't register to the Leviathan & the Princess learns an alive player isn't the Leviathan tonight."
       },
       {
         "id": "riot",
@@ -261,7 +261,7 @@
     "jinx": [
       {
         "id": "princess",
-        "reason": "If the Princess nominated & executed a player on their 1st day, the Storyteller chooses who dies the next night the Zombuul can kill."
+        "reason": "If the Princess nominated & executed a player on their 1st day, on the next night the Zombuul could kill, kills are arbitrary."
       }
     ]
   }

@@ -300,12 +300,12 @@
       "https://greedy.antihype.space/icons/snv/philosopher_e.webp"
     ],
     "team": "townsfolk",
-    "ability": "Once per game, at night, choose a good character: gain that ability. You may be told to reconsider. If that happens 3 times, become Drunk.",
+    "ability": "Once per game, at night, choose a good character: gain that ability. You may be told to reconsider. If this happens 3 times, become drunk.",
     "flavor": "If one thing in life is real, it's beer. In pursuit of others achievements, we lose sight of our own desires. -Kianu",
     "firstNight": 14,
-    "firstNightReminder": "The Philosopher either shows a 'no' head signal, or points to a good character. Tell them to reconsider if the ability isn't helpful to their team or ruins the game's balance. If this happens a third time, Drunk them.",
+    "firstNightReminder": "The Philosopher either shows a 'no' head signal, or points to a good character. Tell them to reconsider if the ability isn't helpful to their team or ruins the game's balance. If this happens a third time, drunk them.",
     "otherNight": 11,
-    "otherNightReminder": "The Philosopher either shows a 'no' head signal, or points to a good character. Tell them to reconsider if the ability isn't helpful to their team or ruins the game's balance. If this happens a third time, Drunk them.",
+    "otherNightReminder": "The Philosopher either shows a 'no' head signal, or points to a good character. Tell them to reconsider if the ability isn't helpful to their team or ruins the game's balance. If this happens a third time, drunk them.",
     "reminders": [
       "Drunk"
     ],
@@ -314,8 +314,7 @@
       "Is the Philosopher",
       "Is the Philosopher",
       "Is the Philosopher",
-      "Is the Philosopher",
-      "Drunk"
+      "Is the Philosopher"
     ],
     "special": [
       {
@@ -948,7 +947,7 @@
       "https://greedy.antihype.space/icons/carousel/wizard_g.webp"
     ],
     "team": "minion",
-    "ability": "Once per game, choose to make a wish. If granted, it might have a price & leave a clue as to its nature. You may be told to reconsider. If that happens 3 times, become a different character.",
+    "ability": "Once per game, choose to make a wish. If granted, it might have a price & leave a clue as to its nature. You may be told to reconsider. If this happens 3 times, become a different character.",
     "flavor": "Madam Morrible-- MM, flip it around? Wicked Witch!! -Orpheus",
     "firstNight": 36,
     "firstNightReminder": "Do whatever needs to be done to satisfy the Wizard's ability. If they make an inappropriate wish, add a \"Bruh\" reminder token next to them. :reminder: At 3 Bruh's, turn them into a character of the same type.",

@@ -347,7 +347,14 @@ h1 {
 
 .controls-layout {
 	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+	grid-template-columns: minmax(0, 1fr);
+	gap: 1.25rem;
+	align-items: start;
+}
+
+.controls-content {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) auto;
 	gap: 1.25rem;
 	align-items: start;
 }
@@ -356,6 +363,11 @@ h1 {
 .options-panel {
 	display: grid;
 	gap: 1rem;
+}
+
+.options-panel {
+	justify-self: end;
+	width: min(100%, 420px);
 }
 
 .copy-form {
@@ -540,20 +552,28 @@ button.danger:focus-visible {
 
 .meta {
 	margin: 0;
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+	display: flex;
+	flex-wrap: wrap;
 	gap: 0.85rem;
 }
 
 .meta div {
-	padding: 0.95rem 1rem;
+	padding: 0.7rem 0.85rem;
 	border-radius: 18px;
 	background: var(--surface);
+	min-width: 8rem;
+	width: fit-content;
+	max-width: 100%;
+}
+
+.meta .meta-script-name {
+	width: 100%;
+	min-width: 100%;
 }
 
 .meta dt {
-	margin-bottom: 0.3rem;
-	font-size: 0.8rem;
+	margin-bottom: 0.2rem;
+	font-size: 0.72rem;
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
 	color: var(--muted);
@@ -562,6 +582,7 @@ button.danger:focus-visible {
 .meta dd {
 	margin: 0;
 	font-weight: 700;
+	font-size: 0.98rem;
 }
 
 .status {
@@ -943,6 +964,15 @@ button.danger:focus-visible {
 
 	.toggle {
 		padding: 0.9rem;
+	}
+
+	.controls-content {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.options-panel {
+		justify-self: stretch;
+		width: 100%;
 	}
 }
 

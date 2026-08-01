@@ -190,8 +190,15 @@ function optionIsEnabled(optionId: string, options: GenerationOptions): boolean 
 export function ControlsPanel(): React.JSX.Element {
 	const state = useAppState();
 	const actions = useAppActions();
+	const availableCharacterCount = state.characters.length;
 	const enabledVisibleCharacterCount = state.characters.filter((character) =>
 		state.selectedCharacterIds.has(character.id),
+	).length;
+	const deselectedCharacterCount = availableCharacterCount - enabledVisibleCharacterCount;
+	const dependencyRemovedCharacterCount = state.characters.filter(
+		(character) =>
+			state.selectedCharacterIds.has(character.id) &&
+			state.unsatisfiedDependencyCharacterIds.has(character.id),
 	).length;
 
 	const onSubmit = useCallback(
@@ -213,87 +220,101 @@ export function ControlsPanel(): React.JSX.Element {
 	return (
 		<section
 			id="section-generate"
-			className="controls-layout"
+			className="panel controls-layout"
 			aria-label="Generate and options"
 		>
-			<section className="panel status-copy-panel">
-				<p className="eyebrow">Generate</p>
-				<form id="copy-form" className="copy-form" onSubmit={onSubmit}>
-					<div className="actions">
-						<button id="copy-button" type="submit" disabled={state.loading}>
-							Copy JSON to clipboard
-						</button>
-						<button
-							id="reload-button"
-							type="button"
-							className="secondary"
-							disabled={state.loading}
-							onClick={onReload}
-						>
-							Reload
-						</button>
-						<button
-							id="reset-button"
-							type="button"
-							className="danger"
-							disabled={state.loading}
-							onClick={onReset}
-						>
-							Reset
-						</button>
-					</div>
-				</form>
-
-				<dl className="meta" id="meta">
-					<div>
-						<dt>Name</dt>
-						<dd id="script-name">{state.scriptName}</dd>
-					</div>
-					<div>
-						<dt>Enabled characters</dt>
-						<dd id="character-count">{enabledVisibleCharacterCount}</dd>
-					</div>
-				</dl>
-
-				<p id="status" className="status" data-tone={state.statusTone} aria-live="polite">
-					{state.status}
-				</p>
-			</section>
-
-			<section className="panel options-panel">
-				<p className="eyebrow">Options</p>
-				<form className="copy-form">
-					{GENERATION_OPTIONS.map((option) => {
-						const checked = state.options[option.name];
-						const isEnabled = optionIsEnabled(option.id, state.options);
-						const optionLabelId = `${option.id}-label`;
-
-						return (
-							<div
-								key={option.id}
-								className={`toggle ${isEnabled ? '' : 'is-disabled'}`}
-								data-dependencies={option.dependsOn?.join(',')}
+			<p className="eyebrow">Generate</p>
+			<div className="controls-content">
+				<section className="status-copy-panel">
+					<form id="copy-form" className="copy-form" onSubmit={onSubmit}>
+						<div className="actions">
+							<button id="copy-button" type="submit" disabled={state.loading}>
+								Copy JSON to clipboard
+							</button>
+							<button
+								id="reload-button"
+								type="button"
+								className="secondary"
+								disabled={state.loading}
+								onClick={onReload}
 							>
-								<div className="toggle-main">
-									<span id={optionLabelId} className="toggle-label">{option.label}</span>
-									<Switch
-										id={option.id}
-										name={option.id}
-										ariaLabelledBy={optionLabelId}
-										checked={checked}
-										disabled={!isEnabled}
-										dataOptionName={option.name}
-										onChange={(event) => {
-											actions.toggleOption(option.name, event.currentTarget.checked);
-										}}
-									/>
+								Reload
+							</button>
+							<button
+								id="reset-button"
+								type="button"
+								className="danger"
+								disabled={state.loading}
+								onClick={onReset}
+							>
+								Reset
+							</button>
+						</div>
+					</form>
+
+					<dl className="meta" id="meta">
+						<div className="meta-script-name">
+							<dt>Name</dt>
+							<dd id="script-name">{state.scriptName}</dd>
+						</div>
+						<div>
+							<dt>Available</dt>
+							<dd id="available-character-count">{availableCharacterCount}</dd>
+						</div>
+						<div>
+							<dt>Enabled</dt>
+							<dd id="character-count">{enabledVisibleCharacterCount}</dd>
+						</div>
+						<div>
+							<dt>Deselected</dt>
+							<dd id="deselected-character-count">{deselectedCharacterCount}</dd>
+						</div>
+						<div>
+							<dt>Blocked</dt>
+							<dd id="dependency-removed-character-count">{dependencyRemovedCharacterCount}</dd>
+						</div>
+					</dl>
+
+					<p id="status" className="status" data-tone={state.statusTone} aria-live="polite">
+						{state.status}
+					</p>
+				</section>
+
+				<section className="panel options-panel">
+					<p className="eyebrow">Options</p>
+					<form className="copy-form">
+						{GENERATION_OPTIONS.map((option) => {
+							const checked = state.options[option.name];
+							const isEnabled = optionIsEnabled(option.id, state.options);
+							const optionLabelId = `${option.id}-label`;
+
+							return (
+								<div
+									key={option.id}
+									className={`toggle ${isEnabled ? '' : 'is-disabled'}`}
+									data-dependencies={option.dependsOn?.join(',')}
+								>
+									<div className="toggle-main">
+										<span id={optionLabelId} className="toggle-label">{option.label}</span>
+										<Switch
+											id={option.id}
+											name={option.id}
+											ariaLabelledBy={optionLabelId}
+											checked={checked}
+											disabled={!isEnabled}
+											dataOptionName={option.name}
+											onChange={(event) => {
+												actions.toggleOption(option.name, event.currentTarget.checked);
+											}}
+										/>
+									</div>
+									<HelpBubble optionId={option.id} label={option.label} helpText={option.helpText} />
 								</div>
-								<HelpBubble optionId={option.id} label={option.label} helpText={option.helpText} />
-							</div>
-						);
-					})}
-				</form>
-			</section>
+							);
+						})}
+					</form>
+				</section>
+			</div>
 		</section>
 	);
 }

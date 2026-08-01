@@ -175,7 +175,7 @@
       "https://greedy.antihype.space/icons/carousel/engineer_e.webp"
     ],
     "team": "townsfolk",
-    "ability": "Once per game, during the day, visit the Storyteller to learn a number of in play Minion or Demon characters equal to the Day.",
+    "ability": "Once per game, during the day, visit the Storyteller to learn a number of in-play Minion or Demon characters equal to the Day.",
     "flavor": "day 3: goblin, goblin, scarlet woman - Benny's the Kazali -the engineer",
     "reminders": [
       "No Ability"
@@ -216,7 +216,7 @@
       "https://greedy.antihype.space/icons/carousel/huntsman_e.webp"
     ],
     "team": "townsfolk",
-    "ability": "You start knowing an in play Outsider. They can't change character from other abilities. Once per game, at night, choose a player: that Outsider, if chosen, becomes a not-in-play good Townsfolk. [+0 or +1 Outsider]",
+    "ability": "You start knowing an in-play Outsider. They can't change character from other abilities. Once per game, at night, choose a player: that Outsider, if chosen, becomes a not-in-play good Townsfolk. [+0 or +1 Outsider]",
     "flavor": "You don't get to be the Heretic -TrappedCosmos",
     "firstNight": 49,
     "firstNightReminder": "Wake the Huntsman & show the token of their target Outsider. They might choose a player. :reminder: If they choose the Outsider they learned: Put the Huntsman to sleep. Wake the target. Show the *YOU ARE* info token & their new character token.",
@@ -300,12 +300,12 @@
       "https://greedy.antihype.space/icons/snv/philosopher_e.webp"
     ],
     "team": "townsfolk",
-    "ability": "Once per game, at night, choose a good character: gain that ability. You may be told to reconsider. If you pick a character that's not helpful to your team or ruins the games balance 3 times, you become Drunk.",
+    "ability": "Once per game, at night, choose a good character: gain that ability. You may be told to reconsider. If that happens 3 times, become Drunk.",
     "flavor": "If one thing in life is real, it's beer. In pursuit of others achievements, we lose sight of our own desires. -Kianu",
     "firstNight": 14,
-    "firstNightReminder": "The Philosopher either shows a 'no' head signal, or points to a good character. Tell them to reconsider if the ability isn't helpful to their team or ruins the games balance. After 3 attempts & 3 reconsiders, Drunk them.",
+    "firstNightReminder": "The Philosopher either shows a 'no' head signal, or points to a good character. Tell them to reconsider if the ability isn't helpful to their team or ruins the game's balance. If this happens a third time, Drunk them.",
     "otherNight": 11,
-    "otherNightReminder": "The Philosopher either shows a 'no' head signal, or points to a good character. Tell them to reconsider if the ability isn't helpful to their team or ruins the games balance. After 3 attempts & 3 reconsiders, Drunk them.",
+    "otherNightReminder": "The Philosopher either shows a 'no' head signal, or points to a good character. Tell them to reconsider if the ability isn't helpful to their team or ruins the game's balance. If this happens a third time, Drunk them.",
     "reminders": [
       "Drunk"
     ],
@@ -400,7 +400,7 @@
       "https://greedy.antihype.space/icons/tb/soldier_e.webp"
     ],
     "team": "townsfolk",
-    "ability": "You are safe from the Demon. Each night, if your ability protected you from the Demon, wake and learn this.",
+    "ability": "You are safe from the Demon. Each night, if your ability protected you, wake and learn this.",
     "flavor": "As The Spy said to the Heretic, as Mole said to Al-Hadashi, as people believing I’m not the Wraith… No. -Iceni",
     "firstNight": 75,
     "firstNightReminder": "If the Soldier was protected, wake them and nod.",
@@ -882,7 +882,7 @@
     "ability": "On your 3rd night, choose a player: they become an evil Demon of your choice. If not, you learn this, and are asked to reconsider. [No Demon]",
     "flavor": "With this treasure, I summon… -Chara",
     "otherNight": 34,
-    "otherNightReminder": "Change the Summoner reminder token to the relevant night. :reminder: If it's night 2, ask the Summoner if they want to create a Pukka. If it is night 3, the Summoner chooses a player & a Demon character. Put the Summoner to sleep. Wake the target. Show the *YOU ARE* and Demon tokens & give a thumbs-down.",
+    "otherNightReminder": "Change the Summoner reminder token to the relevant night. :reminder: If it's night 2, ask the Summoner if they want to create a Pukka. If it is night 3, the Summoner chooses a player & a Demon character. If any part of a summoning would fail, shake your head, and let them choose again. Put the Summoner to sleep. Wake the target. Show the *YOU ARE* and Demon tokens & give a thumbs-down.",
     "reminders": [
       "Night 1",
       "Night 2",
@@ -901,7 +901,7 @@
     "ability": "All players know you are the Vizier. You cannot die during the day. If good voted, you may choose to execute immediately.",
     "flavor": "No thank youuu -Reece",
     "firstNight": 80,
-    "firstNightReminder": "If no Alsaahir or Investigator is in-play: Announce which player is the Vizier.",
+    "firstNightReminder": "If no Alsaahir or Investigator is in play: Announce which player is the Vizier.",
     "reminders": [
       "Vizier",
       "Vizier"
@@ -948,12 +948,12 @@
       "https://greedy.antihype.space/icons/carousel/wizard_g.webp"
     ],
     "team": "minion",
-    "ability": "Once per game, choose to make a wish. If granted, it might have a price & leave a clue as to its nature. If you propose a declined wish for your team 3 times, you turn into a character of the same type.",
+    "ability": "Once per game, choose to make a wish. If granted, it might have a price & leave a clue as to its nature. You may be told to reconsider. If that happens 3 times, become a different character.",
     "flavor": "Madam Morrible-- MM, flip it around? Wicked Witch!! -Orpheus",
     "firstNight": 36,
-    "firstNightReminder": "Do whatever needs to be done to satisfy the Wizard's ability. If they make a stupid wish, put the \"Bruh\" reminder token next to them. :reminder: At 3 Bruh's, turn them into a character of the same type.",
+    "firstNightReminder": "Do whatever needs to be done to satisfy the Wizard's ability. If they make an inappropriate wish, add a \"Bruh\" reminder token next to them. :reminder: At 3 Bruh's, turn them into a character of the same type.",
     "otherNight": 20,
-    "otherNightReminder": "Do whatever needs to be done to satisfy the Wizard's ability. If they make a stupid wish, put the \"Bruh\" reminder token next to them. :reminder: At 3 Bruh's, turn them into a character of the same type.",
+    "otherNightReminder": "Do whatever needs to be done to satisfy the Wizard's ability. If they make an inappropriate wish, add a \"Bruh\" reminder token next to them. :reminder: At 3 Bruh's, turn them into a character of the same type.",
     "reminders": [
       "Bruh 1",
       "Bruh 2",
@@ -998,7 +998,7 @@
       "https://greedy.antihype.space/icons/carousel/alhadikhia_g.webp"
     ],
     "team": "demon",
-    "ability": "Each night*, you may choose 3 players (all players learn who): each silently chooses to live or die, but if all live, all die.",
+    "ability": "Each night*, you may choose 3 players (not another Demon; all players learn who): each silently chooses to live or die, but if all live, all die.",
     "flavor": "This is for all my demons who don’t get hyped enough",
     "otherNight": 51,
     "otherNightReminder": "The Al-Hadikhia chooses 3 players. :reminder: :reminder: :reminder: In order, wake each target. They nod or shake their head. Put them to sleep before waking the next target.",
@@ -1018,7 +1018,7 @@
       "https://greedy.antihype.space/icons/carousel/kazali_g.webp"
     ],
     "team": "demon",
-    "ability": "Each night*, choose a player: they die. [You choose which players are which Minions, your Minion choices may be denied. -? to +? Outsiders]",
+    "ability": "Each night*, choose a player: they die. [You choose which players are which Minions. You may be told to reconsider Minion choices. -? to +? Outsiders]",
     "flavor": "Let's lock in besties. -Nic",
     "firstNight": 8,
     "firstNightReminder": "The Kazali chooses which players are which Minions. Deny their Minion choices until the game is balanced. Wake each target. Show the *YOU ARE* and Minion tokens & give a thumbs-down.",

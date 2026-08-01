@@ -20,7 +20,7 @@
       },
       {
         "id": "scarletwoman",
-        "reason": "An Alchemist-Scarlet Woman has no Scarlet Woman ability, & gains the ability of the first Minion to die. They learn which ability they gain."
+        "reason": "An Alchemist-Scarlet Woman has no Scarlet Woman ability, gains the ability of the first Minion to die, & learns which ability they gain."
       },
       {
         "id": "spy",
@@ -49,7 +49,7 @@
     "jinx": [
       {
         "id": "scarletwoman",
-        "reason": "An Al-Hadikhia must choose to die if chosen by the Scarlet Woman turned into the Al-Hadikhia."
+        "reason": ""
       }
     ]
   },
@@ -163,6 +163,15 @@
     ]
   },
   {
+    "id": "po",
+    "jinx": [
+      {
+        "id": "princess",
+        "reason": "If the Princess nominated & executed a player on their 1st day, the Po cannot choose no-one tonight."
+      }
+    ]
+  },
+  {
     "id": "poppygrower",
     "jinx": [
       {
@@ -180,23 +189,15 @@
     "jinx": [
       {
         "id": "summoner",
-        "reason": "If the Princess nominates & executes on their first day, the Princess learns if a Summoner is in-play tonight."
+        "reason": "If the Princess nominated & executed a player on their 1st day, the Princess learns if a Summoner is in play tonight."
       },
       {
         "id": "leviathan",
-        "reason": "If the Princess nominates & executes on their first day and the Leviathan is in play, the Princess learns an alive player isn't the Leviathan. This doesn't doesn't register to the Leviathan."
-      },
-      {
-        "id": "po",
-        "reason": "If the Princess nominates & executes on their first day, the Po must choose a player tonight."
+        "reason": "If the Princess nominated & executed a player on their 1st day and the Leviathan is in play, the Princess learns an alive player isn't the Leviathan tonight & this doesn't register to the Leviathan."
       },
       {
         "id": "riot",
-        "reason": "If the Princess nominates & executes on their first day, the Princess learns if a Riot is in-play tonight."
-      },
-      {
-        "id": "zombuul",
-        "reason": "If the Princess nominates & executes on their first day, the Storyteller chooses who dies the next night the Zombuul can kill."
+        "reason": "If the Princess nominated & executed a player on their 1st day, the Princess learns if a Riot is in play tonight."
       }
     ]
   },
@@ -234,8 +235,16 @@
     "id": "vizier",
     "jinx": [
       {
+        "id": "alsaahir",
+        "reason": "If an Alsaahir is in play, the Storyteller doesn't declare the Vizier is in play."
+      },
+      {
         "id": "atheist",
         "reason": "The Vizier cannot immediately execute the Storyteller."
+      },
+      {
+        "id": "investigator",
+        "reason": "If an Investigator is in play, the Storyteller doesn't declare the Vizier is in play."
       },
       {
         "id": "fearmonger",
@@ -244,6 +253,15 @@
       {
         "id": "goblin",
         "reason": "The Vizier might fail to immediately execute a Goblin that claimed Goblin during their defense."
+      }
+    ]
+  },
+  {
+    "id": "zombuul",
+    "jinx": [
+      {
+        "id": "princess",
+        "reason": "If the Princess nominated & executed a player on their 1st day, the Storyteller chooses who dies the next night the Zombuul can kill."
       }
     ]
   }

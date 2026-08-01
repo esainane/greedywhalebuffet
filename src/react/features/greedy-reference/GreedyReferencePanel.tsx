@@ -38,7 +38,7 @@ export function GreedyReferencePanel(): React.JSX.Element {
 
 			<section className="panel reference-panel">
 				<p className="eyebrow">Greedy Jinxes</p>
-				<p className="lede">Greedy jinxes add, remove, or change jinxes from the base version. Changes are made for the same reasons character changes are made, but cover specific interactions between two characters.</p>
+				<p className="lede">Greedy jinxes add, remove, or change jinxes from the base version. Changes are made for the same reasons character changes are made, but cover specific interactions between two characters. See the upstream <a href="https://docs.google.com/spreadsheets/d/1Cow0lek_dEKxA09i_pSQJ2aeSw7roOj8zKa2CJKf8ug/" target="_blank" rel="noopener noreferrer">jinx spreadsheet</a>.</p>
 				<GreedyJinxesDetail items={details.jinxes} loading={state.loading} />
 			</section>
 

@@ -211,7 +211,11 @@ export function ControlsPanel(): React.JSX.Element {
 	}, [actions]);
 
 	return (
-		<div className="controls-layout">
+		<section
+			id="section-generate"
+			className="controls-layout"
+			aria-label="Generate and options"
+		>
 			<section className="panel status-copy-panel">
 				<p className="eyebrow">Generate</p>
 				<form id="copy-form" className="copy-form" onSubmit={onSubmit}>
@@ -290,6 +294,6 @@ export function ControlsPanel(): React.JSX.Element {
 					})}
 				</form>
 			</section>
-		</div>
+		</section>
 	);
 }

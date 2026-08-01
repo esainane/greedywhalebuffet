@@ -155,7 +155,7 @@ export function CharactersPanel(): React.JSX.Element {
 	};
 
 	return (
-		<section className="panel characters">
+		<section id="section-characters" className="panel characters">
 			<p className="eyebrow">Characters</p>
 			<p className="lede">Click to remove characters from the script</p>
 			<div className="quick-remove-box">

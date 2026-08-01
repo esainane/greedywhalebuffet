@@ -97,6 +97,37 @@ export function applyOptions(data: ScriptData, options: GenerationOptions, fetch
 	}
 }
 
+export function deriveScriptNamePreview(
+	baseScriptName: string,
+	selectedCharacterIds: ReadonlySet<string>,
+	options: GenerationOptions,
+	fetchedData: FetchedData,
+	unsatisfiedDependencyCharacterIds?: ReadonlySet<string>,
+): string {
+	if (!options.addGreedierHomebrew) {
+		return baseScriptName;
+	}
+
+	const blockedCharacterIds =
+		unsatisfiedDependencyCharacterIds ??
+		getUnsatisfiedDependencyCharacterIds(selectedCharacterIds, fetchedData);
+	const exportableSelectedCharacterIds = new Set(
+		Array.from(selectedCharacterIds).filter((characterId) => !blockedCharacterIds.has(characterId)),
+	);
+	const greedierCharacterIds = new Set(
+		fetchedData.getGreedierCharactersData().map((character) => character.id),
+	);
+	const hasSelectedGreedierCharacter = Array.from(exportableSelectedCharacterIds).some((characterId) =>
+		greedierCharacterIds.has(characterId),
+	);
+
+	if (!hasSelectedGreedierCharacter) {
+		return baseScriptName;
+	}
+
+	return baseScriptName.replace(/\bGreedy\b/g, 'Greedier');
+}
+
 /**
  * Build the final JSON payload for copying to clipboard.
  */
@@ -117,9 +148,6 @@ export function buildCopyPayload(
 	const greedierCharacterIds = new Set(
 		fetchedData.getGreedierCharactersData().map((character) => character.id),
 	);
-	const hasSelectedGreedierCharacter =
-		options.addGreedierHomebrew &&
-		Array.from(exportableSelectedCharacterIds).some((characterId) => greedierCharacterIds.has(characterId));
 
 	const nextData = fetchedData.cloneGreedyJson();
 	if (options.addGreedierHomebrew) {
@@ -146,8 +174,14 @@ export function buildCopyPayload(
 		throw new Error('Script metadata is missing or invalid.');
 	}
 
-	if (hasSelectedGreedierCharacter && typeof metaEntry.name === 'string') {
-		metaEntry.name = metaEntry.name.replace(/\bGreedy\b/g, 'Greedier');
+	if (typeof metaEntry.name === 'string') {
+		metaEntry.name = deriveScriptNamePreview(
+			metaEntry.name,
+			selectedCharacterIds,
+			options,
+			fetchedData,
+			unsatisfiedDependencyCharacterIds,
+		);
 	}
 
 	const removedBaseCharacterNames: string[] = [];

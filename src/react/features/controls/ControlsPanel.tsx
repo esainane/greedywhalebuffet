@@ -1,7 +1,8 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import type { GenerationOptions } from '../../../types.js';
 import { GENERATION_OPTIONS, getOptionDependencies } from '../../../options.js';
+import { deriveScriptNamePreview } from '../../../generation.js';
 import { Switch } from '../../components/Switch.js';
 import { useAppActions, useAppState } from '../../context/AppContext.js';
 
@@ -190,6 +191,25 @@ function optionIsEnabled(optionId: string, options: GenerationOptions): boolean 
 export function ControlsPanel(): React.JSX.Element {
 	const state = useAppState();
 	const actions = useAppActions();
+	const displayedScriptName = useMemo(() => {
+		if (!state.fetchedData) {
+			return state.scriptName;
+		}
+
+		return deriveScriptNamePreview(
+			state.scriptName,
+			state.selectedCharacterIds,
+			state.options,
+			state.fetchedData,
+			state.unsatisfiedDependencyCharacterIds,
+		);
+	}, [
+		state.fetchedData,
+		state.options,
+		state.scriptName,
+		state.selectedCharacterIds,
+		state.unsatisfiedDependencyCharacterIds,
+	]);
 	const availableCharacterCount = state.characters.length;
 	const enabledVisibleCharacterCount = state.characters.filter((character) =>
 		state.selectedCharacterIds.has(character.id),
@@ -255,7 +275,7 @@ export function ControlsPanel(): React.JSX.Element {
 					<dl className="meta" id="meta">
 						<div className="meta-script-name">
 							<dt>Name</dt>
-							<dd id="script-name">{state.scriptName}</dd>
+							<dd id="script-name">{displayedScriptName}</dd>
 						</div>
 						<div>
 							<dt>Available</dt>

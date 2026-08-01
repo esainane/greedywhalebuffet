@@ -5,6 +5,7 @@ type CharacterHeaderData = {
 	name: string;
 	team?: string;
 	imageUrl?: string;
+	sourceSet?: number;
 };
 
 type CharacterHeaderProps = {
@@ -22,6 +23,9 @@ export function CharacterHeader(props: CharacterHeaderProps): React.JSX.Element 
 			<div className="reference-title-text">
 				<h3>{character.name}</h3>
 				<TeamLabel team={character.team} mode="passthrough" />
+				{character.sourceSet ? (
+					<p className="character-subtitle">Set {character.sourceSet}</p>
+				) : null}
 			</div>
 		</div>
 	);

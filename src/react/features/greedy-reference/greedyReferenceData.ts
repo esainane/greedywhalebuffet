@@ -10,6 +10,7 @@ export type CharacterSummary = {
 	team: string;
 	edition?: string;
 	imageUrl?: string;
+	sourceSet?: number;
 };
 
 export type GreedyDifferenceDetail = {
@@ -60,6 +61,7 @@ function createCharacterSummary(entry: CharacterEntry, fetchedData: FetchedData)
 		team: entry.team ?? 'unknown',
 		edition: entry.edition,
 		imageUrl: getPrimaryImage(entry, fetchedData),
+		sourceSet: entry.sourceSet,
 	};
 }
 

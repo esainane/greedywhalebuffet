@@ -17,6 +17,7 @@ export type CharacterEntry = {
 	image?: string | string[];
 	team?: string;
 	edition?: string;
+	sourceSet?: number;
 	flavor?: string;
 	jinxes?: { id: string; reason: string }[];
 	firstNightReminder?: string;
@@ -46,6 +47,7 @@ export type Character = {
 	name: string;
 	team?: string;
 	imageUrl?: string | string[];
+	sourceSet?: number;
 };
 
 export type GenerationOptions = {

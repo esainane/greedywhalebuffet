@@ -76,6 +76,9 @@ function CharacterCard(props: CharacterCardProps): React.JSX.Element {
 			<div className="character-label-stack">
 				<span className="character-name">{character.name}</span>
 				{showTeamSubtitle ? <TeamLabel team={character.team} /> : null}
+				{showTeamSubtitle && character.sourceSet ? (
+					<span className="character-subtitle">Set {character.sourceSet}</span>
+				) : null}
 			</div>
 		</label>
 	);

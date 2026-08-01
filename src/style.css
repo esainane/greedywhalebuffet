@@ -533,6 +533,15 @@ button.danger:focus-visible {
 	letter-spacing: 0.05em;
 }
 
+.character-subtitle {
+	margin: 0;
+	font-size: 0.72rem;
+	line-height: 1.1;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--muted);
+}
+
 .reference-panel {
 	display: grid;
 	gap: 1rem;

@@ -78,6 +78,15 @@ function isCharacterEntryArray(value: unknown): value is CharacterEntry[] {
 	);
 }
 
+function getGreedierSourceSet(scriptUrl: string): number | undefined {
+	const match = scriptUrl.match(/greedier-s(\d+)\.json$/);
+	if (!match) {
+		return undefined;
+	}
+
+	return Number.parseInt(match[1], 10);
+}
+
 function isCharacterEntry(value: unknown): value is CharacterEntry {
 	return (
 		typeof value === 'object' &&
@@ -192,15 +201,19 @@ export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Pr
 	}
 
 	const greedierCharactersById = new Map<string, CharacterEntry>();
-	for (const greedierData of greedierParsed) {
+	for (const [i, greedierData] of greedierParsed.entries()) {
 		if (!Array.isArray(greedierData)) {
 			continue;
 		}
 
 		const scriptEntries = greedierData as ScriptData;
+		const sourceSet = getGreedierSourceSet(GREEDIER_SCRIPT_URLS[i]);
 		for (const character of extractFilterableCharactersFromScriptData(scriptEntries)) {
 			if (!greedierCharactersById.has(character.id)) {
-				greedierCharactersById.set(character.id, character);
+				greedierCharactersById.set(character.id, {
+					...character,
+					sourceSet,
+				});
 			}
 		}
 	}

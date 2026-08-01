@@ -429,6 +429,7 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 					name: entry.name || entry.id,
 					team: entry.team,
 					imageUrl,
+					sourceSet: entry.sourceSet,
 				};
 			});
 			const storedPreferences = loadStoredPreferences();

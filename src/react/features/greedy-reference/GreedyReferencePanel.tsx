@@ -42,8 +42,8 @@ export function GreedyReferencePanel(): React.JSX.Element {
 				<GreedyJinxesDetail items={details.jinxes} loading={state.loading} />
 			</section>
 
-			<section id="section-greedier-characters" className="panel reference-panel">
-				<p className="eyebrow">Greedier Characters</p>
+			<section id="section-greedier-homebrew" className="panel reference-panel">
+				<p className="eyebrow">Greedier Homebrew</p>
 				<p className="lede">The Greedy community runs community contests for homebrew "Greedier" characters, with a variety of exotic abilities.</p>
 				<GreedyHomebrewDetail items={details.homebrew} loading={state.loading} />
 			</section>

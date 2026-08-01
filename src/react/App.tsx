@@ -10,7 +10,7 @@ const APP_SECTIONS = [
 	{ id: 'section-characters', label: 'Characters' },
 	{ id: 'section-greedy-characters', label: 'Greedy Characters' },
 	{ id: 'section-greedy-jinxes', label: 'Greedy Jinxes' },
-	{ id: 'section-greedier-characters', label: 'Greedier Characters' },
+	{ id: 'section-greedier-homebrew', label: 'Greedier Homebrew' },
 ] as const;
 
 function AppShell(): React.JSX.Element {

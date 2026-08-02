@@ -19,8 +19,8 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hypnotist_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hypnotist_g_winningclub.png"
     ],
-    "firstNightReminder": "They choose a player. That player might receive false night cards.",
-    "otherNightReminder": "They choose a player. That player might receive false night cards. If anyone is marked as Hypnotized from the day, they might receive false night cards.",
+    "firstNightReminder": "The Hypnotist chooses a player. :reminder: That player might receive false night cards.",
+    "otherNightReminder": "The Hypnotist chooses a player. :reminder: Any players marked *HYPNOTIZED* might receive false night cards.",
     "reminders": [
       "Hypnotized",
       "Hypnotized",
@@ -43,8 +43,8 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/unfathomable_leftovers_whoops.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/unfathomable_g_leftovers_whoops.png"
     ],
-    "firstNightReminder": "They choose a player. Deaths each night are arbitrary.",
-    "otherNightReminder": "They choose a player. Deaths each night are arbitrary.",
+    "firstNightReminder": "The Unfathomable chooses a player. :reminder: Deaths are arbitrary.",
+    "otherNightReminder": "The Unfathomable chooses a player. :reminder: Deaths are arbitrary.",
     "reminders": [
       "Dead",
       "Dead",
@@ -56,7 +56,7 @@
     ],
     "name": "Unfathomable Ω",
     "team": "demon",
-    "ability": "Each night, you may choose a player to guide the ST's decisions. Deaths each night are arbitrary.",
+    "ability": "Each night, you may choose a player to guide the Storyteller's decisions. Deaths each night are arbitrary.",
     "flavor": "Your destiny is held firm no longer.",
     "firstNight": 11,
     "otherNight": 5

@@ -3,7 +3,7 @@
     "id": "bestower",
     "name": "Bestower Ω",
     "team": "traveller",
-    "ability": "Each night, choose a player (not yourself) & give them a boon or curse. The selected player is asked to accept.",
+    "ability": "Each night, choose a player (not yourself) & offer a boon or curse. They may accept.",
     "image": [
       "https://user-images.klutzbanana.com/q0pl1q7nky2b6s44t456qw9o.png",
       "https://user-images.klutzbanana.com/uhxluwi1fqn8kfql1qt7pu95.png",
@@ -12,10 +12,11 @@
     "edition": "gwb",
     "flavor": "I bestow upon you this gift.",
     "firstNight": 48,
-    "firstNightReminder": "Wake the Bestower to select a player. Then the Bestower to select boon or curse. Wake the selected character and ask if they accept. Give them the boon/curse if they accept.",
+    "firstNightReminder": "The Bestower chooses a player, and gives a thumb signal. :reminder: Put the Bestower to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* & Bestower tokens. They may choose to accept. :reminder: :reminder:",
     "otherNight": 11,
-    "otherNightReminder": "The Bestower chooses a player and chooses either boon or curse. Wake the chosen player and ask if they would like to accept. If they accept give them either a boon or curse based on the choice.",
+    "otherNightReminder": "The Bestower chooses a player, and gives a thumb signal. :reminder: Put the Bestower to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* & Bestower tokens. They may choose to accept. :reminder: :reminder:",
     "reminders": [
+      "Bestowed",
       "Boon",
       "Curse"
     ]
@@ -77,7 +78,7 @@
     "edition": "gwb",
     "flavor": "I feel your pain, let me join you.",
     "otherNight": 12,
-    "otherNightReminder": "They become the alignment of the most recently killed executee.",
+    "otherNightReminder": "If the Sympath changed alignment, wake them. Show the *YOU ARE* info token & give a thumb signal.",
     "reminders": [
       "Executed"
     ]
@@ -86,7 +87,7 @@
     "id": "watcher",
     "name": "Watcher Ω",
     "team": "minion",
-    "ability": "Each night, choose a player (different from last night). You learn their information instead of them; the player is told they are being watched. If a player is mad about being watched today, they might die.",
+    "ability": "Each night, choose a player (different from last night). They are told they are being watched, and you learn their information instead of them. If a player is mad about being watched today, they might die.",
     "image": [
       "https://user-images.klutzbanana.com/aj9jfoomqon0fj0mk5kxbrwk.png",
       "https://user-images.klutzbanana.com/fhbl0hte0f1kuo3yfdut8wnn.png"
@@ -94,9 +95,9 @@
     "edition": "gwb",
     "flavor": "He was never meant to be there...He was only ever meant to watch",
     "firstNight": 24,
-    "firstNightReminder": "wake and choose a player, if the player learns information, inform the watcher of the info and inform the player they are watched",
+    "firstNightReminder": "The Watcher chooses a player. :reminder: If the *WATCHED* would learn information tonight, inform the Watcher instead. Put the Watcher to sleep. Wake the *WATCHED*. Show the *THIS CHARACTER SELECTED YOU* & Watcher tokens.",
     "otherNight": 21,
-    "otherNightReminder": "wake and choose a player, if the player learns information, inform the watcher of the info and inform the player they are watched",
+    "otherNightReminder": "The Watcher chooses a player. :reminder: If the *WATCHED* would learn information tonight, inform the Watcher instead. Put the Watcher to sleep. Wake the *WATCHED*. Show the *THIS CHARACTER SELECTED YOU* & Watcher tokens.",
     "reminders": [
       "Watched"
     ]

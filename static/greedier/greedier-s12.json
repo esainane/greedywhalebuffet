@@ -3,7 +3,7 @@
     "id": "aha",
     "name": "Aha Ω",
     "team": "loric",
-    "ability": "Each day, the player that the storyteller thinks is the funniest might get a boon.",
+    "ability": "Each day, the player that the Storyteller thinks is the funniest might get a boon.",
     "image": [
       "https://user-images.klutzbanana.com/n56ij3go9e9gmty4f9vdtbs0.png"
     ],
@@ -25,12 +25,12 @@
     "edition": "gwb",
     "flavor": "These records are impeccably kept. The answer you seek will be here.",
     "firstNight": 57,
-    "firstNightReminder": "They choose 2 players. Show them the player who goes first alphabetically.",
+    "firstNightReminder": "The Archivist chooses 2 players. :reminder: :reminder: Show them the player who goes first alphabetically.",
     "otherNight": 77,
-    "otherNightReminder": "They choose 2 players. Show them the player who goes first alphabetically.",
+    "otherNightReminder": "The Archivist chooses 2 players. :reminder: :reminder: Show them the player who goes first alphabetically.",
     "reminders": [
-      "Archives Checked",
-      "Archives Checked"
+      "Archived",
+      "Archived"
     ]
   },
   {
@@ -45,14 +45,15 @@
     "edition": "gwb",
     "flavor": "Any man who must say \"I am the King\" is no true king.",
     "reminders": [
-      "Mad"
+      "Safe"
     ]
   },
   {
     "id": "hawkmoth",
     "name": "Hawkmoth Ω",
     "team": "demon",
-    "ability": "Each night*, choose a player: they die. You start by choosing a good player: they become evil & gain an ability of your choice. The Storyteller may choose the ability if your chosen abilities ruin the game balance more than 3 times. [-1 Minion]",
+    "setup": true,
+    "ability": "Each night*, choose a player: they die. You start by choosing a good player: they become evil & gain a character ability of your choice. You may be told to reconsider. If this happens 3 times, the Storyteller chooses. [-1 Minion]",
     "image": [
       "https://user-images.klutzbanana.com/t1aq0stecddaqlofnps3v4y6.png",
       "https://user-images.klutzbanana.com/gs0doxeic2tjufg1e2b7qbox.png"
@@ -60,9 +61,9 @@
     "edition": "gwb",
     "flavor": "This is just the beginning, Ladybug. You and Cat Noir may have won this battle, but I will win the war.",
     "firstNight": 31,
-    "firstNightReminder": "They choose a player & an ability they want to give the player. If it ruins the balance of the game more than 3 times, choose the ability. Tell the chosen player they are evil.",
+    "firstNightReminder": "The Hawkmoth chooses a player & a character. :reminder: If it ruins the balance of the game, shake your head and ask again. If this happens 3 times, shake your head and show a character token. Put the Hawkmoth to sleep. Wake the chosen player. Show them the *YOU ARE* info token. Give a thumbs down.",
     "otherNight": 51,
-    "otherNightReminder": "They choose a player. They die.",
+    "otherNightReminder": "The Hawkmoth chooses a player. :reminder:",
     "reminders": [
       "Akumatized",
       "Dead"
@@ -72,18 +73,19 @@
     "id": "prince",
     "name": "Prince Ω",
     "team": "townsfolk",
-    "ability": "1 player starts knowing you are the Prince. If you are nominated by an evil player & executed during the day, a good player becomes the Prince.",
+    "ability": "1 player starts knowing you are the Prince. If an evil player nominates & executes you, a good player becomes the Prince.",
     "image": [
       "https://user-images.klutzbanana.com/venwd01czlpawv6padf2p9b6.png",
       "https://user-images.klutzbanana.com/c1vjvi5e4bkyn91s7b3nn2yz.png"
     ],
     "edition": "gwb",
     "flavor": "This is my father's land to rule over! How dare these damned demons try take what has been destined to be mine!",
-    "firstNightReminder": "Wake a player and point to the Prince.",
+    "firstNightReminder": "Wake the player marked *KNOW*. Show the *THIS PLAYER IS* & Prince tokens.",
     "firstNight": 52,
-    "otherNightReminder": "If the Prince was nominated and executed by an evil player the previous day, wake a good player and point to the Prince character.",
+    "otherNightReminder": "If the Prince was nominated and executed by an evil player, wake a good player. Show the *YOU ARE* info token and a Prince token.",
     "otherNight": 12,
     "reminders": [
+      "Know",
       "Coronation Tonight"
     ]
   },
@@ -91,7 +93,7 @@
     "id": "songtress",
     "name": "Songstress Ω",
     "team": "townsfolk",
-    "ability": "Each night, choose any amount of players: if all are your alignment, they are all sober & healthy until dusk. An opposing player, if chosen, might learn who you are.",
+    "ability": "Each night, choose any number of players: if all are your alignment, they are sober & healthy until dusk. An opposing player, if chosen, might learn who you are.",
     "image": [
       "https://user-images.klutzbanana.com/ape65gn9rl0q2p4ye3skbi8j.png",
       "https://user-images.klutzbanana.com/mgi52jmarmmbma9fierq5lcz.png"
@@ -99,12 +101,16 @@
     "edition": "gwb",
     "flavor": "How beautiful! My beautiful melodies have touched that hearts of Ravenswood Bluff. May you rejoice forever in song and dance.",
     "firstNight": 35,
-    "firstNightReminder": "Wake the Songstress and have them choose as many players as they want.",
+    "firstNightReminder": "The Songstress chooses any number of players. :reminder: If an opposing player was chosen, you may mark them. :reminder: Put the Songstress to sleep. If marked, wake the player marked *KNOW*. Show the *THIS PLAYER IS* & Songstress tokens.",
     "otherNight": 19,
-    "otherNightReminder": "Wake the Songstress and have them choose as many players as they want.",
+    "otherNightReminder": "The Songstress chooses any number of players. :reminder: If an opposing player was chosen, you may mark them. :reminder: Put the Songstress to sleep. If marked, wake the player marked *KNOW*. Show the *THIS PLAYER IS* & Songstress tokens.",
     "reminders": [
-      "Sober and healthy",
-      "Sober and healthy"
+      "Sober & Healthy",
+      "Sober & Healthy",
+      "Sober & Healthy",
+      "Sober & Healthy",
+      "Sober & Healthy",
+      "Know"
     ]
   }
 ]

@@ -5,18 +5,17 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/buffetsgourmet_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/buffetsgourmet_e_winningclub.png"
     ],
-    "firstNightReminder": "They choose a character type.",
-    "otherNightReminder": "They choose a character type.",
+    "firstNightReminder": "The Buffet's Gourmet chooses a character type. :reminder: Show five not-in-play character tokens of that type.",
+    "otherNightReminder": "The Buffet's Gourmet chooses a different character type. :reminder: Show five not-in-play character tokens of that type.",
     "reminders": [
       "Townsfolk",
       "Outsider",
       "Minion",
-      "Demon",
-      "Other Type"
+      "Demon"
     ],
     "name": "Buffet's Gourmet Ω",
     "team": "townsfolk",
-    "ability": "On your 1st four nights, choose a character type (different from previous nights): you learn five characters of that type which are not in play.",
+    "ability": "On your 1st four nights, choose a different character type: you learn five not-in-play characters for it.",
     "flavor": "Oh no, those flavours couldn't possibly go together. Pass.",
     "firstNight": 61,
     "otherNight": 79
@@ -29,8 +28,8 @@
     ],
     "reminders": [
       "Protected!",
-      "One execution",
-      "No ability"
+      "One Execution",
+      "No Ability"
     ],
     "name": "Hero Ω",
     "team": "townsfolk",
@@ -43,10 +42,11 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/suitor1_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/suitor_e1_winningclub.png"
     ],
-    "firstNightReminder": "They choose a character. Tell them if it's in play.",
-    "otherNightReminder": "They choose a character. Tell them if it's in play.",
+    "firstNightReminder": "The Suitor chooses a character. Give a thumb signal. :reminder:",
+    "otherNightReminder": "The Suitor chooses a character. If it's not in play, give a thumbs down signal. If it's in play and the 1st time, give a thumbs up signal. :reminder: Otherwise, give a thumbs down signal. :reminder:",
     "reminders": [
-      "No Waking"
+      "True Love",
+      "No Ability"
     ],
     "name": "Suitor Ω",
     "team": "townsfolk",
@@ -61,15 +61,15 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/racketeer_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/racketeer_e_winningclub.png"
     ],
-    "firstNightReminder": "They learn how many Outsiders are alive.",
-    "otherNightReminder": "They learn how many Outsiders are alive.",
+    "firstNightReminder": "Give a finger signal.",
+    "otherNightReminder": "Give a finger signal.",
     "reminders": [
-      "Racketed",
-      "Racketed"
+      "Racket",
+      "Racket"
     ],
     "name": "Racketeer Ω",
     "team": "outsider",
-    "ability": "Each night, you learn how many Outsiders are alive. Your 2 non-Traveller neighbours might register as evil & as Outsiders.",
+    "ability": "Each night, learn how many Outsiders are alive. Your 2 non-Traveller neighbors might register as evil & Outsiders.",
     "flavor": "Don't worry about my associates.",
     "firstNight": 68,
     "otherNight": 86
@@ -80,15 +80,15 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/dullahan_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/dullahan_g_winningclub.png"
     ],
-    "otherNightReminder": "They choose a player.",
+    "otherNightReminder": "The Dullahan chooses a player. :reminder:",
     "reminders": [
       "Dead",
       "Dead",
-      "Dullahan's Deception"
+      "Deception"
     ],
     "name": "Dullahan Ω",
     "team": "demon",
-    "ability": "Each night*, choose a player: they die. You & 1 good neighbor may register as a character of the opposite alignment to Townsfolk abilities.",
+    "ability": "Each night*, choose a player: they die. You & 1 good neighbor may register as an opposite-aligned character to Townsfolk abilities.",
     "flavor": "It is too late now. Death is coming and they are blind. You may know everything, but they will never believe you.",
     "otherNight": 43
   },
@@ -98,9 +98,10 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/sinofgluttony_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/sin_of_gluttony_g_winningclub.png"
     ],
-    "firstNightReminder": "Every other night, they choose 3 players. Kill the first 2 sometime in the next 2 nights & the last one sometime in the next 2 days.",
-    "otherNightReminder": "Every other night, they choose 3 players. Kill the first 2 sometime in the next 2 nights & the last one sometime in the next 2 days.",
+    "firstNightReminder": "Wake the Sin of Gluttony. :reminder: They choose 3 players. :reminder: :reminder: :reminder:",
+    "otherNightReminder": "If the Sin of Gluttony did not wake last night, wake the Sin of Gluttony. :reminder: They choose 3 players. :reminder: :reminder: :reminder:",
     "reminders": [
+      "Cooldown",
       "Dead",
       "Dead",
       "Dead",
@@ -113,7 +114,7 @@
     ],
     "name": "Sin of Gluttony Ω",
     "team": "demon",
-    "ability": "Each other night, choose three players: the first two will die at any time within the next two nights & the third might die at any time during the next two days.",
+    "ability": "Each other night, choose three players: the first two will die at any time within the next two nights, the third might die at any time during the next two days.",
     "flavor": "You all look so tasty, it would be a shame to let you go to waste...",
     "firstNight": 47,
     "otherNight": 50

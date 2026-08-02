@@ -26,9 +26,10 @@
     ],
     "edition": "gwb",
     "flavor": "Munch munch",
-    "otherNightReminder": "If a good player was executed today, mark their Townsfolk neighbors with Poisoned token.",
+    "otherNightReminder": "If a good player was executed today, mark their Townsfolk neighbors. :reminder: :reminder: :reminder:",
     "otherNight": 11,
     "reminders": [
+      "Died Today",
       "Poisoned",
       "Poisoned"
     ]
@@ -37,7 +38,7 @@
     "id": "sol",
     "name": "Sol Ω",
     "team": "townsfolk",
-    "ability": "If evil would win, but your 1st vote today was for the demon, good wins instead.",
+    "ability": "If evil would win, but your 1st vote today was for the Demon, good wins instead.",
     "image": [
       "https://user-images.klutzbanana.com/ul6uduww8bmqwiwzsddvoqvj.png",
       "https://user-images.klutzbanana.com/yb0s7fckmcb5xdp0k22jekk1.png"
@@ -52,14 +53,14 @@
     "id": "trainconductor",
     "name": "Train Conductor Ω",
     "team": "townsfolk",
-    "ability": "You start knowing how many sources of poisoning & drunkeness is in-play.",
+    "ability": "You start knowing how many sources of poisoning & drunkenness are in play.",
     "image": [
       "https://user-images.klutzbanana.com/c8gex4peqbj61t1ihlyimwzv.png",
       "https://user-images.klutzbanana.com/is71mo4r63cyhls0t2bcp1g7.png"
     ],
     "edition": "gwb",
     "flavor": "Next stop Ravenwoods Bluff!",
-    "firstNightReminder": "Show how many sources of posion and drunking is in play. If a drunk in play they also learn this.",
+    "firstNightReminder": "Give a finger signal. (The Drunk counts.)",
     "firstNight": 55,
     "reminders": [
       "Source",
@@ -72,14 +73,14 @@
     "id": "vengeance",
     "name": "Vengeance Ω",
     "team": "minion",
-    "ability": "Each night*, the last player that nominated you dies, even if you are dead.",
+    "ability": "Each night*, a player that nominated you yesterday dies, even if you are dead.",
     "image": [
       "https://user-images.klutzbanana.com/d7fjrg1ahuexsovhh1pzfrl1.png",
       "https://user-images.klutzbanana.com/g58ggb3pjy7ncnngupqtguhk.png"
     ],
     "edition": "gwb",
     "flavor": "HOW DARE YOU !!!!!",
-    "otherNightReminder": "If a player nominated Vengeance, they die.",
+    "otherNightReminder": "If a player nominated Vengeance yesterday, they die. :reminder: :reminder:",
     "otherNight": 16,
     "reminders": [
       "Marked",
@@ -97,9 +98,10 @@
     ],
     "edition": "gwb",
     "flavor": "I have fought my battles. These children, they are the future!!",
-    "otherNightReminder": "Point to the players that died. Ask the veteran if they want to use their ability. If they do they choose a player, that player lives & the veteran dies",
+    "otherNightReminder": "Point to the players that died. The Veteran might choose one. :reminder: If they do, that player lives & the Veteran dies. :reminder: :reminder:",
     "otherNight": 65,
     "reminders": [
+      "Alive",
       "No Ability",
       "Dead"
     ]

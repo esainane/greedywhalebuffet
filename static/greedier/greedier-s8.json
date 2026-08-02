@@ -7,7 +7,7 @@
     ],
     "name": "Eavesdropper Ω",
     "team": "townsfolk",
-    "ability": "Each day, you may privately visit the storyteller to learn a phrase about the game.",
+    "ability": "Each day, you may privately visit the Storyteller to learn a phrase about the game.",
     "flavor": "I heard Mole and Odysseus talking about how they were going to start a gang. Said they'd call it the Gayng. Pretty cringe if you ask me."
   },
   {
@@ -16,7 +16,7 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/journalist_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/journalist_evil_winningclub.png"
     ],
-    "otherNightReminder": "They choose 2 players. The Demon learns the 2 players. If the Demon chooses them, the Journalist learns a true statement equal to the amount of the Journalist's chosen players are chosen.",
+    "otherNightReminder": "The Journalist chooses 2 players. :reminder: :reminder: Put the Journalist to sleep. Wake the Demon. Show the *THIS CHARACTER SELECTED YOU* info token, the Journalist token, and point to the two players marked *CHOSEN*. If the Demon chooses any tonight, wake the Journalist to learn a true statement for each chosen.",
     "name": "Journalist Ω",
     "reminders": [
       "Chosen",
@@ -33,7 +33,7 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/lisarinna_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/lisarinna_e_winningclub.png"
     ],
-    "otherNightReminder": "They choose a player.",
+    "otherNightReminder": "Lisa Rinna might choose a player. :reminder: :reminder: :reminder:",
     "name": "Lisa Rinna Ω",
     "team": "townsfolk",
     "ability": "Once per game, during the night*, choose a player: if good, they die & keep their ability. If an Outsider, they instead are drunk.",
@@ -52,17 +52,18 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/potionseller_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/potionsellerg_winningclub.png"
     ],
-    "firstNightReminder": "They name up to 5 potions. They choose a player. The chosen player chooses 1 of them.",
-    "otherNightReminder": "They choose a player. The chosen player chooses 1 of them.",
+    "firstNightReminder": "The Potion Seller names up to 5 potions. The Potion Seller chooses a player. :reminder: Put the Potion Seller to sleep. Wake the target. They must choose 1 potion. If this is the last potion, the Potion Seller loses their ability. :reminder:",
+    "otherNightReminder": "The Potion Seller chooses a player. :reminder: Put the Potion Seller to sleep. Wake the target. They must choose 1 remaining potion. If this is the last potion, the Potion Seller loses their ability. :reminder:",
     "reminders": [
       "?",
       "?",
       "?",
-      "Customer"
+      "Customer",
+      "No Ability"
     ],
     "name": "Potion Seller Ω",
     "team": "minion",
-    "ability": "On your 1st night, name up to 5 potions. Each night, choose a player: they choose one of your potions, receiving its effect & removing the option.",
+    "ability": "On your 1st night, name up to 5 potions. You may be told to reconsider. Each night, choose a player: they choose one of your potions, receiving its effect & removing the option.",
     "flavor": "I warned you, traveller. My potions would set the world on fire.",
     "firstNight": 21,
     "otherNight": 24
@@ -73,7 +74,7 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/copycat_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/copycat_e_winningclub.png"
     ],
-    "firstNightReminder": "They gain an ability. Run it accordingly.",
+    "firstNightReminder": "Show the *YOU ARE* info token, the Copycat character token, and a Townsfolk token. If necessary, swap their character token. :reminder:",
     "otherNightReminder": "If they die, make the in-play Townsfolk a drunk Copycat.",
     "reminders": [
       "Copied!",
@@ -81,10 +82,19 @@
     ],
     "name": "Copycat Ω",
     "team": "outsider",
-    "ability": "On your first night, gain the ability of an in play townsfolk: they are drunk. When you die, they become a drunk Copycat.",
+    "ability": "On your first night, gain the ability of an in-play townsfolk: they are drunk. When you die, they become a drunk Copycat.",
     "flavor": "Stop copying me! - Satyr / Stoooop Copyiiiing Meeeee! - Orpheus",
     "firstNight": 14,
-    "otherNight": 70
+    "otherNight": 70,
+    "remindersGlobal": [
+      "Is the Copycat"
+    ],
+    "special": [
+      {
+        "name": "replace-character",
+        "type": "reveal"
+      }
+    ]
   },
   {
     "id": "realtor_winningclub",
@@ -93,7 +103,7 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/realtor_e_winningclub.png"
     ],
     "reminders": [
-      "Used Guess"
+      "Used"
     ],
     "setup": true,
     "name": "Realtor Ω",

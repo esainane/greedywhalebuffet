@@ -5,7 +5,7 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/crow_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/crow_e_winningclub.png"
     ],
-    "otherNightReminder": "If they died, show them a character of a living neighbor.",
+    "otherNightReminder": "If the Crow died, wake them. Show a character token.",
     "remindersGlobal": [
       "Is the Crow",
       "Is the Crow",
@@ -15,6 +15,7 @@
     ],
     "name": "Crow Ω",
     "team": "townsfolk",
+    "setup": true,
     "ability": "You think you are an Outsider, but you are not. If you die, you learn the character of a living neighbor tonight. [-0 or -1 Outsider]",
     "flavor": "Mind your omens. They may be boons in disguise.",
     "otherNight": 61,
@@ -35,7 +36,7 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/sybil_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/sybil_g_winningclub.png"
     ],
-    "otherNightReminder": "They choose a player & a word. Something happens. Announce the chosen word.",
+    "otherNightReminder": "The Sybil chooses a player & a word. :reminder: Put them to sleep. Do whatever is needed relating to the word. Announce the Sybil has declared the word.",
     "reminders": [
       "Chosen",
       "?",
@@ -78,7 +79,7 @@
     "team": "minion",
     "ability": "Once per game, during the day, you may publicly claim Truthsayer & choose to initiate a round robin. If good players are not mad as the character they are during the round robin, they might turn into an Outsider tonight, even if dead.",
     "flavor": "Speak your truth—or be judged unworthy.",
-    "otherNightReminder": "Players who failed the Truthsayer's round robin might turn into an Outsider.",
+    "otherNightReminder": "Players marked *LIAR!* might turn into an Outsider. For each that did, wake them. Show the *YOU ARE* info token, and the Outsider token. :reminder:",
     "otherNight": 26
   },
   {
@@ -87,8 +88,8 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/theancientone_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/ancient_one_g_winningclub.png"
     ],
-    "firstNightReminder": "Do not run Demon info. During Minion info, show the *THIS IS THE DEMON* info token, the Ancient One token, and point to the two Townsfolk vassals. :reminder: :reminder:",
-    "otherNightReminder": "A player might die.",
+    "firstNightReminder": "Do not run Demon info. During Minion info, show the *THIS IS THE DEMON* & Ancient One tokens, and point to the two Townsfolk vessels. :reminder: :reminder:",
+    "otherNightReminder": "A player might die. :reminder:",
     "reminders": [
       "Dead",
       "Vessel",
@@ -96,6 +97,7 @@
     ],
     "name": "The Ancient One Ω",
     "team": "demon",
+    "setup": true,
     "ability": "2 Townsfolk think they are good, but are evil, hold The Ancient One, & \"are the Demon\". Each night*, a player might die.",
     "flavor": "We worship you O Ancient one. We shall punish those who sealed you. We bring forth two sinners from the town for you to feast on their souls and return to the mortal plane.",
     "firstNight": 18,

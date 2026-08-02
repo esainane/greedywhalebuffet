@@ -6,12 +6,13 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/bingbong_e_winningclub.png"
     ],
     "reminders": [
-      "Real Friend"
+      "Real Friend",
+      "Safe?"
     ],
     "name": "Bing Bong Ω",
     "team": "townsfolk",
-    "ability": "You start knowing a player. When they die, you die instead & they can't change alignment & might not die from now on.",
-    "firstNightReminder": "They learn a player.",
+    "ability": "You start knowing a player. When they die, you die instead. They can then no longer change alignment, and might not die.",
+    "firstNightReminder": "Point to the *REAL FRIEND* player. :reminder:",
     "firstNight": 54,
     "flavor": "Take her to the moon for me."
   },
@@ -21,10 +22,10 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/secretary_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/secretary_e_winningclub.png"
     ],
-    "firstNightReminder": "Show them 2 in-play characters.",
+    "firstNightReminder": "Show the character tokens of the players marked *KNOW*.",
     "reminders": [
-      "Knows",
-      "Knows"
+      "Know",
+      "Know"
     ],
     "name": "Secretary Ω",
     "team": "townsfolk",
@@ -38,13 +39,14 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/quitter_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/quitter_e_winningclub.png"
     ],
-    "firstNightReminder": "They choose a player.",
+    "firstNightReminder": "The Quitter chooses a player. :reminder:",
     "reminders": [
+      "Only hope",
       "Rage Quit!"
     ],
     "name": "Quitter Ω",
     "team": "outsider",
-    "ability": "On your 1st night, choose a player (not yourself): If they die, you can no longer vote on any nominations, even if you are dead.",
+    "ability": "On your 1st night, choose a player (not yourself): if they die, you can no longer vote on any nominations, even if you are dead.",
     "flavor": "“We just lost our greatest information.. Evil must be stomping, there’s no more point in trying.”",
     "firstNight": 70
   },
@@ -57,6 +59,8 @@
     ],
     "firstNightReminder": "Tell them 2 phrases & what happens if they say each phrase.",
     "reminders": [
+      "One Said",
+      "Dead",
       "?",
       "?",
       "?",
@@ -64,7 +68,7 @@
     ],
     "name": "Chocolatier Ω",
     "team": "traveller",
-    "ability": "You start knowing 2 phrases & what happens when you say each for the first time phrase. Once you say a phrase, you immediately die if you say the other.",
+    "ability": "You start knowing 2 phrases & what happens the 1st time you say each. If you say one after having said the other, you die.",
     "flavor": "White chocolate is SOOOOOOOOOOOOOOOOOOO good. But I see that dark chocolate eyeing me in the corner... stawp ittttt.",
     "firstNight": 16
   }

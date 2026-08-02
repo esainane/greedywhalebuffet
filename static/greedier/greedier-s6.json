@@ -5,7 +5,7 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/portiafeatherington_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/portia_e_winningclub.png"
     ],
-    "otherNightReminder": "They swap alignment. Tell them",
+    "otherNightReminder": "They swap alignment. Show the *YOU ARE* info token & give a thumb signal.",
     "name": "Portia Featherington Ω",
     "team": "outsider",
     "ability": "Each night*, swap alignment, even if dead.",
@@ -18,8 +18,8 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baffler_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baffler_g_winningclub.png"
     ],
-    "firstNightReminder": "They choose a player. The chosen player chooses which convoluted way they must speak.",
-    "otherNightReminder": "They choose a player. The chosen player chooses which convoluted way they must speak.",
+    "firstNightReminder": "The Baffler chooses a player. :reminder: Put the Baffler to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* & Baffler tokens.",
+    "otherNightReminder": "The Baffler chooses a player. :reminder: Put the Baffler to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* & Baffler tokens.",
     "reminders": [
       "Baffled!",
       "Baffled!",
@@ -40,7 +40,7 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baroness_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baroness_g_winningclub.png"
     ],
-    "otherNightReminder": "They choose a player.",
+    "otherNightReminder": "The Baroness chooses a player. :reminder:",
     "reminders": [
       "Dead",
       "Dead",
@@ -48,7 +48,8 @@
     ],
     "name": "Baroness Ω",
     "team": "demon",
-    "ability": "Each night*, choose a player: they might die. Good Minions do not learn or are shown in Minion or Demon info. [0 Townfolk. +0 to +2 Good Minions]",
+    "setup": true,
+    "ability": "Each night*, choose a player: they might die. Good Minions do not learn or are shown in Minion or Demon info. [0 Townsfolk. +0 to +2 Good Minions]",
     "flavor": "Not my circus, not my monkeys. But I'm the ringmaster of this carnival and, I promise, it is the greatest show you are ever going to see.",
     "otherNight": 49
   },

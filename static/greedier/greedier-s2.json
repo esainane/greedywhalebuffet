@@ -36,11 +36,16 @@
       "Dead",
       "Dead",
       "Dead",
-      "Dead"
+      "Dead",
+      "Jinx Chosen",
+      "Jinx Chosen",
+      "Jinx Chosen",
+      "Jinx Chosen",
+      "Jinx Chosen"
     ],
     "name": "Armageddon Ω",
     "team": "demon",
-    "ability": "On your 4th night, choose 3 alive players (not Travellers), including one good: they can't change alignment, can't die tonight, & all other players die, even if for some reason they could not. If nobody dies on day 4, your team wins.",
+    "ability": "On your 4th night, choose 3 alive players (not Travellers), including 1 good: they can't change alignment, can't die tonight, & all other players die. This must happen. Tomorrow, if nobody dies, your team wins.",
     "flavor": "I am become death, destroyer of worlds. -J. Robert Oppenheimer",
     "otherNight": 53
   },

@@ -20,8 +20,8 @@
     "id": "armageddon_winningclub",
     "jinx": [
       {
-        "id": "assassin",
-        "reason": "The Assassin has no ability on Night 4."
+        "id": "banshee",
+        "reason": "Each night*, the Armageddon chooses an alive good player (different to previous nights): a chosen Banshee dies & gains their ability."
       },
       {
         "id": "courtier",
@@ -29,59 +29,51 @@
       },
       {
         "id": "devilsadvocate",
-        "reason": "The Devil's Advocate has no ability on Night 4."
-      },
-      {
-        "id": "engineer",
-        "reason": "The Engineer cannot create an Armageddon after night 4."
+        "reason": "The Devil's Advocate has no ability during armageddon."
       },
       {
         "id": "eviltwin",
-        "reason": "The Evil Twin has no ability on Night 4."
+        "reason": "The Evil Twin has no ability during armageddon."
       },
       {
         "id": "exorcist",
-        "reason": "On Night 4, the Exorcist learns if they ever chose the Armageddon, even if dead. If the Exorcist chooses the Armageddon, they still wake up."
+        "reason": "If the Armageddon nominates and executes the Exorcist-chosen player, good wins."
+      },
+      {
+        "id": "farmer",
+        "reason": "Each night*, the Armageddon chooses an alive good player (different to previous nights): a chosen Farmer uses their ability but does not die."
       },
       {
         "id": "goon",
-        "reason": "The Goon has no ability on Night 4."
+        "reason": "The Goon has no ability during armageddon."
       },
       {
         "id": "grandmother",
-        "reason": "If the Armageddon is in play and the Grandchild dies by execution, evil wins. The Grandmother has no ability on Night 4."
-      },
-      {
-        "id": "hatter",
-        "reason": "If the Armageddon is created from the Hatter after Night 4, the Armageddon immediately chooses 3 players."
+        "reason": "If the Armageddon is in play and the Grandchild dies by execution, evil wins."
       },
       {
         "id": "innkeeper",
-        "reason": "A protected player might survive instead of you if you are chosen by Armageddon."
+        "reason": "If the Armageddon nominates and executes an Innkeeper-protected player, good wins."
       },
       {
         "id": "king",
         "reason": "If the Armageddon is in play, and at least 1 player is dead, the King learns an alive character each night."
       },
       {
-        "id": "mayor",
-        "reason": "If the Armageddon and Mayor are alive on day 4 & no execution occurs, the Mayor's team wins."
-      },
-      {
         "id": "monk",
-        "reason": "A protected player might survive instead of you if you are chosen by Armageddon."
+        "reason": "If the Armageddon nominates and executes the Monk-protected player, good wins."
       },
       {
-        "id": "princess",
-        "reason": "If the Princess nominates & executes on their first day, the Princess learns an Armageddon is in play."
+        "id": "ravenkeeper",
+        "reason": "Each night*, the Armageddon chooses an alive good player (different to previous nights): a chosen Ravenkeeper uses their ability but does not die."
+      },
+      {
+        "id": "sage",
+        "reason": "Each night*, the Armageddon chooses an alive good player (different to previous nights): a chosen Sage uses their ability but does not die."
       },
       {
         "id": "soldier",
-        "reason": "If an evil player nominates & executes the Soldier, the Soldier's team wins."
-      },
-      {
-        "id": "godfather",
-        "reason": "The Godfather has no ability on Night 4."
+        "reason": "If the Armageddon nominates and executes the Soldier, good wins."
       }
     ]
   },
@@ -147,6 +139,15 @@
     ]
   },
   {
+    "id": "hatter",
+    "jinx": [
+      {
+        "id": "armageddon_winningclub",
+        "reason": "If the Armageddon is created from the Hatter after Night 4, armageddon happens on the Armageddon's second day."
+      }
+    ]
+  },
+  {
     "id": "informant_winningclub",
     "jinx": [
       {
@@ -191,6 +192,15 @@
     ]
   },
   {
+    "id": "princess",
+    "jinx": [
+      {
+        "id": "armageddon_winningclub",
+        "reason": "If the Princess nominated & executed a player on their 1st day, the Princess learns if an Armageddon is in play tonight."
+      }
+    ]
+  },
+  {
     "id": "pithag",
     "jinx": [
       {
@@ -213,6 +223,15 @@
       {
         "id": "journalist_winningclub",
         "reason": "While the Riot is in play, they do not learn the Journalist's picks. Each night, the Riot chooses an alive good player (different to previous nights): if the Riot chooses a Journalist chosen player, the Journalist learns a true statement, even if dead."
+      }
+    ]
+  },
+  {
+    "id": "summoner",
+    "jinx": [
+      {
+        "id": "armageddon_winningclub",
+        "reason": "If the Summoner summons an Armageddon, armageddon happens on the Armageddon's second day."
       }
     ]
   },

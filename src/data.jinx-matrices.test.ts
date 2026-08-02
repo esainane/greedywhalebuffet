@@ -2,12 +2,12 @@ import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { beforeAll, describe, expect, it } from 'vitest';
-import type { CharacterEntry, JinxEntry, ScriptData } from './types.js';
+import type { CharacterEntry, JinxFile, ScriptFile } from './types.js';
 
 type LoadedMatrixData = {
-	official: JinxEntry[];
-	greedy: JinxEntry[];
-	greedier: JinxEntry[];
+	official: JinxFile;
+	greedy: JinxFile;
+	greedier: JinxFile;
 	greedierCharacterIds: Set<string>;
 };
 
@@ -86,7 +86,7 @@ function isCharacterEntry(value: unknown): value is CharacterEntry {
 	);
 }
 
-function findDirectedReasons(entries: JinxEntry[], sourceId: string, targetId: string): string[] {
+function findDirectedReasons(entries: JinxFile, sourceId: string, targetId: string): string[] {
 	const source = entries.find((entry) => entry.id === sourceId);
 	return (source?.jinx ?? [])
 		.filter((target) => target.id === targetId)
@@ -111,7 +111,7 @@ async function collectGreedierDefinedIds(): Promise<Set<string>> {
 			continue;
 		}
 
-		const script = await readJson<ScriptData>(path.join(greedierDir, fileName));
+		const script = await readJson<ScriptFile>(path.join(greedierDir, fileName));
 		for (const entry of script) {
 			if (isCharacterEntry(entry)) {
 				ids.add(entry.id);
@@ -249,9 +249,9 @@ describe('jinx matrices', () => {
 
 	beforeAll(async () => {
 		const [official, greedy, greedier, greedierCharacterIds] = await Promise.all([
-			readJson<JinxEntry[]>(path.join(staticRoot, 'jinxes.json')),
-			readJson<JinxEntry[]>(path.join(staticRoot, 'greedy_jinxes.json')),
-			readJson<JinxEntry[]>(path.join(staticRoot, 'greedier_jinxes.json')),
+			readJson<JinxFile>(path.join(staticRoot, 'jinxes.json')),
+			readJson<JinxFile>(path.join(staticRoot, 'greedy_jinxes.json')),
+			readJson<JinxFile>(path.join(staticRoot, 'greedier_jinxes.json')),
 			collectGreedierDefinedIds(),
 		]);
 

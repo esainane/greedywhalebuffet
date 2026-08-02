@@ -1,4 +1,4 @@
-export type AbilityTextParts = {
+type AbilityTextParts = {
 	mainText: string;
 	setupText: string;
 };

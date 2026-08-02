@@ -2,8 +2,11 @@ import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
-import type { JinxEntry } from './types.js';
+import type { JinxFile } from './types.js';
 
+/**
+ * Helper for comparing official and greedy jinx pair direction.
+ */
 type FlattenedJinxPair = {
 	pairKey: string;
 	direction: string;
@@ -13,15 +16,15 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, '..');
 const staticRoot = path.join(repoRoot, 'static');
 
-async function readJson(filePath: string): Promise<JinxEntry[]> {
-	return JSON.parse(await readFile(filePath, 'utf8')) as JinxEntry[];
+async function readJson(filePath: string): Promise<JinxFile> {
+	return JSON.parse(await readFile(filePath, 'utf8')) as JinxFile;
 }
 
 function buildPairKey(sourceId: string, targetId: string): string {
 	return sourceId < targetId ? sourceId + '|' + targetId : targetId + '|' + sourceId;
 }
 
-function flattenJinxPairs(payload: JinxEntry[]): FlattenedJinxPair[] {
+function flattenJinxPairs(payload: JinxFile): FlattenedJinxPair[] {
 	const pairs: FlattenedJinxPair[] = [];
 
 	for (const sourceEntry of payload) {

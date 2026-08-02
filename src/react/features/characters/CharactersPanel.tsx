@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import type { Character } from '../../../types.js';
+import type { SelectableCharacter } from '../../../types.js';
 import { splitCharactersByCommonBans } from '../../../character.js';
 import { compareCanonicalCharacterOrder } from '../../../jinxOrder.js';
 import { useAppActions, useAppState } from '../../context/AppContext.js';
@@ -25,14 +25,14 @@ const POPULAR_GREEDIER_CHARACTER_IDS: readonly string[] = [
 type CharacterListProps = {
 	id: string;
 	className: string;
-	characters: Character[];
+	characters: SelectableCharacter[];
 	emptyText: string;
 	isQuickRemove: boolean;
 	showTeamSubtitle?: boolean;
 };
 
 type CharacterCardProps = {
-	character: Character;
+	character: SelectableCharacter;
 	isSelected: boolean;
 	hasMissingDependencies: boolean;
 	isQuickRemove: boolean;

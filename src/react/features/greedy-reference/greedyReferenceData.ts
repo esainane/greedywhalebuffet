@@ -1,16 +1,12 @@
 import { FILTERABLE_TEAMS } from '../../../constants.js';
 import { getBaseCharacterId, getImageArray } from '../../../character.js';
 import type { FetchedData } from '../../../data/fetched.js';
-import type { CharacterEntry, ScriptData } from '../../../types.js';
+import type { CharacterBase, CharacterEntry, ScriptFile } from '../../../types.js';
 import { compareCanonicalCharacterOrder, compareCanonicalJinxOrder } from '../../../jinxOrder.js';
 
-export type CharacterSummary = {
-	id: string;
-	name: string;
-	team: string;
+type CharacterSummary = CharacterBase & {
 	edition?: string;
 	imageUrl?: string;
-	sourceSet?: number;
 };
 
 export type GreedyDifferenceDetail = {
@@ -34,7 +30,7 @@ export type GreedyHomebrewDetail = {
 	otherNight?: number;
 };
 
-function isCharacterObject(entry: ScriptData[number]): entry is CharacterEntry {
+function isCharacterObject(entry: ScriptFile[number]): entry is CharacterEntry {
 	if (typeof entry !== 'object' || entry === null || Array.isArray(entry)) {
 		return false;
 	}
@@ -43,7 +39,7 @@ function isCharacterObject(entry: ScriptData[number]): entry is CharacterEntry {
 }
 
 function hasFilterableTeam(entry: CharacterEntry): entry is CharacterEntry & { team: string } {
-	return typeof entry.team === 'string' && FILTERABLE_TEAMS.has(entry.team);
+	return FILTERABLE_TEAMS.has(entry.team);
 }
 
 function getPrimaryImage(entry: CharacterEntry, fetchedData: FetchedData): string | undefined {
@@ -59,7 +55,7 @@ function createCharacterSummary(entry: CharacterEntry, fetchedData: FetchedData)
 	return {
 		id: entry.id,
 		name: entry.name ?? entry.id,
-		team: entry.team ?? 'unknown',
+		team: entry.team,
 		edition: entry.edition,
 		imageUrl: getPrimaryImage(entry, fetchedData),
 		sourceSet: entry.sourceSet,
@@ -136,8 +132,8 @@ export function deriveGreedyDifferences(fetchedData: FetchedData): GreedyDiffere
 			continue;
 		}
 
-		const officialAbility = official.ability ?? '';
-		const greedyAbility = entry.ability ?? '';
+		const officialAbility = official.ability;
+		const greedyAbility = entry.ability;
 		if (officialAbility === greedyAbility) {
 			continue;
 		}
@@ -258,7 +254,7 @@ export function deriveGreedyHomebrew(
 
 		details.push({
 			character: createCharacterSummary(entry, fetchedData),
-			ability: entry.ability ?? '',
+			ability: entry.ability,
 			firstNight: entry.firstNight,
 			otherNight: entry.otherNight,
 		});

@@ -10,7 +10,7 @@ type DiffRun = {
 	text: string;
 };
 
-export type InlineWordDiffRun = DiffRun;
+type InlineWordDiffRun = DiffRun;
 
 type InlineWordDiffProps = {
 	before: string;

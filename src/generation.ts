@@ -2,7 +2,7 @@
  * Script generation logic and option application.
  */
 
-import type { ScriptData, GenerationOptions, CharacterEntry } from './types.js';
+import type { ScriptFile, GenerationOptions, CharacterEntry } from './types.js';
 import { DUPLICATE_LINE, REMOVED_CHARACTERS_PREFIX, FILTERABLE_TEAMS } from './constants.js';
 import {
 	getMetaEntry,
@@ -15,7 +15,7 @@ import { getUnsatisfiedDependencyCharacterIds } from './dependencies.js';
 
 const SPIRIT_OF_IVORY_ID = 'spiritofivory';
 
-function getEntryId(entry: ScriptData[number]): string | undefined {
+function getEntryId(entry: ScriptFile[number]): string | undefined {
 	if (typeof entry === 'string') {
 		return entry;
 	}
@@ -27,7 +27,7 @@ function getEntryId(entry: ScriptData[number]): string | undefined {
 	return undefined;
 }
 
-function stripTransientCharacterFields(data: ScriptData): void {
+function stripTransientCharacterFields(data: ScriptFile): void {
 	for (const entry of data) {
 		if (typeof entry !== 'object' || entry === null || !('id' in entry) || entry.id === '_meta') {
 			continue;
@@ -40,7 +40,7 @@ function stripTransientCharacterFields(data: ScriptData): void {
 /**
  * Apply duplicate line to meta entry.
  */
-export function applyDuplicateLine(data: ScriptData): void {
+export function applyDuplicateLine(data: ScriptFile): void {
 	const metaEntry = getMetaEntry(data);
 	if (!metaEntry) {
 		return;
@@ -52,7 +52,7 @@ export function applyDuplicateLine(data: ScriptData): void {
 /**
  * Ensure Spirit of Ivory appears in the script character list.
  */
-export function applySpiritOfIvory(data: ScriptData): void {
+export function applySpiritOfIvory(data: ScriptFile): void {
 	if (data.find((entry) => getEntryId(entry) === SPIRIT_OF_IVORY_ID)) {
 		return;
 	}
@@ -63,7 +63,7 @@ export function applySpiritOfIvory(data: ScriptData): void {
 /**
  * Apply Alejo rules (Philosopher/Snake Charmer first night ordering).
  */
-export function applyAlejoRules(data: ScriptData, fetchedData: FetchedData): void {
+export function applyAlejoRules(data: ScriptFile, fetchedData: FetchedData): void {
 	const snakeCharmer = findOrExpandCharacter('snakecharmer', data, fetchedData);
 
 	if (!snakeCharmer) {
@@ -76,7 +76,7 @@ export function applyAlejoRules(data: ScriptData, fetchedData: FetchedData): voi
 /**
  * Apply all selected generation options to script data.
  */
-export function applyOptions(data: ScriptData, options: GenerationOptions, fetchedData: FetchedData): void {
+export function applyOptions(data: ScriptFile, options: GenerationOptions, fetchedData: FetchedData): void {
 	if (options.appendDuplicateLine) {
 		applyDuplicateLine(data);
 	}
@@ -189,7 +189,7 @@ export function buildCopyPayload(
 	const rolesData = fetchedData.getRolesData();
 
 	// Filter out deselected characters
-	const filteredData: ScriptData = [metaEntry];
+	const filteredData: ScriptFile = [metaEntry];
 	for (const entry of nextData) {
 		if (entry === metaEntry) {
 			continue;

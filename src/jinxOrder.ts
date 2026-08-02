@@ -6,13 +6,7 @@ export type JinxSortCharacter = {
 	team?: string;
 };
 
-export type CanonicalCharacterOrderEntry = {
-	id: string;
-	name?: string;
-	team?: string;
-};
-
-export type CanonicalJinxOrderEntry = {
+type CanonicalJinxOrderEntry = {
 	source: JinxSortCharacter;
 	target: JinxSortCharacter;
 	originalOrder?: number;
@@ -44,8 +38,8 @@ function compareDisplayNames(a: JinxSortCharacter, b: JinxSortCharacter): number
 }
 
 export function compareCanonicalCharacterOrder(
-	a: CanonicalCharacterOrderEntry,
-	b: CanonicalCharacterOrderEntry,
+	a: JinxSortCharacter,
+	b: JinxSortCharacter,
 ): number {
 	const teamRankDifference = getTeamSortRank(a.team) - getTeamSortRank(b.team);
 	if (teamRankDifference !== 0) {

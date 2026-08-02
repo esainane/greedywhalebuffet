@@ -15,7 +15,7 @@ function makeFetchedData(role: CharacterEntry): FetchedData {
 		greedierCharactersData: [],
 		greedyToBaseID: {},
 		rolesData: [role],
-		nightsheetData: { firstNight: [], otherNight: [] },
+		nightsheetFile: { firstNight: [], otherNight: [] },
 		jinxData: [],
 	});
 }
@@ -26,6 +26,7 @@ describe('character image behavior', () => {
 			id: 'clockmaker',
 			name: 'Clockmaker',
 			team: 'townsfolk',
+			ability: 'Test ability',
 			image: 'https://greedy.antihype.space/icons/carousel/clockmaker_g.webp',
 		};
 		const fetchedData = makeFetchedData(role);
@@ -44,6 +45,7 @@ describe('character image behavior', () => {
 			id: 'clockmaker',
 			name: 'Clockmaker',
 			team: 'townsfolk',
+			ability: 'Test ability',
 			image: 'https://greedy.antihype.space/icons/carousel/clockmaker_g.webp',
 		};
 		const fetchedData = makeFetchedData(role);

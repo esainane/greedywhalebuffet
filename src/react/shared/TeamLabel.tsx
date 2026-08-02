@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type TeamLabelMode = 'strict' | 'passthrough';
+type TeamLabelMode = 'strict' | 'passthrough';
 
 type TeamLabelInfo = {
 	label: string;

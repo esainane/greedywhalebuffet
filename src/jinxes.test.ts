@@ -1,12 +1,12 @@
 import { describe, expect, it } from 'vitest';
-import type { CharacterEntry, JinxEntry, ScriptData } from './types.js';
+import type { CharacterEntry, JinxFile, ScriptFile } from './types.js';
 import { FetchedData } from './data/fetched.js';
 import { applySelectedJinxes } from './jinxes.js';
 
 function makeFetchedData(params: {
 	rolesData: CharacterEntry[];
-	official: JinxEntry[];
-	greedy: JinxEntry[];
+	official: JinxFile;
+	greedy: JinxFile;
 }): FetchedData {
 	return new FetchedData({
 		greedyJson: [{ id: '_meta', name: 'Test Script' }, 'heretic'],
@@ -15,12 +15,12 @@ function makeFetchedData(params: {
 		greedierCharactersData: [],
 		greedyToBaseID: {},
 		rolesData: params.rolesData,
-		nightsheetData: { firstNight: [], otherNight: [] },
+		nightsheetFile: { firstNight: [], otherNight: [] },
 		jinxData: params.official,
 	});
 }
 
-function getSourceEntry(data: ScriptData): CharacterEntry | undefined {
+function getSourceEntry(data: ScriptFile): CharacterEntry | undefined {
 	return data.find(
 		(entry) =>
 			typeof entry === 'object' &&
@@ -34,13 +34,13 @@ function getSourceEntry(data: ScriptData): CharacterEntry | undefined {
 describe('applySelectedJinxes', () => {
 	it('lets greedy jinx reasons override official reasons', () => {
 		const rolesData: CharacterEntry[] = [
-			{ id: 'heretic', name: 'Heretic', team: 'outsider' },
-			{ id: 'baron', name: 'Baron', team: 'minion' },
+			{ id: 'heretic', name: 'Heretic', team: 'outsider', ability: 'Heretic ability' },
+			{ id: 'baron', name: 'Baron', team: 'minion', ability: 'Baron ability' },
 		];
-		const official: JinxEntry[] = [
+		const official: JinxFile = [
 			{ id: 'heretic', jinx: [{ id: 'baron', reason: 'Official reason' }] },
 		];
-		const greedy: JinxEntry[] = [
+		const greedy: JinxFile = [
 			{ id: 'heretic', jinx: [{ id: 'baron', reason: 'Greedy reason' }] },
 		];
 
@@ -55,13 +55,13 @@ describe('applySelectedJinxes', () => {
 
 	it('treats blank greedy reason as a tombstone that removes official jinx', () => {
 		const rolesData: CharacterEntry[] = [
-			{ id: 'heretic', name: 'Heretic', team: 'outsider' },
-			{ id: 'baron', name: 'Baron', team: 'minion' },
+			{ id: 'heretic', name: 'Heretic', team: 'outsider', ability: 'Heretic ability' },
+			{ id: 'baron', name: 'Baron', team: 'minion', ability: 'Baron ability' },
 		];
-		const official: JinxEntry[] = [
+		const official: JinxFile = [
 			{ id: 'heretic', jinx: [{ id: 'baron', reason: 'Official reason' }] },
 		];
-		const greedy: JinxEntry[] = [
+		const greedy: JinxFile = [
 			{ id: 'heretic', jinx: [{ id: 'baron', reason: '' }] },
 		];
 
@@ -76,14 +76,14 @@ describe('applySelectedJinxes', () => {
 
 	it('sorts final jinxes by canonical target order for a source', () => {
 		const rolesData: CharacterEntry[] = [
-			{ id: 'heretic', name: 'Heretic', team: 'outsider' },
-			{ id: 'empath', name: 'Empath', team: 'townsfolk' },
-			{ id: 'baron', name: 'Baron', team: 'minion' },
-			{ id: 'devilsadvocate', name: 'Devil\'s Advocate', team: 'minion' },
-			{ id: 'imp', name: 'Imp', team: 'demon' },
+			{ id: 'heretic', name: 'Heretic', team: 'outsider', ability: 'Heretic ability' },
+			{ id: 'empath', name: 'Empath', team: 'townsfolk', ability: 'Empath ability' },
+			{ id: 'baron', name: 'Baron', team: 'minion', ability: 'Baron ability' },
+			{ id: 'devilsadvocate', name: 'Devil\'s Advocate', team: 'minion', ability: 'Devil\'s Advocate ability' },
+			{ id: 'imp', name: 'Imp', team: 'demon', ability: 'Imp ability' },
 		];
-		const official: JinxEntry[] = [];
-		const greedy: JinxEntry[] = [
+		const official: JinxFile = [];
+		const greedy: JinxFile = [
 			{
 				id: 'heretic',
 				jinx: [

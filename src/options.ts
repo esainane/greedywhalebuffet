@@ -5,7 +5,7 @@
 
 import type { GenerationOptions } from './types.js';
 
-export type OptionConfig = {
+type OptionConfig = {
 	id: string;
 	name: keyof GenerationOptions;
 	label: string;

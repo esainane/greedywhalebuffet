@@ -2,7 +2,7 @@
  * Character processing utilities.
  */
 
-import type { ScriptData, CharacterEntry, Character, MetaEntry } from './types.js';
+import type { ScriptFile, CharacterEntry, SelectableCharacter, MetaEntry } from './types.js';
 import { FILTERABLE_TEAMS, COMMON_BANS, CUSTOM_CHARACTER_ID_SUFFIX } from './constants.js';
 import type { FetchedData } from './data/fetched.js';
 
@@ -53,21 +53,20 @@ function nightOrder(id: string, ordering: string[], fetchedData: FetchedData): n
  * Get first night order position for a character.
  */
 export function firstNightOrder(id: string, fetchedData: FetchedData): number | undefined {
-	return nightOrder(id, fetchedData.getNightsheetData().firstNight, fetchedData);
+	return nightOrder(id, fetchedData.getNightsheetFile().firstNight, fetchedData);
 }
 
 /**
  * Get other night order position for a character.
  */
 export function otherNightOrder(id: string, fetchedData: FetchedData): number | undefined {
-	return nightOrder(id, fetchedData.getNightsheetData().otherNight, fetchedData);
+	return nightOrder(id, fetchedData.getNightsheetFile().otherNight, fetchedData);
 }
 
 function getImageArrayRaw(entry: CharacterEntry, fetchedData: FetchedData): string[] {
 	const roleImage = entry.image;
-	const team = entry?.team as string | undefined;
-	if (!team || !FILTERABLE_TEAMS.has(team)) {
-		throw new Error(`Could not find valid team for character ${entry.id}: ${team}`);
+	if (!FILTERABLE_TEAMS.has(entry.team)) {
+		throw new Error(`Could not find valid team for character ${entry.id}: ${entry.team}`);
 	}
 	if (typeof roleImage === 'string') {
 		return [roleImage];
@@ -77,7 +76,7 @@ function getImageArrayRaw(entry: CharacterEntry, fetchedData: FetchedData): stri
 	// Fallback to Klutzbanana URL
 	// Work out whether to ask for g or e as the standard image
 	const baseId = getBaseCharacterId(entry.id, fetchedData);
-	const [teamId, otherId] = ['townsfolk', 'outsider'].includes(team) ? ['g', 'e'] : ['e', 'g'];
+	const [teamId, otherId] = ['townsfolk', 'outsider'].includes(entry.team) ? ['g', 'e'] : ['e', 'g'];
 	return [
 		`https://greedy.antihype.space/icons/${entry.edition ?? "carousel"}/${baseId}_${teamId}.webp`,
 		`https://greedy.antihype.space/icons/${entry.edition ?? "carousel"}/${baseId}_${otherId}.webp`,
@@ -104,10 +103,18 @@ export function getImageArray(entry: CharacterEntry, fetchedData: FetchedData): 
 }
 
 /**
+ * Get a fallback image URL for a specific team.
+ */
+function getFallbackImageURL(team: string): string {
+	const basename = ['townsfolk', 'outsider', 'minion', 'demon'].includes(team) ? team : 'custom';
+	return `https://greedy.antihype.space/icons/generic/${basename}.webp`;
+}
+
+/**
  * Extract characters from script data.
  */
-export function getCharacters(data: Readonly<ScriptData>, fetchedData: FetchedData): Character[] {
-	const characters: Character[] = [];
+export function getCharacters(data: Readonly<ScriptFile>, fetchedData: FetchedData): SelectableCharacter[] {
+	const characters: SelectableCharacter[] = [];
 	const roles = fetchedData.getRolesData();
 	const startIndex = getMetaEntry(data) ? 1 : 0;
 
@@ -117,17 +124,16 @@ export function getCharacters(data: Readonly<ScriptData>, fetchedData: FetchedDa
 		if (typeof entry === 'string') {
 			// Simple string ID - look up in roles.json
 			const roleEntry = roles.find((r) => r.id === entry);
-			const team = roleEntry?.team as string | undefined;
 
 			// Only include if team is valid
-			if (!roleEntry || !team || !FILTERABLE_TEAMS.has(team)) {
+			if (!roleEntry || !FILTERABLE_TEAMS.has(roleEntry.team)) {
 				continue;
 			}
 
 			characters.push({
 				id: entry,
-				name: roleEntry?.name || entry.charAt(0).toUpperCase() + entry.slice(1),
-				team,
+				name: roleEntry.name,
+				team: roleEntry.team,
 				imageUrl: getImageArray(roleEntry, fetchedData)[0],
 			});
 		} else if (typeof entry === 'object' && entry !== null) {
@@ -139,16 +145,16 @@ export function getCharacters(data: Readonly<ScriptData>, fetchedData: FetchedDa
 			}
 
 			// Only include characters with valid team types
-			if (!charEntry.team || !FILTERABLE_TEAMS.has(charEntry.team)) {
+			if (!FILTERABLE_TEAMS.has(charEntry.team)) {
 				continue;
 			}
 
-			const imageUrl = Array.isArray(charEntry.image) ? charEntry.image[0] : undefined;
+			const imageUrl = Array.isArray(charEntry.image) ? charEntry.image[0] : charEntry.image ?? getFallbackImageURL(charEntry.team);
 			characters.push({
 				id: charEntry.id,
-				name: charEntry.name || charEntry.id,
+				name: charEntry.name,
 				team: charEntry.team,
-				imageUrl: imageUrl ? normalizeImageUrl(imageUrl) : undefined,
+				imageUrl: normalizeImageUrl(imageUrl),
 			});
 		}
 	}
@@ -160,10 +166,10 @@ export function getCharacters(data: Readonly<ScriptData>, fetchedData: FetchedDa
  * Split characters into quick-remove and remaining lists.
  */
 export function splitCharactersByCommonBans(
-	characters: Character[],
-): { quickRemove: Character[]; remaining: Character[] } {
-	const quickRemove: Character[] = [];
-	const remaining: Character[] = [];
+	characters: SelectableCharacter[],
+): { quickRemove: SelectableCharacter[]; remaining: SelectableCharacter[] } {
+	const quickRemove: SelectableCharacter[] = [];
+	const remaining: SelectableCharacter[] = [];
 
 	for (const character of characters) {
 		if (COMMON_BANS.includes(character.id)) {
@@ -179,7 +185,7 @@ export function splitCharactersByCommonBans(
 /**
  * Get metadata entry from script data.
  */
-export function getMetaEntry(data: Readonly<ScriptData>): MetaEntry | null {
+export function getMetaEntry(data: Readonly<ScriptFile>): MetaEntry | null {
 	if (!Array.isArray(data) || data.length === 0) {
 		return null;
 	}
@@ -191,7 +197,7 @@ export function getMetaEntry(data: Readonly<ScriptData>): MetaEntry | null {
  * Find a character in script data.
  */
 export function findCharacterId(
-	id: string, data: ScriptData, fetchedData: FetchedData,
+	id: string, data: ScriptFile, fetchedData: FetchedData,
 ): string {
 	const baseId = getBaseCharacterId(id, fetchedData);
 	const customId = getCustomCharacterId(baseId, fetchedData);
@@ -219,7 +225,7 @@ export function findCharacterId(
  */
 export function findOrExpandCharacter(
 	id: string,
-	data: ScriptData,
+	data: ScriptFile,
 	fetchedData: FetchedData,
 ): CharacterEntry | null {
 	const baseId = getBaseCharacterId(id, fetchedData);

@@ -2,12 +2,7 @@ import { readdir, readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, it } from 'vitest';
-
-type RoleEntry = { id: string };
-type ScriptEntry = string | { id: string; team?: string };
-type MappingFile = Record<string, string>;
-type JinxFileEntry = { id: string; jinx: Array<{ id: string }> };
-type NightsheetFile = { firstNight: string[]; otherNight: string[] };
+import type { JinxFile, MappingFile, NightsheetFile, CharacterBase, CharacterEntry } from './types.js';
 
 const CORE_TEAMS = new Set(['townsfolk', 'outsider', 'minion', 'demon']);
 const GREEDY_EXCEPTIONS = new Set(['choose_your_chars', '_meta']);
@@ -38,7 +33,7 @@ function suggestSimilar(id: string, allowedIds: Set<string>): string {
 }
 
 function collectInvalidJinxIds(
-	entries: JinxFileEntry[],
+	entries: JinxFile,
 	allowedIds: Set<string>,
 	label: string,
 ): string[] {
@@ -50,11 +45,11 @@ function collectInvalidJinxIds(
 			issues.push(`${label}: entry id "${entry.id}" is not allowed${suggestion}`);
 		}
 
-		for (const jinxEntry of entry.jinx) {
-			if (!allowedIds.has(jinxEntry.id)) {
-				const suggestion = suggestSimilar(jinxEntry.id, allowedIds);
+		for (const jinxFileEntry of entry.jinx) {
+			if (!allowedIds.has(jinxFileEntry.id)) {
+				const suggestion = suggestSimilar(jinxFileEntry.id, allowedIds);
 				issues.push(
-					`${label}: jinx id "${jinxEntry.id}" (paired with "${entry.id}") is not allowed${suggestion}`,
+					`${label}: jinx id "${jinxFileEntry.id}" (paired with "${entry.id}") is not allowed${suggestion}`,
 				);
 			}
 		}
@@ -80,7 +75,7 @@ async function collectGreedierDefinedIds(): Promise<Set<string>> {
 			continue;
 		}
 
-		const script = await readJson<ScriptEntry[]>(path.join(staticRoot, 'greedier', fileName));
+		const script = await readJson<CharacterEntry[]>(path.join(staticRoot, 'greedier', fileName));
 		for (const entry of script) {
 			if (typeof entry === 'object' && entry.id) {
 				greedierDefinedIds.add(entry.id);
@@ -93,13 +88,13 @@ async function collectGreedierDefinedIds(): Promise<Set<string>> {
 
 describe('static data ID consistency', () => {
 	it('keeps id_mappings targets on base role IDs', async () => {
-		const [roles, idMappings] = await Promise.all([
-			readJson<RoleEntry[]>(path.join(staticRoot, 'roles.json')),
+		const [roles, mappingFile] = await Promise.all([
+			readJson<CharacterBase[]>(path.join(staticRoot, 'roles.json')),
 			readJson<MappingFile>(path.join(staticRoot, 'id_mappings.json')),
 		]);
 
 		const baseRoleIds = new Set(roles.map((role) => role.id));
-		const issues = Object.entries(idMappings)
+		const issues = Object.entries(mappingFile)
 			.filter(([, mappedTo]) => !baseRoleIds.has(mappedTo))
 			.map(([sourceId, mappedTo]) =>
 				`id_mappings: "${sourceId}" maps to "${mappedTo}", which is not in roles.json`,
@@ -109,9 +104,9 @@ describe('static data ID consistency', () => {
 	});
 
 	it('keeps greedy.json using mapped IDs where mapped, and base role IDs otherwise', async () => {
-		const [roles, greedyEntries, idMappings] = await Promise.all([
-			readJson<RoleEntry[]>(path.join(staticRoot, 'roles.json')),
-			readJson<ScriptEntry[]>(path.join(staticRoot, 'greedy.json')),
+		const [roles, greedyEntries, mappingFile] = await Promise.all([
+			readJson<CharacterBase[]>(path.join(staticRoot, 'roles.json')),
+			readJson<CharacterEntry[]>(path.join(staticRoot, 'greedy.json')),
 			readJson<MappingFile>(path.join(staticRoot, 'id_mappings.json')),
 		]);
 
@@ -130,15 +125,15 @@ describe('static data ID consistency', () => {
 
 			const id = entry.id;
 			if (baseRoleIds.has(id)) {
-				if (Object.values(idMappings).includes(id)) {
+				if (Object.values(mappingFile).includes(id)) {
 					issues.push(
-						`greedy.json: "${id}" is a base role ID that should be mapped to "${idMappings[id]}"`,
+						`greedy.json: "${id}" is a base role ID that should be mapped to "${mappingFile[id]}"`,
 					);
 				}
 				continue;
 			}
 
-			if (id in idMappings) {
+			if (id in mappingFile) {
 				continue;
 			}
 
@@ -160,8 +155,8 @@ describe('static data ID consistency', () => {
 
 	it('keeps jinxes.json using only base role IDs', async () => {
 		const [roles, jinxes] = await Promise.all([
-			readJson<RoleEntry[]>(path.join(staticRoot, 'roles.json')),
-			readJson<JinxFileEntry[]>(path.join(staticRoot, 'jinxes.json')),
+			readJson<CharacterBase[]>(path.join(staticRoot, 'roles.json')),
+			readJson<JinxFile>(path.join(staticRoot, 'jinxes.json')),
 		]);
 
 		const baseRoleIds = new Set(roles.map((role) => role.id));
@@ -171,7 +166,7 @@ describe('static data ID consistency', () => {
 
 	it('keeps nightsheet.json using only base role IDs', async () => {
 		const [roles, nightsheet] = await Promise.all([
-			readJson<RoleEntry[]>(path.join(staticRoot, 'roles.json')),
+			readJson<CharacterBase[]>(path.join(staticRoot, 'roles.json')),
 			readJson<NightsheetFile>(path.join(staticRoot, 'nightsheet.json')),
 		]);
 
@@ -195,8 +190,8 @@ describe('static data ID consistency', () => {
 
 	it('keeps greedy_jinxes.json using only base role IDs', async () => {
 		const [roles, greedyJinxes] = await Promise.all([
-			readJson<RoleEntry[]>(path.join(staticRoot, 'roles.json')),
-			readJson<JinxFileEntry[]>(path.join(staticRoot, 'greedy_jinxes.json')),
+			readJson<CharacterBase[]>(path.join(staticRoot, 'roles.json')),
+			readJson<JinxFile>(path.join(staticRoot, 'greedy_jinxes.json')),
 		]);
 
 		const baseRoleIds = new Set(roles.map((role) => role.id));
@@ -206,8 +201,8 @@ describe('static data ID consistency', () => {
 
 	it('keeps greedier_jinxes.json using only base or greedier-defined IDs', async () => {
 		const [roles, greedierJinxes, greedierDefinedIds] = await Promise.all([
-			readJson<RoleEntry[]>(path.join(staticRoot, 'roles.json')),
-			readJson<JinxFileEntry[]>(path.join(staticRoot, 'greedier_jinxes.json')),
+			readJson<CharacterBase[]>(path.join(staticRoot, 'roles.json')),
+			readJson<JinxFile>(path.join(staticRoot, 'greedier_jinxes.json')),
 			collectGreedierDefinedIds(),
 		]);
 
@@ -219,14 +214,14 @@ describe('static data ID consistency', () => {
 	});
 
 	it('ensures greedier-defined IDs do not overlap base or mapped IDs', async () => {
-		const [roles, idMappings, greedierDefinedIds] = await Promise.all([
-			readJson<RoleEntry[]>(path.join(staticRoot, 'roles.json')),
+		const [roles, mappingFile, greedierDefinedIds] = await Promise.all([
+			readJson<CharacterBase[]>(path.join(staticRoot, 'roles.json')),
 			readJson<MappingFile>(path.join(staticRoot, 'id_mappings.json')),
 			collectGreedierDefinedIds(),
 		]);
 
 		const baseRoleIds = new Set(roles.map((role) => role.id));
-		const mappedSourceIds = new Set(Object.keys(idMappings));
+		const mappedSourceIds = new Set(Object.keys(mappingFile));
 		const issues: string[] = [];
 
 		for (const id of greedierDefinedIds) {

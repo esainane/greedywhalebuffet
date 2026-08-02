@@ -5,11 +5,11 @@
  */
 
 import type {
-	ScriptData,
+	ScriptFile,
 	CharacterEntry,
-	JinxEntry,
-	NightsheetData,
-	IdMappings,
+	JinxFile,
+	NightsheetFile,
+	MappingFile,
 } from '../types.js';
 
 function deepFreeze<T>(value: T): T {
@@ -71,9 +71,9 @@ class BidirectionalMap {
 	}
 
 	/**
-	 * Initialize from an existing IdMappings object.
+	 * Initialize from an existing MappingFile object.
 	 */
-	initializeFrom(mappings: Readonly<IdMappings>): void {
+	initializeFrom(mappings: Readonly<MappingFile>): void {
 		this.clear();
 		for (const [key, value] of Object.entries(mappings)) {
 			this.set(key, value);
@@ -87,9 +87,9 @@ class BidirectionalMap {
  */
 export class FetchedData {
 	// Core script data (read-only after construction)
-	private readonly greedyJson: ScriptData;
-	private readonly greedyJinxData: JinxEntry[];
-	private readonly greedierJinxData: JinxEntry[];
+	private readonly greedyJson: ScriptFile;
+	private readonly greedyJinxData: JinxFile;
+	private readonly greedierJinxData: JinxFile;
 	private readonly greedierCharactersData: CharacterEntry[];
 
 	// ID mapping data (bidirectional, synchronized)
@@ -98,18 +98,18 @@ export class FetchedData {
 
 	// Official reference data (read-only after construction)
 	private readonly rolesData: CharacterEntry[];
-	private readonly nightsheetData: NightsheetData;
-	private readonly jinxData: JinxEntry[];
+	private readonly nightsheetFile: NightsheetFile;
+	private readonly jinxData: JinxFile;
 
 	constructor(data: {
-		greedyJson: ScriptData;
-		greedyJinxData: JinxEntry[];
-		greedierJinxData: JinxEntry[];
+		greedyJson: ScriptFile;
+		greedyJinxData: JinxFile;
+		greedierJinxData: JinxFile;
 		greedierCharactersData: CharacterEntry[];
-		greedyToBaseID: IdMappings;
+		greedyToBaseID: MappingFile;
 		rolesData: CharacterEntry[];
-		nightsheetData: NightsheetData;
-		jinxData: JinxEntry[];
+		nightsheetFile: NightsheetFile;
+		jinxData: JinxFile;
 	}) {
 		this.greedyJson = deepFreeze(data.greedyJson);
 		this.greedyJinxData = deepFreeze(data.greedyJinxData);
@@ -121,7 +121,7 @@ export class FetchedData {
 
 		this.greedierCharactersData = deepFreeze(data.greedierCharactersData);
 		this.rolesData = deepFreeze(data.rolesData);
-		this.nightsheetData = deepFreeze(data.nightsheetData);
+		this.nightsheetFile = deepFreeze(data.nightsheetFile);
 		this.jinxData = deepFreeze(data.jinxData);
 
 		// Initialize bidirectional mappings
@@ -132,15 +132,15 @@ export class FetchedData {
 	}
 
 	// Read-only getters for core data
-	getGreedyJson(): Readonly<ScriptData> {
+	getGreedyJson(): Readonly<ScriptFile> {
 		return this.greedyJson;
 	}
 
-	cloneGreedyJson(): ScriptData {
+	cloneGreedyJson(): ScriptFile {
 		return structuredClone(this.greedyJson);
 	}
 
-	getGreedyJinxData(): Readonly<JinxEntry[]> {
+	getGreedyJinxData(): Readonly<JinxFile> {
 		return this.greedyJinxData;
 	}
 
@@ -148,7 +148,7 @@ export class FetchedData {
 		return this.greedierCharactersData;
 	}
 
-	getGreedierJinxData(): Readonly<JinxEntry[]> {
+	getGreedierJinxData(): Readonly<JinxFile> {
 		return this.greedierJinxData;
 	}
 
@@ -156,11 +156,11 @@ export class FetchedData {
 		return this.rolesData;
 	}
 
-	getNightsheetData(): Readonly<NightsheetData> {
-		return this.nightsheetData;
+	getNightsheetFile(): Readonly<NightsheetFile> {
+		return this.nightsheetFile;
 	}
 
-	getJinxData(): Readonly<JinxEntry[]> {
+	getJinxData(): Readonly<JinxFile> {
 		return this.jinxData;
 	}
 

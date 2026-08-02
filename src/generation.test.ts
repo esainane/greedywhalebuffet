@@ -1,22 +1,22 @@
 import { describe, expect, it } from 'vitest';
 import { FetchedData } from './data/fetched.js';
 import { buildCopyPayload } from './generation.js';
-import type { CharacterEntry, GenerationOptions, JinxEntry, NightsheetData, ScriptData } from './types.js';
+import type { CharacterEntry, GenerationOptions, JinxFile, NightsheetFile, ScriptFile } from './types.js';
 
 function buildFetchedData(params: {
-	greedyJson?: ScriptData;
+	greedyJson?: ScriptFile;
 	greedierCharactersData: CharacterEntry[];
 	rolesData?: CharacterEntry[];
 }): FetchedData {
 	return new FetchedData({
 		greedyJson: params.greedyJson ?? [{ id: '_meta', name: 'Test Script' }],
-		greedyJinxData: [] as JinxEntry[],
-		greedierJinxData: [] as JinxEntry[],
+		greedyJinxData: [] as JinxFile,
+		greedierJinxData: [] as JinxFile,
 		greedierCharactersData: params.greedierCharactersData,
 		greedyToBaseID: {},
 		rolesData: params.rolesData ?? [],
-		nightsheetData: { firstNight: [], otherNight: [] } as NightsheetData,
-		jinxData: [] as JinxEntry[],
+		nightsheetFile: { firstNight: [], otherNight: [] } as NightsheetFile,
+		jinxData: [] as JinxFile,
 	});
 }
 
@@ -40,6 +40,7 @@ describe('buildCopyPayload', () => {
 					id: 'alpha',
 					name: 'Alpha',
 					team: 'townsfolk',
+					ability: 'Alpha ability',
 					edition: 'greedier',
 					sourceSet: 4,
 				},
@@ -51,7 +52,7 @@ describe('buildCopyPayload', () => {
 			buildOptions({ addGreedierHomebrew: true }),
 			fetchedData,
 		);
-		const exported = JSON.parse(payload) as ScriptData;
+		const exported = JSON.parse(payload) as ScriptFile;
 		const exportedCharacter = exported.find(
 			(entry) => typeof entry === 'object' && entry !== null && 'id' in entry && entry.id === 'alpha',
 		) as CharacterEntry | undefined;

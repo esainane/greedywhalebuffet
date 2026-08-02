@@ -2,7 +2,7 @@
  * Jinx processing utilities.
  */
 
-import type { ScriptData, JinxEntry } from './types.js';
+import type { ScriptFile, JinxFile } from './types.js';
 import { findCharacterId, findOrExpandCharacter, getBaseCharacterId } from './character.js';
 import type { FetchedData } from './data/fetched.js';
 import {
@@ -13,8 +13,8 @@ import {
 } from './jinxOrder.js';
 
 function expandJinxSources(
-	data: ScriptData,
-	jinxEntries: Readonly<JinxEntry[]>,
+	data: ScriptFile,
+	jinxEntries: Readonly<JinxFile>,
 	fetchedData: FetchedData,
 ): void {
 	for (const source of jinxEntries) {
@@ -28,7 +28,7 @@ function expandJinxSources(
 
 function getSortCharacterById(
 	id: string,
-	data: ScriptData,
+	data: ScriptFile,
 	fetchedData: FetchedData,
 ): JinxSortCharacter {
 	const expandedCharacter = data.find(
@@ -56,7 +56,7 @@ function getSortCharacterById(
 function toSortedJinxes(
 	sourceId: string,
 	mergedByTargetId: ReadonlyMap<string, string>,
-	data: ScriptData,
+	data: ScriptFile,
 	fetchedData: FetchedData,
 ): { id: string; reason: string }[] {
 	const sourceCharacter = getSortCharacterById(sourceId, data, fetchedData);
@@ -89,8 +89,8 @@ function toSortedJinxes(
  * Merge jinxes from jinx entries into script data.
  */
 export function mergeJinxes(
-	data: ScriptData,
-	jinxEntries: Readonly<JinxEntry[]>,
+	data: ScriptFile,
+	jinxEntries: Readonly<JinxFile>,
 	fetchedData: FetchedData,
 	options?: { emptyReasonIsTombstone?: boolean },
 ): void {
@@ -139,7 +139,7 @@ export function mergeJinxes(
  * 2) Merge official jinxes first, then greedy jinxes (greedy overrides).
  */
 export function applySelectedJinxes(
-	data: ScriptData,
+	data: ScriptFile,
 	fetchedData: FetchedData,
 	options: { includeOfficial: boolean; includeGreedy: boolean },
 ): void {

@@ -1,25 +1,39 @@
 /**
- * Type definitions for the Greedy Whalebuffet generator.
+ * Mapping from Greedy character IDs to base character IDs, used for jinx merging.
  */
 
-export type IdMappings = Record<string, string>;
+export type MappingFile = Record<string, string>;
 
+/**
+ * The leading script metadata entry; loader and generation code expect this at index 0.
+ */
 export type MetaEntry = {
-	id?: string;
-	name?: string;
+	id: "_meta";
+	name: string;
 	bootlegger?: string[];
 };
 
-export type CharacterEntry = {
+/**
+ * Shared identity fields for character records loaded from JSON and reused in UI views.
+ */
+export type CharacterBase = {
 	id: string;
-	name?: string;
-	ability?: string;
-	image?: string | string[];
-	team?: string;
-	edition?: string;
+	name: string;
+	team: string;
 	sourceSet?: number;
+};
+
+type JinxDefs = { id: string; reason: string }[];
+
+/**
+ * Full script character objects from schema-validated JSON, used by loader, generation, and jinx expansion.
+ */
+export type CharacterEntry = CharacterBase & {
+	ability: string;
+	image?: string | string[];
+	edition?: string;
 	flavor?: string;
-	jinxes?: { id: string; reason: string }[];
+	jinxes?: JinxDefs;
 	firstNightReminder?: string;
 	firstNight?: number;
 	otherNightReminder?: string;
@@ -30,26 +44,42 @@ export type CharacterEntry = {
 	special?: unknown[];
 };
 
-export type ScriptData = (MetaEntry | CharacterEntry | string)[];
+/**
+ * Mixed script payload: `_meta` first, then string IDs or expanded character entries.
+ */
+export type ScriptFile = (MetaEntry | CharacterEntry | string)[];
 
-export type JinxEntry = {
+/**
+ * One source character and the jinxes attached to it in a jinx JSON file.
+ */
+export type JinxFileEntry = {
 	id: string;
-	jinx?: { id: string; reason: string }[];
+	jinx: JinxDefs;
 };
 
-export type NightsheetData = {
+/**
+ * Parsed jinx file payload used by validation, merging, and order checks.
+ */
+export type JinxFile = JinxFileEntry[];
+
+/**
+ * Parsed night-order data for the first and later nights.
+ */
+export type NightsheetFile = {
 	firstNight: string[];
 	otherNight: string[];
 };
 
-export type Character = {
-	id: string;
-	name: string;
-	team?: string;
-	imageUrl?: string | string[];
-	sourceSet?: number;
+/**
+ * Compact display model for the character selection list and related UI state.
+ */
+export type SelectableCharacter = CharacterBase & {
+	imageUrl: string | string[];
 };
 
+/**
+ * UI and generation toggles persisted in preferences and applied during export.
+ */
 export type GenerationOptions = {
 	appendDuplicateLine: boolean;
 	addSpiritOfIvory: boolean;

@@ -8,7 +8,7 @@ import { describe, expect, it } from 'vitest';
 import { buildCopyPayload } from './generation.js';
 import { FILTERABLE_TEAMS } from './constants.js';
 import { loadLatestJson } from './data/loader.js';
-import type { GenerationOptions, ScriptData } from './types.js';
+import type { GenerationOptions, ScriptFile } from './types.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, '..');
@@ -87,7 +87,7 @@ function allOptionCombinations(): GenerationOptions[] {
 	return combinations;
 }
 
-function getUnbannedSelection(greedyScript: Readonly<ScriptData>, rolesById: ReadonlyMap<string, string>): Set<string> {
+function getUnbannedSelection(greedyScript: Readonly<ScriptFile>, rolesById: ReadonlyMap<string, string>): Set<string> {
 	const selected = new Set<string>();
 
 	for (const entry of greedyScript) {
@@ -132,11 +132,11 @@ describe('end-to-end schema validation', () => {
 			const rolesById = new Map(
 				fetchedData
 					.getRolesData()
-					.map((role) => [role.id, role.team ?? ''] as const),
+					.map((role) => [role.id, role.team] as const),
 			);
 			const selectedCharacterIds = getUnbannedSelection(fetchedData.getGreedyJson(), rolesById);
 			for (const greedier of fetchedData.getGreedierCharactersData()) {
-				if (greedier.team && FILTERABLE_TEAMS.has(greedier.team)) {
+				if (FILTERABLE_TEAMS.has(greedier.team)) {
 					selectedCharacterIds.add(greedier.id);
 				}
 			}

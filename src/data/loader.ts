@@ -3,11 +3,11 @@
  */
 
 import type {
-	ScriptData,
+	ScriptFile,
 	CharacterEntry,
-	JinxEntry,
-	NightsheetData,
-	IdMappings,
+	JinxFile,
+	NightsheetFile,
+	MappingFile,
 	MetaEntry,
 } from '../types.js';
 import Ajv2020, { type ValidateFunction } from 'ajv/dist/2020.js';
@@ -31,7 +31,7 @@ import jinxSchema from '../../schemas/jinx-schema.json';
 const ajv = new Ajv2020({ allErrors: true, strict: false });
 addFormats(ajv);
 
-const validateScriptData = ajv.compile(scriptSchema);
+const validateScriptFile = ajv.compile(scriptSchema);
 const validateScriptExtraData = ajv.compile(scriptExtraSchema);
 const validateJinxData = ajv.compile(jinxSchema);
 
@@ -48,7 +48,7 @@ function isStringArray(value: unknown): value is string[] {
 	return Array.isArray(value) && value.every((entry) => typeof entry === 'string');
 }
 
-function isIdMappings(value: unknown): value is IdMappings {
+function isMappingFile(value: unknown): value is MappingFile {
 	if (typeof value !== 'object' || value === null || Array.isArray(value)) {
 		return false;
 	}
@@ -56,7 +56,7 @@ function isIdMappings(value: unknown): value is IdMappings {
 	return Object.values(value).every((entry) => typeof entry === 'string');
 }
 
-function isNightsheetData(value: unknown): value is NightsheetData {
+function isNightsheetFile(value: unknown): value is NightsheetFile {
 	if (typeof value !== 'object' || value === null || Array.isArray(value)) {
 		return false;
 	}
@@ -98,7 +98,7 @@ function isCharacterEntry(value: unknown): value is CharacterEntry {
 	);
 }
 
-function extractFilterableCharactersFromScriptData(data: ScriptData): CharacterEntry[] {
+function extractFilterableCharactersFromScriptFile(data: ScriptFile): CharacterEntry[] {
 	const extracted: CharacterEntry[] = [];
 	for (const entry of data) {
 		if (!isCharacterEntry(entry)) {
@@ -124,7 +124,7 @@ function isMetaEntry(value: unknown): value is MetaEntry {
 	return entry.id === '_meta' && typeof entry.name === 'string';
 }
 
-function assertLeadingMetaEntry(data: ScriptData, sourceName: string): void {
+function assertLeadingMetaEntry(data: ScriptFile, sourceName: string): void {
 	if (data.length === 0) {
 		throw new Error(`${sourceName} must include a leading _meta entry.`);
 	}
@@ -174,28 +174,28 @@ export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Pr
 	}
 
 	const parsedData = await Promise.all(responses.map((r) => r.json()));
-	const [greedyParsed, greedyJinxParsed, greedierJinxParsed, idMappingsParsed, rolesParsed, nightsheetParsed, jinxParsed] =
+	const [greedyParsed, greedyJinxParsed, greedierJinxParsed, mappingFileParsed, rolesParsed, nightsheetParsed, jinxParsed] =
 		parsedData;
 	const greedierParsed = parsedData.slice(coreDataSources.length);
 
-	assertSchemaValid(greedyParsed, validateScriptData, 'greedy.json');
+	assertSchemaValid(greedyParsed, validateScriptFile, 'greedy.json');
 	assertSchemaValid(greedyJinxParsed, validateJinxData, 'greedy_jinxes.json');
 	assertSchemaValid(greedierJinxParsed, validateJinxData, 'greedier_jinxes.json');
-	assertSchemaValid(rolesParsed, validateScriptData, 'roles.json');
+	assertSchemaValid(rolesParsed, validateScriptFile, 'roles.json');
 	assertSchemaValid(jinxParsed, validateJinxData, 'jinxes.json');
 
 	for (const [i, parsed] of greedierParsed.entries()) {
 		assertSchemaValid(parsed, validateScriptExtraData, GREEDIER_SCRIPT_URLS[i]);
 	}
 
-	const greedyScriptData = greedyParsed as ScriptData;
-	assertLeadingMetaEntry(greedyScriptData, 'greedy.json');
+	const greedyScriptFile = greedyParsed as ScriptFile;
+	assertLeadingMetaEntry(greedyScriptFile, 'greedy.json');
 
-	if (!isIdMappings(idMappingsParsed)) {
+	if (!isMappingFile(mappingFileParsed)) {
 		throw new Error('id_mappings.json has an unexpected shape.');
 	}
 
-	if (!isNightsheetData(nightsheetParsed)) {
+	if (!isNightsheetFile(nightsheetParsed)) {
 		throw new Error('nightsheet.json has an unexpected shape.');
 	}
 
@@ -209,9 +209,9 @@ export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Pr
 			continue;
 		}
 
-		const scriptEntries = greedierData as ScriptData;
+		const scriptEntries = greedierData as ScriptFile;
 		const sourceSet = getGreedierSourceSet(GREEDIER_SCRIPT_URLS[i]);
-		for (const character of extractFilterableCharactersFromScriptData(scriptEntries)) {
+		for (const character of extractFilterableCharactersFromScriptFile(scriptEntries)) {
 			if (!greedierCharactersById.has(character.id)) {
 				greedierCharactersById.set(character.id, {
 					...character,
@@ -225,14 +225,14 @@ export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Pr
 
 	// Construct immutable FetchedData with all validated data
 	const fetchedData = new FetchedData({
-		greedyJson: greedyScriptData,
-		greedyJinxData: greedyJinxParsed as JinxEntry[],
-		greedierJinxData: greedierJinxParsed as JinxEntry[],
+		greedyJson: greedyScriptFile,
+		greedyJinxData: greedyJinxParsed as JinxFile,
+		greedierJinxData: greedierJinxParsed as JinxFile,
 		greedierCharactersData,
-		greedyToBaseID: idMappingsParsed,
+		greedyToBaseID: mappingFileParsed,
 		rolesData: rolesParsed,
-		nightsheetData: nightsheetParsed,
-		jinxData: jinxParsed as JinxEntry[],
+		nightsheetFile: nightsheetParsed,
+		jinxData: jinxParsed as JinxFile,
 	});
 
 	return { fetchedData };

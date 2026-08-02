@@ -1,5 +1,5 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useReducer, useRef } from 'react';
-import type { Character, GenerationOptions, ScriptData } from '../../types.js';
+import type { SelectableCharacter, GenerationOptions, ScriptFile } from '../../types.js';
 import type { FetchedData } from '../../data/fetched.js';
 import { GENERATION_OPTIONS, getDependentOptions } from '../../options.js';
 import { loadLatestJson } from '../../data/loader.js';
@@ -15,9 +15,9 @@ type StoredPreferences = {
 	greedierSortBySet: boolean;
 };
 
-export type StatusTone = 'info' | 'success' | 'error';
+type StatusTone = 'info' | 'success' | 'error';
 
-export type AppState = {
+type AppState = {
 	loading: boolean;
 	status: string;
 	statusTone: StatusTone;
@@ -25,9 +25,9 @@ export type AppState = {
 	lastLoadedAt: number | null;
 	usingStaleData: boolean;
 	fetchedData: FetchedData | null;
-	baseCharacters: Character[];
-	greedierCharacters: Character[];
-	characters: Character[];
+	baseCharacters: SelectableCharacter[];
+	greedierCharacters: SelectableCharacter[];
+	characters: SelectableCharacter[];
 	selectedCharacterIds: Set<string>;
 	unsatisfiedDependencyCharacterIds: Set<string>;
 	options: GenerationOptions;
@@ -39,10 +39,10 @@ type AppAction =
 	| {
 			type: 'load_success';
 			fetchedData: FetchedData;
-			greedyJson: ScriptData;
+			greedyJson: ScriptFile;
 			scriptName: string;
-			baseCharacters: Character[];
-			greedierCharacters: Character[];
+			baseCharacters: SelectableCharacter[];
+			greedierCharacters: SelectableCharacter[];
 			bannedCharacterIds: Set<string>;
 	  }
 	| { type: 'load_error'; message: string }
@@ -52,7 +52,7 @@ type AppAction =
 	| { type: 'toggle_option'; optionName: keyof GenerationOptions; checked: boolean }
 	| { type: 'toggle_character'; id: string; checked: boolean };
 
-export type AppActions = {
+type AppActions = {
 	reload: () => Promise<void>;
 	setStatus: (message: string, tone?: StatusTone) => void;
 	resetPreferences: () => void;
@@ -175,10 +175,10 @@ const initialState: AppState = {
 };
 
 function buildCharacterPool(
-	baseCharacters: Character[],
-	greedierCharacters: Character[],
+	baseCharacters: SelectableCharacter[],
+	greedierCharacters: SelectableCharacter[],
 	options: GenerationOptions,
-): Character[] {
+): SelectableCharacter[] {
 	if (!options.addGreedierHomebrew) {
 		return baseCharacters;
 	}

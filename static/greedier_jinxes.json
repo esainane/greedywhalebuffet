@@ -4,7 +4,7 @@
     "jinx": [
       {
         "id": "baffler_winningclub",
-        "reason": "Alch Ability is: If you vote on every nomination and speak like a baffled player during the day, that night you learn a piece of true info."
+        "reason": "An Alchemist-Baffler has no Baffler ability. If they vote on every nomination and speak like a baffled player during the day, they learn a piece of true info tonight."
       },
       {
         "id": "sybil_winningclub",

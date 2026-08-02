@@ -129,6 +129,15 @@
     ]
   },
   {
+    "id": "lilmonsta",
+    "jinx": [
+      {
+        "id": "magician",
+        "reason": "If the Magician is alive, the Storyteller chooses which Minion babysits Lil' Monsta. The Minions see the Magician as a Minion."
+      }
+    ]
+  },
+  {
     "id": "magician",
     "jinx": [
       {
@@ -138,10 +147,6 @@
       {
         "id": "kazali",
         "reason": "The Magician starts knowing if a Kazali is in-play."
-      },
-      {
-        "id": "lilmonsta",
-        "reason": "If the Magician is alive, the Storyteller chooses which Minion babysits Lil' Monsta. The Minions see the Magician as a Minion."
       },
       {
         "id": "lordoftyphon",

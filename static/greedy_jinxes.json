@@ -248,16 +248,16 @@
         "reason": "The Vizier cannot immediately execute the Storyteller."
       },
       {
-        "id": "investigator",
-        "reason": "If an Investigator is in play, the Storyteller doesn't declare the Vizier is in play."
-      },
-      {
         "id": "fearmonger",
         "reason": "The Vizier knows any Fearmonger chosen players. The Vizier might fail to immediately execute them."
       },
       {
         "id": "goblin",
         "reason": "The Vizier might fail to immediately execute a Goblin that claimed Goblin during their defense."
+      },
+      {
+        "id": "investigator",
+        "reason": "If an Investigator is in play, the Storyteller doesn't declare the Vizier is in play."
       }
     ]
   },

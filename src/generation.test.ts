@@ -11,6 +11,7 @@ function buildFetchedData(params: {
 	return new FetchedData({
 		greedyJson: params.greedyJson ?? [{ id: '_meta', name: 'Test Script' }],
 		greedyJinxData: [] as JinxEntry[],
+		greedierJinxData: [] as JinxEntry[],
 		greedierCharactersData: params.greedierCharactersData,
 		greedyToBaseID: {},
 		rolesData: params.rolesData ?? [],

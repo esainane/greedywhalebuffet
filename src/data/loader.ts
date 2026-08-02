@@ -15,6 +15,7 @@ import addFormats from 'ajv-formats';
 import {
 	GREEDY_JSON_URL,
 	GREEDY_JINX_JSON_URL,
+	GREEDIER_JINX_JSON_URL,
 	GREEDIER_SCRIPT_URLS,
 	ID_MAPPINGS_JSON_URL,
 	ROLES_JSON_URL,
@@ -150,6 +151,7 @@ export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Pr
 	const coreDataSources = [
 		GREEDY_JSON_URL,
 		GREEDY_JINX_JSON_URL,
+		GREEDIER_JINX_JSON_URL,
 		ID_MAPPINGS_JSON_URL,
 		ROLES_JSON_URL,
 		NIGHTSHEET_JSON_URL,
@@ -172,12 +174,13 @@ export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Pr
 	}
 
 	const parsedData = await Promise.all(responses.map((r) => r.json()));
-	const [greedyParsed, greedyJinxParsed, idMappingsParsed, rolesParsed, nightsheetParsed, jinxParsed] =
+	const [greedyParsed, greedyJinxParsed, greedierJinxParsed, idMappingsParsed, rolesParsed, nightsheetParsed, jinxParsed] =
 		parsedData;
 	const greedierParsed = parsedData.slice(coreDataSources.length);
 
 	assertSchemaValid(greedyParsed, validateScriptData, 'greedy.json');
 	assertSchemaValid(greedyJinxParsed, validateJinxData, 'greedy_jinxes.json');
+	assertSchemaValid(greedierJinxParsed, validateJinxData, 'greedier_jinxes.json');
 	assertSchemaValid(rolesParsed, validateScriptData, 'roles.json');
 	assertSchemaValid(jinxParsed, validateJinxData, 'jinxes.json');
 
@@ -224,6 +227,7 @@ export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Pr
 	const fetchedData = new FetchedData({
 		greedyJson: greedyScriptData,
 		greedyJinxData: greedyJinxParsed as JinxEntry[],
+		greedierJinxData: greedierJinxParsed as JinxEntry[],
 		greedierCharactersData,
 		greedyToBaseID: idMappingsParsed,
 		rolesData: rolesParsed,

@@ -19,6 +19,7 @@ const coreSources = [
 	{ file: 'greedy.json', schema: 'script' as const },
 	{ file: 'roles.json', schema: 'script' as const },
 	{ file: 'greedy_jinxes.json', schema: 'jinx' as const },
+	{ file: 'greedier_jinxes.json', schema: 'jinx' as const },
 	{ file: 'jinxes.json', schema: 'jinx' as const },
 ];
 

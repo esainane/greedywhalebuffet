@@ -9,6 +9,7 @@ export const REMOVED_CHARACTERS_PREFIX = 'The following characters are not avail
 // Data source URLs
 export const GREEDY_JSON_URL = './greedy.json';
 export const GREEDY_JINX_JSON_URL = './greedy_jinxes.json';
+export const GREEDIER_JINX_JSON_URL = './greedier_jinxes.json';
 export const ID_MAPPINGS_JSON_URL = './id_mappings.json';
 export const ROLES_JSON_URL = './roles.json';
 export const NIGHTSHEET_JSON_URL = './nightsheet.json';

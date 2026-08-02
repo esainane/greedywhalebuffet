@@ -9,6 +9,7 @@ function buildFetchedData(greedierCharactersData: CharacterEntry[]): FetchedData
 		rolesData: [] as CharacterEntry[],
 		jinxData: [] as JinxEntry[],
 		greedyJinxData: [] as JinxEntry[],
+		greedierJinxData: [] as JinxEntry[],
 		greedyToBaseID: {},
 		nightsheetData: { firstNight: [], otherNight: [] } as NightsheetData,
 		greedierCharactersData,

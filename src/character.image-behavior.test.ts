@@ -11,6 +11,7 @@ function makeFetchedData(role: CharacterEntry): FetchedData {
 	return new FetchedData({
 		greedyJson: [{ id: '_meta', name: 'Test Script' }, role.id],
 		greedyJinxData: [],
+		greedierJinxData: [],
 		greedierCharactersData: [],
 		greedyToBaseID: {},
 		rolesData: [role],

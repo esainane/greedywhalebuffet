@@ -11,7 +11,7 @@
     "lint": "eslint src --max-warnings=0",
     "type-check": "tsc --noEmit",
     "test": "vitest run",
-    "test:data-sources": "vitest run src/data-source-validation.test.ts",
+    "test:data-sources": "vitest run src/data.schema-validation.test.ts src/data.jinx-order.test.ts",
     "test:unit": "vitest run --exclude src/data-source-validation.test.ts --exclude src/e2e.schema-validation.test.ts",
     "test:e2e": "vitest run src/e2e.schema-validation.test.ts",
     "test:watch": "vitest"

@@ -283,7 +283,7 @@
     ],
     "team": "townsfolk",
     "edition": "gwb",
-    "ability": "If only 3 players live (travellers don't count) & no execution occurs, your team wins. If you die at night, another player might die instead.",
+    "ability": "If only 3 players live (Travellers don't count) & no execution occurs, your team wins. If you die at night, another player might die instead.",
     "flavor": "Entrust in my rightfully elected position against the dark ages that fall before us. You do not recall your vote? Don't worry about it; for I am the legitimate, healthy, and fairly elected Mayor of this town. Putting trust in politics has never failed you before."
   },
   "minstrel",
@@ -303,9 +303,9 @@
     "ability": "Once per game, at night, choose a good character: gain that ability. You may be told to reconsider. If this happens 3 times, become drunk.",
     "flavor": "If one thing in life is real, it's beer. In pursuit of others achievements, we lose sight of our own desires. -Kianu",
     "firstNight": 14,
-    "firstNightReminder": "The Philosopher either shows a 'no' head signal, or points to a good character. Tell them to reconsider if the ability isn't helpful to their team or ruins the game's balance. If this happens a third time, drunk them.",
+    "firstNightReminder": "The Philosopher might choose a character. Tell them to reconsider if the ability isn't helpful to their team, or ruins the game's balance. If this happens a third time, drunk them. If necessary, swap their character token. :reminder:",
     "otherNight": 11,
-    "otherNightReminder": "The Philosopher either shows a 'no' head signal, or points to a good character. Tell them to reconsider if the ability isn't helpful to their team or ruins the game's balance. If this happens a third time, drunk them.",
+    "otherNightReminder": "The Philosopher might choose a character. Tell them to reconsider if the ability isn't helpful to their team, or ruins the game's balance. If this happens a third time, drunk them. If necessary, swap their character token. :reminder:",
     "reminders": [
       "Drunk"
     ],
@@ -640,12 +640,12 @@
     "firstNight": 21,
     "firstNightReminder": "Wake each Minion. Show each a different in-play good character token.",
     "reminders": [
-      "Knows",
-      "Knows",
-      "Knows",
-      "Knows",
-      "Knows",
-      "Knows"
+      "Know",
+      "Know",
+      "Know",
+      "Know",
+      "Know",
+      "Know"
     ]
   },
   {
@@ -815,9 +815,9 @@
     "ability": "Each other night*, you may choose a player & a character they become (if not in play). If a potential evil-making character or Demon is made, deaths tonight are arbitrary.",
     "flavor": "Its definetly not a Vortox game... yet -Fleuris",
     "otherNight": 29,
-    "otherNightReminder": "The Pit-Hag chooses a player & a character. If they chose a character that is not in play: Put the Pit-Hag to sleep. Wake the target. Show the *YOU ARE* token & their new character token.",
+    "otherNightReminder": "If the Pit-Hag did not use their ability last night, wake the Pit-Hag. They might choose a player & a character. :reminder: If they chose a character that is not in play: Put the Pit-Hag to sleep. Wake the target. Show the *YOU ARE* token & their new character token.",
     "reminders": [
-      "Used Last Night"
+      "Cooldown"
     ]
   },
   "poisoner",
@@ -829,7 +829,7 @@
       "https://greedy.antihype.space/icons/carousel/psychopath_g.webp"
     ],
     "team": "minion",
-    "ability": "If there are 5 or more alive players (not including travellers), each day, before nominations, you may publicly choose a player: they die. If executed, you only die if you lose roshambo.",
+    "ability": "If 5 or more players live (Travellers don't count), each day, before nominations, you may publicly choose a player: they die. If executed, you only die if you lose roshambo.",
     "flavor": "My weapon of choice? Old man farts. -Jyraphe",
     "reminders": [
       "No Axe!"

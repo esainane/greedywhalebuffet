@@ -3,11 +3,11 @@
     "id": "alchemist",
     "jinx": [
       {
-        "id": "baffler",
+        "id": "baffler_winningclub",
         "reason": "Alch Ability is: If you vote on every nomination and speak like a baffled player during the day, that night you learn a piece of true info."
       },
       {
-        "id": "sybil",
+        "id": "sybil_winningclub",
         "reason": "The Alchemist's announced words might be false."
       },
       {
@@ -17,7 +17,7 @@
     ]
   },
   {
-    "id": "armageddon",
+    "id": "armageddon_winningclub",
     "jinx": [
       {
         "id": "assassin",
@@ -86,7 +86,7 @@
     ]
   },
   {
-    "id": "arsonist",
+    "id": "arsonist_winningclub",
     "jinx": [
       {
         "id": "lycanthrope",
@@ -103,7 +103,7 @@
     ]
   },
   {
-    "id": "baroness",
+    "id": "baroness_winningclub",
     "jinx": [
       {
         "id": "alchemist",
@@ -115,13 +115,13 @@
     "id": "boffin",
     "jinx": [
       {
-        "id": "portiaf",
+        "id": "portiafeatherington_winningclub",
         "reason": "The Demon can't have the Portia Featherington ability."
       }
     ]
   },
   {
-    "id": "daki",
+    "id": "daki_winningclub",
     "jinx": [
       {
         "id": "scarletwoman",
@@ -130,7 +130,7 @@
     ]
   },
   {
-    "id": "informant",
+    "id": "informant_winningclub",
     "jinx": [
       {
         "id": "chambermaid",
@@ -146,17 +146,17 @@
     "id": "leviathan",
     "jinx": [
       {
-        "id": "pathologist",
+        "id": "pathologist_winningclub",
         "reason": "Each night* the Leviathan chooses an alive good player (different to previous nights): If the Leviathan chooses the Pathologist chosen player, the Pathologist learns a player that's not a Demon."
       },
       {
-        "id": "journalist",
+        "id": "journalist_winningclub",
         "reason": "While the Leviathan is in play, they do not learn the Journalist's picks. Each night, the Leviathan chooses an alive good player (different to previous nights): if the Leviathan chooses a Leviathan chosen player, the Journalist learns a true statement, even if dead."
       }
     ]
   },
   {
-    "id": "lolth",
+    "id": "lolth_winningclub",
     "jinx": [
       {
         "id": "bountyhunter",
@@ -172,7 +172,7 @@
     "id": "pithag",
     "jinx": [
       {
-        "id": "portiaf",
+        "id": "portiafeatherington_winningclub",
         "reason": "If the Pit Hag turns an evil player into a Portia F., they cannot turn good due to their own ability."
       }
     ]
@@ -181,11 +181,11 @@
     "id": "riot",
     "jinx": [
       {
-        "id": "pathologist",
+        "id": "pathologist_winningclub",
         "reason": "Each night* the Riot chooses an alive good player (different to previous nights): if the Riot chooses the Pathologist chosen player, the Pathologist learns a Riot is in-play."
       },
       {
-        "id": "journalist",
+        "id": "journalist_winningclub",
         "reason": "While the Riot is in play, they do not learn the Journalist's picks. Each night, the Riot chooses an alive good player (different to previous nights): if the Riot chooses a Journalist chosen player, the Journalist learns a true statement, even if dead."
       }
     ]
@@ -194,15 +194,15 @@
     "id": "vizier",
     "jinx": [
       {
-        "id": "baffler",
+        "id": "baffler_winningclub",
         "reason": "The Baffled player might register as evil to the Vizier."
       },
       {
-        "id": "jester",
+        "id": "jester_winningclub",
         "reason": "The Vizier might not be able to push on a Jester that claimed Jester during their defense."
       },
       {
-        "id": "secretary",
+        "id": "secretary_winningclub",
         "reason": "The Vizier isn't announced if the Secretary saw the Vizier."
       }
     ]

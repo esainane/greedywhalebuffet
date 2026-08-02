@@ -5,3 +5,7 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.13"
 dependencies = []
+
+[tool.black]
+line-length = 88
+target-version = ["py313"]

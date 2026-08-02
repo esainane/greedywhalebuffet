@@ -20,5 +20,10 @@
 			],
 			"url": "./schemas/jinx-schema.json"
 		}
-	]
+	],
+	"[python]": {
+		"editor.defaultFormatter": "ms-python.black-formatter",
+		"editor.formatOnSave": true
+	},
+	"black-formatter.importStrategy": "fromEnvironment"
 }

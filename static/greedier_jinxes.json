@@ -130,15 +130,6 @@
     ]
   },
   {
-    "id": "daki_winningclub",
-    "jinx": [
-      {
-        "id": "scarletwoman",
-        "reason": "The Scarlet Woman will become a Demon if & only if the Gyutaro dies."
-      }
-    ]
-  },
-  {
     "id": "hatter",
     "jinx": [
       {
@@ -223,6 +214,15 @@
       {
         "id": "journalist_winningclub",
         "reason": "While the Riot is in play, they do not learn the Journalist's picks. Each night, the Riot chooses an alive good player (different to previous nights): if the Riot chooses a Journalist chosen player, the Journalist learns a true statement, even if dead."
+      }
+    ]
+  },
+  {
+    "id": "scarletwoman",
+    "jinx": [
+      {
+        "id": "daki_winningclub",
+        "reason": "When Daki creates Gyutaro, the Scarlet Woman remains the Scarlet Woman."
       }
     ]
   },

@@ -56,12 +56,20 @@
         "reason": "If the Armageddon nominates and executes an Innkeeper-protected player, good wins."
       },
       {
+        "id": "journalist_winningclub",
+        "reason": "The Armageddon does not learn Journalist picks. Each night*, the Armageddon chooses an alive good player (different to previous nights): if a Journalist-chosen player is chosen, the Journalist learns a true statement, even if dead."
+      },
+      {
         "id": "king",
         "reason": "If the Armageddon is in play, and at least 1 player is dead, the King learns an alive character each night."
       },
       {
         "id": "monk",
         "reason": "If the Armageddon nominates and executes the Monk-protected player, good wins."
+      },
+      {
+        "id": "pathologist_winningclub",
+        "reason": "Each night*, the Armageddon chooses an alive good player (different to previous nights): if a Pathologist-chosen player is chosen, the Pathologist learns the Armageddon is in play."
       },
       {
         "id": "ravenkeeper",
@@ -152,11 +160,11 @@
     "jinx": [
       {
         "id": "pathologist_winningclub",
-        "reason": "Each night* the Leviathan chooses an alive good player (different to previous nights): If the Leviathan chooses the Pathologist chosen player, the Pathologist learns a player that's not a Demon."
+        "reason": "Each night*, the Leviathan chooses an alive good player (different to previous nights): if a Pathologist-chosen player is chosen, the Pathologist learns the Leviathan is in play."
       },
       {
         "id": "journalist_winningclub",
-        "reason": "While the Leviathan is in play, they do not learn the Journalist's picks. Each night, the Leviathan chooses an alive good player (different to previous nights): if the Leviathan chooses a Leviathan chosen player, the Journalist learns a true statement, even if dead."
+        "reason": "The Leviathan does not learn Journalist picks. Each night*, the Leviathan chooses an alive good player (different to previous nights): if a Journalist-chosen player is chosen, the Journalist learns a true statement, even if dead."
       }
     ]
   },
@@ -209,11 +217,11 @@
     "jinx": [
       {
         "id": "pathologist_winningclub",
-        "reason": "Each night* the Riot chooses an alive good player (different to previous nights): if the Riot chooses the Pathologist chosen player, the Pathologist learns a Riot is in-play."
+        "reason": "Each night*, Riot chooses an alive good player (different to previous nights): if a Pathologist-chosen player is chosen, the Pathologist learns Riot is in play."
       },
       {
         "id": "journalist_winningclub",
-        "reason": "While the Riot is in play, they do not learn the Journalist's picks. Each night, the Riot chooses an alive good player (different to previous nights): if the Riot chooses a Journalist chosen player, the Journalist learns a true statement, even if dead."
+        "reason": "Riot does not learn Journalist picks. Each night*, Riot chooses an alive good player (different to previous nights): if a Journalist-chosen player is chosen, the Journalist learns a true statement, even if dead."
       }
     ]
   },

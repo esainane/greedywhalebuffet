@@ -138,6 +138,15 @@
     ]
   },
   {
+    "id": "bountyhunter",
+    "jinx": [
+      {
+        "id": "lolth_winningclub",
+        "reason": "If Lolth is in play, the Bounty Hunter's setup ability instead reads [+0 to +1 Townsfolk are evil]"
+      }
+    ]
+  },
+  {
     "id": "hatter",
     "jinx": [
       {
@@ -165,19 +174,6 @@
       {
         "id": "journalist_winningclub",
         "reason": "The Leviathan does not learn Journalist picks. Each night*, the Leviathan chooses an alive good player (different to previous nights): if a Journalist-chosen player is chosen, the Journalist learns a true statement, even if dead."
-      }
-    ]
-  },
-  {
-    "id": "lolth_winningclub",
-    "jinx": [
-      {
-        "id": "bountyhunter",
-        "reason": "One additional Townsfolk might become evil."
-      },
-      {
-        "id": "summoner",
-        "reason": "If the Lolth is summoned, a Townsfolk might become evil."
       }
     ]
   },
@@ -240,6 +236,10 @@
       {
         "id": "armageddon_winningclub",
         "reason": "If the Summoner summons an Armageddon, armageddon happens on the Armageddon's second day."
+      },
+      {
+        "id": "lolth_winningclub",
+        "reason": "If the Summoner summons a Lolth, a Townsfolk might become evil."
       }
     ]
   },

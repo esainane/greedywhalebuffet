@@ -11,9 +11,9 @@
     ],
     "edition": "gwb",
     "flavor": "I bestow upon you this gift.",
-    "firstNight": 1,
+    "firstNight": 48,
     "firstNightReminder": "Wake the Bestower to select a player. Then the Bestower to select boon or curse. Wake the selected character and ask if they accept. Give them the boon/curse if they accept.",
-    "otherNight": 1,
+    "otherNight": 11,
     "otherNightReminder": "The Bestower chooses a player and chooses either boon or curse. Wake the chosen player and ask if they would like to accept. If they accept give them either a boon or curse based on the choice.",
     "reminders": [
       "Boon",
@@ -76,7 +76,7 @@
     ],
     "edition": "gwb",
     "flavor": "I feel your pain, let me join you.",
-    "otherNight": 1,
+    "otherNight": 12,
     "otherNightReminder": "They become the alignment of the most recently killed executee.",
     "reminders": [
       "Executed"
@@ -93,9 +93,9 @@
     ],
     "edition": "gwb",
     "flavor": "He was never meant to be there...He was only ever meant to watch",
-    "firstNight": 1,
+    "firstNight": 24,
     "firstNightReminder": "wake and choose a player, if the player learns information, inform the watcher of the info and inform the player they are watched",
-    "otherNight": 1,
+    "otherNight": 21,
     "otherNightReminder": "wake and choose a player, if the player learns information, inform the watcher of the info and inform the player they are watched",
     "reminders": [
       "Watched"

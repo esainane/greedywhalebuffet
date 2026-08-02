@@ -24,9 +24,9 @@
     ],
     "edition": "gwb",
     "flavor": "These records are impeccably kept. The answer you seek will be here.",
-    "firstNight": 1,
+    "firstNight": 57,
     "firstNightReminder": "They choose 2 players. Show them the player who goes first alphabetically.",
-    "otherNight": 1,
+    "otherNight": 77,
     "otherNightReminder": "They choose 2 players. Show them the player who goes first alphabetically.",
     "reminders": [
       "Archives Checked",
@@ -59,9 +59,9 @@
     ],
     "edition": "gwb",
     "flavor": "This is just the beginning, Ladybug. You and Cat Noir may have won this battle, but I will win the war.",
-    "firstNight": 1,
+    "firstNight": 31,
     "firstNightReminder": "They choose a player & an ability they want to give the player. If it ruins the balance of the game more than 3 times, choose the ability. Tell the chosen player they are evil.",
-    "otherNight": 1,
+    "otherNight": 51,
     "otherNightReminder": "They choose a player. They die.",
     "reminders": [
       "Akumatized",
@@ -80,7 +80,9 @@
     "edition": "gwb",
     "flavor": "This is my father's land to rule over! How dare these damned demons try take what has been destined to be mine!",
     "firstNightReminder": "Wake a player and point to the Prince.",
+    "firstNight": 52,
     "otherNightReminder": "If the Prince was nominated and executed by an evil player the previous day, wake a good player and point to the Prince character.",
+    "otherNight": 12,
     "reminders": [
       "Coronation Tonight"
     ]
@@ -96,9 +98,9 @@
     ],
     "edition": "gwb",
     "flavor": "How beautiful! My beautiful melodies have touched that hearts of Ravenswood Bluff. May you rejoice forever in song and dance.",
-    "firstNight": 1,
+    "firstNight": 35,
     "firstNightReminder": "Wake the Songstress and have them choose as many players as they want.",
-    "otherNight": 1,
+    "otherNight": 19,
     "otherNightReminder": "Wake the Songstress and have them choose as many players as they want.",
     "reminders": [
       "Sober and healthy",

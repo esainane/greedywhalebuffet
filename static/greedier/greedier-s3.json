@@ -13,7 +13,7 @@
     "team": "townsfolk",
     "ability": "If you die at night, you gain a Townsfolk ability (you learn it), you keep this ability, even if dead.",
     "flavor": "Those with a legacy larger than their life are the only that are truly successful.",
-    "otherNight": 9,
+    "otherNight": 63,
     "remindersGlobal": [
       "Is the Immortalized",
       "Is the Immortalized",
@@ -43,7 +43,8 @@
     "team": "townsfolk",
     "ability": "Each night*, choose a player: if they die tonight, learn which character killed them.",
     "flavor": "Eyewitness account report that the victim died while in the middle of rolling dies; perhaps due to a stress-induced cardiac arrest. Interesting, there is a scratch mark on the victim's wrist and almost untraceable slow-acting poison in their system. It'd seem our gambler die not of bad gambling skills but of demonic poison!",
-    "otherNightReminder": "They choose a player. If that player dies, tell the Pathologist which character killed the chosen player."
+    "otherNightReminder": "They choose a player. If that player dies, tell the Pathologist which character killed the chosen player.",
+    "otherNight": 22
   },
   {
     "id": "hypochondriac_winningclub",
@@ -57,8 +58,8 @@
     "team": "outsider",
     "ability": "You have a Townsfolk ability. You are mad you have false information or you might be executed.",
     "flavor": "I think I'm poisoned! -Orpheus",
-    "firstNight": 13,
-    "otherNight": 8,
+    "firstNight": 14,
+    "otherNight": 11,
     "remindersGlobal": [
       "Is the Hypochondriac",
       "Is the Hypochondriac",
@@ -89,6 +90,6 @@
     "team": "demon",
     "ability": "Each night*, choose a player: they die. [-X Minions, X+1 Townsfolk are Evil]",
     "flavor": "Kill for me. Die for me. You just might earn my favour...",
-    "otherNight": 10
+    "otherNight": 47
   }
 ]

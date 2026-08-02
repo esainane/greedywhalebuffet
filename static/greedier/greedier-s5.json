@@ -12,6 +12,7 @@
     "team": "townsfolk",
     "ability": "You start knowing a player. When they die, you die instead & they can't change alignment & might not die from now on.",
     "firstNightReminder": "They learn a player.",
+    "firstNight": 54,
     "flavor": "Take her to the moon for me."
   },
   {
@@ -29,7 +30,7 @@
     "team": "townsfolk",
     "ability": "You start knowing two in-play characters.",
     "flavor": "Yes, Karen, the manager is on their way.",
-    "firstNight": 15
+    "firstNight": 56
   },
   {
     "id": "quitter_winningclub",
@@ -45,7 +46,7 @@
     "team": "outsider",
     "ability": "On your 1st night, choose a player (not yourself): If they die, you can no longer vote on any nominations, even if you are dead.",
     "flavor": "“We just lost our greatest information.. Evil must be stomping, there’s no more point in trying.”",
-    "firstNight": 17
+    "firstNight": 70
   },
   {
     "id": "chocolatier_winningclub",

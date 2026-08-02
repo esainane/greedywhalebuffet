@@ -35,7 +35,7 @@
     "ability": "Each night, choose a player: they might receive false night cards. Players who break madness or are publicly disruptive might receive false night cards tonight.",
     "flavor": "Town is towning so hard right now -Nic",
     "firstNight": 40,
-    "otherNight": 3
+    "otherNight": 6
   },
   {
     "id": "unfathomable_winningclub",
@@ -59,6 +59,6 @@
     "ability": "Each night, you may choose a player to guide the ST's decisions. Deaths each night are arbitrary.",
     "flavor": "Your destiny is held firm no longer.",
     "firstNight": 11,
-    "otherNight": 2
+    "otherNight": 5
   }
 ]

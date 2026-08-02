@@ -18,8 +18,8 @@
     "team": "townsfolk",
     "ability": "On your 1st four nights, choose a character type (different from previous nights): you learn five characters of that type which are not in play.",
     "flavor": "Oh no, those flavours couldn't possibly go together. Pass.",
-    "firstNight": 26,
-    "otherNight": 25
+    "firstNight": 61,
+    "otherNight": 79
   },
   {
     "id": "hero_winningclub",
@@ -50,8 +50,8 @@
     "team": "townsfolk",
     "ability": "Each night, choose a character: learn if it is in play. The 2nd time you would learn a yes, you learn no, & stop waking.",
     "flavor": "THIS IS THE HAPPIEST DAY OF MY LIFE!",
-    "firstNight": 23,
-    "otherNight": 26
+    "firstNight": 66,
+    "otherNight": 85
   },
   {
     "id": "racketeer_winningclub",
@@ -69,8 +69,8 @@
     "team": "outsider",
     "ability": "Each night, you learn how many Outsiders are alive. Your 2 non-Traveller neighbours might register as evil & as Outsiders.",
     "flavor": "Don't worry about my associates.",
-    "firstNight": 24,
-    "otherNight": 27
+    "firstNight": 68,
+    "otherNight": 86
   },
   {
     "id": "dullahan_winningclub",
@@ -88,7 +88,7 @@
     "team": "demon",
     "ability": "Each night*, choose a player: they die. You & 1 good neighbor may register as a character of the opposite alignment to Townsfolk abilities.",
     "flavor": "It is too late now. Death is coming and they are blind. You may know everything, but they will never believe you.",
-    "otherNight": 29
+    "otherNight": 43
   },
   {
     "id": "sinofgluttony_winningclub",
@@ -113,7 +113,7 @@
     "team": "demon",
     "ability": "Each other night, choose three players: the first two will die at any time within the next two nights & the third might die at any time during the next two days.",
     "flavor": "You all look so tasty, it would be a shame to let you go to waste...",
-    "firstNight": 25,
-    "otherNight": 28
+    "firstNight": 47,
+    "otherNight": 50
   }
 ]

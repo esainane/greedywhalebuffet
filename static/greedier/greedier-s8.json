@@ -25,7 +25,7 @@
     "team": "townsfolk",
     "ability": "Each night*, choose 2 players: the Demon learns them. For each of these players the Demon chooses, you learn a true statement, even if dead.",
     "flavor": "I see... Well, I'm not gonna let something as silly as threat-of-death stop me from getting the truth!",
-    "otherNight": 21
+    "otherNight": 19
   },
   {
     "id": "lisarinna_winningclub",
@@ -44,7 +44,7 @@
       "No Ability",
       "Drunk"
     ],
-    "otherNight": 23
+    "otherNight": 25
   },
   {
     "id": "potionseller_winningclub",
@@ -83,8 +83,8 @@
     "team": "outsider",
     "ability": "On your first night, gain the ability of an in play townsfolk: they are drunk. When you die, they become a drunk Copycat.",
     "flavor": "Stop copying me! - Satyr / Stoooop Copyiiiing Meeeee! - Orpheus",
-    "firstNight": 22,
-    "otherNight": 22
+    "firstNight": 14,
+    "otherNight": 70
   },
   {
     "id": "realtor_winningclub",

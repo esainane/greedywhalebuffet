@@ -11,8 +11,8 @@
     "team": "minion",
     "ability": "You start knowing 5 out-of-play characters. Each night, choose one of them: you have its ability & might register as it would until dusk.",
     "flavor": "For shame! How dare you accuse me of being a mischievous fox spirit when I have been nothing but loyal as your… uhm, baker? Wait, no, I misspoke, I’m a fisherwoman.",
-    "firstNight": 20,
-    "otherNight": 20
+    "firstNight": 26,
+    "otherNight": 16
   },
   {
     "id": "daki_winningclub",
@@ -28,7 +28,7 @@
     "team": "demon",
     "ability": "Each night*, choose a player (not yourself): they die. If 5 or more players are alive & you die, a player becomes an evil Gyutaro.",
     "flavor": "We beautiful, powerful demons can do whatever we want!",
-    "otherNight": 18
+    "otherNight": 40
   },
   {
     "id": "gyutaro_winningclub",
@@ -45,7 +45,7 @@
     "team": "demon",
     "ability": "Each night*, choose a player, they might die. The first time an evil player is executed, a good player learns you are in-play tonight. [This cannot be chosen during setup]",
     "flavor": "The two of us, together, we’re invincible. We can stand the cold. We can stand the hunger.",
-    "otherNight": 19
+    "otherNight": 40
   },
   {
     "id": "rasputin_winningclub",

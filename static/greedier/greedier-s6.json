@@ -10,7 +10,7 @@
     "team": "outsider",
     "ability": "Each night*, swap alignment, even if dead.",
     "flavor": "Nothing makes the ton come alive like a fresh scandal.",
-    "otherNight": 16
+    "otherNight": 90
   },
   {
     "id": "baffler_winningclub",
@@ -31,8 +31,8 @@
     "team": "minion",
     "ability": "Each night, choose a living player: tomorrow, they must vote for every nomination as long as there are 5 or more players alive & must speak in rhymes, riddles, or another convoluted way, or might be executed.",
     "flavor": "The guzzling puzzle is a perplexing muzzle.",
-    "firstNight": 18,
-    "otherNight": 14
+    "firstNight": 45,
+    "otherNight": 31
   },
   {
     "id": "baroness_winningclub",
@@ -50,7 +50,7 @@
     "team": "demon",
     "ability": "Each night*, choose a player: they might die. Good Minions do not learn or are shown in Minion or Demon info. [0 Townfolk. +0 to +2 Good Minions]",
     "flavor": "Not my circus, not my monkeys. But I'm the ringmaster of this carnival and, I promise, it is the greatest show you are ever going to see.",
-    "otherNight": 17
+    "otherNight": 49
   },
   {
     "id": "monkeyspaw_winningclub",
@@ -69,7 +69,7 @@
     "team": "loric",
     "ability": "Each night, a player might be told they may make a wish. The wish, if granted, might have a price, leave a clue as to its nature, or be granted unfavorably.",
     "flavor": "Never mind, dear... perhaps you'll win the next one.",
-    "firstNight": 19,
-    "otherNight": 15
+    "firstNight": 36,
+    "otherNight": 20
   }
 ]

@@ -11,7 +11,9 @@
     "edition": "gwb",
     "flavor": "It comes down to this, so it's up to you. All that's left: choose right.",
     "firstNightReminder": "Give two statements. The Advisor chooses one.",
-    "otherNightReminder": "Give two statements. The Advisor chooses one."
+    "firstNight": 48,
+    "otherNightReminder": "Give two statements. The Advisor chooses one.",
+    "otherNight": 75
   },
   {
     "id": "corpseeater",
@@ -25,6 +27,7 @@
     "edition": "gwb",
     "flavor": "Munch munch",
     "otherNightReminder": "If a good player was executed today, mark their Townsfolk neighbors with Poisoned token.",
+    "otherNight": 11,
     "reminders": [
       "Poisoned",
       "Poisoned"
@@ -57,6 +60,7 @@
     "edition": "gwb",
     "flavor": "Next stop Ravenwoods Bluff!",
     "firstNightReminder": "Show how many sources of posion and drunking is in play. If a drunk in play they also learn this.",
+    "firstNight": 55,
     "reminders": [
       "Source",
       "Source",
@@ -76,6 +80,7 @@
     "edition": "gwb",
     "flavor": "HOW DARE YOU !!!!!",
     "otherNightReminder": "If a player nominated Vengeance, they die.",
+    "otherNight": 16,
     "reminders": [
       "Marked",
       "Dead"
@@ -93,6 +98,7 @@
     "edition": "gwb",
     "flavor": "I have fought my battles. These children, they are the future!!",
     "otherNightReminder": "Point to the players that died. Ask the veteran if they want to use their ability. If they do they choose a player, that player lives & the veteran dies",
+    "otherNight": 65,
     "reminders": [
       "No Ability",
       "Dead"

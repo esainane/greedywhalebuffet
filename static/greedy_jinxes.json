@@ -116,6 +116,10 @@
       {
         "id": "mayor",
         "reason": "If the Leviathan and the Mayor are alive on day 5 & no execution occurs, the Mayor's team wins."
+      },
+      {
+        "id": "ravenkeeper",
+        "reason": "Each night*, the Leviathan chooses an alive good player (different to previous nights): a chosen Ravenkeeper uses their ability but does not die."
       }
     ]
   },

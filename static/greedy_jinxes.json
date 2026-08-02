@@ -45,15 +45,6 @@
     ]
   },
   {
-    "id": "alhadikhia",
-    "jinx": [
-      {
-        "id": "scarletwoman",
-        "reason": ""
-      }
-    ]
-  },
-  {
     "id": "boffin",
     "jinx": [
       {
@@ -216,6 +207,15 @@
       {
         "id": "hatter",
         "reason": "If the Riot is created from the Hatter, the Riot day is the Riot's second day."
+      }
+    ]
+  },
+  {
+    "id": "scarletwoman",
+    "jinx": [
+      {
+        "id": "alhadikhia",
+        "reason": ""
       }
     ]
   },

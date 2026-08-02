@@ -103,6 +103,19 @@
     ]
   },
   {
+    "id": "barber",
+    "jinx": [
+      {
+        "id": "portiafeatherington_winningclub",
+        "reason": "If the Barber turns an evil player into the Portia Featherington, they can't turn good due to their own ability."
+      },
+      {
+        "id": "sympath",
+        "reason": "If the Barber turns an evil player into the Sympath, they can't turn good due to their own ability."
+      }
+    ]
+  },
+  {
     "id": "baroness_winningclub",
     "jinx": [
       {
@@ -116,7 +129,11 @@
     "jinx": [
       {
         "id": "portiafeatherington_winningclub",
-        "reason": "The Demon can't have the Portia Featherington ability."
+        "reason": "The Demon cannot have the Portia Featherington ability."
+      },
+      {
+        "id": "sympath",
+        "reason": "The Demon cannot have the Sympath ability."
       }
     ]
   },
@@ -178,7 +195,11 @@
     "jinx": [
       {
         "id": "portiafeatherington_winningclub",
-        "reason": "If the Pit Hag turns an evil player into a Portia F., they cannot turn good due to their own ability."
+        "reason": "If the Pit-Hag turns an evil player into the Portia Featherington, they can't turn good due to their own ability."
+      },
+      {
+        "id": "sympath",
+        "reason": "If the Pit-Hag turns an evil player into the Sympath, they can't turn good due to their own ability."
       }
     ]
   },

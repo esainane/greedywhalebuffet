@@ -45,6 +45,27 @@
     ]
   },
   {
+    "id": "barber",
+    "jinx": [
+      {
+        "id": "cultleader",
+        "reason": "If the Barber turns an evil player into the Cult Leader, they can't turn good due to their own ability."
+      },
+      {
+        "id": "goon",
+        "reason": "If the Barber turns an evil player into the Goon, they can't turn good due to their own ability."
+      },
+      {
+        "id": "ogre",
+        "reason": "If the Barber turns an evil player into the Ogre, they can't turn good due to their own ability."
+      },
+      {
+        "id": "politician",
+        "reason": "If the Barber turns an evil player into the Politician, they can't turn good due to their own ability."
+      }
+    ]
+  },
+  {
     "id": "boffin",
     "jinx": [
       {

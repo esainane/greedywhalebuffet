@@ -14,6 +14,8 @@ type LoadedMatrixData = {
 type NoDeathTemplateKind =
 	| 'demonbane-gainer'
 	| 'demonbane-trigger'
+	| 'journalist'
+	| 'pathologist'
 	| 'protector'
 	| 'vulnerable'
 	| 'king'
@@ -45,8 +47,10 @@ const NO_DEATH_TARGETS: NoDeathTargetInfo[] = [
 	{ id: 'farmer', name: 'Farmer', kind: 'demonbane-trigger' },
 	{ id: 'grandmother', name: 'Grandmother', kind: 'vulnerable' },
 	{ id: 'innkeeper', name: 'Innkeeper', kind: 'protector', protectedSuffix: 'an Innkeeper-protected player' },
+	{ id: 'journalist_winningclub', name: 'Journalist', kind: 'journalist' },
 	{ id: 'king', name: 'King', kind: 'king' },
 	{ id: 'monk', name: 'Monk', kind: 'protector', protectedSuffix: 'the Monk-protected player' },
+	{ id: 'pathologist_winningclub', name: 'Pathologist', kind: 'pathologist' },
 	{ id: 'ravenkeeper', name: 'Ravenkeeper', kind: 'demonbane-trigger' },
 	{ id: 'sage', name: 'Sage', kind: 'demonbane-trigger' },
 	{ id: 'soldier', name: 'Soldier', kind: 'soldier' },
@@ -89,6 +93,14 @@ function findDirectedReasons(entries: JinxEntry[], sourceId: string, targetId: s
 		.map((target) => target.reason);
 }
 
+function capitalizeFirst(value: string): string {
+	if (value.length === 0) {
+		return value;
+	}
+
+	return value[0].toUpperCase() + value.slice(1);
+}
+
 async function collectGreedierDefinedIds(): Promise<Set<string>> {
 	const greedierDir = path.join(staticRoot, 'greedier');
 	const fileNames = await readdir(greedierDir);
@@ -122,6 +134,14 @@ function getNoDeathExpectedReason(sourceId: string, target: NoDeathTargetInfo): 
 
 	if (target.kind === 'demonbane-gainer') {
 		return `Each night*, ${sourcePhrase} chooses an alive good player (different to previous nights): a chosen ${target.name} dies & gains their ability.`;
+	}
+
+	if (target.kind === 'journalist') {
+		return `${capitalizeFirst(sourcePhrase)} does not learn ${target.name} picks. Each night*, ${sourcePhrase} chooses an alive good player (different to previous nights): if a ${target.name}-chosen player is chosen, the ${target.name} learns a true statement, even if dead.`;
+	}
+
+	if (target.kind === 'pathologist') {
+		return `Each night*, ${sourcePhrase} chooses an alive good player (different to previous nights): if a ${target.name}-chosen player is chosen, the ${target.name} learns ${sourcePhrase} is in play.`;
 	}
 
 	if (target.kind === 'protector') {

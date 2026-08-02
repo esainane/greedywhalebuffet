@@ -24,6 +24,7 @@ export type GreedyJinxDetail = {
 	target: CharacterSummary;
 	officialReason: string | null;
 	reason: string;
+	origin: 'greedy' | 'greedier-homebrew';
 };
 
 export type GreedyHomebrewDetail = {
@@ -151,15 +152,18 @@ export function deriveGreedyDifferences(fetchedData: FetchedData): GreedyDiffere
 	return differences;
 }
 
-export function deriveGreedyJinxes(fetchedData: FetchedData): GreedyJinxDetail[] {
-	const details: (GreedyJinxDetail & {
-		originalOrder: number;
-	})[] = [];
-	const lookup = buildCharacterLookup(fetchedData);
-	const officialJinxLookup = buildOfficialJinxLookup(fetchedData);
-	let originalOrder = 0;
+function appendJinxDetails(
+	details: (GreedyJinxDetail & { originalOrder: number })[],
+	fetchedData: FetchedData,
+	lookup: Map<string, CharacterEntry>,
+	officialJinxLookup: Map<string, string>,
+	sourceData: ReadonlyArray<{ id: string; jinx?: { id: string; reason: string }[] }>,
+	origin: GreedyJinxDetail['origin'],
+	startOrder: number,
+): number {
+	let originalOrder = startOrder;
 
-	for (const sourceEntry of fetchedData.getGreedyJinxData()) {
+	for (const sourceEntry of sourceData) {
 		const sourceCharacter = getEntryById(sourceEntry.id, lookup, fetchedData);
 		if (!sourceCharacter || !Array.isArray(sourceEntry.jinx)) {
 			continue;
@@ -189,15 +193,56 @@ export function deriveGreedyJinxes(fetchedData: FetchedData): GreedyJinxDetail[]
 				target: targetSummary,
 				officialReason,
 				reason: jinx.reason,
+				origin,
 				originalOrder,
 			});
 			originalOrder += 1;
 		}
 	}
 
+	return originalOrder;
+}
+
+export function deriveGreedyJinxes(
+	fetchedData: FetchedData,
+	options: { includeGreedierHomebrew?: boolean } = {},
+): GreedyJinxDetail[] {
+	const details: (GreedyJinxDetail & {
+		originalOrder: number;
+	})[] = [];
+	const lookup = buildCharacterLookup(fetchedData);
+	const officialJinxLookup = buildOfficialJinxLookup(fetchedData);
+	const originalOrder = appendJinxDetails(
+		details,
+		fetchedData,
+		lookup,
+		officialJinxLookup,
+		fetchedData.getGreedyJinxData(),
+		'greedy',
+		0,
+	);
+
+	if (options.includeGreedierHomebrew) {
+		appendJinxDetails(
+			details,
+			fetchedData,
+			lookup,
+			officialJinxLookup,
+			fetchedData.getGreedierJinxData(),
+			'greedier-homebrew',
+			originalOrder,
+		);
+	}
+
 	return details
 		.sort(compareCanonicalJinxOrder)
-		.map(({ source, target, officialReason, reason }) => ({ source, target, officialReason, reason }));
+		.map(({ source, target, officialReason, reason, origin }) => ({
+			source,
+			target,
+			officialReason,
+			reason,
+			origin,
+		}));
 }
 
 export function deriveGreedyHomebrew(

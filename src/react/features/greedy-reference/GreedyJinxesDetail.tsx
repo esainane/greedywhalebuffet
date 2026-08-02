@@ -12,8 +12,12 @@ type GreedyJinxesDetailProps = {
 };
 
 type JinxStatus = {
-	label: 'New jinx' | 'Changed jinx' | 'Removed jinx';
-	labelClassName: 'jinx-status-new' | 'jinx-status-changed' | 'jinx-status-removed';
+	label: 'New jinx' | 'Changed jinx' | 'Removed jinx' | 'Greedier Homebrew Jinx';
+	labelClassName:
+		| 'jinx-status-new'
+		| 'jinx-status-changed'
+		| 'jinx-status-removed'
+		| 'jinx-status-greedier-homebrew';
 	before: string;
 	after: string;
 };
@@ -32,6 +36,15 @@ function getJinxStatus(item: GreedyJinxDetail): JinxStatus {
 	}
 
 	if (officialReason.trim().length === 0) {
+		if (item.origin === 'greedier-homebrew') {
+			return {
+				label: 'Greedier Homebrew Jinx',
+				labelClassName: 'jinx-status-greedier-homebrew',
+				before: '',
+				after: greedyReason,
+			};
+		}
+
 		return {
 			label: 'New jinx',
 			labelClassName: 'jinx-status-new',

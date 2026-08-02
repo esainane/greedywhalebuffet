@@ -23,10 +23,12 @@ export function GreedyReferencePanel(): React.JSX.Element {
 
 		return {
 			differences: deriveGreedyDifferences(state.fetchedData),
-			jinxes: deriveGreedyJinxes(state.fetchedData),
+			jinxes: deriveGreedyJinxes(state.fetchedData, {
+				includeGreedierHomebrew: state.options.addGreedierHomebrew,
+			}),
 			homebrew: deriveGreedyHomebrew(state.fetchedData, state.greedierSortBySet),
 		};
-	}, [state.fetchedData, state.greedierSortBySet]);
+	}, [state.fetchedData, state.greedierSortBySet, state.options.addGreedierHomebrew]);
 
 	return (
 		<>

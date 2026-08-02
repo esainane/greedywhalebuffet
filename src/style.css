@@ -13,6 +13,8 @@
 	--success: #2db567;
 	--warning: #f7cf54;
 	--danger: #ff8d6a;
+	--homebrew-purple: #bea7ff;
+	--homebrew-purple-muted: #8870ba;
 	--team-townsfolk: #75b9ff;
 	--team-outsider: #6ee9f5;
 	--team-minion: #ffb064;
@@ -40,6 +42,8 @@
 		--success: #0c8a4a;
 		--warning: #9f7700;
 		--danger: #b74d2c;
+		--homebrew-purple: #6f4bb5;
+		--homebrew-purple-muted: #9f8bcf;
 		--team-townsfolk: #0d66c5;
 		--team-outsider: #007f93;
 		--team-minion: #b85a00;
@@ -869,6 +873,10 @@ button.danger:focus-visible {
 	border-color: color-mix(in srgb, var(--surface-border) 67%, var(--danger));
 }
 
+.ability-block.jinx-status-greedier-homebrew {
+	border-color: color-mix(in srgb, var(--surface-border) 58%, var(--homebrew-purple-muted));
+}
+
 .ability-label {
 	margin: 0 0 0.4rem;
 	font-size: 0.78rem;
@@ -888,6 +896,10 @@ button.danger:focus-visible {
 
 .ability-label.jinx-status-removed {
 	color: var(--danger);
+}
+
+.ability-label.jinx-status-greedier-homebrew {
+	color: var(--homebrew-purple);
 }
 
 .ability-block p {

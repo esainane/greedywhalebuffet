@@ -134,11 +134,7 @@
     "jinx": [
       {
         "id": "chambermaid",
-        "reason": "The Chambermaid learns if the Informant wakes tonight."
-      },
-      {
-        "id": "mathematician",
-        "reason": "The Informant can learn if the Mathematician wakes tonight."
+        "reason": "The Chambermaid can detect if the Informant will wake tonight."
       }
     ]
   },
@@ -165,6 +161,15 @@
       {
         "id": "summoner",
         "reason": "If the Lolth is summoned, a Townsfolk might become evil."
+      }
+    ]
+  },
+  {
+    "id": "mathematician",
+    "jinx": [
+      {
+        "id": "informant_winningclub",
+        "reason": "The Informant can detect if the Mathematician will wake tonight."
       }
     ]
   },

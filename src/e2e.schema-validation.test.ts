@@ -9,13 +9,11 @@ import { buildCopyPayload } from './generation.js';
 import { FILTERABLE_TEAMS } from './constants.js';
 import { loadLatestJson } from './data/loader.js';
 import type { GenerationOptions, ScriptFile } from './types.js';
+import scriptSchema from '../schemas/script-schema.json';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, '..');
 const staticRoot = path.join(repoRoot, 'static');
-const upstreamSchemaUrl =
-	'https://raw.githubusercontent.com/ThePandemoniumInstitute/botc-release/main/script-schema.json';
-
 const optionKeys: readonly (keyof GenerationOptions)[] = [
 	'appendDuplicateLine',
 	'addSpiritOfIvory',
@@ -113,14 +111,8 @@ function getUnbannedSelection(greedyScript: Readonly<ScriptFile>, rolesById: Rea
 }
 
 describe('end-to-end schema validation', () => {
-	it('validates generated scripts against upstream schema for every non-ban option combination', async () => {
+	it('validates generated scripts against the vendored schema for every non-ban option combination', async () => {
 		const originalFetch = globalThis.fetch;
-		const upstreamSchemaResponse = await originalFetch(upstreamSchemaUrl);
-		if (!upstreamSchemaResponse.ok) {
-			throw new Error(`Failed to fetch upstream schema: ${upstreamSchemaResponse.status}`);
-		}
-		const upstreamSchema = (await upstreamSchemaResponse.json()) as unknown;
-
 		globalThis.fetch = createStaticFetch() as typeof fetch;
 
 		try {
@@ -128,7 +120,7 @@ describe('end-to-end schema validation', () => {
 
 			const ajv = new Ajv2020({ allErrors: true, strict: false });
 			addFormats(ajv);
-			const validateUpstream = ajv.compile(upstreamSchema as AnySchemaObject);
+			const validateUpstream = ajv.compile(scriptSchema as AnySchemaObject);
 
 			const rolesById = new Map(
 				fetchedData

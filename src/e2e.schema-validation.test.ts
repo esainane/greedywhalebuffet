@@ -8,6 +8,7 @@ import { describe, expect, it } from 'vitest';
 import { buildCopyPayload } from './generation.js';
 import { FILTERABLE_TEAMS } from './constants.js';
 import { loadLatestJson } from './data/loader.js';
+import { FetchedData } from './data/fetched.js';
 import type { GenerationOptions, ScriptFile } from './types.js';
 import scriptSchema from '../schemas/script-schema.json';
 
@@ -86,10 +87,10 @@ function allOptionCombinations(): GenerationOptions[] {
 	return combinations;
 }
 
-function getUnbannedSelection(greedyScript: Readonly<ScriptFile>, rolesById: ReadonlyMap<string, string>): Set<string> {
+function getUnbannedSelection(entries: readonly (ScriptFile[number])[], rolesById: ReadonlyMap<string, string>): Set<string> {
 	const selected = new Set<string>();
 
-	for (const entry of greedyScript) {
+	for (const entry of entries) {
 		if (typeof entry === 'string') {
 			const team = rolesById.get(entry);
 			if (team && FILTERABLE_TEAMS.has(team)) {
@@ -116,21 +117,20 @@ describe('end-to-end schema validation', () => {
 		globalThis.fetch = createStaticFetch() as typeof fetch;
 
 		try {
-			const { fetchedData } = await loadLatestJson();
+			const { catalog } = await loadLatestJson();
 
 			const ajv = new Ajv2020({ allErrors: true, strict: false });
 			addFormats(ajv);
 			const validateUpstream = ajv.compile(scriptSchema as AnySchemaObject);
 
 			const rolesById = new Map(
-				fetchedData
-					.getRolesData()
-					.map((role) => [role.id, role.team] as const),
+				[...catalog.rolesById.values()].map((ce) => [ce.baseId, ce.entry.team] as const),
 			);
-			const selectedCharacterIds = getUnbannedSelection(fetchedData.getGreedyJson(), rolesById);
-			for (const greedier of fetchedData.getGreedierCharactersData()) {
-				if (FILTERABLE_TEAMS.has(greedier.team)) {
-					selectedCharacterIds.add(greedier.id);
+			const greedyScript = catalog.baseScript;
+			const selectedCharacterIds = getUnbannedSelection([...greedyScript.entries], rolesById);
+			for (const greedierEntry of catalog.greedierById.values()) {
+				if (FILTERABLE_TEAMS.has(greedierEntry.team)) {
+					selectedCharacterIds.add(greedierEntry.id);
 				}
 			}
 
@@ -138,7 +138,7 @@ describe('end-to-end schema validation', () => {
 			expect(combinations).toHaveLength(128);
 
 			for (const options of combinations) {
-				const payload = buildCopyPayload(selectedCharacterIds, options, fetchedData);
+				const payload = buildCopyPayload(selectedCharacterIds, options, FetchedData.fromCatalog(catalog));
 				const parsed = JSON.parse(payload) as unknown;
 				const label = `generated payload for options ${JSON.stringify(options)}`;
 				assertValid(validateUpstream, parsed, label, ajv);

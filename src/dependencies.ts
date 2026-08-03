@@ -1,5 +1,4 @@
-import { getBaseCharacterId } from './character.js';
-import type { FetchedData } from './data/fetched.js';
+import type { Catalog } from './data/catalog.js';
 
 
 const CHARACTER_DEPENDENCIES: Record<string, readonly string[]> = {
@@ -13,17 +12,16 @@ const CHARACTER_DEPENDENCIES: Record<string, readonly string[]> = {
  */
 export function getUnsatisfiedDependencyCharacterIds(
 	selectedCharacterIds: ReadonlySet<string>,
-	fetchedData: FetchedData,
+	catalog: Catalog,
 ): Set<string> {
 	const selectedBaseCharacterIds = new Set<string>();
 	for (const characterId of selectedCharacterIds) {
-		const baseCharacterId = getBaseCharacterId(characterId, fetchedData);
-		selectedBaseCharacterIds.add(baseCharacterId);
+		selectedBaseCharacterIds.add(catalog.resolveBaseId(characterId));
 	}
 
 	const unsatisfiedDependencyCharacterIds = new Set<string>();
 	for (const characterId of selectedCharacterIds) {
-		const baseCharacterId = getBaseCharacterId(characterId, fetchedData);
+		const baseCharacterId = catalog.resolveBaseId(characterId);
 		const requiredCharacterIds = CHARACTER_DEPENDENCIES[baseCharacterId] ?? [];
 		const hasAllDependencies = requiredCharacterIds.every((requiredId) =>
 			selectedBaseCharacterIds.has(requiredId),

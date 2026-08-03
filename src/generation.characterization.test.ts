@@ -4,9 +4,10 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { FILTERABLE_TEAMS, REMOVED_CHARACTERS_PREFIX } from './constants.js';
 import { FetchedData } from './data/fetched.js';
+import type { Catalog } from './data/catalog.js';
 import { getUnsatisfiedDependencyCharacterIds } from './dependencies.js';
 import { buildCopyPayload } from './generation.js';
-import { getBaseCharacterId } from './character.js';
+import { getCharacters } from './character.js';
 import type {
 	CatalogCharacter,
 	CharacterEntry,
@@ -67,13 +68,13 @@ function createStaticFetch() {
 	};
 }
 
-async function loadFixtureData(): Promise<FetchedData> {
+async function loadFixtureData(): Promise<Catalog> {
 	const { loadLatestJson } = await import('./data/loader.js');
 	const originalFetch = globalThis.fetch;
 	globalThis.fetch = createStaticFetch() as typeof fetch;
 
 	try {
-		return (await loadLatestJson()).fetchedData;
+		return (await loadLatestJson()).catalog;
 	} finally {
 		globalThis.fetch = originalFetch;
 	}
@@ -97,37 +98,12 @@ function getMetaEntry(data: ScriptFile): { name: string; bootlegger: string[] } 
 	};
 }
 
-function getRoleTeamByBaseId(fetchedData: FetchedData): Map<string, string> {
-	return new Map(fetchedData.getRolesData().map((entry) => [entry.id, entry.team] as const));
+function getRoleTeamByBaseId(catalog: Catalog): Map<string, string> {
+	return new Map([...catalog.rolesById.values()].map((ce) => [ce.baseId, ce.entry.team] as const));
 }
 
-function getFilterableBaseSelectionFromGreedy(fetchedData: FetchedData): string[] {
-	const roleTeamByBaseId = getRoleTeamByBaseId(fetchedData);
-	const filterable = new Set<string>();
-
-	for (const entry of fetchedData.getGreedyJson()) {
-		if (typeof entry === 'string') {
-			const team = roleTeamByBaseId.get(entry);
-			if (team && FILTERABLE_TEAMS.has(team)) {
-				filterable.add(entry);
-			}
-			continue;
-		}
-
-		if (
-			typeof entry === 'object' &&
-			entry !== null &&
-			'id' in entry &&
-			typeof entry.id === 'string' &&
-			'team' in entry &&
-			typeof entry.team === 'string' &&
-			FILTERABLE_TEAMS.has(entry.team)
-		) {
-			filterable.add(entry.id);
-		}
-	}
-
-	return [...filterable].sort();
+function getFilterableBaseSelectionFromGreedy(catalog: Catalog): string[] {
+	return getCharacters(catalog).map((c) => c.id).sort();
 }
 
 function getFilterableIdsFromPayload(payload: ScriptFile): string[] {
@@ -206,7 +182,7 @@ function buildFetchedData(params: {
 	greedierJinxData?: JinxFile;
 	jinxData?: JinxFile;
 }): FetchedData {
-	return new FetchedData({
+	return FetchedData.fromRaw({
 		greedyJson: params.greedyJson ?? [{ id: '_meta', name: 'Test Script' }],
 		greedyJinxData: params.greedyJinxData ?? [],
 		greedierJinxData: params.greedierJinxData ?? [],
@@ -220,17 +196,17 @@ function buildFetchedData(params: {
 
 describe('generation characterization fixtures', () => {
 	it('fixture: substantial base deselection records removals and excludes unselected filterable characters', async () => {
-		const fetchedData = await loadFixtureData();
-		const allFilterable = getFilterableBaseSelectionFromGreedy(fetchedData);
+		const catalog = await loadFixtureData();
+		const allFilterable = getFilterableBaseSelectionFromGreedy(catalog);
 		expect(allFilterable.length).toBeGreaterThan(40);
 
 		const selectedList = allFilterable.slice(0, 8);
 		const selectedCharacterIds = new Set(selectedList);
-		const blocked = getUnsatisfiedDependencyCharacterIds(selectedCharacterIds, fetchedData);
+		const blocked = getUnsatisfiedDependencyCharacterIds(selectedCharacterIds, catalog);
 		const expectedExportableSelected = selectedList.filter((id) => !blocked.has(id));
 
 		const payload = JSON.parse(
-			buildCopyPayload(selectedCharacterIds, buildOptions(), fetchedData),
+			buildCopyPayload(selectedCharacterIds, buildOptions(), FetchedData.fromCatalog(catalog)),
 		) as ScriptFile;
 		const exportedFilterableIds = getFilterableIdsFromPayload(payload);
 		const exportedIdSet = new Set(exportedFilterableIds);
@@ -255,11 +231,11 @@ describe('generation characterization fixtures', () => {
 	});
 
 	it('fixture: small selection with unsatisfied dependency excludes dependent role and records it in metadata', async () => {
-		const fetchedData = await loadFixtureData();
+		const catalog = await loadFixtureData();
 		const selectedCharacterIds = new Set(['choirboy', 'chef']);
 
 		const payload = JSON.parse(
-			buildCopyPayload(selectedCharacterIds, buildOptions(), fetchedData),
+			buildCopyPayload(selectedCharacterIds, buildOptions(), FetchedData.fromCatalog(catalog)),
 		) as ScriptFile;
 		const { bootlegger } = getMetaEntry(payload);
 
@@ -269,9 +245,9 @@ describe('generation characterization fixtures', () => {
 	});
 
 	it('fixture: greedier-enabled generation renames script and can emit Greedier addition metadata', async () => {
-		const fetchedData = await loadFixtureData();
-		const allBase = getFilterableBaseSelectionFromGreedy(fetchedData);
-		const greedierCharacter = fetchedData.getGreedierCharactersData()[0];
+		const catalog = await loadFixtureData();
+		const allBase = getFilterableBaseSelectionFromGreedy(catalog);
+		const greedierCharacter = [...catalog.greedierById.values()][0].entry;
 		expect(greedierCharacter).toBeDefined();
 
 		const selectedCharacterIds = new Set([...allBase, greedierCharacter.id]);
@@ -279,7 +255,7 @@ describe('generation characterization fixtures', () => {
 			buildCopyPayload(
 				selectedCharacterIds,
 				buildOptions({ addGreedierHomebrew: true }),
-				fetchedData,
+				FetchedData.fromCatalog(catalog),
 			),
 		) as ScriptFile;
 		const { name, bootlegger } = getMetaEntry(payload);
@@ -389,21 +365,21 @@ describe('generation characterization fixtures', () => {
 	});
 
 	it('fixture: no-death-at-night jinxes are excluded by default and included when explicitly enabled', async () => {
-		const fetchedData = await loadFixtureData();
+		const catalog = await loadFixtureData();
 		const selectedCharacterIds = new Set(['leviathan_popppp']);
 
 		const excludedPayload = JSON.parse(
 			buildCopyPayload(
 				selectedCharacterIds,
 				buildOptions({ listOfficialJinxes: true, useNoDeathAtNightJinxes: false }),
-				fetchedData,
+				FetchedData.fromCatalog(catalog),
 			),
 		) as ScriptFile;
 		const includedPayload = JSON.parse(
 			buildCopyPayload(
 				selectedCharacterIds,
 				buildOptions({ listOfficialJinxes: true, useNoDeathAtNightJinxes: true }),
-				fetchedData,
+				FetchedData.fromCatalog(catalog),
 			),
 		) as ScriptFile;
 
@@ -417,8 +393,8 @@ describe('generation characterization fixtures', () => {
 	});
 
 	it('fixture: repeated generation is stable with equal inputs and jinx order follows locale-independent team ranking', async () => {
-		const fetchedData = await loadFixtureData();
-		const allBase = getFilterableBaseSelectionFromGreedy(fetchedData);
+		const catalog = await loadFixtureData();
+		const allBase = getFilterableBaseSelectionFromGreedy(catalog);
 		const selectedCharacterIds = new Set(allBase.slice(0, 30));
 		const options = buildOptions({
 			listOfficialJinxes: true,
@@ -426,15 +402,15 @@ describe('generation characterization fixtures', () => {
 			useNoDeathAtNightJinxes: false,
 		});
 
-		const first = buildCopyPayload(selectedCharacterIds, options, fetchedData);
-		const second = buildCopyPayload(selectedCharacterIds, options, fetchedData);
-		const third = buildCopyPayload(selectedCharacterIds, options, fetchedData);
+		const first = buildCopyPayload(selectedCharacterIds, options, FetchedData.fromCatalog(catalog));
+		const second = buildCopyPayload(selectedCharacterIds, options, FetchedData.fromCatalog(catalog));
+		const third = buildCopyPayload(selectedCharacterIds, options, FetchedData.fromCatalog(catalog));
 
 		expect(second).toBe(first);
 		expect(third).toBe(first);
 
 		const parsed = JSON.parse(first) as ScriptFile;
-		const teamByBaseId = getRoleTeamByBaseId(fetchedData);
+		const teamByBaseId = getRoleTeamByBaseId(catalog);
 		const sourceWithJinxes = parsed.find(
 			(entry) =>
 				typeof entry === 'object' &&
@@ -446,7 +422,7 @@ describe('generation characterization fixtures', () => {
 		expect(sourceWithJinxes).toBeDefined();
 
 		const ranks = (sourceWithJinxes?.jinxes ?? []).map((jinx) => {
-			const baseId = getBaseCharacterId(jinx.id, fetchedData);
+			const baseId = catalog.resolveBaseId(jinx.id);
 			return getTeamRank(teamByBaseId.get(baseId));
 		});
 

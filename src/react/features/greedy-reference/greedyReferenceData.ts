@@ -1,9 +1,8 @@
 import { FILTERABLE_TEAMS } from '../../../constants.js';
-import { getBaseCharacterId, getFallbackImageURL, getImageArray } from '../../../character.js';
-import type { FetchedData } from '../../../data/fetched.js';
-import type { CharacterEntry, ScriptFile, SelectableCharacter } from '../../../types.js';
+import type { Catalog } from '../../../data/catalog.js';
 import { compareCanonicalCharacterOrder, compareCanonicalJinxOrder } from '../../../jinxOrder.js';
 import { isNoDeathAtNightJinxPair } from '../../../noDeathAtNightJinxes.js';
+import type { SelectableCharacter } from '../../../types.js';
 
 export type GreedyDifferenceDetail = {
 	character: SelectableCharacter;
@@ -26,72 +25,10 @@ export type GreedyHomebrewDetail = {
 	otherNight?: number;
 };
 
-function isCharacterObject(entry: ScriptFile[number]): entry is CharacterEntry {
-	if (typeof entry !== 'object' || entry === null || Array.isArray(entry)) {
-		return false;
-	}
-
-	return typeof (entry as { id?: unknown }).id === 'string';
-}
-
-function hasFilterableTeam(entry: CharacterEntry): entry is CharacterEntry & { team: string } {
-	return FILTERABLE_TEAMS.has(entry.team);
-}
-
-function getPrimaryImage(entry: CharacterEntry, fetchedData: FetchedData): string | undefined {
-	if (!hasFilterableTeam(entry)) {
-		return undefined;
-	}
-
-	const [firstImage] = getImageArray(entry, fetchedData);
-	return firstImage;
-}
-
-function createCharacterSummary(entry: CharacterEntry, fetchedData: FetchedData): SelectableCharacter {
-	return {
-		id: entry.id,
-		name: entry.name ?? entry.id,
-		team: entry.team,
-		edition: entry.edition,
-		imageUrl: getPrimaryImage(entry, fetchedData) || getFallbackImageURL(entry.team),
-	};
-}
-
-function buildCharacterLookup(fetchedData: FetchedData): Map<string, CharacterEntry> {
-	const lookup = new Map<string, CharacterEntry>();
-
-	for (const role of fetchedData.getRolesData()) {
-		lookup.set(role.id, role);
-	}
-
-	for (const catalogCharacter of fetchedData.getGreedierCatalogCharacters()) {
-		lookup.set(catalogCharacter.entry.id, catalogCharacter.entry);
-	}
-
-	for (const entry of fetchedData.getGreedyJson()) {
-		if (!isCharacterObject(entry)) {
-			continue;
-		}
-		lookup.set(entry.id, entry);
-	}
-
-	return lookup;
-}
-
-function getEntryById(id: string, lookup: Map<string, CharacterEntry>, fetchedData: FetchedData): CharacterEntry | null {
-	const direct = lookup.get(id);
-	if (direct) {
-		return direct;
-	}
-
-	const baseId = getBaseCharacterId(id, fetchedData);
-	return lookup.get(baseId) ?? null;
-}
-
-function buildOfficialJinxLookup(fetchedData: FetchedData): Map<string, string> {
+function buildOfficialJinxLookup(catalog: Catalog): Map<string, string> {
 	const officialLookup = new Map<string, string>();
 
-	for (const sourceEntry of fetchedData.getJinxData()) {
+	for (const sourceEntry of catalog.officialJinxes) {
 		if (!Array.isArray(sourceEntry.jinx)) {
 			continue;
 		}
@@ -108,35 +45,32 @@ function buildOfficialJinxLookup(fetchedData: FetchedData): Map<string, string> 
 	return officialLookup;
 }
 
-export function deriveGreedyDifferences(fetchedData: FetchedData): GreedyDifferenceDetail[] {
-	const officialLookup = new Map(fetchedData.getRolesData().map((entry) => [entry.id, entry] as const));
+export function deriveGreedyDifferences(catalog: Catalog): GreedyDifferenceDetail[] {
 	const differences: GreedyDifferenceDetail[] = [];
 
-	for (const entry of fetchedData.getGreedyJson()) {
-		if (!isCharacterObject(entry) || entry.id === 'choose_your_chars') {
+	for (const entry of catalog.baseScript.entries) {
+		if (typeof entry === 'string' || entry.id === 'choose_your_chars') {
 			continue;
 		}
 
-		if (!hasFilterableTeam(entry)) {
+		if (!FILTERABLE_TEAMS.has(entry.team)) {
 			continue;
 		}
 
-		const baseId = getBaseCharacterId(entry.id, fetchedData);
-		const official = officialLookup.get(baseId);
-		if (!official) {
+		const baseId = catalog.resolveBaseId(entry.id);
+		const officialCatalogEntry = catalog.rolesById.get(baseId);
+		if (!officialCatalogEntry) {
 			continue;
 		}
 
-		const officialAbility = official.ability;
-		const greedyAbility = entry.ability;
-		if (officialAbility === greedyAbility) {
+		if (entry.ability === officialCatalogEntry.entry.ability) {
 			continue;
 		}
 
 		differences.push({
-			character: createCharacterSummary(entry, fetchedData),
-			officialAbility,
-			greedyAbility,
+			character: catalog.selectableFor(entry),
+			officialAbility: officialCatalogEntry.entry.ability,
+			greedyAbility: entry.ability,
 		});
 	}
 
@@ -145,8 +79,7 @@ export function deriveGreedyDifferences(fetchedData: FetchedData): GreedyDiffere
 
 function appendJinxDetails(
 	details: (GreedyJinxDetail & { originalOrder: number })[],
-	fetchedData: FetchedData,
-	lookup: Map<string, CharacterEntry>,
+	catalog: Catalog,
 	officialJinxLookup: Map<string, string>,
 	sourceData: ReadonlyArray<{ id: string; jinx?: { id: string; reason: string }[] }>,
 	origin: GreedyJinxDetail['origin'],
@@ -156,8 +89,8 @@ function appendJinxDetails(
 	let originalOrder = startOrder;
 
 	for (const sourceEntry of sourceData) {
-		const sourceCharacter = getEntryById(sourceEntry.id, lookup, fetchedData);
-		if (!sourceCharacter || !Array.isArray(sourceEntry.jinx)) {
+		const sourceCatalogEntry = catalog.lookupById(sourceEntry.id);
+		if (!sourceCatalogEntry || !Array.isArray(sourceEntry.jinx)) {
 			continue;
 		}
 
@@ -166,27 +99,25 @@ function appendJinxDetails(
 				continue;
 			}
 
-			if (!includeNoDeathAtNightJinxes && isNoDeathAtNightJinxPair(sourceEntry.id, jinx.id, fetchedData)) {
+			if (!includeNoDeathAtNightJinxes && isNoDeathAtNightJinxPair(sourceEntry.id, jinx.id, catalog)) {
 				continue;
 			}
 
-			const targetCharacter = getEntryById(jinx.id, lookup, fetchedData);
-			if (!targetCharacter) {
+			const targetCatalogEntry = catalog.lookupById(jinx.id);
+			if (!targetCatalogEntry) {
 				continue;
 			}
 
-			const sourceSummary = createCharacterSummary(sourceCharacter, fetchedData);
-			const targetSummary = createCharacterSummary(targetCharacter, fetchedData);
-			const sourceBaseId = getBaseCharacterId(sourceCharacter.id, fetchedData);
-			const targetBaseId = getBaseCharacterId(targetCharacter.id, fetchedData);
+			const sourceBaseId = catalog.resolveBaseId(sourceCatalogEntry.id);
+			const targetBaseId = catalog.resolveBaseId(targetCatalogEntry.id);
 			const officialReason =
 				officialJinxLookup.get(`${sourceBaseId}::${targetBaseId}`) ??
 				officialJinxLookup.get(`${targetBaseId}::${sourceBaseId}`) ??
 				null;
 
 			details.push({
-				source: sourceSummary,
-				target: targetSummary,
+				source: sourceCatalogEntry.toSelectable(),
+				target: targetCatalogEntry.toSelectable(),
 				officialReason,
 				reason: jinx.reason,
 				origin,
@@ -200,20 +131,16 @@ function appendJinxDetails(
 }
 
 export function deriveGreedyJinxes(
-	fetchedData: FetchedData,
+	catalog: Catalog,
 	options: { includeGreedierHomebrew?: boolean; includeNoDeathAtNightJinxes?: boolean } = {},
 ): GreedyJinxDetail[] {
-	const details: (GreedyJinxDetail & {
-		originalOrder: number;
-	})[] = [];
-	const lookup = buildCharacterLookup(fetchedData);
-	const officialJinxLookup = buildOfficialJinxLookup(fetchedData);
+	const details: (GreedyJinxDetail & { originalOrder: number })[] = [];
+	const officialJinxLookup = buildOfficialJinxLookup(catalog);
 	const originalOrder = appendJinxDetails(
 		details,
-		fetchedData,
-		lookup,
+		catalog,
 		officialJinxLookup,
-		fetchedData.getGreedyJinxData(),
+		catalog.greedyJinxes,
 		'greedy',
 		0,
 		options.includeNoDeathAtNightJinxes === true,
@@ -222,10 +149,9 @@ export function deriveGreedyJinxes(
 	if (options.includeGreedierHomebrew) {
 		appendJinxDetails(
 			details,
-			fetchedData,
-			lookup,
+			catalog,
 			officialJinxLookup,
-			fetchedData.getGreedierJinxData(),
+			catalog.greedierJinxes,
 			'greedier-homebrew',
 			originalOrder,
 			options.includeNoDeathAtNightJinxes === true,
@@ -243,31 +169,20 @@ export function deriveGreedyJinxes(
 		}));
 }
 
-export function deriveGreedyHomebrew(
-	fetchedData: FetchedData,
-	sortBySet = true,
-): GreedyHomebrewDetail[] {
+export function deriveGreedyHomebrew(catalog: Catalog, sortBySet = true): GreedyHomebrewDetail[] {
 	const details: GreedyHomebrewDetail[] = [];
 
-	for (const entry of fetchedData.getGreedierCharactersData()) {
-		if (entry.edition !== 'greedier' || !hasFilterableTeam(entry)) {
+	for (const catalogEntry of catalog.greedierById.values()) {
+		if (catalogEntry.entry.edition !== 'greedier' || !FILTERABLE_TEAMS.has(catalogEntry.team)) {
 			continue;
 		}
 
-		const sourceSet = fetchedData
-			.getGreedierCatalogCharacters()
-			.find((catalogCharacter) => catalogCharacter.entry.id === entry.id)?.sourceSet;
-
 		details.push({
-			character: createCharacterSummary(entry, fetchedData),
-			ability: entry.ability,
-			firstNight: entry.firstNight,
-			otherNight: entry.otherNight,
+			character: catalogEntry.toSelectable(),
+			ability: catalogEntry.entry.ability,
+			firstNight: catalogEntry.entry.firstNight,
+			otherNight: catalogEntry.entry.otherNight,
 		});
-
-		if (sourceSet !== undefined) {
-			details[details.length - 1].character.sourceSet = sourceSet;
-		}
 	}
 
 	if (!sortBySet) {

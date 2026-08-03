@@ -13,7 +13,7 @@ export function GreedyReferencePanel(): React.JSX.Element {
 	const state = useAppState();
 
 	const details = useMemo(() => {
-		if (!state.fetchedData) {
+		if (!state.catalog) {
 			return {
 				differences: [],
 				jinxes: [],
@@ -22,15 +22,15 @@ export function GreedyReferencePanel(): React.JSX.Element {
 		}
 
 		return {
-			differences: deriveGreedyDifferences(state.fetchedData),
-			jinxes: deriveGreedyJinxes(state.fetchedData, {
+			differences: deriveGreedyDifferences(state.catalog),
+			jinxes: deriveGreedyJinxes(state.catalog, {
 				includeGreedierHomebrew: state.options.addGreedierHomebrew,
 				includeNoDeathAtNightJinxes: state.options.useNoDeathAtNightJinxes,
 			}),
-			homebrew: deriveGreedyHomebrew(state.fetchedData, state.greedierSortBySet),
+			homebrew: deriveGreedyHomebrew(state.catalog, state.greedierSortBySet),
 		};
 	}, [
-		state.fetchedData,
+		state.catalog,
 		state.greedierSortBySet,
 		state.options.addGreedierHomebrew,
 		state.options.useNoDeathAtNightJinxes,

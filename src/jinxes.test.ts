@@ -10,7 +10,7 @@ function makeFetchedData(params: {
 	greedier?: JinxFile;
 	greedierCharactersData?: CatalogCharacter[];
 }): FetchedData {
-	return new FetchedData({
+	return FetchedData.fromRaw({
 		greedyJson: [{ id: '_meta', name: 'Test Script' }, 'heretic'],
 		greedyJinxData: params.greedy,
 		greedierJinxData: params.greedier ?? [],
@@ -138,7 +138,7 @@ describe('applySelectedJinxes', () => {
 	});
 
 	it('filters no-death-at-night jinxes unless explicitly enabled', () => {
-		const fetchedData = new FetchedData({
+		const fetchedData = FetchedData.fromRaw({
 			greedyJson: [{ id: '_meta', name: 'Test Script' }, 'leviathan'],
 			greedyJinxData: [],
 			greedierJinxData: [],
@@ -232,8 +232,8 @@ describe('applySelectedJinxes', () => {
 			includeNoDeathAtNight: true,
 		});
 		expect(getSourceEntry(withGreedier)?.jinxes).toEqual([
-			{ id: 'baron', reason: 'Greedy reason' },
 			{ id: 'journalist_winningclub', reason: 'Greedier reason' },
+			{ id: 'baron', reason: 'Greedy reason' },
 		]);
 	});
 });

@@ -1,9 +1,10 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useReducer, useRef } from 'react';
-import type { SelectableCharacter, GenerationOptions, ScriptFile } from '../../types.js';
-import type { FetchedData } from '../../data/fetched.js';
+import type { SelectableCharacter, GenerationOptions } from '../../types.js';
+import type { Catalog } from '../../data/catalog.js';
+import { FetchedData } from '../../data/fetched.js';
 import { GENERATION_OPTIONS, getDependentOptions } from '../../options.js';
 import { loadLatestJson } from '../../data/loader.js';
-import { getCharacters, getImageArray, getMetaEntry } from '../../character.js';
+import { getCharacters } from '../../character.js';
 import { buildCopyPayload } from '../../generation.js';
 import { getUnsatisfiedDependencyCharacterIds } from '../../dependencies.js';
 
@@ -24,7 +25,7 @@ type AppState = {
 	scriptName: string;
 	lastLoadedAt: number | null;
 	usingStaleData: boolean;
-	fetchedData: FetchedData | null;
+	catalog: Catalog | null;
 	baseCharacters: SelectableCharacter[];
 	greedierCharacters: SelectableCharacter[];
 	characters: SelectableCharacter[];
@@ -38,8 +39,7 @@ type AppAction =
 	| { type: 'load_start'; status: string }
 	| {
 			type: 'load_success';
-			fetchedData: FetchedData;
-			greedyJson: ScriptFile;
+			catalog: Catalog;
 			scriptName: string;
 			baseCharacters: SelectableCharacter[];
 			greedierCharacters: SelectableCharacter[];
@@ -164,7 +164,7 @@ const initialState: AppState = {
 	scriptName: 'Loading...',
 	lastLoadedAt: null,
 	usingStaleData: false,
-	fetchedData: null,
+	catalog: null,
 	baseCharacters: [],
 	greedierCharacters: [],
 	characters: [],
@@ -250,7 +250,7 @@ function appReducer(state: AppState, action: AppAction): AppState {
 				scriptName: action.scriptName,
 				lastLoadedAt: now,
 				usingStaleData: false,
-				fetchedData: action.fetchedData,
+				catalog: action.catalog,
 				baseCharacters: action.baseCharacters,
 				greedierCharacters: action.greedierCharacters,
 				characters,
@@ -258,7 +258,7 @@ function appReducer(state: AppState, action: AppAction): AppState {
 			};
 		}
 		case 'load_error': {
-			if (state.fetchedData && state.lastLoadedAt !== null) {
+			if (state.catalog && state.lastLoadedAt !== null) {
 				return {
 					...state,
 					loading: false,
@@ -276,7 +276,7 @@ function appReducer(state: AppState, action: AppAction): AppState {
 				scriptName: 'Unavailable',
 				lastLoadedAt: null,
 				usingStaleData: false,
-				fetchedData: null,
+				catalog: null,
 				baseCharacters: [],
 				greedierCharacters: [],
 				characters: [],
@@ -389,12 +389,12 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 	const [state, dispatch] = useReducer(appReducer, initialState);
 	const activeLoadController = useRef<AbortController | null>(null);
 	const unsatisfiedDependencyCharacterIds = useMemo(() => {
-		if (!state.fetchedData) {
+		if (!state.catalog) {
 			return new Set<string>();
 		}
 
-		return getUnsatisfiedDependencyCharacterIds(state.selectedCharacterIds, state.fetchedData);
-	}, [state.fetchedData, state.selectedCharacterIds]);
+		return getUnsatisfiedDependencyCharacterIds(state.selectedCharacterIds, state.catalog);
+	}, [state.catalog, state.selectedCharacterIds]);
 
 	const appState = useMemo<AppState>(
 		() => ({
@@ -415,30 +415,18 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 
 		dispatch({ type: 'load_start', status: 'Loading latest script...' });
 		try {
-			const { fetchedData } = await loadLatestJson({ signal: controller.signal });
+			const { catalog } = await loadLatestJson({ signal: controller.signal });
 			if (controller.signal.aborted) {
 				return;
 			}
-			const greedyJson = fetchedData.cloneGreedyJson();
-			const metaEntry = getMetaEntry(greedyJson);
-			const baseCharacters = getCharacters(greedyJson, fetchedData);
-			const greedierCharacters = fetchedData.getGreedierCatalogCharacters().map((catalogCharacter) => {
-				const { entry, sourceSet } = catalogCharacter;
-				const imageUrl = getImageArray(entry, fetchedData)[0];
-				return {
-					id: entry.id,
-					name: entry.name || entry.id,
-					team: entry.team,
-					imageUrl,
-					sourceSet,
-				};
-			});
+			const metaEntry = catalog.baseScript.meta;
+			const baseCharacters = getCharacters(catalog);
+			const greedierCharacters = [...catalog.greedierById.values()].map((ce) => ce.toSelectable());
 			const storedPreferences = loadStoredPreferences();
 
 			dispatch({
 				type: 'load_success',
-				fetchedData,
-				greedyJson,
+				catalog,
 				scriptName: metaEntry?.name ?? 'Unknown script',
 				baseCharacters,
 				greedierCharacters,
@@ -477,23 +465,24 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 	}, []);
 
 	const copyToClipboard = useCallback(async () => {
-		if (!state.fetchedData) {
+		if (!state.catalog) {
 			setStatus('No script data loaded yet.', 'error');
 			return;
 		}
 
 		try {
+			// Fresh FetchedData per generation: gives each call its own isolated GenerationContext.
 			const payload = buildCopyPayload(
 				state.selectedCharacterIds,
 				state.options,
-				state.fetchedData,
+				FetchedData.fromCatalog(state.catalog),
 			);
 			await navigator.clipboard.writeText(payload);
 			setStatus('Copied!', 'success');
 		} catch (error: unknown) {
 			setStatus(error instanceof Error ? error.message : 'Copy failed.', 'error');
 		}
-	}, [setStatus, state.fetchedData, state.options, state.selectedCharacterIds]);
+	}, [setStatus, state.catalog, state.options, state.selectedCharacterIds]);
 
 	useEffect(() => {
 		void reload();
@@ -503,7 +492,7 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 	}, [reload]);
 
 	useEffect(() => {
-		if (!state.fetchedData) {
+		if (!state.catalog) {
 			return;
 		}
 
@@ -517,7 +506,7 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 			bannedCharacterIds,
 			greedierSortBySet: state.greedierSortBySet,
 		});
-	}, [state.characters, state.fetchedData, state.greedierSortBySet, state.options, state.selectedCharacterIds]);
+	}, [state.catalog, state.greedierSortBySet, state.options, state.selectedCharacterIds]);
 
 	const actions = useMemo<AppActions>(
 		() => ({

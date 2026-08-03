@@ -192,7 +192,7 @@ export function ControlsPanel(): React.JSX.Element {
 	const state = useAppState();
 	const actions = useAppActions();
 	const displayedScriptName = useMemo(() => {
-		if (!state.fetchedData) {
+		if (!state.catalog) {
 			return state.scriptName;
 		}
 
@@ -200,11 +200,11 @@ export function ControlsPanel(): React.JSX.Element {
 			state.scriptName,
 			state.selectedCharacterIds,
 			state.options,
-			state.fetchedData,
+			state.catalog,
 			state.unsatisfiedDependencyCharacterIds,
 		);
 	}, [
-		state.fetchedData,
+		state.catalog,
 		state.options,
 		state.scriptName,
 		state.selectedCharacterIds,

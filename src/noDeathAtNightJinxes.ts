@@ -1,5 +1,4 @@
-import { getBaseCharacterId } from './character.js';
-import type { FetchedData } from './data/fetched.js';
+import type { Catalog } from './data/catalog.js';
 
 const NO_DEATH_AT_NIGHT_DEMON_IDS = new Set(['leviathan', 'riot', 'armageddon']);
 const NO_DEATH_AT_NIGHT_ROLE_IDS = new Set([
@@ -16,8 +15,8 @@ const NO_DEATH_AT_NIGHT_ROLE_IDS = new Set([
 	'pathologist',
 ]);
 
-function normalizeNoDeathAtNightId(id: string, fetchedData: FetchedData): string {
-	const baseId = getBaseCharacterId(id, fetchedData);
+function normalizeNoDeathAtNightId(id: string, catalog: Catalog): string {
+	const baseId = catalog.resolveBaseId(id);
 
 	if (baseId === 'armageddon_winningclub') {
 		return 'armageddon';
@@ -37,10 +36,10 @@ function normalizeNoDeathAtNightId(id: string, fetchedData: FetchedData): string
 export function isNoDeathAtNightJinxPair(
 	sourceId: string,
 	targetId: string,
-	fetchedData: FetchedData,
+	catalog: Catalog,
 ): boolean {
-	const source = normalizeNoDeathAtNightId(sourceId, fetchedData);
-	const target = normalizeNoDeathAtNightId(targetId, fetchedData);
+	const source = normalizeNoDeathAtNightId(sourceId, catalog);
+	const target = normalizeNoDeathAtNightId(targetId, catalog);
 
 	return (
 		(NO_DEATH_AT_NIGHT_DEMON_IDS.has(source) && NO_DEATH_AT_NIGHT_ROLE_IDS.has(target)) ||

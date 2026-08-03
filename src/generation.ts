@@ -7,8 +7,6 @@ import { DUPLICATE_LINE, REMOVED_CHARACTERS_PREFIX, FILTERABLE_TEAMS } from './c
 import {
 	getMetaEntry,
 	findOrExpandCharacter,
-	firstNightOrder,
-	otherNightOrder,
 	getBaseCharacterId,
 } from './character.js';
 import { applySelectedJinxes } from './jinxes.js';
@@ -19,8 +17,8 @@ const SPIRIT_OF_IVORY_ID = 'spiritofivory';
 
 function ensureNoDeathAtNightJinxPromptOrder(data: ScriptFile, fetchedData: FetchedData): void {
 	const promptOrder =
-		otherNightOrder('riot', fetchedData) ??
-		otherNightOrder('leviathan', fetchedData) ??
+		fetchedData.catalog.otherNightOrder('riot') ??
+		fetchedData.catalog.otherNightOrder('leviathan') ??
 		50;
 
 	for (const sourceId of ['leviathan', 'riot', 'armageddon_winningclub']) {
@@ -57,13 +55,13 @@ function applyUpstreamNoDeathAtNightExportFields(data: ScriptFile, fetchedData: 
 			continue;
 		}
 
-		const upstreamEntry = fetchedData.getRolesData().find((role) => role.id === baseId);
-		if (!upstreamEntry) {
+		const upstreamCatalogEntry = fetchedData.catalog.rolesById.get(baseId);
+		if (!upstreamCatalogEntry) {
 			continue;
 		}
-
-		const upstreamFirstNight = firstNightOrder(baseId, fetchedData);
-		const upstreamOtherNight = otherNightOrder(baseId, fetchedData);
+		const upstreamEntry = upstreamCatalogEntry.entry;
+		const upstreamFirstNight = fetchedData.catalog.firstNightOrder(baseId);
+		const upstreamOtherNight = fetchedData.catalog.otherNightOrder(baseId);
 
 		if (upstreamFirstNight === undefined) {
 			delete characterEntry.firstNight;
@@ -130,7 +128,7 @@ export function applyAlejoRules(data: ScriptFile, fetchedData: FetchedData): voi
 		return;
 	}
 
-	snakeCharmer.firstNight = firstNightOrder('philosopher', fetchedData);
+	snakeCharmer.firstNight = fetchedData.catalog.firstNightOrder('philosopher');
 }
 
 /**
@@ -171,7 +169,7 @@ export function deriveScriptNamePreview(
 	baseScriptName: string,
 	selectedCharacterIds: ReadonlySet<string>,
 	options: GenerationOptions,
-	fetchedData: FetchedData,
+	catalog: import('./data/catalog.js').Catalog,
 	unsatisfiedDependencyCharacterIds?: ReadonlySet<string>,
 ): string {
 	if (!options.addGreedierHomebrew) {
@@ -180,15 +178,12 @@ export function deriveScriptNamePreview(
 
 	const blockedCharacterIds =
 		unsatisfiedDependencyCharacterIds ??
-		getUnsatisfiedDependencyCharacterIds(selectedCharacterIds, fetchedData);
+		getUnsatisfiedDependencyCharacterIds(selectedCharacterIds, catalog);
 	const exportableSelectedCharacterIds = new Set(
 		Array.from(selectedCharacterIds).filter((characterId) => !blockedCharacterIds.has(characterId)),
 	);
-	const greedierCharacterIds = new Set(
-		fetchedData.getGreedierCharactersData().map((character) => character.id),
-	);
-	const hasSelectedGreedierCharacter = Array.from(exportableSelectedCharacterIds).some((characterId) =>
-		greedierCharacterIds.has(characterId),
+	const hasSelectedGreedierCharacter = Array.from(exportableSelectedCharacterIds).some(
+		(characterId) => catalog.greedierById.has(characterId),
 	);
 
 	if (!hasSelectedGreedierCharacter) {
@@ -206,18 +201,17 @@ export function buildCopyPayload(
 	options: GenerationOptions,
 	fetchedData: FetchedData,
 ): string {
+	const catalog = fetchedData.catalog;
 	const unsatisfiedDependencyCharacterIds = getUnsatisfiedDependencyCharacterIds(
 		selectedCharacterIds,
-		fetchedData,
+		catalog,
 	);
 	const exportableSelectedCharacterIds = new Set(
 		Array.from(selectedCharacterIds).filter(
 			(characterId) => !unsatisfiedDependencyCharacterIds.has(characterId),
 		),
 	);
-	const greedierCharacterIds = new Set(
-		fetchedData.getGreedierCharactersData().map((character) => character.id),
-	);
+	const greedierCharacterIds = catalog.greedierById;
 
 	const nextData = fetchedData.cloneGreedyJson();
 	if (options.addGreedierHomebrew) {
@@ -229,7 +223,8 @@ export function buildCopyPayload(
 				.map((entry) => (typeof entry === 'string' ? entry : entry.id)),
 		);
 
-		for (const greedierCharacter of fetchedData.getGreedierCharactersData()) {
+		for (const greedierCatalogEntry of catalog.greedierById.values()) {
+			const greedierCharacter = greedierCatalogEntry.entry;
 			if (existingIds.has(greedierCharacter.id)) {
 				continue;
 			}
@@ -249,14 +244,13 @@ export function buildCopyPayload(
 			metaEntry.name,
 			selectedCharacterIds,
 			options,
-			fetchedData,
+			catalog,
 			unsatisfiedDependencyCharacterIds,
 		);
 	}
 
 	const removedBaseCharacterNames: string[] = [];
 	const removedGreedierCharacterNames: string[] = [];
-	const rolesData = fetchedData.getRolesData();
 
 	// Filter out deselected characters
 	const filteredData: ScriptFile = [metaEntry];
@@ -272,8 +266,8 @@ export function buildCopyPayload(
 
 		if (typeof entry === 'string') {
 			entryId = entry;
-			entryName = rolesData.find((role) => role.id === entry)?.name ?? entry;
-			const roleTeam = rolesData.find((role) => role.id === entry)?.team;
+			entryName = catalog.rolesById.get(entry)?.entry.name ?? entry;
+			const roleTeam = catalog.rolesById.get(entry)?.entry.team;
 			isFilterableCharacter = !!roleTeam && FILTERABLE_TEAMS.has(roleTeam);
 		} else if (typeof entry === 'object' && entry !== null && 'id' in entry) {
 			const charEntry = entry as CharacterEntry;
@@ -306,10 +300,9 @@ export function buildCopyPayload(
 			...removedGreedierCharacterNames,
 		];
 		const allRemovedLine = `${REMOVED_CHARACTERS_PREFIX}${allRemovedCharacterNames.join(', ')}`;
-		const addedGreedierCharacterNames = fetchedData
-			.getGreedierCharactersData()
-			.filter((character) => exportableSelectedCharacterIds.has(character.id))
-			.map((character) => character.name || character.id);
+		const addedGreedierCharacterNames = [...catalog.greedierById.values()]
+			.filter((ce) => exportableSelectedCharacterIds.has(ce.entry.id))
+			.map((ce) => ce.entry.name || ce.entry.id);
 		const addedGreedierLine = `The following Greedier characters have been added: ${addedGreedierCharacterNames.join(', ')}`;
 
 		const canUseMixedLine =

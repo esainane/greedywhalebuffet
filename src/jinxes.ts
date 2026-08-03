@@ -50,7 +50,7 @@ function filterNoDeathAtNightJinxEntries(
 			(jinx) =>
 				jinx?.id &&
 				typeof jinx.reason === 'string' &&
-				!isNoDeathAtNightJinxPair(sourceEntry.id, jinx.id, fetchedData),
+				!isNoDeathAtNightJinxPair(sourceEntry.id, jinx.id, fetchedData.catalog),
 		);
 
 		if (filteredJinxes.length === 0) {
@@ -84,10 +84,10 @@ function getSortCharacterById(
 		return expandedSortCharacter;
 	}
 
-	const baseId = getBaseCharacterId(id, fetchedData);
-	const role = fetchedData.getRolesData().find((entry) => entry.id === baseId);
-	if (role) {
-		return characterToSortCharacter(role);
+	const catalogEntry = fetchedData.catalog.lookupById(id)
+		?? fetchedData.catalog.lookupById(getBaseCharacterId(id, fetchedData));
+	if (catalogEntry) {
+		return characterToSortCharacter(catalogEntry.entry);
 	}
 
 	return { id, name: id, team: undefined };

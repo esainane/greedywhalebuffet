@@ -1,203 +1,86 @@
 /**
- * Immutable fetched data container.
- * Constructed once by the loader with validated JSON data.
- * All access is read-only except for auto ID mapping during character expansion.
+ * Compatibility shim: wraps Catalog to preserve the FetchedData API during migration.
+ * New code should use Catalog directly; FetchedData will be removed once all consumers migrate.
  */
 
-import type {
-	ScriptFile,
-	CharacterEntry,
-	CatalogCharacter,
-	JinxFile,
-	NightsheetFile,
-	MappingFile,
-} from '../types.js';
+import type { ScriptFile, CharacterEntry, CatalogCharacter, JinxFile, NightsheetFile } from '../types.js';
+import { Catalog, OneToOneIdMap, NightOrderIndex } from './catalog.js';
+import { serializeScriptDocument, parseScriptFile } from '../model/script-document.js';
+import { GenerationContext } from './catalog-entry.js';
 
-function deepFreeze<T>(value: T): T {
-	if (value !== null && typeof value === 'object' && !Object.isFrozen(value)) {
-		for (const nested of Object.values(value as Record<string, unknown>)) {
-			deepFreeze(nested);
-		}
-		Object.freeze(value);
-	}
-
-	return value;
-}
-
-/**
- * Bidirectional mapping that keeps both directions synchronized.
- */
-class BidirectionalMap {
-	private forward: Map<string, string> = new Map();
-	private reverse: Map<string, string> = new Map();
-
-	/**
-	 * Set a mapping in both directions atomically.
-	 */
-	set(key: string, value: string): void {
-		const previousValue = this.forward.get(key);
-		if (previousValue !== undefined && previousValue !== value) {
-			this.reverse.delete(previousValue);
-		}
-
-		const previousKey = this.reverse.get(value);
-		if (previousKey !== undefined && previousKey !== key) {
-			this.forward.delete(previousKey);
-		}
-
-		this.forward.set(key, value);
-		this.reverse.set(value, key);
-	}
-
-	/**
-	 * Get value from forward mapping (key -> value).
-	 */
-	getForward(key: string): string | undefined {
-		return this.forward.get(key);
-	}
-
-	/**
-	 * Get value from reverse mapping (value -> key).
-	 */
-	getReverse(value: string): string | undefined {
-		return this.reverse.get(value);
-	}
-
-	/**
-	 * Clear all mappings.
-	 */
-	clear(): void {
-		this.forward.clear();
-		this.reverse.clear();
-	}
-
-	/**
-	 * Initialize from an existing MappingFile object.
-	 */
-	initializeFrom(mappings: Readonly<MappingFile>): void {
-		this.clear();
-		for (const [key, value] of Object.entries(mappings)) {
-			const existingKey = this.reverse.get(value);
-			if (existingKey !== undefined && existingKey !== key) {
-				throw new Error(
-					`ID mapping collision: "${existingKey}" and "${key}" both map to "${value}".`,
-				);
-			}
-			this.set(key, value);
-		}
-	}
-}
-
-/**
- * Immutable container for all fetched JSON data.
- * Constructed once by the loader with validated data.
- */
 export class FetchedData {
-	// Core script data (read-only after construction)
-	private readonly greedyJson: ScriptFile;
-	private readonly greedyJinxData: JinxFile;
-	private readonly greedierJinxData: JinxFile;
-	private readonly greedierCharactersData: CatalogCharacter[];
+	readonly catalog: Catalog;
+	/** Per-instance generation context; catalog stays stateless. */
+	readonly generationContext: GenerationContext;
 
-	// ID mapping data (bidirectional, synchronized)
-	private readonly greedyIdMapping: BidirectionalMap;
-	private readonly autoIdMapping: BidirectionalMap; // mutable for character expansion
+	private constructor(catalog: Catalog) {
+		this.catalog = catalog;
+		this.generationContext = new GenerationContext();
+	}
 
-	// Official reference data (read-only after construction)
-	private readonly rolesData: CharacterEntry[];
-	private readonly nightsheetFile: NightsheetFile;
-	private readonly jinxData: JinxFile;
+	static fromCatalog(catalog: Catalog): FetchedData {
+		return new FetchedData(catalog);
+	}
 
-	constructor(data: {
+	/** For tests that build synthetic data without a full load. */
+	static fromRaw(data: {
 		greedyJson: ScriptFile;
 		greedyJinxData: JinxFile;
 		greedierJinxData: JinxFile;
 		greedierCharactersData: CatalogCharacter[];
-		greedyToBaseID: MappingFile;
+		greedyToBaseID: Record<string, string>;
 		rolesData: CharacterEntry[];
 		nightsheetFile: NightsheetFile;
 		jinxData: JinxFile;
-	}) {
-		this.greedyJson = deepFreeze(data.greedyJson);
-		this.greedyJinxData = deepFreeze(data.greedyJinxData);
-		this.greedierJinxData = deepFreeze(data.greedierJinxData);
-
-		data.greedierCharactersData.forEach((catalogCharacter: CatalogCharacter) => {
-			catalogCharacter.entry.edition = 'greedier';
+	}): FetchedData {
+		const greedyDocument = parseScriptFile(data.greedyJson, 'synthetic');
+		const catalog = Catalog.create({
+			baseScript: greedyDocument,
+			roles: data.rolesData,
+			greedierCharacters: data.greedierCharactersData,
+			idMappings: OneToOneIdMap.fromRecord(data.greedyToBaseID),
+			nightOrder: new NightOrderIndex(data.nightsheetFile),
+			officialJinxes: data.jinxData,
+			greedyJinxes: data.greedyJinxData,
+			greedierJinxes: data.greedierJinxData,
 		});
-
-		this.greedierCharactersData = deepFreeze(data.greedierCharactersData);
-		this.rolesData = deepFreeze(data.rolesData);
-		this.nightsheetFile = deepFreeze(data.nightsheetFile);
-		this.jinxData = deepFreeze(data.jinxData);
-
-		// Initialize bidirectional mappings
-		this.greedyIdMapping = new BidirectionalMap();
-		this.greedyIdMapping.initializeFrom(data.greedyToBaseID);
-
-		this.autoIdMapping = new BidirectionalMap();
-	}
-
-	// Read-only getters for core data
-	getGreedyJson(): Readonly<ScriptFile> {
-		return this.greedyJson;
+		return new FetchedData(catalog);
 	}
 
 	cloneGreedyJson(): ScriptFile {
-		return structuredClone(this.greedyJson);
+		return structuredClone(serializeScriptDocument(this.catalog.baseScript));
 	}
 
 	getGreedyJinxData(): Readonly<JinxFile> {
-		return this.greedyJinxData;
-	}
-
-	getGreedierCharactersData(): Readonly<CharacterEntry[]> {
-		return this.greedierCharactersData.map((catalogCharacter) => catalogCharacter.entry);
-	}
-
-	getGreedierCatalogCharacters(): Readonly<CatalogCharacter[]> {
-		return this.greedierCharactersData;
+		return this.catalog.greedyJinxes;
 	}
 
 	getGreedierJinxData(): Readonly<JinxFile> {
-		return this.greedierJinxData;
-	}
-
-	getRolesData(): Readonly<CharacterEntry[]> {
-		return this.rolesData;
-	}
-
-	getNightsheetFile(): Readonly<NightsheetFile> {
-		return this.nightsheetFile;
+		return this.catalog.greedierJinxes;
 	}
 
 	getJinxData(): Readonly<JinxFile> {
-		return this.jinxData;
+		return this.catalog.officialJinxes;
 	}
 
-	// ID mapping accessors (forward direction: custom -> base)
 	getGreedyToBaseID(id: string): string | undefined {
-		return this.greedyIdMapping.getForward(id);
+		return this.catalog.idMappings.toBase(id);
+	}
+
+	getBaseToGreedyID(id: string): string | undefined {
+		return this.catalog.idMappings.toCustom(id);
 	}
 
 	getAutoToBaseID(id: string): string | undefined {
-		return this.autoIdMapping.getReverse(id);
-	}
-
-	// ID mapping accessors (reverse direction: base -> custom)
-	getBaseToGreedyID(id: string): string | undefined {
-		return this.greedyIdMapping.getReverse(id);
+		return this.generationContext.resolveBaseId(id);
 	}
 
 	getBaseToAutoID(id: string): string | undefined {
-		return this.autoIdMapping.getForward(id);
+		return this.generationContext.resolveCustomId(id);
 	}
 
-	/**
-	 * Set an auto ID mapping (updates both directions atomically).
-	 * This is the only mutation allowed, used during character expansion.
-	 */
+	/** Called by character expansion during generation; delegates to per-instance context. */
 	setAutoIdMapping(baseId: string, customId: string): void {
-		this.autoIdMapping.set(baseId, customId);
+		this.generationContext.register(baseId, customId);
 	}
 }

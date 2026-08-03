@@ -20,7 +20,7 @@ function buildFetchedData(params: {
 	greedierJinxData?: JinxFile;
 	jinxData?: JinxFile;
 }): FetchedData {
-	return new FetchedData({
+	return FetchedData.fromRaw({
 		greedyJson: params.greedyJson ?? [{ id: '_meta', name: 'Test Script' }],
 		greedyJinxData: params.greedyJinxData ?? ([] as JinxFile),
 		greedierJinxData: params.greedierJinxData ?? ([] as JinxFile),

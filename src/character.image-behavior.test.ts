@@ -1,14 +1,14 @@
 import { describe, expect, it } from 'vitest';
 import {
 	findOrExpandCharacter,
-	getImageArray,
-	getScriptImageArray,
 } from './character.js';
 import { FetchedData } from './data/fetched.js';
+import { Catalog, OneToOneIdMap, NightOrderIndex } from './data/catalog.js';
+import { parseScriptFile } from './model/script-document.js';
 import type { CharacterEntry } from './types.js';
 
 function makeFetchedData(role: CharacterEntry): FetchedData {
-	return new FetchedData({
+	return FetchedData.fromRaw({
 		greedyJson: [{ id: '_meta', name: 'Test Script' }, role.id],
 		greedyJinxData: [],
 		greedierJinxData: [],
@@ -17,6 +17,19 @@ function makeFetchedData(role: CharacterEntry): FetchedData {
 		rolesData: [role],
 		nightsheetFile: { firstNight: [], otherNight: [] },
 		jinxData: [],
+	});
+}
+
+function makeCatalog(role: CharacterEntry): Catalog {
+	return Catalog.create({
+		baseScript: parseScriptFile([{ id: '_meta', name: 'Test Script' }, role.id]),
+		roles: [role],
+		greedierCharacters: [],
+		idMappings: OneToOneIdMap.fromRecord({}),
+		nightOrder: new NightOrderIndex({ firstNight: [], otherNight: [] }),
+		officialJinxes: [],
+		greedyJinxes: [],
+		greedierJinxes: [],
 	});
 }
 
@@ -35,7 +48,9 @@ describe('character image behavior', () => {
 		const expanded = findOrExpandCharacter('clockmaker', data, fetchedData);
 		expect(expanded).not.toBeNull();
 		expect(expanded?.image).toBe('https://greedy.antihype.space/icons/carousel/clockmaker_g.webp');
-		expect(getScriptImageArray(role, fetchedData)).toEqual([
+
+		const catalog = makeCatalog(role);
+		expect(catalog.lookupById('clockmaker')?.scriptImageUrls()).toEqual([
 			'https://greedy.antihype.space/icons/carousel/clockmaker_g.webp',
 		]);
 	});
@@ -48,9 +63,9 @@ describe('character image behavior', () => {
 			ability: 'Test ability',
 			image: 'https://greedy.antihype.space/icons/carousel/clockmaker_g.webp',
 		};
-		const fetchedData = makeFetchedData(role);
+		const catalog = makeCatalog(role);
 
-		expect(getImageArray(role, fetchedData)).toEqual([
+		expect(catalog.lookupById('clockmaker')?.displayImageUrls()).toEqual([
 			'icons/carousel/clockmaker_g.webp',
 		]);
 	});

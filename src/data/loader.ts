@@ -15,7 +15,6 @@ import addFormats from 'ajv-formats';
 import {
 	FILTERABLE_TEAMS,
 } from '../constants.js';
-import { FetchedData } from './fetched.js';
 import {
 	DATA_SOURCES_MANIFEST_URL,
 	getCoreSourceByName,
@@ -25,7 +24,8 @@ import {
 import scriptSchema from '../../schemas/script-schema.json';
 import scriptExtraSchema from '../../schemas/script-extra-schema.json';
 import jinxSchema from '../../schemas/jinx-schema.json';
-import { parseScriptFile, serializeScriptDocument } from '../model/script-document.js';
+import { parseScriptFile } from '../model/script-document.js';
+import { Catalog, OneToOneIdMap, NightOrderIndex } from './catalog.js';
 
 const ajv = new Ajv2020({ allErrors: true, strict: false });
 addFormats(ajv);
@@ -156,7 +156,7 @@ function parseManifest(rawManifest: unknown): DataSourcesManifest {
  * Load all JSON data sources in parallel.
  * Constructs and returns immutable FetchedData.
  */
-export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Promise<{ fetchedData: FetchedData }> {
+export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Promise<{ catalog: Catalog }> {
 	const rawManifest = await fetchJsonSource(DATA_SOURCES_MANIFEST_URL, options.signal);
 	const manifest = parseManifest(rawManifest);
 
@@ -194,7 +194,6 @@ export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Pr
 	}
 
 	const greedyDocument = parseScriptFile(greedyParsed as ScriptFile, greedyPath);
-	const greedyScriptFile = serializeScriptDocument(greedyDocument);
 
 	if (!isMappingFile(mappingFileParsed)) {
 		throw new Error(`${mappingPath} has an unexpected shape.`);
@@ -240,17 +239,16 @@ export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Pr
 
 	const greedierCharactersData = [...greedierCharactersById.values()];
 
-	// Construct immutable FetchedData with all validated data
-	const fetchedData = new FetchedData({
-		greedyJson: greedyScriptFile,
-		greedyJinxData: greedyJinxParsed as JinxFile,
-		greedierJinxData: greedierJinxParsed as JinxFile,
-		greedierCharactersData,
-		greedyToBaseID: mappingFileParsed,
-		rolesData: rolesParsed,
-		nightsheetFile: nightsheetParsed,
-		jinxData: jinxParsed as JinxFile,
+	const catalog = Catalog.create({
+		baseScript: greedyDocument,
+		roles: rolesParsed,
+		greedierCharacters: greedierCharactersData,
+		idMappings: OneToOneIdMap.fromRecord(mappingFileParsed, mappingPath),
+		nightOrder: new NightOrderIndex(nightsheetParsed),
+		officialJinxes: jinxParsed as JinxFile,
+		greedyJinxes: greedyJinxParsed as JinxFile,
+		greedierJinxes: greedierJinxParsed as JinxFile,
 	});
 
-	return { fetchedData };
+	return { catalog };
 }

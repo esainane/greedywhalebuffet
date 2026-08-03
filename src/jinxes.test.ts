@@ -1,41 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import type { CatalogCharacter, CharacterEntry, JinxFile, ScriptFile } from './types.js';
-import { Catalog, NightOrderIndex, OneToOneIdMap } from './data/catalog.js';
-import { GenerationContext, type CharacterResolver } from './data/catalog-entry.js';
-import { serializeScriptDocument } from './model/script-document.js';
-import { parseScriptFile } from './model/script-document.js';
 import { applySelectedJinxes } from './jinxes.js';
-
-function makeCatalog(params: {
-	rolesData: CharacterEntry[];
-	official: JinxFile;
-	greedy: JinxFile;
-	greedier?: JinxFile;
-	greedierCharactersData?: CatalogCharacter[];
-	baseScript?: ScriptFile;
-}): Catalog {
-	return Catalog.create({
-		baseScript: parseScriptFile(params.baseScript ?? [{ id: '_meta', name: 'Test Script' }, 'heretic'], 'synthetic'),
-		roles: params.rolesData,
-		greedierCharacters: params.greedierCharactersData ?? [],
-		idMappings: OneToOneIdMap.fromRecord({}),
-		nightOrder: new NightOrderIndex({ firstNight: [], otherNight: [] }),
-		officialJinxes: params.official,
-		greedyJinxes: params.greedy,
-		greedierJinxes: params.greedier ?? [],
-	});
-}
-
-function makeResolver(catalog: Catalog): CharacterResolver {
-	return {
-		catalog,
-		generationContext: new GenerationContext(),
-	};
-}
-
-function cloneBaseScript(catalog: Catalog): ScriptFile {
-	return structuredClone(serializeScriptDocument(catalog.baseScript));
-}
+import { cloneSerializedScript, createTestCatalog, createTestResolver } from './test-helpers.js';
 
 function getSourceEntry(data: ScriptFile): CharacterEntry | undefined {
 	return data.find(
@@ -72,9 +38,14 @@ describe('applySelectedJinxes', () => {
 			{ id: 'heretic', jinx: [{ id: 'baron', reason: 'Greedy reason' }] },
 		];
 
-		const catalog = makeCatalog({ rolesData, official, greedy });
-		const resolver = makeResolver(catalog);
-		const data = cloneBaseScript(catalog);
+		const catalog = createTestCatalog({
+			baseScript: [{ id: '_meta', name: 'Test Script' }, 'heretic'],
+			rolesData,
+			official,
+			greedy,
+		});
+		const resolver = createTestResolver(catalog);
+		const data = cloneSerializedScript(catalog);
 
 		applySelectedJinxes(data, resolver, {
 			includeOfficial: true,
@@ -99,9 +70,14 @@ describe('applySelectedJinxes', () => {
 			{ id: 'heretic', jinx: [{ id: 'baron', reason: '' }] },
 		];
 
-		const catalog = makeCatalog({ rolesData, official, greedy });
-		const resolver = makeResolver(catalog);
-		const data = cloneBaseScript(catalog);
+		const catalog = createTestCatalog({
+			baseScript: [{ id: '_meta', name: 'Test Script' }, 'heretic'],
+			rolesData,
+			official,
+			greedy,
+		});
+		const resolver = createTestResolver(catalog);
+		const data = cloneSerializedScript(catalog);
 
 		applySelectedJinxes(data, resolver, {
 			includeOfficial: true,
@@ -135,9 +111,14 @@ describe('applySelectedJinxes', () => {
 			},
 		];
 
-		const catalog = makeCatalog({ rolesData, official, greedy });
-		const resolver = makeResolver(catalog);
-		const data = cloneBaseScript(catalog);
+		const catalog = createTestCatalog({
+			baseScript: [{ id: '_meta', name: 'Test Script' }, 'heretic'],
+			rolesData,
+			official,
+			greedy,
+		});
+		const resolver = createTestResolver(catalog);
+		const data = cloneSerializedScript(catalog);
 
 		applySelectedJinxes(data, resolver, {
 			includeOfficial: true,
@@ -156,7 +137,7 @@ describe('applySelectedJinxes', () => {
 	});
 
 	it('filters no-death-at-night jinxes unless explicitly enabled', () => {
-		const catalog = makeCatalog({
+		const catalog = createTestCatalog({
 			baseScript: [{ id: '_meta', name: 'Test Script' }, 'leviathan'],
 			greedy: [],
 			greedier: [],
@@ -176,8 +157,8 @@ describe('applySelectedJinxes', () => {
 				},
 			],
 		});
-		const filtered = cloneBaseScript(catalog);
-		applySelectedJinxes(filtered, makeResolver(catalog), {
+		const filtered = cloneSerializedScript(catalog);
+		applySelectedJinxes(filtered, createTestResolver(catalog), {
 			includeOfficial: true,
 			includeGreedy: false,
 			includeGreedier: false,
@@ -187,8 +168,8 @@ describe('applySelectedJinxes', () => {
 			{ id: 'baron', reason: 'Unrelated pair' },
 		]);
 
-		const included = cloneBaseScript(catalog);
-		applySelectedJinxes(included, makeResolver(catalog), {
+		const included = cloneSerializedScript(catalog);
+		applySelectedJinxes(included, createTestResolver(catalog), {
 			includeOfficial: true,
 			includeGreedy: false,
 			includeGreedier: false,
@@ -220,15 +201,16 @@ describe('applySelectedJinxes', () => {
 			{ id: 'heretic', jinx: [{ id: 'journalist_winningclub', reason: 'Greedier reason' }] },
 		];
 
-		const catalog = makeCatalog({
+		const catalog = createTestCatalog({
+			baseScript: [{ id: '_meta', name: 'Test Script' }, 'heretic'],
 			rolesData,
 			official: [],
 			greedy: [{ id: 'heretic', jinx: [{ id: 'baron', reason: 'Greedy reason' }] }],
 			greedier,
 			greedierCharactersData,
 		});
-		const withoutGreedier = cloneBaseScript(catalog);
-		applySelectedJinxes(withoutGreedier, makeResolver(catalog), {
+		const withoutGreedier = cloneSerializedScript(catalog);
+		applySelectedJinxes(withoutGreedier, createTestResolver(catalog), {
 			includeOfficial: false,
 			includeGreedy: true,
 			includeGreedier: false,
@@ -238,8 +220,8 @@ describe('applySelectedJinxes', () => {
 			{ id: 'baron', reason: 'Greedy reason' },
 		]);
 
-		const withGreedier = cloneBaseScript(catalog);
-		applySelectedJinxes(withGreedier, makeResolver(catalog), {
+		const withGreedier = cloneSerializedScript(catalog);
+		applySelectedJinxes(withGreedier, createTestResolver(catalog), {
 			includeOfficial: false,
 			includeGreedy: true,
 			includeGreedier: true,

@@ -1,56 +1,14 @@
 import { describe, expect, it } from 'vitest';
-import { Catalog, NightOrderIndex, OneToOneIdMap } from './data/catalog.js';
 import { buildCopyPayload } from './generation.js';
-import { parseScriptFile } from './model/script-document.js';
 import type {
-	CatalogCharacter,
 	CharacterEntry,
-	GenerationOptions,
-	JinxFile,
-	NightsheetFile,
 	ScriptFile,
 } from './types.js';
-
-function buildCatalogData(params: {
-	greedyJson?: ScriptFile;
-	greedierCharactersData: CatalogCharacter[];
-	rolesData?: CharacterEntry[];
-	greedyToBaseID?: Record<string, string>;
-	nightsheetFile?: NightsheetFile;
-	greedyJinxData?: JinxFile;
-	greedierJinxData?: JinxFile;
-	jinxData?: JinxFile;
-	}): Catalog {
-	return Catalog.create({
-		baseScript: parseScriptFile(params.greedyJson ?? [{ id: '_meta', name: 'Test Script' }], 'synthetic'),
-		roles: params.rolesData ?? [],
-		greedierCharacters: params.greedierCharactersData,
-		idMappings: OneToOneIdMap.fromRecord(params.greedyToBaseID ?? {}),
-		nightOrder: new NightOrderIndex(
-			params.nightsheetFile ?? ({ firstNight: [], otherNight: [] } as NightsheetFile),
-		),
-		officialJinxes: params.jinxData ?? ([] as JinxFile),
-		greedyJinxes: params.greedyJinxData ?? ([] as JinxFile),
-		greedierJinxes: params.greedierJinxData ?? ([] as JinxFile),
-	});
-}
-
-function buildOptions(overrides: Partial<GenerationOptions> = {}): GenerationOptions {
-	return {
-		permitDuplicateCharacters: false,
-		addSpiritOfIvory: false,
-		alejoRules: false,
-		listOfficialJinxes: false,
-		listGreedyJinxes: false,
-		useNoDeathAtNightJinxes: false,
-		addGreedierHomebrew: false,
-		...overrides,
-	};
-}
+import { buildTestOptions, createTestCatalog } from './test-helpers.js';
 
 describe('buildCopyPayload', () => {
 	it('omits sourceSet from exported Greedier character entries', () => {
-		const catalog = buildCatalogData({
+		const catalog = createTestCatalog({
 			greedierCharactersData: [
 				{
 					entry: {
@@ -67,7 +25,7 @@ describe('buildCopyPayload', () => {
 
 		const payload = buildCopyPayload(
 			new Set(['alpha']),
-			buildOptions({ addGreedierHomebrew: true }),
+			buildTestOptions({ addGreedierHomebrew: true }),
 			catalog,
 		);
 		const exported = JSON.parse(payload) as ScriptFile;
@@ -80,7 +38,7 @@ describe('buildCopyPayload', () => {
 	});
 
 	it('reverts Leviathan and Riot export fields to upstream values when NDAN jinxes are disabled', () => {
-		const catalog = buildCatalogData({
+		const catalog = createTestCatalog({
 			greedyJson: [
 				{ id: '_meta', name: 'Test Script' },
 				{
@@ -136,7 +94,7 @@ describe('buildCopyPayload', () => {
 
 		const payload = buildCopyPayload(
 			new Set(['leviathan_popppp', 'riot_popppp']),
-			buildOptions({ useNoDeathAtNightJinxes: false }),
+			buildTestOptions({ useNoDeathAtNightJinxes: false }),
 			catalog,
 		);
 		const exported = JSON.parse(payload) as ScriptFile;
@@ -161,7 +119,7 @@ describe('buildCopyPayload', () => {
 	});
 
 	it('includes Greedier jinxes in export when Greedier characters and Greedy jinx listing are enabled', () => {
-		const catalog = buildCatalogData({
+		const catalog = createTestCatalog({
 			greedyJson: [{ id: '_meta', name: 'Test Script' }, 'heretic'],
 			greedierCharactersData: [
 				{
@@ -191,7 +149,7 @@ describe('buildCopyPayload', () => {
 
 		const payload = buildCopyPayload(
 			new Set(['heretic', 'journalist_winningclub']),
-			buildOptions({
+			buildTestOptions({
 				addGreedierHomebrew: true,
 				listGreedyJinxes: true,
 			}),

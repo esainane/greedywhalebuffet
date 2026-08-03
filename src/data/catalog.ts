@@ -11,6 +11,17 @@ import type {
 import { CatalogEntry } from './catalog-entry.js';
 import { FILTERABLE_TEAMS } from '../constants.js';
 
+export type CatalogParams = {
+	baseScript: ScriptDocument;
+	roles: CharacterEntry[];
+	greedierCharacters: CatalogCharacter[];
+	idMappings: OneToOneIdMap;
+	nightOrder: NightOrderIndex;
+	officialJinxes: JinxFile;
+	greedyJinxes: JinxFile;
+	greedierJinxes: JinxFile;
+};
+
 /** Immutable validated one-to-one ID mapping. */
 export class OneToOneIdMap {
 	private readonly forward: ReadonlyMap<string, string>;
@@ -101,16 +112,7 @@ export class Catalog {
 	/** Combined lookup: base roles + greedy script entries + greedier characters, by any known ID. */
 	private readonly allEntriesById: Map<string, CatalogEntry>;
 
-	private constructor(params: {
-		baseScript: ScriptDocument;
-		roles: CharacterEntry[];
-		greedierCharacters: CatalogCharacter[];
-		idMappings: OneToOneIdMap;
-		nightOrder: NightOrderIndex;
-		officialJinxes: JinxFile;
-		greedyJinxes: JinxFile;
-		greedierJinxes: JinxFile;
-	}) {
+	private constructor(params: CatalogParams) {
 		this.baseScript = params.baseScript;
 		this.idMappings = params.idMappings;
 		this.nightOrder = params.nightOrder;
@@ -156,16 +158,7 @@ export class Catalog {
 		this.allEntriesById = allEntries;
 	}
 
-	static create(params: {
-		baseScript: ScriptDocument;
-		roles: CharacterEntry[];
-		greedierCharacters: CatalogCharacter[];
-		idMappings: OneToOneIdMap;
-		nightOrder: NightOrderIndex;
-		officialJinxes: JinxFile;
-		greedyJinxes: JinxFile;
-		greedierJinxes: JinxFile;
-	}): Catalog {
+	static create(params: CatalogParams): Catalog {
 		return new Catalog(params);
 	}
 

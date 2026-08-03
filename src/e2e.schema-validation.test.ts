@@ -1,4 +1,3 @@
-import { readFile } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import Ajv2020, { type ValidateFunction } from 'ajv/dist/2020.js';
@@ -10,6 +9,7 @@ import { FILTERABLE_TEAMS } from './constants.js';
 import { loadLatestJson } from './data/loader.js';
 import type { GenerationOptions, ScriptFile } from './types.js';
 import scriptSchema from '../schemas/script-schema.json';
+import { createStaticFetch } from './test-helpers.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, '..');
@@ -36,39 +36,6 @@ function assertValid(
 
 	const details = ajv.errorsText(validate.errors, { separator: '; ' });
 	throw new Error(`${label} failed schema validation: ${details}`);
-}
-
-function createStaticFetch() {
-	return async (input: string | URL | Request): Promise<Response> => {
-		const requestUrl =
-			typeof input === 'string'
-				? input
-				: input instanceof URL
-					? input.toString()
-					: input.url;
-
-		if (!requestUrl.startsWith('./')) {
-			return new Response(JSON.stringify({ error: `Unsupported URL: ${requestUrl}` }), {
-				status: 400,
-				headers: { 'content-type': 'application/json' },
-			});
-		}
-
-		const absolutePath = path.join(staticRoot, requestUrl.slice(2));
-
-		try {
-			const content = await readFile(absolutePath, 'utf8');
-			return new Response(content, {
-				status: 200,
-				headers: { 'content-type': 'application/json' },
-			});
-		} catch {
-			return new Response(JSON.stringify({ error: 'Not Found' }), {
-				status: 404,
-				headers: { 'content-type': 'application/json' },
-			});
-		}
-	};
 }
 
 function allOptionCombinations(): GenerationOptions[] {
@@ -113,7 +80,7 @@ function getUnbannedSelection(entries: readonly (ScriptFile[number])[], rolesByI
 describe('end-to-end schema validation', () => {
 	it('validates generated scripts against the vendored schema for every non-ban option combination', async () => {
 		const originalFetch = globalThis.fetch;
-		globalThis.fetch = createStaticFetch() as typeof fetch;
+		globalThis.fetch = createStaticFetch(staticRoot) as typeof fetch;
 
 		try {
 			const { catalog } = await loadLatestJson();

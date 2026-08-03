@@ -1,48 +1,16 @@
 import { describe, expect, it } from 'vitest';
-import type { CatalogCharacter, CharacterEntry, JinxFile, ScriptFile } from '../../../types.js';
-import { Catalog, OneToOneIdMap, NightOrderIndex } from '../../../data/catalog.js';
-import { parseScriptFile } from '../../../model/script-document.js';
 import { deriveGreedyHomebrew, deriveGreedyJinxes } from './greedyReferenceData.js';
-
-function buildCatalog(greedierCharactersData: CatalogCharacter[]): Catalog {
-	return Catalog.create({
-		baseScript: parseScriptFile([{ id: '_meta', name: 'Test Script' }]),
-		roles: [],
-		greedierCharacters: greedierCharactersData,
-		idMappings: OneToOneIdMap.fromRecord({}),
-		nightOrder: new NightOrderIndex({ firstNight: [], otherNight: [] }),
-		officialJinxes: [],
-		greedyJinxes: [],
-		greedierJinxes: [],
-	});
-}
-
-function buildCatalogWithJinxes(params: {
-	greedyJson: ScriptFile;
-	rolesData?: CharacterEntry[];
-	greedyJinxData: JinxFile;
-	greedierJinxData?: JinxFile;
-	greedierCharactersData?: CatalogCharacter[];
-}): Catalog {
-	return Catalog.create({
-		baseScript: parseScriptFile([{ id: '_meta', name: 'Test Script' }, ...params.greedyJson]),
-		roles: params.rolesData ?? [],
-		greedierCharacters: params.greedierCharactersData ?? [],
-		idMappings: OneToOneIdMap.fromRecord({}),
-		nightOrder: new NightOrderIndex({ firstNight: [], otherNight: [] }),
-		officialJinxes: [],
-		greedyJinxes: params.greedyJinxData,
-		greedierJinxes: params.greedierJinxData ?? [],
-	});
-}
+import { createTestCatalog } from '../../../test-helpers.js';
 
 describe('deriveGreedyHomebrew', () => {
 	it('preserves source set order by default', () => {
-		const catalog = buildCatalog([
-			{ entry: { id: 'omega', name: 'Omega', team: 'demon', ability: 'Omega ability', edition: 'greedier' }, sourceSet: 3 },
-			{ entry: { id: 'alpha', name: 'Alpha', team: 'townsfolk', ability: 'Alpha ability', edition: 'greedier' }, sourceSet: 1 },
-			{ entry: { id: 'beta', name: 'Beta', team: 'townsfolk', ability: 'Beta ability', edition: 'greedier' }, sourceSet: 1 },
-		]);
+		const catalog = createTestCatalog({
+			greedierCharactersData: [
+				{ entry: { id: 'omega', name: 'Omega', team: 'demon', ability: 'Omega ability', edition: 'greedier' }, sourceSet: 3 },
+				{ entry: { id: 'alpha', name: 'Alpha', team: 'townsfolk', ability: 'Alpha ability', edition: 'greedier' }, sourceSet: 1 },
+				{ entry: { id: 'beta', name: 'Beta', team: 'townsfolk', ability: 'Beta ability', edition: 'greedier' }, sourceSet: 1 },
+			],
+		});
 
 		expect(deriveGreedyHomebrew(catalog).map((entry) => entry.character.id)).toEqual([
 			'omega',
@@ -57,12 +25,14 @@ describe('deriveGreedyHomebrew', () => {
 	});
 
 	it('sorts by canonical team and name when sort-by-set is disabled', () => {
-		const catalog = buildCatalog([
-			{ entry: { id: 'omega', name: 'Omega', team: 'demon', ability: 'Omega ability', edition: 'greedier' } },
-			{ entry: { id: 'beta', name: 'Beta', team: 'townsfolk', ability: 'Beta ability', edition: 'greedier' } },
-			{ entry: { id: 'alpha', name: 'Alpha', team: 'townsfolk', ability: 'Alpha ability', edition: 'greedier' } },
-			{ entry: { id: 'zed', name: 'Zed', team: 'minion', ability: 'Zed ability', edition: 'greedier' } },
-		]);
+		const catalog = createTestCatalog({
+			greedierCharactersData: [
+				{ entry: { id: 'omega', name: 'Omega', team: 'demon', ability: 'Omega ability', edition: 'greedier' } },
+				{ entry: { id: 'beta', name: 'Beta', team: 'townsfolk', ability: 'Beta ability', edition: 'greedier' } },
+				{ entry: { id: 'alpha', name: 'Alpha', team: 'townsfolk', ability: 'Alpha ability', edition: 'greedier' } },
+				{ entry: { id: 'zed', name: 'Zed', team: 'minion', ability: 'Zed ability', edition: 'greedier' } },
+			],
+		});
 
 		expect(deriveGreedyHomebrew(catalog, false).map((entry) => entry.character.id)).toEqual([
 			'alpha',
@@ -75,15 +45,15 @@ describe('deriveGreedyHomebrew', () => {
 
 describe('deriveGreedyJinxes', () => {
 	it('includes greedier homebrew jinxes only when enabled', () => {
-		const catalog = buildCatalogWithJinxes({
+		const catalog = createTestCatalog({
 			greedyJson: [
 				{ id: 'clockmaker', name: 'Clockmaker', team: 'townsfolk', ability: "Clockmaker ability" },
 				{ id: 'imp', name: 'Imp', team: 'demon', ability: "Imp ability" },
 			],
-			greedyJinxData: [
+			greedy: [
 				{ id: 'clockmaker', jinx: [{ id: 'imp', reason: 'Greedy jinx reason' }] },
 			],
-			greedierJinxData: [
+			greedier: [
 				{ id: 'homebrew_a', jinx: [{ id: 'homebrew_b', reason: 'Greedier jinx reason' }] },
 			],
 			greedierCharactersData: [
@@ -108,13 +78,13 @@ describe('deriveGreedyJinxes', () => {
 	});
 
 	it('hides no-death-at-night jinx combinations unless explicitly enabled', () => {
-		const catalog = buildCatalogWithJinxes({
+		const catalog = createTestCatalog({
 			greedyJson: [
 				{ id: 'leviathan', name: 'Leviathan', team: 'demon', ability: 'Leviathan ability' },
 				{ id: 'soldier', name: 'Soldier', team: 'townsfolk', ability: 'Soldier ability' },
 				{ id: 'baron', name: 'Baron', team: 'minion', ability: 'Baron ability' },
 			],
-			greedyJinxData: [
+			greedy: [
 				{
 					id: 'leviathan',
 					jinx: [

@@ -1,28 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { GenerationContext, type CharacterResolver } from './data/catalog-entry.js';
-import { Catalog, OneToOneIdMap, NightOrderIndex } from './data/catalog.js';
-import { parseScriptFile, serializeScriptDocument } from './model/script-document.js';
 import type { CharacterEntry } from './types.js';
-
-function makeCatalog(role: CharacterEntry): Catalog {
-	return Catalog.create({
-		baseScript: parseScriptFile([{ id: '_meta', name: 'Test Script' }, role.id]),
-		roles: [role],
-		greedierCharacters: [],
-		idMappings: OneToOneIdMap.fromRecord({}),
-		nightOrder: new NightOrderIndex({ firstNight: [], otherNight: [] }),
-		officialJinxes: [],
-		greedyJinxes: [],
-		greedierJinxes: [],
-	});
-}
-
-function makeResolver(catalog: Catalog): CharacterResolver {
-	return {
-		catalog,
-		generationContext: new GenerationContext(),
-	};
-}
+import { cloneSerializedScript, createTestCatalog, createTestResolver } from './test-helpers.js';
 
 describe('character image behavior', () => {
 	it('keeps script image URLs unnormalized for payload expansion', () => {
@@ -33,9 +11,12 @@ describe('character image behavior', () => {
 			ability: 'Test ability',
 			image: 'https://greedy.antihype.space/icons/carousel/clockmaker_g.webp',
 		};
-		const catalog = makeCatalog(role);
-		const resolver = makeResolver(catalog);
-		const data = structuredClone(serializeScriptDocument(catalog.baseScript));
+		const catalog = createTestCatalog({
+			rolesData: [role],
+			baseScript: [{ id: '_meta', name: 'Test Script' }, role.id],
+		});
+		const resolver = createTestResolver(catalog);
+		const data = cloneSerializedScript(catalog);
 
 		const expanded = resolver.generationContext.findOrExpandCharacter('clockmaker', data, resolver.catalog);
 		expect(expanded).not.toBeNull();
@@ -54,7 +35,10 @@ describe('character image behavior', () => {
 			ability: 'Test ability',
 			image: 'https://greedy.antihype.space/icons/carousel/clockmaker_g.webp',
 		};
-		const catalog = makeCatalog(role);
+		const catalog = createTestCatalog({
+			rolesData: [role],
+			baseScript: [{ id: '_meta', name: 'Test Script' }, role.id],
+		});
 
 		expect(catalog.lookupById('clockmaker')?.displayImageUrls()).toEqual([
 			'icons/carousel/clockmaker_g.webp',

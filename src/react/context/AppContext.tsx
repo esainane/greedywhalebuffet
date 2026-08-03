@@ -1,7 +1,11 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useReducer, useRef } from 'react';
 import type { SelectableCharacter, GenerationOptions, GenerationResult } from '../../types.js';
 import type { Catalog } from '../../data/catalog.js';
-import { GENERATION_OPTIONS, getDependentOptions } from '../../options.js';
+import {
+	defaultGenerationOptions,
+	getDependentOptionNames,
+	isGenerationOptionName,
+} from '../../options.js';
 import { loadLatestJson } from '../../data/loader.js';
 import { generate } from '../../generation.js';
 
@@ -60,17 +64,8 @@ type AppActions = {
 	copyToClipboard: () => Promise<void>;
 };
 
-const defaultOptions = GENERATION_OPTIONS.reduce((acc, option) => {
-	acc[option.name] = option.defaultChecked;
-	return acc;
-}, {} as GenerationOptions);
-
 function cloneDefaultOptions(): GenerationOptions {
-	return { ...defaultOptions };
-}
-
-function isValidOptionName(value: string): value is keyof GenerationOptions {
-	return GENERATION_OPTIONS.some((option) => option.name === value);
+	return { ...defaultGenerationOptions() };
 }
 
 function parseStoredPreferences(rawValue: string): StoredPreferences | null {
@@ -92,7 +87,7 @@ function parseStoredPreferences(rawValue: string): StoredPreferences | null {
 	const options = cloneDefaultOptions();
 
 	for (const [key, value] of Object.entries(rawOptions)) {
-		if (!isValidOptionName(key) || typeof value !== 'boolean') {
+		if (!isGenerationOptionName(key) || typeof value !== 'boolean') {
 			continue;
 		}
 		options[key] = value;
@@ -201,19 +196,14 @@ function applyDependentOptionRules(
 		return nextOptions;
 	}
 
-	const changedOption = GENERATION_OPTIONS.find((entry) => entry.name === changedOptionName);
-	if (!changedOption) {
-		return nextOptions;
-	}
-
-	const dependentOptions = getDependentOptions(changedOption.id);
-	if (dependentOptions.length === 0) {
+	const dependentOptionNames = getDependentOptionNames(changedOptionName);
+	if (dependentOptionNames.length === 0) {
 		return nextOptions;
 	}
 
 	const adjusted = { ...nextOptions };
-	for (const dependent of dependentOptions) {
-		adjusted[dependent.name] = false;
+	for (const dependentOptionName of dependentOptionNames) {
+		adjusted[dependentOptionName] = false;
 	}
 	return adjusted;
 }

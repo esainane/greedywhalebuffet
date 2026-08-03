@@ -8,21 +8,14 @@ import { buildCopyPayload } from './generation.js';
 import { FILTERABLE_TEAMS } from './constants.js';
 import { loadLatestJson } from './data/loader.js';
 import type { GenerationOptions, ScriptFile } from './types.js';
+import { GENERATION_OPTION_NAMES } from './options.js';
 import scriptSchema from '../schemas/script-schema.json';
 import { createStaticFetch } from './test-helpers.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, '..');
 const staticRoot = path.join(repoRoot, 'static');
-const optionKeys: readonly (keyof GenerationOptions)[] = [
-	'permitDuplicateCharacters',
-	'addSpiritOfIvory',
-	'alejoRules',
-	'listOfficialJinxes',
-	'listGreedyJinxes',
-	'useNoDeathAtNightJinxes',
-	'addGreedierHomebrew',
-];
+const optionKeys = GENERATION_OPTION_NAMES;
 
 function assertValid(
 	validate: ValidateFunction,

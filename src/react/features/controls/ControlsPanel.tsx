@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import type { GenerationOptions } from '../../../types.js';
+import type { GenerationOptionName } from '../../../options.js';
 import { GENERATION_OPTIONS, getOptionDependencies } from '../../../options.js';
 import { Switch } from '../../components/Switch.js';
 import { useAppActions, useAppState } from '../../context/AppContext.js';
@@ -172,19 +173,13 @@ function HelpBubble(props: HelpBubbleProps): React.JSX.Element {
 	);
 }
 
-function optionIsEnabled(optionId: string, options: GenerationOptions): boolean {
-	const dependencies = getOptionDependencies(optionId);
+function optionIsEnabled(optionName: GenerationOptionName, options: GenerationOptions): boolean {
+	const dependencies = getOptionDependencies(optionName);
 	if (dependencies.length === 0) {
 		return true;
 	}
 
-	return dependencies.every((dependencyId) => {
-		const option = GENERATION_OPTIONS.find((entry) => entry.id === dependencyId);
-		if (!option) {
-			return false;
-		}
-		return Boolean(options[option.name]);
-	});
+	return dependencies.every((dependencyName) => Boolean(options[dependencyName]));
 }
 
 export function ControlsPanel(): React.JSX.Element {
@@ -286,7 +281,7 @@ export function ControlsPanel(): React.JSX.Element {
 					<form className="copy-form">
 						{GENERATION_OPTIONS.map((option) => {
 							const checked = state.options[option.name];
-							const isEnabled = optionIsEnabled(option.id, state.options);
+							const isEnabled = optionIsEnabled(option.name, state.options);
 							const optionLabelId = `${option.id}-label`;
 
 							return (

@@ -2,6 +2,9 @@
  * Mapping from Greedy character IDs to base character IDs, used for jinx merging.
  */
 
+import type { GenerationOptions } from './options.js';
+export type { GenerationOptions } from './options.js';
+
 export type MappingFile = Record<string, string>;
 
 /**
@@ -89,19 +92,6 @@ export type NightsheetFile = {
 export type SelectableCharacter = CharacterBase & {
 	imageUrl: string;
 	sourceSet?: number;
-};
-
-/**
- * UI and generation toggles persisted in preferences and applied during export.
- */
-export type GenerationOptions = {
-	permitDuplicateCharacters: boolean;
-	addSpiritOfIvory: boolean;
-	alejoRules: boolean;
-	listOfficialJinxes: boolean;
-	listGreedyJinxes: boolean;
-	useNoDeathAtNightJinxes: boolean;
-	addGreedierHomebrew: boolean;
 };
 
 export type GenerationRequest = {

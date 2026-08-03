@@ -3,6 +3,7 @@ import path from 'node:path';
 import { GenerationContext, type CharacterResolver } from './data/catalog-entry.js';
 import { Catalog, NightOrderIndex, OneToOneIdMap, type CatalogParams } from './data/catalog.js';
 import { parseScriptFile, serializeScriptDocument } from './model/script-document.js';
+import { GENERATION_OPTION_NAMES } from './options.js';
 import type {
 	CatalogCharacter,
 	CharacterEntry,
@@ -25,14 +26,13 @@ function hasMetaEntry(file: ScriptFile): boolean {
 }
 
 export function buildTestOptions(overrides: Partial<GenerationOptions> = {}): GenerationOptions {
+	const baseline = {} as GenerationOptions;
+	for (const optionName of GENERATION_OPTION_NAMES) {
+		baseline[optionName] = false;
+	}
+
 	return {
-		permitDuplicateCharacters: false,
-		addSpiritOfIvory: false,
-		alejoRules: false,
-		listOfficialJinxes: false,
-		listGreedyJinxes: false,
-		useNoDeathAtNightJinxes: false,
-		addGreedierHomebrew: false,
+		...baseline,
 		...overrides,
 	};
 }

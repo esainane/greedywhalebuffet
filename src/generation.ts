@@ -2,6 +2,7 @@ import type { GenerationOptions, GenerationRequest, GenerationResult, Generation
 import type { Catalog } from './data/catalog.js';
 import { getUnsatisfiedDependencyCharacterIds, CHARACTER_DEPENDENCIES } from './dependencies.js';
 import { GenerationWorkspace } from './generation-workspace.js';
+import { SOURCE_COMPOSITION_RULES, TRANSFORMATION_RULES } from './generation-rules/index.js';
 
 /**
  * Run the generation pipeline for a request against an immutable catalog.
@@ -28,9 +29,9 @@ export function generate(request: GenerationRequest, catalog: Catalog): Generati
 	// Mutable state to be passed around the generation pipeline
 	const workspace = new GenerationWorkspace(catalog);
 
-	// If requested, add Greedier characters
-	if (options.addGreedierHomebrew) {
-		workspace.addGreedierCharacters();
+	// Apply pre-filter source-composition rules.
+	for (const rule of SOURCE_COMPOSITION_RULES) {
+		rule.apply({ workspace, options });
 	}
 
 	// Remove any deselected
@@ -45,32 +46,9 @@ export function generate(request: GenerationRequest, catalog: Catalog): Generati
 	const scriptName = hasGreedier ? baseName.replace(/\bGreedy\b/g, 'Greedier') : baseName;
 	workspace.setScriptName(scriptName);
 
-	// Apply any requested simple quirks
-	if (options.permitDuplicateCharacters) {
-		workspace.addDuplicateCharactersLine();
-	}
-	if (options.addSpiritOfIvory) {
-		workspace.applySpiritOfIvory();
-	}
-	if (options.alejoRules) {
-		workspace.applyAlejoRules();
-	}
-
-	// If jinxes are to be listed, compute and apply them
-	if (options.listOfficialJinxes || options.listGreedyJinxes) {
-		workspace.applyJinxRules({
-			includeOfficial: options.listOfficialJinxes,
-			includeGreedy: options.listGreedyJinxes,
-			includeGreedier: options.addGreedierHomebrew && options.listGreedyJinxes,
-			includeNoDeathAtNight: options.useNoDeathAtNightJinxes,
-		});
-	}
-
-	// Adjust no-kill Demons depending on if the rare No Death At Night jinxes are requested
-	if (options.useNoDeathAtNightJinxes) {
-		workspace.ensureNDANPromptOrder();
-	} else {
-		workspace.revertNDANExportFields();
+	// Apply ordered option transformations.
+	for (const rule of TRANSFORMATION_RULES) {
+		rule.apply({ workspace, options });
 	}
 
 	return {

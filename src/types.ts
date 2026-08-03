@@ -95,11 +95,27 @@ export type SelectableCharacter = CharacterBase & {
  * UI and generation toggles persisted in preferences and applied during export.
  */
 export type GenerationOptions = {
-	appendDuplicateLine: boolean;
+	permitDuplicateCharacters: boolean;
 	addSpiritOfIvory: boolean;
 	alejoRules: boolean;
 	listOfficialJinxes: boolean;
 	listGreedyJinxes: boolean;
 	useNoDeathAtNightJinxes: boolean;
 	addGreedierHomebrew: boolean;
+};
+
+export type GenerationRequest = {
+	readonly selectedCharacterIds: ReadonlySet<string>;
+	readonly options: GenerationOptions;
+};
+
+export type GenerationDiagnostic = {
+	readonly characterId: string;
+	readonly missingDependencyIds: readonly string[];
+};
+
+export type GenerationResult = {
+	readonly script: ScriptFile;
+	readonly scriptName: string;
+	readonly diagnostics: readonly GenerationDiagnostic[];
 };

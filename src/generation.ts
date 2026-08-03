@@ -1,335 +1,90 @@
-/**
- * Script generation logic and option application.
- */
-
-import type { ScriptFile, GenerationOptions, CharacterEntry } from './types.js';
-import { DUPLICATE_LINE, REMOVED_CHARACTERS_PREFIX, FILTERABLE_TEAMS } from './constants.js';
-import {
-	getMetaEntry,
-	findOrExpandCharacter,
-	getBaseCharacterId,
-} from './character.js';
-import { applySelectedJinxes } from './jinxes.js';
-import type { FetchedData } from './data/fetched.js';
-import { getUnsatisfiedDependencyCharacterIds } from './dependencies.js';
-
-const SPIRIT_OF_IVORY_ID = 'spiritofivory';
-
-function ensureNoDeathAtNightJinxPromptOrder(data: ScriptFile, fetchedData: FetchedData): void {
-	const promptOrder =
-		fetchedData.catalog.otherNightOrder('riot') ??
-		fetchedData.catalog.otherNightOrder('leviathan') ??
-		50;
-
-	for (const sourceId of ['leviathan', 'riot', 'armageddon_winningclub']) {
-		const entry = findOrExpandCharacter(sourceId, data, fetchedData);
-		if (!entry) {
-			continue;
-		}
-
-		entry.otherNight ??= promptOrder;
-	}
-}
-
-function getEntryId(entry: ScriptFile[number]): string | undefined {
-	if (typeof entry === 'string') {
-		return entry;
-	}
-
-	if (typeof entry === 'object' && entry !== null && 'id' in entry && typeof entry.id === 'string') {
-		return entry.id;
-	}
-
-	return undefined;
-}
-
-function applyUpstreamNoDeathAtNightExportFields(data: ScriptFile, fetchedData: FetchedData): void {
-	for (const entry of data) {
-		if (typeof entry !== 'object' || entry === null || !('id' in entry) || entry.id === '_meta') {
-			continue;
-		}
-
-		const characterEntry = entry as CharacterEntry;
-		const baseId = getBaseCharacterId(characterEntry.id, fetchedData);
-		if (baseId !== 'leviathan' && baseId !== 'riot') {
-			continue;
-		}
-
-		const upstreamCatalogEntry = fetchedData.catalog.rolesById.get(baseId);
-		if (!upstreamCatalogEntry) {
-			continue;
-		}
-		const upstreamEntry = upstreamCatalogEntry.entry;
-		const upstreamFirstNight = fetchedData.catalog.firstNightOrder(baseId);
-		const upstreamOtherNight = fetchedData.catalog.otherNightOrder(baseId);
-
-		if (upstreamFirstNight === undefined) {
-			delete characterEntry.firstNight;
-		} else {
-			characterEntry.firstNight = upstreamFirstNight;
-		}
-
-		if (upstreamOtherNight === undefined) {
-			delete characterEntry.otherNight;
-		} else {
-			characterEntry.otherNight = upstreamOtherNight;
-		}
-
-		if (typeof upstreamEntry.firstNightReminder === 'string') {
-			characterEntry.firstNightReminder = upstreamEntry.firstNightReminder;
-		} else {
-			delete characterEntry.firstNightReminder;
-		}
-
-		if (typeof upstreamEntry.otherNightReminder === 'string') {
-			characterEntry.otherNightReminder = upstreamEntry.otherNightReminder;
-		} else {
-			delete characterEntry.otherNightReminder;
-		}
-
-		if (Array.isArray(upstreamEntry.reminders)) {
-			characterEntry.reminders = [...upstreamEntry.reminders];
-		} else {
-			delete characterEntry.reminders;
-		}
-	}
-}
+import type { GenerationOptions, GenerationRequest, GenerationResult, GenerationDiagnostic } from './types.js';
+import type { Catalog } from './data/catalog.js';
+import { getUnsatisfiedDependencyCharacterIds, CHARACTER_DEPENDENCIES } from './dependencies.js';
+import { GenerationWorkspace } from './generation-workspace.js';
 
 /**
- * Apply duplicate line to meta entry.
+ * Run the generation pipeline for a request against an immutable catalog.
+ *
+ * This is the main script export pipeline.
  */
-export function applyDuplicateLine(data: ScriptFile): void {
-	const metaEntry = getMetaEntry(data);
-	if (!metaEntry) {
-		return;
+export function generate(request: GenerationRequest, catalog: Catalog): GenerationResult {
+	const { selectedCharacterIds, options } = request;
+
+	// Dependency evaluation
+	// If any character requires another character which is not present, the dependent character is blocked from export.
+	const blocked = getUnsatisfiedDependencyCharacterIds(selectedCharacterIds, catalog);
+	const selectedBaseIds = new Set([...selectedCharacterIds].map((id) => catalog.resolveBaseId(id)));
+	const diagnostics: GenerationDiagnostic[] = [...blocked].map((characterId) => {
+		const baseId = catalog.resolveBaseId(characterId);
+		const required = CHARACTER_DEPENDENCIES[baseId] ?? [];
+		const missingDependencyIds = required.filter((r) => !selectedBaseIds.has(r));
+		return { characterId, missingDependencyIds };
+	});
+
+	// Anything remaining is exportable.
+	const exportableIds = new Set([...selectedCharacterIds].filter((id) => !blocked.has(id)));
+
+	// Mutable state to be passed around the generation pipeline
+	const workspace = new GenerationWorkspace(catalog);
+
+	// If requested, add Greedier characters
+	if (options.addGreedierHomebrew) {
+		workspace.addGreedierCharacters();
 	}
 
-	metaEntry.bootlegger = [...(metaEntry.bootlegger ?? []), DUPLICATE_LINE];
-}
+	// Remove any deselected
+	const exclusion = workspace.filterToExportable(exportableIds);
 
-/**
- * Ensure Spirit of Ivory appears in the script character list.
- */
-export function applySpiritOfIvory(data: ScriptFile): void {
-	if (data.find((entry) => getEntryId(entry) === SPIRIT_OF_IVORY_ID)) {
-		return;
+	// Update bootlegger with added/removed characters
+	workspace.setBootleggerCharacterLine(exclusion);
+
+	// If any Greedier characters are present, change the script name accordingly
+	const baseName = catalog.baseScript.meta.name;
+	const hasGreedier = options.addGreedierHomebrew && [...exportableIds].some((id) => catalog.greedierById.has(id));
+	const scriptName = hasGreedier ? baseName.replace(/\bGreedy\b/g, 'Greedier') : baseName;
+	workspace.setScriptName(scriptName);
+
+	// Apply any requested simple quirks
+	if (options.permitDuplicateCharacters) {
+		workspace.addDuplicateCharactersLine();
 	}
-
-	data.push(SPIRIT_OF_IVORY_ID);
-}
-
-/**
- * Apply Alejo rules (Philosopher/Snake Charmer first night ordering).
- */
-export function applyAlejoRules(data: ScriptFile, fetchedData: FetchedData): void {
-	const snakeCharmer = findOrExpandCharacter('snakecharmer', data, fetchedData);
-
-	if (!snakeCharmer) {
-		return;
-	}
-
-	snakeCharmer.firstNight = fetchedData.catalog.firstNightOrder('philosopher');
-}
-
-/**
- * Apply all selected generation options to script data.
- */
-export function applyOptions(data: ScriptFile, options: GenerationOptions, fetchedData: FetchedData): void {
-	if (options.appendDuplicateLine) {
-		applyDuplicateLine(data);
-	}
-
 	if (options.addSpiritOfIvory) {
-		applySpiritOfIvory(data);
+		workspace.applySpiritOfIvory();
 	}
-
 	if (options.alejoRules) {
-		applyAlejoRules(data, fetchedData);
+		workspace.applyAlejoRules();
 	}
 
+	// If jinxes are to be listed, compute and apply them
 	if (options.listOfficialJinxes || options.listGreedyJinxes) {
-		applySelectedJinxes(data, fetchedData, {
+		workspace.applyJinxRules({
 			includeOfficial: options.listOfficialJinxes,
 			includeGreedy: options.listGreedyJinxes,
 			includeGreedier: options.addGreedierHomebrew && options.listGreedyJinxes,
 			includeNoDeathAtNight: options.useNoDeathAtNightJinxes,
 		});
-
-		if (options.useNoDeathAtNightJinxes) {
-			ensureNoDeathAtNightJinxPromptOrder(data, fetchedData);
-		}
 	}
 
-	if (!options.useNoDeathAtNightJinxes) {
-		applyUpstreamNoDeathAtNightExportFields(data, fetchedData);
+	// Adjust no-kill Demons depending on if the rare No Death At Night jinxes are requested
+	if (options.useNoDeathAtNightJinxes) {
+		workspace.ensureNDANPromptOrder();
+	} else {
+		workspace.revertNDANExportFields();
 	}
+
+	return {
+		script: workspace.toScriptFile(),
+		scriptName,
+		diagnostics,
+	};
 }
 
-export function deriveScriptNamePreview(
-	baseScriptName: string,
-	selectedCharacterIds: ReadonlySet<string>,
-	options: GenerationOptions,
-	catalog: import('./data/catalog.js').Catalog,
-	unsatisfiedDependencyCharacterIds?: ReadonlySet<string>,
-): string {
-	if (!options.addGreedierHomebrew) {
-		return baseScriptName;
-	}
-
-	const blockedCharacterIds =
-		unsatisfiedDependencyCharacterIds ??
-		getUnsatisfiedDependencyCharacterIds(selectedCharacterIds, catalog);
-	const exportableSelectedCharacterIds = new Set(
-		Array.from(selectedCharacterIds).filter((characterId) => !blockedCharacterIds.has(characterId)),
-	);
-	const hasSelectedGreedierCharacter = Array.from(exportableSelectedCharacterIds).some(
-		(characterId) => catalog.greedierById.has(characterId),
-	);
-
-	if (!hasSelectedGreedierCharacter) {
-		return baseScriptName;
-	}
-
-	return baseScriptName.replace(/\bGreedy\b/g, 'Greedier');
-}
-
-/**
- * Build the final JSON payload for copying to clipboard.
- */
+/** Transitional compatibility wrapper: serializes a generation result for the clipboard JSON string. */
 export function buildCopyPayload(
 	selectedCharacterIds: ReadonlySet<string>,
 	options: GenerationOptions,
-	fetchedData: FetchedData,
+	catalog: Catalog,
 ): string {
-	const catalog = fetchedData.catalog;
-	const unsatisfiedDependencyCharacterIds = getUnsatisfiedDependencyCharacterIds(
-		selectedCharacterIds,
-		catalog,
-	);
-	const exportableSelectedCharacterIds = new Set(
-		Array.from(selectedCharacterIds).filter(
-			(characterId) => !unsatisfiedDependencyCharacterIds.has(characterId),
-		),
-	);
-	const greedierCharacterIds = catalog.greedierById;
-
-	const nextData = fetchedData.cloneGreedyJson();
-	if (options.addGreedierHomebrew) {
-		const existingIds = new Set(
-			nextData
-				.filter((entry): entry is string | CharacterEntry =>
-					typeof entry === 'string' || (typeof entry === 'object' && entry !== null && 'id' in entry),
-				)
-				.map((entry) => (typeof entry === 'string' ? entry : entry.id)),
-		);
-
-		for (const greedierCatalogEntry of catalog.greedierById.values()) {
-			const greedierCharacter = greedierCatalogEntry.entry;
-			if (existingIds.has(greedierCharacter.id)) {
-				continue;
-			}
-
-			nextData.push(structuredClone(greedierCharacter));
-			existingIds.add(greedierCharacter.id);
-		}
-	}
-
-	const metaEntry = getMetaEntry(nextData);
-	if (!metaEntry) {
-		throw new Error('Script metadata is missing or invalid.');
-	}
-
-	if (typeof metaEntry.name === 'string') {
-		metaEntry.name = deriveScriptNamePreview(
-			metaEntry.name,
-			selectedCharacterIds,
-			options,
-			catalog,
-			unsatisfiedDependencyCharacterIds,
-		);
-	}
-
-	const removedBaseCharacterNames: string[] = [];
-	const removedGreedierCharacterNames: string[] = [];
-
-	// Filter out deselected characters
-	const filteredData: ScriptFile = [metaEntry];
-	for (const entry of nextData) {
-		if (entry === metaEntry) {
-			continue;
-		}
-
-		let entryId: string | undefined;
-		let entryName: string | undefined;
-		let shouldAlwaysInclude = false;
-		let isFilterableCharacter = false;
-
-		if (typeof entry === 'string') {
-			entryId = entry;
-			entryName = catalog.rolesById.get(entry)?.entry.name ?? entry;
-			const roleTeam = catalog.rolesById.get(entry)?.entry.team;
-			isFilterableCharacter = !!roleTeam && FILTERABLE_TEAMS.has(roleTeam);
-		} else if (typeof entry === 'object' && entry !== null && 'id' in entry) {
-			const charEntry = entry as CharacterEntry;
-			entryId = charEntry.id;
-			entryName = charEntry.name || entryId;
-			shouldAlwaysInclude = entryId === 'choose_your_chars';
-			const entryTeam = charEntry.team;
-			isFilterableCharacter = !!entryTeam && FILTERABLE_TEAMS.has(entryTeam);
-		}
-
-		if (
-			!isFilterableCharacter ||
-			shouldAlwaysInclude ||
-			(entryId && exportableSelectedCharacterIds.has(entryId))
-		) {
-			filteredData.push(entry);
-		} else if (isFilterableCharacter && entryId && entryName) {
-			if (greedierCharacterIds.has(entryId)) {
-				removedGreedierCharacterNames.push(entryName);
-			} else {
-				removedBaseCharacterNames.push(entryName);
-			}
-		}
-	}
-
-	if (metaEntry && (removedBaseCharacterNames.length > 0 || removedGreedierCharacterNames.length > 0)) {
-		const bootlegger = Array.isArray(metaEntry.bootlegger) ? metaEntry.bootlegger : [];
-		const allRemovedCharacterNames = [
-			...removedBaseCharacterNames,
-			...removedGreedierCharacterNames,
-		];
-		const allRemovedLine = `${REMOVED_CHARACTERS_PREFIX}${allRemovedCharacterNames.join(', ')}`;
-		const addedGreedierCharacterNames = [...catalog.greedierById.values()]
-			.filter((ce) => exportableSelectedCharacterIds.has(ce.entry.id))
-			.map((ce) => ce.entry.name || ce.entry.id);
-		const addedGreedierLine = `The following Greedier characters have been added: ${addedGreedierCharacterNames.join(', ')}`;
-
-		const canUseMixedLine =
-			removedBaseCharacterNames.length > 0 &&
-			removedGreedierCharacterNames.length > 0 &&
-			addedGreedierCharacterNames.length > 0;
-
-		if (canUseMixedLine) {
-			const baseRemovedLine = `${REMOVED_CHARACTERS_PREFIX}${removedBaseCharacterNames.join(', ')}`;
-			const mixedLine = `${baseRemovedLine}. ${addedGreedierLine}`;
-
-			bootlegger.push(mixedLine.length < allRemovedLine.length ? mixedLine : allRemovedLine);
-		} else if (
-			removedBaseCharacterNames.length === 0 &&
-			removedGreedierCharacterNames.length > 0 &&
-			addedGreedierCharacterNames.length > 0 &&
-			addedGreedierLine.length < allRemovedLine.length
-		) {
-			bootlegger.push(addedGreedierLine);
-		} else {
-			bootlegger.push(allRemovedLine);
-		}
-
-		metaEntry.bootlegger = bootlegger;
-	}
-
-	applyOptions(filteredData, options, fetchedData);
-
-	return JSON.stringify(filteredData, null, 2);
+	return JSON.stringify(generate({ selectedCharacterIds, options }, catalog).script, null, 2);
 }

@@ -17,9 +17,9 @@ type OptionConfig = {
 
 export const GENERATION_OPTIONS: readonly OptionConfig[] = [
 	{
-		id: 'append-duplicate-line',
-		name: 'appendDuplicateLine',
-		label: 'Duplicate characters',
+		id: 'add-duplicate-characters-line',
+		name: 'permitDuplicateCharacters',
+		label: 'Permit duplicate characters',
 		defaultChecked: true,
 		helpText: 'Duplicate characters might be added during setup, even without setup abilities.',
 	},

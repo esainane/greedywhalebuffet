@@ -1,7 +1,7 @@
 import type { Catalog } from './data/catalog.js';
 
 
-const CHARACTER_DEPENDENCIES: Record<string, readonly string[]> = {
+export const CHARACTER_DEPENDENCIES: Record<string, readonly string[]> = {
 	choirboy: ['king'],
 	daki_winningclub: ['gyutaro_winningclub'],
 	gyutaro_winningclub: ['daki_winningclub'],

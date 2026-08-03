@@ -6,8 +6,10 @@ import type {
 	NightsheetFile,
 	CatalogCharacter,
 	SelectableCharacter,
+	ScriptEntry,
 } from '../types.js';
 import { CatalogEntry } from './catalog-entry.js';
+import { FILTERABLE_TEAMS } from '../constants.js';
 
 /** Immutable validated one-to-one ID mapping. */
 export class OneToOneIdMap {
@@ -215,5 +217,29 @@ export class Catalog {
 	 */
 	otherNightOrder(id: string): number | undefined {
 		return this.nightOrder.otherNight(this.resolveBaseId(id));
+	}
+
+	/**
+	 * Return selectable base-script characters in script order.
+	 * Uses inline entry image data when present and skips non-filterable entries.
+	 */
+	baseSelectableCharacters(): SelectableCharacter[] {
+		const characters: SelectableCharacter[] = [];
+
+		for (const entry of this.baseScript.entries) {
+			const id = typeof entry === 'string' ? entry : entry.id;
+			if (id === 'choose_your_chars') continue;
+
+			const catalogEntry = this.lookupById(id);
+			if (!catalogEntry || !FILTERABLE_TEAMS.has(catalogEntry.team)) continue;
+
+			characters.push(this.toSelectableCharacter(entry, catalogEntry));
+		}
+
+		return characters;
+	}
+
+	private toSelectableCharacter(entry: ScriptEntry, catalogEntry: CatalogEntry): SelectableCharacter {
+		return typeof entry === 'string' ? catalogEntry.toSelectable() : this.selectableFor(entry);
 	}
 }

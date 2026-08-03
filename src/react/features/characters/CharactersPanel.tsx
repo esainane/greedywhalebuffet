@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import type { SelectableCharacter } from '../../../types.js';
-import { splitCharactersByCommonBans } from '../../../character.js';
+import { COMMON_BANS } from '../../../constants.js';
 import { compareCanonicalCharacterOrder } from '../../../jinxOrder.js';
 import { useAppActions, useAppState } from '../../context/AppContext.js';
 import { Switch } from '../../components/Switch.js';
@@ -21,6 +21,23 @@ const POPULAR_GREEDIER_CHARACTER_IDS: readonly string[] = [
 	'hawkmoth',
 	'joe',
 ];
+
+function splitCharactersByCommonBans(
+	characters: SelectableCharacter[],
+): { quickRemove: SelectableCharacter[]; remaining: SelectableCharacter[] } {
+	const quickRemove: SelectableCharacter[] = [];
+	const remaining: SelectableCharacter[] = [];
+
+	for (const character of characters) {
+		if (COMMON_BANS.includes(character.id)) {
+			quickRemove.push(character);
+		} else {
+			remaining.push(character);
+		}
+	}
+
+	return { quickRemove, remaining };
+}
 
 type CharacterListProps = {
 	id: string;

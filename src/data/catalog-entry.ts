@@ -1,4 +1,5 @@
-import type { CharacterEntry, SelectableCharacter } from '../types.js';
+import type { Catalog } from './catalog.js';
+import type { CharacterEntry, ScriptFile, SelectableCharacter } from '../types.js';
 import { FILTERABLE_TEAMS, CUSTOM_CHARACTER_ID_SUFFIX } from '../constants.js';
 
 const GREEDY_HOST_PREFIX = 'https://greedy.antihype.space/';
@@ -112,7 +113,84 @@ export class GenerationContext {
 		this.customByBase.set(baseId, customId);
 	}
 
+	resolveBaseIdFor(id: string, catalog: Catalog): string {
+		return catalog.idMappings.toBase(id) ?? this.resolveBaseId(id) ?? id;
+	}
+
+	resolveCustomIdFor(id: string, catalog: Catalog): string {
+		const baseId = this.resolveBaseIdFor(id, catalog);
+		const greedyCustom = catalog.idMappings.toCustom(baseId);
+		if (greedyCustom) return greedyCustom;
+		return this.resolveCustomId(baseId) ?? `${baseId}${CUSTOM_CHARACTER_ID_SUFFIX}`;
+	}
+
+	findCharacterId(id: string, data: ScriptFile, catalog: Catalog): string {
+		const baseId = this.resolveBaseIdFor(id, catalog);
+		const customId = this.resolveCustomIdFor(baseId, catalog);
+		const needle = [id, baseId, customId];
+
+		const existing = data.find(
+			(entry) =>
+				typeof entry === 'object' &&
+				entry !== null &&
+				'id' in entry &&
+				needle.includes((entry as CharacterEntry).id),
+		) as CharacterEntry | undefined;
+		if (existing) {
+			return existing.id;
+		}
+
+		return baseId;
+	}
+
+	findOrExpandCharacter(
+		id: string,
+		data: ScriptFile,
+		catalog: Catalog,
+	): CharacterEntry | null {
+		const baseId = this.resolveBaseIdFor(id, catalog);
+		const customId = this.resolveCustomIdFor(baseId, catalog);
+		const needle = [id, baseId, customId];
+
+		const existing = data.find(
+			(entry) =>
+				typeof entry === 'object' &&
+				entry !== null &&
+				'id' in entry &&
+				needle.includes((entry as CharacterEntry).id),
+		) as CharacterEntry | undefined;
+		if (existing) {
+			return existing;
+		}
+
+		const index = data.findIndex((d) => typeof d === 'string' && needle.includes(d));
+		if (index === -1) {
+			return null;
+		}
+
+		const catalogRoleDef = catalog.rolesById.get(baseId);
+		if (!catalogRoleDef) {
+			return null;
+		}
+
+		const clone = structuredClone(catalogRoleDef.entry);
+		clone.id = customId;
+		this.register(baseId, customId);
+		clone.firstNight ??= catalog.firstNightOrder(baseId);
+		clone.otherNight ??= catalog.otherNightOrder(baseId);
+		clone.image ??= catalogRoleDef.scriptImageUrls();
+
+		data[index] = clone;
+		return clone;
+	}
+
 	deriveCustomId(baseId: string, greedyCustomId: string | undefined): string {
 		return greedyCustomId ?? this.customByBase.get(baseId) ?? `${baseId}${CUSTOM_CHARACTER_ID_SUFFIX}`;
 	}
 }
+
+/** Minimal resolver context used by generation/jinx processing helpers. */
+export type CharacterResolver = {
+	readonly catalog: Catalog;
+	readonly generationContext: GenerationContext;
+};

@@ -3,11 +3,10 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { FILTERABLE_TEAMS, REMOVED_CHARACTERS_PREFIX } from './constants.js';
-import { FetchedData } from './data/fetched.js';
-import type { Catalog } from './data/catalog.js';
+import { Catalog, NightOrderIndex, OneToOneIdMap } from './data/catalog.js';
 import { getUnsatisfiedDependencyCharacterIds } from './dependencies.js';
-import { buildCopyPayload } from './generation.js';
-import { getCharacters } from './character.js';
+import { buildCopyPayload, generate } from './generation.js';
+import { parseScriptFile } from './model/script-document.js';
 import type {
 	CatalogCharacter,
 	CharacterEntry,
@@ -24,7 +23,7 @@ const staticRoot = path.join(repoRoot, 'static');
 
 function buildOptions(overrides: Partial<GenerationOptions> = {}): GenerationOptions {
 	return {
-		appendDuplicateLine: false,
+		permitDuplicateCharacters: false,
 		addSpiritOfIvory: false,
 		alejoRules: false,
 		listOfficialJinxes: false,
@@ -103,7 +102,7 @@ function getRoleTeamByBaseId(catalog: Catalog): Map<string, string> {
 }
 
 function getFilterableBaseSelectionFromGreedy(catalog: Catalog): string[] {
-	return getCharacters(catalog).map((c) => c.id).sort();
+	return catalog.baseSelectableCharacters().map((c) => c.id).sort();
 }
 
 function getFilterableIdsFromPayload(payload: ScriptFile): string[] {
@@ -172,7 +171,7 @@ function getTeamRank(team: string | undefined): number {
 	}
 }
 
-function buildFetchedData(params: {
+function buildCatalogData(params: {
 	greedyJson?: ScriptFile;
 	greedierCharactersData?: CatalogCharacter[];
 	rolesData?: CharacterEntry[];
@@ -181,16 +180,16 @@ function buildFetchedData(params: {
 	greedyJinxData?: JinxFile;
 	greedierJinxData?: JinxFile;
 	jinxData?: JinxFile;
-}): FetchedData {
-	return FetchedData.fromRaw({
-		greedyJson: params.greedyJson ?? [{ id: '_meta', name: 'Test Script' }],
-		greedyJinxData: params.greedyJinxData ?? [],
-		greedierJinxData: params.greedierJinxData ?? [],
-		greedierCharactersData: params.greedierCharactersData ?? [],
-		greedyToBaseID: params.greedyToBaseID ?? {},
-		rolesData: params.rolesData ?? [],
-		nightsheetFile: params.nightsheetFile ?? { firstNight: [], otherNight: [] },
-		jinxData: params.jinxData ?? [],
+}): Catalog {
+	return Catalog.create({
+		baseScript: parseScriptFile(params.greedyJson ?? [{ id: '_meta', name: 'Test Script' }], 'synthetic'),
+		roles: params.rolesData ?? [],
+		greedierCharacters: params.greedierCharactersData ?? [],
+		idMappings: OneToOneIdMap.fromRecord(params.greedyToBaseID ?? {}),
+		nightOrder: new NightOrderIndex(params.nightsheetFile ?? { firstNight: [], otherNight: [] }),
+		officialJinxes: params.jinxData ?? [],
+		greedyJinxes: params.greedyJinxData ?? [],
+		greedierJinxes: params.greedierJinxData ?? [],
 	});
 }
 
@@ -205,9 +204,10 @@ describe('generation characterization fixtures', () => {
 		const blocked = getUnsatisfiedDependencyCharacterIds(selectedCharacterIds, catalog);
 		const expectedExportableSelected = selectedList.filter((id) => !blocked.has(id));
 
-		const payload = JSON.parse(
-			buildCopyPayload(selectedCharacterIds, buildOptions(), FetchedData.fromCatalog(catalog)),
-		) as ScriptFile;
+		const payload = generate(
+			{ selectedCharacterIds, options: buildOptions() },
+			catalog,
+		).script;
 		const exportedFilterableIds = getFilterableIdsFromPayload(payload);
 		const exportedIdSet = new Set(exportedFilterableIds);
 		const { bootlegger } = getMetaEntry(payload);
@@ -234,9 +234,8 @@ describe('generation characterization fixtures', () => {
 		const catalog = await loadFixtureData();
 		const selectedCharacterIds = new Set(['choirboy', 'chef']);
 
-		const payload = JSON.parse(
-			buildCopyPayload(selectedCharacterIds, buildOptions(), FetchedData.fromCatalog(catalog)),
-		) as ScriptFile;
+		const result = generate({ selectedCharacterIds, options: buildOptions() }, catalog);
+		const payload = result.script;
 		const { bootlegger } = getMetaEntry(payload);
 
 		expect(hasCharacter(payload, 'choirboy')).toBe(false);
@@ -251,24 +250,23 @@ describe('generation characterization fixtures', () => {
 		expect(greedierCharacter).toBeDefined();
 
 		const selectedCharacterIds = new Set([...allBase, greedierCharacter.id]);
-		const payload = JSON.parse(
-			buildCopyPayload(
-				selectedCharacterIds,
-				buildOptions({ addGreedierHomebrew: true }),
-				FetchedData.fromCatalog(catalog),
-			),
-		) as ScriptFile;
-		const { name, bootlegger } = getMetaEntry(payload);
+		const result = generate(
+			{ selectedCharacterIds, options: buildOptions({ addGreedierHomebrew: true }) },
+			catalog,
+		);
+		const payload = result.script;
+		const name = result.scriptName;
 
 		expect(name).toContain('Greedier');
 		expect(hasCharacter(payload, greedierCharacter.id)).toBe(true);
+		const { bootlegger } = getMetaEntry(payload);
 		expect(
 			bootlegger.some((line) => line.startsWith('The following Greedier characters have been added:')),
 		).toBe(true);
 	});
 
 	it('fixture: independent options remain behaviorally observable on a minimal script', () => {
-		const fetchedData = buildFetchedData({
+		const catalog = buildCatalogData({
 			greedyJson: [{ id: '_meta', name: 'Greedy Mini' }, 'snakecharmer', 'philosopher'],
 			rolesData: [
 				{ id: 'snakecharmer', name: 'Snake Charmer', team: 'outsider', ability: 'SC' },
@@ -282,28 +280,28 @@ describe('generation characterization fixtures', () => {
 		});
 		const selected = new Set(['snakecharmer', 'philosopher']);
 
-		const defaultPayload = JSON.parse(buildCopyPayload(selected, buildOptions(), fetchedData)) as ScriptFile;
+		const defaultPayload = JSON.parse(buildCopyPayload(selected, buildOptions(), catalog)) as ScriptFile;
 		expect(getMetaEntry(defaultPayload).bootlegger.some((line) => line.includes('Duplicate characters'))).toBe(false);
 
 		const duplicatePayload = JSON.parse(
-			buildCopyPayload(selected, buildOptions({ appendDuplicateLine: true }), fetchedData),
+			buildCopyPayload(selected, buildOptions({ permitDuplicateCharacters: true }), catalog),
 		) as ScriptFile;
 		expect(getMetaEntry(duplicatePayload).bootlegger.some((line) => line.includes('Duplicate characters might be in play.'))).toBe(true);
 
 		const spiritPayload = JSON.parse(
-			buildCopyPayload(selected, buildOptions({ addSpiritOfIvory: true }), fetchedData),
+			buildCopyPayload(selected, buildOptions({ addSpiritOfIvory: true }), catalog),
 		) as ScriptFile;
 		expect(hasCharacter(spiritPayload, 'spiritofivory')).toBe(true);
 
 		const alejoPayload = JSON.parse(
-			buildCopyPayload(selected, buildOptions({ alejoRules: true }), fetchedData),
+			buildCopyPayload(selected, buildOptions({ alejoRules: true }), catalog),
 		) as ScriptFile;
 		const snake = findCharacter(alejoPayload, ['snakecharmer_custom', 'snakecharmer']);
 		expect(snake?.firstNight).toBe(1);
 	});
 
 	it('fixture: official -> greedy -> greedier precedence with blank tombstones and off-script target retention', () => {
-		const fetchedData = buildFetchedData({
+		const catalog = buildCatalogData({
 			greedyJson: [{ id: '_meta', name: 'Test Script' }, 'heretic'],
 			rolesData: [
 				{ id: 'heretic', name: 'Heretic', team: 'outsider', ability: 'Heretic' },
@@ -346,7 +344,7 @@ describe('generation characterization fixtures', () => {
 					listGreedyJinxes: true,
 					addGreedierHomebrew: true,
 				}),
-				fetchedData,
+					catalog,
 			),
 		) as ScriptFile;
 		const source = findCharacter(payload, ['heretic_custom', 'heretic']);
@@ -368,20 +366,14 @@ describe('generation characterization fixtures', () => {
 		const catalog = await loadFixtureData();
 		const selectedCharacterIds = new Set(['leviathan_popppp']);
 
-		const excludedPayload = JSON.parse(
-			buildCopyPayload(
-				selectedCharacterIds,
-				buildOptions({ listOfficialJinxes: true, useNoDeathAtNightJinxes: false }),
-				FetchedData.fromCatalog(catalog),
-			),
-		) as ScriptFile;
-		const includedPayload = JSON.parse(
-			buildCopyPayload(
-				selectedCharacterIds,
-				buildOptions({ listOfficialJinxes: true, useNoDeathAtNightJinxes: true }),
-				FetchedData.fromCatalog(catalog),
-			),
-		) as ScriptFile;
+		const excludedPayload = generate(
+			{ selectedCharacterIds, options: buildOptions({ listOfficialJinxes: true, useNoDeathAtNightJinxes: false }) },
+			catalog,
+		).script;
+		const includedPayload = generate(
+			{ selectedCharacterIds, options: buildOptions({ listOfficialJinxes: true, useNoDeathAtNightJinxes: true }) },
+			catalog,
+		).script;
 
 		const excludedLeviathan = findCharacter(excludedPayload, ['leviathan_popppp', 'leviathan_custom']);
 		const includedLeviathan = findCharacter(includedPayload, ['leviathan_popppp', 'leviathan_custom']);
@@ -402,9 +394,9 @@ describe('generation characterization fixtures', () => {
 			useNoDeathAtNightJinxes: false,
 		});
 
-		const first = buildCopyPayload(selectedCharacterIds, options, FetchedData.fromCatalog(catalog));
-		const second = buildCopyPayload(selectedCharacterIds, options, FetchedData.fromCatalog(catalog));
-		const third = buildCopyPayload(selectedCharacterIds, options, FetchedData.fromCatalog(catalog));
+		const first = JSON.stringify(generate({ selectedCharacterIds, options }, catalog).script, null, 2);
+		const second = JSON.stringify(generate({ selectedCharacterIds, options }, catalog).script, null, 2);
+		const third = JSON.stringify(generate({ selectedCharacterIds, options }, catalog).script, null, 2);
 
 		expect(second).toBe(first);
 		expect(third).toBe(first);

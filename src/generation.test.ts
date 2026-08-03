@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { FetchedData } from './data/fetched.js';
+import { Catalog, NightOrderIndex, OneToOneIdMap } from './data/catalog.js';
 import { buildCopyPayload } from './generation.js';
+import { parseScriptFile } from './model/script-document.js';
 import type {
 	CatalogCharacter,
 	CharacterEntry,
@@ -10,7 +11,7 @@ import type {
 	ScriptFile,
 } from './types.js';
 
-function buildFetchedData(params: {
+function buildCatalogData(params: {
 	greedyJson?: ScriptFile;
 	greedierCharactersData: CatalogCharacter[];
 	rolesData?: CharacterEntry[];
@@ -19,22 +20,24 @@ function buildFetchedData(params: {
 	greedyJinxData?: JinxFile;
 	greedierJinxData?: JinxFile;
 	jinxData?: JinxFile;
-}): FetchedData {
-	return FetchedData.fromRaw({
-		greedyJson: params.greedyJson ?? [{ id: '_meta', name: 'Test Script' }],
-		greedyJinxData: params.greedyJinxData ?? ([] as JinxFile),
-		greedierJinxData: params.greedierJinxData ?? ([] as JinxFile),
-		greedierCharactersData: params.greedierCharactersData,
-		greedyToBaseID: params.greedyToBaseID ?? {},
-		rolesData: params.rolesData ?? [],
-		nightsheetFile: params.nightsheetFile ?? ({ firstNight: [], otherNight: [] } as NightsheetFile),
-		jinxData: params.jinxData ?? ([] as JinxFile),
+	}): Catalog {
+	return Catalog.create({
+		baseScript: parseScriptFile(params.greedyJson ?? [{ id: '_meta', name: 'Test Script' }], 'synthetic'),
+		roles: params.rolesData ?? [],
+		greedierCharacters: params.greedierCharactersData,
+		idMappings: OneToOneIdMap.fromRecord(params.greedyToBaseID ?? {}),
+		nightOrder: new NightOrderIndex(
+			params.nightsheetFile ?? ({ firstNight: [], otherNight: [] } as NightsheetFile),
+		),
+		officialJinxes: params.jinxData ?? ([] as JinxFile),
+		greedyJinxes: params.greedyJinxData ?? ([] as JinxFile),
+		greedierJinxes: params.greedierJinxData ?? ([] as JinxFile),
 	});
 }
 
 function buildOptions(overrides: Partial<GenerationOptions> = {}): GenerationOptions {
 	return {
-		appendDuplicateLine: false,
+		permitDuplicateCharacters: false,
 		addSpiritOfIvory: false,
 		alejoRules: false,
 		listOfficialJinxes: false,
@@ -47,7 +50,7 @@ function buildOptions(overrides: Partial<GenerationOptions> = {}): GenerationOpt
 
 describe('buildCopyPayload', () => {
 	it('omits sourceSet from exported Greedier character entries', () => {
-		const fetchedData = buildFetchedData({
+		const catalog = buildCatalogData({
 			greedierCharactersData: [
 				{
 					entry: {
@@ -65,7 +68,7 @@ describe('buildCopyPayload', () => {
 		const payload = buildCopyPayload(
 			new Set(['alpha']),
 			buildOptions({ addGreedierHomebrew: true }),
-			fetchedData,
+			catalog,
 		);
 		const exported = JSON.parse(payload) as ScriptFile;
 		const exportedCharacter = exported.find(
@@ -77,7 +80,7 @@ describe('buildCopyPayload', () => {
 	});
 
 	it('reverts Leviathan and Riot export fields to upstream values when NDAN jinxes are disabled', () => {
-		const fetchedData = buildFetchedData({
+		const catalog = buildCatalogData({
 			greedyJson: [
 				{ id: '_meta', name: 'Test Script' },
 				{
@@ -134,7 +137,7 @@ describe('buildCopyPayload', () => {
 		const payload = buildCopyPayload(
 			new Set(['leviathan_popppp', 'riot_popppp']),
 			buildOptions({ useNoDeathAtNightJinxes: false }),
-			fetchedData,
+			catalog,
 		);
 		const exported = JSON.parse(payload) as ScriptFile;
 		const leviathan = exported.find(
@@ -158,7 +161,7 @@ describe('buildCopyPayload', () => {
 	});
 
 	it('includes Greedier jinxes in export when Greedier characters and Greedy jinx listing are enabled', () => {
-		const fetchedData = buildFetchedData({
+		const catalog = buildCatalogData({
 			greedyJson: [{ id: '_meta', name: 'Test Script' }, 'heretic'],
 			greedierCharactersData: [
 				{
@@ -192,7 +195,7 @@ describe('buildCopyPayload', () => {
 				addGreedierHomebrew: true,
 				listGreedyJinxes: true,
 			}),
-			fetchedData,
+			catalog,
 		);
 		const exported = JSON.parse(payload) as ScriptFile;
 		const heretic = exported.find(

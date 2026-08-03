@@ -154,7 +154,7 @@ function parseManifest(rawManifest: unknown): DataSourcesManifest {
 
 /**
  * Load all JSON data sources in parallel.
- * Constructs and returns immutable FetchedData.
+ * Constructs and returns an immutable Catalog.
  */
 export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Promise<{ catalog: Catalog }> {
 	const rawManifest = await fetchJsonSource(DATA_SOURCES_MANIFEST_URL, options.signal);

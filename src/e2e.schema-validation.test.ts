@@ -8,7 +8,6 @@ import { describe, expect, it } from 'vitest';
 import { buildCopyPayload } from './generation.js';
 import { FILTERABLE_TEAMS } from './constants.js';
 import { loadLatestJson } from './data/loader.js';
-import { FetchedData } from './data/fetched.js';
 import type { GenerationOptions, ScriptFile } from './types.js';
 import scriptSchema from '../schemas/script-schema.json';
 
@@ -16,7 +15,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, '..');
 const staticRoot = path.join(repoRoot, 'static');
 const optionKeys: readonly (keyof GenerationOptions)[] = [
-	'appendDuplicateLine',
+	'permitDuplicateCharacters',
 	'addSpiritOfIvory',
 	'alejoRules',
 	'listOfficialJinxes',
@@ -138,7 +137,7 @@ describe('end-to-end schema validation', () => {
 			expect(combinations).toHaveLength(128);
 
 			for (const options of combinations) {
-				const payload = buildCopyPayload(selectedCharacterIds, options, FetchedData.fromCatalog(catalog));
+				const payload = buildCopyPayload(selectedCharacterIds, options, catalog);
 				const parsed = JSON.parse(payload) as unknown;
 				const label = `generated payload for options ${JSON.stringify(options)}`;
 				assertValid(validateUpstream, parsed, label, ajv);

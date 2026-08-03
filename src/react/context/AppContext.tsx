@@ -1,12 +1,9 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useReducer, useRef } from 'react';
-import type { SelectableCharacter, GenerationOptions } from '../../types.js';
+import type { SelectableCharacter, GenerationOptions, GenerationResult } from '../../types.js';
 import type { Catalog } from '../../data/catalog.js';
-import { FetchedData } from '../../data/fetched.js';
 import { GENERATION_OPTIONS, getDependentOptions } from '../../options.js';
 import { loadLatestJson } from '../../data/loader.js';
-import { getCharacters } from '../../character.js';
-import { buildCopyPayload } from '../../generation.js';
-import { getUnsatisfiedDependencyCharacterIds } from '../../dependencies.js';
+import { generate } from '../../generation.js';
 
 const PREFERENCES_STORAGE_KEY = 'gwb:preferences:v1';
 
@@ -30,6 +27,7 @@ type AppState = {
 	greedierCharacters: SelectableCharacter[];
 	characters: SelectableCharacter[];
 	selectedCharacterIds: Set<string>;
+	generationResult: GenerationResult | null;
 	unsatisfiedDependencyCharacterIds: Set<string>;
 	options: GenerationOptions;
 	greedierSortBySet: boolean;
@@ -169,6 +167,7 @@ const initialState: AppState = {
 	greedierCharacters: [],
 	characters: [],
 	selectedCharacterIds: new Set<string>(),
+	generationResult: null,
 	unsatisfiedDependencyCharacterIds: new Set<string>(),
 	options: storedPreferencesAtStartup.options,
 	greedierSortBySet: storedPreferencesAtStartup.greedierSortBySet,
@@ -388,20 +387,31 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 	const { children } = props;
 	const [state, dispatch] = useReducer(appReducer, initialState);
 	const activeLoadController = useRef<AbortController | null>(null);
-	const unsatisfiedDependencyCharacterIds = useMemo(() => {
+	const generationResult = useMemo(() => {
 		if (!state.catalog) {
+			return null;
+		}
+
+		return generate(
+			{ selectedCharacterIds: state.selectedCharacterIds, options: state.options },
+			state.catalog,
+		);
+	}, [state.catalog, state.options, state.selectedCharacterIds]);
+	const unsatisfiedDependencyCharacterIds = useMemo(() => {
+		if (!generationResult) {
 			return new Set<string>();
 		}
 
-		return getUnsatisfiedDependencyCharacterIds(state.selectedCharacterIds, state.catalog);
-	}, [state.catalog, state.selectedCharacterIds]);
+		return new Set(generationResult.diagnostics.map((d) => d.characterId));
+	}, [generationResult]);
 
 	const appState = useMemo<AppState>(
 		() => ({
 			...state,
+			generationResult,
 			unsatisfiedDependencyCharacterIds,
 		}),
-		[state, unsatisfiedDependencyCharacterIds],
+		[state, generationResult, unsatisfiedDependencyCharacterIds],
 	);
 
 	const setStatus = useCallback((message: string, tone: StatusTone = 'info') => {
@@ -420,7 +430,7 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 				return;
 			}
 			const metaEntry = catalog.baseScript.meta;
-			const baseCharacters = getCharacters(catalog);
+			const baseCharacters = catalog.baseSelectableCharacters();
 			const greedierCharacters = [...catalog.greedierById.values()].map((ce) => ce.toSelectable());
 			const storedPreferences = loadStoredPreferences();
 
@@ -465,24 +475,18 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 	}, []);
 
 	const copyToClipboard = useCallback(async () => {
-		if (!state.catalog) {
+		if (!generationResult) {
 			setStatus('No script data loaded yet.', 'error');
 			return;
 		}
 
 		try {
-			// Fresh FetchedData per generation: gives each call its own isolated GenerationContext.
-			const payload = buildCopyPayload(
-				state.selectedCharacterIds,
-				state.options,
-				FetchedData.fromCatalog(state.catalog),
-			);
-			await navigator.clipboard.writeText(payload);
+			await navigator.clipboard.writeText(JSON.stringify(generationResult.script, null, 2));
 			setStatus('Copied!', 'success');
 		} catch (error: unknown) {
 			setStatus(error instanceof Error ? error.message : 'Copy failed.', 'error');
 		}
-	}, [setStatus, state.catalog, state.options, state.selectedCharacterIds]);
+	}, [generationResult, setStatus]);
 
 	useEffect(() => {
 		void reload();

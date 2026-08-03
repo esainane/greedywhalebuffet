@@ -1,25 +1,40 @@
 import { describe, expect, it } from 'vitest';
 import type { CatalogCharacter, CharacterEntry, JinxFile, ScriptFile } from './types.js';
-import { FetchedData } from './data/fetched.js';
+import { Catalog, NightOrderIndex, OneToOneIdMap } from './data/catalog.js';
+import { GenerationContext, type CharacterResolver } from './data/catalog-entry.js';
+import { serializeScriptDocument } from './model/script-document.js';
+import { parseScriptFile } from './model/script-document.js';
 import { applySelectedJinxes } from './jinxes.js';
 
-function makeFetchedData(params: {
+function makeCatalog(params: {
 	rolesData: CharacterEntry[];
 	official: JinxFile;
 	greedy: JinxFile;
 	greedier?: JinxFile;
 	greedierCharactersData?: CatalogCharacter[];
-}): FetchedData {
-	return FetchedData.fromRaw({
-		greedyJson: [{ id: '_meta', name: 'Test Script' }, 'heretic'],
-		greedyJinxData: params.greedy,
-		greedierJinxData: params.greedier ?? [],
-		greedierCharactersData: params.greedierCharactersData ?? [],
-		greedyToBaseID: {},
-		rolesData: params.rolesData,
-		nightsheetFile: { firstNight: [], otherNight: [] },
-		jinxData: params.official,
+	baseScript?: ScriptFile;
+}): Catalog {
+	return Catalog.create({
+		baseScript: parseScriptFile(params.baseScript ?? [{ id: '_meta', name: 'Test Script' }, 'heretic'], 'synthetic'),
+		roles: params.rolesData,
+		greedierCharacters: params.greedierCharactersData ?? [],
+		idMappings: OneToOneIdMap.fromRecord({}),
+		nightOrder: new NightOrderIndex({ firstNight: [], otherNight: [] }),
+		officialJinxes: params.official,
+		greedyJinxes: params.greedy,
+		greedierJinxes: params.greedier ?? [],
 	});
+}
+
+function makeResolver(catalog: Catalog): CharacterResolver {
+	return {
+		catalog,
+		generationContext: new GenerationContext(),
+	};
+}
+
+function cloneBaseScript(catalog: Catalog): ScriptFile {
+	return structuredClone(serializeScriptDocument(catalog.baseScript));
 }
 
 function getSourceEntry(data: ScriptFile): CharacterEntry | undefined {
@@ -57,10 +72,11 @@ describe('applySelectedJinxes', () => {
 			{ id: 'heretic', jinx: [{ id: 'baron', reason: 'Greedy reason' }] },
 		];
 
-		const fetchedData = makeFetchedData({ rolesData, official, greedy });
-		const data = fetchedData.cloneGreedyJson();
+		const catalog = makeCatalog({ rolesData, official, greedy });
+		const resolver = makeResolver(catalog);
+		const data = cloneBaseScript(catalog);
 
-		applySelectedJinxes(data, fetchedData, {
+		applySelectedJinxes(data, resolver, {
 			includeOfficial: true,
 			includeGreedy: true,
 			includeGreedier: false,
@@ -83,10 +99,11 @@ describe('applySelectedJinxes', () => {
 			{ id: 'heretic', jinx: [{ id: 'baron', reason: '' }] },
 		];
 
-		const fetchedData = makeFetchedData({ rolesData, official, greedy });
-		const data = fetchedData.cloneGreedyJson();
+		const catalog = makeCatalog({ rolesData, official, greedy });
+		const resolver = makeResolver(catalog);
+		const data = cloneBaseScript(catalog);
 
-		applySelectedJinxes(data, fetchedData, {
+		applySelectedJinxes(data, resolver, {
 			includeOfficial: true,
 			includeGreedy: true,
 			includeGreedier: false,
@@ -118,10 +135,11 @@ describe('applySelectedJinxes', () => {
 			},
 		];
 
-		const fetchedData = makeFetchedData({ rolesData, official, greedy });
-		const data = fetchedData.cloneGreedyJson();
+		const catalog = makeCatalog({ rolesData, official, greedy });
+		const resolver = makeResolver(catalog);
+		const data = cloneBaseScript(catalog);
 
-		applySelectedJinxes(data, fetchedData, {
+		applySelectedJinxes(data, resolver, {
 			includeOfficial: true,
 			includeGreedy: true,
 			includeGreedier: false,
@@ -138,19 +156,17 @@ describe('applySelectedJinxes', () => {
 	});
 
 	it('filters no-death-at-night jinxes unless explicitly enabled', () => {
-		const fetchedData = FetchedData.fromRaw({
-			greedyJson: [{ id: '_meta', name: 'Test Script' }, 'leviathan'],
-			greedyJinxData: [],
-			greedierJinxData: [],
+		const catalog = makeCatalog({
+			baseScript: [{ id: '_meta', name: 'Test Script' }, 'leviathan'],
+			greedy: [],
+			greedier: [],
 			greedierCharactersData: [],
-			greedyToBaseID: {},
 			rolesData: [
 				{ id: 'leviathan', name: 'Leviathan', team: 'demon', ability: 'Leviathan ability' },
 				{ id: 'soldier', name: 'Soldier', team: 'townsfolk', ability: 'Soldier ability' },
 				{ id: 'baron', name: 'Baron', team: 'minion', ability: 'Baron ability' },
 			],
-			nightsheetFile: { firstNight: [], otherNight: [] },
-			jinxData: [
+			official: [
 				{
 					id: 'leviathan',
 					jinx: [
@@ -160,9 +176,8 @@ describe('applySelectedJinxes', () => {
 				},
 			],
 		});
-
-		const filtered = fetchedData.cloneGreedyJson();
-		applySelectedJinxes(filtered, fetchedData, {
+		const filtered = cloneBaseScript(catalog);
+		applySelectedJinxes(filtered, makeResolver(catalog), {
 			includeOfficial: true,
 			includeGreedy: false,
 			includeGreedier: false,
@@ -172,8 +187,8 @@ describe('applySelectedJinxes', () => {
 			{ id: 'baron', reason: 'Unrelated pair' },
 		]);
 
-		const included = fetchedData.cloneGreedyJson();
-		applySelectedJinxes(included, fetchedData, {
+		const included = cloneBaseScript(catalog);
+		applySelectedJinxes(included, makeResolver(catalog), {
 			includeOfficial: true,
 			includeGreedy: false,
 			includeGreedier: false,
@@ -205,16 +220,15 @@ describe('applySelectedJinxes', () => {
 			{ id: 'heretic', jinx: [{ id: 'journalist_winningclub', reason: 'Greedier reason' }] },
 		];
 
-		const fetchedData = makeFetchedData({
+		const catalog = makeCatalog({
 			rolesData,
 			official: [],
 			greedy: [{ id: 'heretic', jinx: [{ id: 'baron', reason: 'Greedy reason' }] }],
 			greedier,
 			greedierCharactersData,
 		});
-
-		const withoutGreedier = fetchedData.cloneGreedyJson();
-		applySelectedJinxes(withoutGreedier, fetchedData, {
+		const withoutGreedier = cloneBaseScript(catalog);
+		applySelectedJinxes(withoutGreedier, makeResolver(catalog), {
 			includeOfficial: false,
 			includeGreedy: true,
 			includeGreedier: false,
@@ -224,8 +238,8 @@ describe('applySelectedJinxes', () => {
 			{ id: 'baron', reason: 'Greedy reason' },
 		]);
 
-		const withGreedier = fetchedData.cloneGreedyJson();
-		applySelectedJinxes(withGreedier, fetchedData, {
+		const withGreedier = cloneBaseScript(catalog);
+		applySelectedJinxes(withGreedier, makeResolver(catalog), {
 			includeOfficial: false,
 			includeGreedy: true,
 			includeGreedier: true,

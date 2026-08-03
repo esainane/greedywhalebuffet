@@ -3,8 +3,8 @@
  */
 
 import type { ScriptFile, JinxFile } from './types.js';
-import { findCharacterId, findOrExpandCharacter, getBaseCharacterId } from './character.js';
-import type { FetchedData } from './data/fetched.js';
+import type { CharacterResolver } from './data/catalog-entry.js';
+import type { Catalog } from './data/catalog.js';
 import { isNoDeathAtNightJinxPair } from './noDeathAtNightJinxes.js';
 import {
 	compareCanonicalJinxOrder,
@@ -16,20 +16,20 @@ import {
 function expandJinxSources(
 	data: ScriptFile,
 	jinxEntries: Readonly<JinxFile>,
-	fetchedData: FetchedData,
+	resolver: CharacterResolver,
 ): void {
 	for (const source of jinxEntries) {
 		if (!source?.id) {
 			continue;
 		}
 
-		findOrExpandCharacter(source.id, data, fetchedData);
+		resolver.generationContext.findOrExpandCharacter(source.id, data, resolver.catalog);
 	}
 }
 
 function filterNoDeathAtNightJinxEntries(
 	jinxEntries: Readonly<JinxFile>,
-	fetchedData: FetchedData,
+	catalog: Catalog,
 	includeNoDeathAtNight: boolean,
 ): JinxFile {
 	if (includeNoDeathAtNight) {
@@ -50,7 +50,7 @@ function filterNoDeathAtNightJinxEntries(
 			(jinx) =>
 				jinx?.id &&
 				typeof jinx.reason === 'string' &&
-				!isNoDeathAtNightJinxPair(sourceEntry.id, jinx.id, fetchedData.catalog),
+				!isNoDeathAtNightJinxPair(sourceEntry.id, jinx.id, catalog),
 		);
 
 		if (filteredJinxes.length === 0) {
@@ -69,7 +69,7 @@ function filterNoDeathAtNightJinxEntries(
 function getSortCharacterById(
 	id: string,
 	data: ScriptFile,
-	fetchedData: FetchedData,
+	resolver: CharacterResolver,
 ): JinxSortCharacter {
 	const expandedCharacter = data.find(
 		(entry) =>
@@ -84,8 +84,8 @@ function getSortCharacterById(
 		return expandedSortCharacter;
 	}
 
-	const catalogEntry = fetchedData.catalog.lookupById(id)
-		?? fetchedData.catalog.lookupById(getBaseCharacterId(id, fetchedData));
+	const catalogEntry = resolver.catalog.lookupById(id)
+		?? resolver.catalog.lookupById(resolver.generationContext.resolveBaseIdFor(id, resolver.catalog));
 	if (catalogEntry) {
 		return characterToSortCharacter(catalogEntry.entry);
 	}
@@ -97,14 +97,14 @@ function toSortedJinxes(
 	sourceId: string,
 	mergedByTargetId: ReadonlyMap<string, string>,
 	data: ScriptFile,
-	fetchedData: FetchedData,
+	resolver: CharacterResolver,
 ): { id: string; reason: string }[] {
-	const sourceCharacter = getSortCharacterById(sourceId, data, fetchedData);
+	const sourceCharacter = getSortCharacterById(sourceId, data, resolver);
 	const sortable = Array.from(mergedByTargetId, ([targetId, reason], index) => ({
 		targetId,
 		reason,
 		originalOrder: index,
-		targetCharacter: getSortCharacterById(targetId, data, fetchedData),
+		targetCharacter: getSortCharacterById(targetId, data, resolver),
 	}));
 
 	sortable.sort((a, b) =>
@@ -125,13 +125,10 @@ function toSortedJinxes(
 	return sortable.map(({ targetId, reason }) => ({ id: targetId, reason }));
 }
 
-/**
- * Merge jinxes from jinx entries into script data.
- */
 export function mergeJinxes(
 	data: ScriptFile,
 	jinxEntries: Readonly<JinxFile>,
-	fetchedData: FetchedData,
+	resolver: CharacterResolver,
 	options?: { emptyReasonIsTombstone?: boolean },
 ): void {
 	const emptyReasonIsTombstone = options?.emptyReasonIsTombstone === true;
@@ -141,7 +138,7 @@ export function mergeJinxes(
 			continue;
 		}
 
-		const sourceEntry = findOrExpandCharacter(source.id, data, fetchedData);
+		const sourceEntry = resolver.generationContext.findOrExpandCharacter(source.id, data, resolver.catalog);
 		if (!sourceEntry) {
 			continue;
 		}
@@ -154,7 +151,7 @@ export function mergeJinxes(
 				continue;
 			}
 
-			const targetId = findCharacterId(jinx.id, data, fetchedData);
+			const targetId = resolver.generationContext.findCharacterId(jinx.id, data, resolver.catalog);
 			const isBlankReason = jinx.reason.trim().length === 0;
 
 			if (isBlankReason) {
@@ -165,22 +162,16 @@ export function mergeJinxes(
 				continue;
 			}
 
-			// Latest source wins for the same source-target pair.
 			mergedByTargetId.set(targetId, jinx.reason);
 		}
 
-		sourceEntry.jinxes = toSortedJinxes(sourceEntry.id, mergedByTargetId, data, fetchedData);
+		sourceEntry.jinxes = toSortedJinxes(sourceEntry.id, mergedByTargetId, data, resolver);
 	}
 }
 
-/**
- * Apply selected jinx sources with a single coordinated two-pass architecture:
- * 1) Dry-expand all official sources, then all greedy sources.
- * 2) Merge official jinxes first, then greedy jinxes (greedy overrides).
- */
 export function applySelectedJinxes(
 	data: ScriptFile,
-	fetchedData: FetchedData,
+	resolver: CharacterResolver,
 	options: {
 		includeOfficial: boolean;
 		includeGreedy: boolean;
@@ -188,34 +179,22 @@ export function applySelectedJinxes(
 		includeNoDeathAtNight: boolean;
 	},
 ): void {
-	const officialSource = options.includeOfficial ? fetchedData.getJinxData() : [];
-	const greedySource = options.includeGreedy ? fetchedData.getGreedyJinxData() : [];
-	const greedierSource = options.includeGreedier ? fetchedData.getGreedierJinxData() : [];
-	const official = filterNoDeathAtNightJinxEntries(
-		officialSource,
-		fetchedData,
-		options.includeNoDeathAtNight,
-	);
-	const greedy = filterNoDeathAtNightJinxEntries(
-		greedySource,
-		fetchedData,
-		options.includeNoDeathAtNight,
-	);
-	const greedier = filterNoDeathAtNightJinxEntries(
-		greedierSource,
-		fetchedData,
-		options.includeNoDeathAtNight,
-	);
+	const officialSource = options.includeOfficial ? resolver.catalog.officialJinxes : [];
+	const greedySource = options.includeGreedy ? resolver.catalog.greedyJinxes : [];
+	const greedierSource = options.includeGreedier ? resolver.catalog.greedierJinxes : [];
+	const official = filterNoDeathAtNightJinxEntries(officialSource, resolver.catalog, options.includeNoDeathAtNight);
+	const greedy = filterNoDeathAtNightJinxEntries(greedySource, resolver.catalog, options.includeNoDeathAtNight);
+	const greedier = filterNoDeathAtNightJinxEntries(greedierSource, resolver.catalog, options.includeNoDeathAtNight);
 
 	if (official.length === 0 && greedy.length === 0 && greedier.length === 0) {
 		return;
 	}
 
-	expandJinxSources(data, official, fetchedData);
-	expandJinxSources(data, greedy, fetchedData);
-	expandJinxSources(data, greedier, fetchedData);
+	expandJinxSources(data, official, resolver);
+	expandJinxSources(data, greedy, resolver);
+	expandJinxSources(data, greedier, resolver);
 
-	mergeJinxes(data, official, fetchedData);
-	mergeJinxes(data, greedy, fetchedData, { emptyReasonIsTombstone: true });
-	mergeJinxes(data, greedier, fetchedData, { emptyReasonIsTombstone: true });
+	mergeJinxes(data, official, resolver);
+	mergeJinxes(data, greedy, resolver, { emptyReasonIsTombstone: true });
+	mergeJinxes(data, greedier, resolver, { emptyReasonIsTombstone: true });
 }

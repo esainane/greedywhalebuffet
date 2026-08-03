@@ -6,30 +6,6 @@
 export const DUPLICATE_LINE = 'Duplicate characters might be in play.';
 export const REMOVED_CHARACTERS_PREFIX = 'The following characters are not available: ';
 
-// Data source URLs
-export const GREEDY_JSON_URL = './greedy.json';
-export const GREEDY_JINX_JSON_URL = './greedy_jinxes.json';
-export const GREEDIER_JINX_JSON_URL = './greedier_jinxes.json';
-export const ID_MAPPINGS_JSON_URL = './id_mappings.json';
-export const ROLES_JSON_URL = './roles.json';
-export const NIGHTSHEET_JSON_URL = './nightsheet.json';
-export const JINX_JSON_URL = './jinxes.json';
-export const GREEDIER_SCRIPT_URLS = [
-	'./greedier/greedier-s1.json',
-	'./greedier/greedier-s2.json',
-	'./greedier/greedier-s3.json',
-	'./greedier/greedier-s4.json',
-	'./greedier/greedier-s5.json',
-	'./greedier/greedier-s6.json',
-	'./greedier/greedier-s7.json',
-	'./greedier/greedier-s8.json',
-	'./greedier/greedier-s9.json',
-	'./greedier/greedier-s10.json',
-	'./greedier/greedier-s11.json',
-	'./greedier/greedier-s12.json',
-	'./greedier/greedier-s13.json',
-] as const;
-
 // Character filtering
 export const FILTERABLE_TEAMS = new Set(['townsfolk', 'outsider', 'minion', 'demon']);
 

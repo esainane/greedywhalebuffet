@@ -13,17 +13,15 @@ import type {
 import Ajv2020, { type ValidateFunction } from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
 import {
-	GREEDY_JSON_URL,
-	GREEDY_JINX_JSON_URL,
-	GREEDIER_JINX_JSON_URL,
-	GREEDIER_SCRIPT_URLS,
-	ID_MAPPINGS_JSON_URL,
-	ROLES_JSON_URL,
-	NIGHTSHEET_JSON_URL,
-	JINX_JSON_URL,
 	FILTERABLE_TEAMS,
 } from '../constants.js';
 import { FetchedData } from './fetched.js';
+import {
+	DATA_SOURCES_MANIFEST_URL,
+	getCoreSourceByName,
+	parseDataSourcesManifest,
+	type DataSourcesManifest,
+} from './manifest.js';
 import scriptSchema from '../../schemas/script-schema.json';
 import scriptExtraSchema from '../../schemas/script-extra-schema.json';
 import jinxSchema from '../../schemas/jinx-schema.json';
@@ -94,15 +92,6 @@ function isCharacterEntryArray(value: unknown): value is CharacterEntry[] {
 	);
 }
 
-function getGreedierSourceSet(scriptUrl: string): number | undefined {
-	const match = scriptUrl.match(/greedier-s(\d+)\.json$/);
-	if (!match) {
-		return undefined;
-	}
-
-	return Number.parseInt(match[1], 10);
-}
-
 function isCharacterEntry(value: unknown): value is CharacterEntry {
 	return (
 		typeof value === 'object' &&
@@ -158,83 +147,119 @@ function assertLeadingMetaEntry(data: ScriptFile, sourceName: string): void {
 	}
 }
 
+async function fetchJsonSource(path: string, signal?: AbortSignal): Promise<unknown> {
+	const response = await fetch(path, { cache: 'no-store', signal });
+	if (!response.ok) {
+		throw new Error(`${path} fetch failed (${response.status}).`);
+	}
+
+	const content = await response.text();
+	try {
+		return JSON.parse(content) as unknown;
+	} catch (error) {
+		const message = error instanceof Error ? error.message : String(error);
+		throw new Error(`${path} contains invalid JSON: ${message}`, {
+			cause: error,
+		});
+	}
+}
+
+async function fetchJsonSourcesInParallel(
+	paths: readonly string[],
+	signal?: AbortSignal,
+): Promise<Map<string, unknown>> {
+	const entries = await Promise.all(
+		paths.map(async (path) => [path, await fetchJsonSource(path, signal)] as const),
+	);
+
+	return new Map(entries);
+}
+
+function parseManifest(rawManifest: unknown): DataSourcesManifest {
+	return parseDataSourcesManifest(rawManifest, 'data_sources_manifest.json');
+}
+
 /**
  * Load all JSON data sources in parallel.
  * Constructs and returns immutable FetchedData.
  */
 export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Promise<{ fetchedData: FetchedData }> {
-	const coreDataSources = [
-		GREEDY_JSON_URL,
-		GREEDY_JINX_JSON_URL,
-		GREEDIER_JINX_JSON_URL,
-		ID_MAPPINGS_JSON_URL,
-		ROLES_JSON_URL,
-		NIGHTSHEET_JSON_URL,
-		JINX_JSON_URL,
+	const rawManifest = await fetchJsonSource(DATA_SOURCES_MANIFEST_URL, options.signal);
+	const manifest = parseManifest(rawManifest);
+
+	const allSourcePaths = [
+		...manifest.coreSources.map((source) => source.path),
+		...manifest.greedierScripts.map((source) => source.path),
 	];
-	const dataSources = [...coreDataSources, ...GREEDIER_SCRIPT_URLS];
+	const parsedByPath = await fetchJsonSourcesInParallel(allSourcePaths, options.signal);
 
-	const responses = await Promise.all(
-		dataSources.map((url) => fetch(url, { cache: 'no-store', signal: options.signal })),
-	);
+	const greedyPath = getCoreSourceByName(manifest, 'greedyScript').path;
+	const greedyJinxPath = getCoreSourceByName(manifest, 'greedyJinxes').path;
+	const greedierJinxPath = getCoreSourceByName(manifest, 'greedierJinxes').path;
+	const mappingPath = getCoreSourceByName(manifest, 'idMappings').path;
+	const rolesPath = getCoreSourceByName(manifest, 'rolesScript').path;
+	const nightsheetPath = getCoreSourceByName(manifest, 'nightsheet').path;
+	const jinxPath = getCoreSourceByName(manifest, 'officialJinxes').path;
 
-	if (responses.some((r) => !r.ok)) {
-		const failedSources = responses
-			.map((r, i) => ({ response: r, source: dataSources[i] }))
-			.filter(({ response }) => !response.ok)
-			.map(({ source, response }) => `${source} (${response.status})`)
-			.join(', ');
+	const greedyParsed = parsedByPath.get(greedyPath);
+	const greedyJinxParsed = parsedByPath.get(greedyJinxPath);
+	const greedierJinxParsed = parsedByPath.get(greedierJinxPath);
+	const mappingFileParsed = parsedByPath.get(mappingPath);
+	const rolesParsed = parsedByPath.get(rolesPath);
+	const nightsheetParsed = parsedByPath.get(nightsheetPath);
+	const jinxParsed = parsedByPath.get(jinxPath);
 
-		throw new Error(`Failed to load data: ${failedSources}`);
-	}
+	assertSchemaValid(greedyParsed, validateScriptFile, greedyPath);
+	assertSchemaValid(greedyJinxParsed, validateJinxData, greedyJinxPath);
+	assertSchemaValid(greedierJinxParsed, validateJinxData, greedierJinxPath);
+	assertSchemaValid(rolesParsed, validateScriptFile, rolesPath);
+	assertSchemaValid(jinxParsed, validateJinxData, jinxPath);
 
-	const parsedData = await Promise.all(responses.map((r) => r.json()));
-	const [greedyParsed, greedyJinxParsed, greedierJinxParsed, mappingFileParsed, rolesParsed, nightsheetParsed, jinxParsed] =
-		parsedData;
-	const greedierParsed = parsedData.slice(coreDataSources.length);
-
-	assertSchemaValid(greedyParsed, validateScriptFile, 'greedy.json');
-	assertSchemaValid(greedyJinxParsed, validateJinxData, 'greedy_jinxes.json');
-	assertSchemaValid(greedierJinxParsed, validateJinxData, 'greedier_jinxes.json');
-	assertSchemaValid(rolesParsed, validateScriptFile, 'roles.json');
-	assertSchemaValid(jinxParsed, validateJinxData, 'jinxes.json');
-
-	for (const [i, parsed] of greedierParsed.entries()) {
-		assertSchemaValid(parsed, validateScriptExtraData, GREEDIER_SCRIPT_URLS[i]);
+	for (const source of manifest.greedierScripts) {
+		const parsed = parsedByPath.get(source.path);
+		assertSchemaValid(parsed, validateScriptExtraData, source.path);
 	}
 
 	const greedyScriptFile = greedyParsed as ScriptFile;
-	assertLeadingMetaEntry(greedyScriptFile, 'greedy.json');
+	assertLeadingMetaEntry(greedyScriptFile, greedyPath);
 
 	if (!isMappingFile(mappingFileParsed)) {
-		throw new Error('id_mappings.json has an unexpected shape.');
+		throw new Error(`${mappingPath} has an unexpected shape.`);
 	}
 
-	assertOneToOneMapping(mappingFileParsed, 'id_mappings.json');
+	assertOneToOneMapping(mappingFileParsed, mappingPath);
 
 	if (!isNightsheetFile(nightsheetParsed)) {
-		throw new Error('nightsheet.json has an unexpected shape.');
+		throw new Error(`${nightsheetPath} has an unexpected shape.`);
 	}
 
 	if (!isCharacterEntryArray(rolesParsed)) {
-		throw new Error('roles.json must be an array of character objects.');
+		throw new Error(`${rolesPath} must be an array of character objects.`);
 	}
 
 	const greedierCharactersById = new Map<string, CharacterEntry>();
-	for (const [i, greedierData] of greedierParsed.entries()) {
+	const greedierCharacterSourceById = new Map<string, string>();
+	for (const source of manifest.greedierScripts) {
+		const greedierData = parsedByPath.get(source.path);
 		if (!Array.isArray(greedierData)) {
 			continue;
 		}
 
 		const scriptEntries = greedierData as ScriptFile;
-		const sourceSet = getGreedierSourceSet(GREEDIER_SCRIPT_URLS[i]);
+		const sourceSet = source.sourceSet;
 		for (const character of extractFilterableCharactersFromScriptFile(scriptEntries)) {
-			if (!greedierCharactersById.has(character.id)) {
-				greedierCharactersById.set(character.id, {
-					...character,
-					sourceSet,
-				});
+			const existingSourcePath = greedierCharacterSourceById.get(character.id);
+			if (existingSourcePath) {
+				throw new Error(
+					`Duplicate Greedier character id "${character.id}" found in ${existingSourcePath} and ${source.path}.`,
+				);
 			}
+
+			greedierCharactersById.set(character.id, {
+				...character,
+				sourceSet,
+			});
+			greedierCharacterSourceById.set(character.id, source.path);
 		}
 	}
 

@@ -5,7 +5,7 @@ import Ajv2020, { type ValidateFunction } from 'ajv/dist/2020.js';
 import type { AnySchemaObject } from 'ajv';
 import addFormats from 'ajv-formats';
 import { describe, it } from 'vitest';
-import { GREEDIER_SCRIPT_URLS } from './constants.js';
+import { parseDataSourcesManifest, type DataSourceKind } from './data/manifest.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, '..');
@@ -14,14 +14,38 @@ const staticRoot = path.join(repoRoot, 'static');
 const scriptSchemaPath = path.join(repoRoot, 'schemas', 'script-schema.json');
 const scriptExtraSchemaPath = path.join(repoRoot, 'schemas', 'script-extra-schema.json');
 const jinxSchemaPath = path.join(repoRoot, 'schemas', 'jinx-schema.json');
+const dataSourcesManifestPath = path.join(staticRoot, 'data_sources_manifest.json');
 
-const coreSources = [
-	{ file: 'greedy.json', schema: 'script' as const },
-	{ file: 'roles.json', schema: 'script' as const },
-	{ file: 'greedy_jinxes.json', schema: 'jinx' as const },
-	{ file: 'greedier_jinxes.json', schema: 'jinx' as const },
-	{ file: 'jinxes.json', schema: 'jinx' as const },
-];
+function isStringArray(value: unknown): value is string[] {
+	return Array.isArray(value) && value.every((entry) => typeof entry === 'string');
+}
+
+function assertShapeValid(kind: DataSourceKind, data: unknown, label: string): void {
+	if (kind === 'mapping') {
+		if (typeof data !== 'object' || data === null || Array.isArray(data)) {
+			throw new Error(`${label} failed mapping shape validation.`);
+		}
+
+		for (const value of Object.values(data)) {
+			if (typeof value !== 'string') {
+				throw new Error(`${label} failed mapping shape validation.`);
+			}
+		}
+
+		return;
+	}
+
+	if (kind === 'nightsheet') {
+		if (typeof data !== 'object' || data === null || Array.isArray(data)) {
+			throw new Error(`${label} failed nightsheet shape validation.`);
+		}
+
+		const record = data as Record<string, unknown>;
+		if (!isStringArray(record.firstNight) || !isStringArray(record.otherNight)) {
+			throw new Error(`${label} failed nightsheet shape validation.`);
+		}
+	}
+}
 
 async function readJson(filePath: string): Promise<unknown> {
 	return JSON.parse(await readFile(filePath, 'utf8')) as unknown;
@@ -46,26 +70,38 @@ describe('data source schema validation', () => {
 		const ajv = new Ajv2020({ allErrors: true, strict: false });
 		addFormats(ajv);
 
-		const [scriptSchema, scriptExtraSchema, jinxSchema] = await Promise.all([
+		const [scriptSchema, scriptExtraSchema, jinxSchema, manifestJson] = await Promise.all([
 			readJson(scriptSchemaPath),
 			readJson(scriptExtraSchemaPath),
 			readJson(jinxSchemaPath),
+			readJson(dataSourcesManifestPath),
 		]);
+		const manifest = parseDataSourcesManifest(manifestJson);
 
 		const validateScript = ajv.compile(scriptSchema as AnySchemaObject);
 		const validateScriptExtra = ajv.compile(scriptExtraSchema as AnySchemaObject);
 		const validateJinx = ajv.compile(jinxSchema as AnySchemaObject);
 
-		for (const source of coreSources) {
-			const payload = await readJson(path.join(staticRoot, source.file));
-			const validator = source.schema === 'script' ? validateScript : validateJinx;
-			assertValid(validator, payload, source.file, ajv);
-		}
+		const allSources = [...manifest.coreSources, ...manifest.greedierScripts];
+		for (const source of allSources) {
+			const relativeFile = source.path.replace('./', '');
+			const payload = await readJson(path.join(staticRoot, relativeFile));
 
-		for (const scriptUrl of GREEDIER_SCRIPT_URLS) {
-			const greedierFile = scriptUrl.replace('./', '');
-			const payload = await readJson(path.join(staticRoot, greedierFile));
-			assertValid(validateScriptExtra, payload, greedierFile, ajv);
+			switch (source.kind) {
+				case 'script':
+					assertValid(validateScript, payload, relativeFile, ajv);
+					break;
+				case 'script-extra':
+					assertValid(validateScriptExtra, payload, relativeFile, ajv);
+					break;
+				case 'jinx':
+					assertValid(validateJinx, payload, relativeFile, ajv);
+					break;
+				case 'mapping':
+				case 'nightsheet':
+					assertShapeValid(source.kind, payload, relativeFile);
+					break;
+			}
 		}
 	});
 });

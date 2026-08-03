@@ -20,7 +20,7 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/armageddon_leftovers_whoops.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/armageddon_g_leftovers_whoops.png"
     ],
-    "otherNightReminder": "If tonight is Night 4: the Armageddon chooses 3 players. If a good player is not among them, shake your head, and they choose again. :reminder: :reminder: :reminder: The 3 chosen players can't die or change alignment. Kill all players not \"Sheltered\".",
+    "otherNightReminder": "If tonight is armageddon night: the Armageddon chooses 3 players. If a good player is not among them, shake your head, and they choose again. :reminder: :reminder: :reminder: The 3 chosen players can't die or change alignment, even from Assassin. Kill all players not \"Sheltered\".",
     "reminders": [
       "Sheltered",
       "Sheltered",
@@ -45,7 +45,7 @@
     ],
     "name": "Armageddon Ω",
     "team": "demon",
-    "ability": "On your 4th night, choose 3 alive players (not Travellers), including 1 good: they can't change alignment, can't die tonight, & all other players die. This must happen. Tomorrow, if nobody dies, your team wins.",
+    "ability": "On your 4th night, choose 3 alive players (not Travellers), including 1 good: only they survive tonight & can no longer change alignment. This must happen. Tomorrow, if nobody dies, your team wins.",
     "flavor": "I am become death, destroyer of worlds. -J. Robert Oppenheimer",
     "otherNight": 53
   },

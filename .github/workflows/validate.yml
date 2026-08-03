@@ -28,6 +28,9 @@ jobs:
       - name: Type check
         run: npm run type-check
 
+      - name: Build
+        run: npm run build
+
       - name: Validate data sources
         run: npm run test:data-sources
 

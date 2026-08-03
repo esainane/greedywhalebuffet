@@ -1,7 +1,7 @@
 import { FILTERABLE_TEAMS } from '../../../constants.js';
 import type { Catalog } from '../../../data/catalog.js';
 import { compareCanonicalCharacterOrder, compareCanonicalJinxOrder } from '../../../jinxOrder.js';
-import { isNoDeathAtNightJinxPair } from '../../../noDeathAtNightJinxes.js';
+import { isNoDeathAtNightJinxPair } from '../../../characterPolicy.js';
 import type { SelectableCharacter } from '../../../types.js';
 
 export type GreedyDifferenceDetail = {

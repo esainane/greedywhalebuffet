@@ -13,6 +13,18 @@ import type {
 	ScriptFile,
 } from './types.js';
 
+export async function readJson<T>(filePath: string): Promise<T> {
+	return JSON.parse(await readFile(filePath, 'utf8')) as T;
+}
+
+export function assertNoIssues(issues: string[], heading: string): void {
+	if (issues.length === 0) {
+		return;
+	}
+
+	throw new Error(`${heading}\n${issues.map((issue) => `- ${issue}`).join('\n')}`);
+}
+
 function hasMetaEntry(file: ScriptFile): boolean {
 	const first = file[0];
 	return (

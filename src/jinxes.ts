@@ -5,7 +5,7 @@
 import type { ScriptFile, JinxFile } from './types.js';
 import type { CharacterResolver } from './data/catalog-entry.js';
 import type { Catalog } from './data/catalog.js';
-import { isNoDeathAtNightJinxPair } from './noDeathAtNightJinxes.js';
+import { isNoDeathAtNightJinxPair } from './characterPolicy.js';
 import {
 	compareCanonicalJinxOrder,
 	characterToSortCharacter,

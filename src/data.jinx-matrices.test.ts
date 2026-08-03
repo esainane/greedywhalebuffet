@@ -1,7 +1,8 @@
-import { readdir, readFile } from 'node:fs/promises';
+import { readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { beforeAll, describe, expect, it } from 'vitest';
+import { readJson } from './test-helpers.js';
 import type { CharacterEntry, JinxFile, ScriptFile } from './types.js';
 
 type LoadedMatrixData = {
@@ -71,10 +72,6 @@ const NO_DEATH_SOURCE_PHRASES: Record<(typeof NO_DEATH_DEMONS)[number], string> 
 	riot: 'Riot',
 	armageddon_winningclub: 'the Armageddon',
 };
-
-async function readJson<T>(filePath: string): Promise<T> {
-	return JSON.parse(await readFile(filePath, 'utf8')) as T;
-}
 
 function isCharacterEntry(value: unknown): value is CharacterEntry {
 	return (

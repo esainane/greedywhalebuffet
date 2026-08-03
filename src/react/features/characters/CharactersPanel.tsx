@@ -1,26 +1,10 @@
 import React, { useMemo } from 'react';
 import type { SelectableCharacter } from '../../../types.js';
-import { COMMON_BANS } from '../../../constants.js';
+import { COMMON_BANNED_CHARACTER_ID_SET, POPULAR_GREEDIER_CHARACTER_ID_SET } from '../../../characterPolicy.js';
 import { compareCanonicalCharacterOrder } from '../../../jinxOrder.js';
 import { useAppActions, useAppState } from '../../context/AppContext.js';
 import { Switch } from '../../components/Switch.js';
 import { TeamLabel } from '../../shared/TeamLabel.js';
-
-// Stub list for future tuning of the "Include popular" action.
-const POPULAR_GREEDIER_CHARACTER_IDS: readonly string[] = [
-	'hypnotist_winningclub',
-	'lolth_winningclub',
-	'bingbong_winningclub',
-	'secretary_winningclub',
-	'baffler_winningclub',
-	'hopeful_winningclub',
-	'potionseller_winningclub',
-	'buffetsgourmet_winningclub',
-	'skaldi',
-	'archivist',
-	'hawkmoth',
-	'joe',
-];
 
 function splitCharactersByCommonBans(
 	characters: SelectableCharacter[],
@@ -29,7 +13,7 @@ function splitCharactersByCommonBans(
 	const remaining: SelectableCharacter[] = [];
 
 	for (const character of characters) {
-		if (COMMON_BANS.includes(character.id)) {
+		if (COMMON_BANNED_CHARACTER_ID_SET.has(character.id)) {
 			quickRemove.push(character);
 		} else {
 			remaining.push(character);
@@ -147,7 +131,7 @@ export function CharactersPanel(): React.JSX.Element {
 		[state.baseCharacters],
 	);
 	const popularGreedierCharacterIdSet = useMemo(
-		() => new Set(POPULAR_GREEDIER_CHARACTER_IDS),
+		() => POPULAR_GREEDIER_CHARACTER_ID_SET,
 		[],
 	);
 	const greedierCharacters = useMemo(

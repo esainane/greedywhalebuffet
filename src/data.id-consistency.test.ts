@@ -1,7 +1,8 @@
-import { readdir, readFile } from 'node:fs/promises';
+import { readdir } from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, it } from 'vitest';
+import { assertNoIssues, readJson } from './test-helpers.js';
 import type { JinxFile, MappingFile, NightsheetFile, CharacterBase, CharacterEntry } from './types.js';
 
 const CORE_TEAMS = new Set(['townsfolk', 'outsider', 'minion', 'demon']);
@@ -16,10 +17,6 @@ const NIGHTSHEET_EXCEPTIONS = new Set([
 const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, '..');
 const staticRoot = path.join(repoRoot, 'static');
-
-async function readJson<T>(filePath: string): Promise<T> {
-	return JSON.parse(await readFile(filePath, 'utf8')) as T;
-}
 
 function suggestSimilar(id: string, allowedIds: Set<string>): string {
 	const prefixes = [...allowedIds.values()].filter((allowedId) => allowedId.startsWith(id));
@@ -56,14 +53,6 @@ function collectInvalidJinxIds(
 	}
 
 	return issues;
-}
-
-function assertNoIssues(issues: string[], heading: string): void {
-	if (issues.length === 0) {
-		return;
-	}
-
-	throw new Error(`${heading}\n${issues.map((issue) => `- ${issue}`).join('\n')}`);
 }
 
 async function collectGreedierDefinedIds(): Promise<Set<string>> {

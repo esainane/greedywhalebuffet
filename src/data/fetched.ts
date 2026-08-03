@@ -7,6 +7,7 @@
 import type {
 	ScriptFile,
 	CharacterEntry,
+	CatalogCharacter,
 	JinxFile,
 	NightsheetFile,
 	MappingFile,
@@ -96,7 +97,7 @@ export class FetchedData {
 	private readonly greedyJson: ScriptFile;
 	private readonly greedyJinxData: JinxFile;
 	private readonly greedierJinxData: JinxFile;
-	private readonly greedierCharactersData: CharacterEntry[];
+	private readonly greedierCharactersData: CatalogCharacter[];
 
 	// ID mapping data (bidirectional, synchronized)
 	private readonly greedyIdMapping: BidirectionalMap;
@@ -111,7 +112,7 @@ export class FetchedData {
 		greedyJson: ScriptFile;
 		greedyJinxData: JinxFile;
 		greedierJinxData: JinxFile;
-		greedierCharactersData: CharacterEntry[];
+		greedierCharactersData: CatalogCharacter[];
 		greedyToBaseID: MappingFile;
 		rolesData: CharacterEntry[];
 		nightsheetFile: NightsheetFile;
@@ -121,8 +122,8 @@ export class FetchedData {
 		this.greedyJinxData = deepFreeze(data.greedyJinxData);
 		this.greedierJinxData = deepFreeze(data.greedierJinxData);
 
-		data.greedierCharactersData.forEach((entry: CharacterEntry) => {
-			entry.edition = 'greedier';
+		data.greedierCharactersData.forEach((catalogCharacter: CatalogCharacter) => {
+			catalogCharacter.entry.edition = 'greedier';
 		});
 
 		this.greedierCharactersData = deepFreeze(data.greedierCharactersData);
@@ -151,6 +152,10 @@ export class FetchedData {
 	}
 
 	getGreedierCharactersData(): Readonly<CharacterEntry[]> {
+		return this.greedierCharactersData.map((catalogCharacter) => catalogCharacter.entry);
+	}
+
+	getGreedierCatalogCharacters(): Readonly<CatalogCharacter[]> {
 		return this.greedierCharactersData;
 	}
 

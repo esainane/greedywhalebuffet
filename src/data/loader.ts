@@ -5,10 +5,10 @@
 import type {
 	ScriptFile,
 	CharacterEntry,
+	CatalogCharacter,
 	JinxFile,
 	NightsheetFile,
 	MappingFile,
-	MetaEntry,
 } from '../types.js';
 import Ajv2020, { type ValidateFunction } from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
@@ -25,6 +25,7 @@ import {
 import scriptSchema from '../../schemas/script-schema.json';
 import scriptExtraSchema from '../../schemas/script-extra-schema.json';
 import jinxSchema from '../../schemas/jinx-schema.json';
+import { parseScriptFile, serializeScriptDocument } from '../model/script-document.js';
 
 const ajv = new Ajv2020({ allErrors: true, strict: false });
 addFormats(ajv);
@@ -119,34 +120,6 @@ function extractFilterableCharactersFromScriptFile(data: ScriptFile): CharacterE
 	return extracted;
 }
 
-function isMetaEntry(value: unknown): value is MetaEntry {
-	if (typeof value !== 'object' || value === null || Array.isArray(value)) {
-		return false;
-	}
-
-	const entry = value as { id?: unknown; name?: unknown };
-	return entry.id === '_meta' && typeof entry.name === 'string';
-}
-
-function assertLeadingMetaEntry(data: ScriptFile, sourceName: string): void {
-	if (data.length === 0) {
-		throw new Error(`${sourceName} must include a leading _meta entry.`);
-	}
-
-	if (!isMetaEntry(data[0])) {
-		throw new Error(`${sourceName} must begin with an object entry with id "_meta" and a string name.`);
-	}
-
-	for (let i = 1; i < data.length; i++) {
-		const entry = data[i];
-		if (typeof entry === 'object' && entry !== null && !Array.isArray(entry) && 'id' in entry) {
-			if ((entry as { id?: unknown }).id === '_meta') {
-				throw new Error(`${sourceName} must include only one _meta entry, and it must be the first item.`);
-			}
-		}
-	}
-}
-
 async function fetchJsonSource(path: string, signal?: AbortSignal): Promise<unknown> {
 	const response = await fetch(path, { cache: 'no-store', signal });
 	if (!response.ok) {
@@ -220,8 +193,8 @@ export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Pr
 		assertSchemaValid(parsed, validateScriptExtraData, source.path);
 	}
 
-	const greedyScriptFile = greedyParsed as ScriptFile;
-	assertLeadingMetaEntry(greedyScriptFile, greedyPath);
+	const greedyDocument = parseScriptFile(greedyParsed as ScriptFile, greedyPath);
+	const greedyScriptFile = serializeScriptDocument(greedyDocument);
 
 	if (!isMappingFile(mappingFileParsed)) {
 		throw new Error(`${mappingPath} has an unexpected shape.`);
@@ -237,7 +210,7 @@ export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Pr
 		throw new Error(`${rolesPath} must be an array of character objects.`);
 	}
 
-	const greedierCharactersById = new Map<string, CharacterEntry>();
+	const greedierCharactersById = new Map<string, CatalogCharacter>();
 	const greedierCharacterSourceById = new Map<string, string>();
 	for (const source of manifest.greedierScripts) {
 		const greedierData = parsedByPath.get(source.path);
@@ -256,7 +229,9 @@ export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Pr
 			}
 
 			greedierCharactersById.set(character.id, {
-				...character,
+				entry: {
+					...character,
+				},
 				sourceSet,
 			});
 			greedierCharacterSourceById.set(character.id, source.path);

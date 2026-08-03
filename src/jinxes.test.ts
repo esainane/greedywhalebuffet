@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import type { CharacterEntry, JinxFile, ScriptFile } from './types.js';
+import type { CatalogCharacter, CharacterEntry, JinxFile, ScriptFile } from './types.js';
 import { FetchedData } from './data/fetched.js';
 import { applySelectedJinxes } from './jinxes.js';
 
@@ -8,7 +8,7 @@ function makeFetchedData(params: {
 	official: JinxFile;
 	greedy: JinxFile;
 	greedier?: JinxFile;
-	greedierCharactersData?: CharacterEntry[];
+	greedierCharactersData?: CatalogCharacter[];
 }): FetchedData {
 	return new FetchedData({
 		greedyJson: [{ id: '_meta', name: 'Test Script' }, 'heretic'],
@@ -190,8 +190,16 @@ describe('applySelectedJinxes', () => {
 			{ id: 'heretic', name: 'Heretic', team: 'outsider', ability: 'Heretic ability' },
 			{ id: 'baron', name: 'Baron', team: 'minion', ability: 'Baron ability' },
 		];
-		const greedierCharactersData: CharacterEntry[] = [
-			{ id: 'journalist_winningclub', name: 'Journalist', team: 'townsfolk', ability: 'Journalist ability', edition: 'greedier' },
+		const greedierCharactersData: CatalogCharacter[] = [
+			{
+				entry: {
+					id: 'journalist_winningclub',
+					name: 'Journalist',
+					team: 'townsfolk',
+					ability: 'Journalist ability',
+					edition: 'greedier',
+				},
+			},
 		];
 		const greedier: JinxFile = [
 			{ id: 'heretic', jinx: [{ id: 'journalist_winningclub', reason: 'Greedier reason' }] },

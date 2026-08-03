@@ -422,14 +422,15 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 			const greedyJson = fetchedData.cloneGreedyJson();
 			const metaEntry = getMetaEntry(greedyJson);
 			const baseCharacters = getCharacters(greedyJson, fetchedData);
-			const greedierCharacters = fetchedData.getGreedierCharactersData().map((entry) => {
+			const greedierCharacters = fetchedData.getGreedierCatalogCharacters().map((catalogCharacter) => {
+				const { entry, sourceSet } = catalogCharacter;
 				const imageUrl = getImageArray(entry, fetchedData)[0];
 				return {
 					id: entry.id,
 					name: entry.name || entry.id,
 					team: entry.team,
 					imageUrl,
-					sourceSet: entry.sourceSet,
+					sourceSet,
 				};
 			});
 			const storedPreferences = loadStoredPreferences();

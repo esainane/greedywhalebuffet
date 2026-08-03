@@ -45,16 +45,6 @@ function getEntryId(entry: ScriptFile[number]): string | undefined {
 	return undefined;
 }
 
-function stripTransientCharacterFields(data: ScriptFile): void {
-	for (const entry of data) {
-		if (typeof entry !== 'object' || entry === null || !('id' in entry) || entry.id === '_meta') {
-			continue;
-		}
-
-		delete (entry as CharacterEntry).sourceSet;
-	}
-}
-
 function applyUpstreamNoDeathAtNightExportFields(data: ScriptFile, fetchedData: FetchedData): void {
 	for (const entry of data) {
 		if (typeof entry !== 'object' || entry === null || !('id' in entry) || entry.id === '_meta') {
@@ -347,7 +337,6 @@ export function buildCopyPayload(
 	}
 
 	applyOptions(filteredData, options, fetchedData);
-	stripTransientCharacterFields(filteredData);
 
 	return JSON.stringify(filteredData, null, 2);
 }

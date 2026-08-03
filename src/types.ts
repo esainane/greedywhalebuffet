@@ -10,6 +10,8 @@ export type MappingFile = Record<string, string>;
 export type MetaEntry = {
 	id: "_meta";
 	name: string;
+	author?: string;
+	almanac?: string;
 	bootlegger?: string[];
 };
 
@@ -20,7 +22,7 @@ export type CharacterBase = {
 	id: string;
 	name: string;
 	team: string;
-	sourceSet?: number;
+	edition?: string;
 };
 
 type JinxDefs = { id: string; reason: string }[];
@@ -31,7 +33,6 @@ type JinxDefs = { id: string; reason: string }[];
 export type CharacterEntry = CharacterBase & {
 	ability: string;
 	image?: string | string[];
-	edition?: string;
 	flavor?: string;
 	jinxes?: JinxDefs;
 	firstNightReminder?: string;
@@ -48,6 +49,18 @@ export type CharacterEntry = CharacterBase & {
  * Mixed script payload: `_meta` first, then string IDs or expanded character entries.
  */
 export type ScriptFile = (MetaEntry | CharacterEntry | string)[];
+
+export type ScriptEntry = CharacterEntry | string;
+
+export type ScriptDocument = {
+	readonly meta: MetaEntry;
+	readonly entries: readonly ScriptEntry[];
+};
+
+export type CatalogCharacter = {
+	readonly entry: CharacterEntry;
+	readonly sourceSet?: number;
+};
 
 /**
  * One source character and the jinxes attached to it in a jinx JSON file.
@@ -74,7 +87,8 @@ export type NightsheetFile = {
  * Compact display model for the character selection list and related UI state.
  */
 export type SelectableCharacter = CharacterBase & {
-	imageUrl: string | string[];
+	imageUrl: string;
+	sourceSet?: number;
 };
 
 /**

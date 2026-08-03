@@ -1,11 +1,18 @@
 import { describe, expect, it } from 'vitest';
 import { FetchedData } from './data/fetched.js';
 import { buildCopyPayload } from './generation.js';
-import type { CharacterEntry, GenerationOptions, JinxFile, NightsheetFile, ScriptFile } from './types.js';
+import type {
+	CatalogCharacter,
+	CharacterEntry,
+	GenerationOptions,
+	JinxFile,
+	NightsheetFile,
+	ScriptFile,
+} from './types.js';
 
 function buildFetchedData(params: {
 	greedyJson?: ScriptFile;
-	greedierCharactersData: CharacterEntry[];
+	greedierCharactersData: CatalogCharacter[];
 	rolesData?: CharacterEntry[];
 	greedyToBaseID?: Record<string, string>;
 	nightsheetFile?: NightsheetFile;
@@ -43,11 +50,13 @@ describe('buildCopyPayload', () => {
 		const fetchedData = buildFetchedData({
 			greedierCharactersData: [
 				{
-					id: 'alpha',
-					name: 'Alpha',
-					team: 'townsfolk',
-					ability: 'Alpha ability',
-					edition: 'greedier',
+					entry: {
+						id: 'alpha',
+						name: 'Alpha',
+						team: 'townsfolk',
+						ability: 'Alpha ability',
+						edition: 'greedier',
+					},
 					sourceSet: 4,
 				},
 			],
@@ -64,7 +73,7 @@ describe('buildCopyPayload', () => {
 		) as CharacterEntry | undefined;
 
 		expect(exportedCharacter).toBeDefined();
-		expect(exportedCharacter?.sourceSet).toBeUndefined();
+		expect(exportedCharacter && 'sourceSet' in exportedCharacter).toBe(false);
 	});
 
 	it('reverts Leviathan and Riot export fields to upstream values when NDAN jinxes are disabled', () => {
@@ -153,11 +162,13 @@ describe('buildCopyPayload', () => {
 			greedyJson: [{ id: '_meta', name: 'Test Script' }, 'heretic'],
 			greedierCharactersData: [
 				{
-					id: 'journalist_winningclub',
-					name: 'Journalist',
-					team: 'townsfolk',
-					ability: 'Journalist ability',
-					edition: 'greedier',
+					entry: {
+						id: 'journalist_winningclub',
+						name: 'Journalist',
+						team: 'townsfolk',
+						ability: 'Journalist ability',
+						edition: 'greedier',
+					},
 				},
 			],
 			rolesData: [

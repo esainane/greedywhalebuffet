@@ -1,9 +1,15 @@
 import { describe, expect, it } from 'vitest';
-import type { CharacterEntry, JinxFile, NightsheetFile, ScriptFile } from '../../../types.js';
+import type {
+	CatalogCharacter,
+	CharacterEntry,
+	JinxFile,
+	NightsheetFile,
+	ScriptFile,
+} from '../../../types.js';
 import { FetchedData } from '../../../data/fetched.js';
 import { deriveGreedyHomebrew, deriveGreedyJinxes } from './greedyReferenceData.js';
 
-function buildFetchedData(greedierCharactersData: CharacterEntry[]): FetchedData {
+function buildFetchedData(greedierCharactersData: CatalogCharacter[]): FetchedData {
 	return new FetchedData({
 		greedyJson: [] as ScriptFile,
 		rolesData: [] as CharacterEntry[],
@@ -21,7 +27,7 @@ function buildFetchedDataWithJinxes(params: {
 	rolesData?: CharacterEntry[];
 	greedyJinxData: JinxFile;
 	greedierJinxData?: JinxFile;
-	greedierCharactersData?: CharacterEntry[];
+	greedierCharactersData?: CatalogCharacter[];
 }): FetchedData {
 	return new FetchedData({
 		greedyJson: params.greedyJson,
@@ -38,9 +44,9 @@ function buildFetchedDataWithJinxes(params: {
 describe('deriveGreedyHomebrew', () => {
 	it('preserves source set order by default', () => {
 		const fetchedData = buildFetchedData([
-			{ id: 'omega', name: 'Omega', team: 'demon', ability: 'Omega ability', edition: 'greedier', sourceSet: 3 },
-			{ id: 'alpha', name: 'Alpha', team: 'townsfolk', ability: 'Alpha ability', edition: 'greedier', sourceSet: 1 },
-			{ id: 'beta', name: 'Beta', team: 'townsfolk', ability: 'Beta ability', edition: 'greedier', sourceSet: 1 },
+			{ entry: { id: 'omega', name: 'Omega', team: 'demon', ability: 'Omega ability', edition: 'greedier' }, sourceSet: 3 },
+			{ entry: { id: 'alpha', name: 'Alpha', team: 'townsfolk', ability: 'Alpha ability', edition: 'greedier' }, sourceSet: 1 },
+			{ entry: { id: 'beta', name: 'Beta', team: 'townsfolk', ability: 'Beta ability', edition: 'greedier' }, sourceSet: 1 },
 		]);
 
 		expect(deriveGreedyHomebrew(fetchedData).map((entry) => entry.character.id)).toEqual([
@@ -57,10 +63,10 @@ describe('deriveGreedyHomebrew', () => {
 
 	it('sorts by canonical team and name when sort-by-set is disabled', () => {
 		const fetchedData = buildFetchedData([
-			{ id: 'omega', name: 'Omega', team: 'demon', ability: 'Omega ability', edition: 'greedier' },
-			{ id: 'beta', name: 'Beta', team: 'townsfolk', ability: 'Beta ability', edition: 'greedier' },
-			{ id: 'alpha', name: 'Alpha', team: 'townsfolk', ability: 'Alpha ability', edition: 'greedier' },
-			{ id: 'zed', name: 'Zed', team: 'minion', ability: 'Zed ability', edition: 'greedier' },
+			{ entry: { id: 'omega', name: 'Omega', team: 'demon', ability: 'Omega ability', edition: 'greedier' } },
+			{ entry: { id: 'beta', name: 'Beta', team: 'townsfolk', ability: 'Beta ability', edition: 'greedier' } },
+			{ entry: { id: 'alpha', name: 'Alpha', team: 'townsfolk', ability: 'Alpha ability', edition: 'greedier' } },
+			{ entry: { id: 'zed', name: 'Zed', team: 'minion', ability: 'Zed ability', edition: 'greedier' } },
 		]);
 
 		expect(deriveGreedyHomebrew(fetchedData, false).map((entry) => entry.character.id)).toEqual([
@@ -86,8 +92,8 @@ describe('deriveGreedyJinxes', () => {
 				{ id: 'homebrew_a', jinx: [{ id: 'homebrew_b', reason: 'Greedier jinx reason' }] },
 			],
 			greedierCharactersData: [
-				{ id: 'homebrew_a', name: 'Homebrew A', team: 'townsfolk', ability: 'Homebrew A ability', edition: 'greedier' },
-				{ id: 'homebrew_b', name: 'Homebrew B', team: 'demon', ability: 'Homebrew B ability', edition: 'greedier' },
+				{ entry: { id: 'homebrew_a', name: 'Homebrew A', team: 'townsfolk', ability: 'Homebrew A ability', edition: 'greedier' } },
+				{ entry: { id: 'homebrew_b', name: 'Homebrew B', team: 'demon', ability: 'Homebrew B ability', edition: 'greedier' } },
 			],
 		});
 

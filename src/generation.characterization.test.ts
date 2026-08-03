@@ -8,11 +8,13 @@ import { getUnsatisfiedDependencyCharacterIds } from './dependencies.js';
 import { buildCopyPayload } from './generation.js';
 import { getBaseCharacterId } from './character.js';
 import type {
+	CatalogCharacter,
 	CharacterEntry,
 	GenerationOptions,
 	JinxFile,
 	NightsheetFile,
 	ScriptFile,
+	MetaEntry,
 } from './types.js';
 
 const here = path.dirname(fileURLToPath(import.meta.url));
@@ -81,17 +83,17 @@ function getMetaEntry(data: ScriptFile): { name: string; bootlegger: string[] } 
 	const meta = data[0];
 	if (
 		typeof meta !== 'object' ||
-		meta === null ||
-		Array.isArray(meta) ||
-		meta.id !== '_meta' ||
+		meta?.id !== '_meta' ||
 		typeof meta.name !== 'string'
 	) {
 		throw new Error('Missing _meta entry');
 	}
 
+	const typedMeta = meta as MetaEntry;
+
 	return {
-		name: meta.name,
-		bootlegger: Array.isArray(meta.bootlegger) ? meta.bootlegger : [],
+		name: typedMeta.name,
+		bootlegger: Array.isArray(typedMeta.bootlegger) ? typedMeta.bootlegger : [],
 	};
 }
 
@@ -196,7 +198,7 @@ function getTeamRank(team: string | undefined): number {
 
 function buildFetchedData(params: {
 	greedyJson?: ScriptFile;
-	greedierCharactersData?: CharacterEntry[];
+	greedierCharactersData?: CatalogCharacter[];
 	rolesData?: CharacterEntry[];
 	greedyToBaseID?: Record<string, string>;
 	nightsheetFile?: NightsheetFile;
@@ -333,11 +335,13 @@ describe('generation characterization fixtures', () => {
 			],
 			greedierCharactersData: [
 				{
-					id: 'journalist_winningclub',
-					name: 'Journalist',
-					team: 'townsfolk',
-					ability: 'Journalist',
-					edition: 'greedier',
+					entry: {
+						id: 'journalist_winningclub',
+						name: 'Journalist',
+						team: 'townsfolk',
+						ability: 'Journalist',
+						edition: 'greedier',
+					},
 				},
 			],
 			jinxData: [{ id: 'heretic', jinx: [{ id: 'baron', reason: 'Official reason' }] }],

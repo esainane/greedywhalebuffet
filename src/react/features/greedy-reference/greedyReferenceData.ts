@@ -1,31 +1,26 @@
 import { FILTERABLE_TEAMS } from '../../../constants.js';
-import { getBaseCharacterId, getImageArray } from '../../../character.js';
+import { getBaseCharacterId, getFallbackImageURL, getImageArray } from '../../../character.js';
 import type { FetchedData } from '../../../data/fetched.js';
-import type { CharacterBase, CharacterEntry, ScriptFile } from '../../../types.js';
+import type { CharacterEntry, ScriptFile, SelectableCharacter } from '../../../types.js';
 import { compareCanonicalCharacterOrder, compareCanonicalJinxOrder } from '../../../jinxOrder.js';
 import { isNoDeathAtNightJinxPair } from '../../../noDeathAtNightJinxes.js';
 
-type CharacterSummary = CharacterBase & {
-	edition?: string;
-	imageUrl?: string;
-};
-
 export type GreedyDifferenceDetail = {
-	character: CharacterSummary;
+	character: SelectableCharacter;
 	officialAbility: string;
 	greedyAbility: string;
 };
 
 export type GreedyJinxDetail = {
-	source: CharacterSummary;
-	target: CharacterSummary;
+	source: SelectableCharacter;
+	target: SelectableCharacter;
 	officialReason: string | null;
 	reason: string;
 	origin: 'greedy' | 'greedier-homebrew';
 };
 
 export type GreedyHomebrewDetail = {
-	character: CharacterSummary;
+	character: SelectableCharacter;
 	ability: string;
 	firstNight?: number;
 	otherNight?: number;
@@ -52,14 +47,13 @@ function getPrimaryImage(entry: CharacterEntry, fetchedData: FetchedData): strin
 	return firstImage;
 }
 
-function createCharacterSummary(entry: CharacterEntry, fetchedData: FetchedData): CharacterSummary {
+function createCharacterSummary(entry: CharacterEntry, fetchedData: FetchedData): SelectableCharacter {
 	return {
 		id: entry.id,
 		name: entry.name ?? entry.id,
 		team: entry.team,
 		edition: entry.edition,
-		imageUrl: getPrimaryImage(entry, fetchedData),
-		sourceSet: entry.sourceSet,
+		imageUrl: getPrimaryImage(entry, fetchedData) || getFallbackImageURL(entry.team),
 	};
 }
 
@@ -70,8 +64,8 @@ function buildCharacterLookup(fetchedData: FetchedData): Map<string, CharacterEn
 		lookup.set(role.id, role);
 	}
 
-	for (const character of fetchedData.getGreedierCharactersData()) {
-		lookup.set(character.id, character);
+	for (const catalogCharacter of fetchedData.getGreedierCatalogCharacters()) {
+		lookup.set(catalogCharacter.entry.id, catalogCharacter.entry);
 	}
 
 	for (const entry of fetchedData.getGreedyJson()) {
@@ -260,12 +254,20 @@ export function deriveGreedyHomebrew(
 			continue;
 		}
 
+		const sourceSet = fetchedData
+			.getGreedierCatalogCharacters()
+			.find((catalogCharacter) => catalogCharacter.entry.id === entry.id)?.sourceSet;
+
 		details.push({
 			character: createCharacterSummary(entry, fetchedData),
 			ability: entry.ability,
 			firstNight: entry.firstNight,
 			otherNight: entry.otherNight,
 		});
+
+		if (sourceSet !== undefined) {
+			details[details.length - 1].character.sourceSet = sourceSet;
+		}
 	}
 
 	if (!sortBySet) {

@@ -105,7 +105,7 @@ export function getImageArray(entry: CharacterEntry, fetchedData: FetchedData): 
 /**
  * Get a fallback image URL for a specific team.
  */
-function getFallbackImageURL(team: string): string {
+export function getFallbackImageURL(team: string): string {
 	const basename = ['townsfolk', 'outsider', 'minion', 'demon'].includes(team) ? team : 'custom';
 	return `https://greedy.antihype.space/icons/generic/${basename}.webp`;
 }

@@ -69,7 +69,7 @@ export const GENERATION_OPTIONS: readonly OptionConfig[] = [
 		label: 'Add Greedier homebrew',
 		defaultChecked: false,
 		helpText:
-			'Adds all characters from the Greedier homebrew competitions to the character pool. WARNING: This is an incomplete feature. Character definitions, including ability descriptions and night order information, may be missing or incorrect, and no Greedier jinxes will be listed on-script, regardless of other options.',
+			'Adds all characters from the Greedier homebrew competitions to the character pool. WARNING: This is an incomplete feature. Character definitions, including ability descriptions and night order information, may be missing or incorrect.',
 	},
 ] as const;
 

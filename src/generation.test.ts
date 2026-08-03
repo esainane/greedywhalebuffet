@@ -9,16 +9,19 @@ function buildFetchedData(params: {
 	rolesData?: CharacterEntry[];
 	greedyToBaseID?: Record<string, string>;
 	nightsheetFile?: NightsheetFile;
+	greedyJinxData?: JinxFile;
+	greedierJinxData?: JinxFile;
+	jinxData?: JinxFile;
 }): FetchedData {
 	return new FetchedData({
 		greedyJson: params.greedyJson ?? [{ id: '_meta', name: 'Test Script' }],
-		greedyJinxData: [] as JinxFile,
-		greedierJinxData: [] as JinxFile,
+		greedyJinxData: params.greedyJinxData ?? ([] as JinxFile),
+		greedierJinxData: params.greedierJinxData ?? ([] as JinxFile),
 		greedierCharactersData: params.greedierCharactersData,
 		greedyToBaseID: params.greedyToBaseID ?? {},
 		rolesData: params.rolesData ?? [],
 		nightsheetFile: params.nightsheetFile ?? ({ firstNight: [], otherNight: [] } as NightsheetFile),
-		jinxData: [] as JinxFile,
+		jinxData: params.jinxData ?? ([] as JinxFile),
 	});
 }
 
@@ -143,5 +146,51 @@ describe('buildCopyPayload', () => {
 		expect(riot?.firstNightReminder).toBeUndefined();
 		expect(riot?.otherNightReminder).toBe('Upstream Riot other reminder');
 		expect(riot?.reminders).toEqual(['Day 1', 'Day 2', 'Day 3']);
+	});
+
+	it('includes Greedier jinxes in export when Greedier characters and Greedy jinx listing are enabled', () => {
+		const fetchedData = buildFetchedData({
+			greedyJson: [{ id: '_meta', name: 'Test Script' }, 'heretic'],
+			greedierCharactersData: [
+				{
+					id: 'journalist_winningclub',
+					name: 'Journalist',
+					team: 'townsfolk',
+					ability: 'Journalist ability',
+					edition: 'greedier',
+				},
+			],
+			rolesData: [
+				{ id: 'heretic', name: 'Heretic', team: 'outsider', ability: 'Heretic ability' },
+				{ id: 'baron', name: 'Baron', team: 'minion', ability: 'Baron ability' },
+			],
+			greedyJinxData: [
+				{ id: 'heretic', jinx: [{ id: 'baron', reason: 'Greedy reason' }] },
+			],
+			greedierJinxData: [
+				{
+					id: 'heretic',
+					jinx: [{ id: 'journalist_winningclub', reason: 'Greedier reason' }],
+				},
+			],
+		});
+
+		const payload = buildCopyPayload(
+			new Set(['heretic', 'journalist_winningclub']),
+			buildOptions({
+				addGreedierHomebrew: true,
+				listGreedyJinxes: true,
+			}),
+			fetchedData,
+		);
+		const exported = JSON.parse(payload) as ScriptFile;
+		const heretic = exported.find(
+			(entry) => typeof entry === 'object' && entry !== null && 'id' in entry && entry.id === 'heretic_custom',
+		) as CharacterEntry | undefined;
+
+		expect(heretic?.jinxes).toEqual([
+			{ id: 'journalist_winningclub', reason: 'Greedier reason' },
+			{ id: 'baron', reason: 'Greedy reason' },
+		]);
 	});
 });

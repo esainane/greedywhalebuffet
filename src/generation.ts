@@ -163,6 +163,7 @@ export function applyOptions(data: ScriptFile, options: GenerationOptions, fetch
 		applySelectedJinxes(data, fetchedData, {
 			includeOfficial: options.listOfficialJinxes,
 			includeGreedy: options.listGreedyJinxes,
+			includeGreedier: options.addGreedierHomebrew && options.listGreedyJinxes,
 			includeNoDeathAtNight: options.useNoDeathAtNightJinxes,
 		});
 

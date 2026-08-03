@@ -181,10 +181,16 @@ export function mergeJinxes(
 export function applySelectedJinxes(
 	data: ScriptFile,
 	fetchedData: FetchedData,
-	options: { includeOfficial: boolean; includeGreedy: boolean; includeNoDeathAtNight: boolean },
+	options: {
+		includeOfficial: boolean;
+		includeGreedy: boolean;
+		includeGreedier: boolean;
+		includeNoDeathAtNight: boolean;
+	},
 ): void {
 	const officialSource = options.includeOfficial ? fetchedData.getJinxData() : [];
 	const greedySource = options.includeGreedy ? fetchedData.getGreedyJinxData() : [];
+	const greedierSource = options.includeGreedier ? fetchedData.getGreedierJinxData() : [];
 	const official = filterNoDeathAtNightJinxEntries(
 		officialSource,
 		fetchedData,
@@ -195,14 +201,21 @@ export function applySelectedJinxes(
 		fetchedData,
 		options.includeNoDeathAtNight,
 	);
+	const greedier = filterNoDeathAtNightJinxEntries(
+		greedierSource,
+		fetchedData,
+		options.includeNoDeathAtNight,
+	);
 
-	if (official.length === 0 && greedy.length === 0) {
+	if (official.length === 0 && greedy.length === 0 && greedier.length === 0) {
 		return;
 	}
 
 	expandJinxSources(data, official, fetchedData);
 	expandJinxSources(data, greedy, fetchedData);
+	expandJinxSources(data, greedier, fetchedData);
 
 	mergeJinxes(data, official, fetchedData);
 	mergeJinxes(data, greedy, fetchedData, { emptyReasonIsTombstone: true });
+	mergeJinxes(data, greedier, fetchedData, { emptyReasonIsTombstone: true });
 }

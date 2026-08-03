@@ -7,12 +7,14 @@ function makeFetchedData(params: {
 	rolesData: CharacterEntry[];
 	official: JinxFile;
 	greedy: JinxFile;
+	greedier?: JinxFile;
+	greedierCharactersData?: CharacterEntry[];
 }): FetchedData {
 	return new FetchedData({
 		greedyJson: [{ id: '_meta', name: 'Test Script' }, 'heretic'],
 		greedyJinxData: params.greedy,
-		greedierJinxData: [],
-		greedierCharactersData: [],
+		greedierJinxData: params.greedier ?? [],
+		greedierCharactersData: params.greedierCharactersData ?? [],
 		greedyToBaseID: {},
 		rolesData: params.rolesData,
 		nightsheetFile: { firstNight: [], otherNight: [] },
@@ -61,6 +63,7 @@ describe('applySelectedJinxes', () => {
 		applySelectedJinxes(data, fetchedData, {
 			includeOfficial: true,
 			includeGreedy: true,
+			includeGreedier: false,
 			includeNoDeathAtNight: true,
 		});
 
@@ -86,6 +89,7 @@ describe('applySelectedJinxes', () => {
 		applySelectedJinxes(data, fetchedData, {
 			includeOfficial: true,
 			includeGreedy: true,
+			includeGreedier: false,
 			includeNoDeathAtNight: true,
 		});
 
@@ -120,6 +124,7 @@ describe('applySelectedJinxes', () => {
 		applySelectedJinxes(data, fetchedData, {
 			includeOfficial: true,
 			includeGreedy: true,
+			includeGreedier: false,
 			includeNoDeathAtNight: true,
 		});
 
@@ -160,6 +165,7 @@ describe('applySelectedJinxes', () => {
 		applySelectedJinxes(filtered, fetchedData, {
 			includeOfficial: true,
 			includeGreedy: false,
+			includeGreedier: false,
 			includeNoDeathAtNight: false,
 		});
 		expect(getCharacterEntryById(filtered, 'leviathan_custom')?.jinxes).toEqual([
@@ -170,11 +176,56 @@ describe('applySelectedJinxes', () => {
 		applySelectedJinxes(included, fetchedData, {
 			includeOfficial: true,
 			includeGreedy: false,
+			includeGreedier: false,
 			includeNoDeathAtNight: true,
 		});
 		expect(getCharacterEntryById(included, 'leviathan_custom')?.jinxes).toEqual([
 			{ id: 'soldier', reason: 'No-death-at-night pair' },
 			{ id: 'baron', reason: 'Unrelated pair' },
+		]);
+	});
+
+	it('includes Greedier jinxes when Greedier export is enabled', () => {
+		const rolesData: CharacterEntry[] = [
+			{ id: 'heretic', name: 'Heretic', team: 'outsider', ability: 'Heretic ability' },
+			{ id: 'baron', name: 'Baron', team: 'minion', ability: 'Baron ability' },
+		];
+		const greedierCharactersData: CharacterEntry[] = [
+			{ id: 'journalist_winningclub', name: 'Journalist', team: 'townsfolk', ability: 'Journalist ability', edition: 'greedier' },
+		];
+		const greedier: JinxFile = [
+			{ id: 'heretic', jinx: [{ id: 'journalist_winningclub', reason: 'Greedier reason' }] },
+		];
+
+		const fetchedData = makeFetchedData({
+			rolesData,
+			official: [],
+			greedy: [{ id: 'heretic', jinx: [{ id: 'baron', reason: 'Greedy reason' }] }],
+			greedier,
+			greedierCharactersData,
+		});
+
+		const withoutGreedier = fetchedData.cloneGreedyJson();
+		applySelectedJinxes(withoutGreedier, fetchedData, {
+			includeOfficial: false,
+			includeGreedy: true,
+			includeGreedier: false,
+			includeNoDeathAtNight: true,
+		});
+		expect(getSourceEntry(withoutGreedier)?.jinxes).toEqual([
+			{ id: 'baron', reason: 'Greedy reason' },
+		]);
+
+		const withGreedier = fetchedData.cloneGreedyJson();
+		applySelectedJinxes(withGreedier, fetchedData, {
+			includeOfficial: false,
+			includeGreedy: true,
+			includeGreedier: true,
+			includeNoDeathAtNight: true,
+		});
+		expect(getSourceEntry(withGreedier)?.jinxes).toEqual([
+			{ id: 'baron', reason: 'Greedy reason' },
+			{ id: 'journalist_winningclub', reason: 'Greedier reason' },
 		]);
 	});
 });

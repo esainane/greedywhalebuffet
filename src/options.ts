@@ -56,6 +56,14 @@ export const GENERATION_OPTIONS: readonly OptionConfig[] = [
 			'Adds all Greedy Whalebuffet-specific jinxes to the generated script sheet.',
 	},
 	{
+		id: 'use-no-death-at-night-jinxes',
+		name: 'useNoDeathAtNightJinxes',
+		label: 'Use No Death At Night jinxes',
+		defaultChecked: false,
+		helpText:
+			'Leviathan, Riot, and the homebrew Armageddon are all Demons which do not cause regular deaths until their deadline, and have jinxes with roles which would otherwise have no interaction (Banshee, Exorcist, Farmer, Grandmother, Innkeeper, Monk, Ravenkeeper, Sage, Soldier, and the homebrew Journalist and Pathologist): Each night*, the Demon chooses a different living player they believe is Good, which may trigger demonbanes, and if the Demon nominates and executes protected or vulnerable players, a team wins. Enabling sets a night order position for the Demons to prompt for a Jinx choice. This makes more role combinations meaningful, but adds significant clutter to the jinx list, as a jinx is added for the full cartesian product of combinations. Disabling removes the rarely used jinxes, Greedy or official, from any on-script listing.',
+	},
+	{
 		id: 'add-greedier-homebrew',
 		name: 'addGreedierHomebrew',
 		label: 'Add Greedier homebrew',

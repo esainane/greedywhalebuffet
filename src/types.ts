@@ -86,5 +86,6 @@ export type GenerationOptions = {
 	alejoRules: boolean;
 	listOfficialJinxes: boolean;
 	listGreedyJinxes: boolean;
+	useNoDeathAtNightJinxes: boolean;
 	addGreedierHomebrew: boolean;
 };

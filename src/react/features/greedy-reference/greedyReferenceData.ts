@@ -3,6 +3,7 @@ import { getBaseCharacterId, getImageArray } from '../../../character.js';
 import type { FetchedData } from '../../../data/fetched.js';
 import type { CharacterBase, CharacterEntry, ScriptFile } from '../../../types.js';
 import { compareCanonicalCharacterOrder, compareCanonicalJinxOrder } from '../../../jinxOrder.js';
+import { isNoDeathAtNightJinxPair } from '../../../noDeathAtNightJinxes.js';
 
 type CharacterSummary = CharacterBase & {
 	edition?: string;
@@ -156,6 +157,7 @@ function appendJinxDetails(
 	sourceData: ReadonlyArray<{ id: string; jinx?: { id: string; reason: string }[] }>,
 	origin: GreedyJinxDetail['origin'],
 	startOrder: number,
+	includeNoDeathAtNightJinxes: boolean,
 ): number {
 	let originalOrder = startOrder;
 
@@ -167,6 +169,10 @@ function appendJinxDetails(
 
 		for (const jinx of sourceEntry.jinx) {
 			if (!jinx || typeof jinx.id !== 'string' || typeof jinx.reason !== 'string') {
+				continue;
+			}
+
+			if (!includeNoDeathAtNightJinxes && isNoDeathAtNightJinxPair(sourceEntry.id, jinx.id, fetchedData)) {
 				continue;
 			}
 
@@ -201,7 +207,7 @@ function appendJinxDetails(
 
 export function deriveGreedyJinxes(
 	fetchedData: FetchedData,
-	options: { includeGreedierHomebrew?: boolean } = {},
+	options: { includeGreedierHomebrew?: boolean; includeNoDeathAtNightJinxes?: boolean } = {},
 ): GreedyJinxDetail[] {
 	const details: (GreedyJinxDetail & {
 		originalOrder: number;
@@ -216,6 +222,7 @@ export function deriveGreedyJinxes(
 		fetchedData.getGreedyJinxData(),
 		'greedy',
 		0,
+		options.includeNoDeathAtNightJinxes === true,
 	);
 
 	if (options.includeGreedierHomebrew) {
@@ -227,6 +234,7 @@ export function deriveGreedyJinxes(
 			fetchedData.getGreedierJinxData(),
 			'greedier-homebrew',
 			originalOrder,
+			options.includeNoDeathAtNightJinxes === true,
 		);
 	}
 

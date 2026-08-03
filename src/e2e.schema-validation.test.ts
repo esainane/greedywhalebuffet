@@ -22,6 +22,7 @@ const optionKeys: readonly (keyof GenerationOptions)[] = [
 	'alejoRules',
 	'listOfficialJinxes',
 	'listGreedyJinxes',
+	'useNoDeathAtNightJinxes',
 	'addGreedierHomebrew',
 ];
 
@@ -142,7 +143,7 @@ describe('end-to-end schema validation', () => {
 			}
 
 			const combinations = allOptionCombinations();
-			expect(combinations).toHaveLength(64);
+			expect(combinations).toHaveLength(128);
 
 			for (const options of combinations) {
 				const payload = buildCopyPayload(selectedCharacterIds, options, fetchedData);

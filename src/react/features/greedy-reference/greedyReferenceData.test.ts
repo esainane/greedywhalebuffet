@@ -105,4 +105,32 @@ describe('deriveGreedyJinxes', () => {
 			'greedier-homebrew',
 		]);
 	});
+
+	it('hides no-death-at-night jinx combinations unless explicitly enabled', () => {
+		const fetchedData = buildFetchedDataWithJinxes({
+			greedyJson: [
+				{ id: 'leviathan', name: 'Leviathan', team: 'demon', ability: 'Leviathan ability' },
+				{ id: 'soldier', name: 'Soldier', team: 'townsfolk', ability: 'Soldier ability' },
+				{ id: 'baron', name: 'Baron', team: 'minion', ability: 'Baron ability' },
+			],
+			greedyJinxData: [
+				{
+					id: 'leviathan',
+					jinx: [
+						{ id: 'soldier', reason: 'No-death-at-night pair' },
+						{ id: 'baron', reason: 'Unrelated pair' },
+					],
+				},
+			],
+		});
+
+		const filtered = deriveGreedyJinxes(fetchedData, { includeNoDeathAtNightJinxes: false });
+		expect(filtered.map((entry) => entry.reason)).toEqual(['Unrelated pair']);
+
+		const included = deriveGreedyJinxes(fetchedData, { includeNoDeathAtNightJinxes: true });
+		expect(included.map((entry) => entry.reason)).toEqual([
+			'No-death-at-night pair',
+			'Unrelated pair',
+		]);
+	});
 });

@@ -31,6 +31,17 @@ function getSourceEntry(data: ScriptFile): CharacterEntry | undefined {
 	) as CharacterEntry | undefined;
 }
 
+function getCharacterEntryById(data: ScriptFile, id: string): CharacterEntry | undefined {
+	return data.find(
+		(entry) =>
+			typeof entry === 'object' &&
+			entry !== null &&
+			'id' in entry &&
+			typeof (entry as CharacterEntry).id === 'string' &&
+			(entry as CharacterEntry).id === id,
+	) as CharacterEntry | undefined;
+}
+
 describe('applySelectedJinxes', () => {
 	it('lets greedy jinx reasons override official reasons', () => {
 		const rolesData: CharacterEntry[] = [
@@ -47,7 +58,11 @@ describe('applySelectedJinxes', () => {
 		const fetchedData = makeFetchedData({ rolesData, official, greedy });
 		const data = fetchedData.cloneGreedyJson();
 
-		applySelectedJinxes(data, fetchedData, { includeOfficial: true, includeGreedy: true });
+		applySelectedJinxes(data, fetchedData, {
+			includeOfficial: true,
+			includeGreedy: true,
+			includeNoDeathAtNight: true,
+		});
 
 		const source = getSourceEntry(data);
 		expect(source?.jinxes).toEqual([{ id: 'baron', reason: 'Greedy reason' }]);
@@ -68,7 +83,11 @@ describe('applySelectedJinxes', () => {
 		const fetchedData = makeFetchedData({ rolesData, official, greedy });
 		const data = fetchedData.cloneGreedyJson();
 
-		applySelectedJinxes(data, fetchedData, { includeOfficial: true, includeGreedy: true });
+		applySelectedJinxes(data, fetchedData, {
+			includeOfficial: true,
+			includeGreedy: true,
+			includeNoDeathAtNight: true,
+		});
 
 		const source = getSourceEntry(data);
 		expect(source?.jinxes ?? []).toEqual([]);
@@ -98,7 +117,11 @@ describe('applySelectedJinxes', () => {
 		const fetchedData = makeFetchedData({ rolesData, official, greedy });
 		const data = fetchedData.cloneGreedyJson();
 
-		applySelectedJinxes(data, fetchedData, { includeOfficial: true, includeGreedy: true });
+		applySelectedJinxes(data, fetchedData, {
+			includeOfficial: true,
+			includeGreedy: true,
+			includeNoDeathAtNight: true,
+		});
 
 		const source = getSourceEntry(data);
 		expect(source?.jinxes).toEqual([
@@ -106,6 +129,52 @@ describe('applySelectedJinxes', () => {
 			{ id: 'baron', reason: 'Minion jinx A' },
 			{ id: 'devilsadvocate', reason: 'Minion jinx B' },
 			{ id: 'imp', reason: 'Demon jinx' },
+		]);
+	});
+
+	it('filters no-death-at-night jinxes unless explicitly enabled', () => {
+		const fetchedData = new FetchedData({
+			greedyJson: [{ id: '_meta', name: 'Test Script' }, 'leviathan'],
+			greedyJinxData: [],
+			greedierJinxData: [],
+			greedierCharactersData: [],
+			greedyToBaseID: {},
+			rolesData: [
+				{ id: 'leviathan', name: 'Leviathan', team: 'demon', ability: 'Leviathan ability' },
+				{ id: 'soldier', name: 'Soldier', team: 'townsfolk', ability: 'Soldier ability' },
+				{ id: 'baron', name: 'Baron', team: 'minion', ability: 'Baron ability' },
+			],
+			nightsheetFile: { firstNight: [], otherNight: [] },
+			jinxData: [
+				{
+					id: 'leviathan',
+					jinx: [
+						{ id: 'soldier', reason: 'No-death-at-night pair' },
+						{ id: 'baron', reason: 'Unrelated pair' },
+					],
+				},
+			],
+		});
+
+		const filtered = fetchedData.cloneGreedyJson();
+		applySelectedJinxes(filtered, fetchedData, {
+			includeOfficial: true,
+			includeGreedy: false,
+			includeNoDeathAtNight: false,
+		});
+		expect(getCharacterEntryById(filtered, 'leviathan_custom')?.jinxes).toEqual([
+			{ id: 'baron', reason: 'Unrelated pair' },
+		]);
+
+		const included = fetchedData.cloneGreedyJson();
+		applySelectedJinxes(included, fetchedData, {
+			includeOfficial: true,
+			includeGreedy: false,
+			includeNoDeathAtNight: true,
+		});
+		expect(getCharacterEntryById(included, 'leviathan_custom')?.jinxes).toEqual([
+			{ id: 'soldier', reason: 'No-death-at-night pair' },
+			{ id: 'baron', reason: 'Unrelated pair' },
 		]);
 	});
 });

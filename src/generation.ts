@@ -8,12 +8,30 @@ import {
 	getMetaEntry,
 	findOrExpandCharacter,
 	firstNightOrder,
+	otherNightOrder,
+	getBaseCharacterId,
 } from './character.js';
 import { applySelectedJinxes } from './jinxes.js';
 import type { FetchedData } from './data/fetched.js';
 import { getUnsatisfiedDependencyCharacterIds } from './dependencies.js';
 
 const SPIRIT_OF_IVORY_ID = 'spiritofivory';
+
+function ensureNoDeathAtNightJinxPromptOrder(data: ScriptFile, fetchedData: FetchedData): void {
+	const promptOrder =
+		otherNightOrder('riot', fetchedData) ??
+		otherNightOrder('leviathan', fetchedData) ??
+		50;
+
+	for (const sourceId of ['leviathan', 'riot', 'armageddon_winningclub']) {
+		const entry = findOrExpandCharacter(sourceId, data, fetchedData);
+		if (!entry) {
+			continue;
+		}
+
+		entry.otherNight ??= promptOrder;
+	}
+}
 
 function getEntryId(entry: ScriptFile[number]): string | undefined {
 	if (typeof entry === 'string') {
@@ -34,6 +52,58 @@ function stripTransientCharacterFields(data: ScriptFile): void {
 		}
 
 		delete (entry as CharacterEntry).sourceSet;
+	}
+}
+
+function applyUpstreamNoDeathAtNightExportFields(data: ScriptFile, fetchedData: FetchedData): void {
+	for (const entry of data) {
+		if (typeof entry !== 'object' || entry === null || !('id' in entry) || entry.id === '_meta') {
+			continue;
+		}
+
+		const characterEntry = entry as CharacterEntry;
+		const baseId = getBaseCharacterId(characterEntry.id, fetchedData);
+		if (baseId !== 'leviathan' && baseId !== 'riot') {
+			continue;
+		}
+
+		const upstreamEntry = fetchedData.getRolesData().find((role) => role.id === baseId);
+		if (!upstreamEntry) {
+			continue;
+		}
+
+		const upstreamFirstNight = firstNightOrder(baseId, fetchedData);
+		const upstreamOtherNight = otherNightOrder(baseId, fetchedData);
+
+		if (upstreamFirstNight === undefined) {
+			delete characterEntry.firstNight;
+		} else {
+			characterEntry.firstNight = upstreamFirstNight;
+		}
+
+		if (upstreamOtherNight === undefined) {
+			delete characterEntry.otherNight;
+		} else {
+			characterEntry.otherNight = upstreamOtherNight;
+		}
+
+		if (typeof upstreamEntry.firstNightReminder === 'string') {
+			characterEntry.firstNightReminder = upstreamEntry.firstNightReminder;
+		} else {
+			delete characterEntry.firstNightReminder;
+		}
+
+		if (typeof upstreamEntry.otherNightReminder === 'string') {
+			characterEntry.otherNightReminder = upstreamEntry.otherNightReminder;
+		} else {
+			delete characterEntry.otherNightReminder;
+		}
+
+		if (Array.isArray(upstreamEntry.reminders)) {
+			characterEntry.reminders = [...upstreamEntry.reminders];
+		} else {
+			delete characterEntry.reminders;
+		}
 	}
 }
 
@@ -93,7 +163,16 @@ export function applyOptions(data: ScriptFile, options: GenerationOptions, fetch
 		applySelectedJinxes(data, fetchedData, {
 			includeOfficial: options.listOfficialJinxes,
 			includeGreedy: options.listGreedyJinxes,
+			includeNoDeathAtNight: options.useNoDeathAtNightJinxes,
 		});
+
+		if (options.useNoDeathAtNightJinxes) {
+			ensureNoDeathAtNightJinxPromptOrder(data, fetchedData);
+		}
+	}
+
+	if (!options.useNoDeathAtNightJinxes) {
+		applyUpstreamNoDeathAtNightExportFields(data, fetchedData);
 	}
 }
 

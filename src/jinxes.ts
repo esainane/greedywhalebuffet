@@ -5,6 +5,7 @@
 import type { ScriptFile, JinxFile } from './types.js';
 import { findCharacterId, findOrExpandCharacter, getBaseCharacterId } from './character.js';
 import type { FetchedData } from './data/fetched.js';
+import { isNoDeathAtNightJinxPair } from './noDeathAtNightJinxes.js';
 import {
 	compareCanonicalJinxOrder,
 	characterToSortCharacter,
@@ -24,6 +25,45 @@ function expandJinxSources(
 
 		findOrExpandCharacter(source.id, data, fetchedData);
 	}
+}
+
+function filterNoDeathAtNightJinxEntries(
+	jinxEntries: Readonly<JinxFile>,
+	fetchedData: FetchedData,
+	includeNoDeathAtNight: boolean,
+): JinxFile {
+	if (includeNoDeathAtNight) {
+		return jinxEntries.map((entry) => ({
+			id: entry.id,
+			jinx: entry.jinx.map((jinx) => ({ ...jinx })),
+		}));
+	}
+
+	const filtered: JinxFile = [];
+
+	for (const sourceEntry of jinxEntries) {
+		if (!Array.isArray(sourceEntry.jinx)) {
+			continue;
+		}
+
+		const filteredJinxes = sourceEntry.jinx.filter(
+			(jinx) =>
+				jinx?.id &&
+				typeof jinx.reason === 'string' &&
+				!isNoDeathAtNightJinxPair(sourceEntry.id, jinx.id, fetchedData),
+		);
+
+		if (filteredJinxes.length === 0) {
+			continue;
+		}
+
+		filtered.push({
+			id: sourceEntry.id,
+			jinx: filteredJinxes,
+		});
+	}
+
+	return filtered;
 }
 
 function getSortCharacterById(
@@ -141,10 +181,20 @@ export function mergeJinxes(
 export function applySelectedJinxes(
 	data: ScriptFile,
 	fetchedData: FetchedData,
-	options: { includeOfficial: boolean; includeGreedy: boolean },
+	options: { includeOfficial: boolean; includeGreedy: boolean; includeNoDeathAtNight: boolean },
 ): void {
-	const official = options.includeOfficial ? fetchedData.getJinxData() : [];
-	const greedy = options.includeGreedy ? fetchedData.getGreedyJinxData() : [];
+	const officialSource = options.includeOfficial ? fetchedData.getJinxData() : [];
+	const greedySource = options.includeGreedy ? fetchedData.getGreedyJinxData() : [];
+	const official = filterNoDeathAtNightJinxEntries(
+		officialSource,
+		fetchedData,
+		options.includeNoDeathAtNight,
+	);
+	const greedy = filterNoDeathAtNightJinxEntries(
+		greedySource,
+		fetchedData,
+		options.includeNoDeathAtNight,
+	);
 
 	if (official.length === 0 && greedy.length === 0) {
 		return;

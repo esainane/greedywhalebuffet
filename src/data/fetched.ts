@@ -76,6 +76,12 @@ class BidirectionalMap {
 	initializeFrom(mappings: Readonly<MappingFile>): void {
 		this.clear();
 		for (const [key, value] of Object.entries(mappings)) {
+			const existingKey = this.reverse.get(value);
+			if (existingKey !== undefined && existingKey !== key) {
+				throw new Error(
+					`ID mapping collision: "${existingKey}" and "${key}" both map to "${value}".`,
+				);
+			}
 			this.set(key, value);
 		}
 	}

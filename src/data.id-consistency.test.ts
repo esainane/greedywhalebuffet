@@ -103,6 +103,27 @@ describe('static data ID consistency', () => {
 		assertNoIssues(issues, 'id_mappings.json has invalid mapping targets:');
 	});
 
+	it('keeps id_mappings genuinely one-to-one', async () => {
+		const mappingFile = await readJson<MappingFile>(path.join(staticRoot, 'id_mappings.json'));
+
+		const sourceByTarget = new Map<string, string>();
+		const issues: string[] = [];
+
+		for (const [sourceId, targetId] of Object.entries(mappingFile)) {
+			const existingSourceId = sourceByTarget.get(targetId);
+			if (existingSourceId !== undefined) {
+				issues.push(
+					`"${existingSourceId}" and "${sourceId}" both map to "${targetId}"`,
+				);
+				continue;
+			}
+
+			sourceByTarget.set(targetId, sourceId);
+		}
+
+		assertNoIssues(issues, 'id_mappings.json is not one-to-one:');
+	});
+
 	it('keeps greedy.json using mapped IDs where mapped, and base role IDs otherwise', async () => {
 		const [roles, greedyEntries, mappingFile] = await Promise.all([
 			readJson<CharacterBase[]>(path.join(staticRoot, 'roles.json')),
@@ -111,6 +132,10 @@ describe('static data ID consistency', () => {
 		]);
 
 		const baseRoleIds = new Set(roles.map((role) => role.id));
+		const mappedSourceByTarget = new Map<string, string>();
+		for (const [sourceId, targetId] of Object.entries(mappingFile)) {
+			mappedSourceByTarget.set(targetId, sourceId);
+		}
 		const issues: string[] = [];
 
 		for (const entry of greedyEntries) {
@@ -125,9 +150,10 @@ describe('static data ID consistency', () => {
 
 			const id = entry.id;
 			if (baseRoleIds.has(id)) {
-				if (Object.values(mappingFile).includes(id)) {
+				const mappedSourceId = mappedSourceByTarget.get(id);
+				if (mappedSourceId !== undefined) {
 					issues.push(
-						`greedy.json: "${id}" is a base role ID that should be mapped to "${mappingFile[id]}"`,
+						`greedy.json: "${id}" is a base role ID that should be mapped to "${mappedSourceId}"`,
 					);
 				}
 				continue;

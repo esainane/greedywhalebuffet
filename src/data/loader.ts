@@ -56,6 +56,21 @@ function isMappingFile(value: unknown): value is MappingFile {
 	return Object.values(value).every((entry) => typeof entry === 'string');
 }
 
+function assertOneToOneMapping(mappingFile: Readonly<MappingFile>, sourceName: string): void {
+	const sourceByTarget = new Map<string, string>();
+
+	for (const [sourceId, targetId] of Object.entries(mappingFile)) {
+		const existingSourceId = sourceByTarget.get(targetId);
+		if (existingSourceId !== undefined) {
+			throw new Error(
+				`${sourceName} is not one-to-one: "${existingSourceId}" and "${sourceId}" both map to "${targetId}".`,
+			);
+		}
+
+		sourceByTarget.set(targetId, sourceId);
+	}
+}
+
 function isNightsheetFile(value: unknown): value is NightsheetFile {
 	if (typeof value !== 'object' || value === null || Array.isArray(value)) {
 		return false;
@@ -194,6 +209,8 @@ export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Pr
 	if (!isMappingFile(mappingFileParsed)) {
 		throw new Error('id_mappings.json has an unexpected shape.');
 	}
+
+	assertOneToOneMapping(mappingFileParsed, 'id_mappings.json');
 
 	if (!isNightsheetFile(nightsheetParsed)) {
 		throw new Error('nightsheet.json has an unexpected shape.');

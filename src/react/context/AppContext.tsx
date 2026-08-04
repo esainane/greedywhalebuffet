@@ -1,21 +1,29 @@
-import React, { createContext, useCallback, useContext, useEffect, useMemo, useReducer, useRef } from 'react';
+import React, { createContext, useCallback, useContext, useEffect, useMemo, useReducer } from 'react';
 import type { SelectableCharacter, GenerationOptions, GenerationResult } from '../../types.js';
 import type { Catalog } from '../../data/catalog.js';
 import {
 	defaultGenerationOptions,
 	getDependentOptionNames,
-	isGenerationOptionName,
 } from '../../options.js';
-import { loadLatestJson } from '../../data/loader.js';
-import { generate } from '../../generation.js';
+import {
+	createBrowserCatalogRepository,
+	createLocalStoragePreferencesRepository,
+	createNavigatorClipboardPort,
+} from '../../application/browser-adapters.js';
+import {
+	CatalogLoadingService,
+	catalogToViewModel,
+	copyGeneratedScript,
+	generateScript,
+	loadPreferences,
+	savePreferences,
+} from '../../application/services.js';
 
 const PREFERENCES_STORAGE_KEY = 'gwb:preferences:v1';
 
-type StoredPreferences = {
-	options: GenerationOptions;
-	bannedCharacterIds: string[];
-	greedierSortBySet: boolean;
-};
+const preferencesRepository = createLocalStoragePreferencesRepository(PREFERENCES_STORAGE_KEY);
+const catalogLoadingService = new CatalogLoadingService(createBrowserCatalogRepository());
+const clipboardPort = createNavigatorClipboardPort();
 
 type StatusTone = 'info' | 'success' | 'error';
 
@@ -41,12 +49,14 @@ type AppAction =
 	| { type: 'load_start'; status: string }
 	| {
 			type: 'load_success';
+			loadedAt: number;
 			catalog: Catalog;
 			scriptName: string;
 			baseCharacters: SelectableCharacter[];
 			greedierCharacters: SelectableCharacter[];
 			bannedCharacterIds: Set<string>;
 	  }
+	| { type: 'load_stale'; message: string }
 	| { type: 'load_error'; message: string }
 	| { type: 'set_status'; message: string; tone: StatusTone }
 	| { type: 'reset_preferences' }
@@ -64,91 +74,7 @@ type AppActions = {
 	copyToClipboard: () => Promise<void>;
 };
 
-function cloneDefaultOptions(): GenerationOptions {
-	return { ...defaultGenerationOptions() };
-}
-
-function parseStoredPreferences(rawValue: string): StoredPreferences | null {
-	let parsed: unknown;
-	try {
-		parsed = JSON.parse(rawValue);
-	} catch {
-		return null;
-	}
-
-	if (!parsed || typeof parsed !== 'object') {
-		return null;
-	}
-
-	const rawOptions =
-		'options' in parsed && parsed.options && typeof parsed.options === 'object'
-			? parsed.options
-			: {};
-	const options = cloneDefaultOptions();
-
-	for (const [key, value] of Object.entries(rawOptions)) {
-		if (!isGenerationOptionName(key) || typeof value !== 'boolean') {
-			continue;
-		}
-		options[key] = value;
-	}
-
-	const bannedCharacterIds =
-		'bannedCharacterIds' in parsed && Array.isArray(parsed.bannedCharacterIds)
-			? parsed.bannedCharacterIds.filter((entry): entry is string => typeof entry === 'string')
-			: [];
-	const greedierSortBySet =
-		'greedierSortBySet' in parsed && typeof parsed.greedierSortBySet === 'boolean'
-			? parsed.greedierSortBySet
-			: true;
-
-	return {
-		options,
-		bannedCharacterIds,
-		greedierSortBySet,
-	};
-}
-
-function loadStoredPreferences(): StoredPreferences {
-	const defaults: StoredPreferences = {
-		options: cloneDefaultOptions(),
-		bannedCharacterIds: [],
-		greedierSortBySet: true,
-	};
-	if (typeof window === 'undefined') {
-		return defaults;
-	}
-
-	try {
-		const rawValue = window.localStorage.getItem(PREFERENCES_STORAGE_KEY);
-		if (!rawValue) {
-			return defaults;
-		}
-
-		const parsed = parseStoredPreferences(rawValue);
-		if (!parsed) {
-			return defaults;
-		}
-
-		return parsed;
-	} catch {
-		return defaults;
-	}
-}
-
-function saveStoredPreferences(preferences: StoredPreferences): void {
-	if (typeof window === 'undefined') {
-		return;
-	}
-
-	try {
-		window.localStorage.setItem(PREFERENCES_STORAGE_KEY, JSON.stringify(preferences));
-	} catch {
-		// Ignore persistence failures (private mode, storage quota, etc.)
-	}
-}
-
-const storedPreferencesAtStartup = loadStoredPreferences();
+const storedPreferencesAtStartup = loadPreferences(preferencesRepository).preferences;
 
 const initialState: AppState = {
 	loading: true,
@@ -230,14 +156,13 @@ function appReducer(state: AppState, action: AppAction): AppState {
 					.map((character) => character.id)
 					.filter((characterId) => !action.bannedCharacterIds.has(characterId)),
 			);
-			const now = Date.now();
 			return {
 				...state,
 				loading: false,
 				status: 'Script loaded.',
 				statusTone: 'success',
 				scriptName: action.scriptName,
-				lastLoadedAt: now,
+				lastLoadedAt: action.loadedAt,
 				usingStaleData: false,
 				catalog: action.catalog,
 				baseCharacters: action.baseCharacters,
@@ -246,17 +171,16 @@ function appReducer(state: AppState, action: AppAction): AppState {
 				selectedCharacterIds,
 			};
 		}
+		case 'load_stale': {
+			return {
+				...state,
+				loading: false,
+				status: action.message,
+				statusTone: 'error',
+				usingStaleData: true,
+			};
+		}
 		case 'load_error': {
-			if (state.catalog && state.lastLoadedAt !== null) {
-				return {
-					...state,
-					loading: false,
-					status: `Reload failed; continuing to use data loaded at ${formatLoadTime(state.lastLoadedAt)}. (${action.message})`,
-					statusTone: 'error',
-					usingStaleData: true,
-				};
-			}
-
 			return {
 				...state,
 				loading: false,
@@ -280,7 +204,7 @@ function appReducer(state: AppState, action: AppAction): AppState {
 			};
 		}
 		case 'reset_preferences': {
-			const options = cloneDefaultOptions();
+			const options = defaultGenerationOptions();
 			const characters = buildCharacterPool(state.baseCharacters, state.greedierCharacters, options);
 			const allCharacterIds = [...state.baseCharacters, ...state.greedierCharacters].map(
 				(character) => character.id,
@@ -376,16 +300,16 @@ type AppProviderProps = {
 export function AppProvider(props: AppProviderProps): React.JSX.Element {
 	const { children } = props;
 	const [state, dispatch] = useReducer(appReducer, initialState);
-	const activeLoadController = useRef<AbortController | null>(null);
 	const generationResult = useMemo(() => {
 		if (!state.catalog) {
 			return null;
 		}
 
-		return generate(
+		const generated = generateScript(
 			{ selectedCharacterIds: state.selectedCharacterIds, options: state.options },
 			state.catalog,
 		);
+		return generated.kind === 'success' ? generated.result : null;
 	}, [state.catalog, state.options, state.selectedCharacterIds]);
 	const unsatisfiedDependencyCharacterIds = useMemo(() => {
 		if (!generationResult) {
@@ -409,44 +333,44 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 	}, []);
 
 	const reload = useCallback(async () => {
-		activeLoadController.current?.abort();
-		const controller = new AbortController();
-		activeLoadController.current = controller;
-
 		dispatch({ type: 'load_start', status: 'Loading latest script...' });
-		try {
-			const { catalog } = await loadLatestJson({ signal: controller.signal });
-			if (controller.signal.aborted) {
-				return;
-			}
-			const metaEntry = catalog.baseScript.meta;
-			const baseCharacters = catalog.baseSelectableCharacters();
-			const greedierCharacters = [...catalog.greedierById.values()].map((ce) => ce.toSelectable());
-			const storedPreferences = loadStoredPreferences();
+		const loadResult = await catalogLoadingService.reload();
+		if (loadResult.kind === 'aborted') {
+			return;
+		}
 
-			dispatch({
-				type: 'load_success',
-				catalog,
-				scriptName: metaEntry?.name ?? 'Unknown script',
-				baseCharacters,
-				greedierCharacters,
-				bannedCharacterIds: new Set(storedPreferences.bannedCharacterIds),
-			});
-		} catch (error: unknown) {
-			if (controller.signal.aborted) {
-				return;
-			}
-
+		if (loadResult.kind === 'error') {
 			dispatch({
 				type: 'load_error',
-				message: error instanceof Error ? error.message : 'Unable to reload latest script.',
+				message: loadResult.error.message,
 			});
-		} finally {
-			if (activeLoadController.current === controller) {
-				activeLoadController.current = null;
-			}
+			return;
 		}
-	}, []);
+
+		const preferencesResult = loadPreferences(preferencesRepository);
+		const { scriptName, baseCharacters, greedierCharacters } = catalogToViewModel(loadResult.catalog);
+
+		dispatch({
+			type: 'load_success',
+			loadedAt: loadResult.loadedAt,
+			catalog: loadResult.catalog,
+			scriptName,
+			baseCharacters,
+			greedierCharacters,
+			bannedCharacterIds: new Set(preferencesResult.preferences.bannedCharacterIds),
+		});
+
+		if (loadResult.kind === 'stale') {
+			dispatch({
+				type: 'load_stale',
+				message: `Reload failed; continuing to use data loaded at ${formatLoadTime(loadResult.loadedAt)}. (${loadResult.error.message})`,
+			});
+		}
+
+		if (preferencesResult.error?.code === 'preferences_parse_failed') {
+			setStatus(preferencesResult.error.message, 'info');
+		}
+	}, [setStatus]);
 
 	const toggleOption = useCallback((optionName: keyof GenerationOptions, checked: boolean) => {
 		dispatch({ type: 'toggle_option', optionName, checked });
@@ -465,23 +389,24 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 	}, []);
 
 	const copyToClipboard = useCallback(async () => {
-		if (!generationResult) {
+		const copyResult = await copyGeneratedScript(clipboardPort, generationResult);
+		if (copyResult.kind === 'copied') {
+			setStatus('Copied!', 'success');
+			return;
+		}
+
+		if (copyResult.kind === 'missing_generation') {
 			setStatus('No script data loaded yet.', 'error');
 			return;
 		}
 
-		try {
-			await navigator.clipboard.writeText(JSON.stringify(generationResult.script, null, 2));
-			setStatus('Copied!', 'success');
-		} catch (error: unknown) {
-			setStatus(error instanceof Error ? error.message : 'Copy failed.', 'error');
-		}
+		setStatus(copyResult.error.message, 'error');
 	}, [generationResult, setStatus]);
 
 	useEffect(() => {
 		void reload();
 		return () => {
-			activeLoadController.current?.abort();
+			catalogLoadingService.dispose();
 		};
 	}, [reload]);
 
@@ -495,7 +420,7 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 			.filter((character) => !state.selectedCharacterIds.has(character.id))
 			.map((character) => character.id);
 
-		saveStoredPreferences({
+		savePreferences(preferencesRepository, {
 			options: state.options,
 			bannedCharacterIds,
 			greedierSortBySet: state.greedierSortBySet,

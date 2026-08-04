@@ -2,7 +2,14 @@ import React, { useMemo } from 'react';
 import type { SelectableCharacter } from '../../../types.js';
 import { COMMON_BANNED_CHARACTER_ID_SET, POPULAR_GREEDIER_CHARACTER_ID_SET } from '../../../characterPolicy.js';
 import { compareCanonicalCharacterOrder } from '../../../jinxOrder.js';
-import { useAppActions, useAppState } from '../../context/AppContext.js';
+import { useAppActions } from '../../context/AppContext.js';
+import {
+	useCharacterView,
+	useGenerationDerivedState,
+	useIsLoading,
+	usePreferencesView,
+	useSelectedCharacterIds,
+} from '../../context/selectors.js';
 import { Switch } from '../../components/Switch.js';
 import { TeamLabel } from '../../shared/TeamLabel.js';
 
@@ -27,6 +34,8 @@ type CharacterListProps = {
 	id: string;
 	className: string;
 	characters: SelectableCharacter[];
+	selectedCharacterIds: ReadonlySet<string>;
+	unsatisfiedDependencyCharacterIds: ReadonlySet<string>;
 	emptyText: string;
 	isQuickRemove: boolean;
 	showTeamSubtitle?: boolean;
@@ -86,8 +95,16 @@ function CharacterCard(props: CharacterCardProps): React.JSX.Element {
 }
 
 function CharacterList(props: CharacterListProps): React.JSX.Element {
-	const { id, className, characters, emptyText, isQuickRemove, showTeamSubtitle = true } = props;
-	const state = useAppState();
+	const {
+		id,
+		className,
+		characters,
+		selectedCharacterIds,
+		unsatisfiedDependencyCharacterIds,
+		emptyText,
+		isQuickRemove,
+		showTeamSubtitle = true,
+	} = props;
 	const actions = useAppActions();
 
 	if (characters.length === 0) {
@@ -101,9 +118,9 @@ function CharacterList(props: CharacterListProps): React.JSX.Element {
 	return (
 		<div id={id} className={className}>
 			{characters.map((character) => {
-				const isSelected = state.selectedCharacterIds.has(character.id);
+				const isSelected = selectedCharacterIds.has(character.id);
 				const hasMissingDependencies =
-					isSelected && state.unsatisfiedDependencyCharacterIds.has(character.id);
+					isSelected && unsatisfiedDependencyCharacterIds.has(character.id);
 
 				return (
 					<CharacterCard
@@ -124,11 +141,16 @@ function CharacterList(props: CharacterListProps): React.JSX.Element {
 }
 
 export function CharactersPanel(): React.JSX.Element {
-	const state = useAppState();
 	const actions = useAppActions();
+	const loading = useIsLoading();
+	const { baseCharacters: baseCharactersFromState, greedierCharacters: greedierCharactersFromState } =
+		useCharacterView();
+	const { options, greedierSortBySet } = usePreferencesView();
+	const { unsatisfiedDependencyCharacterIds } = useGenerationDerivedState();
+	const selectedCharacterIds = useSelectedCharacterIds();
 	const { quickRemove, remaining: baseCharacters } = useMemo(
-		() => splitCharactersByCommonBans(state.baseCharacters),
-		[state.baseCharacters],
+		() => splitCharactersByCommonBans(baseCharactersFromState),
+		[baseCharactersFromState],
 	);
 	const popularGreedierCharacterIdSet = useMemo(
 		() => POPULAR_GREEDIER_CHARACTER_ID_SET,
@@ -136,23 +158,29 @@ export function CharactersPanel(): React.JSX.Element {
 	);
 	const greedierCharacters = useMemo(
 		() => {
-			if (!state.options.addGreedierHomebrew) {
+			if (!options.addGreedierHomebrew) {
 				return [];
 			}
 
-			if (state.greedierSortBySet) {
-				return state.greedierCharacters;
+			if (greedierSortBySet) {
+				return greedierCharactersFromState;
 			}
 
-			return [...state.greedierCharacters].sort(compareCanonicalCharacterOrder);
+			return [...greedierCharactersFromState].sort(compareCanonicalCharacterOrder);
 		},
-		[state.greedierCharacters, state.greedierSortBySet, state.options.addGreedierHomebrew],
+		[greedierCharactersFromState, greedierSortBySet, options.addGreedierHomebrew],
 	);
 
 	const setGreedierSelection = (isSelected: (characterId: string) => boolean): void => {
+		const nextSelected = new Set(selectedCharacterIds);
 		for (const character of greedierCharacters) {
-			actions.toggleCharacter(character.id, isSelected(character.id));
+			if (isSelected(character.id)) {
+				nextSelected.add(character.id);
+			} else {
+				nextSelected.delete(character.id);
+			}
 		}
+		actions.setSelectedCharacterIds(nextSelected);
 	};
 
 	return (
@@ -165,7 +193,9 @@ export function CharactersPanel(): React.JSX.Element {
 					id="quick-remove-list"
 					className="character-list quick-remove-list"
 					characters={quickRemove}
-					emptyText={state.loading ? 'Loading quick removals...' : 'No common bans in this script.'}
+					selectedCharacterIds={selectedCharacterIds}
+					unsatisfiedDependencyCharacterIds={unsatisfiedDependencyCharacterIds}
+					emptyText={loading ? 'Loading quick removals...' : 'No common bans in this script.'}
 					isQuickRemove
 				/>
 			</div>
@@ -206,7 +236,7 @@ export function CharactersPanel(): React.JSX.Element {
 							<Switch
 								id="greedier-sort-by-set-characters"
 								name="greedier-sort-by-set-characters"
-								checked={state.greedierSortBySet}
+								checked={greedierSortBySet}
 								onChange={(event) => {
 									actions.setGreedierSortBySet(event.currentTarget.checked);
 								}}
@@ -217,6 +247,8 @@ export function CharactersPanel(): React.JSX.Element {
 						id="greedier-character-list"
 						className="character-list"
 						characters={greedierCharacters}
+						selectedCharacterIds={selectedCharacterIds}
+						unsatisfiedDependencyCharacterIds={unsatisfiedDependencyCharacterIds}
 						emptyText="No greedier homebrew characters available."
 						isQuickRemove={false}
 					/>
@@ -226,7 +258,9 @@ export function CharactersPanel(): React.JSX.Element {
 				id="character-list"
 				className="character-list"
 				characters={baseCharacters}
-				emptyText={state.loading ? 'Loading base characters...' : 'No base characters available.'}
+				selectedCharacterIds={selectedCharacterIds}
+				unsatisfiedDependencyCharacterIds={unsatisfiedDependencyCharacterIds}
+				emptyText={loading ? 'Loading base characters...' : 'No base characters available.'}
 				isQuickRemove={false}
 			/>
 		</section>

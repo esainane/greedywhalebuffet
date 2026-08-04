@@ -6,7 +6,8 @@ import { CharacterHeader } from './CharacterHeader.js';
 import { DetailListState } from './DetailListState.js';
 import { ReferenceCard } from './ReferenceCard.js';
 import { Switch } from '../../components/Switch.js';
-import { useAppActions, useAppState } from '../../context/AppContext.js';
+import { useAppActions } from '../../context/AppContext.js';
+import { usePreferencesView } from '../../context/selectors.js';
 
 type GreedyHomebrewDetailProps = {
 	items: GreedyHomebrewDetail[];
@@ -15,7 +16,7 @@ type GreedyHomebrewDetailProps = {
 
 export function GreedyHomebrewDetail(props: GreedyHomebrewDetailProps): React.JSX.Element {
 	const { items, loading } = props;
-	const state = useAppState();
+	const { greedierSortBySet } = usePreferencesView();
 	const actions = useAppActions();
 
 	return (
@@ -31,7 +32,7 @@ export function GreedyHomebrewDetail(props: GreedyHomebrewDetailProps): React.JS
 					<Switch
 						id="greedier-sort-by-set-detail"
 						name="greedier-sort-by-set-detail"
-						checked={state.greedierSortBySet}
+						checked={greedierSortBySet}
 						onChange={(event) => {
 							actions.setGreedierSortBySet(event.currentTarget.checked);
 						}}

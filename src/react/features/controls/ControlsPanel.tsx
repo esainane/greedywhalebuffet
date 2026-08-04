@@ -4,7 +4,15 @@ import type { GenerationOptions } from '../../../types.js';
 import type { GenerationOptionName } from '../../../options.js';
 import { GENERATION_OPTIONS, getOptionDependencies } from '../../../options.js';
 import { Switch } from '../../components/Switch.js';
-import { useAppActions, useAppState } from '../../context/AppContext.js';
+import { useAppActions } from '../../context/AppContext.js';
+import {
+	useCharacterView,
+	useGenerationDerivedState,
+	useIsLoading,
+	usePreferencesView,
+	useSelectedCharacterIds,
+	useStatus,
+} from '../../context/selectors.js';
 
 type TooltipPosition = {
 	top: number;
@@ -183,18 +191,22 @@ function optionIsEnabled(optionName: GenerationOptionName, options: GenerationOp
 }
 
 export function ControlsPanel(): React.JSX.Element {
-	const state = useAppState();
 	const actions = useAppActions();
-	const displayedScriptName = state.generationResult?.scriptName ?? state.scriptName;
-	const availableCharacterCount = state.characters.length;
-	const enabledVisibleCharacterCount = state.characters.filter((character) =>
-		state.selectedCharacterIds.has(character.id),
+	const loading = useIsLoading();
+	const status = useStatus();
+	const { displayScriptName: displayedScriptName, unsatisfiedDependencyCharacterIds } = useGenerationDerivedState();
+	const { visibleCharacters: characters } = useCharacterView();
+	const { options } = usePreferencesView();
+	const selectedCharacterIds = useSelectedCharacterIds();
+	const availableCharacterCount = characters.length;
+	const enabledVisibleCharacterCount = characters.filter((character) =>
+		selectedCharacterIds.has(character.id),
 	).length;
 	const deselectedCharacterCount = availableCharacterCount - enabledVisibleCharacterCount;
-	const dependencyRemovedCharacterCount = state.characters.filter(
+	const dependencyRemovedCharacterCount = characters.filter(
 		(character) =>
-			state.selectedCharacterIds.has(character.id) &&
-			state.unsatisfiedDependencyCharacterIds.has(character.id),
+			selectedCharacterIds.has(character.id) &&
+			unsatisfiedDependencyCharacterIds.has(character.id),
 	).length;
 
 	const onSubmit = useCallback(
@@ -224,14 +236,14 @@ export function ControlsPanel(): React.JSX.Element {
 				<section className="status-copy-panel">
 					<form id="copy-form" className="copy-form" onSubmit={onSubmit}>
 						<div className="actions">
-							<button id="copy-button" type="submit" disabled={state.loading}>
+							<button id="copy-button" type="submit" disabled={loading}>
 								Copy JSON to clipboard
 							</button>
 							<button
 								id="reload-button"
 								type="button"
 								className="secondary"
-								disabled={state.loading}
+								disabled={loading}
 								onClick={onReload}
 							>
 								Reload
@@ -240,7 +252,7 @@ export function ControlsPanel(): React.JSX.Element {
 								id="reset-button"
 								type="button"
 								className="danger"
-								disabled={state.loading}
+								disabled={loading}
 								onClick={onReset}
 							>
 								Reset
@@ -271,8 +283,8 @@ export function ControlsPanel(): React.JSX.Element {
 						</div>
 					</dl>
 
-					<p id="status" className="status" data-tone={state.statusTone} aria-live="polite">
-						{state.status}
+					<p id="status" className="status" data-tone={status.tone} aria-live="polite">
+						{status.message}
 					</p>
 				</section>
 
@@ -280,8 +292,8 @@ export function ControlsPanel(): React.JSX.Element {
 					<p className="eyebrow">Options</p>
 					<form className="copy-form">
 						{GENERATION_OPTIONS.map((option) => {
-							const checked = state.options[option.name];
-							const isEnabled = optionIsEnabled(option.name, state.options);
+							const checked = options[option.name];
+							const isEnabled = optionIsEnabled(option.name, options);
 							const optionLabelId = `${option.id}-label`;
 
 							return (

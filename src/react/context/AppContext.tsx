@@ -1,8 +1,7 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useReducer } from 'react';
-import type { SelectableCharacter, GenerationOptions, GenerationResult } from '../../types.js';
+import type { GenerationOptions, GenerationResult } from '../../types.js';
 import type { Catalog } from '../../data/catalog.js';
 import {
-	defaultGenerationOptions,
 	getDependentOptionNames,
 } from '../../options.js';
 import {
@@ -10,14 +9,15 @@ import {
 	createLocalStoragePreferencesRepository,
 	createNavigatorClipboardPort,
 } from '../../application/browser-adapters.js';
+import { defaultPreferences, type Preferences } from '../../application/preferences.js';
 import {
 	CatalogLoadingService,
 	catalogToViewModel,
 	copyGeneratedScript,
-	generateScript,
 	loadPreferences,
 	savePreferences,
 } from '../../application/services.js';
+import { selectCharacterView, selectGenerationResult } from './state-selectors.js';
 
 const PREFERENCES_STORAGE_KEY = 'gwb:preferences:v1';
 
@@ -25,35 +25,33 @@ const preferencesRepository = createLocalStoragePreferencesRepository(PREFERENCE
 const catalogLoadingService = new CatalogLoadingService(createBrowserCatalogRepository());
 const clipboardPort = createNavigatorClipboardPort();
 
-type StatusTone = 'info' | 'success' | 'error';
+export type StatusTone = 'info' | 'success' | 'error';
 
-type AppState = {
-	loading: boolean;
-	status: string;
-	statusTone: StatusTone;
-	scriptName: string;
-	lastLoadedAt: number | null;
-	usingStaleData: boolean;
-	catalog: Catalog | null;
-	baseCharacters: SelectableCharacter[];
-	greedierCharacters: SelectableCharacter[];
-	characters: SelectableCharacter[];
-	selectedCharacterIds: Set<string>;
-	generationResult: GenerationResult | null;
-	unsatisfiedDependencyCharacterIds: Set<string>;
-	options: GenerationOptions;
-	greedierSortBySet: boolean;
+export type CatalogLoadState =
+	| { kind: 'loading' }
+	| { kind: 'ready'; catalog: Catalog; loadedAt: number }
+	| { kind: 'stale'; catalog: Catalog; loadedAt: number; errorMessage: string }
+	| { kind: 'error'; message: string };
+
+export type Notification = {
+	message: string;
+	tone: StatusTone;
 };
 
-type AppAction =
-	| { type: 'load_start'; status: string }
+export type AppSourceState = {
+	catalogLoad: CatalogLoadState;
+	preferences: Preferences;
+	selectedCharacterIds: Set<string>;
+	notification: Notification | null;
+};
+
+export type AppAction =
+	| { type: 'load_start' }
 	| {
 			type: 'load_success';
 			loadedAt: number;
 			catalog: Catalog;
-			scriptName: string;
-			baseCharacters: SelectableCharacter[];
-			greedierCharacters: SelectableCharacter[];
+			allCharacterIds: readonly string[];
 			bannedCharacterIds: Set<string>;
 	  }
 	| { type: 'load_stale'; message: string }
@@ -62,49 +60,30 @@ type AppAction =
 	| { type: 'reset_preferences' }
 	| { type: 'set_greedier_sort_by_set'; checked: boolean }
 	| { type: 'toggle_option'; optionName: keyof GenerationOptions; checked: boolean }
+	| { type: 'set_selected_character_ids'; selectedCharacterIds: ReadonlySet<string> }
 	| { type: 'toggle_character'; id: string; checked: boolean };
 
-type AppActions = {
+export type AppActions = {
 	reload: () => Promise<void>;
-	setStatus: (message: string, tone?: StatusTone) => void;
 	resetPreferences: () => void;
 	setGreedierSortBySet: (checked: boolean) => void;
 	toggleOption: (optionName: keyof GenerationOptions, checked: boolean) => void;
+	setSelectedCharacterIds: (selectedCharacterIds: ReadonlySet<string>) => void;
 	toggleCharacter: (id: string, checked: boolean) => void;
 	copyToClipboard: () => Promise<void>;
 };
 
 const storedPreferencesAtStartup = loadPreferences(preferencesRepository).preferences;
 
-const initialState: AppState = {
-	loading: true,
-	status: 'Loading latest script...',
-	statusTone: 'info',
-	scriptName: 'Loading...',
-	lastLoadedAt: null,
-	usingStaleData: false,
-	catalog: null,
-	baseCharacters: [],
-	greedierCharacters: [],
-	characters: [],
+export const initialSourceState: AppSourceState = {
+	catalogLoad: { kind: 'loading' },
+	preferences: storedPreferencesAtStartup,
 	selectedCharacterIds: new Set<string>(),
-	generationResult: null,
-	unsatisfiedDependencyCharacterIds: new Set<string>(),
-	options: storedPreferencesAtStartup.options,
-	greedierSortBySet: storedPreferencesAtStartup.greedierSortBySet,
+	notification: {
+		message: 'Loading latest script...',
+		tone: 'info',
+	},
 };
-
-function buildCharacterPool(
-	baseCharacters: SelectableCharacter[],
-	greedierCharacters: SelectableCharacter[],
-	options: GenerationOptions,
-): SelectableCharacter[] {
-	if (!options.addGreedierHomebrew) {
-		return baseCharacters;
-	}
-
-	return [...baseCharacters, ...greedierCharacters];
-}
 
 function formatLoadTime(timestamp: number): string {
 	return new Date(timestamp).toLocaleTimeString([], {
@@ -134,127 +113,123 @@ function applyDependentOptionRules(
 	return adjusted;
 }
 
-function appReducer(state: AppState, action: AppAction): AppState {
+export function appReducer(state: AppSourceState, action: AppAction): AppSourceState {
 	switch (action.type) {
 		case 'load_start': {
 			return {
 				...state,
-				loading: true,
-				status: action.status,
-				statusTone: 'info',
+				catalogLoad: { kind: 'loading' },
+				notification: {
+					message: 'Loading latest script...',
+					tone: 'info',
+				},
 			};
 		}
 		case 'load_success': {
-			const allCharacters = [...action.baseCharacters, ...action.greedierCharacters];
-			const characters = buildCharacterPool(
-				action.baseCharacters,
-				action.greedierCharacters,
-				state.options,
-			);
 			const selectedCharacterIds = new Set(
-				allCharacters
-					.map((character) => character.id)
-					.filter((characterId) => !action.bannedCharacterIds.has(characterId)),
+				action.allCharacterIds.filter((characterId) => !action.bannedCharacterIds.has(characterId)),
 			);
 			return {
 				...state,
-				loading: false,
-				status: 'Script loaded.',
-				statusTone: 'success',
-				scriptName: action.scriptName,
-				lastLoadedAt: action.loadedAt,
-				usingStaleData: false,
-				catalog: action.catalog,
-				baseCharacters: action.baseCharacters,
-				greedierCharacters: action.greedierCharacters,
-				characters,
+				catalogLoad: {
+					kind: 'ready',
+					catalog: action.catalog,
+					loadedAt: action.loadedAt,
+				},
 				selectedCharacterIds,
+				notification: {
+					message: 'Script loaded.',
+					tone: 'success',
+				},
 			};
 		}
 		case 'load_stale': {
+			if (state.catalogLoad.kind !== 'ready') {
+				return state;
+			}
+
 			return {
 				...state,
-				loading: false,
-				status: action.message,
-				statusTone: 'error',
-				usingStaleData: true,
+				catalogLoad: {
+					kind: 'stale',
+					catalog: state.catalogLoad.catalog,
+					loadedAt: state.catalogLoad.loadedAt,
+					errorMessage: action.message,
+				},
+				notification: {
+					message: action.message,
+					tone: 'error',
+				},
 			};
 		}
 		case 'load_error': {
 			return {
 				...state,
-				loading: false,
-				status: `Initial load failed: ${action.message}`,
-				statusTone: 'error',
-				scriptName: 'Unavailable',
-				lastLoadedAt: null,
-				usingStaleData: false,
-				catalog: null,
-				baseCharacters: [],
-				greedierCharacters: [],
-				characters: [],
+				catalogLoad: {
+					kind: 'error',
+					message: action.message,
+				},
 				selectedCharacterIds: new Set<string>(),
+				notification: {
+					message: `Initial load failed: ${action.message}`,
+					tone: 'error',
+				},
 			};
 		}
 		case 'set_status': {
 			return {
 				...state,
-				status: action.message,
-				statusTone: action.tone,
+				notification: {
+					message: action.message,
+					tone: action.tone,
+				},
 			};
 		}
 		case 'reset_preferences': {
-			const options = defaultGenerationOptions();
-			const characters = buildCharacterPool(state.baseCharacters, state.greedierCharacters, options);
-			const allCharacterIds = [...state.baseCharacters, ...state.greedierCharacters].map(
-				(character) => character.id,
-			);
+			const nextPreferences = defaultPreferences();
+			const catalogView =
+				state.catalogLoad.kind === 'ready' || state.catalogLoad.kind === 'stale'
+					? catalogToViewModel(state.catalogLoad.catalog)
+					: null;
+			const allCharacterIds = catalogView
+				? [...catalogView.baseCharacters, ...catalogView.greedierCharacters].map((character) => character.id)
+				: [];
 
 			return {
 				...state,
-				status: 'Preferences reset to defaults.',
-				statusTone: 'success',
-				options,
-				greedierSortBySet: true,
-				characters,
+				preferences: nextPreferences,
 				selectedCharacterIds: new Set(allCharacterIds),
+				notification: {
+					message: 'Preferences reset to defaults.',
+					tone: 'success',
+				},
 			};
 		}
 		case 'set_greedier_sort_by_set': {
 			return {
 				...state,
-				greedierSortBySet: action.checked,
+				preferences: {
+					...state.preferences,
+					greedierSortBySet: action.checked,
+				},
 			};
 		}
 		case 'toggle_option': {
-			const nextOptions = { ...state.options, [action.optionName]: action.checked };
+			const nextOptions = { ...state.preferences.options, [action.optionName]: action.checked };
 			const adjustedOptions = applyDependentOptionRules(nextOptions, action.optionName, action.checked);
 
-			if (action.optionName !== 'addGreedierHomebrew') {
-				return {
-					...state,
-					options: adjustedOptions,
-				};
-			}
-
-			if (adjustedOptions.addGreedierHomebrew) {
-				const nextCharacters = buildCharacterPool(
-					state.baseCharacters,
-					state.greedierCharacters,
-					adjustedOptions,
-				);
-				return {
-					...state,
-					options: adjustedOptions,
-					characters: nextCharacters,
-					selectedCharacterIds: new Set(state.selectedCharacterIds),
-				};
-			}
 			return {
 				...state,
-				options: adjustedOptions,
-				characters: state.baseCharacters,
-				selectedCharacterIds: new Set(state.selectedCharacterIds),
+				preferences: {
+					...state.preferences,
+					options: adjustedOptions,
+				},
+			};
+		}
+		case 'set_selected_character_ids': {
+			return {
+				...state,
+				selectedCharacterIds: new Set(action.selectedCharacterIds),
 			};
 		}
 		case 'toggle_character': {
@@ -274,13 +249,51 @@ function appReducer(state: AppState, action: AppAction): AppState {
 	}
 }
 
-const AppStateContext = createContext<AppState | null>(null);
+const CatalogLoadContext = createContext<CatalogLoadState | null>(null);
+const PreferencesContext = createContext<Preferences | null>(null);
+const SelectedCharacterIdsContext = createContext<Set<string> | null>(null);
+const MISSING_NOTIFICATION = Symbol('missing_notification_context');
+const NotificationContext = createContext<Notification | null | typeof MISSING_NOTIFICATION>(
+	MISSING_NOTIFICATION,
+);
 const AppActionsContext = createContext<AppActions | null>(null);
 
-export function useAppState(): AppState {
-	const context = useContext(AppStateContext);
+function deriveCatalog(catalogLoad: CatalogLoadState): Catalog | null {
+	if (catalogLoad.kind === 'ready' || catalogLoad.kind === 'stale') {
+		return catalogLoad.catalog;
+	}
+
+	return null;
+}
+
+export function useCatalogLoadState(): CatalogLoadState {
+	const context = useContext(CatalogLoadContext);
 	if (!context) {
-		throw new Error('useAppState must be used inside AppStateContext provider.');
+		throw new Error('useCatalogLoadState must be used inside AppProvider.');
+	}
+	return context;
+}
+
+export function usePreferencesState(): Preferences {
+	const context = useContext(PreferencesContext);
+	if (!context) {
+		throw new Error('usePreferencesState must be used inside AppProvider.');
+	}
+	return context;
+}
+
+export function useSelectedCharacterIdsState(): Set<string> {
+	const context = useContext(SelectedCharacterIdsContext);
+	if (!context) {
+		throw new Error('useSelectedCharacterIdsState must be used inside AppProvider.');
+	}
+	return context;
+}
+
+export function useNotificationState(): Notification | null {
+	const context = useContext(NotificationContext);
+	if (context === MISSING_NOTIFICATION) {
+		throw new Error('useNotificationState must be used inside AppProvider.');
 	}
 	return context;
 }
@@ -299,41 +312,19 @@ type AppProviderProps = {
 
 export function AppProvider(props: AppProviderProps): React.JSX.Element {
 	const { children } = props;
-	const [state, dispatch] = useReducer(appReducer, initialState);
-	const generationResult = useMemo(() => {
-		if (!state.catalog) {
-			return null;
-		}
-
-		const generated = generateScript(
-			{ selectedCharacterIds: state.selectedCharacterIds, options: state.options },
-			state.catalog,
-		);
-		return generated.kind === 'success' ? generated.result : null;
-	}, [state.catalog, state.options, state.selectedCharacterIds]);
-	const unsatisfiedDependencyCharacterIds = useMemo(() => {
-		if (!generationResult) {
-			return new Set<string>();
-		}
-
-		return new Set(generationResult.diagnostics.map((d) => d.characterId));
-	}, [generationResult]);
-
-	const appState = useMemo<AppState>(
-		() => ({
-			...state,
-			generationResult,
-			unsatisfiedDependencyCharacterIds,
-		}),
-		[state, generationResult, unsatisfiedDependencyCharacterIds],
-	);
+	const [state, dispatch] = useReducer(appReducer, initialSourceState);
+	const catalog = useMemo(() => deriveCatalog(state.catalogLoad), [state.catalogLoad]);
+	const options = state.preferences.options;
+	const greedierSortBySet = state.preferences.greedierSortBySet;
+	const generationResult = useMemo<GenerationResult | null>(() => selectGenerationResult(state), [state]);
+	const { baseCharacters, greedierCharacters } = useMemo(() => selectCharacterView(state), [state]);
 
 	const setStatus = useCallback((message: string, tone: StatusTone = 'info') => {
 		dispatch({ type: 'set_status', message, tone });
 	}, []);
 
 	const reload = useCallback(async () => {
-		dispatch({ type: 'load_start', status: 'Loading latest script...' });
+		dispatch({ type: 'load_start' });
 		const loadResult = await catalogLoadingService.reload();
 		if (loadResult.kind === 'aborted') {
 			return;
@@ -348,15 +339,14 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 		}
 
 		const preferencesResult = loadPreferences(preferencesRepository);
-		const { scriptName, baseCharacters, greedierCharacters } = catalogToViewModel(loadResult.catalog);
+		const { baseCharacters, greedierCharacters } = catalogToViewModel(loadResult.catalog);
+		const allCharacterIds = [...baseCharacters, ...greedierCharacters].map((character) => character.id);
 
 		dispatch({
 			type: 'load_success',
 			loadedAt: loadResult.loadedAt,
 			catalog: loadResult.catalog,
-			scriptName,
-			baseCharacters,
-			greedierCharacters,
+			allCharacterIds,
 			bannedCharacterIds: new Set(preferencesResult.preferences.bannedCharacterIds),
 		});
 
@@ -374,6 +364,10 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 
 	const toggleOption = useCallback((optionName: keyof GenerationOptions, checked: boolean) => {
 		dispatch({ type: 'toggle_option', optionName, checked });
+	}, []);
+
+	const setSelectedCharacterIds = useCallback((selectedCharacterIds: ReadonlySet<string>) => {
+		dispatch({ type: 'set_selected_character_ids', selectedCharacterIds });
 	}, []);
 
 	const setGreedierSortBySet = useCallback((checked: boolean) => {
@@ -411,29 +405,35 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 	}, [reload]);
 
 	useEffect(() => {
-		if (!state.catalog) {
+		if (!catalog) {
 			return;
 		}
-
-		const allKnownCharacters = [...state.baseCharacters, ...state.greedierCharacters];
+		const allKnownCharacters = [...baseCharacters, ...greedierCharacters];
 		const bannedCharacterIds = allKnownCharacters
 			.filter((character) => !state.selectedCharacterIds.has(character.id))
 			.map((character) => character.id);
 
 		savePreferences(preferencesRepository, {
-			options: state.options,
+			options,
 			bannedCharacterIds,
-			greedierSortBySet: state.greedierSortBySet,
+			greedierSortBySet,
 		});
-	}, [state.catalog, state.greedierSortBySet, state.options, state.selectedCharacterIds]);
+	}, [
+		baseCharacters,
+		catalog,
+		greedierCharacters,
+		greedierSortBySet,
+		options,
+		state.selectedCharacterIds,
+	]);
 
 	const actions = useMemo<AppActions>(
 		() => ({
 			reload,
-			setStatus,
 			resetPreferences,
 			setGreedierSortBySet,
 			toggleOption,
+			setSelectedCharacterIds,
 			toggleCharacter,
 			copyToClipboard,
 		}),
@@ -441,16 +441,22 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 			copyToClipboard,
 			reload,
 			resetPreferences,
+			setSelectedCharacterIds,
 			setGreedierSortBySet,
-			setStatus,
 			toggleCharacter,
 			toggleOption,
 		],
 	);
 
 	return (
-		<AppStateContext.Provider value={appState}>
-			<AppActionsContext.Provider value={actions}>{children}</AppActionsContext.Provider>
-		</AppStateContext.Provider>
+		<CatalogLoadContext.Provider value={state.catalogLoad}>
+			<PreferencesContext.Provider value={state.preferences}>
+				<SelectedCharacterIdsContext.Provider value={state.selectedCharacterIds}>
+					<NotificationContext.Provider value={state.notification}>
+						<AppActionsContext.Provider value={actions}>{children}</AppActionsContext.Provider>
+					</NotificationContext.Provider>
+				</SelectedCharacterIdsContext.Provider>
+			</PreferencesContext.Provider>
+		</CatalogLoadContext.Provider>
 	);
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import type { GreedyJinxDetail } from './greedyReferenceData.js';
+import type { GreedyJinxDetail } from '../../../application/reference-queries.js';
 import { InlineWordDiff } from '../../components/InlineWordDiff.js';
 import { AbilityBlock } from './AbilityBlock.js';
 import { CharacterHeader } from './CharacterHeader.js';

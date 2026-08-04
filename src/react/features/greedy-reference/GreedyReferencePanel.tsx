@@ -8,15 +8,17 @@ import {
 	deriveGreedyDifferences,
 	deriveGreedyHomebrew,
 	deriveGreedyJinxes,
-} from './greedyReferenceData.js';
+} from '../../../application/reference-queries.js';
 import { GreedyDifferencesDetail } from './GreedyDifferencesDetail.js';
 import { GreedyJinxesDetail } from './GreedyJinxesDetail.js';
 import { GreedyHomebrewDetail } from './GreedyHomebrewDetail.js';
+import { useAppActions } from '../../context/AppContext.js';
 
 export function GreedyReferencePanel(): React.JSX.Element {
 	const catalog = useCatalog();
 	const loading = useIsLoading();
 	const { options, greedierSortBySet } = usePreferencesView();
+	const actions = useAppActions();
 
 	const details = useMemo(() => {
 		if (!catalog) {
@@ -59,7 +61,12 @@ export function GreedyReferencePanel(): React.JSX.Element {
 			<section id="section-greedier-homebrew" className="panel reference-panel">
 				<p className="eyebrow">Greedier Homebrew</p>
 				<p className="lede">The Greedy community runs community contests for homebrew "Greedier" characters, with a variety of exotic abilities.</p>
-				<GreedyHomebrewDetail items={details.homebrew} loading={loading} />
+				<GreedyHomebrewDetail
+					items={details.homebrew}
+					loading={loading}
+					sortBySet={greedierSortBySet}
+					onSortBySetChange={actions.setGreedierSortBySet}
+				/>
 			</section>
 		</>
 	);

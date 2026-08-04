@@ -1,23 +1,21 @@
 import React from 'react';
-import type { GreedyHomebrewDetail } from './greedyReferenceData.js';
+import type { GreedyHomebrewDetail } from '../../../application/reference-queries.js';
 import { splitAbilityText } from './abilityText.js';
 import { AbilityBlock } from './AbilityBlock.js';
 import { CharacterHeader } from './CharacterHeader.js';
 import { DetailListState } from './DetailListState.js';
 import { ReferenceCard } from './ReferenceCard.js';
 import { Switch } from '../../components/Switch.js';
-import { useAppActions } from '../../context/AppContext.js';
-import { usePreferencesView } from '../../context/selectors.js';
 
 type GreedyHomebrewDetailProps = {
 	items: GreedyHomebrewDetail[];
 	loading: boolean;
+	sortBySet: boolean;
+	onSortBySetChange: (checked: boolean) => void;
 };
 
 export function GreedyHomebrewDetail(props: GreedyHomebrewDetailProps): React.JSX.Element {
-	const { items, loading } = props;
-	const { greedierSortBySet } = usePreferencesView();
-	const actions = useAppActions();
+	const { items, loading, sortBySet, onSortBySetChange } = props;
 
 	return (
 		<DetailListState
@@ -32,9 +30,9 @@ export function GreedyHomebrewDetail(props: GreedyHomebrewDetailProps): React.JS
 					<Switch
 						id="greedier-sort-by-set-detail"
 						name="greedier-sort-by-set-detail"
-						checked={greedierSortBySet}
+						checked={sortBySet}
 						onChange={(event) => {
-							actions.setGreedierSortBySet(event.currentTarget.checked);
+							onSortBySetChange(event.currentTarget.checked);
 						}}
 					/>
 				</label>

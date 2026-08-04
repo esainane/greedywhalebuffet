@@ -1,8 +1,68 @@
 import { describe, expect, it } from 'vitest';
-import { deriveGreedyHomebrew, deriveGreedyJinxes } from './greedyReferenceData.js';
-import { createTestCatalog } from '../../../test-helpers.js';
+import { catalogToViewModel } from './services.js';
+import { deriveGreedyDifferences, deriveGreedyHomebrew, deriveGreedyJinxes } from './reference-queries.js';
+import { createTestCatalog } from '../test-helpers.js';
+
+describe('deriveGreedyDifferences', () => {
+	it('returns changed abilities for filterable roles only', () => {
+		const catalog = createTestCatalog({
+			baseScript: [
+				{ id: '_meta', name: 'Reference Script' },
+				{
+					id: 'alpha_greedy',
+					name: 'Alpha',
+					team: 'townsfolk',
+					ability: 'Greedy Alpha ability',
+				},
+				{
+					id: 'beta_greedy',
+					name: 'Beta',
+					team: 'townsfolk',
+					ability: 'Same Beta ability',
+				},
+			],
+			rolesData: [
+				{
+					id: 'alpha',
+					name: 'Alpha',
+					team: 'townsfolk',
+					ability: 'Official Alpha ability',
+				},
+				{
+					id: 'beta',
+					name: 'Beta',
+					team: 'townsfolk',
+					ability: 'Same Beta ability',
+				},
+			],
+			greedyToBaseID: {
+				alpha_greedy: 'alpha',
+				beta_greedy: 'beta',
+			},
+		});
+
+		const differences = deriveGreedyDifferences(catalog);
+
+		expect(differences.map((entry) => entry.character.id)).toEqual(['alpha_greedy']);
+		expect(differences[0]?.officialAbility).toBe('Official Alpha ability');
+		expect(differences[0]?.greedyAbility).toBe('Greedy Alpha ability');
+	});
+});
 
 describe('deriveGreedyHomebrew', () => {
+	it('matches the shared catalog view model for greedier character projections', () => {
+		const catalog = createTestCatalog({
+			greedierCharactersData: [
+				{ entry: { id: 'omega', name: 'Omega', team: 'demon', ability: 'Omega ability', edition: 'greedier' }, sourceSet: 3 },
+				{ entry: { id: 'alpha', name: 'Alpha', team: 'townsfolk', ability: 'Alpha ability', edition: 'greedier' }, sourceSet: 1 },
+			],
+		});
+
+		expect(deriveGreedyHomebrew(catalog).map((entry) => entry.character)).toEqual(
+			catalogToViewModel(catalog).greedierCharacters,
+		);
+	});
+
 	it('preserves source set order by default', () => {
 		const catalog = createTestCatalog({
 			greedierCharactersData: [

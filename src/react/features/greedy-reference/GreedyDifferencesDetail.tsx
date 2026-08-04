@@ -1,5 +1,5 @@
 import React from 'react';
-import type { GreedyDifferenceDetail } from './greedyReferenceData.js';
+import type { GreedyDifferenceDetail } from '../../../application/reference-queries.js';
 import { InlineWordDiff } from '../../components/InlineWordDiff.js';
 import { splitAbilityText } from './abilityText.js';
 import { AbilityBlock } from './AbilityBlock.js';

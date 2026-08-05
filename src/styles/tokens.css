@@ -1,0 +1,57 @@
+:root {
+	color-scheme: dark;
+	--bg: #0f1418;
+	--bg-mid: #162128;
+	--bg-strong: #1f2d35;
+	--panel: rgba(17, 24, 29, 0.78);
+	--panel-border: rgba(196, 222, 214, 0.14);
+	--text: #edf3ee;
+	--muted: #adc0b8;
+	--accent-light: #3cb091;
+	--accent: #4bc2ae;
+	--accent-strong: #8ce4d6;
+	--success: #2db567;
+	--warning: #f7cf54;
+	--danger: #ff8d6a;
+	--homebrew-purple: #bea7ff;
+	--homebrew-purple-muted: #8870ba;
+	--team-townsfolk: #75b9ff;
+	--team-outsider: #6ee9f5;
+	--team-minion: #ffb064;
+	--team-demon: #ff7878;
+	--surface: rgba(255, 255, 255, 0.05);
+	--surface-strong: rgba(255, 255, 255, 0.08);
+	--surface-border: rgba(196, 222, 214, 0.12);
+	--button-text: #081311;
+	--shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		color-scheme: light;
+		--bg: #f5efe3;
+		--bg-mid: #f9f5ed;
+		--bg-strong: #e8dcc7;
+		--panel: rgba(255, 252, 245, 0.78);
+		--panel-border: rgba(88, 57, 24, 0.16);
+		--text: #2e2216;
+		--muted: #6d5a45;
+		--accent-light: #6ce0d1;
+		--accent: #0d6b5f;
+		--accent-strong: #084b43;
+		--success: #0c8a4a;
+		--warning: #9f7700;
+		--danger: #b74d2c;
+		--homebrew-purple: #6f4bb5;
+		--homebrew-purple-muted: #9f8bcf;
+		--team-townsfolk: #0d66c5;
+		--team-outsider: #007f93;
+		--team-minion: #b85a00;
+		--team-demon: #b4232d;
+		--surface: rgba(255, 255, 255, 0.72);
+		--surface-strong: rgba(255, 255, 255, 0.82);
+		--surface-border: rgba(88, 57, 24, 0.1);
+		--button-text: #f9f5ed;
+		--shadow: 0 24px 70px rgba(75, 49, 22, 0.15);
+	}
+}

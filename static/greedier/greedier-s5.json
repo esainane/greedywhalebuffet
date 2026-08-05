@@ -48,7 +48,7 @@
     "team": "outsider",
     "ability": "On your 1st night, choose a player (not yourself): if they die, you can no longer vote on any nominations, even if you are dead.",
     "flavor": "“We just lost our greatest information.. Evil must be stomping, there’s no more point in trying.”",
-    "firstNight": 70
+    "firstNight": 73
   },
   {
     "id": "chocolatier_winningclub",

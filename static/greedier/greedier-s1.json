@@ -34,7 +34,7 @@
     "team": "minion",
     "ability": "Each night, choose a player: they might receive false night cards. Players who break madness or are publicly disruptive might receive false night cards tonight.",
     "flavor": "Town is towning so hard right now -Nic",
-    "firstNight": 40,
+    "firstNight": 34,
     "otherNight": 6
   },
   {
@@ -43,8 +43,8 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/unfathomable_leftovers_whoops.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/unfathomable_g_leftovers_whoops.png"
     ],
-    "firstNightReminder": "The Unfathomable chooses a player. :reminder: Deaths are arbitrary.",
-    "otherNightReminder": "The Unfathomable chooses a player. :reminder: Deaths are arbitrary.",
+    "firstNightReminder": "The Unfathomable chooses a player. :reminder: Put the Unfathomable to sleep. Wake the chosen player. Show the *THIS CHARACTER SELECTED YOU* & Unfathomable tokens. Communicate for as long as the chosen player needs. Deaths are arbitrary.",
+    "otherNightReminder": "The Unfathomable chooses a player. :reminder: Put the Unfathomable to sleep. Wake the chosen player. Show the *THIS CHARACTER SELECTED YOU* & Unfathomable tokens. Communicate for as long as the chosen player needs. Deaths are arbitrary.",
     "reminders": [
       "Dead",
       "Dead",
@@ -58,7 +58,7 @@
     "team": "demon",
     "ability": "Each night, you may choose a player to guide the Storyteller's decisions. Deaths each night are arbitrary.",
     "flavor": "Your destiny is held firm no longer.",
-    "firstNight": 11,
+    "firstNight": 10,
     "otherNight": 5
   }
 ]

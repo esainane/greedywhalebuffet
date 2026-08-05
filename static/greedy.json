@@ -1260,8 +1260,8 @@
     "team": "fabled",
     "ability": "During setup, a player may choose Dealer's Choice to allow the Storyteller to assign them any character. They may still describe the style of character they would prefer, or name anything they do not want.",
     "flavor": "I got $5 saying Iceni is the Wraith. $20 saying he's the King.",
-    "firstNight": 24,
-    "firstNightReminder": "OPTIONAL: Ask evil players what they plan to bluff as. This is an open chance to collect claims for the Dreamer or similar abilities. You may not do this at any other time.",
+    "firstNight": 23,
+    "firstNightReminder": "Skip bluffs in Demon info. Ask all evil players what they plan to mechanically bluff as, for the Dreamer, similar abilities, or what droisoning should reinforce.",
     "reminders": [
       "2 Votes",
       "2 Votes",

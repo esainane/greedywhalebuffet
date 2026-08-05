@@ -11,7 +11,7 @@
     "team": "minion",
     "ability": "You start knowing 5 out-of-play characters. Each night, choose one of them: you have its ability & might register as it would until dusk.",
     "flavor": "For shame! How dare you accuse me of being a mischievous fox spirit when I have been nothing but loyal as your… uhm, baker? Wait, no, I misspoke, I’m a fisherwoman.",
-    "firstNight": 26,
+    "firstNight": 30,
     "otherNight": 16,
     "remindersGlobal": [
       "Is the Huli Jing"

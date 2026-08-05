@@ -1,9 +1,25 @@
+import React from 'react';
 import { describe, expect, it } from 'vitest';
-import { buildInlineWordDiffRuns } from './InlineWordDiff.js';
+import { renderToStaticMarkup } from 'react-dom/server';
+import { buildInlineWordDiffRuns, InlineWordDiff } from './InlineWordDiff.js';
 
 describe('buildInlineWordDiffRuns', () => {
 	it('returns empty for empty inputs', () => {
 		expect(buildInlineWordDiffRuns('', '')).toEqual([]);
+	});
+
+	it('renders empty fallback as inline content', () => {
+		const html = renderToStaticMarkup(
+			React.createElement(InlineWordDiff, {
+				before: '',
+				after: '',
+				emptyText: 'No text available.',
+			}),
+		);
+
+		expect(html.startsWith('<span')).toBe(true);
+		expect(html).toContain('No text available.');
+		expect(html).not.toContain('<p');
 	});
 
 	it('keeps unchanged punctuation outside highlighted word changes', () => {

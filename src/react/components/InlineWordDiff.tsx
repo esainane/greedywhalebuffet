@@ -270,13 +270,14 @@ function collapseWhitespaceEditClusters(runs: DiffRun[]): DiffRun[] {
 export function InlineWordDiff(props: InlineWordDiffProps): React.JSX.Element {
 	const { before, after, emptyText = 'No text available.' } = props;
 	const diffOps = buildInlineWordDiffRuns(before, after);
+	const className = `inline-word-diff${props.extraClassNames ? ` ${props.extraClassNames}` : ''}`;
 
 	if (diffOps.length === 0) {
-		return <p>{emptyText}</p>;
+		return <span className={className}>{emptyText}</span>;
 	}
 
 	return (
-		<span className={`inline-word-diff${props.extraClassNames ? ` ${props.extraClassNames}` : ''}`}>
+		<span className={className}>
 			{diffOps.map((op, index) => (
 				<React.Fragment key={`${op.type}-${op.text}-${index}`}>
 					{op.type === 'equal' ? <span>{op.text}</span> : null}

@@ -697,7 +697,12 @@ button.danger:focus-visible {
 	border-color: var(--warning);
 }
 
-.character-item input {
+.character-card {
+	display: grid;
+	gap: 0.25rem;
+}
+
+.character-toggle-input {
 	position: absolute;
 	width: 1px;
 	height: 1px;
@@ -707,6 +712,11 @@ button.danger:focus-visible {
 	clip: rect(0, 0, 0, 0);
 	white-space: nowrap;
 	border: 0;
+}
+
+.character-toggle-input:focus-visible + .character-item {
+	border-color: var(--accent);
+	box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent) 30%, transparent);
 }
 
 .character-icon {
@@ -745,6 +755,13 @@ button.danger:focus-visible {
 	letter-spacing: 0.04em;
 	text-transform: uppercase;
 	color: var(--muted);
+}
+
+.character-dependency-message {
+	font-size: 0.68rem;
+	line-height: 1.2;
+	text-align: center;
+	color: var(--warning);
 }
 
 .reference-panel {

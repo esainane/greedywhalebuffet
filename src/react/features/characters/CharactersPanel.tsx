@@ -4,6 +4,7 @@ import { COMMON_BANNED_CHARACTER_ID_SET, POPULAR_GREEDIER_CHARACTER_ID_SET } fro
 import { compareCanonicalCharacterOrder } from '../../../jinxOrder.js';
 import { useAppActions } from '../../context/AppContext.js';
 import {
+	useCatalog,
 	useCharacterView,
 	useGenerationDerivedState,
 	useIsLoading,
@@ -36,6 +37,7 @@ type CharacterListProps = {
 	characters: SelectableCharacter[];
 	selectedCharacterIds: ReadonlySet<string>;
 	unsatisfiedDependencyCharacterIds: ReadonlySet<string>;
+	getMissingDependencyNames: (characterId: string) => readonly string[];
 	emptyText: string;
 	isQuickRemove: boolean;
 	showTeamSubtitle?: boolean;
@@ -44,7 +46,7 @@ type CharacterListProps = {
 type CharacterCardProps = {
 	character: SelectableCharacter;
 	isSelected: boolean;
-	hasMissingDependencies: boolean;
+	missingDependencyNames: readonly string[];
 	isQuickRemove: boolean;
 	showTeamSubtitle: boolean;
 	onToggle: (checked: boolean) => void;
@@ -54,11 +56,15 @@ function CharacterCard(props: CharacterCardProps): React.JSX.Element {
 	const {
 		character,
 		isSelected,
-		hasMissingDependencies,
+		missingDependencyNames,
 		isQuickRemove,
 		showTeamSubtitle,
 		onToggle,
 	} = props;
+	const hasMissingDependencies = missingDependencyNames.length > 0;
+	const checkboxId = `character-toggle-${character.id}`;
+	const labelId = `character-label-${character.id}`;
+	const dependenciesId = `character-dependencies-${character.id}`;
 	const imageSrc =
 		typeof character.imageUrl === 'string'
 			? character.imageUrl
@@ -67,30 +73,41 @@ function CharacterCard(props: CharacterCardProps): React.JSX.Element {
 				: undefined;
 
 	return (
-		<label
-			key={character.id}
-			className={`character-item ${isQuickRemove ? 'quick-remove-item' : ''} ${
-				isSelected ? '' : 'banned'
-			} ${hasMissingDependencies ? 'dependency-missing' : ''}`}
-			title={hasMissingDependencies ? 'Missing required character' : undefined}
-		>
+		<div className="character-card">
 			<input
+				id={checkboxId}
+				className="character-toggle-input"
 				type="checkbox"
 				value={character.id}
 				checked={isSelected}
+				aria-labelledby={labelId}
+				aria-describedby={hasMissingDependencies ? dependenciesId : undefined}
 				onChange={(event) => {
 					onToggle(event.currentTarget.checked);
 				}}
 			/>
-			{imageSrc ? <img src={imageSrc} alt={character.name} className="character-icon" /> : null}
-			<div className="character-label-stack">
-				<span className="character-name">{character.name}</span>
-				{showTeamSubtitle ? <TeamLabel team={character.team} /> : null}
-				{showTeamSubtitle && character.sourceSet ? (
-					<span className="character-subtitle">Set {character.sourceSet}</span>
-				) : null}
-			</div>
-		</label>
+			<label
+				id={labelId}
+				htmlFor={checkboxId}
+				className={`character-item ${isQuickRemove ? 'quick-remove-item' : ''} ${
+					isSelected ? '' : 'banned'
+				} ${hasMissingDependencies ? 'dependency-missing' : ''}`}
+			>
+				{imageSrc ? <img src={imageSrc} alt="" className="character-icon" /> : null}
+				<div className="character-label-stack">
+					<span className="character-name">{character.name}</span>
+					{showTeamSubtitle ? <TeamLabel team={character.team} /> : null}
+					{showTeamSubtitle && character.sourceSet ? (
+						<span className="character-subtitle">Set {character.sourceSet}</span>
+					) : null}
+					{hasMissingDependencies ? (
+						<span id={dependenciesId} className="character-dependency-message">
+							Missing: {missingDependencyNames.join(', ')}
+						</span>
+					) : null}
+				</div>
+			</label>
+		</div>
 	);
 }
 
@@ -101,6 +118,7 @@ function CharacterList(props: CharacterListProps): React.JSX.Element {
 		characters,
 		selectedCharacterIds,
 		unsatisfiedDependencyCharacterIds,
+		getMissingDependencyNames,
 		emptyText,
 		isQuickRemove,
 		showTeamSubtitle = true,
@@ -119,15 +137,17 @@ function CharacterList(props: CharacterListProps): React.JSX.Element {
 		<div id={id} className={className}>
 			{characters.map((character) => {
 				const isSelected = selectedCharacterIds.has(character.id);
-				const hasMissingDependencies =
-					isSelected && unsatisfiedDependencyCharacterIds.has(character.id);
+				const missingDependencyNames =
+					isSelected && unsatisfiedDependencyCharacterIds.has(character.id)
+						? getMissingDependencyNames(character.id)
+						: [];
 
 				return (
 					<CharacterCard
 						key={character.id}
 						character={character}
 						isSelected={isSelected}
-						hasMissingDependencies={hasMissingDependencies}
+						missingDependencyNames={missingDependencyNames}
 						isQuickRemove={isQuickRemove}
 						showTeamSubtitle={showTeamSubtitle}
 						onToggle={(checked) => {
@@ -143,11 +163,27 @@ function CharacterList(props: CharacterListProps): React.JSX.Element {
 export function CharactersPanel(): React.JSX.Element {
 	const actions = useAppActions();
 	const loading = useIsLoading();
+	const catalog = useCatalog();
 	const { baseCharacters: baseCharactersFromState, greedierCharacters: greedierCharactersFromState } =
 		useCharacterView();
 	const { options, greedierSortBySet } = usePreferencesView();
-	const { unsatisfiedDependencyCharacterIds } = useGenerationDerivedState();
+	const { unsatisfiedDependencyCharacterIds, dependencyDiagnostics } = useGenerationDerivedState();
 	const selectedCharacterIds = useSelectedCharacterIds();
+	const dependencyNamesByCharacterId = useMemo(() => {
+		const namesById = new Map<string, readonly string[]>();
+
+		for (const diagnostic of dependencyDiagnostics) {
+			const missingNames = diagnostic.missingDependencyIds.map((missingCharacterId) => {
+				const catalogEntry = catalog?.lookupById(missingCharacterId);
+				return catalogEntry?.entry.name ?? missingCharacterId;
+			});
+			namesById.set(diagnostic.characterId, missingNames);
+		}
+
+		return namesById;
+	}, [catalog, dependencyDiagnostics]);
+	const getMissingDependencyNames = (characterId: string): readonly string[] =>
+		dependencyNamesByCharacterId.get(characterId) ?? [];
 	const { quickRemove, remaining: baseCharacters } = useMemo(
 		() => splitCharactersByCommonBans(baseCharactersFromState),
 		[baseCharactersFromState],
@@ -195,6 +231,7 @@ export function CharactersPanel(): React.JSX.Element {
 					characters={quickRemove}
 					selectedCharacterIds={selectedCharacterIds}
 					unsatisfiedDependencyCharacterIds={unsatisfiedDependencyCharacterIds}
+					getMissingDependencyNames={getMissingDependencyNames}
 					emptyText={loading ? 'Loading quick removals...' : 'No common bans in this script.'}
 					isQuickRemove
 				/>
@@ -231,17 +268,18 @@ export function CharactersPanel(): React.JSX.Element {
 						>
 							Include none
 						</button>
-						<label className="inline-switch-control" htmlFor="greedier-sort-by-set-characters">
-							<span className="inline-switch-label">Sort by set</span>
+						<div className="inline-switch-control">
+							<span id="greedier-sort-by-set-characters-label" className="inline-switch-label">Sort by set</span>
 							<Switch
 								id="greedier-sort-by-set-characters"
 								name="greedier-sort-by-set-characters"
+								ariaLabelledBy="greedier-sort-by-set-characters-label"
 								checked={greedierSortBySet}
 								onChange={(event) => {
 									actions.setGreedierSortBySet(event.currentTarget.checked);
 								}}
 							/>
-						</label>
+						</div>
 					</div>
 					<CharacterList
 						id="greedier-character-list"
@@ -249,6 +287,7 @@ export function CharactersPanel(): React.JSX.Element {
 						characters={greedierCharacters}
 						selectedCharacterIds={selectedCharacterIds}
 						unsatisfiedDependencyCharacterIds={unsatisfiedDependencyCharacterIds}
+						getMissingDependencyNames={getMissingDependencyNames}
 						emptyText="No greedier homebrew characters available."
 						isQuickRemove={false}
 					/>
@@ -260,6 +299,7 @@ export function CharactersPanel(): React.JSX.Element {
 				characters={baseCharacters}
 				selectedCharacterIds={selectedCharacterIds}
 				unsatisfiedDependencyCharacterIds={unsatisfiedDependencyCharacterIds}
+				getMissingDependencyNames={getMissingDependencyNames}
 				emptyText={loading ? 'Loading base characters...' : 'No base characters available.'}
 				isQuickRemove={false}
 			/>

@@ -11,15 +11,18 @@ import type { AppSourceState, CatalogLoadState, StatusTone } from './AppContext.
 import type { Preferences } from '../../application/preferences.js';
 import {
 	selectCharacterView,
+	selectDependencyDiagnostics,
 	selectDisplayScriptName,
 	selectGenerationResult,
 	selectUnsatisfiedDependencyCharacterIds,
 } from './state-selectors.js';
+import type { GenerationDiagnostic } from '../../types.js';
 
 const EMPTY_SELECTED_CHARACTER_IDS = new Set<string>();
 
 type GenerationDerivedState = {
 	generationResult: GenerationResult | null;
+	dependencyDiagnostics: readonly GenerationDiagnostic[];
 	unsatisfiedDependencyCharacterIds: Set<string>;
 	displayScriptName: string;
 };
@@ -50,11 +53,13 @@ function buildState(
 
 function deriveGenerationState(state: AppSourceState): GenerationDerivedState {
 	const generationResult = selectGenerationResult(state);
+	const dependencyDiagnostics = selectDependencyDiagnostics(state);
 	const unsatisfiedDependencyCharacterIds = selectUnsatisfiedDependencyCharacterIds(state);
 	const displayScriptName = generationResult?.scriptName ?? selectDisplayScriptName(state);
 
 	return {
 		generationResult,
+		dependencyDiagnostics,
 		unsatisfiedDependencyCharacterIds,
 		displayScriptName,
 	};

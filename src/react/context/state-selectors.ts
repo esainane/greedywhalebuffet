@@ -1,6 +1,6 @@
 import { catalogToViewModel, generateScript } from '../../application/services.js';
 import type { Catalog } from '../../data/catalog.js';
-import type { GenerationOptions, GenerationResult, SelectableCharacter } from '../../types.js';
+import type { GenerationDiagnostic, GenerationOptions, GenerationResult, SelectableCharacter } from '../../types.js';
 import type { AppSourceState, StatusTone } from './AppContext.js';
 
 type GeneratedProjection = {
@@ -77,13 +77,13 @@ export function selectGenerationResult(state: AppSourceState): GenerationResult 
 	return deriveGeneratedProjection(state).generationResult;
 }
 
-export function selectUnsatisfiedDependencyCharacterIds(state: AppSourceState): Set<string> {
-	const { generationResult } = deriveGeneratedProjection(state);
-	if (!generationResult) {
-		return new Set<string>();
-	}
+export function selectDependencyDiagnostics(state: AppSourceState): readonly GenerationDiagnostic[] {
+	const generationResult = selectGenerationResult(state);
+	return generationResult?.diagnostics ?? [];
+}
 
-	return new Set(generationResult.diagnostics.map((diagnostic) => diagnostic.characterId));
+export function selectUnsatisfiedDependencyCharacterIds(state: AppSourceState): Set<string> {
+	return new Set(selectDependencyDiagnostics(state).map((diagnostic) => diagnostic.characterId));
 }
 
 export function selectDisplayScriptName(state: AppSourceState): string {

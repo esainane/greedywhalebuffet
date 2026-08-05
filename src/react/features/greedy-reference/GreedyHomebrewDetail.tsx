@@ -25,17 +25,18 @@ export function GreedyHomebrewDetail(props: GreedyHomebrewDetailProps): React.JS
 			emptyText="No Greedier homebrew characters were found."
 		>
 			<div className="reference-toolbar">
-				<label className="inline-switch-control" htmlFor="greedier-sort-by-set-detail">
-					<span className="inline-switch-label">Sort by set</span>
+				<div className="inline-switch-control">
+					<span id="greedier-sort-by-set-detail-label" className="inline-switch-label">Sort by set</span>
 					<Switch
 						id="greedier-sort-by-set-detail"
 						name="greedier-sort-by-set-detail"
+						ariaLabelledBy="greedier-sort-by-set-detail-label"
 						checked={sortBySet}
 						onChange={(event) => {
 							onSortBySetChange(event.currentTarget.checked);
 						}}
 					/>
-				</label>
+				</div>
 			</div>
 			<div className="reference-list">
 				{items.map((item) => {

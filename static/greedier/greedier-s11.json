@@ -27,7 +27,7 @@
     "edition": "gwb",
     "flavor": "Munch munch",
     "otherNightReminder": "If a good player was executed today, mark their Townsfolk neighbors. :reminder: :reminder: :reminder:",
-    "otherNight": 11,
+    "otherNight": 10,
     "reminders": [
       "Died Today",
       "Poisoned",

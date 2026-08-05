@@ -95,12 +95,21 @@
       "Vessel",
       "Vessel"
     ],
-    "name": "The Ancient One Ω",
+    "name": "Ancient One Ω",
     "team": "demon",
     "setup": true,
-    "ability": "2 Townsfolk think they are good, but are evil, hold The Ancient One, & \"are the Demon\". Each night*, a player might die.",
+    "ability": "You think you are a good Townsfolk, but you are not. Each night*, a player might die. [+1 Ancient One]",
     "flavor": "We worship you O Ancient one. We shall punish those who sealed you. We bring forth two sinners from the town for you to feast on their souls and return to the mortal plane.",
-    "firstNight": 18,
-    "otherNight": 54
+    "otherNight": 54,
+    "special": [
+      {
+        "type": "reveal",
+        "name": "replace-character"
+      },
+      {
+        "type": "selection",
+        "name": "bag-disabled"
+      }
+    ]
   }
 ]

@@ -65,7 +65,7 @@
     "team": "minion",
     "ability": "On your 1st night, name up to 5 potions. You may be told to reconsider. Each night, choose a player: they choose one of your potions, receiving its effect & removing the option.",
     "flavor": "I warned you, traveller. My potions would set the world on fire.",
-    "firstNight": 21,
+    "firstNight": 39,
     "otherNight": 24
   },
   {

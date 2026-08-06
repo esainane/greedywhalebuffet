@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { FILTERABLE_TEAMS, REMOVED_CHARACTERS_PREFIX } from './constants.js';
 import { Catalog } from './data/catalog.js';
 import { getUnsatisfiedDependencyCharacterIds } from './dependencies.js';
-import { buildCopyPayload, generate } from './generation.js';
+import { buildExportedScript, generate } from './generation.js';
 import type {
 	CharacterEntry,
 	ScriptFile,
@@ -207,21 +207,21 @@ describe('generation characterization fixtures', () => {
 		});
 		const selected = new Set(['snakecharmer', 'philosopher']);
 
-		const defaultPayload = JSON.parse(buildCopyPayload(selected, buildTestOptions(), catalog)) as ScriptFile;
+		const defaultPayload = JSON.parse(buildExportedScript(selected, buildTestOptions(), catalog)) as ScriptFile;
 		expect(getMetaEntry(defaultPayload).bootlegger.some((line) => line.includes('Duplicate characters'))).toBe(false);
 
 		const duplicatePayload = JSON.parse(
-			buildCopyPayload(selected, buildTestOptions({ permitDuplicateCharacters: true }), catalog),
+			buildExportedScript(selected, buildTestOptions({ permitDuplicateCharacters: true }), catalog),
 		) as ScriptFile;
 		expect(getMetaEntry(duplicatePayload).bootlegger.some((line) => line.includes('Duplicate characters might be in play.'))).toBe(true);
 
 		const spiritPayload = JSON.parse(
-			buildCopyPayload(selected, buildTestOptions({ addSpiritOfIvory: true }), catalog),
+			buildExportedScript(selected, buildTestOptions({ addSpiritOfIvory: true }), catalog),
 		) as ScriptFile;
 		expect(hasCharacter(spiritPayload, 'spiritofivory')).toBe(true);
 
 		const alejoPayload = JSON.parse(
-			buildCopyPayload(selected, buildTestOptions({ alejoRules: true }), catalog),
+			buildExportedScript(selected, buildTestOptions({ alejoRules: true }), catalog),
 		) as ScriptFile;
 		const snake = findCharacter(alejoPayload, ['snakecharmer_custom', 'snakecharmer']);
 		expect(snake?.firstNight).toBe(1);
@@ -264,7 +264,7 @@ describe('generation characterization fixtures', () => {
 		});
 
 		const payload = JSON.parse(
-			buildCopyPayload(
+			buildExportedScript(
 				new Set(['heretic', 'journalist_winningclub']),
 				buildTestOptions({
 					listOfficialJinxes: true,

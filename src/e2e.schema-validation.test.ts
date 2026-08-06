@@ -4,7 +4,7 @@ import Ajv2020, { type ValidateFunction } from 'ajv/dist/2020.js';
 import type { AnySchemaObject } from 'ajv';
 import addFormats from 'ajv-formats';
 import { describe, expect, it } from 'vitest';
-import { buildCopyPayload } from './generation.js';
+import { buildExportedScript } from './generation.js';
 import { FILTERABLE_TEAMS } from './constants.js';
 import { loadLatestJson } from './data/loader.js';
 import type { GenerationOptions, ScriptFile } from './types.js';
@@ -97,7 +97,7 @@ describe('end-to-end schema validation', () => {
 			expect(combinations).toHaveLength(128);
 
 			for (const options of combinations) {
-				const payload = buildCopyPayload(selectedCharacterIds, options, catalog);
+				const payload = buildExportedScript(selectedCharacterIds, options, catalog);
 				const parsed = JSON.parse(payload) as unknown;
 				const label = `generated payload for options ${JSON.stringify(options)}`;
 				assertValid(validateUpstream, parsed, label, ajv);

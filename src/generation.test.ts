@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildCopyPayload } from './generation.js';
+import { buildExportedScript } from './generation.js';
 import type {
 	CharacterEntry,
 	ScriptFile,
@@ -23,7 +23,7 @@ describe('buildCopyPayload', () => {
 			],
 		});
 
-		const payload = buildCopyPayload(
+		const payload = buildExportedScript(
 			new Set(['alpha']),
 			buildTestOptions({ addGreedierHomebrew: true }),
 			catalog,
@@ -92,7 +92,7 @@ describe('buildCopyPayload', () => {
 			},
 		});
 
-		const payload = buildCopyPayload(
+		const payload = buildExportedScript(
 			new Set(['leviathan_popppp', 'riot_popppp']),
 			buildTestOptions({ useNoDeathAtNightJinxes: false }),
 			catalog,
@@ -147,7 +147,7 @@ describe('buildCopyPayload', () => {
 			],
 		});
 
-		const payload = buildCopyPayload(
+		const payload = buildExportedScript(
 			new Set(['heretic', 'journalist_winningclub']),
 			buildTestOptions({
 				addGreedierHomebrew: true,

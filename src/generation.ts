@@ -52,8 +52,8 @@ export function generate(request: GenerationRequest, catalog: Catalog): Generati
 	};
 }
 
-/** Transitional compatibility wrapper: serializes a generation result for the clipboard JSON string. */
-export function buildCopyPayload(
+/** Serializes a generation result for the clipboard JSON string. */
+export function buildExportedScript(
 	selectedCharacterIds: ReadonlySet<string>,
 	options: GenerationOptions,
 	catalog: Catalog,

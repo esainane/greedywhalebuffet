@@ -18,7 +18,7 @@ export const COMMON_BANNED_CHARACTER_IDS: readonly string[] = [
 	'zombuul',
 ] as const;
 
-export const COMMON_BANNED_CHARACTER_ID_SET = new Set(COMMON_BANNED_CHARACTER_IDS);
+export const COMMON_BANNED_CHARACTER_ID_SET = new Set(COMMON_BANNED_CHARACTER_IDS) as ReadonlySet<string>;
 
 export const POPULAR_GREEDIER_CHARACTER_IDS: readonly string[] = [
 	'hypnotist_winningclub',
@@ -35,7 +35,7 @@ export const POPULAR_GREEDIER_CHARACTER_IDS: readonly string[] = [
 	'joe',
 ] as const;
 
-export const POPULAR_GREEDIER_CHARACTER_ID_SET = new Set(POPULAR_GREEDIER_CHARACTER_IDS);
+export const POPULAR_GREEDIER_CHARACTER_ID_SET = new Set(POPULAR_GREEDIER_CHARACTER_IDS) as ReadonlySet<string>;
 
 export const CHARACTER_DEPENDENCY_REQUIREMENTS: Readonly<Record<string, readonly string[]>> = {
 	choirboy: ['king'],
@@ -64,8 +64,8 @@ export const POLICY_CANONICAL_ID_ALIASES: Readonly<Record<string, string>> = {
 	pathologist_winningclub: 'pathologist',
 };
 
-const noDeathAtNightDemonIdsSet = new Set(NO_DEATH_AT_NIGHT_DEMON_IDS);
-const noDeathAtNightRoleIdsSet = new Set(NO_DEATH_AT_NIGHT_ROLE_IDS);
+const noDeathAtNightDemonIdsSet = new Set(NO_DEATH_AT_NIGHT_DEMON_IDS) as ReadonlySet<string>;
+const noDeathAtNightRoleIdsSet = new Set(NO_DEATH_AT_NIGHT_ROLE_IDS) as ReadonlySet<string>;
 
 export type DependencyDiagnostic = {
 	readonly characterId: string;

@@ -154,6 +154,15 @@
     ]
   },
   {
+    "id": "lycanthrope",
+    "jinx": [
+      {
+        "id": "ogre",
+        "reason": "The Faux Paw registers as good to the Ogre."
+      }
+    ]
+  },
+  {
     "id": "magician",
     "jinx": [
       {

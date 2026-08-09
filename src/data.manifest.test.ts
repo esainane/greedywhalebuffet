@@ -11,7 +11,7 @@ const validManifest = {
 		{ name: 'nightsheet', kind: 'nightsheet', path: './nightsheet.json' },
 		{ name: 'officialJinxes', kind: 'jinx', path: './jinxes.json' },
 	],
-	greedierScripts: [{ kind: 'script-extra', path: './greedier/greedier-s1.json', sourceSet: 1 }],
+	greedierScripts: [{ kind: 'roles', path: './greedier/greedier-s1.json', sourceSet: 1 }],
 };
 
 describe('data sources manifest validation', () => {
@@ -20,8 +20,8 @@ describe('data sources manifest validation', () => {
 			parseDataSourcesManifest({
 				...validManifest,
 				greedierScripts: [
-					{ kind: 'script-extra', path: './greedier/greedier-s1.json', sourceSet: 1 },
-					{ kind: 'script-extra', path: './greedier/greedier-s1.json', sourceSet: 2 },
+					{ kind: 'roles', path: './greedier/greedier-s1.json', sourceSet: 1 },
+					{ kind: 'roles', path: './greedier/greedier-s1.json', sourceSet: 2 },
 				],
 			}),
 		).toThrow(/duplicate source path/);
@@ -32,8 +32,8 @@ describe('data sources manifest validation', () => {
 			parseDataSourcesManifest({
 				...validManifest,
 				greedierScripts: [
-					{ kind: 'script-extra', path: './greedier/greedier-s1.json', sourceSet: 1 },
-					{ kind: 'script-extra', path: './greedier/greedier-s2.json', sourceSet: 1 },
+					{ kind: 'roles', path: './greedier/greedier-s1.json', sourceSet: 1 },
+					{ kind: 'roles', path: './greedier/greedier-s2.json', sourceSet: 1 },
 				],
 			}),
 		).toThrow(/duplicate greedier sourceSet/);

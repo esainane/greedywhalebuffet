@@ -12,7 +12,7 @@ const repoRoot = path.resolve(here, '..');
 const staticRoot = path.join(repoRoot, 'static');
 
 const scriptSchemaPath = path.join(repoRoot, 'schemas', 'script-schema.json');
-const scriptExtraSchemaPath = path.join(repoRoot, 'schemas', 'script-extra-schema.json');
+const scriptExtraSchemaPath = path.join(repoRoot, 'schemas', 'roles-schema.json');
 const jinxSchemaPath = path.join(repoRoot, 'schemas', 'jinx-schema.json');
 const dataSourcesManifestPath = path.join(staticRoot, 'data_sources_manifest.json');
 
@@ -91,7 +91,7 @@ describe('data source schema validation', () => {
 				case 'script':
 					assertValid(validateScript, payload, relativeFile, ajv);
 					break;
-				case 'script-extra':
+				case 'roles':
 					assertValid(validateScriptExtra, payload, relativeFile, ajv);
 					break;
 				case 'jinx':

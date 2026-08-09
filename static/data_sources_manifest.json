@@ -38,67 +38,67 @@
   ],
   "greedierScripts": [
     {
-      "kind": "script-extra",
+      "kind": "roles",
       "path": "./greedier/greedier-s1.json",
       "sourceSet": 1
     },
     {
-      "kind": "script-extra",
+      "kind": "roles",
       "path": "./greedier/greedier-s2.json",
       "sourceSet": 2
     },
     {
-      "kind": "script-extra",
+      "kind": "roles",
       "path": "./greedier/greedier-s3.json",
       "sourceSet": 3
     },
     {
-      "kind": "script-extra",
+      "kind": "roles",
       "path": "./greedier/greedier-s4.json",
       "sourceSet": 4
     },
     {
-      "kind": "script-extra",
+      "kind": "roles",
       "path": "./greedier/greedier-s5.json",
       "sourceSet": 5
     },
     {
-      "kind": "script-extra",
+      "kind": "roles",
       "path": "./greedier/greedier-s6.json",
       "sourceSet": 6
     },
     {
-      "kind": "script-extra",
+      "kind": "roles",
       "path": "./greedier/greedier-s7.json",
       "sourceSet": 7
     },
     {
-      "kind": "script-extra",
+      "kind": "roles",
       "path": "./greedier/greedier-s8.json",
       "sourceSet": 8
     },
     {
-      "kind": "script-extra",
+      "kind": "roles",
       "path": "./greedier/greedier-s9.json",
       "sourceSet": 9
     },
     {
-      "kind": "script-extra",
+      "kind": "roles",
       "path": "./greedier/greedier-s10.json",
       "sourceSet": 10
     },
     {
-      "kind": "script-extra",
+      "kind": "roles",
       "path": "./greedier/greedier-s11.json",
       "sourceSet": 11
     },
     {
-      "kind": "script-extra",
+      "kind": "roles",
       "path": "./greedier/greedier-s12.json",
       "sourceSet": 12
     },
     {
-      "kind": "script-extra",
+      "kind": "roles",
       "path": "./greedier/greedier-s13.json",
       "sourceSet": 13
     }

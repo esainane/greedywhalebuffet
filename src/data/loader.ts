@@ -22,7 +22,7 @@ import {
 	type DataSourcesManifest,
 } from './manifest.js';
 import scriptSchema from '../../schemas/script-schema.json';
-import scriptExtraSchema from '../../schemas/script-extra-schema.json';
+import scriptExtraSchema from '../../schemas/roles-schema.json';
 import jinxSchema from '../../schemas/jinx-schema.json';
 import { parseScriptFile } from '../model/script-document.js';
 import { Catalog, OneToOneIdMap, NightOrderIndex } from './catalog.js';

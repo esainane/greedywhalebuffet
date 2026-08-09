@@ -11,7 +11,7 @@
 			"fileMatch": [
 				"/static/greedier/*.json",
 			],
-			"url": "./schemas/script-extra-schema.json"
+			"url": "./schemas/roles-schema.json"
 		},
 		{
 			"fileMatch": [

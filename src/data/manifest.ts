@@ -1,6 +1,6 @@
 export const DATA_SOURCES_MANIFEST_URL = './data_sources_manifest.json';
 
-export type DataSourceKind = 'script' | 'script-extra' | 'jinx' | 'mapping' | 'nightsheet';
+export type DataSourceKind = 'script' | 'roles' | 'jinx' | 'mapping' | 'nightsheet';
 
 export type CoreSourceName =
 	| 'greedyScript'
@@ -13,12 +13,12 @@ export type CoreSourceName =
 
 export type CoreDataSource = {
 	name: CoreSourceName;
-	kind: Exclude<DataSourceKind, 'script-extra'>;
+	kind: Exclude<DataSourceKind, 'roles'>;
 	path: string;
 };
 
 export type GreedierScriptDataSource = {
-	kind: 'script-extra';
+	kind: 'roles';
 	path: string;
 	sourceSet: number;
 };
@@ -30,7 +30,7 @@ export type DataSourcesManifest = {
 
 const SUPPORTED_KINDS = new Set<DataSourceKind>([
 	'script',
-	'script-extra',
+	'roles',
 	'jinx',
 	'mapping',
 	'nightsheet',
@@ -92,8 +92,8 @@ export function parseDataSourcesManifest(
 		if (typeof kind !== 'string' || !SUPPORTED_KINDS.has(kind as DataSourceKind)) {
 			throw new Error(`${sourceName} has an unsupported source kind: ${String(kind)}.`);
 		}
-		if (kind === 'script-extra') {
-			throw new Error(`${sourceName} core source ${name} cannot use kind script-extra.`);
+		if (kind === 'roles') {
+			throw new Error(`${sourceName} core source ${name} cannot use kind roles.`);
 		}
 		if (!isValidJsonPath(path)) {
 			throw new Error(`${sourceName} core source ${name} has invalid path: ${String(path)}.`);
@@ -109,7 +109,7 @@ export function parseDataSourcesManifest(
 		seenPaths.add(path);
 		normalizedCoreSources.push({
 			name: name as CoreSourceName,
-			kind: kind as Exclude<DataSourceKind, 'script-extra'>,
+			kind: kind as Exclude<DataSourceKind, 'roles'>,
 			path,
 		});
 	}
@@ -126,8 +126,8 @@ export function parseDataSourcesManifest(
 		}
 
 		const { kind, path, sourceSet } = entry;
-		if (kind !== 'script-extra') {
-			throw new Error(`${sourceName} greedier script must use kind script-extra.`);
+		if (kind !== 'roles') {
+			throw new Error(`${sourceName} greedier script must use kind roles.`);
 		}
 		if (!isValidJsonPath(path)) {
 			throw new Error(`${sourceName} greedier script has invalid path: ${String(path)}.`);

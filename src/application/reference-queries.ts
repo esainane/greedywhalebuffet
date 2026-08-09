@@ -8,6 +8,14 @@ export type GreedyDifferenceDetail = {
 	character: SelectableCharacter;
 	officialAbility: string;
 	greedyAbility: string;
+	officialFirstNight?: number;
+	greedyFirstNight?: number;
+	officialOtherNight?: number;
+	greedyOtherNight?: number;
+	officialFirstNightReminder?: string;
+	greedyFirstNightReminder?: string;
+	officialOtherNightReminder?: string;
+	greedyOtherNightReminder?: string;
 };
 
 export type GreedyJinxDetail = {
@@ -63,14 +71,40 @@ export function deriveGreedyDifferences(catalog: Catalog): GreedyDifferenceDetai
 			continue;
 		}
 
-		if (entry.ability === officialCatalogEntry.entry.ability) {
+		const officialAbility = officialCatalogEntry.entry.ability;
+		const greedyAbility = entry.ability;
+		const officialFirstNight = officialCatalogEntry.entry.firstNight ?? catalog.firstNightOrder(baseId);
+		const greedyFirstNight = entry.firstNight ?? catalog.firstNightOrder(baseId);
+		const officialOtherNight = officialCatalogEntry.entry.otherNight ?? catalog.otherNightOrder(baseId);
+		const greedyOtherNight = entry.otherNight ?? catalog.otherNightOrder(baseId);
+		const officialFirstNightReminder = officialCatalogEntry.entry.firstNightReminder;
+		const greedyFirstNightReminder = entry.firstNightReminder;
+		const officialOtherNightReminder = officialCatalogEntry.entry.otherNightReminder;
+		const greedyOtherNightReminder = entry.otherNightReminder;
+
+		const hasAbilityDifference = officialAbility !== greedyAbility;
+		const hasNightOrderDifference =
+			officialFirstNight !== greedyFirstNight || officialOtherNight !== greedyOtherNight;
+		const hasReminderDifference =
+			officialFirstNightReminder !== greedyFirstNightReminder ||
+			officialOtherNightReminder !== greedyOtherNightReminder;
+
+		if (!hasAbilityDifference && !hasNightOrderDifference && !hasReminderDifference) {
 			continue;
 		}
 
 		differences.push({
 			character: catalog.selectableFor(entry),
-			officialAbility: officialCatalogEntry.entry.ability,
-			greedyAbility: entry.ability,
+			officialAbility,
+			greedyAbility,
+			officialFirstNight,
+			greedyFirstNight,
+			officialOtherNight,
+			greedyOtherNight,
+			officialFirstNightReminder,
+			greedyFirstNightReminder,
+			officialOtherNightReminder,
+			greedyOtherNightReminder,
 		});
 	}
 

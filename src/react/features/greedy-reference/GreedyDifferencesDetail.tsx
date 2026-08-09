@@ -28,6 +28,12 @@ export function GreedyDifferencesDetail(props: GreedyDifferencesDetailProps): Re
 					const greedyParts = splitAbilityText(item.greedyAbility);
 					const hasSetupSection =
 						officialParts.setupText.length > 0 || greedyParts.setupText.length > 0;
+					const hasNightOrderDifference =
+						item.officialFirstNight !== item.greedyFirstNight ||
+						item.officialOtherNight !== item.greedyOtherNight;
+					const hasReminderDifference =
+						item.officialFirstNightReminder !== item.greedyFirstNightReminder ||
+						item.officialOtherNightReminder !== item.greedyOtherNightReminder;
 
 					return (
 						<ReferenceCard
@@ -51,6 +57,60 @@ export function GreedyDifferencesDetail(props: GreedyDifferencesDetailProps): Re
 									) : null}
 								</p>
 							</AbilityBlock>
+							{hasNightOrderDifference ? (
+								<AbilityBlock label="Night order">
+									<p>
+										{item.officialFirstNight !== item.greedyFirstNight ? (
+											<>
+												<strong>First night:</strong>{' '}
+												<InlineWordDiff
+													before={item.officialFirstNight?.toString() ?? '—'}
+													after={item.greedyFirstNight?.toString() ?? '—'}
+													emptyText="No first-night order available."
+												/>
+											</>
+										) : null}
+										{item.officialOtherNight !== item.greedyOtherNight ? (
+											<>
+												{item.officialFirstNight !== item.greedyFirstNight ? <br /> : null}
+												<strong>Other nights:</strong>{' '}
+												<InlineWordDiff
+													before={item.officialOtherNight?.toString() ?? '—'}
+													after={item.greedyOtherNight?.toString() ?? '—'}
+													emptyText="No other-night order available."
+												/>
+											</>
+										) : null}
+									</p>
+								</AbilityBlock>
+							) : null}
+							{hasReminderDifference ? (
+								<AbilityBlock label="Night reminders">
+									<p>
+										{item.officialFirstNightReminder !== item.greedyFirstNightReminder ? (
+											<>
+												<strong>First night:</strong>{' '}
+												<InlineWordDiff
+													before={item.officialFirstNightReminder ?? '—'}
+													after={item.greedyFirstNightReminder ?? '—'}
+													emptyText="No first-night reminder available."
+												/>
+											</>
+										) : null}
+										{item.officialOtherNightReminder !== item.greedyOtherNightReminder ? (
+											<>
+												{item.officialFirstNightReminder !== item.greedyFirstNightReminder ? <br /> : null}
+												<strong>Other nights:</strong>{' '}
+												<InlineWordDiff
+													before={item.officialOtherNightReminder ?? '—'}
+													after={item.greedyOtherNightReminder ?? '—'}
+													emptyText="No other-night reminder available."
+												/>
+											</>
+										) : null}
+									</p>
+								</AbilityBlock>
+							) : null}
 						</ReferenceCard>
 					);
 				})}

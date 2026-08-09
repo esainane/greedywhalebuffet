@@ -94,7 +94,7 @@
       },
       {
         "id": "princess",
-        "reason": "If the Princess nominates & executes on their first day, the Arsonist must choose a player, but they don't become poisoned."
+        "reason": "If the Princess nominated & executed a player on their 1st day, the Arsonist must choose a player, but they don't become poisoned."
       },
       {
         "id": "xaan",
@@ -120,7 +120,7 @@
     "jinx": [
       {
         "id": "alchemist",
-        "reason": "Any good Minions that has a jinx with Alchemist will have the modified ability the jinx reads."
+        "reason": "Any good Minion that has a jinx with the Alchemist uses the modified ability described by that jinx."
       }
     ]
   },

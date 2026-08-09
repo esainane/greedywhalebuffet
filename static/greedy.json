@@ -219,9 +219,9 @@
     "ability": "You start knowing an in-play Outsider. They can't change character from other abilities. Once per game, at night, choose a player: that Outsider, if chosen, becomes a not-in-play good Townsfolk. [+0 or +1 Outsider]",
     "flavor": "You don't get to be the Heretic -TrappedCosmos",
     "firstNight": 49,
-    "firstNightReminder": "Wake the Huntsman & show the token of their target Outsider. They might choose a player. :reminder: If they choose the Outsider they learned: Put the Huntsman to sleep. Wake the target. Show the *YOU ARE* info token & their new character token.",
+    "firstNightReminder": "Show an Outsider token. The Huntsman might choose a player. :reminder: If they chose the Outsider they learned: Put the Huntsman to sleep. Wake the target. Show the *YOU ARE* info token & their new character token.",
     "otherNight": 67,
-    "otherNightReminder": "The Huntsman might choose a player. :reminder: If they choose the Outsider they learned: Put the Huntsman to sleep. Wake the target. Show the *YOU ARE* info token & their new character token.",
+    "otherNightReminder": "The Huntsman might choose a player. :reminder: If they chose the Outsider they learned: Put the Huntsman to sleep. Wake the target. Show the *YOU ARE* info token & their new character token.",
     "reminders": [
       "Target",
       "No Ability"
@@ -399,7 +399,7 @@
       "https://greedy.antihype.space/icons/tb/soldier_e.webp"
     ],
     "team": "townsfolk",
-    "ability": "You are safe from the Demon. Each night, if your ability protected you, wake and learn this.",
+    "ability": "You are safe from the Demon. Each night, if your ability protected you, you learn this.",
     "flavor": "As The Spy said to the Heretic, as Mole said to Al-Hadashi, as people believing I’m not the Wraith… No. -Iceni",
     "firstNight": 75,
     "firstNightReminder": "If the Soldier was protected, wake them and nod.",
@@ -482,7 +482,7 @@
       "https://greedy.antihype.space/icons/carousel/hatter_e.webp"
     ],
     "team": "outsider",
-    "ability": "If you die, at night, choose Minions or Demons. All players of the type you chose picks new characters of the same type to be.",
+    "ability": "If you die, at night, choose Minions or Demons. All players of the type you chose pick new characters of the same type to be.",
     "flavor": "10/6 is a much greater number than 6 - 7  -Soril",
     "otherNight": 59,
     "otherNightReminder": "If the Hatter died, wake the Hatter. They point to either Minions or Demons. Put the Hatter to sleep. Wake each player of the type they chose. Each may choose a new character. If they do, show the *YOU ARE* token & their new character token.",
@@ -608,7 +608,7 @@
     "ability": "When you die, the Storyteller gains a Minion ability.",
     "flavor": "You're all my marionettes now.",
     "otherNight": 62,
-    "otherNightReminder": "If the Plague Doctor died, the Storyteller gained a Minion ability. If you haven't done this yet, do so now. :reminder:",
+    "otherNightReminder": "If the Plague Doctor died, the Storyteller gained a Minion ability. If you haven’t done this yet, do so now. :reminder:",
     "reminders": [
       "Storyteller Ability"
     ]
@@ -962,9 +962,9 @@
     "ability": "Once per game, choose to make a wish. If granted, it might have a price & leave a clue as to its nature. You may be told to reconsider. If this happens 3 times, become a different character.",
     "flavor": "Madam Morrible-- MM, flip it around? Wicked Witch!! -Orpheus",
     "firstNight": 36,
-    "firstNightReminder": "Do whatever needs to be done to satisfy the Wizard's ability. If they make an inappropriate wish, add a \"Bruh\" reminder token next to them. :reminder: At 3 Bruh's, turn them into a character of the same type.",
+    "firstNightReminder": "Do whatever needs to be done to satisfy the Wizard's ability. If they make an inappropriate wish, add a \"Bruh\" reminder token next to them. :reminder: At 3 Bruhs, turn them into a character of the same type.",
     "otherNight": 20,
-    "otherNightReminder": "Do whatever needs to be done to satisfy the Wizard's ability. If they make an inappropriate wish, add a \"Bruh\" reminder token next to them. :reminder: At 3 Bruh's, turn them into a character of the same type.",
+    "otherNightReminder": "Do whatever needs to be done to satisfy the Wizard's ability. If they make an inappropriate wish, add a \"Bruh\" reminder token next to them. :reminder: At 3 Bruhs, turn them into a character of the same type.",
     "reminders": [
       "Bruh 1",
       "Bruh 2",
@@ -1088,7 +1088,7 @@
     "firstNight": 79,
     "firstNightReminder": "Announce that the Leviathan is in play. :reminder:",
     "otherNight": 55,
-    "otherNightReminder": "Wake the Leviathan to choose a player if one of their jinxes permits. Change the Leviathan reminder token to the relevant day. :reminder: At dawn, you may announce that the Leviathan is in play.",
+    "otherNightReminder": "The Leviathan chooses a player for jinxed interactions. :reminder: Change the Leviathan reminder token to the relevant day. :reminder: At dawn, you may announce that the Leviathan is in play.",
     "reminders": [
       "Day 1",
       "Day 2",
@@ -1145,7 +1145,7 @@
     "ability": "On your 3rd day, Minions become Riot & nominees die but nominate an alive player immediately. This must happen.",
     "flavor": "Guys I need to leave in 30 minutes",
     "otherNight": 55,
-    "otherNightReminder": "Wake the Riot to choose a player if the jinxes permit. :reminder: Change the Riot reminder token to the relevant day. :reminder: If it is night 3, you may wake the Minions before dawn. Show the *YOU ARE* & Riot tokens.",
+    "otherNightReminder": "Riot chooses a player for jinxed interactions. :reminder: Change the Riot reminder token to the relevant day. :reminder: If it is night 3, you may wake the Minions before dawn. Show the *YOU ARE* & Riot tokens.",
     "reminders": [
       "Day 1",
       "Day 2",

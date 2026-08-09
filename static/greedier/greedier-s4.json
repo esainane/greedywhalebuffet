@@ -88,7 +88,8 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/theancientone_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/ancient_one_g_winningclub.png"
     ],
-    "firstNightReminder": "Do not run Demon info. During Minion info, show the *THIS IS THE DEMON* & Ancient One tokens, and point to the two Townsfolk vessels. :reminder: :reminder:",
+    "firstNight": 18,
+    "firstNightReminder": "Skip Demon Info. During Minion Info, show the *THIS IS THE DEMON* & Ancient One tokens, and point to the two Townsfolk vessels. :reminder: :reminder:",
     "otherNightReminder": "A player might die. :reminder:",
     "reminders": [
       "Dead",

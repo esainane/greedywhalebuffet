@@ -22,32 +22,25 @@ export function generate(request: GenerationRequest, catalog: Catalog): Generati
 
 	// Mutable state to be passed around the generation pipeline
 	const workspace = new GenerationWorkspace(catalog);
+	const ruleContext = {
+		workspace,
+		options,
+		exportableIds,
+	};
 
 	// Apply pre-filter source-composition rules.
 	for (const rule of SOURCE_COMPOSITION_RULES) {
-		rule.apply({ workspace, options });
+		rule.apply(ruleContext);
 	}
-
-	// Remove any deselected
-	const exclusion = workspace.filterToExportable(exportableIds);
-
-	// Update bootlegger with added/removed characters
-	workspace.setBootleggerCharacterLine(exclusion);
-
-	// If any Greedier characters are present, change the script name accordingly
-	const baseName = catalog.baseScript.meta.name;
-	const hasGreedier = options.addGreedierHomebrew && [...exportableIds].some((id) => catalog.greedierById.has(id));
-	const scriptName = hasGreedier ? baseName.replace(/\bGreedy\b/g, 'Greedier') : baseName;
-	workspace.setScriptName(scriptName);
 
 	// Apply ordered option transformations.
 	for (const rule of TRANSFORMATION_RULES) {
-		rule.apply({ workspace, options });
+		rule.apply(ruleContext);
 	}
 
 	return {
 		script: workspace.toScriptFile(),
-		scriptName,
+		scriptName: workspace.meta.name,
 		diagnostics,
 	};
 }

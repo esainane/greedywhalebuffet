@@ -1,4 +1,5 @@
 import type { GenerationRule } from './types.js';
+import { DUPLICATE_LINE } from '../constants.js';
 
 export const permitDuplicateCharactersRule: GenerationRule = {
 	name: 'permitDuplicateCharacters',
@@ -7,6 +8,6 @@ export const permitDuplicateCharactersRule: GenerationRule = {
 			return;
 		}
 
-		workspace.addDuplicateCharactersLine();
+		workspace.meta.bootlegger = [...(workspace.meta.bootlegger ?? []), DUPLICATE_LINE];
 	},
 };

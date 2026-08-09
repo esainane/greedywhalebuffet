@@ -7,6 +7,13 @@ export const alejoRulesRule: GenerationRule = {
 			return;
 		}
 
-		workspace.applyAlejoRules();
+		const snakeCharmer = workspace.generationContext.findOrExpandCharacter(
+			'snakecharmer',
+			workspace.entries,
+			workspace.catalog,
+		);
+		if (snakeCharmer) {
+			snakeCharmer.firstNight = workspace.catalog.firstNightOrder('philosopher');
+		}
 	},
 };

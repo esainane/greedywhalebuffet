@@ -3,12 +3,12 @@
 		{
 			"fileMatch": [
 				"/static/greedy.json",
-				"/static/roles.json",
 			],
 			"url": "./schemas/script-schema.json"
 		},
 		{
 			"fileMatch": [
+				"/static/roles.json",
 				"/static/greedier/*.json",
 			],
 			"url": "./schemas/roles-schema.json"

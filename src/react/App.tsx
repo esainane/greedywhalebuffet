@@ -4,6 +4,7 @@ import { ControlsPanel } from './features/controls/ControlsPanel.js';
 import { CharactersPanel } from './features/characters/CharactersPanel.js';
 import { GreedyReferencePanel } from './features/greedy-reference/GreedyReferencePanel.js';
 import { SectionNavigation } from './components/SectionNavigation.js';
+import { useIsLoading } from './context/selectors.js';
 
 const APP_SECTIONS = [
 	{ id: 'section-generate', label: 'Generate & Options' },
@@ -14,8 +15,9 @@ const APP_SECTIONS = [
 ] as const;
 
 function AppShell(): React.JSX.Element {
+	const loading = useIsLoading();
 	return (
-		<div className="app-layout">
+		<div className={`app-layout${loading ? ' is-loading' : ''}`}>
 			<SectionNavigation sections={APP_SECTIONS} />
 			<div className="content-stack">
 				<ControlsPanel />

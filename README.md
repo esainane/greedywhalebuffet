@@ -1,6 +1,9 @@
 # Greedy Whalebuffet
 
-[![CI: Tests](https://github.com/esainane/greedywhalebuffet/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/esainane/greedywhalebuffet/actions/workflows/tests.yml) [![CI: Fresh data](https://github.com/esainane/greedywhalebuffet/actions/workflows/fresh-data.yml/badge.svg?branch=master)](https://github.com/esainane/greedywhalebuffet/actions/workflows/fresh-data.yml)
+| Branch | Tests | Data sources |
+| --- | --- | --- |
+| Master | [![CI: Tests](https://github.com/esainane/greedywhalebuffet/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/esainane/greedywhalebuffet/actions/workflows/tests.yml) | [![CI: Fresh data](https://github.com/esainane/greedywhalebuffet/actions/workflows/fresh-data.yml/badge.svg?branch=master)](https://github.com/esainane/greedywhalebuffet/actions/workflows/fresh-data.yml) |
+| Production | [![CI: Tests](https://github.com/esainane/greedywhalebuffet/actions/workflows/tests.yml/badge.svg?branch=prod)](https://github.com/esainane/greedywhalebuffet/actions/workflows/tests.yml) | [![CI: Fresh data](https://github.com/esainane/greedywhalebuffet/actions/workflows/fresh-data.yml/badge.svg?branch=prod)](https://github.com/esainane/greedywhalebuffet/actions/workflows/fresh-data.yml) |
 
 Source for [Greedy Whalebuffet Website](https://greedy.antihype.space/).
 

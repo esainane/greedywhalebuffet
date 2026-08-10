@@ -12,7 +12,7 @@
         "title": "Script Character",
         "required": [
           "id",
-					"jinx"
+          "jinx"
         ],
         "additionalProperties": false,
         "properties": {

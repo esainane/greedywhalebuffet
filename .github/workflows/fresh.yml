@@ -1,0 +1,50 @@
+name: Check for stale data
+
+on:
+  push:
+    branches:
+      - master
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  compare-with-botc-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout current repository
+        uses: actions/checkout@v4
+
+      - name: Checkout botc-release
+        uses: actions/checkout@v4
+        with:
+          repository: ThePandemoniumInstitute/botc-release
+          ref: main
+          path: botc-release
+
+      - name: Compare snapshots
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          stale=0
+
+          compare_file() {
+            local ours="$1"
+            local theirs="$2"
+
+            if ! cmp -s "$ours" "$theirs"; then
+              echo "::warning file=$ours,title=Out of sync with botc-release::$ours differs from $theirs in ThePandemoniumInstitute/botc-release@main"
+              stale=1
+            fi
+          }
+
+          compare_file "schemas/script-schema.json" "botc-release/script-schema.json"
+          compare_file "static/roles.json" "botc-release/resources/data/roles.json"
+          compare_file "static/nightsheet.json" "botc-release/resources/data/nightsheet.json"
+          compare_file "static/jinxes.json" "botc-release/resources/data/jinxes.json"
+
+          if [[ "$stale" -eq 1 ]]; then
+            echo "::warning title=Data stale::Data stale."
+          else
+            echo "All files up to date."
+          fi

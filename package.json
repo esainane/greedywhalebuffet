@@ -8,6 +8,7 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
+    "schema:generate": "python3 tools/generate_schemas.py",
     "lint": "eslint src --max-warnings=0",
     "type-check": "tsc --noEmit",
     "test": "vitest run",

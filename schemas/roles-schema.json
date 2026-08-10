@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "type": "array",
   "default": [],
-  "title": "Blood on the Clocktower Custom Script",
+  "title": "Blood on the Clocktower Extra Characters",
   "minItems": 1,
   "maxItems": 201,
   "items": {
@@ -10,20 +10,35 @@
       {
         "type": "object",
         "title": "Script Character",
-        "required": ["id", "name", "team", "ability"],
+        "required": [
+          "id",
+          "name",
+          "team",
+          "ability"
+        ],
         "additionalProperties": false,
         "properties": {
           "id": {
             "type": "string",
             "title": "Character ID, alphanumeric lowercase",
             "maxLength": 50,
-            "examples": ["washerwoman", "lilmonsta", "fanggu", "alhadikhia"]
+            "examples": [
+              "washerwoman",
+              "lilmonsta",
+              "fanggu",
+              "alhadikhia"
+            ]
           },
           "name": {
             "type": "string",
             "title": "Character name",
             "maxLength": 30,
-            "examples": ["Washerwoman", "Lil' Monsta", "Fang Gu", "Al-Hadikhia"]
+            "examples": [
+              "Washerwoman",
+              "Lil' Monsta",
+              "Fang Gu",
+              "Al-Hadikhia"
+            ]
           },
           "image": {
             "oneOf": [
@@ -31,7 +46,9 @@
                 "type": "string",
                 "format": "uri",
                 "title": "Character icon",
-                "examples": ["https://i.imgur.com/character-icon.png"]
+                "examples": [
+                  "https://i.imgur.com/character-icon.png"
+                ]
               },
               {
                 "type": "array",
@@ -78,7 +95,12 @@
             "type": "string",
             "title": "The edition ID",
             "maxLength": 50,
-            "examples": ["tb", "bmr", "snv", "fallofrome"]
+            "examples": [
+              "tb",
+              "bmr",
+              "snv",
+              "fallofrome"
+            ]
           },
           "ability": {
             "type": "string",
@@ -86,8 +108,8 @@
             "maxLength": 250,
             "examples": [
               "You start knowing that 1 of 2 players is a particular Townsfolk.",
-              "Each night, Minions choose who babysits Lil' Monsta's token \u0026 \"is the Demon\". A player dies each night*. [+1 Minion]",
-              "Each night*, choose a player: they die. The 1st Outsider this kills becomes an evil Fang Gu \u0026 you die instead. [+1 Outsider]"
+              "Each night, Minions choose who babysits Lil' Monsta's token & \"is the Demon\". A player dies each night*. [+1 Minion]",
+              "Each night*, choose a player: they die. The 1st Outsider this kills becomes an evil Fang Gu & you die instead. [+1 Outsider]"
             ]
           },
           "flavor": {
@@ -103,7 +125,11 @@
           "firstNight": {
             "type": "number",
             "title": "First night wake-up priority. 0 means this character doesn't wake during the first night.",
-            "examples": [37, 0, 15]
+            "examples": [
+              37,
+              0,
+              15
+            ]
           },
           "firstNightReminder": {
             "type": "string",
@@ -118,7 +144,11 @@
           "otherNight": {
             "type": "number",
             "title": "Other nights wake-up priority. 0 means this character doesn't wake during other nights.",
-            "examples": [0, 10, 15]
+            "examples": [
+              0,
+              10,
+              15
+            ]
           },
           "otherNightReminder": {
             "type": "string",
@@ -127,7 +157,7 @@
             "examples": [
               "",
               "Wake all Minions, allow them to choose a babysitter :reminder: A player might die :reminder:",
-              "The Fang Gu chooses a player. :reminder: If they chose an Outsider (once only): Replace the Outsider token with the spare Fang Gu token. Put the Fang Gu to sleep. Wake the target. Show the *YOU ARE* and Fang Gu tokens \u0026 give a thumbs-down. :reminder:"
+              "The Fang Gu chooses a player. :reminder: If they chose an Outsider (once only): Replace the Outsider token with the spare Fang Gu token. Put the Fang Gu to sleep. Wake the target. Show the *YOU ARE* and Fang Gu tokens & give a thumbs-down. :reminder:"
             ]
           },
           "reminders": {
@@ -138,7 +168,12 @@
             "items": {
               "type": "string",
               "maxLength": 30,
-              "examples": ["Townsfolk", "Wrong", "Dead", "Is The Demon"]
+              "examples": [
+                "Townsfolk",
+                "Wrong",
+                "Dead",
+                "Is The Demon"
+              ]
             }
           },
           "remindersGlobal": {
@@ -149,7 +184,10 @@
             "items": {
               "type": "string",
               "maxLength": 25,
-              "examples": ["Drunk", "Is The Philosopher"]
+              "examples": [
+                "Drunk",
+                "Is The Philosopher"
+              ]
             }
           },
           "setup": {
@@ -163,13 +201,20 @@
             "items": {
               "type": "object",
               "title": "An individual Jinx pair",
-              "required": ["id", "reason"],
+              "required": [
+                "id",
+                "reason"
+              ],
               "properties": {
                 "id": {
                   "type": "string",
                   "title": "The ID of the other character this one is jinxed with.",
                   "maxLength": 50,
-                  "examples": ["spy", "fanggu", "lilmonsta"]
+                  "examples": [
+                    "spy",
+                    "fanggu",
+                    "lilmonsta"
+                  ]
                 },
                 "reason": {
                   "type": "string",
@@ -189,7 +234,10 @@
             "items": {
               "type": "object",
               "title": "A special app integration feature",
-              "required": ["name", "type"],
+              "required": [
+                "name",
+                "type"
+              ],
               "properties": {
                 "type": {
                   "type": "string",
@@ -303,7 +351,10 @@
             "team": "townsfolk",
             "firstNightReminder": "Show the Townsfolk character token. Point to both the *TOWNSFOLK* and *WRONG* players.",
             "otherNightReminder": "",
-            "reminders": ["Townsfolk", "Wrong"],
+            "reminders": [
+              "Townsfolk",
+              "Wrong"
+            ],
             "setup": false,
             "ability": "You start knowing that 1 of 2 players is a particular Townsfolk.",
             "flavor": "Bloodstains on a dinner jacket? No, this is cooking sherry. How careless.",

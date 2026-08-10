@@ -12,11 +12,11 @@
     "lint": "eslint src --max-warnings=0",
     "type-check": "tsc --noEmit",
     "test": "vitest run",
-    "test:data:schema": "vitest run --config vitest.data-schema.config.ts",
-    "test:data:sanity": "vitest run --config vitest.data-sanity.config.ts",
-    "test:unit": "vitest run --config vitest.unit.config.ts",
-    "test:ui": "vitest run --config vitest.ui.config.ts",
-    "test:e2e": "vitest run --config vitest.e2e.config.ts",
+    "test:data:schema": "vitest run --project data-schema",
+    "test:data:sanity": "vitest run --project data",
+    "test:unit": "vitest run --project unit",
+    "test:ui": "vitest run --project ui",
+    "test:e2e": "vitest run --project e2e-export",
     "test:watch": "vitest"
   },
   "staticFiles": {

@@ -53,8 +53,12 @@ function buildOfficialJinxLookup(catalog: Catalog): Map<string, string> {
 	return officialLookup;
 }
 
-export function deriveGreedyDifferences(catalog: Catalog): GreedyDifferenceDetail[] {
+export function deriveGreedyDifferences(
+	catalog: Catalog,
+	options: { showNonAbilityDifferences?: boolean } = {},
+): GreedyDifferenceDetail[] {
 	const differences: GreedyDifferenceDetail[] = [];
+	const showNonAbilityDifferences = options.showNonAbilityDifferences === true;
 
 	for (const entry of catalog.baseScript.entries) {
 		if (typeof entry === 'string' || entry.id === 'choose_your_chars') {
@@ -88,8 +92,9 @@ export function deriveGreedyDifferences(catalog: Catalog): GreedyDifferenceDetai
 		const hasReminderDifference =
 			officialFirstNightReminder !== greedyFirstNightReminder ||
 			officialOtherNightReminder !== greedyOtherNightReminder;
+		const hasNonAbilityDifference = hasNightOrderDifference || hasReminderDifference;
 
-		if (!hasAbilityDifference && !hasNightOrderDifference && !hasReminderDifference) {
+		if (!hasAbilityDifference && !(showNonAbilityDifferences && hasNonAbilityDifference)) {
 			continue;
 		}
 

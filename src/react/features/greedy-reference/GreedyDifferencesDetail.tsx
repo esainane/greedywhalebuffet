@@ -1,6 +1,7 @@
 import React from 'react';
 import type { GreedyDifferenceDetail } from '../../../application/reference-queries.js';
 import { InlineWordDiff } from '../../components/InlineWordDiff.js';
+import { Switch } from '../../components/Switch.js';
 import { splitAbilityText } from './abilityText.js';
 import { AbilityBlock } from './AbilityBlock.js';
 import { CharacterHeader } from './CharacterHeader.js';
@@ -10,10 +11,12 @@ import { ReferenceCard } from './ReferenceCard.js';
 type GreedyDifferencesDetailProps = {
 	items: GreedyDifferenceDetail[];
 	loading: boolean;
+	showNonAbilityDifferences: boolean;
+	onShowNonAbilityDifferencesChange: (checked: boolean) => void;
 };
 
 export function GreedyDifferencesDetail(props: GreedyDifferencesDetailProps): React.JSX.Element {
-	const { items, loading } = props;
+	const { items, loading, showNonAbilityDifferences, onShowNonAbilityDifferencesChange } = props;
 
 	return (
 		<DetailListState
@@ -22,6 +25,22 @@ export function GreedyDifferencesDetail(props: GreedyDifferencesDetailProps): Re
 			loadingText="Loading difference details..."
 			emptyText="No ability differences found between Greedy and official roles."
 		>
+			<div className="reference-toolbar">
+				<div className="inline-switch-control">
+					<span id="greedy-show-non-ability-differences-label" className="inline-switch-label">
+						Show non-ability differences
+					</span>
+					<Switch
+						id="greedy-show-non-ability-differences"
+						name="greedy-show-non-ability-differences"
+						ariaLabelledBy="greedy-show-non-ability-differences-label"
+						checked={showNonAbilityDifferences}
+						onChange={(event) => {
+							onShowNonAbilityDifferencesChange(event.currentTarget.checked);
+						}}
+					/>
+				</div>
+			</div>
 			<div className="reference-list">
 				{items.map((item) => {
 					const officialParts = splitAbilityText(item.officialAbility);
@@ -57,7 +76,7 @@ export function GreedyDifferencesDetail(props: GreedyDifferencesDetailProps): Re
 									) : null}
 								</p>
 							</AbilityBlock>
-							{hasNightOrderDifference ? (
+							{showNonAbilityDifferences && hasNightOrderDifference ? (
 								<AbilityBlock label="Night order">
 									<p>
 										{item.officialFirstNight !== item.greedyFirstNight ? (
@@ -84,7 +103,7 @@ export function GreedyDifferencesDetail(props: GreedyDifferencesDetailProps): Re
 									</p>
 								</AbilityBlock>
 							) : null}
-							{hasReminderDifference ? (
+							{showNonAbilityDifferences && hasReminderDifference ? (
 								<AbilityBlock label="Night reminders">
 									<p>
 										{item.officialFirstNightReminder !== item.greedyFirstNightReminder ? (

@@ -80,7 +80,7 @@ describe('deriveGreedyDifferences', () => {
 			},
 		});
 
-		const differences = deriveGreedyDifferences(catalog);
+		const differences = deriveGreedyDifferences(catalog, { showNonAbilityDifferences: true });
 
 		expect(differences.map((entry) => entry.character.id)).toEqual(['alpha_greedy']);
 		expect(differences[0]?.officialFirstNight).toBe(2);
@@ -123,13 +123,41 @@ describe('deriveGreedyDifferences', () => {
 			},
 		});
 
-		const differences = deriveGreedyDifferences(catalog);
+		const differences = deriveGreedyDifferences(catalog, { showNonAbilityDifferences: true });
 
 		expect(differences.map((entry) => entry.character.id)).toEqual(['alpha_greedy']);
 		expect(differences[0]?.officialFirstNight).toBe(1);
 		expect(differences[0]?.greedyFirstNight).toBe(2);
 		expect(differences[0]?.officialOtherNight).toBe(1);
 		expect(differences[0]?.greedyOtherNight).toBe(3);
+	});
+
+	it('does not include entries when the only potential difference is ability and there is no ability change', () => {
+		const catalog = createTestCatalog({
+			baseScript: [
+				{ id: '_meta', name: 'Reference Script' },
+				{
+					id: 'alpha_greedy',
+					name: 'Alpha',
+					team: 'townsfolk',
+					ability: 'Same Alpha ability',
+				},
+			],
+			rolesData: [
+				{
+					id: 'alpha',
+					name: 'Alpha',
+					team: 'townsfolk',
+					ability: 'Same Alpha ability',
+				},
+			],
+			greedyToBaseID: {
+				alpha_greedy: 'alpha',
+			},
+		});
+
+		expect(deriveGreedyDifferences(catalog)).toEqual([]);
+		expect(deriveGreedyDifferences(catalog, { showNonAbilityDifferences: true })).toEqual([]);
 	});
 });
 

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import {
 	useCatalog,
 	useIsLoading,
@@ -19,6 +19,7 @@ export function GreedyReferencePanel(): React.JSX.Element {
 	const loading = useIsLoading();
 	const { options, greedierSortBySet } = usePreferencesView();
 	const actions = useAppActions();
+	const [showNonAbilityDifferences, setShowNonAbilityDifferences] = useState(false);
 
 	const details = useMemo(() => {
 		if (!catalog) {
@@ -29,11 +30,13 @@ export function GreedyReferencePanel(): React.JSX.Element {
 			};
 		}
 
+		const includeNoDeathAtNightJinxes = options.useNoDeathAtNightJinxes;
+
 		return {
-			differences: deriveGreedyDifferences(catalog),
+			differences: deriveGreedyDifferences(catalog, { showNonAbilityDifferences }),
 			jinxes: deriveGreedyJinxes(catalog, {
 				includeGreedierHomebrew: options.addGreedierHomebrew,
-				includeNoDeathAtNightJinxes: options.useNoDeathAtNightJinxes,
+				includeNoDeathAtNightJinxes,
 			}),
 			homebrew: deriveGreedyHomebrew(catalog, greedierSortBySet),
 		};
@@ -42,6 +45,7 @@ export function GreedyReferencePanel(): React.JSX.Element {
 		greedierSortBySet,
 		options.addGreedierHomebrew,
 		options.useNoDeathAtNightJinxes,
+		showNonAbilityDifferences,
 	]);
 
 	return (
@@ -49,7 +53,12 @@ export function GreedyReferencePanel(): React.JSX.Element {
 			<section id="section-greedy-characters" className="panel reference-panel">
 				<p className="eyebrow">Greedy Characters</p>
 				<p className="lede">Some characters have been modified to be different from their base version. This might be to make them perform better with a very large script or with characters they weren't originally written for, permit combinations that would be nonsensical otherwise, open new possibilities, or prevent annoyances.</p>
-				<GreedyDifferencesDetail items={details.differences} loading={loading} />
+				<GreedyDifferencesDetail
+					items={details.differences}
+					loading={loading}
+					showNonAbilityDifferences={showNonAbilityDifferences}
+					onShowNonAbilityDifferencesChange={setShowNonAbilityDifferences}
+				/>
 			</section>
 
 			<section id="section-greedy-jinxes" className="panel reference-panel">

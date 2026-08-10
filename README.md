@@ -1,6 +1,6 @@
 # Greedy Whalebuffet
 
-[![CI](https://github.com/esainane/greedywhalebuffet/actions/workflows/validate.yml/badge.svg?branch=master)](https://github.com/esainane/greedywhalebuffet/actions/workflows/validate.yml)
+[![CI: Tests](https://github.com/esainane/greedywhalebuffet/actions/workflows/tests.yml/badge.svg?branch=master)](https://github.com/esainane/greedywhalebuffet/actions/workflows/tests.yml) [![CI: Fresh data](https://github.com/esainane/greedywhalebuffet/actions/workflows/fresh-data.yml/badge.svg?branch=master)](https://github.com/esainane/greedywhalebuffet/actions/workflows/fresh-data.yml)
 
 Source for [Greedy Whalebuffet Website](https://greedy.antihype.space/).
 

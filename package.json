@@ -11,9 +11,11 @@
     "lint": "eslint src --max-warnings=0",
     "type-check": "tsc --noEmit",
     "test": "vitest run",
-    "test:data-sources": "vitest run src/data.schema-validation.test.ts src/data.jinx-order.test.ts src/data.manifest.test.ts",
-    "test:unit": "vitest run --exclude src/data.schema-validation.test.ts --exclude src/e2e.schema-validation.test.ts",
-    "test:e2e": "vitest run src/e2e.schema-validation.test.ts",
+    "test:data:schema": "vitest run --config vitest.data-schema.config.ts",
+    "test:data:sanity": "vitest run --config vitest.data-sanity.config.ts",
+    "test:unit": "vitest run --config vitest.unit.config.ts",
+    "test:ui": "vitest run --config vitest.ui.config.ts",
+    "test:e2e": "vitest run --config vitest.e2e.config.ts",
     "test:watch": "vitest"
   },
   "staticFiles": {

@@ -7,20 +7,11 @@ on:
   pull_request:
 
 jobs:
-  test:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Node
-        uses: actions/setup-node@v4
-        with:
-          node-version: 24
-          cache: npm
-
-      - name: Install dependencies
-        run: npm ci
+      - name: Shared setup
+        uses: $/.github/actions/setup
 
       - name: Lint
         run: npm run lint
@@ -31,11 +22,47 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Validate data sources
-        run: npm run test:data-sources
+  data-schema:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Shared setup
+        uses: $/.github/actions/setup
+
+      - name: Validate data schema
+        run: npm run test:data:schema
+
+  data-sanity:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Shared setup
+        uses: $/.github/actions/setup
+
+      - name: Validate data sanity
+        run: npm run test:data:sanity
+
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Shared setup
+        uses: $/.github/actions/setup
 
       - name: Run unit tests
         run: npm run test:unit
 
-      - name: Run e2e validation tests
+  ui-unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Shared setup
+        uses: $/.github/actions/setup
+
+      - name: Run UI unit tests
+        run: npm run test:ui
+
+  export-schema:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Shared setup
+        uses: $/.github/actions/setup
+
+      - name: Validate export schema
         run: npm run test:e2e

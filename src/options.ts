@@ -64,7 +64,7 @@ export const OPTION_DEFINITIONS = defineOptionDefinitions({
 		label: 'Add Greedier homebrew',
 		defaultValue: false,
 		helpText:
-			'Adds all characters from the Greedier homebrew competitions to the character pool. WARNING: This is an incomplete feature. Character definitions, including ability descriptions and night order information, may be missing or incorrect.',
+			'Adds all characters from the Greedier homebrew competitions to the character pool.',
 	},
 });
 

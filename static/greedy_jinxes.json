@@ -290,6 +290,10 @@
         "reason": "The Vizier might fail to immediately execute a Goblin that claimed Goblin during their defense."
       },
       {
+        "id": "goon",
+        "reason": "The Goon might register as evil to the Vizier."
+      },
+      {
         "id": "investigator",
         "reason": "If an Investigator is in play, the Storyteller doesn't declare the Vizier is in play."
       }

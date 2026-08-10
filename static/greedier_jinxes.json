@@ -255,8 +255,16 @@
         "reason": "The Vizier might not be able to push on a Jester that claimed Jester during their defense."
       },
       {
+        "id": "portiafeatherington_winningclub",
+        "reason": "The Portia Featherington might register as evil to the Vizier."
+      },
+      {
         "id": "secretary_winningclub",
         "reason": "The Vizier isn't announced if the Secretary saw the Vizier."
+      },
+      {
+        "id": "sympath",
+        "reason": "The Sympath might register as evil to the Vizier."
       }
     ]
   }

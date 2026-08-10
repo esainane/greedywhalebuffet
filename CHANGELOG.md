@@ -18,16 +18,53 @@
 
 ### Character Updates
 
+- Al-Hadikhia: Now a Greedy modified character. It may not choose another Demon.
 - Flowergirl: Added reminder tokens.
 - Heretic: Clarified Greedy's clause.
+- Leviathan: No Death At Night (NDAN) jinx night choices made optional.
 - Magician: Fixed blank first-night reminder.
 - Mathematician: Changed reminder tokens from `Abnormalities` to `Abnormal` to match TPI's tokens.
-- Riot: Added jinx selection reminder tokens.
+- Riot: NDAN jinx night choices made optional. Added jinx selection reminder tokens.
 - Soldier: Can now also be woken on the first night, if a Demon would have acted harmfully on the first night.
+- Summoner: Consolidated failure modes from various jinxes into the ability, where they are told and given the option to reconsider if any part of a summoning, such as a Lord of Typhon minion being created, would fail.
 - Vizier: Added a public reminder token.
 - Yaggababble: Added missing first-night reminder. Added multiple kill reminder tokens.
 - Night reminder texts have been heavily updated to match modern official versions, or follow modern templating.
 - Made minor text fixes to many characters for templating consistency, and to keep them within the schema's character limits.
+
+### Base Jinxes
+
+- Overrode Leviathan's NDAN jinx with Ravenkeeper to add a missing "good".
+- Created an optional "Use No Death At Night jinxes" ruleset for Leviathan, Riot, and Greedier's Armageddon with characters who depend on Demon attacks: Banshee, Exorcist, Farmer, Grandmother, Innkeeper, Monk, Ravenkeeper, Sage, Soldier, and the Greedier Journalist and Pathologist.
+- When NDAN jinxes are disabled, those rarely-ran jinxes are omitted even when other jinx listings are enabled.
+- Alchemist/Fearmonger: Removed. Now uses the default, no-jinx ability.
+- Alchemist/Marionette: Reverted to standard TPI.
+- Barber: Added missing jinxes Boffin/Pit-Hag style where Evil players could turn Good.
+- Cannibal/Juggler: Reverted to standard TPI. The Cannibal now only learns a Juggler number if the Juggler was executed and killed before the night they would learn it.
+- Heretic: Reverted to standard TPI hate jinxes. Heretic/Baron has instead been removed entirely.
+- Legion/{Hatter, Summoner}: Reverted to standard TPI. All currently Evil players become Legion if created midgame, and the Hatter has no ability if Legion is in play.
+- Leviathan, Riot jinxes: Reverted to standard TPI, with a fixed version used for Leviathan/Ravenkeeper to add a missing "good".
+- Magician/Vizier: Reverted to standard TPI. The Magicican loses their regular ability if the Vizier is in play.
+- Riot/Atheist: Now requires a majority of players to vote for the ST, rather than the standard living count. No counternominations were possible on a Riot day, so Evil could get a very uninteractive victory when most players were dead.
+
+### Homebrew Characters
+
+- All Greedier character are available for inclusion, and have merged any post-season balance updates from Greediest.
+- Manually reviewed and updated all Greedier character data, including ability text, setup metadata, reminder tokens, night reminders, and night order.
+- Armageddon: Now uses Riot-level "This must happen." priority.
+- Ancient One: Simplified to be a deluded character pair. They may now receive misinformation accordingly.
+
+### Homebrew Jinxes
+
+- Added Greedier-specific jinx data.
+- Redundant or official-equivalent jinxes have been removed.
+- Manually reviewed and updated all Greedier jinx data.
+
+### Optional quirks
+
+- Added an option to permit duplicate characters during setup. This adds a note to the Bootlegger.
+- Added an option to include the Spirit of Ivory.
+- Added an option for "Alejo rules" first-night ordering. The Snake Charmer then acts before Minion and Demon info.
 
 ### Night Cards
 
@@ -37,7 +74,7 @@
 ### Night Order
 
 - Night order is now consistent with the standard night order. There are too many to list, but this includes Snitch going immediately after Minion info; Princess immediately before Demon actions; Lunatic before Demon actions but now after potential poisoning, and so on.
-- Riot and Leviathan explicitly keep their GWB night order instead of the standard night order. They act after other Demons to make selections for related jinxes, rather than acting at the end of the night to update day reminders.
+- Riot and Leviathan now use their upstream TPI night order, reminders, and reminder tokens by default. When No Death At Night jinxes are enabled, they instead receive the Greedy jinx-selection night position after other Demons. Greedier's Armageddon uses the same jinx-selection position when included.
 - Soldier still acts immediately before Chambermaid. They may also now receive a notification on the first night if they were protected from a Pukka, Lleech, certain Minions holding Lil Monsta, or other exceptional cases.
 - Hermit still has a reminder before player characters, but acts after Duchess or Toymaker, if the Storyteller really wishes to run GWB with these NPCs.
 
@@ -49,6 +86,7 @@
 - Character names and ability text have been rewritten to stay within the 30/250 character limits.
 - Removed invalid references to the removed Shushing Stick and custom Cacklejack.
 - The script file is now formatted consistently.
+- Replaced third-party image URLs for base characters with optimized self-hosted icons.
 
 ---
 

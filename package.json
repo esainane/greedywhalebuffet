@@ -18,7 +18,8 @@
     "test:unit": "vitest run --project unit",
     "test:ui": "vitest run --project ui",
     "test:e2e": "vitest run --project e2e-export",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "validate": "pnpm ci && pnpm type-check && pnpm lint && pnpm test && pnpm build"
   },
   "staticFiles": {
     "staticPath": "static",

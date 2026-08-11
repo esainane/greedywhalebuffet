@@ -8,7 +8,14 @@ on:
   pull_request:
 
 jobs:
+  warm-cache:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Shared setup
+        uses: $/.github/actions/setup
+
   build:
+    needs: warm-cache
     runs-on: ubuntu-latest
     steps:
       - name: Shared setup
@@ -24,6 +31,7 @@ jobs:
         run: pnpm build
 
   data-schema:
+    needs: warm-cache
     runs-on: ubuntu-latest
     steps:
       - name: Shared setup
@@ -33,6 +41,7 @@ jobs:
         run: pnpm test:data:schema
 
   data-sanity:
+    needs: warm-cache
     runs-on: ubuntu-latest
     steps:
       - name: Shared setup
@@ -42,6 +51,7 @@ jobs:
         run: pnpm test:data:sanity
 
   unit-tests:
+    needs: warm-cache
     runs-on: ubuntu-latest
     steps:
       - name: Shared setup
@@ -51,6 +61,7 @@ jobs:
         run: pnpm test:unit
 
   ui-unit-tests:
+    needs: warm-cache
     runs-on: ubuntu-latest
     steps:
       - name: Shared setup
@@ -60,6 +71,7 @@ jobs:
         run: pnpm test:ui
 
   export-schema:
+    needs: warm-cache
     runs-on: ubuntu-latest
     steps:
       - name: Shared setup

@@ -40,6 +40,16 @@ export default defineConfig({
 					include: ['src/**/*.test.tsx'],
 				},
 			},
+			{
+				test: {
+					name: 'types',
+					typecheck: {
+						enabled: true,
+						only: true,
+						include: ['src/**/*.ts', 'src/**/*.tsx']
+					}
+				}
+			}
 		],
 	},
 });

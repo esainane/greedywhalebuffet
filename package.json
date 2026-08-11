@@ -11,7 +11,7 @@
     "build": "parcel build",
     "schema:generate": "python3 tools/generate_schemas.py",
     "lint": "eslint src --max-warnings=0",
-    "type-check": "tsc --noEmit",
+    "type-check": "vitest run --project types",
     "test": "vitest run",
     "test:data:schema": "vitest run --project data-schema",
     "test:data:sanity": "vitest run --project data",
@@ -20,7 +20,7 @@
     "test:e2e": "vitest run --project e2e-export",
     "test:playwright": "playwright test",
     "test:watch": "vitest",
-    "validate": "pnpm ci && pnpm type-check && pnpm lint && pnpm test && pnpm build"
+    "validate": "pnpm ci && pnpm lint && pnpm test && pnpm build"
   },
   "staticFiles": {
     "staticPath": "static",

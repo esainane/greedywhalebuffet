@@ -13,12 +13,9 @@ For changes to the script, see the [CHANGELOG](CHANGELOG.md).
 
 ## Installation
 
-Install dependencies with:
+- `pnpm ci`: Install dependencies.
+- `pnpm build`: Builds project. Files can be served from `dist/`.
 
-- `npm ci`
+## Development
 
-## Running
-
-Start locally with:
-
-- `npm start`
+See [HACKING.md](HACKING.md).

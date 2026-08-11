@@ -15,13 +15,13 @@ jobs:
         uses: $/.github/actions/setup
 
       - name: Lint
-        run: npm run lint
+        run: pnpm lint
 
       - name: Type check
-        run: npm run type-check
+        run: pnpm type-check
 
       - name: Build
-        run: npm run build
+        run: pnpm build
 
   data-schema:
     runs-on: ubuntu-latest
@@ -30,7 +30,7 @@ jobs:
         uses: $/.github/actions/setup
 
       - name: Validate data schema
-        run: npm run test:data:schema
+        run: pnpm test:data:schema
 
   data-sanity:
     runs-on: ubuntu-latest
@@ -39,7 +39,7 @@ jobs:
         uses: $/.github/actions/setup
 
       - name: Validate data sanity
-        run: npm run test:data:sanity
+        run: pnpm test:data:sanity
 
   unit-tests:
     runs-on: ubuntu-latest
@@ -48,7 +48,7 @@ jobs:
         uses: $/.github/actions/setup
 
       - name: Run unit tests
-        run: npm run test:unit
+        run: pnpm test:unit
 
   ui-unit-tests:
     runs-on: ubuntu-latest
@@ -57,7 +57,7 @@ jobs:
         uses: $/.github/actions/setup
 
       - name: Run UI unit tests
-        run: npm run test:ui
+        run: pnpm test:ui
 
   export-schema:
     runs-on: ubuntu-latest
@@ -66,4 +66,4 @@ jobs:
         uses: $/.github/actions/setup
 
       - name: Validate export schema
-        run: npm run test:e2e
+        run: pnpm test:e2e

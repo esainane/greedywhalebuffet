@@ -6,4 +6,4 @@
 
 Regenerate derived schemas with:
 
-- `npm run schema:generate`
+- `pnpm schema:generate`

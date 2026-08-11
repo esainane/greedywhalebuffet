@@ -4,6 +4,7 @@
   "license": "AGPL-3.0-or-later",
   "type": "module",
   "version": "0.0.0",
+  "packageManager": "pnpm@11.21.0",
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",

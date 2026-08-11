@@ -6,10 +6,10 @@
     "almanac": "https://greedy.antihype.space/",
     "bootlegger": [
       "Generated at https://greedy.antihype.space/. Link on the script title atop the character sheet.",
-      "Before the game, each player chooses at least two normal Townsfolk, Outsiders, Minions, and Demons. The Storyteller uses these to make a valid setup.",
-      "Normal characters do not change alignment, add Evil players, or include Atheist, Alchemist, Philosopher, Heretic, Summoner, Legion, or Lil Monsta. The Storyteller may declare others abnormal.",
-      "Choosing Amnesiac, Choirboy, Village Idiot, Kazali, or Legion may prevent some players from receiving a requested character.",
-      "Drunk, Lunatic, and Marionette cannot be chosen, but the Storyteller may assign them. Hermit may be assigned with a Lunatic or Drunk ability.",
+      "Each player chooses at least two normal Townsfolk, Outsiders, Minions, and Demons. These are used for a valid setup.",
+      "Normal characters do not alter alignment, add Evil, or include Atheist, Alchemist, Philosopher, Heretic, Legion, or Lil Monsta. Others may be declared abnormal.",
+      "Choosing Amnesiac, Choirboy, Village Idiot, Kazali, or Legion may cause some players to receive characters not chosen.",
+      "Drunk, Lunatic, and Marionette cannot be chosen, but may be assigned. Hermit may be assigned with Lunatic or Drunk abilities.",
       "The Demon receives no bluffs.",
       "Characters marked Ω are changed."
     ]

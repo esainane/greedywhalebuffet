@@ -25,4 +25,4 @@ Test categories can also be run distinctly:
 
 ## Notes
 
-- The raw script remains directly downloadable as a standalone JSON artifact. The raw script is as intentioanlly compatible with the BotC app as the generated script.
+- The raw script remains directly downloadable as a standalone JSON artifact. The raw script is as intentionally compatible with the BotC app as the generated script.

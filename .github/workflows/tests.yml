@@ -79,3 +79,16 @@ jobs:
 
       - name: Validate export schema
         run: pnpm test:e2e
+
+  playwright-smoke-test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Shared setup
+        uses: $/.github/actions/setup
+
+      - name: Build
+        run: pnpm build
+
+      - name: Run Playwright smoke test
+        run: pnpm test:playwright

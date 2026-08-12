@@ -8,7 +8,7 @@
     ],
     "team": "townsfolk",
     "setup": true,
-    "ability": "You start knowing all other Clergymen. If one of you dies, the others might die as well. [+0 or +2 Clergymen]",
+    "ability": "You start knowing all other Clergymen. If one of you dies, the others might die as well. [+1 or +2 Clergymen]",
     "flavor": "The church bell tolls. The masses gather. Choruses of choirboys and members of the clergy echo throughout the town. Devout believers of HIM join us in this heavenly parade. I thank you dear child for opening your arms to HIS embrace.",
     "firstNight": 60,
     "otherNight": 58,
@@ -64,7 +64,7 @@
       "https://greedy.antihype.space/icons/greedier/reflector_e.webp"
     ],
     "team": "outsider",
-    "ability": "Each night, the first player’s ability to target you targets another player instead.",
+    "ability": "Each night, the first player’s ability to target you might target another player instead.",
     "flavor": "Mayor under house arrest… :P",
     "reminders": [
       "Reflected"

@@ -51,8 +51,10 @@
 
 - All Greedier character are available for inclusion, and have merged any post-season balance updates from Greediest.
 - Manually reviewed and updated all Greedier character data, including ability text, setup metadata, reminder tokens, night reminders, and night order.
-- Armageddon: Now uses Riot-level "This must happen." priority.
 - Ancient One: Simplified to be a deluded character pair. They may now receive misinformation accordingly.
+- Armageddon: Now uses Riot-level "This must happen." priority.
+- Clergyman: Now +1 or +2 Clergymen at setup, avoiding a blank token at +0.
+- Reflector: Reflection is now optional. The character takes an Outsider slot, and should not be a super-Mayor that continues to live even if mechanically confirmed.
 
 ### Homebrew Jinxes
 

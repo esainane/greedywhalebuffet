@@ -80,7 +80,7 @@
 .section-nav-chip {
 	width: auto;
 	white-space: nowrap;
-	border-radius: 999px;
+	border-radius: var(--radius-pill);
 	padding: 0.6rem 0.9rem;
 	font-size: 0.84rem;
 }
@@ -131,7 +131,7 @@
 .section-nav-close {
 	margin-top: 0.35rem;
 	text-align: center;
-	border-radius: 999px;
+	border-radius: var(--radius-pill);
 	border-color: var(--surface-border);
 }
 

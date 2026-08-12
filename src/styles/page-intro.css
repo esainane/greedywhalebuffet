@@ -81,9 +81,3 @@ h1 {
 	outline: 2px solid var(--accent-strong);
 	outline-offset: 2px;
 }
-
-.mono {
-	font-family: 'IBM Plex Mono', monospace;
-	font-size: 0.95em;
-}
-

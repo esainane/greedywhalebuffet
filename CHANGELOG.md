@@ -41,6 +41,7 @@
 - Alchemist/Marionette: Reverted to standard TPI.
 - Barber: Added missing jinxes Boffin/Pit-Hag style where Evil players could turn Good.
 - Cannibal/Juggler: Reverted to standard TPI. The Cannibal now only learns a Juggler number if the Juggler was executed and killed before the night they would learn it.
+- Cannibal/Princess: Reverted to standard TPI. It almost never comes up, and when it does, it's not worth the overhead to do it differently.
 - Heretic: Reverted to standard TPI hate jinxes. Heretic/Baron has instead been removed entirely.
 - Legion/{Hatter, Summoner}: Reverted to standard TPI. All currently Evil players become Legion if created midgame, and the Hatter has no ability if Legion is in play.
 - Leviathan, Riot jinxes: Reverted to standard TPI, with a fixed version used for Leviathan/Ravenkeeper to add a missing "good".

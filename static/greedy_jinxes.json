@@ -75,15 +75,6 @@
     ]
   },
   {
-    "id": "cannibal",
-    "jinx": [
-      {
-        "id": "princess",
-        "reason": "If the Cannibal with the Princess ability nominates & executes a player on their 1st day with the ability, the Demon doesn’t kill tonight, even if they lose their Princess ability."
-      }
-    ]
-  },
-  {
     "id": "flowergirl",
     "jinx": [
       {

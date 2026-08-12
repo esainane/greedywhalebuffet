@@ -27,6 +27,7 @@
 	--content-max-width: 1100px;
 	--desktop-nav-width: 250px;
 	--radius-pill: 999px;
+	--visually-hidden-size: 1px;
 	--social-link-text: #f2f5ff;
 	--github-start: #111827;
 	--github-end: #374151;
@@ -38,6 +39,10 @@
 	--spreadsheet-start: #218553;
 	--spreadsheet-end: #2aa56a;
 	--spreadsheet-shadow: rgba(33, 133, 83, 0.34);
+	--danger-button-text: #fff7f5;
+	--danger-button-start: #b49f28;
+	--danger-button-end: #a87323;
+	--danger-button-shadow: rgba(183, 77, 44, 0.34);
 }
 
 @media (prefers-color-scheme: light) {

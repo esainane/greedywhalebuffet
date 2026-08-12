@@ -1,0 +1,194 @@
+.reference-panel {
+	display: grid;
+	gap: 1rem;
+}
+
+.reference-list {
+	display: grid;
+	gap: 0.75rem;
+}
+
+.reference-toolbar {
+	display: flex;
+	justify-content: flex-start;
+	margin-top: -0.25rem;
+}
+
+.reference-card {
+	padding: 0.9rem;
+	border-radius: 14px;
+	background: var(--surface-strong);
+	border: 1px solid var(--surface-border);
+	display: grid;
+	gap: 0.75rem;
+}
+
+.reference-header {
+	display: grid;
+	gap: 0.55rem;
+}
+
+.reference-title-wrap {
+	display: flex;
+	align-items: center;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+}
+
+.reference-title-wrap h3 {
+	margin: 0;
+	font-size: 1rem;
+}
+
+.reference-title-text {
+	display: grid;
+	gap: 0.2rem;
+}
+
+.team-label {
+	margin: 0;
+	font-size: 0.78rem;
+	font-weight: 700;
+	line-height: 1.1;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+
+.team-townsfolk {
+	color: var(--team-townsfolk);
+}
+
+.team-outsider {
+	color: var(--team-outsider);
+}
+
+.team-minion {
+	color: var(--team-minion);
+}
+
+.team-demon {
+	color: var(--team-demon);
+}
+
+.reference-pair {
+	display: flex;
+	align-items: center;
+	gap: 0.65rem;
+	flex-wrap: wrap;
+}
+
+.pair-separator {
+	font-size: 0.82rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+	color: var(--muted);
+}
+
+.reference-meta {
+	display: flex;
+	gap: 0.45rem;
+	flex-wrap: wrap;
+}
+
+.reference-meta span {
+	padding: 0.2rem 0.55rem;
+	border-radius: var(--radius-pill);
+	border: 1px solid var(--surface-border);
+	font-size: 0.78rem;
+	color: var(--muted);
+	background: color-mix(in srgb, var(--surface) 85%, transparent);
+}
+
+.reference-body {
+	display: grid;
+	gap: 0.7rem;
+}
+
+.ability-block {
+	padding: 0.75rem;
+	border-radius: 12px;
+	background: color-mix(in srgb, var(--surface) 92%, transparent);
+	border: 1px solid var(--surface-border);
+}
+
+.ability-block.jinx-status-new {
+	border-color: color-mix(in srgb, var(--surface-border) 67%, var(--success));
+}
+
+.ability-block.jinx-status-changed {
+	border-color: color-mix(in srgb, var(--surface-border) 67%, var(--warning));
+}
+
+.ability-block.jinx-status-removed {
+	border-color: color-mix(in srgb, var(--surface-border) 67%, var(--danger));
+}
+
+.ability-block.jinx-status-greedier-homebrew {
+	border-color: color-mix(in srgb, var(--surface-border) 58%, var(--homebrew-purple-muted));
+}
+
+.ability-label {
+	margin: 0 0 0.4rem;
+	font-size: 0.78rem;
+	font-weight: 700;
+	letter-spacing: 0.07em;
+	text-transform: uppercase;
+	color: var(--muted);
+}
+
+.ability-label.jinx-status-new {
+	color: var(--success);
+}
+
+.ability-label.jinx-status-changed {
+	color: var(--warning);
+}
+
+.ability-label.jinx-status-removed {
+	color: var(--danger);
+}
+
+.ability-label.jinx-status-greedier-homebrew {
+	color: var(--homebrew-purple);
+}
+
+.ability-block p {
+	margin: 0;
+	line-height: 1.45;
+	word-break: break-word;
+}
+
+.ability-block .setup-ability {
+	margin-left: 0.25rem;
+	font-weight: 1000;
+}
+
+.setup-effect-diff {
+	margin-top: 0.25rem;
+	display: grid;
+	gap: 0.25rem;
+}
+
+.setup-effect-inline .inline-word-diff,
+.setup-effect-inline .inline-word-diff span {
+	font-weight: 700;
+}
+
+.inline-word-diff {
+	margin: 0;
+	line-height: 1.45;
+	word-break: break-word;
+}
+
+.diff-removed {
+	color: var(--danger);
+	text-decoration: line-through;
+}
+
+.diff-added {
+	color: var(--success);
+	text-decoration: underline;
+	text-decoration-thickness: 2px;
+	text-underline-offset: 2px;
+}

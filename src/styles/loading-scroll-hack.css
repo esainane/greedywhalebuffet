@@ -1,0 +1,21 @@
+/* FIXME: Crude hack to preserve scroll position before sections are populated with content. */
+
+.is-loading #section-generate {
+	min-height: 730px;
+}
+
+.is-loading #section-characters {
+	min-height: 3860px;
+}
+
+.is-loading #section-greedy-characters {
+	min-height: 4320px;
+}
+
+.is-loading #section-greedy-jinxes {
+	min-height: 18130px;
+}
+
+.is-loading #section-greedier-homebrew {
+	min-height: 10550px;
+}

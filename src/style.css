@@ -1,27 +1,7 @@
 @import './styles/tokens.css';
 @import './styles/primitives.css';
 @import './styles/section-navigation.css';
-
-.is-loading #section-generate {
-	min-height: 730px;
-}
-
-.is-loading #section-characters {
-	min-height: 3860px;
-}
-
-.is-loading #section-greedy-characters {
-	min-height: 4320px;
-}
-
-.is-loading #section-greedy-jinxes {
-	min-height: 18130px;
-}
-
-.is-loading #section-greedier-homebrew {
-	min-height: 10550px;
-}
-
+@import './styles/loading-scroll-hack.css';
 h1 {
 	margin-bottom: 0.75rem;
 	font-size: clamp(2rem, 5vw, 3.8rem);

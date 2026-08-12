@@ -27,6 +27,17 @@
 	--content-max-width: 1100px;
 	--desktop-nav-width: 250px;
 	--radius-pill: 999px;
+	--social-link-text: #f2f5ff;
+	--github-start: #111827;
+	--github-end: #374151;
+	--github-shadow: rgba(17, 24, 39, 0.28);
+	--discord-start: #5865f2;
+	--discord-end: #7480f7;
+	--discord-shadow: rgba(88, 101, 242, 0.35);
+	--spreadsheet-text: #f3fff4;
+	--spreadsheet-start: #218553;
+	--spreadsheet-end: #2aa56a;
+	--spreadsheet-shadow: rgba(33, 133, 83, 0.34);
 }
 
 @media (prefers-color-scheme: light) {

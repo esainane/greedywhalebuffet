@@ -54,7 +54,9 @@
 - Ancient One: Simplified to be a deluded character pair. They may now receive misinformation accordingly.
 - Armageddon: Now uses Riot-level "This must happen." priority.
 - Clergyman: Now +1 or +2 Clergymen at setup, avoiding a blank token at +0.
-- Reflector: Reflection is now optional. The character takes an Outsider slot, and should not be a super-Mayor that continues to live even if mechanically confirmed.
+- Jester: Clarify Goblin-style nomination condition.
+- Reflector: Added icons. Reflection is now optional. The character takes an Outsider slot, and should not be a super-Mayor that continues to live even if mechanically confirmed.
+- Shepherd: Added icons.
 
 ### Homebrew Jinxes
 

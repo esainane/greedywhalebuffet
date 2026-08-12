@@ -102,5 +102,20 @@
       "path": "./greedier/greedier-s13.json",
       "sourceSet": 13
     }
+  ],
+  "greedierAlmanacs": [
+    { "kind": "almanac", "path": "./almanac/greedier-s1.json", "sourceSet": 1 },
+    { "kind": "almanac", "path": "./almanac/greedier-s2.json", "sourceSet": 2 },
+    { "kind": "almanac", "path": "./almanac/greedier-s3.json", "sourceSet": 3 },
+    { "kind": "almanac", "path": "./almanac/greedier-s4.json", "sourceSet": 4 },
+    { "kind": "almanac", "path": "./almanac/greedier-s5.json", "sourceSet": 5 },
+    { "kind": "almanac", "path": "./almanac/greedier-s6.json", "sourceSet": 6 },
+    { "kind": "almanac", "path": "./almanac/greedier-s7.json", "sourceSet": 7 },
+    { "kind": "almanac", "path": "./almanac/greedier-s8.json", "sourceSet": 8 },
+    { "kind": "almanac", "path": "./almanac/greedier-s9.json", "sourceSet": 9 },
+    { "kind": "almanac", "path": "./almanac/greedier-s10.json", "sourceSet": 10 },
+    { "kind": "almanac", "path": "./almanac/greedier-s11.json", "sourceSet": 11 },
+    { "kind": "almanac", "path": "./almanac/greedier-s12.json", "sourceSet": 12 },
+    { "kind": "almanac", "path": "./almanac/greedier-s13.json", "sourceSet": 13 }
   ]
 }

@@ -1,0 +1,126 @@
+[
+  {
+    "id": "hulijing_winningclub",
+    "summary": {
+      "description": "The Huli Jing swaps between different characters.",
+      "rules": [
+        "On the first night, the Huli Jing learns five distinct out-of-play characters.",
+        "Each night, including the first, they choose one of those five and gain its ability until dusk.",
+        "They may register as their chosen character would.",
+        "Each choice is a new instance of the borrowed ability, but setup modifications are never applied."
+      ]
+    },
+    "howToRun": [
+      "Choose five out-of-play characters. Wake the Huli Jing and show all five tokens.",
+      "Each night, the Huli Jing selects one token. If you wish, you may replace their grimoire character token with the token they believe they are, and mark them with the *IS THE HULI JING* reminder. Then run its ability until dusk.",
+      "Resolve registration as the chosen character when useful, but remember the player remains an evil Minion."
+    ],
+    "howToRunExamples": [
+      "The shown roles do not all need to be good, but you should avoid characters which would be extremely strong when fresh every night, like the Assassin.",
+      "Avoid alignment manipulation and alternate win conditions. The Huli Jing should gain power from its flexibility and utility."
+    ],
+    "examples": [
+      "The Huli Jing chooses Artist, and asks a question to help locate the Lycanthrope.",
+      "The Huli Jing chooses Monk, and protects a player to hide that a Vortox is in play.",
+      "The Huli Jing chooses Recluse. They misregister to the Boffin, causing the Boffin to grant the Demon a fresh ability."
+    ],
+    "tipsAndTricks": [
+      "You will have been given five characters for a reason. Think about what characters are likely in play for them to be useful.",
+      "Rely on misregistration to back up your claims. Use your information to prove yourself to others.",
+      "Reveal the five options to your Demon so your bluffs and borrowed effects reinforce one story."
+    ],
+    "opposingTips": [
+      "Misregistration and information gathered from the Huli Jing will probably be less impactful than from a Spy, but they also get to have some active effect."
+    ]
+  },
+  {
+    "id": "daki_winningclub",
+    "summary": {
+      "description": "The Daki creates an unreliable backup Demon.",
+      "rules": [
+        "If the Daki dies while at least five players are alive, the Storyteller changes one player into an evil Gyutaro.",
+        "The new Gyutaro becomes the Demon immediately. The dead Daki remains dead and no longer counts as the Demon.",
+        "If fewer than five players are alive when the Daki dies, no successor is created."
+      ]
+    },
+    "howToRun": [
+      "Each later night, wake the Daki. They choose a player other than themself. Put the Daki to sleep and mark the target *DEAD*.",
+      "Whenever the Daki dies, count living players after resolving that death. If at least five live, choose a suitable player to become Gyutaro.",
+      "Wake the chosen player. Show *YOU ARE*, the Gyutaro token, then a thumbs-down. Replace their character token and alignment."
+    ],
+    "howToRunExamples": [
+      "Choose a successor carefully. Turning a good player leaves evil unable to coordinate. Turning a Minion leaves evil with less active power."
+    ],
+    "examples": [
+      "The Daki is executed with six players alive. That night, a good Outsider turns into an evil Gyutaro.",
+      "The Daki dies with four players alive. No Gyutaro is created, and Good wins.",
+      "The Daki is killed at night with seven alive. A Minion becomes Gyutaro and remains evil."
+    ],
+    "tipsAndTricks": [
+      "If execution is inevitable, die before the game drops below five alive so your team receives a successor.",
+      "A successor may come from Good. Extra evil voting power is strong if you can find them, but you have no built-in way of finding them."
+    ],
+    "opposingTips": [
+      "Killing the Daki early won't end the game. Look for a sudden change in a player's priorities."
+    ]
+  },
+  {
+    "id": "gyutaro_winningclub",
+    "summary": {
+      "description": "Gyutaro is Daki's unreliable backup.",
+      "rules": [
+        "Gyutaro cannot start in play. It enters play after Daki dies.",
+        "Gyutaro cannot kill reliably. They choose one player, but the Storyteller decides whether that player dies.",
+        "The first time an evil player is executed while Gyutaro is in play, one good player learns that Gyutaro is in play that night.",
+        "The informed player learns of Gyutaro's existence, but not which player is Gyutaro."
+      ]
+    },
+    "howToRun": [
+      "Each night, wake Gyutaro. They choose a player. Put them to sleep and decide whether to mark that player *DEAD*.",
+      "If an evil player was executed today, and no *KNOW* token is placed, place a *REVEAL TONIGHT* reminder. That night, choose a good player, and mark them with *KNOW*. Wake them, and show the Gyutaro token. Remove *REVEAL TONIGHT*."
+    ],
+    "examples": [
+      "A Minion is executed the day after Gyutaro is created. That night a good player sees Gyutaro.",
+      "A good player is executed. No reveal occurs yet.",
+      "Evan the Gyutaro does not know their team, and chooses Ada the evil Witch. The Storyteller decides not to kill them."
+    ],
+    "tipsAndTricks": [
+      "If you were good, try not to change your behavior too much. You can guess who was Daki based on who died right before you turned, but be careful about approaching them. Town may be watching a Daki candidate closely.",
+      "If you were evil, you can coordinate strongly with your team and any remaining Minions."
+    ],
+    "opposingTips": [
+      "As with Summoner, confirmation and trustworthiness can become meaningless after a Gyutaro is created.",
+      "Gyutaro outs an evil player after their execution. Work out their likely evil team from there, who the most likely Daki was, and try to remember who approached Daki the next day."
+    ]
+  },
+  {
+    "id": "hopeful_winningclub",
+    "summary": {
+      "description": "The Hopeful gives Good one last chance.",
+      "rules": [
+        "When Evil would win, a living or dead Hopeful may immediately announce that they are using their ability.",
+        "The Hopeful publicly guesses the current character of every player, including dead players.",
+        "All presented state must be exact. If every guess is correct, Good wins instead. If any guess is wrong, Evil's win stands."
+      ]
+    },
+    "howToRun": [
+      "When evil would win and a Hopeful is in play, announce that the game is over, and evil would win.",
+      "Have the Hopeful name every player and character without interruption.",
+      "Once they are done, proceed with the grim reveal.",
+      "If all are correct, declare Good has won. Otherwise, declare Evil has won. This can happen at any point during the grim reveal."
+    ],
+    "examples": [
+      "Evil wins with the Demon alive. The dead Hopeful correctly names every current character, so Good wins instead.",
+      "The Hopeful names a player as the Scarlet Woman, but that player had become the No Dashii. The guess fails and Evil wins.",
+      "The Hopeful correctly identifies all good players, but gets a Boffin and Mastermind around the wrong way. Evil still wins."
+    ],
+    "tipsAndTricks": [
+      "Talk to everyone! You need to know everything. Track what worlds people are building, what Minions everyone thinks are in play, and what kind of Demon is most likely.",
+      "Listen in the town square! Demonbanes and some Outsiders will lie about their roles. Make sure you catch what they really are."
+    ],
+    "opposingTips": [
+      "Have an Ojo that needs to hit premium Townsfolk? Hopeful is a fine Minion bluff when you don't otherwise have information.",
+      "Heard of a Damsel? The Damsel themselves is never going to claim to a real Hopeful, since a game ending to a guess makes it very obvious who they are. But you can still rule out many Damsel candidates quickly! Press for claims early and see who is cagey, or comes up with something which doesn't add up."
+    ]
+  }
+]

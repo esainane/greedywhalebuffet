@@ -1,0 +1,103 @@
+[
+  {
+    "id": "jester_winningclub",
+    "summary": {
+      "description": "The Jester has the last laugh if the town knowingly executes them.",
+      "rules": [
+        "If the Jester is executed, only they win. The game is over, and everyone of the Jester's current alignment changes to the opposite alignment.",
+        "...but for this to happen, the Jester needs to tell the group that they are the Jester when they are nominated, but before votes happen, and to do so in a way that everyone hears. The group needs to know the risk.",
+        "If the Jester is executed without telling the group that they are the Jester when nominated, or they fail to vote on themselves, the Jester dies and the game continues as normal.",
+        "The Jester must have claimed to be the Jester today for their ability to work. Telling the group yesterday, or even every previous day, doesn't count.",
+        "Any player may claim to be the Jester when nominated. However, unlike the Goblin, they need to vote on themselves for their ability to trigger, making it an even riskier bluff."
+      ]
+    },
+    "howToRun": [
+      "If the Jester claims to be the Jester when nominated (and before voting begins), declare that this player has claimed to be the Jester, so that all the group hears. Put the *CLAIMED* reminder by the Jester token.",
+      "If the Jester did not vote on themselves, remove the *CLAIMED* reminder.",
+      "If the Jester is executed, and they are marked *CLAIMED*, flip the alignment of all players currently on their team, and then declare that the Jester wins."
+    ],
+    "howToRunExamples": [
+      "Like the Goblin, the Jester can be game warping even when not bagged. Ensure town has ways of identifying alignment, separating Minion from Demon candidates, or solving for Outsider count. This is even more important when the Jester is available."
+    ],
+    "examples": [
+      "Tesso is the Jester. When nominated, she claims Jester, and votes for themselves. When executed, all other good players turn evil, and Tesso wins as good alone.",
+      "Oscar is the Hermit with the Jester and Butler abilities. When nominated, he claims Jester, but cannot vote for himself when his master does not vote."
+    ],
+    "tipsAndTricks": [
+      "You do not need your ability to trigger to win! Most people claiming Jester will be doing so as an Evil bluff, and you are an excellent frame! If there is information clearing you, consider keeping it hidden, and winning with good on the final day.",
+      "If you are real, Evil may decide to kill you at night to avoid risking an instant loss.",
+      "Listen out for Politician claims. A Politician might flip again and win with the Jester, if they were instrumental in the Jester's execution. A Politician might be your only friend in convincing town to call your \"bluff\".",
+      "If someone has claimed Jester, pay attention to how people react. Unlike the Goblin, a potentially genuine Jester will spook Evil just as much as Good."
+    ],
+    "opposingTips": [
+      "Unlike the Goblin, you also need to vote on yourself. This makes bluffs more all-in, as it will be harder to lift.",
+      "Unlike the Goblin, the Dreamer will not be able to call you out."
+    ]
+  },
+  {
+    "id": "hypnotist_winningclub",
+    "summary": {
+      "description": "The Hypnotist disrupts town with false madness and chaos.",
+      "rules": [
+        "Anyone chosen by a Hypnotist might receive false night cards. This is usually telling a player the Cerenovus or Harpy has chosen them.",
+        "The Hypnotist cannot replace night cards, only add to them. A player will still receive any night cards they are meant to receive normally.",
+        "Disruptive players can also be targeted, but with Storyteller discretion. Too much madness will make it very obvious that the Hypnotist is in play."
+      ]
+    },
+    "howToRun": [
+      "Each night, wake the Hypnotist. They point at a player. Put the Hypnotist to sleep. Mark the chosen player with the *HYPNOTIZED* reminder. Later, when the relevant character would act, you may wake the chosen player, and show them any cards or tokens you deem appropriate.",
+      "During the day, if a player is disruptive, you can add a *HYPNOTIZED* reminder to them. That night, they may receive false night cards as if the Hypnotist had chosen them.",
+      "You can send hypnotized players false night cards immediately before or after they receive their real information. They will be unable to tell which is which, but they will know that a Hypnotist is in play.",
+      "If you have deluded players, such as a Drunk or Marionette, a Hypnotist does not need need to actually be in play for them to be sent cards suggesting that a Hypnotist is likely in play.",
+      "Be responsible. The Hypnotist can be as powerful as you need it to be. Does the Evil team really need for a hypnotized Sage or Choirboy to be sent damning false information on the night a demonbane is killed by an Assassin or Godfather?",
+      "Yes, But Don't send night cards faking a Mezepheles turn or Fang Gu jump. Playing for the wrong team, without any way of knowing, feels very bad. If you want to do this, make sure your group knows in advance."
+    ],
+    "examples": [
+      "The Hypnotist chooses Ada. The Storyteller wakes Ada, and tells her that the Cerenovus has selected her to be mad that she is the Drunk. During the day, Ada breaks madness. Ada cannot be executed because there is no actual Cerenovus ability affecting her.",
+      "On the first two nights, fake Cerenovus cards were sent out. On the second day, the town executed Joseph the Empath, who they believed could be a Cerenovus. On the third night, no false cards were sent, to frame Joseph as the Cerenovus.",
+      "It is night five, and the town is confident that none of the madness is real. The Hypnotist chooses Sue the Fortune Teller. When Sue makes her selection, she is first told a false Yes due to the Hypnotist, and then the real No. Sue cannot tell which is correct, but now knows that the Hypnotist is in play.",
+      "Town believes that a Hypnotist is in play. During the night, Evan the Savant is told they became the Good Farmer. During the day, Evan still asks for his Savant info. He is told that he does not have that ability, because he really did become the Farmer."
+    ],
+    "tipsAndTricks": [
+      "Talk to the Storyteller! While it is ultimately their call what, if anything, to send, the Storyteller will often take suggestions. Ask for a fake Widow call! Ask if you can send a false Nightwatchman ping from your Demon! Ask to tell a player they've become a Farmer the night your Imp starpassed!"
+    ],
+    "opposingTips": [
+      "If there is too much madness going around to be real, there is likely a Hypnotist in play. Has someone broken seemingly without consequence? Perhaps it's real, perhaps it's a Cerenovus trying to trick you. Whether you take that risk is up to you."
+    ]
+  },
+  {
+    "id": "unfathomable_winningclub",
+    "summary": {
+      "description": "The Unfathomable leaves all night death in the Storyteller's hands.",
+      "rules": [
+        "The Unfathomable may indicate one player each night. This is a preference, not an attack. The Storyteller may kill that player, somebody else, several players, or nobody.",
+        "All night deaths are fully arbitrary. The Unfathomable may block death as well as kill.",
+        "The Assassin will still kill, even if blocked.",
+        "Deaths during the day happen as normal."
+      ]
+    },
+    "howToRun": [
+      "Each night, wake the Unfathomable. They either point to a player or shake their head. If they point, mark that player with *MALICE*. Put the Unfathomable to sleep.",
+      "Resolve other night abilities, deciding which arbitrary deaths best balance the game. Remove *MALICE* before dawn and mark any victim *DEAD*.",
+      "Keep a tally of how much arbitrary death has been used to aid evil. An extra death every other night to back up evil bluffs is reasonable. Depriving Townsfolk like a Gambler or Acrobat of their ability should come at a steep cost.",
+      "Use the preference as useful communication without treating it as compulsory. Reward good choices when possible, but redirect deaths when the requested kill would be imbalanced."
+    ],
+    "howToRunExamples": [
+      "Decide what kind of puzzle you want to pose in advance. Are you running interference with night science, and leaving normal information untouched, or trying to run a mixed team? The less town can count on, the more you will need to use arbitrary deaths against evil.",
+      "The Unfathomable gives the Storyteller power and responsibility second only to the Atheist. Err on the side of backing up evil worlds. You can always support good later, but once the game starts to unravel for evil, it tends to unravel very quickly.",
+      "If you intend to run the game near Lil' Monsta levels of Demon agency, make sure the evil team knows this. Consider giving out Assassin, or day-death Minions like Vizier or Sniper, to give them some control."
+    ],
+    "examples": [
+      "On the first night, the Unfathomable chooses Ada. Nobody dies. On night two they choose Ada again, and the Storyteller kills Ada.",
+      "The Unfathomable chooses Ben, who is protected by the Monk. The Storyteller would have killed Ben, but cannot due to the Monk, and decides not to kill anyone else instead."
+    ],
+    "tipsAndTricks": [
+      "A Gambler which misgambles may survive, or gamble correctly and survive. An Acrobat may die to frame a critical source of information as poisoned. An executed evil player bluffing Moonchild might see their chosen player die. If the Demon bluffs Gossip, kills might happen to back up the evil world.",
+      "...but great power comes with a cost! If evil wishes to kill at Shabaloth pace, they should expect a similar price. A spent role like the Librarian may die. Demonbanes like a Farmer may die. Even Minions like a Marionette or Cerenovus might die.",
+      "Use repeated preferences to tell the Storyteller which players threaten Evil most, but expect some requests to be declined."
+    ],
+    "opposingTips": [
+      "The Unfathomable flips usual information reliability on its head. Normally unfalsifiable signals become meaningless, but information typically droisoned may be more reliable than ever."
+    ]
+  }
+]

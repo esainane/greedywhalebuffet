@@ -5,6 +5,9 @@ import type {
 	MappingFile,
 	NightsheetFile,
 	CatalogCharacter,
+	CatalogAlmanac,
+	AlmanacEntry,
+	AlmanacCharacterReference,
 	SelectableCharacter,
 	ScriptEntry,
 } from '../types.js';
@@ -15,6 +18,8 @@ export type CatalogParams = {
 	baseScript: ScriptDocument;
 	roles: CharacterEntry[];
 	greedierCharacters: CatalogCharacter[];
+	greedierAlmanacs: CatalogAlmanac[];
+	additionalAlmanacCharacters: AlmanacCharacterReference[];
 	idMappings: OneToOneIdMap;
 	nightOrder: NightOrderIndex;
 	officialJinxes: JinxFile;
@@ -108,6 +113,8 @@ export class Catalog {
 
 	/** Greedier characters indexed by their ID (already custom). */
 	readonly greedierById: ReadonlyMap<string, CatalogEntry>;
+	readonly greedierAlmanacById: ReadonlyMap<string, AlmanacEntry>;
+	readonly almanacCharacters: readonly AlmanacCharacterReference[];
 
 	/** Combined lookup: base roles + greedy script entries + greedier characters, by any known ID. */
 	private readonly allEntriesById: Map<string, CatalogEntry>;
@@ -146,6 +153,26 @@ export class Catalog {
 			allEntries.set(entry.id, catalogEntry);
 		}
 		this.greedierById = greedierById;
+		this.greedierAlmanacById = new Map(
+			params.greedierAlmanacs.map(({ entry }) => [entry.id, structuredClone(entry)]),
+		);
+
+		const almanacCharacters: AlmanacCharacterReference[] = [];
+		const seenAlmanacCharacters = new Set<string>();
+		const appendAlmanacCharacter = ({ name, team }: AlmanacCharacterReference) => {
+			const key = `${name}\u0000${team}`;
+			if (!seenAlmanacCharacters.has(key)) {
+				seenAlmanacCharacters.add(key);
+				almanacCharacters.push({ name, team });
+			}
+		};
+		for (const role of params.roles) appendAlmanacCharacter(role);
+		for (const entry of params.baseScript.entries) {
+			if (typeof entry !== 'string') appendAlmanacCharacter(entry);
+		}
+		for (const { entry } of params.greedierCharacters) appendAlmanacCharacter(entry);
+		for (const character of params.additionalAlmanacCharacters) appendAlmanacCharacter(character);
+		this.almanacCharacters = almanacCharacters;
 
 		// Index any inline character objects from the base script that aren't in roles.
 		for (const entry of params.baseScript.entries) {

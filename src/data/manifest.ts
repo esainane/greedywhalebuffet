@@ -1,6 +1,6 @@
 export const DATA_SOURCES_MANIFEST_URL = './data_sources_manifest.json';
 
-export type DataSourceKind = 'script' | 'roles' | 'jinx' | 'mapping' | 'nightsheet';
+export type DataSourceKind = 'script' | 'roles' | 'jinx' | 'mapping' | 'nightsheet' | 'almanac';
 
 export type CoreSourceName =
 	| 'greedyScript'
@@ -13,7 +13,7 @@ export type CoreSourceName =
 
 export type CoreDataSource = {
 	name: CoreSourceName;
-	kind: Exclude<DataSourceKind, 'roles'>;
+	kind: Exclude<DataSourceKind, 'roles' | 'almanac'>;
 	path: string;
 };
 
@@ -23,9 +23,16 @@ export type GreedierScriptDataSource = {
 	sourceSet: number;
 };
 
+export type GreedierAlmanacDataSource = {
+	kind: 'almanac';
+	path: string;
+	sourceSet: number;
+};
+
 export type DataSourcesManifest = {
 	coreSources: CoreDataSource[];
 	greedierScripts: GreedierScriptDataSource[];
+	greedierAlmanacs: GreedierAlmanacDataSource[];
 };
 
 const SUPPORTED_KINDS = new Set<DataSourceKind>([
@@ -34,6 +41,7 @@ const SUPPORTED_KINDS = new Set<DataSourceKind>([
 	'jinx',
 	'mapping',
 	'nightsheet',
+	'almanac',
 ]);
 
 const REQUIRED_CORE_NAMES: CoreSourceName[] = [
@@ -66,19 +74,24 @@ export function parseDataSourcesManifest(
 		throw new Error(`${sourceName} must be a JSON object.`);
 	}
 
-	const { coreSources, greedierScripts } = value;
+	const { coreSources, greedierScripts, greedierAlmanacs } = value;
 	if (!Array.isArray(coreSources)) {
 		throw new Error(`${sourceName} must include a coreSources array.`);
 	}
 	if (!Array.isArray(greedierScripts)) {
 		throw new Error(`${sourceName} must include a greedierScripts array.`);
 	}
+	if (!Array.isArray(greedierAlmanacs)) {
+		throw new Error(`${sourceName} must include a greedierAlmanacs array.`);
+	}
 
 	const normalizedCoreSources: CoreDataSource[] = [];
 	const normalizedGreedierScripts: GreedierScriptDataSource[] = [];
+	const normalizedGreedierAlmanacs: GreedierAlmanacDataSource[] = [];
 	const seenPaths = new Set<string>();
 	const seenCoreNames = new Set<CoreSourceName>();
 	const seenSourceSets = new Set<number>();
+	const seenAlmanacSourceSets = new Set<number>();
 
 	for (const entry of coreSources) {
 		if (!isObjectRecord(entry)) {
@@ -92,8 +105,8 @@ export function parseDataSourcesManifest(
 		if (typeof kind !== 'string' || !SUPPORTED_KINDS.has(kind as DataSourceKind)) {
 			throw new Error(`${sourceName} has an unsupported source kind: ${String(kind)}.`);
 		}
-		if (kind === 'roles') {
-			throw new Error(`${sourceName} core source ${name} cannot use kind roles.`);
+		if (kind === 'roles' || kind === 'almanac') {
+			throw new Error(`${sourceName} core source ${name} cannot use kind ${kind}.`);
 		}
 		if (!isValidJsonPath(path)) {
 			throw new Error(`${sourceName} core source ${name} has invalid path: ${String(path)}.`);
@@ -109,7 +122,7 @@ export function parseDataSourcesManifest(
 		seenPaths.add(path);
 		normalizedCoreSources.push({
 			name: name as CoreSourceName,
-			kind: kind as Exclude<DataSourceKind, 'roles'>,
+			kind: kind as Exclude<DataSourceKind, 'roles' | 'almanac'>,
 			path,
 		});
 	}
@@ -151,9 +164,48 @@ export function parseDataSourcesManifest(
 		});
 	}
 
+	for (const entry of greedierAlmanacs) {
+		if (!isObjectRecord(entry)) {
+			throw new Error(`${sourceName} has a non-object entry in greedierAlmanacs.`);
+		}
+
+		const { kind, path, sourceSet } = entry;
+		if (kind !== 'almanac') {
+			throw new Error(`${sourceName} greedier almanac must use kind almanac.`);
+		}
+		if (!isValidJsonPath(path)) {
+			throw new Error(`${sourceName} greedier almanac has invalid path: ${String(path)}.`);
+		}
+		if (!isValidSourceSet(sourceSet)) {
+			throw new Error(`${sourceName} greedier almanac ${path} has invalid sourceSet: ${String(sourceSet)}.`);
+		}
+		if (seenPaths.has(path)) {
+			throw new Error(`${sourceName} has duplicate source path: ${path}.`);
+		}
+		if (seenAlmanacSourceSets.has(sourceSet)) {
+			throw new Error(`${sourceName} has duplicate greedier almanac sourceSet: ${sourceSet}.`);
+		}
+
+		seenPaths.add(path);
+		seenAlmanacSourceSets.add(sourceSet);
+		normalizedGreedierAlmanacs.push({ kind, path, sourceSet });
+	}
+
+	for (const sourceSet of seenSourceSets) {
+		if (!seenAlmanacSourceSets.has(sourceSet)) {
+			throw new Error(`${sourceName} is missing greedier almanac sourceSet: ${sourceSet}.`);
+		}
+	}
+	for (const sourceSet of seenAlmanacSourceSets) {
+		if (!seenSourceSets.has(sourceSet)) {
+			throw new Error(`${sourceName} greedier almanac sourceSet ${sourceSet} has no matching script.`);
+		}
+	}
+
 	return {
 		coreSources: normalizedCoreSources,
 		greedierScripts: normalizedGreedierScripts,
+		greedierAlmanacs: normalizedGreedierAlmanacs,
 	};
 }
 

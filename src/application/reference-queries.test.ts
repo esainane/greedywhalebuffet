@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import { catalogToViewModel } from './services.js';
-import { deriveGreedyDifferences, deriveGreedyHomebrew, deriveGreedyJinxes } from './reference-queries.js';
+import {
+	deriveAlmanacCharacterReferences,
+	deriveGreedyDifferences,
+	deriveGreedyHomebrew,
+	deriveGreedyJinxes,
+} from './reference-queries.js';
 import { createTestCatalog } from '../test-helpers.js';
 
 describe('deriveGreedyDifferences', () => {
@@ -161,7 +166,48 @@ describe('deriveGreedyDifferences', () => {
 	});
 });
 
+describe('deriveAlmanacCharacterReferences', () => {
+	it('includes names from official roles, inline Greedy definitions, and Greedier characters', () => {
+		const catalog = createTestCatalog({
+			rolesData: [
+				{ id: 'washerwoman', name: 'Washerwoman', team: 'townsfolk', ability: 'Official ability' },
+			],
+			baseScript: [
+				{ id: '_meta', name: 'Test' },
+				{ id: 'custom_demon', name: 'Custom Demon', team: 'demon', ability: 'Greedy ability' },
+			],
+			greedierCharactersData: [
+				{ entry: { id: 'alpha', name: 'Alpha Ω', team: 'outsider', ability: 'Greedier ability' } },
+			],
+			additionalAlmanacCharacters: [{ name: 'Greedier Traveller Ω', team: 'traveller' }],
+		});
+
+		expect(deriveAlmanacCharacterReferences(catalog)).toEqual(expect.arrayContaining([
+			{ name: 'Washerwoman', team: 'townsfolk' },
+			{ name: 'Custom Demon', team: 'demon' },
+			{ name: 'Alpha Ω', team: 'outsider' },
+			{ name: 'Greedier Traveller Ω', team: 'traveller' },
+		]));
+	});
+});
+
 describe('deriveGreedyHomebrew', () => {
+	it('attaches the matching almanac entry', () => {
+		const almanac = {
+			id: 'alpha',
+			summary: { description: 'Summary', rules: ['Rule'] },
+			howToRun: ['Run'], examples: ['Example'], tipsAndTricks: ['Tip'], opposingTips: ['Bluff'],
+		};
+		const catalog = createTestCatalog({
+			greedierCharactersData: [
+				{ entry: { id: 'alpha', name: 'Alpha', team: 'townsfolk', ability: 'Ability', edition: 'greedier' }, sourceSet: 1 },
+			],
+			greedierAlmanacsData: [{ entry: almanac, sourceSet: 1 }],
+		});
+
+		expect(deriveGreedyHomebrew(catalog)[0].almanac).toEqual(almanac);
+	});
+
 	it('matches the shared catalog view model for greedier character projections', () => {
 		const catalog = createTestCatalog({
 			greedierCharactersData: [

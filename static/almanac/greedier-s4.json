@@ -1,0 +1,145 @@
+[
+  {
+    "id": "crow_winningclub",
+    "summary": {
+      "description": "The Crow begins under an Outsider identity, then learns information after death.",
+      "rules": [
+        "The Crow is a deluded character that believes they are an Outsider.",
+        "During setup, remove zero or one Outsider to account for the Crow occupying a Townsfolk slot while appearing in the Outsider count.",
+        "The Crow has no access to the shown Outsider ability; the Storyteller simulates it as needed.",
+        "When the Crow dies by any means, they wake that night and learn the character of one living neighbor."
+      ]
+    },
+    "howToRun": [
+      "While setting up the game, before putting tokens in the bag, remove the Crow token and add any Outsider token.",
+      "If you wish, you may replace their grimoire character token with the token they believe they are, and mark them with the *IS THE CROW* reminder.",
+      "Treat the Crow as if they were drunk. They wake when their Outsider character would wake, may get false information etc.",
+      "The Crow does not need to die in the night to gain information. When the Crow dies during the night, or on the night after they die during the day, wake them and show the character token of one living neighbor. Do not confirm that they are the Crow.",
+      "Yes, But Don't delude the Crow into believing they are the Drunk by showing them a Townsfolk token. If you want to do this, make sure your group knows in advance."
+    ],
+    "examples": [
+      "The Crow believes they are the Saint and is executed. Good does not lose. That night, the Crow learns their living neighbor is the Undertaker.",
+      "One of the Crow's immediate neighbors is dead. The Crow learns the identity of the next neighbour over, as they qualify as a living neighbor."
+    ],
+    "tipsAndTricks": [
+      "Treat your apparent Outsider as real until evidence says otherwise.",
+      "The learned neighbor can still misregister, but a direct character reveal is still evidence."
+    ],
+    "opposingTips": [
+      "Bluff an Outsider whose failure would be explained by being the Crow! You can keep throwing out misinformation even when dead!",
+      "There usually isn't much point in playing for social credit when you're dead. Claim to learn that someone is an evil character, and try to get them executed.",
+      "Throw out confusion about Outsider count! You can always back into Crow afterwards."
+    ]
+  },
+  {
+    "id": "sybil_winningclub",
+    "summary": {
+      "description": "The Sybil breaks rules with a word every night.",
+      "rules": [
+        "Each night except the first, the Sybil chooses a player and communicates one word.",
+        "The Storyteller causes something related to that word to happen to the chosen player. The Storyteller uses their best discretion to cause an effect that is understandable and proportionate to the game.",
+        "All players learn the exact chosen word, but not the chosen player or the resulting effect.",
+        "The effect is caused by the Sybil and may involve information, status, death, character change, or another temporary consequence."
+      ]
+    },
+    "howToRun": [
+      "Wake the Sybil. They point to a player, then communicate one word using an agreed night method. Mark the player *CHOSEN*.",
+      "Put the Sybil to sleep. Choose a fair interpretation and resolve any private parts as appropriate.",
+      "Announce: \"The Sybil has declared: [word].\" Do not explain the interpretation. Even if the effect itself is public, players should deduce this themselves."
+    ],
+    "howToRunExamples": [
+      "Before the game, agree how words will be communicated silently. Perhaps you have scrap paper, or you could open the notes app on your phone."
+    ],
+    "examples": [
+      "The Sybil chooses Ada the Gossip and \"silence.\" Ada is told she may not speak until nominations.",
+      "The Sybil chooses Sam the Fortune Teller and \"mirror.\" Sam receives the reverse of the usual result tonight.",
+      "The Sybil chooses Alex the Village Idiot and \"fire.\" Alex dies.",
+      "On the first night, the Sybil chooses Maude the Savant and \"sesquipedalian.\" Maude is shown *THIS CHARACTER SELECTED YOU* and the Baffler token, and must speak in riddles until dusk. For some reason, town decides to execute Sai the next day. There are no more Sybil announcements this game."
+    ],
+    "tipsAndTricks": [
+      "Choose broad words with several useful interpretations, so Good cannot reverse-engineer the target.",
+      "Choose specific words with a single interpretation when you want something very specific.",
+      "Trust the Storyteller. Your ability will be used to help evil, even if it isn't the effect you had in mind!",
+      "The Sybil is a very loud Minion. Making choices each night is not optional. Town will very quickly work out who you are once you are dead. Be prepared to have who you have been defending or attacking scrutinized like a Psychopath once outed."
+    ],
+    "opposingTips": [
+      "The word is announced in public! Think about what you might do with the word, and see if you can see anything that matches it.",
+      "Do not assume a dramatic public event is the whole effect. This could be coming from evil players who are bluffing! The word may have altered private information.",
+      "Trust the Storyteller. The effects are second only to Wizard, but the game will always be solvable."
+    ]
+  },
+  {
+    "id": "truthsayer_winningclub",
+    "summary": {
+      "description": "The Truthsayer punishes good players who conceal their real characters.",
+      "rules": [
+        "Once per game during the day, the Truthsayer may publicly claim Truthsayer and demand a round robin.",
+        "During the round robin, every participating player publicly states a character. Good players must be convincing as their real character.",
+        "A good player who is not mad as their true character may become an Outsider that night, even if dead.",
+        "Evil players are not required to tell the truth. The Storyteller decides which failed good claims deserve transformation."
+      ]
+    },
+    "howToRun": [
+      "When a player publicly claims Truthsayer and invokes the ability, pause normal conversation and conduct one orderly circuit of claims.",
+      "Mark each good player who did not make a genuine effort to be mad as their current character with *LIAR!* Do not signal who is marked.",
+      "That night, choose any marked players to transform. Wake each, show *YOU ARE*, then an Outsider token, and replace their character token. Remove all *LIAR!* reminders. Mark the Truthsayer with *NO ABILITY*."
+    ],
+    "howToRunExamples": [
+      "A clear character claim is usually enough.",
+      "Deluded characters may not know their real character. Use your judgement when deciding whether to transform people who tried to be truthful to the best of their knowledge."
+    ],
+    "examples": [
+      "A good Chef claims Washerwoman during the round robin. That night, they become the Damsel, and all Minions receive the Damsel ping.",
+      "A dead good player lies about their character and becomes the Klutz that night. They remain dead, and do not need to make a choice.",
+      "An evil Minion claims to be the Savant. They are unaffected because the Truthsayer only checks good players.",
+      "A good Ravenkeeper claims to be the Fortune Teller. That night, they become the Sweetheart.",
+      "A dead Librarian claims to be the Steward, to protect their Damsel. That night, they become the Puzzlemaster. The Fortune Teller is marked with the Puzzlemaster's *DRUNK* token for the rest of the game."
+    ],
+    "tipsAndTricks": [
+      "Good usually wins when they share their information. Your existence as a Truthsayer means there is some reason for Good not to share. Did you receive a Damsel ping? If not, there may be many demonbanes in play.",
+      "Invoke the round robin after Good has made their claims. Force damaging choices and expose hidden roles.",
+      "Good will be watching and trying to read people during the round robin. Coordinate with so evil gives confident claims while Good hesitates.",
+      "If you are instead the Alchemist Truthsayer, your ability will be used to help Good! Get everyone to share their information. Outsiders may transform into less damaging forms. Just be wary of people thinking you are an evil Truthsayer!"
+    ],
+    "opposingTips": [
+      "A public Truthsayer claim does not prove the claimant is the real Truthsayer. Any player can imitate the ceremony.",
+      "Seeingly not transforming after a lie does not mean that you are safe. You could have unknowingly become the Drunk."
+    ]
+  },
+  {
+    "id": "theancientone_winningclub",
+    "summary": {
+      "description": "The Ancient One hides in two Townsfolk vessels, who both believe they are good.",
+      "rules": [
+        "Setup adds a second Ancient One instance. Two players are shown Townsfolk characters and believe those identities, but together serve as the Demon vessels.",
+        "Skip normal Demon Info for the vessels. Minions learn both vessels as the Demon during Minion Info.",
+        "Evil does not direct kills. The Storyteller directs kills, and may use this against evil to balance the game if evil has found and believes each other.",
+        "Good wins when the Ancient One is no longer alive through either vessel."
+      ]
+    },
+    "howToRun": [
+      "During setup, add one extra Townsfolk token instead of a Demon.",
+      "After setup, choose two Townsfolk to be the vessels. Mark both *VESSEL*. They are \"the Demon\", but do not know this.",
+      "During Minion Info, show *THIS IS THE DEMON* and the Ancient One token, then point to both vessels. Do not wake the vessels for Demon Info.",
+      "Run each vessel's apparent Townsfolk ability as a deluded ability, giving arbitrary information as appropriate.",
+      "Each night except the first, choose a player to die and mark them *DEAD*.",
+      "Good wins only when both vessels are dead."
+    ],
+    "howToRunExamples": [
+      "A player might die for each living Ancient One vessel. You should usually simulate a mono-kill Demon."
+    ],
+    "examples": [
+      "One vessel believes they are the Empath and receives arbitrary numbers. The other believes they are the Monk and believes they are protecting players.",
+      "The town executes one vessel. Play continues because the second vessel lives.",
+      "Maciej the Ancient One believes they are the Gossip, and gossips that one of four good players it the Demon. That night, the Storyteller decides to have both vessels kill to simulate a Gossip kill."
+    ],
+    "tipsAndTricks": [
+      "As a vessel, solve sincerely. Your genuine confusion and apparent information are your strongest defense. Like a Marionette, expect to receive coherent information which supports the evil world.",
+      "As a Minion, decide whether you should inform the Ancient One vessels. They might or might not believe you. An uninformed Ancient One vessel might be too willing to die, but might also be more believable."
+    ],
+    "opposingTips": [
+      "Too much sincere-sounding misinformation may be a sign an Ancient One pair is in play.",
+      "Evil has more they care about protecting than usual. Watch which players Minions avoid attacking socially. Both vessels matter."
+    ]
+  }
+]

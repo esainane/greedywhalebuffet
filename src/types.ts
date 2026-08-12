@@ -65,6 +65,31 @@ export type CatalogCharacter = {
 	readonly sourceSet?: number;
 };
 
+export type AlmanacSummary = {
+	description: string;
+	rules: string[];
+};
+
+export type AlmanacCharacterReference = {
+	name: string;
+	team: string;
+};
+
+export type AlmanacEntry = {
+	id: string;
+	summary: AlmanacSummary;
+	howToRun: string[];
+	howToRunExamples?: string[];
+	examples: string[];
+	tipsAndTricks: string[];
+	opposingTips: string[];
+};
+
+export type CatalogAlmanac = {
+	readonly entry: AlmanacEntry;
+	readonly sourceSet: number;
+};
+
 /**
  * One source character and the jinxes attached to it in a jinx JSON file.
  */

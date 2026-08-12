@@ -1,0 +1,101 @@
+[
+  {
+    "id": "bingbong_winningclub",
+    "summary": {
+      "description": "Bing Bong protects a true friend.",
+      "rules": [
+        "On the first night, Bing Bong learns one player chosen by the Storyteller: their *REAL FRIEND*.",
+        "The first time the real friend would die, Bing Bong dies instead.",
+        "From then on, the real friend can no longer change alignment, and may be protected from death at Storyteller discretion."
+      ]
+    },
+    "howToRun": [
+      "On the first night, mark one player *REAL FRIEND*. Wake Bing Bong and point to that player.",
+      "When the real friend would die, keep them alive, kill Bing Bong instead, and mark the friend *SAFE?*.",
+      "From then on, prevent all alignment changes to the real friend, and any time they would die, they might not."
+    ],
+    "howToRunExamples": [
+      "Choose a real friend whose survival creates an interesting relationship. Avoid selecting a player whose unavoidable early death makes Bing Bong's game purely automatic."
+    ],
+    "examples": [
+      "The Demon attacks the real friend. Bing Bong dies instead and the friend remains alive and good.",
+      "The real friend is executed. Bing Bong dies, and the Storyteller keeps the friend alive. The execution still happened, and the day still ended.",
+      "After Bing Bong's sacrifice, the Mezepheles tries to turn the real friend evil. They remain their current alignment."
+    ],
+    "tipsAndTricks": [
+      "Tell your real friend! You exist to die for them.",
+      "Stay hidden otherwise! You do nothing if you are killed before your friend.",
+      "Your friend will be more trustworthy after you die in their place. Don't be afraid to die to supercharge your team.",
+      "Stick with your friend! Nothing stops a Mezepheles from turning them before you die saving them."
+    ],
+    "opposingTips": [
+      "The Storyteller can't kill you in place of your \"friend\", since you aren't actually Bing Bong. Be prepared to bluff Drunk, or claim that a Vortox is in play. Your \"friend\" might look suspicious if they die without you dying, but they are already dead. You are always going to look more suspicious!",
+      "If you're likely to die at night, such as being an Imp, Fang Gu, or have an allied Vigormortis, you might want to claim Bing Bong to add credibility to a teammate."
+    ]
+  },
+  {
+    "id": "secretary_winningclub",
+    "summary": {
+      "description": "The Secretary knows two in-play characters, but not who they are.",
+      "rules": [
+        "On the first night, the Secretary learns exactly two in-play characters.",
+        "The Secretary learns characters, not players or alignments.",
+        "The two characters may be good or evil and may include characters that misregister as in play.",
+        "If fewer than two legal distinct characters can be shown, the Storyteller may show the same character only when multiple instances exist."
+      ]
+    },
+    "howToRun": [
+      "During setup, mark two in-play characters *KNOW*. Prefer a pair which indicates what kind of game is to be solved.",
+      "On the first night, wake the Secretary and show both character tokens. Put the Secretary to sleep."
+    ],
+    "examples": [
+      "Charlie the Secretary sees Chef and Imp. When only a single player claims Chef, they know to believe the claim.",
+      "The Secretary sees Drunk and Poisoner. They know that people with bad information or malfunctionabilities are likely to still be good."
+    ],
+    "tipsAndTricks": [
+      "See what claims come out. Your information is most valuable when evil doesn't know what to double claim.",
+      "An evil character token is especially valuable. You know what kind of Minion disruption, or even characteristic Demon, is in play.",
+      "You are not the King! If you enter play mid-game, you might see the character of a dead player."
+    ],
+    "opposingTips": [
+      "Back up good claims. Confirm yourself!",
+      "Back up evil bluffs. Confirm your teammates!",
+      "Claim the unknowable! Drunk or Mutant can cast doubt on everyone's information! But be prepared when time passes without any dead player claiming Mutant."
+    ]
+  },
+  {
+    "id": "quitter_winningclub",
+    "summary": {
+      "description": "The Quitter blindly stakes everything on one player.",
+      "rules": [
+        "On the first night, the Quitter chooses a player other than themself.",
+        "If that player later dies for any reason, the Quitter permanently loses the ability to vote on nominations.",
+        "The Quitter gives up even when dead. They then may no longer use their dead vote.",
+        "The Quitter may still nominate, speak, and sincerely try."
+      ]
+    },
+    "howToRun": [
+      "On the first night, wake the Quitter. They choose another player. Mark that player *ONLY HOPE*.",
+      "When the chosen player dies, mark the Quitter *RAGE QUIT!*.",
+      "From then on, do not count any vote from the Quitter. Remind them discreetly if they raise a hand."
+    ],
+    "howToRunExamples": [
+      "As with the Butler or Zealot, the Quitter cannot know if they are drunk or poisoned. Voting when they cannot is considered cheating!"
+    ],
+    "examples": [
+      "The chosen player is killed by the Demon. The Quitter cannot vote for the rest of the game.",
+      "The Quitter dies first. They may still use their dead vote until their chosen player dies. If their chosen player dies, they cannot vote at all.",
+      "The chosen player changes character. They are still the Quitter's only hope."
+    ],
+    "tipsAndTricks": [
+      "Tell your chosen player! If they die freely, you will be severely limited.",
+      "Your chosen is not necessarily your ally. In fact, the best case scenario is that you picked the Demon, and you'll be free to act all game!",
+      "You don't need to actually give up! You can still coordinate, discuss, and nominate. In the end, you might end up making the winning nomination."
+    ],
+    "opposingTips": [
+      "You can claim Quitter while remaining cagey about your chosen. If you must abstain, you can explain that you have lost your only hope, and can't vote.",
+      "Be vague about you believing that killing your teammates is a bad idea. People that have heard your claim of Quitter may back off.",
+      "You don't need to be a complete method actor. If you would win, you are not a real Quitter, and can cast a decisive vote. If the game doesn't end, you could always try to claim to have been locked by a Cerenovus."
+    ]
+  }
+]

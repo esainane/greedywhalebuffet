@@ -1,0 +1,50 @@
+[
+  {
+    "id": "skaldi",
+    "summary": {
+      "description": "",
+      "rules": [
+      ]
+    },
+    "howToRun": [
+    ],
+    "examples": [
+    ],
+    "tipsAndTricks": [
+    ],
+    "opposingTips": [
+    ]
+  },
+  {
+    "id": "sympath",
+    "summary": {
+      "description": "",
+      "rules": [
+      ]
+    },
+    "howToRun": [
+    ],
+    "examples": [
+    ],
+    "tipsAndTricks": [
+    ],
+    "opposingTips": [
+    ]
+  },
+  {
+    "id": "watcher",
+    "summary": {
+      "description": "",
+      "rules": [
+      ]
+    },
+    "howToRun": [
+    ],
+    "examples": [
+    ],
+    "tipsAndTricks": [
+    ],
+    "opposingTips": [
+    ]
+  }
+]

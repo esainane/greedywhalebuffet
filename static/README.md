@@ -16,3 +16,4 @@ In rough order of officialness and data flow:
 - [static/greedy_jinxes.json](greedy_jinxes.json): Greedy jinx definitions. All custom jinxes which do not include Greedier homebrew characters. Empty reasons denote removal of an upstream jinx.
 - [static/greedier_jinxes.json](greedier_jinxes.json): Greedier jinx definitions. All custom jinxes which involve Greedier homebrew characters.
 - [static/greedier/*.json](greedier): Greedier homebrew character definitions. Each file is a collection of homebrew characters for a given Greedier week/set. Best efforts have been made to incorporate changes made in later Greediest collections where applicable. Not usable as standalone script files.
+- [static/almanac/*.json](almanac): Structured on-site character almanacs, grouped by Greedier set.

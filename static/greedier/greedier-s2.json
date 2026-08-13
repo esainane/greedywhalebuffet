@@ -9,7 +9,7 @@
     "otherNightReminder": "Point to a player who woke up tonight.",
     "name": "Informant Ω",
     "team": "townsfolk",
-    "ability": "Each night, learn a player who woke up tonight due to their own ability.",
+    "ability": "Each night, learn a player who woke up tonight.",
     "flavor": "So you're just a Chambermaid?",
     "firstNight": 76,
     "otherNight": 95

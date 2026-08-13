@@ -40,6 +40,7 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baroness_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baroness_g_winningclub.png"
     ],
+    "firstNightReminder": "Omit Good Minions from all Minion and Demon Info. Wake each Good Minion. Show the *YOU ARE* info token & give a thumb signal.",
     "otherNightReminder": "The Baroness chooses a player. :reminder:",
     "reminders": [
       "Dead",
@@ -51,6 +52,7 @@
     "setup": true,
     "ability": "Each night*, choose a player: they might die. Good Minions do not learn or are shown in Minion or Demon info. [0 Townsfolk. +0 to +2 Good Minions]",
     "flavor": "Not my circus, not my monkeys. But I'm the ringmaster of this carnival and, I promise, it is the greatest show you are ever going to see.",
+    "firstNight": 18,
     "otherNight": 49
   },
   {

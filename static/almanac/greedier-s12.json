@@ -34,8 +34,7 @@
     "summary": {
       "description": "The Emperor cannot die until they tell people who they are.",
       "rules": [
-        "If the Emperor is mad that they are not the Emperor, they cannot die.",
-        "An Emperor who is abiding by madness can only die if they are killed by the Assassin.",
+        "If the Emperor is mad that they are not the Emperor, they only die if they are killed by an Assassin.",
         "If the Emperor is ever mad that they are the Emperor, they now are able to die.",
         "They can be very loud about claiming to be a different character, or be more cagey. The Storyteller is the judge for if the player was convincing enough.",
         "When the Emperor breaks madness, they do not learn this."
@@ -86,43 +85,72 @@
   {
     "id": "prince",
     "summary": {
-      "description": "",
+      "description": "The Prince can confirm themself to another player, then create more Princes if executed by the evil team.",
       "rules": [
-        ""
+        "On the first night that the Prince is in play, a player will learn who the Prince is.",
+        "The player who learns the Prince can be any character and alignment.",
+        "If the Prince is ever nominated and executed, if the player who nominates them is evil, a good player becomes the Prince.",
+        "If a player becomes the Prince, another player learns who the new Prince is.",
+        "If the Prince dies at night, due to an ability during the day, or is nominated by a good player and executed, a new Prince is not created.",
+        "Princes that have turned evil can still create a new Prince, however an evil Townsfolk or Outsider cannot become the new Prince."
       ]
     },
     "howToRun": [
-      ""
+      "While preparing the first night, put the Prince's *KNOW* reminder by any character token.",
+      "During the first night, wake the player marked *KNOW*. Show them the *THIS PLAYER IS* info token, then point to the Prince, then show them a Prince character token.",
+      "If the Prince is ever executed, if the player who nominated them that day is evil, mark the Prince with the *CORONATION TONIGHT* reminder. If the Prince is executed due to an ability, this does not happen.",
+      "If the Prince is marked *CORONATION TONIGHT*, replace a good players character token with a Prince character token. At the start of the night, wake this player. Show them the *YOU ARE* info token and a Prince character token.",
+      "If a Prince enters play after setup, including due to another Prince's ability, mark a player with the Prince's *KNOW* reminder. That night, wake the player marked *KNOW*, show them the *THIS PLAYER IS* info token, then point to the Prince, then show them a Prince character token."
     ],
     "examples": [
-      ""
+      "The Storyteller decides to tell the Baron who the Prince is. On the 1st day, the Baron nominates and executes the Prince. That night, the Plague Doctor becomes the Prince and the Cannibal learns the new Prince.",
+      "On the 2nd day, the Fortune Teller nominates and executes the Prince. That night, nobody becomes the Prince because the player who nominated and executed the Prince was good.",
+      "On the 1st day, the Lycanthrope nominates and executes the Prince. That night, the Steward becomes the Prince. This is because the Lycanthrope was registering as evil due to their own ability."
     ],
     "tipsAndTricks": [
-      ""
+      "It can help to hide who you are. If you can get the evil team to execute you, you manage to confirm another player in exchange for you dying. If you are executed and nobody becomes the Prince, you know that the person who executed you is likely good.",
+      "Work with the person who knows who you are. You know that one other player can verify that you are the Prince. That player will likely approach you at some point in the game to let you know about this, so you can work with them to have a stronger bluff.",
+      "You can safely claim to be the Prince. There is another player who can confirm that this is true, and if the evil team does choose to try frame you, they risk confirming even more players."
     ],
     "opposingTips": [
-      ""
+      "If you want to execute a Prince, try and get an evil player with a weaker ability or a lot of suspicion on them to nominate them. This doesn't risk confirming a player, or implicating an evil player who's survival is more important.",
+      "If you have the ability to, poisoning a Prince can be very valuable. This can be used to confirm an evil player who gets the Prince executed, or frame a good player as evil, as well as allowing evil players to claim that they became the Prince.",
+      "Bluffing as the Prince requires a lot of communication between your team. You need a player to claim to learn that you are the Prince, as well as potentially needing a player to claim to have became the Prince if you get executed."
     ]
   },
   {
     "id": "songstress",
     "summary": {
-      "description": "",
+      "description": "The Songstress can ensure their teammates abilities work correctly.",
       "rules": [
-        ""
+        "Each night, the Songstress chooses players to make sober and healthy.",
+        "The Songstress may choose as many or as few players as they want.",
+        "Characters that can miregister can effect whether or not the Songstress ability causes players to be sober and healthy.",
+        "The Storyteller can choose to tell an opposing player that the Songstress chose who the Songstress is."
       ]
     },
     "howToRun": [
-      ""
+      "Each night, wake the Songstress. They point at any amount of players. If all chosen players are the same alignment as the Songstress, mark them all *SOBER & HEALTHY*.",
+      "If a chosen player is on an opposing team to the Songstress, you can choose to mark them with *KNOW*.",
+      "Wake up players marked *KNOW* and show them the *THIS CHARACTER SELECTED YOU* info token, then the Songstress token, then point to the Songstress.",
+      "Players marked *SOBER & HEALTHY* are sober and healthy, even if they're also marked *DRUNK* or *POISONED*."
     ],
     "examples": [
-      ""
+      "On night 1, the good Songstress chooses the evil Spy and the good Pixie. The Pixie neighbours a No Dashii. The Storyteller registers the Spy as good and makes both players sober and healthy to hide the No Dashii poison.",
+      "On night 3, the good Songstress picks the Cerenovus, the poisoned good Bounty Hunter and the evil Chambermaid. The evil Chambermaid learns who the Songstress is, and the Bounty Hunter remains poisoned.",
+      "On night 1, the good Songstress chooses the good Grandmother and the good Sailor who made themself drunk. The Sailor becomes sober and healthy.",
+      "On night 2, the evil Songstress chooses the evil Cerenovus and the evil Vortox who was made drunk by the Courtier. The Vortox becomes sober."
     ],
     "tipsAndTricks": [
-      ""
+      "Try only pick the players you trust the most. This increases the chance that you only pick good players and give them sober and healthy information.",
+      "Single out players who are claiming to have false information in your picks. If they are good, their information will start to be more consistent with other players information. If their information is still inconsistent, they are likely evil.",
+      "If you somehow become evil as the Songstress, try find your evil team! There is likely a reason you are able to turn evil, so you could prevent some powerful disruption caused by good players."
     ],
     "opposingTips": [
-      ""
+      "If you learn of a Songstress, you should inform evil players who can effectively prevent their ability from causing harm to the good team. If a Songstress is in play, there is likely a lot of harmful misinformation they can prevent.",
+      "Try convince the Songstress you are good. If you can get them to choose you, their ability is then useless for the night.",
+      "If you can work out when the Songstress has chosen you, try formulate your bluff around this! Bluff false information if you want to frame another player they chose, or the Songstress themself.",
+      "When bluffing as the Songstress, you can claim to pick players who have false info. This can help verify their info to point the good team in the wrong direction."
     ]
   }
 ]

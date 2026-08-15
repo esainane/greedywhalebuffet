@@ -47,28 +47,6 @@
     "otherNight": 25
   },
   {
-    "id": "potionseller_winningclub",
-    "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/potionseller_winningclub.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/potionsellerg_winningclub.png"
-    ],
-    "firstNightReminder": "The Potion Seller names up to 5 potions. The Potion Seller chooses a player. :reminder: Put the Potion Seller to sleep. Wake the target. They must choose 1 potion. If this is the last potion, the Potion Seller loses their ability. :reminder:",
-    "otherNightReminder": "The Potion Seller chooses a player. :reminder: Put the Potion Seller to sleep. Wake the target. They must choose 1 remaining potion. If this is the last potion, the Potion Seller loses their ability. :reminder:",
-    "reminders": [
-      "?",
-      "?",
-      "?",
-      "Customer",
-      "No Ability"
-    ],
-    "name": "Potion Seller Ω",
-    "team": "minion",
-    "ability": "On your 1st night, name up to 5 potions. You may be told to reconsider. Each night, choose a player: they choose one of your potions, receiving its effect & removing the option.",
-    "flavor": "I warned you, traveller. My potions would set the world on fire.",
-    "firstNight": 39,
-    "otherNight": 24
-  },
-  {
     "id": "copycat_winningclub",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/copycat_winningclub.png",
@@ -110,5 +88,27 @@
     "team": "outsider",
     "ability": "Once per game, during the day, guess your setup effect, you learn how accurate you are. [Something bad]",
     "flavor": "This house has QUITE the history..."
+  },
+  {
+    "id": "potionseller_winningclub",
+    "image": [
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/potionseller_winningclub.png",
+      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/potionsellerg_winningclub.png"
+    ],
+    "firstNightReminder": "The Potion Seller names up to 5 potions. The Potion Seller chooses a player. :reminder: Put the Potion Seller to sleep. Wake the target. They must choose 1 potion. If this is the last potion, the Potion Seller loses their ability. :reminder:",
+    "otherNightReminder": "The Potion Seller chooses a player. :reminder: Put the Potion Seller to sleep. Wake the target. They must choose 1 remaining potion. If this is the last potion, the Potion Seller loses their ability. :reminder:",
+    "reminders": [
+      "?",
+      "?",
+      "?",
+      "Customer",
+      "No Ability"
+    ],
+    "name": "Potion Seller Ω",
+    "team": "minion",
+    "ability": "On your 1st night, name up to 5 potions. You may be told to reconsider. Each night, choose a player: they choose one of your potions, receiving its effect & removing the option.",
+    "flavor": "I warned you, traveller. My potions would set the world on fire.",
+    "firstNight": 39,
+    "otherNight": 24
   }
 ]

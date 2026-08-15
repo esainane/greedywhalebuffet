@@ -4,15 +4,20 @@
     "summary": {
       "description": "",
       "rules": [
+        ""
       ]
     },
     "howToRun": [
+      ""
     ],
     "examples": [
+      ""
     ],
     "tipsAndTricks": [
+      ""
     ],
     "opposingTips": [
+      ""
     ]
   },
   {
@@ -20,15 +25,20 @@
     "summary": {
       "description": "",
       "rules": [
+        ""
       ]
     },
     "howToRun": [
+      ""
     ],
     "examples": [
+      ""
     ],
     "tipsAndTricks": [
+      ""
     ],
     "opposingTips": [
+      ""
     ]
   },
   {
@@ -36,15 +46,20 @@
     "summary": {
       "description": "",
       "rules": [
+        ""
       ]
     },
     "howToRun": [
+      ""
     ],
     "examples": [
+      ""
     ],
     "tipsAndTricks": [
+      ""
     ],
     "opposingTips": [
+      ""
     ]
   },
   {
@@ -52,31 +67,46 @@
     "summary": {
       "description": "",
       "rules": [
+        ""
       ]
     },
     "howToRun": [
+      ""
     ],
     "examples": [
+      ""
     ],
     "tipsAndTricks": [
+      ""
     ],
     "opposingTips": [
+      ""
     ]
   },
   {
     "id": "joe",
     "summary": {
-      "description": "",
+      "description": "The Joe is able to get themself executed at any time, allowing them to prevent any execution.",
       "rules": [
+        "If the Joe ever publicly claims to be Joe, they are executed before the end of the day.",
+        "The Joe may claim at any time as long as all players and the Storyteller are present.",
+        "If the Joe has publicly claimed, they must be executed before dusk."
       ]
     },
     "howToRun": [
+      "If 5 or more players are alive (not including Travellers), and the Joe publicly claims to be the Joe, mark them with the *CLAIMED* reminder. If they are marked with the *CLAIMED* reminder, they must be executed before dusk. When they are executed, the day ends without any other executions happening."
     ],
     "examples": [
+      "There are 5 players alive. The Shabaloth is about to be executed with 4 votes, the Joe publicly claims Joe. They are immediately executed and die.",
+      "At the start of day 1, the Joe publicly claims Joe. Later that day after allowing public abilities to be used, the Storyteller declares that the Joe is executed and dies."
     ],
     "tipsAndTricks": [
+      "Save your ability for when your team is in trouble. You can safely replace any execution, this is a valuable ability to save another evil player.",
+      "Use your ability to frame someone. Players will expect you to use your ability to prevent another evil player from being executed, so if you use your ability to replace the execution of a Demon candidate, you could waste 2 days of executions."
     ],
     "opposingTips": [
+      "Try work out why the Joe chose to end the day early. You gain a lot of info if you can work out whether they are trying to prevent a specific execution from happening or not.",
+      "When a player is executed for claiming Joe, they are now confirmed to be evil. Make use of this when trying to deduce other evil players. Anyone who would require the Joe to be good for them to be evil is now verifiably good."
     ]
   },
   {
@@ -84,15 +114,20 @@
     "summary": {
       "description": "",
       "rules": [
+        ""
       ]
     },
     "howToRun": [
+      ""
     ],
     "examples": [
+      ""
     ],
     "tipsAndTricks": [
+      ""
     ],
     "opposingTips": [
+      ""
     ]
   }
 ]

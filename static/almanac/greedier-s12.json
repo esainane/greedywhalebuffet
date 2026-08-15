@@ -2,33 +2,64 @@
   {
     "id": "archivist",
     "summary": {
-      "description": "",
+      "description": "The Archivist learns the alphabetical order of chosen players characters.",
       "rules": [
+        "Each night, the Archivist chooses 2 players and learns the player who's character goes first alphabetically.",
+        "If both players are the same character, the player the Archivist learns is arbitrary.",
+        "Characters that can register as a different character can cause the Archivist to learn the wrong player."
       ]
     },
     "howToRun": [
+      "Each night, wake the Archivist. They point at 2 players. Point at the player who's character name comes first alphabetically.",
+      "If the Archivist chooses themself, shake your head and require new choices."
     ],
     "examples": [
+      "The Archivist chooses the Ben Professor and Alex the Pacifist, and learns Alex's character comes first alphabetically.",
+      "The Archivist chooses Evin the Legion and Sarah the Balloonist, and learns that Evin's character comes first alphabetically, because Evin registered as the Assassin.",
+      "The Archivist chooses Lewis the Vortox and Abdallah the Town Crier, and learns that Lewis' character comes first alphabetically due to the Vortox ability causing false information."
     ],
     "tipsAndTricks": [
+      "Much like characters like the Chambermaid and Dreamer, you do not directly get info about a players alignment. Instead, you gain info that can catch players lying, or reduce the amount of possible evil characters they can be.",
+      "Encourage other players to be honest about their characters! Your information is most useful if you know what players are claiming to be, so you can catch them bluffing.",
+      "Hide that you are the Archivist! If the evil team learns that there is an Archivist in-play, they will be encouraged to change what they are bluffing to be less likely to be caught bluffing."
     ],
     "opposingTips": [
+      "Bluffing as an Archivist without an evil character that can see the grimoire is difficult. You can coordinate with your evil team to support each others bluffs, though this may backfire. You also risk being caught out by an evil player lying about their character.",
+      "Bluff characters that are close to your actual character alphabetically. This makes it much harder for an Archivist to catch you bluffing.",
+      "If an Archivist catches you in a bluff, it may be advantageous to change your bluff to a different good character that has good reason to lie."
     ]
   },
   {
     "id": "emperor",
     "summary": {
-      "description": "",
+      "description": "The Emperor cannot die until they tell people who they are.",
       "rules": [
+        "If the Emperor is mad that they are not the Emperor, they cannot die.",
+        "An Emperor who is abiding by madness can only die if they are killed by the Assassin.",
+        "If the Emperor is ever mad that they are the Emperor, they now are able to die.",
+        "They can be very loud about claiming to be a different character, or be more cagey. The Storyteller is the judge for if the player was convincing enough.",
+        "When the Emperor breaks madness, they do not learn this."
       ]
     },
     "howToRun": [
+      "When the game starts, mark the Emperor with the *SAFE* reminder.",
+      "If the Emperor is ever mad that they are the Emperor, remove the *SAFE* reminder.",
+      "If the Emperor would ever die for any reason, and is marked *SAFE*, they do not die."
     ],
     "examples": [
+      "The Emperor publicly claims all game that they are the Goblin. On day 3, the Emperor is executed, and survives because they were mad that they are a different character.",
+      "On night 2, the Imp tries to kill the Emperor. The Emperor does not die because they were claiming to be the Flowergirl. On day 2, the Emperor is nominated and claims to be the Emperor. They are executed and die.",
+      "On night 1, the Dreamer sees the Emperor as the Emperor or the Lleech. The Dreamer gives their info publicly, and the Emperor does not try claim that the information is false. On night 2, the Fang Gu kills the Emperor."
     ],
     "tipsAndTricks": [
+      "Try hide who you are at all costs. If you abide by madness, you cannot die. This can help confirm you, as well as guaranteeing you make it to the end of the game.",
+      "If you don't believe you are going to die, you should break madness. Claiming to be something else might mislead your team, so if you do not expect to get value out of your ability, it is worthwhile to prevent that confusion.",
+      "On rare occasion you may want to break madness to intentionally die. If people believe you are protected by a Devil's Advocate, or are the Lleech, it may help your team more for you die when executed."
     ],
     "opposingTips": [
+      "You should never directly bluff as the Emperor. The best way to pretend to be the Emperor is to publicly survive an execution, whilst playing in a way that may make people believe you are a good player who is lying about their character.",
+      "If you do want to try bluff Emperor, you should only do so if you know you can survive an execution, or have a good way to build yourself being drunk or poisoned.",
+      "The Emperor is an exceptionally good character to frame as the Lleech, due to them having a similar ability. You just need to make sure that if you bring the Emperor to the end of the game, there is also a player you can frame as the Lleech host."
     ]
   },
   {
@@ -36,15 +67,20 @@
     "summary": {
       "description": "",
       "rules": [
+        ""
       ]
     },
     "howToRun": [
+      ""
     ],
     "examples": [
+      ""
     ],
     "tipsAndTricks": [
+      ""
     ],
     "opposingTips": [
+      ""
     ]
   },
   {
@@ -52,15 +88,20 @@
     "summary": {
       "description": "",
       "rules": [
+        ""
       ]
     },
     "howToRun": [
+      ""
     ],
     "examples": [
+      ""
     ],
     "tipsAndTricks": [
+      ""
     ],
     "opposingTips": [
+      ""
     ]
   },
   {
@@ -68,15 +109,20 @@
     "summary": {
       "description": "",
       "rules": [
+        ""
       ]
     },
     "howToRun": [
+      ""
     ],
     "examples": [
+      ""
     ],
     "tipsAndTricks": [
+      ""
     ],
     "opposingTips": [
+      ""
     ]
   }
 ]

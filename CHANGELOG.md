@@ -86,7 +86,7 @@
 - Soldier still acts immediately before Chambermaid. They may also now receive a notification on the first night if they were protected from a Pukka, Lleech, certain Minions holding Lil Monsta, or other exceptional cases.
 - Hermit still has a reminder before player characters, but acts after Duchess or Toymaker, if the Storyteller really wishes to run GWB with these NPCs.
 
-### Fixes & Cleanup
+### Fixes, Cleanup, & Other
 
 - The JSON is now fully schema compliant! The app can finally load GWB without showing a dialog full of errors!
 - Removed `_meta` night-order arrays from the JSON. Listing more than 30 characters is a schema error, so these arrays could not be used for GWB without causing errors.
@@ -95,6 +95,7 @@
 - Removed invalid references to the removed Shushing Stick and custom Cacklejack.
 - The script file is now formatted consistently.
 - Replaced third-party image URLs for base characters with optimized self-hosted icons.
+- Added a background image, courtesy of Jay!
 
 ---
 

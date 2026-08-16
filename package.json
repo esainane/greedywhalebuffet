@@ -20,7 +20,8 @@
     "test:e2e": "vitest run --project e2e-export",
     "test:playwright": "playwright test",
     "test:watch": "vitest",
-    "validate": "pnpm ci && pnpm lint && pnpm test && pnpm build"
+    "clean-validate": "pnpm ci && pnpm lint && pnpm test && pnpm build",
+    "validate": "pnpm i && pnpm lint && pnpm test && pnpm build"
   },
   "staticFiles": {
     "staticPath": "static",

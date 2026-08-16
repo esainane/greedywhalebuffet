@@ -48,21 +48,23 @@
       "Each night, wake the Hypnotist. They point at a player. Put the Hypnotist to sleep. Mark the chosen player with the *HYPNOTIZED* reminder. Later, when the relevant character would act, you may wake the chosen player, and show them any cards or tokens you deem appropriate.",
       "During the day, if a player is disruptive, you can add a *HYPNOTIZED* reminder to them. That night, they may receive false night cards as if the Hypnotist had chosen them.",
       "You can send hypnotized players false night cards immediately before or after they receive their real information. They will be unable to tell which is which, but they will know that a Hypnotist is in play.",
-      "If you have deluded players, such as a Drunk or Marionette, a Hypnotist does not need need to actually be in play for them to be sent cards suggesting that a Hypnotist is likely in play.",
+      "If you have deluded players, such as a Drunk or Marionette, a Hypnotist does not need to actually be in play for them to be sent cards suggesting that a Hypnotist is likely in play.",
       "Be responsible. The Hypnotist can be as powerful as you need it to be. Does the Evil team really need for a hypnotized Sage or Choirboy to be sent damning false information on the night a demonbane is killed by an Assassin or Godfather?",
       "Yes, But Don't send night cards faking a Mezepheles turn or Fang Gu jump. Playing for the wrong team, without any way of knowing, feels very bad. If you want to do this, make sure your group knows in advance."
     ],
     "examples": [
       "The Hypnotist chooses Ada. The Storyteller wakes Ada, and tells her that the Cerenovus has selected her to be mad that she is the Drunk. During the day, Ada breaks madness. Ada cannot be executed because there is no actual Cerenovus ability affecting her.",
       "On the first two nights, fake Cerenovus cards were sent out. On the second day, the town executed Joseph the Empath, who they believed could be a Cerenovus. On the third night, no false cards were sent, to frame Joseph as the Cerenovus.",
-      "It is night five, and the town is confident that none of the madness is real. The Hypnotist chooses Sue the Fortune Teller. When Sue makes her selection, she is first told a false Yes due to the Hypnotist, and then the real No. Sue cannot tell which is correct, but now knows that the Hypnotist is in play.",
+      "It is night 5, and the town is confident that none of the madness is real. The Hypnotist chooses Sue the Fortune Teller. When Sue makes her selection, she is first told a false Yes due to the Hypnotist, and then the real No. Sue cannot tell which is correct, but now knows that the Hypnotist is in play.",
       "Town believes that a Hypnotist is in play. During the night, Evan the Savant is told they became the Good Farmer. During the day, Evan still asks for his Savant info. He is told that he does not have that ability, because he really did become the Farmer."
     ],
     "tipsAndTricks": [
-      "Talk to the Storyteller! While it is ultimately their call what, if anything, to send, the Storyteller will often take suggestions. Ask for a fake Widow call! Ask if you can send a false Nightwatchman ping from your Demon! Ask to tell a player they've become a Farmer the night your Imp starpassed!"
+      "Talk to the Storyteller! While it is ultimately their call what, if anything, to send, the Storyteller will often take suggestions. Ask for a fake Widow call! Ask if you can send a false Nightwatchman ping from your Demon! Ask to tell a player they've become a Farmer the night your Imp starpassed!",
+      "You can support a madness bluff! Coordinate with your team to have the madness \"move\" to an ally."
     ],
     "opposingTips": [
-      "If there is too much madness going around to be real, there is likely a Hypnotist in play. Has someone broken seemingly without consequence? Perhaps it's real, perhaps it's a Cerenovus trying to trick you. Whether you take that risk is up to you."
+      "If there is too much madness going around to be real, there is likely a Hypnotist in play. Has someone broken seemingly without consequence? Perhaps it is real, or perhaps it is a Cerenovus trying to trick you. Whether you take that risk is up to you.",
+      "Don't give up! False cards can add, but never replace. Even if you know you have disinformation mixed in, record what you were given anyway. The real result must still be there."
     ]
   },
   {
@@ -88,7 +90,7 @@
       "If you intend to run the game near Lil' Monsta levels of Demon agency, make sure the evil team knows this. Consider giving out Assassin, or day-death Minions like Vizier or Sniper, to give them some control."
     ],
     "examples": [
-      "On the first night, the Unfathomable chooses Ada. Nobody dies. On night two they choose Ada again, and the Storyteller kills Ada.",
+      "On the first night, the Unfathomable chooses Ada. Nobody dies. On night 2 they choose Ada again, and the Storyteller kills Ada.",
       "The Unfathomable chooses Ben, who is protected by the Monk. The Storyteller would have killed Ben, but cannot due to the Monk, and decides not to kill anyone else instead."
     ],
     "tipsAndTricks": [
@@ -97,7 +99,9 @@
       "Use repeated preferences to tell the Storyteller which players threaten Evil most, but expect some requests to be declined."
     ],
     "opposingTips": [
-      "The Unfathomable flips usual information reliability on its head. Normally unfalsifiable signals become meaningless, but information typically droisoned may be more reliable than ever."
+      "The Unfathomable flips usual information reliability on its head. Normally unfalsifiable signals become meaningless, but information typically droisoned may be more reliable than ever.",
+      "Voting and social coordination are always valuable observations, regardless of whether an Unfathomable is in play. Do not solve from information alone, just as you would not solve from death patterns alone.",
+      "Arbitrary deaths may be used against Evil to maintain balance. An unexpectedly helpful death does not disprove the Unfathomable!"
     ]
   }
 ]

@@ -30,7 +30,7 @@
       "Reveal the five options to your Demon so your bluffs and borrowed effects reinforce one story."
     ],
     "opposingTips": [
-      "Misregistration and information gathered from the Huli Jing will probably be less impactful than from a Spy, but they also get to have some active effect."
+      "Misregistration and information gathered from the Huli Jing may be less impactful than a Spy, but the Huli Jing can have active effects."
     ]
   },
   {
@@ -38,14 +38,14 @@
     "summary": {
       "description": "The Daki creates an unreliable backup Demon.",
       "rules": [
-        "If the Daki dies while at least five players are alive, the Storyteller changes one player into an evil Gyutaro.",
+        "If at least five players are alive immediately before the Daki dies, the Storyteller changes one player into an evil Gyutaro.",
         "The new Gyutaro becomes the Demon immediately. The dead Daki remains dead and no longer counts as the Demon.",
         "If fewer than five players are alive when the Daki dies, no successor is created."
       ]
     },
     "howToRun": [
       "Each later night, wake the Daki. They choose a player other than themself. Put the Daki to sleep and mark the target *DEAD*.",
-      "Whenever the Daki dies, count living players after resolving that death. If at least five live, choose a suitable player to become Gyutaro.",
+      "Whenever the Daki is about to die, count the living players including the Daki. If at least five are alive, choose a suitable player to become Gyutaro after the Daki dies.",
       "Wake the chosen player. Show *YOU ARE*, the Gyutaro token, then a thumbs-down. Replace their character token and alignment."
     ],
     "howToRunExamples": [
@@ -53,6 +53,7 @@
     ],
     "examples": [
       "The Daki is executed with six players alive. That night, a good Outsider turns into an evil Gyutaro.",
+      "The Daki is executed with exactly five players alive. A player still becomes an evil Gyutaro.",
       "The Daki dies with four players alive. No Gyutaro is created, and Good wins.",
       "The Daki is killed at night with seven alive. A Minion becomes Gyutaro and remains evil."
     ],
@@ -61,7 +62,8 @@
       "A successor may come from Good. Extra evil voting power is strong if you can find them, but you have no built-in way of finding them."
     ],
     "opposingTips": [
-      "Killing the Daki early won't end the game. Look for a sudden change in a player's priorities."
+      "Killing the Daki early won't end the game. Look for a sudden change in a player's priorities.",
+      "A newly evil Gyutaro learns their alignment but not the identities of their teammates. Watch who approaches a probable Daki after their death."
     ]
   },
   {
@@ -82,10 +84,10 @@
     "examples": [
       "A Minion is executed the day after Gyutaro is created. That night a good player sees Gyutaro.",
       "A good player is executed. No reveal occurs yet.",
-      "Evan the Gyutaro does not know their team, and chooses Ada the evil Witch. The Storyteller decides not to kill them."
+      "Evan the Gyutaro does not know their teammates, and chooses Ada the evil Witch. The Storyteller decides not to kill her."
     ],
     "tipsAndTricks": [
-      "If you were good, try not to change your behavior too much. You can guess who was Daki based on who died right before you turned, but be careful about approaching them. Town may be watching a Daki candidate closely.",
+      "If you were good, try not to change your behavior too much. You can guess who the Daki was based on who died right before you turned, but be careful about approaching them. Town may be watching Daki candidates closely.",
       "If you were evil, you can coordinate strongly with your team and any remaining Minions."
     ],
     "opposingTips": [

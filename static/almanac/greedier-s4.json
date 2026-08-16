@@ -11,15 +11,15 @@
       ]
     },
     "howToRun": [
-      "While setting up the game, before putting tokens in the bag, remove the Crow token and add any Outsider token.",
-      "If you wish, you may replace their grimoire character token with the token they believe they are, and mark them with the *IS THE CROW* reminder.",
-      "Treat the Crow as if they were drunk. They wake when their Outsider character would wake, may get false information etc.",
+      "While setting up the game, before putting character tokens in the bag, remove the Crow token and add an Outsider character token. Add the Crow's *IS THE CROW* reminder token to the Grimoire. Put the swapped Outsider character token in the bag, not the Crow character token. ",
+      "While preparing the first night, put the Crow's *IS THE CROW* reminder token by any Outsider character token, changing that player's character to the Crow. They are now a Townsfolk, and do not have the ability of this Outsider character. (But they think they do.)",
+      "During the game, treat the Crow as if they were this Outsider character, but drunk. They wake when their Outsider character would wake, if they would receive information, it can be false if you wish.",
       "The Crow does not need to die in the night to gain information. When the Crow dies during the night, or on the night after they die during the day, wake them and show the character token of one living neighbor. Do not confirm that they are the Crow.",
       "Yes, But Don't delude the Crow into believing they are the Drunk by showing them a Townsfolk token. If you want to do this, make sure your group knows in advance."
     ],
     "examples": [
       "The Crow believes they are the Saint and is executed. Good does not lose. That night, the Crow learns their living neighbor is the Undertaker.",
-      "One of the Crow's immediate neighbors is dead. The Crow learns the identity of the next neighbour over, as they qualify as a living neighbor."
+      "One of the Crow's immediate neighbors is dead. The Crow learns the identity of the next neighbor over, as they qualify as a living neighbor."
     ],
     "tipsAndTricks": [
       "Treat your apparent Outsider as real until evidence says otherwise.",
@@ -54,7 +54,7 @@
       "The Sybil chooses Ada the Gossip and \"silence.\" Ada is told she may not speak until nominations.",
       "The Sybil chooses Sam the Fortune Teller and \"mirror.\" Sam receives the reverse of the usual result tonight.",
       "The Sybil chooses Alex the Village Idiot and \"fire.\" Alex dies.",
-      "On the first night, the Sybil chooses Maude the Savant and \"sesquipedalian.\" Maude is shown *THIS CHARACTER SELECTED YOU* and the Baffler token, and must speak in riddles until dusk. For some reason, town decides to execute Sai the next day. There are no more Sybil announcements this game."
+      "On the second night, the Sybil chooses Maude the Savant and \"sesquipedalian.\" Maude is shown *THIS CHARACTER SELECTED YOU* and the Baffler token, and must speak in riddles until dusk. For some reason, town decides to execute Sai the next day. There are no more Sybil announcements this game."
     ],
     "tipsAndTricks": [
       "Choose broad words with several useful interpretations, so Good cannot reverse-engineer the target.",
@@ -98,12 +98,12 @@
     "tipsAndTricks": [
       "Good usually wins when they share their information. Your existence as a Truthsayer means there is some reason for Good not to share. Did you receive a Damsel ping? If not, there may be many demonbanes in play.",
       "Invoke the round robin after Good has made their claims. Force damaging choices and expose hidden roles.",
-      "Good will be watching and trying to read people during the round robin. Coordinate with so evil gives confident claims while Good hesitates.",
+      "Good will be watching and trying to read people during the round robin. Coordinate so Evil gives confident claims while Good hesitates.",
       "If you are instead the Alchemist Truthsayer, your ability will be used to help Good! Get everyone to share their information. Outsiders may transform into less damaging forms. Just be wary of people thinking you are an evil Truthsayer!"
     ],
     "opposingTips": [
       "A public Truthsayer claim does not prove the claimant is the real Truthsayer. Any player can imitate the ceremony.",
-      "Seeingly not transforming after a lie does not mean that you are safe. You could have unknowingly become the Drunk."
+      "Seemingly not transforming after a lie does not mean that you are safe. You could have unknowingly become the Drunk."
     ]
   },
   {
@@ -131,7 +131,7 @@
     "examples": [
       "One vessel believes they are the Empath and receives arbitrary numbers. The other believes they are the Monk and believes they are protecting players.",
       "The town executes one vessel. Play continues because the second vessel lives.",
-      "Maciej the Ancient One believes they are the Gossip, and gossips that one of four good players it the Demon. That night, the Storyteller decides to have both vessels kill to simulate a Gossip kill."
+      "Maciej the Ancient One believes they are the Gossip, and gossips that one of four good players is the Demon. That night, the Storyteller decides to have both vessels kill to simulate a Gossip kill."
     ],
     "tipsAndTricks": [
       "As a vessel, solve sincerely. Your genuine confusion and apparent information are your strongest defense. Like a Marionette, expect to receive coherent information which supports the evil world.",
@@ -139,7 +139,7 @@
     ],
     "opposingTips": [
       "Too much sincere-sounding misinformation may be a sign an Ancient One pair is in play.",
-      "Evil has more they care about protecting than usual. Watch which players Minions avoid attacking socially. Both vessels matter."
+      "Evil has more players to protect than usual. Watch which players Minions avoid attacking socially. Both vessels matter."
     ]
   }
 ]

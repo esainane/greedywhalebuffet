@@ -17,14 +17,14 @@
       "Continue waking a dead Portia whenever their alignment changes."
     ],
     "examples": [
-      "Portia Featherington starts good, becomes evil on night two, good on night three, and evil on night four.",
-      "Portia Featherington is poisoned on night three, so remains evil. On night four they become good."
+      "Portia Featherington starts good, becomes evil on night 2, good on night 3, and evil on night 4.",
+      "Portia Featherington is poisoned on night 3, so remains evil. On night 4 they become good."
     ],
     "tipsAndTricks": [
       "You have the unenviable task of working out who is winning, guessing the tempo of the game, and the parity when the game does end, all while nobody has any reason to trust you. Your alignment is even more fickle than the Goon, and even death will not grant anyone certainty.",
       "If the outcome seems certain, be earnest about when you want the game to end. Try to convince town to execute on final 4 instead of sleeping, if you believe they have the Demon and want to win with good.",
-      "You change alignment after kills happen in the night. Tying on final 3 to continue to game for one more night, instead of ending during the day, will not cause you to flip before the game ends.",
-      "If found, a Poisoner can lock your alignment for the rest of the game. Similarly, a Courtier can keep you good for three more days. The Sailor can backfire, but can always try."
+      "You change alignment after kills happen in the night. Tying on final 3 to continue the game for one more night, instead of ending during the day, will not cause you to flip before the game ends.",
+      "If found, a Poisoner can lock your alignment by poisoning you every night while they remain alive and able. Similarly, a Courtier can keep you good for three more days. The Sailor can backfire, but can always try."
     ],
     "opposingTips": [
       "Nobody will trust anyone claiming Portia Featherington. If you are outed evil, perhaps you can convince people that you are a lesser priority by insisting that your alignment is fickle, rather than set against them.",
@@ -58,7 +58,8 @@
       "You cannot target a dead player, but a chosen living player can still die before your next choice is made."
     ],
     "opposingTips": [
-      "If in doubt, ask the Storyteller to clarify what kind of speech qualifies. However, the Storyteller is less likely to be lenient if you're deliberately trying to minimize your compliance."
+      "If in doubt, ask the Storyteller to clarify what kind of speech qualifies. However, the Storyteller is less likely to be lenient if you are deliberately trying to minimize your compliance.",
+      "A player selected while alive must decide whether to comply even if they die before the next day. To comply, they must spend their ghost vote at the first legal opportunity."
     ]
   },
   {
@@ -66,7 +67,7 @@
     "summary": {
       "description": "The Baroness rules a town with no Townsfolk, but isolated good Minions.",
       "rules": [
-        "There are no Townsfolk in the game, only Outsiders and Minions.",
+        "There are no Townsfolk in the game, only Outsiders, Minions, and the Baroness herself.",
         "Good Minions know their own character and alignment, but do not receive Minion Info, and are not shown to the Demon or other Minions during Demon Info.",
         "Good Minions have functioning Minion abilities used for the good team's victory condition. If the Alchemist has any jinxes with a Minion, Good Minions use that effect.",
         "Unlike the Alchemist, Good Minions will not be prompted to choose differently.",

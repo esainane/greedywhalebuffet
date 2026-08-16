@@ -65,7 +65,7 @@
       "Stay hidden! You're much more likely to find a target among 5 alive than among 14."
     ],
     "opposingTips": [
-      "Spread misinformation! Claim someone who died to their own ability actually died to a Shabbaloth, Po, Godfather, Assassin, or even Yaggababble!",
+      "Spread misinformation! Claim someone who died to their own ability actually died to a Shabaloth, Po, Godfather, Assassin, or even Yaggababble!",
       "A Pathologist is unlikely to hit targets early on. Bluff plausible misses.",
       "The fewer people live, the more dangerous a Pathologist becomes. Have an excuse ready for why you're still alive!"
     ]
@@ -99,7 +99,8 @@
       "Bluff Cerenovus madness if you break and survive. Town building you as the Hypochondriac is enough to break madness on its own. Find any other explanation you can, any way you can."
     ],
     "opposingTips": [
-      "If you reveal your \"identity\", the Storyteller can't execute you, since you aren't actually the Hypochondriac. Blame this on the \"might\" condition - the storyteller only executes you at their discretion, and, like the Mutant, might spare you to make you look more suspicious/avoid confirming information for the town. Claim this is what is happening when you are not executed."
+      "If you reveal your \"identity\", the Storyteller can't execute you, since you aren't actually the Hypochondriac. Blame this on the \"might\" condition - the storyteller only executes you at their discretion, and, like the Mutant, might spare you to make you look more suspicious/avoid confirming information for the town. Claim this is what is happening when you are not executed.",
+      "A real Hypochondriac has a functioning Townsfolk ability. Try to look like a Hypochondriac trying to cagily get real information out. Madness can explain some of the awkwardness that comes with bluffing."
     ]
   },
   {

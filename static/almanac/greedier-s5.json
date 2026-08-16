@@ -50,7 +50,7 @@
     ],
     "examples": [
       "Charlie the Secretary sees Chef and Imp. When only a single player claims Chef, they know to believe the claim.",
-      "The Secretary sees Drunk and Poisoner. They know that people with bad information or malfunctionabilities are likely to still be good."
+      "The Secretary sees Drunk and Poisoner. They know that players with bad information or malfunctioning abilities may still be good."
     ],
     "tipsAndTricks": [
       "See what claims come out. Your information is most valuable when evil doesn't know what to double claim.",

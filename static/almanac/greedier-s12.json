@@ -65,22 +65,36 @@
   {
     "id": "hawkmoth",
     "summary": {
-      "description": "",
+      "description": "The Hawkmoth recruits a supercharged good character in place of a Minion.",
       "rules": [
-        ""
+        "On the first night, the Hawkmoth chooses a player to turn evil and a character ability for them to gain.",
+        "If this is an inappropriate player or ability, they may be told to reconsider. If this happens three times, the Storyteller chooses.",
+        "The chosen player becomes evil, and retains their original character. They are not told what ability they gained, but may be able to deduce it if given information or prompted for choices for it."
       ]
     },
     "howToRun": [
-      ""
+      "During setup, remove one Minion.",
+      "On the first night, wake the Hawkmoth. They point to a good player, and a character. Mark that player *AKUMATIZED*.",
+      "If the chosen player or proposed ability would unbalance the game, shake your head and ask again. After the third rejection, instead point to a player and show the Hawkmoth a character token.",
+      "Put the Hawkmoth to sleep. Wake the *AKUMATIZED* player, show *YOU ARE*, and give a thumbs-down. Flip their character token. Do not show them their gained character ability or make them part of Minion & Demon information.",
+      "From then on, run the gained ability for the recruited player. If it requires a choice, wake them at the appropriate time without explaining why.",
+      "If the Hawkmoth is drunk or poisoned, suspend the gained ability and its effects until the Hawkmoth is sober and healthy. If the Hawkmoth dies or changes character, remove the gained ability permanently. Do not revert the recruited player's alignment."
+    ],
+    "howToRunExamples": [
+      "Reject abilities that would be imbalanced or unfair. You may also reject player choices if it would make the game unfun. If the Hawkmoth unknowingly chooses an Evil player, reject them as if telling them to reconsider normally.",
+      "You are not required to indicate whether the player or the character chosen was the bigger problem. The Hawkmoth may appreciate being told if they are genuinely trying, rather than trying to push boundaries, or are on their last chance.",
+      "Yes, But Don't permit a Demon ability. Minion abilities should generally be denied, but if the Grimoire suits it, or if the Hawkmoth chose an Outsider with a sufficiently hindering ability, you may consider permitting it."
     ],
     "examples": [
-      ""
+      "Xavier the Hawkmoth recruits Joleyne the Artist and grants them the Balloonist ability. Joleyne learns that they are evil. Xavier tells Joleyne the entire evil team. Joleyne uses the Balloonist ability to deduce which players are Townsfolk or Outsiders.",
+      "The Hawkmoth recruits Eric the Artist, proposing the Heretic, Vortox, and Wizard abilities. The Storyteller rejects all three, then shows the Hawkmoth the Dreamer token. Eric gains the Dreamer ability."
     ],
     "tipsAndTricks": [
-      ""
+      "Your recruit will have two abilities, and what is allowed will be based on that. You could hazard a stronger ability in case your chosen player was an Outsider, but it's safest to aim for Townsfolk abilities with mid-level utility."
     ],
     "opposingTips": [
-      ""
+      "A recruited player probably will not be granted a loud Minion ability. If loud Minion counts aren't adding up, the same precautions you would take against a Spy are helpful here.",
+      "The Demon needs to spend time coordinating with their recruited player to explain their team and ability, more time than would be needed for most Minions. Whether the Demon is getting the Grimoire from the Spy, or the Hawkmoth is bringing their recruit up to speed, the strategy is much the same. Remembering who was spending a lot of time talking to whom early on is more important than ever!"
     ]
   },
   {

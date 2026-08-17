@@ -100,6 +100,26 @@
 	font-weight: 700;
 }
 
+.almanac-character-reference.team-loric {
+	color: var(--almanac-loric);
+}
+
+.almanac-character-reference.team-fabled {
+	color: var(--almanac-fabled);
+}
+
+.almanac-character-reference.team-traveller {
+	color: var(--almanac-traveller-start);
+	background-image: linear-gradient(
+		to right,
+		var(--almanac-traveller-start),
+		var(--almanac-traveller-end)
+	);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
 .almanac-content .how-to-run-examples,
 .almanac-content .almanac-example-banners {
 	gap: 0.5rem;

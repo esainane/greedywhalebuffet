@@ -6,6 +6,9 @@ import { AlmanacText, normalizeCharacterName, tokenizeAlmanacText } from './alma
 const characters = [
 	{ name: 'Alpha Ω', team: 'townsfolk' },
 	{ name: 'Alpha Wolf Ω', team: 'demon' },
+	{ name: 'Storm Catcher', team: 'loric' },
+	{ name: 'Angel', team: 'fabled' },
+	{ name: 'Butcher', team: 'traveller' },
 ];
 
 describe('normalizeCharacterName', () => {
@@ -36,5 +39,18 @@ describe('AlmanacText', () => {
 			{ kind: 'text', value: '*Not caps*' },
 			{ kind: 'text', value: ' and Alphabet' },
 		]);
+	});
+
+	it('recognizes lorics, Fabled, and travellers', () => {
+		const html = renderToStaticMarkup(
+			<AlmanacText
+				text="Angel protects the Alpha. Storm Catcher protects the Butcher."
+				characters={characters}
+			/>,
+		);
+
+		expect(html).toContain('<strong class="almanac-character-reference team-loric">Storm Catcher</strong>');
+		expect(html).toContain('<strong class="almanac-character-reference team-fabled">Angel</strong>');
+		expect(html).toContain('<strong class="almanac-character-reference team-traveller">Butcher</strong>');
 	});
 });

@@ -171,6 +171,9 @@ describe('deriveAlmanacCharacterReferences', () => {
 		const catalog = createTestCatalog({
 			rolesData: [
 				{ id: 'washerwoman', name: 'Washerwoman', team: 'townsfolk', ability: 'Official ability' },
+				{ id: 'stormcatcher', name: 'Storm Catcher', team: 'loric', ability: 'Loric ability' },
+				{ id: 'angel', name: 'Angel', team: 'fabled', ability: 'Fabled ability' },
+				{ id: 'butcher', name: 'Butcher', team: 'traveller', ability: 'Traveller ability' },
 			],
 			baseScript: [
 				{ id: '_meta', name: 'Test' },
@@ -184,6 +187,9 @@ describe('deriveAlmanacCharacterReferences', () => {
 
 		expect(deriveAlmanacCharacterReferences(catalog)).toEqual(expect.arrayContaining([
 			{ name: 'Washerwoman', team: 'townsfolk' },
+			{ name: 'Storm Catcher', team: 'loric' },
+			{ name: 'Angel', team: 'fabled' },
+			{ name: 'Butcher', team: 'traveller' },
 			{ name: 'Custom Demon', team: 'demon' },
 			{ name: 'Alpha Ω', team: 'outsider' },
 			{ name: 'Greedier Traveller Ω', team: 'traveller' },

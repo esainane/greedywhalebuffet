@@ -2,43 +2,58 @@
   {
     "id": "clergyman",
     "summary": {
-      "description": "",
+      "description": "The Clergyman joins a fragile circle of trust.",
       "rules": [
-        ""
+        "A Clergyman knows anyone who is also a Clergyman.",
+        "However, if any Clergyman dies for any reason, the others might die as well.",
+      "Whenever a Clergyman dies, any number of other living Clergymen may die as well. This may happen immediately, or that night."
       ]
     },
     "howToRun": [
-      ""
+      "During setup, include between two to three Clergyman tokens in the bag.",
+      "During the first night, wake each Clergyman. Point to all other Clergymen.",
+      "If a Clergyman dies, you may choose to have any number of other living Clergyman die immediately, or that night. Mark any chosen player *DEAD*."
     ],
     "examples": [
-      ""
+      "Ada, Ben, and Cara are Clergymen. Each starts knowing the other two. When Ben is executed, Cara dies that night, but Ada is left alive.",
+      "Two Clergymen are in play. One is killed by the Demon, and the other also dies before dawn.",
+      "A Pit-Hag creates a new Clergyman. The new Clergyman learns the existing Clergymen that night. The original Clergymen receive no new information."
     ],
     "tipsAndTricks": [
-      ""
+      "You all know each other, and you all know each other's information. You don't need to coordinate to make this work.",
+      "You are likely to be built as an evil team. If you are being framed and executed, expect one of you to die immediately to clear the other."
     ],
     "opposingTips": [
-      ""
+      "You can't bluff Clergyman alone. Plan in advance who your other Clergymen will be."
     ]
   },
   {
     "id": "shepherd",
     "summary": {
-      "description": "",
+      "description": "The Shepherd risks their life to identify the Demon.",
       "rules": [
-        ""
+        "Each night except the first, the Shepherd chooses one Demon character.",
+        "If that character is in play, the Shepherd dies. A dead Demon character is still in play. A Demon previously in play, but changed by the Pit-Hag, is not.",
+        "The Shepherd observes only whether they survive. They must deduce whether they died to their own ability, or something else."
       ]
     },
     "howToRun": [
-      ""
+      "Each night except the first, wake the Shepherd. They indicate one Demon character. Put the Shepherd to sleep.",
+      "If the chosen character is in play, mark the Shepherd *DEAD*. Otherwise, nothing happens."
+    ],
+    "howToRunExamples": [
+      "Yes, But Don't use the Recluse to alter the outcome. An Outsider's effect, including replacing a Townsfolk, should be about one third as bad as having a Minion. The Shepherd only does one thing, and blanking them exceeds this budget."
     ],
     "examples": [
-      ""
+      "The Shepherd chooses Imp while an Imp is in play. The Shepherd dies that night.",
+      "The Fang Gu has died after creating a new Fang Gu, which the Pit-Hag turns into a No Dashii. The Shepherd chooses Fang Gu, and dies because the dead Fang Gu remains in play.",
+      "The Shepherd correctly chooses the Vortox but is protected by the Innkeeper. They live, and cannot tell whether their guess was wrong or their death was prevented."
     ],
     "tipsAndTricks": [
-      ""
+      "Go for the most impactful Demon characters first! Discovering a Vortox, Lleech, or Fang Gu early can be game solving!"
     ],
     "opposingTips": [
-      ""
+      "Your only information is a signal when you die, but you can claim to have ruled out Demon types. But if you're alive at the end, people are unlikely to trust your information."
     ]
   },
   {

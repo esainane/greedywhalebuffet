@@ -2,17 +2,28 @@
   {
     "id": "eavesdropper_winningclub",
     "summary": {
-      "description": "",
+      "description": "The Eavesdropper learns scraps of information about the day.",
       "rules": [
+        "Each day, the Eavesdropper may privately visit the Storyteller to learn a phrase about the game.",
+        "This does not need to be a complete sentence. It could be a fragment from an ability, flavor text, recent conversation, worldbuilding, or anything else the Storyteller deems appropriate.",
+        "If the Eavesdropper does not visit, the opportunity is lost."
       ]
     },
     "howToRun": [
+      "Once per day, if the Eavesdropper requests a private chat with you, take them away from the circle so you cannot be overheard. Whisper a phrase to the Eavesdropper.",
+      "If you cannot think of one straight away, either take your time, or ask them to come back in a few minutes."
     ],
     "examples": [
+      "The Eavesdropper visits the Storyteller, and is told \"You think you are.\" This hints at a possible Drunk, Crow, Marionette, Lunatic, or other deluded character."
     ],
     "tipsAndTricks": [
+      "Each day, you'll receive one piece of information.",
+      "Share what you learn! Each piece of information is likely to be vague or cryptic, and you may need to know context which isn't yet public to fully understand it.",
+      "Hide what you learn! You're not as explicit as the Savant, but you don't have to work out which is the false world. Your ongoing information can be very powerful."
     ],
     "opposingTips": [
+      "Give whatever information you want! The Eavesdropper is completely free-form, so feel free to make up whatever you need!",
+      "Check with the Storyteller for what kind of phrases they give out. Everyone runs it slightly differently, and you don't want to be caught out with something a regular knows wouldn't be said."
     ]
   },
   {

@@ -18,65 +18,136 @@
   {
     "id": "journalist_winningclub",
     "summary": {
-      "description": "",
+      "description": "The Journalist weaves traps for the Demon, and learns truthful leads.",
       "rules": [
+        "Each night except the first, the Journalist chooses two players.",
+        "The Demon learns which two players were chosen before making any choice from their ability.",
+        "For each chosen player the Demon selects with their ability that night, the Journalist learns one true statement, even if they are dead.",
+        "The selected player need not die. The Journalist checks the Demon's choice, not the outcome."
       ]
     },
     "howToRun": [
+      "Wake the Journalist. They choose two players. Mark both *CHOSEN* and put the Journalist to sleep.",
+      "Wake the Demon at the appropriate point. Show *THIS CHARACTER SELECTED YOU*, the Journalist token, then point to both chosen players.",
+      "Run the Demon normally. For each *CHOSEN* player selected by the Demon, prepare one true statement.",
+      "Wake the Journalist and give the statements one at a time. Remove both reminders at dawn."
     ],
     "examples": [
+      "The Journalist chooses Ada and Ben. The Imp attacks Ada, so the Journalist learns one true statement.",
+      "A Shabaloth chooses both marked players. the Journalist receives two true statements.",
+      "The Vortox attacks a chosen Cara, but the Monk protects her. The Journalist still receives a statement because Cara was chosen. The statement is false due to Vortox.",
+      "The Journalist is poisoned. The Demon does not learn their choices. None of their choices are picked in the night, and none died. They learn one piece of information anyway, which is false, and start building Pukka worlds."
     ],
     "tipsAndTricks": [
+      "Choose yourself! If picked, you learn a true statement, even if dead. The longer you stay alive, the harder you make it for the Demon.",
+      "Choose players the Demon wants to attack! If one confirmed player dies, you may learn enough for someone new to take their place!",
+      "The Demon knows your choices, and you only trigger if it was the Demon that picked your choices. You are outing who you want to protect at the same time that you protect them, and they could still die to an Assassin or Godfather."
     ],
     "opposingTips": [
+      "If you don't control the kills, claim Journalist! The stranger the kills, the more believable you are!",
+      "If you control the kills, you control the narrative! Make suboptimal choices to make it look like you're dodging Journalist picks, and delay handing out misinformation until the time is right.",
+      "If you need to spread misinformation, make the optimal kills! Claim to have learned information which backs up your world!"
     ]
   },
   {
     "id": "lisarinna_winningclub",
     "summary": {
-      "description": "",
+      "description": "Lisa Rinna helpfully kills or drunkens a good player.",
       "rules": [
+        "Once per game on a night after the first, Lisa Rinna chooses one player.",
+        "If the chosen player is a good Outsider, they do not die. They become drunk for the rest of the game.",
+        "If the chosen player is good and not an Outsider, they die. They keep their character ability despite being dead for as long as Lisa Rinna lives and is sober and healthy.",
+        "If the chosen player is evil, nothing happens. Lisa Rinna is spent."
       ]
     },
     "howToRun": [
+      "Each night except the first, wake Lisa Rinna. They either shake their head or choose a player. If they choose, mark Lisa Rinna *NO ABILITY*.",
+      "If the target is a good Outsider, mark them *DRUNK* and do not kill them.",
+      "If the target is another good character, mark them *DEAD* and *HAS ABILITY*. Continue running their ability while dead and Lisa Rinna is alive, sober, and healthy.",
+      "If the target is evil, there is no effect.",
+      "If Lisa Rinna becomes drunk or poisoned, flip any *HAS ABILITY* reminder token upside town until this effect ends."
+    ],
+    "howToRunExamples": [
+      "Some abilities are very unfair to maintain while dead. Lisa Rinna should probably not be bagged with a Tea Lady or Monk."
     ],
     "examples": [
+      "Lisa Rinna chooses a good Undertaker. The Undertaker dies, but continues learning executed characters.",
+      "Lisa Rinna chooses the Saint. The Saint remains alive, but is permanently drunk. Executing them no longer loses the game.",
+      "Lisa Rinna chooses an evil Poisoner. Nobody dies, and Lisa Rinna cannot choose again."
     ],
     "tipsAndTricks": [
+      "You don't have bad options. You can confirm a Townsfolk player to yourself, while hard confirming you to them; neutralize a harmful Outsider ability; or identify a likely Evil candidate!",
+      "How do people react to you offering to pick them? YSK Townsfolk don't have anything to gain, but Evil players might out themselves when they try to convince you they're not the best pick."
     ],
     "opposingTips": [
+      "Lisa Rinna's effects are very hard to replicate. If you have sources of extra kills, and a Hypnotist for false night cards, you can replicate one of the strong confirmations in the game.",
+      "Otherwise, your choices are limited to claiming to have chosen an Outsider. If you chose wrong, you could back into your pick being the Drunk."
     ]
   },
   {
     "id": "copycat_winningclub",
     "summary": {
-      "description": "",
+      "description": "The Copycat steals an in-play Townsfolk ability, drunkening its owner, then leaves that owner as a drunk Copycat on death.",
       "rules": [
+        "On the first night, the Copycat gains the ability of one in-play Townsfolk chosen by the Storyteller.",
+        "That Townsfolk is drunk while the living Copycat is sober and healthy. The Copycat is an Outsider with the borrowed ability, not the borrowed character.",
+        "When the Copycat dies, the original Townsfolk becomes a drunk Copycat. They remain drunk and learn their new character.",
+        "Setup effects still happen on the original Townsfolk, and are not applied again."
       ]
     },
     "howToRun": [
+      "During setup, choose an in-play Townsfolk. Mark that player *COPIED!*",
+      "On the first night, wake the Copycat. Show *YOU ARE*, Copycat, then the chosen Townsfolk token. If you wish, you may replace their character token with a spare token of the gained ability, and mark them with the *IS THE COPYCAT* reminder.",
+      "When the Copycat dies, wake the original Townsfolk. Show *YOU ARE* and Copycat, replace their token, and replace *COPIED!* with *DRUNK*."
+    ],
+    "howToRunExamples": [
+      "Without other factors, the Copycat would be extremely powerful even as a Townsfolk! The Copycat gets Vortox-proof, Xaan-proof confirmation about a good character; receives a full Townsfolk ability that is also Vortox-proof and Xaan-proof; comes with a built-in, one-off Farmer strawpass to confirm themself both ways; and the Townsfolk they blank is only and knowingly drunk, without having a detrimental Outsider effect. Bag Copycat after you think about how their ability will help evil. Are they used to hide an actual Vortox? Will they have a backfiring Gossip, Innkeeper, or Sailor ability, which will be run to hurt the good team?"
     ],
     "examples": [
+      "The copied Townsfolk dies first. They remain drunk. The living Copycat keeps the borrowed ability. When the Copycat dies, the dead copied Townsfolk still becomes a drunk Copycat.",
+      "The Copycat gains Farmer. When the Copycat dies, the original Farmer becomes a Copycat and then a Farmer again. The Drunk is told they became the Farmer on the same night. Town spends all of next day arguing about what happened.",
+      "The Copycat gains Crow, and starts seeing a Barber token. When they die, they are shown the Amnesiac token, without any other explanation. The original Crow, who saw the Damsel token, becomes a drunk Copycat. Most private discussion next day is panic about where the original \"Barber-swapped\" Copycat was, and how to prevent a Damsel loss. There is no Barber or Damsel in play.",
+      "The Gambler gambles the Copycat with the Empath ability as the Empath. The Gambler dies, as the Copycat is not an Empath."
     ],
     "tipsAndTricks": [
+      "Find who you are copying! You confirm their existence, and unless you are copying a Pixie, can freely raise this.",
+      "Your copied target Townsfolk is not sober. They need to know this!"
     ],
     "opposingTips": [
+      "Need to run interference on a strong Townsfolk? Claim to have copied them! The ability is gone for good if you die, so they are unlikely to immediately want to execute you to verify this.",
+      "Be prepared to explain if you die. You are not a real Copycat, and so your \"copied\" Townsfolk will not become a Copycat. If they believe you backing into Crow, they'll still retroactively assess anything they've learned or done as sober and healthy."
     ]
   },
   {
     "id": "realtor_winningclub",
     "summary": {
-      "description": "",
+      "description": "The Realtor knows that setup was altered against Good and gets one graded guess at identifying the change.",
       "rules": [
+        "During setup, the Storyteller applies one specific harmful modification because of the Realtor.",
+        "The modification must be describable, relevant, and fair, but is not revealed to the Realtor.",
+        "Once per game during the day, the Realtor privately or publicly states one guess about the setup effect.",
+        "The Storyteller responds \"Bingo!\" if the Realtor is exactly right, and gives some indication of how close they were otherwise."
       ]
     },
     "howToRun": [
+      "Before filling the bag, choose and record one harmful setup effect. Examples include an extra Outsider, an evil existing Outsider, or a misleading duplicate.",
+      "Use the Amnesiac scale. Tell them \"Bingo!\" if they are exactly right, and some variation of hot or cold otherwise. You can be as flavourful with your description as you want. Mark them *USED*."
+    ],
+    "howToRunExamples": [
+      "The Realtor is an Outsider, not a Minion. The adversity added should be roughly one third of that provided by a Minion. If you've previously had the Boffin grant the Recluse the Amnesiac ability for a setup effect, keep in mind the Realtor's effect should be substantially less.",
+      "Realtor is a soft rulebreaker. The setup effect is arbitrary, but should not be an ongoing effect. Coming up with a balanced effect for Realtor can be challenging. If you want to push the boundaries of allowed setup effects, make sure the group understands what will and won't qualify, and that everyone is still enthusiastic and having fun."
     ],
     "examples": [
+      "The setup effect is \"one Outsider is evil.\" The Sweetheart is woken on the first night, shown *YOU ARE* and given a thumbs down signal. The Storyteller shows them a written note saying that they will drunk a minion when dead. The Spy sees the Sweetheart as evil and coordinates with them. The Realtor guesses \"extra evil\" and is told \"hot, hot, hot!\"",
+      "The setup effect is \"two Town Criers are in play.\" A Pixie is executed on the first day, and outs themselves publicly. The Town Criers loudly distrust each other and cause mild chaos."
     ],
     "tipsAndTricks": [
+      "Get everyone's claims. Setup effects tend to be visible.",
+      "Share your result. Even if you are told \"freezing, antarctic, cold!\" you can still use this to narrow worlds."
     ],
     "opposingTips": [
+      "As a soft rulebreaker, anything is possible. Claim Realtor, and let town's imagination run wild. They'll come up with scenarios for you!",
+      "If something goes wrong and the evil team outs an inconsistency, you can always claim that this is the result of your \"setup effect\"."
     ]
   },
   {

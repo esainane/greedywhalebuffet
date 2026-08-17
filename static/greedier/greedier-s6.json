@@ -29,7 +29,7 @@
     ],
     "name": "Baffler Ω",
     "team": "minion",
-    "ability": "Each night, choose a living player: tomorrow, they must vote for every nomination as long as there are 5 or more players alive & must speak in rhymes, riddles, or another convoluted way, or might be executed.",
+    "ability": "Each night, choose a player: tomorrow, a chosen living player must vote for every nomination if there are 5 or more players alive & must speak in rhymes, riddles, or another convoluted way, or might be executed.",
     "flavor": "The guzzling puzzle is a perplexing muzzle.",
     "firstNight": 45,
     "otherNight": 31

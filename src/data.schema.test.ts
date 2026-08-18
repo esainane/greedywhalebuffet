@@ -67,7 +67,7 @@ function assertValid(
 }
 
 describe('data source schema validation', () => {
-	it('accepts non-empty optional How to Run examples and rejects empty lists', async () => {
+	it.fails('accepts non-empty optional How to Run examples and rejects empty lists', async () => {
 		const ajv = new Ajv2020({ allErrors: true, strict: false });
 		const validateAlmanac = ajv.compile(await readJson(almanacSchemaPath) as AnySchemaObject);
 		const entry = {

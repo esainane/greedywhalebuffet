@@ -164,17 +164,33 @@
   {
     "id": "potionseller_winningclub",
     "summary": {
-      "description": "",
+      "description": "The Potion Seller forces town to pick their poison.",
       "rules": [
+        "On the first night, the Potion Seller proposes up to five named potions. The Storyteller may reject or revise any proposal, and decides any final effect.",
+        "Each night, the Potion Seller chooses a player. That player learns the names of remaining potions, but not what they do, and must choose one. Then, they immediately receive its effect.",
+        "A consumed potion is removed from the menu. When no potions remain, the Potion Seller loses their ability."
       ]
     },
     "howToRun": [
+      "On the Potion Seller's first night, request and approve a list of up to five potion names. Decide on their effects, and record them.",
+      "Each night, wake the Potion Seller and have them choose a player. Mark the target *CUSTOMER* and put the Potion Seller to sleep.",
+      "Wake the customer, communicate the remaining potion names, and require one choice. Apply its effect, then cross that potion off.",
+      "When the final potion is consumed, mark the Potion Seller *NO ABILITY*."
+    ],
+    "howToRunExamples": [
+      "Effects are as varied as Sybil words or Wizard wishes. Potions require similar vetting and judgement."
     ],
     "examples": [
+      "Ben the Empath chooses Venom, and is poisoned until dusk.",
+      "Jonas the Potion Seller picks themselves on the first night, and chooses Clarity. Jonas receives a piece of advice to help his team win.",
+      "Fleuris the Savant chooses Lunacy, and is shown the *THIS CHARACTER SELECTED YOU* and Baffler tokens. They must act baffled until dusk, or risk execution."
     ],
     "tipsAndTricks": [
+      "Create a mix of positive and negative effects, depending on if you plan to give potions mostly to your team, or to good. Once your team has consumed all of the positive potions, you can send them to good.",
+      "Have fun! Trust the Storyteller to balance potions to an appropriate power level, regardless of what is supplied."
     ],
     "opposingTips": [
+      "A potion's effect shouldn't be cryptic forever! If the effect isn't apparent, make a note, and come back after the day is done."
     ]
   }
 ]

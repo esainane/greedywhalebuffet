@@ -80,8 +80,10 @@
       ]
     },
     "howToRun": [
-      "When a player publicly claims Truthsayer and invokes the ability, pause normal conversation and conduct one orderly circuit of claims.",
-      "Mark each good player who did not make a genuine effort to be mad as their current character with *LIAR!* Do not signal who is marked.",
+      "When a player publicly claims Truthsayer and invokes the ability, declare that is a Truthsayer claim.",
+      "If you normally facilitate round-robins, pause normal conversation and conduct one orderly circuit of claims.",
+      "If you do not normally faciliate round-robins, it is up to players to participate or organize themselves.",
+      "Mark each good player who did not make a genuine effort to be mad as their current character with *LIAR!* Prior public role claims may suffice. Do not signal who is marked.",
       "That night, choose any marked players to transform. Wake each, show *YOU ARE*, then an Outsider token, and replace their character token. Remove all *LIAR!* reminders. Mark the Truthsayer with *NO ABILITY*."
     ],
     "howToRunExamples": [

@@ -146,22 +146,36 @@
   {
     "id": "sniper",
     "summary": {
-      "description": "",
+      "description": "The sniper identifies targets for a swift death.",
       "rules": [
-        ""
+        "Twice per game, the Sniper can privately signal to guess a player as a character.",
+        "If correct, they die any time after nominations open and before dusk. This can be immediate if nominations are currently open.",
+        "No public or private confirmation of an incorrect guess is made."
       ]
     },
     "howToRun": [
-      ""
+      "Allow the Sniper to guess twice. The simplest way to do this is through a private Storyteller consult, but any agreed means is acceptable.",
+      "After the first guess, mark the Sniper *ONE SHOT*. After the second, replace it with *NO ABILITY*.",
+      "If the guess is correct, wait for as long as needed to conceal the Sniper's signal. Any time during nominations, announce that the target dies, and mark them *DEAD*.",
+      "If the guess is incorrect, nothing happens."
+    ],
+    "howToRunExamples": [
+      "A consult shortly before a day death may out the Sniper. You can agree on other means to communicate a guess. This means does not need to be publicly visible.",
+      "You do not need to create a complete pidgin or set of signals. Selections can happen at night. You could agree on a few character signals to send during the day. You can allow digital messages, if the group agrees.",
+      "When a correct guess is made, try to resolve the kill as soon as possible, without it being easy to detect a Sniper's signal."
     ],
     "examples": [
-      ""
+      "On night 1, Quince the Sniper decides they want to guess Mary's character, and suggests tapping their leg three times while touching a character means guessing Mary's character. During the day, Mary claims Grandmother to Quince. During nominations, Quince leaves their finger next to the Grandmother character on the sheet, and taps their leg three times. 30 seconds later, Mary dies.",
+      "On night 3, Susan the Sniper points at Mason the Crow, who thinks they are a Puzzlemaster, and then at Puzzlemaster on the character sheet. Mason does not die during day 3 nominations, as they are not actually the Puzzlemaster.",
+      "Adam the Sniper correctly guesses that Cara is the Fool. Cara's Fool ability triggers, and she survives. Adam still spent a guess."
     ],
     "tipsAndTricks": [
-      ""
+      "If you can't easily signal all characters, come up with signals for characters you most need to kill. For example, Slayer, Juggler, Alsaahir, or Gossip.",
+      "Claim to have received a Widow call! Insist that night kills feel like a Spy game! Suggest there's a Wraith in play! The faster everyone claims, the faster you can land your hits."
     ],
     "opposingTips": [
-      ""
+      "If you need to publicly claim (Juggler, Gossip), ask others to claim to you harder to isolate.",
+      "Good still needs to share their information to win. If you think there's a Sniper in play, you can delay for more nights of information, but you can't stay silent forever."
     ]
   }
 ]

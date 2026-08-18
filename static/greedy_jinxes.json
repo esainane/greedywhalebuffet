@@ -93,6 +93,10 @@
       {
         "id": "kazali",
         "reason": "Only 1 jinxed character can be in play."
+      },
+      {
+        "id": "lleech",
+        "reason": "If the Heretic is the host and dies, ending the game, they remain poisoned."
       }
     ]
   },

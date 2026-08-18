@@ -8,6 +8,7 @@
 - Immortalized: Simplified ability text. Abilities are kept to the point, and don't include text which would be implied by the ability being pointless otherwise. See: Ravenkeeper, Banshee.
 - Pathologist: Copy-edited flavor text.
 - Pilgrim: Fixed templating on setup ability.
+- Sniper: Reworked ability for in-person play. It is still likely best played online.
 - Made minor text fixes to many characters for ability and reminder text templating consistency.
 
 ## [v3.0.0] 2026-09-22

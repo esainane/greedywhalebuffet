@@ -46,6 +46,10 @@
   {
     "id": "lammia",
     "name": "Lammia",
+    "image": [
+      "https://greedy.antihype.space/icons/greedier/lammia_e.webp",
+      "https://greedy.antihype.space/icons/greedier/lammia_g.webp"
+    ],
     "team": "demon",
     "ability": "Each Night*, pick a player, learn their character, then choose if they die. If you choose no, deaths tonight are arbitrary.",
     "flavor": "Lammia sucks your blood."

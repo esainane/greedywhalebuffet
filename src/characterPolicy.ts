@@ -41,6 +41,8 @@ export const CHARACTER_DEPENDENCY_REQUIREMENTS: Readonly<Record<string, readonly
 	choirboy: ['king'],
 	daki_winningclub: ['gyutaro_winningclub'],
 	gyutaro_winningclub: ['daki_winningclub'],
+	ash: ['bidoofswheel'],
+	bidoofswheel: ['ash'],
 };
 
 export const NO_DEATH_AT_NIGHT_DEMON_IDS: readonly string[] = ['leviathan', 'riot', 'armageddon'] as const;

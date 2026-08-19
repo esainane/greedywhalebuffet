@@ -1,0 +1,181 @@
+[
+  {
+    "id": "clergyman",
+    "summary": {
+      "description": "The Clergyman joins a fragile circle of trust.",
+      "rules": [
+        "A Clergyman knows anyone who is also a Clergyman.",
+        "However, if any Clergyman dies for any reason, the others might die as well.",
+      "Whenever a Clergyman dies, any number of other living Clergymen may die as well. This may happen immediately, or that night."
+      ]
+    },
+    "howToRun": [
+      "During setup, include between two to three Clergyman tokens in the bag.",
+      "During the first night, wake each Clergyman. Point to all other Clergymen.",
+      "If a Clergyman dies, you may choose to have any number of other living Clergyman die immediately, or that night. Mark any chosen player *DEAD*."
+    ],
+    "examples": [
+      "Ada, Ben, and Cara are Clergymen. Each starts knowing the other two. When Ben is executed, Cara dies that night, but Ada is left alive.",
+      "Two Clergymen are in play. One is killed by the Demon, and the other also dies before dawn.",
+      "A Pit-Hag creates a new Clergyman. The new Clergyman learns the existing Clergymen that night. The original Clergymen receive no new information."
+    ],
+    "tipsAndTricks": [
+      "You all know each other, and you all know each other's information. You don't need to coordinate to make this work.",
+      "You are likely to be built as an evil team. If you are being framed and executed, expect one of you to die immediately to clear the other."
+    ],
+    "opposingTips": [
+      "You can't bluff Clergyman alone. Plan in advance who your other Clergymen will be."
+    ]
+  },
+  {
+    "id": "shepherd",
+    "summary": {
+      "description": "The Shepherd risks their life to identify the Demon.",
+      "rules": [
+        "Each night except the first, the Shepherd chooses one Demon character.",
+        "If that character is in play, the Shepherd dies. A dead Demon character is still in play. A Demon previously in play, but changed by the Pit-Hag, is not.",
+        "The Shepherd observes only whether they survive. They must deduce whether they died to their own ability, or something else."
+      ]
+    },
+    "howToRun": [
+      "Each night except the first, wake the Shepherd. They indicate one Demon character. Put the Shepherd to sleep.",
+      "If the chosen character is in play, mark the Shepherd *DEAD*. Otherwise, nothing happens."
+    ],
+    "howToRunExamples": [
+      "Yes, But Don't use the Recluse to alter the outcome. An Outsider's effect, including replacing a Townsfolk, should be about one third as bad as having a Minion. The Shepherd only does one thing, and blanking them exceeds this budget."
+    ],
+    "examples": [
+      "The Shepherd chooses Imp while an Imp is in play. The Shepherd dies that night.",
+      "The Fang Gu has died after creating a new Fang Gu, which the Pit-Hag turns into a No Dashii. The Shepherd chooses Fang Gu, and dies because the dead Fang Gu remains in play.",
+      "The Shepherd correctly chooses the Vortox but is protected by the Innkeeper. They live, and cannot tell whether their guess was wrong or their death was prevented."
+    ],
+    "tipsAndTricks": [
+      "Go for the most impactful Demon characters first! Discovering a Vortox, Lleech, or Fang Gu early can be game solving!"
+    ],
+    "opposingTips": [
+      "Your only information is a signal when you die, but you can claim to have ruled out Demon types. But if you're alive at the end, people are unlikely to trust your information."
+    ]
+  },
+  {
+    "id": "yesdashii",
+    "summary": {
+      "description": "The Yes Dashii keeps town sober and healthy.",
+      "rules": [
+        "The closest clockwise and counterclockwise Townsfolk to the Yes Dashii are sober and healthy, regardless of whether those Townsfolk are alive or dead.",
+        "This protection temporarily ends if the Yes Dashii becomes drunk, poisoned."
+      ]
+    },
+    "howToRun": [
+      "During setup, find the closest Townsfolk clockwise and counterclockwise from the Yes Dashii. Mark both *SOBER & HEALTHY*.",
+      "Do not move these reminders due to death alone. Dead Townsfolk still qualify.",
+      "While protected, ignore drunkenness and poisoning that would otherwise affect those Townsfolk."
+    ],
+    "examples": [
+      "Clockwise from the Yes Dashii sit a Poisoner, a Mutant, and an Empath. The Empath is the nearest clockwise Townsfolk and is sober and healthy.",
+      "A protected Flowergirl dies. She remains the nearest Townsfolk, and keeps the Yes Dashii reminder.",
+      "A protected Philosopher gains the Goon ability. The Philosopher-Goon is still a Townsfolk, and so remains protected.",
+      "A protected Grandmother is changed by a Pit-Hag into the Mutant. The Mutant is no longer a Townsfolk, and is no longer protected."
+    ],
+    "tipsAndTricks": [
+      "Your protection is very specific. You were presumably bagged for a reason. Could there be a Poisoner in play? Or perhaps an Arsonist?"
+    ],
+    "opposingTips": [
+      "The Yes Dashii is a very passive role. You won't have many opportunities to put out misinformation, but bluffing Yes Dashii could cause town to question their information, or begin building the wrong evil roles in play."
+    ]
+  },
+  {
+    "id": "reflector",
+    "summary": {
+      "description": "The Reflector causes chaos by redirecting choices.",
+      "rules": [
+        "The first player ability that targets the Reflector may be redirected to another legal target. The original target and acting player do not learn that it was redirected.",
+        "Only the first ability which targets the Reflector may be redirected, even if the Storyteller opts not to redirect it. Later abilities function normally.",
+        "Only the player targeted changes. All other choices, restrictions, and effects remain the same."
+      ]
+    },
+    "howToRun": [
+      "At the start of each night, remove the previous *REFLECTED* reminder.",
+      "When a player ability first targets the Reflector, decide whether to redirect it. Place *REFLECTED* by the Reflector whether or not you redirect the ability, so later targeting abilities resolve normally.",
+      "If redirecting, choose another player who would be a legal target for the acting ability and resolve the ability against that player instead.",
+      "Do not tell either player about the redirection."
+    ],
+    "howToRunExamples": [
+      "Reflector is an Outsider, not a lesser-Mayor. Redirected kills will go into town's premium ongoing information, protection will be sent to the evil team. If there are no good options to redirect kills to, the Reflector themselves will die."
+    ],
+    "examples": [
+      "The Poisoner chooses the Reflector. The poison is redirected to Ada the Savant. A later Imp attack targets and kills the Reflector normally. Ada remains poisoned.",
+      "4 players live. The No Dashii chooses the Reflector. All other players are evil. The Reflector dies, and the game ends in an evil victory.",
+      "The Fortune Teller chooses Nero the Reflector and Ben the Empath. This choice redirects to Cara the Po. The Fortune Teller only sees themselves choosing Nero and Ben, and learning Yes.",
+      "The Innkeeper targets the Reflector. The protection is redirected to the Fortune Teller, who is made the drunk side.",
+      "The Slayer targets the Philosopher-Reflector during the day. Nothing can be reflected, because the Reflector acts only at night."
+    ],
+    "tipsAndTricks": [
+      "If town has no pressing candidates, getting executed early on might be the best thing you can do. You are unlikely to die in the night, causing the worst possible kills instead."
+    ],
+    "opposingTips": [
+      "You could divert attention if chosen by the Fortune Teller alongside your Demon. Bluffing Reflector can cause chaos, but is likely to see you executed if you're public about it."
+    ]
+  },
+  {
+    "id": "joe",
+    "summary": {
+      "description": "The Joe is able to get themself executed at any time, allowing them to prevent any execution.",
+      "rules": [
+        "If at least 5 non-Traveller players live and the Joe publicly claims to be Joe, they are executed before the end of the day.",
+        "The Joe may claim at any time as long as all players and the Storyteller are present.",
+        "If the Joe has publicly claimed, they must be executed before dusk."
+      ]
+    },
+    "howToRun": [
+      "If five or more non-Traveller players are alive and the Joe publicly claims to be the Joe, mark them *CLAIMED*.",
+      "At any time before dusk, execute the marked Joe. When this happens, end the day normally. No other execution can occur that day."
+    ],
+    "examples": [
+      "There are 5 players alive. The Shabaloth is about to be executed with 4 votes, the Joe publicly claims Joe. They are immediately executed and die.",
+      "At the start of day 1, the Joe publicly claims Joe. Later that day after allowing public abilities to be used, the Storyteller declares that the Joe is executed and dies."
+    ],
+    "tipsAndTricks": [
+      "Save your ability for when your team is in trouble. You can safely replace any execution. Save an ally!",
+      "Use your ability to frame someone! Players expect you to protect evil. If you use your ability to replace the execution of a Demon candidate, you could waste 2 days of executions."
+    ],
+    "opposingTips": [
+      "Try to work out why the Joe chose to end the day early. You gain a lot of information if you can work out whether they are trying to prevent a specific execution.",
+      "When a player is executed for claiming Joe, they are now confirmed to be evil. Make use of this when trying to deduce other evil players. Anyone who would require the Joe to be good for them to be evil is now verifiably good."
+    ]
+  },
+  {
+    "id": "sniper",
+    "summary": {
+      "description": "The sniper identifies targets for a swift death.",
+      "rules": [
+        "Twice per game, the Sniper can privately signal to guess a player as a character.",
+        "If correct, they die any time after nominations open and before dusk. This can be immediate if nominations are currently open.",
+        "No public or private confirmation of an incorrect guess is made."
+      ]
+    },
+    "howToRun": [
+      "Allow the Sniper to guess twice. The simplest way to do this is through a private Storyteller consult, but any agreed means is acceptable.",
+      "After the first guess, mark the Sniper *ONE SHOT*. After the second, replace it with *NO ABILITY*.",
+      "If the guess is correct, wait for as long as needed to conceal the Sniper's signal. Any time during nominations, announce that the target dies, and mark them *DEAD*.",
+      "If the guess is incorrect, nothing happens."
+    ],
+    "howToRunExamples": [
+      "A consult shortly before a day death may out the Sniper. You can agree on other means to communicate a guess. This means does not need to be publicly visible.",
+      "You do not need to create a complete pidgin or set of signals. Selections can happen at night. You could agree on a few character signals to send during the day. You can allow digital messages, if the group agrees.",
+      "When a correct guess is made, try to resolve the kill as soon as possible, without it being easy to detect a Sniper's signal."
+    ],
+    "examples": [
+      "On night 1, Quince the Sniper decides they want to guess Mary's character, and suggests tapping their leg three times while touching a character means guessing Mary's character. During the day, Mary claims Grandmother to Quince. During nominations, Quince leaves their finger next to the Grandmother character on the sheet, and taps their leg three times. 30 seconds later, Mary dies.",
+      "On night 3, Susan the Sniper points at Mason the Crow, who thinks they are a Puzzlemaster, and then at Puzzlemaster on the character sheet. Mason does not die during day 3 nominations, as they are not actually the Puzzlemaster.",
+      "Adam the Sniper correctly guesses that Cara is the Fool. Cara's Fool ability triggers, and she survives. Adam still spent a guess."
+    ],
+    "tipsAndTricks": [
+      "If you can't easily signal all characters, come up with signals for characters you most need to kill. For example, Slayer, Juggler, Alsaahir, or Gossip.",
+      "Claim to have received a Widow call! Insist that night kills feel like a Spy game! Suggest there's a Wraith in play! The faster everyone claims, the faster you can land your hits."
+    ],
+    "opposingTips": [
+      "If you need to publicly claim (Juggler, Gossip), ask others to claim to you harder to isolate.",
+      "Good still needs to share their information to win. If you think there's a Sniper in play, you can delay for more nights of information, but you can't stay silent forever."
+    ]
+  }
+]

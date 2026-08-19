@@ -82,7 +82,8 @@ export function SectionNavigation(props: SectionNavigationProps): React.JSX.Elem
 				resolveActiveSectionFromViewport();
 				return;
 			}
-			const match = sections.find((section) => section.id === hash);
+			const normalizedHash = hash.startsWith('almanac-') ? 'section-greedier-homebrew' : hash;
+			const match = sections.find((section) => section.id === normalizedHash);
 			if (match) {
 				setActiveSectionId(match.id);
 				return;

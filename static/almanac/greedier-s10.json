@@ -1,0 +1,106 @@
+[
+  {
+    "id": "skaldi",
+    "summary": {
+      "description": "The Skaldi cannot die once the cold comes.",
+      "rules": [
+        "If at least one of the Skaldi's living neighbors is a Minion, the Skaldi cannot die.",
+        "Neighbors are the nearest living players clockwise and counterclockwise. Dead players are skipped.",
+        "Misregistration might skip or grant Skaldi protection.",
+        "A good player with a Minion character still is a Minion."
+      ]
+    },
+    "howToRun": [
+      "Whenever a player moves, changes character, dies, or is revived, update the Skaldi if needed.",
+      "If either neighbor is a Minion, mark the Skaldi *CAN'T DIE* and prevent every attempted death.",
+      "If death is prevented, don't announce this, or why. Simply list the people that did die, or announce that in the night, nobody died."
+    ],
+    "howToRunExamples": [
+      "The Assassin still bypasses all protection except Armageddon or Storm Catcher."
+    ],
+    "examples": [
+      "The Skaldi is executed. They neighbor a living Poisoner, and survive.",
+      "Phil the Philosopher gains the Recluse ability. Phil, Sue the Washerwoman, and Erin the Skaldi are in a line. The Shabaloth chooses Sue and then Erin. Sue dies, causing Erin to now neighbor Phil, and immediately survive due to misregistration. The next night, Erin is chosen again, and Phil does not misregister to save Erin a second time.",
+      "A Spy neighbor registers as Townsfolk. The Storyteller allows the Skaldi to die."
+    ],
+    "tipsAndTricks": [
+      "Aside from Vigormortis and Lil' Monsta, Minions tend not to die at night. The longer the game goes, the more likely you are to gain a Minion neighbor and activate.",
+      "Once active, the Demon faces a difficult choice: Kill their own Minion to turn off Skaldi protection, or bring the Skaldi to final 3.",
+      "The Skaldi also faces a difficult choice, if confirmed. They have identified a probable evil Minion, but killing the Minion also removes their own protection."
+    ],
+    "opposingTips": [
+      "Lleech, Devil's Advocate, and some Boffin-granted abilities can enable an active Skaldi bluff.",
+      "Otherwise, you could claim to be a Skaldi which did not activate to clear a neighboring evil. However, this doesn't rule out Demon candidacy, and can backfire later on."
+    ]
+  },
+  {
+    "id": "sympath",
+    "summary": {
+      "description": "The Sympath supports town's most recent executee.",
+      "rules": [
+        "Each night except the first, the Sympath becomes the current alignment of the player most recently executed.",
+        "Only execution matters. Players killed at night, by day abilities, or by exile do not set the Sympath's alignment.",
+        "If nobody has ever been executed, the Sympath does not change.",
+        "No change occurs if the Sympath is dead."
+      ]
+    },
+    "howToRun": [
+      "When a player is executed, mark them with *EXECUTED*, moving the reminder from the previous executee.",
+      "If this player's alignment differs from the Sympath's current alignment, and the alive Sympath is sober and healthy, wake the Sympath. Show them the *YOU ARE* info token, and give a thumb signal."
+    ],
+    "howToRunExamples": [
+      "Most executions will cause the Sympath to become good, and most early win conditions are for Good. Plan for the Sympath to be mostly good, and receiving information close to an Undertaker or Oracle from an Outsider slot. Think about how you are going to build a bag such that the Sympath's ability helps Evil."
+    ],
+    "examples": [
+      "A good Townsfolk is executed. The Sympath remains good that night.",
+      "An evil Minion is executed. The dead Sympath becomes evil that night.",
+      "An evil Minion is executed. The Butcher nominates again, and executes a good Townsfolk the same day. The Sympath remains good that night."
+    ],
+    "tipsAndTricks": [
+      "Your information is less specific than an Undertaker, but you can still use it to support good if you expect to end the game as Good.",
+      "Death locks you in as your current alignment. A Demon can kill you after a Minion execution to lock you in as evil, or to frame you as evil alongside a good player as a Minion.",
+      "Your alignment is fickle, and players will be suspicious of you on all sides. Even if killed to lock you in, evil is unlikely to trust you with the team: You could just be a good player that was fishing for evil team information!"
+    ],
+    "opposingTips": [
+      "If you are identified as evil, you can bluff Sympath to explain your alignment, and try to get town to execute a good player to bring you \"back\" again. However, town will probably want to execute you the next day to lock you.",
+      "As with any claim of a character of fickle alignment, people are unlikely to ever fully trust you. If you survive until the end, town will want to know why the evil team hasn't tried killing you to lock you in yet."
+    ]
+  },
+  {
+    "id": "watcher",
+    "summary": {
+      "description": "The Watcher receives information instead of their target.",
+      "rules": [
+        "Each night, the Watcher chooses a player, different to the previous night.",
+        "The target is told they are watched. If they would receive information that night, the Watcher receives it instead, and the target does not.",
+        "Only information is stolen. Choices and non-informational effects still happen normally.",
+        "If any player is mad that they were watched, they might die."
+      ]
+    },
+    "howToRun": [
+      "Each night, wake the Watcher to choose a player not chosen last night. Mark the target *WATCHED*, moving from any previous target.",
+      "Wake the target and show *THIS CHARACTER SELECTED YOU* and Watcher tokens.",
+      "When the target would learn information, give the information to the Watcher instead. Continue running any choices or effects for the target.",
+      "Anyone mad about being watched may die, even if they were watched on previous nights, or never watched at all."
+    ],
+    "howToRunExamples": [
+      "A watched player still receives information about changes to their alignment and character, even if it comes from their own ability."
+    ],
+    "examples": [
+      "Emma the Watcher selects Damian the Monk. Damian learns they are being watched, but still chooses and protects a player.",
+      "Sam the Watcher selects Susan the Empath. Susan is told they are being watched. Sam learns a 0, and Susan does not. During the day, Susan publicly says, \"The Watcher stole my night card!\" They die that night, to avoid strongly confirming an in-play Watcher.",
+      "Joseph the Alchemist-Watcher selects the Mary the Scarlet Woman, who was bluffing Fortune Teller. Mary is told she is being watched, then Joseph is poisoned due to the jinx. That night, Joseph learns \"No\", and Mary acts cagily about their \"Fortune Teller information.\"",
+      "Ernestine the Ravenkeeper claims to be one of the Fortune Teller, Empath, or Buffet's Gourmet to Frank the Watcher. Frank chooses Ernestine, who is told they are being watched. Frank does not receive any information, and deduces that Ernestine was bluffing."
+    ],
+    "tipsAndTricks": [
+      "Steal town's information! Force them to make up their own, or risk dying to out that they do not have any and that there is an in-play Watcher.",
+      "Investigate suspicious claims. If you suspect someone claiming ongoing information is a demonbane or a Damsel, watch them to see if they actually receive information.",
+      "Your targets might be able to deduce who you are based on who they gave their claims to. They can still push on you without claiming that they were watched. Once you are dead, they may risk coming out, in the expectation that you no longer have an ability to punish them.",
+      "Intercept information at the right time! Steal the Juggler's information on night two. Render the Balloonist useless by picking them every second night. Shut down the last living sources of ongoing information."
+    ],
+    "opposingTips": [
+      "If watched, bluff tame information, or build yourself as drunk or poisoned, to avoid having your false information acted on.",
+      "Did you claim anything interesting to a particular player? You may have found the Watcher! Once the Watcher is gone, you can no longer be punished. You might need to take the risk of being wrong, if you have information that town needs."
+    ]
+  }
+]

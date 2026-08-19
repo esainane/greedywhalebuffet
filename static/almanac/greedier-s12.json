@@ -1,0 +1,172 @@
+[
+  {
+    "id": "archivist",
+    "summary": {
+      "description": "The Archivist learns the alphabetical order of chosen players characters.",
+      "rules": [
+        "Each night, the Archivist chooses 2 players and learns the player who's character goes first alphabetically.",
+        "If both players are the same character, the player the Archivist learns is arbitrary.",
+        "Characters that can register as a different character can cause the Archivist to learn the wrong player."
+      ]
+    },
+    "howToRun": [
+      "Each night, wake the Archivist. They point at 2 players. Point at the player who's character name comes first alphabetically.",
+      "If the Archivist chooses themself, shake your head and require new choices."
+    ],
+    "examples": [
+      "The Archivist chooses Ben the Professor and Alex the Pacifist, and learns that Alex's character comes first alphabetically.",
+      "The Archivist chooses Evin the Legion and Sarah the Balloonist, and learns that Evin's character comes first alphabetically, because Evin registered as the Assassin.",
+      "The Archivist chooses Lewis the Vortox and Abdallah the Town Crier, and learns that Lewis' character comes first alphabetically due to the Vortox ability causing false information.",
+      "The Archivist chooses Jon the Drunk, who thinks he is the Ravenkeeper and Rachel the Librarian, and learns that Jon's character comes first alphabetically."
+    ],
+    "tipsAndTricks": [
+      "Much like the characters Chambermaid and Dreamer, you do not directly learn a player's alignment. Instead, you gain information that can catch players lying, or narrow what evil characters they could be.",
+      "Encourage other players to be honest about their characters! Your information is most useful if you know what players are claiming to be, so you can catch them bluffing.",
+      "Hide that you are the Archivist! If the evil team learns that there is an Archivist in-play, they will be encouraged to change what they are bluffing to be less likely to be caught bluffing."
+    ],
+    "opposingTips": [
+      "Bluffing as the Archivist without an evil character that can see the Grimoire is difficult. You can coordinate with your evil team to support each other's bluffs, though this may backfire. You also risk being caught out by an evil player lying about their character.",
+      "Bluff characters that are close to your actual character alphabetically. This makes it much harder for an Archivist to catch you bluffing.",
+      "If an Archivist catches you in a bluff, it may be advantageous to change your bluff to a different good character that has good reason to lie."
+    ]
+  },
+  {
+    "id": "emperor",
+    "summary": {
+      "description": "The Emperor cannot die until they tell people who they are.",
+      "rules": [
+        "If the Emperor is mad that they are not the Emperor, they only die if they are killed by an Assassin.",
+        "If the Emperor is ever mad that they are the Emperor, they now are able to die.",
+        "They can be very loud about claiming to be a different character, or be more cagey. The Storyteller is the judge for if the player was convincing enough.",
+        "When the Emperor breaks madness, they do not learn this."
+      ]
+    },
+    "howToRun": [
+      "When the game starts, mark the Emperor with the *SAFE* reminder.",
+      "If the Emperor is ever mad that they are the Emperor, remove the *SAFE* reminder.",
+      "If the Emperor would ever die for any reason, and is marked *SAFE*, they do not die."
+    ],
+    "examples": [
+      "The Emperor publicly claims all game that they are the Goblin. On day 3, the Emperor is executed, and survives because they were mad that they are a different character.",
+      "On night 2, the Imp tries to kill the Emperor. The Emperor does not die because they were claiming to be the Flowergirl. On day 2, the Emperor is nominated and claims to be the Emperor. They are executed and die.",
+      "On night 1, the Dreamer sees the Emperor as the Emperor or the Lleech. The Dreamer gives their information publicly, and the Emperor does not try claim that the information is false. On night 2, the Fang Gu kills the Emperor."
+    ],
+    "tipsAndTricks": [
+      "Try to hide who you are at all costs. If you abide by madness, you cannot die. This can help confirm you, as well as guaranteeing you make it to the end of the game.",
+      "If you don't believe you are going to die, you should break madness. Claiming to be something else might mislead your team, so if you do not expect to get value out of your ability, it is worthwhile to prevent that confusion.",
+      "On rare occasion, you may want to break madness to intentionally die. If people believe you are protected by a Devil's Advocate, or are the Lleech, it may help your team more for you die when executed."
+    ],
+    "opposingTips": [
+      "You should never directly bluff as the Emperor. The best way to pretend to be the Emperor is to publicly survive an execution, whilst playing in a way that may make people believe you are a good player who is lying about their character.",
+      "If you do want to try bluff Emperor, you should only do so if you know you can survive an execution, or have a good way to build yourself being drunk or poisoned.",
+      "The Emperor is an exceptionally good character to frame as the Lleech, due to them having a similar ability. You just need to make sure that if you bring the Emperor to the end of the game, there is also a player you can frame as the Lleech host."
+    ]
+  },
+  {
+    "id": "hawkmoth",
+    "summary": {
+      "description": "The Hawkmoth recruits a supercharged good character in place of a Minion.",
+      "rules": [
+        "On the first night, the Hawkmoth chooses a player to turn evil and a character ability for them to gain.",
+        "If this is an inappropriate player or ability, they may be told to reconsider. If this happens three times, the Storyteller chooses.",
+        "The chosen player becomes evil, and retains their original character. They are not told what ability they gained, but may be able to deduce it if given information or prompted for choices for it."
+      ]
+    },
+    "howToRun": [
+      "During setup, remove one Minion.",
+      "On the first night, wake the Hawkmoth. They point to a good player, and a character. Mark that player *AKUMATIZED*.",
+      "If the chosen player or proposed ability would unbalance the game, shake your head and ask again. After the third rejection, instead point to a player and show the Hawkmoth a character token.",
+      "Put the Hawkmoth to sleep. Wake the *AKUMATIZED* player, show *YOU ARE*, and give a thumbs-down. Flip their character token. Do not show them their gained character ability or make them part of Minion & Demon information.",
+      "From then on, run the gained ability for the recruited player. If it requires a choice, wake them at the appropriate time without explaining why.",
+      "If the Hawkmoth is drunk or poisoned, suspend the gained ability and its effects until the Hawkmoth is sober and healthy. If the Hawkmoth dies or changes character, remove the gained ability permanently. Do not revert the recruited player's alignment."
+    ],
+    "howToRunExamples": [
+      "Reject abilities that would be imbalanced or unfair. You may also reject player choices if it would make the game unfun. If the Hawkmoth unknowingly chooses an Evil player, reject them as if telling them to reconsider normally.",
+      "You are not required to indicate whether the player or the character chosen was the bigger problem. The Hawkmoth may appreciate being told if they are genuinely trying, rather than trying to push boundaries, or are on their last chance.",
+      "Yes, But Don't permit a Demon ability. Minion abilities should generally be denied, but if the Grimoire suits it, or if the Hawkmoth chose an Outsider with a sufficiently hindering ability, you may consider permitting it."
+    ],
+    "examples": [
+      "Xavier the Hawkmoth recruits Joleyne the Artist and grants them the Balloonist ability. Joleyne learns that they are evil. Xavier tells Joleyne the entire evil team. Joleyne uses the Balloonist ability to deduce which players are Townsfolk or Outsiders.",
+      "The Hawkmoth recruits Eric the Artist, proposing the Heretic, Vortox, and Wizard abilities. The Storyteller rejects all three, then shows the Hawkmoth the Dreamer token. Eric gains the Dreamer ability."
+    ],
+    "tipsAndTricks": [
+      "Your recruit will have two abilities, and what is allowed will be based on that. You could hazard a stronger ability in case your chosen player was an Outsider, but it's safest to aim for Townsfolk abilities with mid-level utility."
+    ],
+    "opposingTips": [
+      "A recruited player probably will not be granted a loud Minion ability. If loud Minion counts aren't adding up, the same precautions you would take against a Spy are helpful here.",
+      "The Demon needs to spend time coordinating with their recruited player to explain their team and ability, more time than would be needed for most Minions. Whether the Demon is getting the Grimoire from the Spy, or the Hawkmoth is bringing their recruit up to speed, the strategy is much the same. Remembering who was spending a lot of time talking to whom early on is more important than ever!"
+    ]
+  },
+  {
+    "id": "prince",
+    "summary": {
+      "description": "The Prince can confirm themself to another player, then create more Princes if executed by the evil team.",
+      "rules": [
+        "On the first night that the Prince is in play, a player will learn who the Prince is.",
+        "The player who learns the Prince can be any character and alignment.",
+        "If the Prince is ever nominated and executed, if the player who nominates them is evil, a good player becomes the Prince.",
+        "If a player becomes the Prince, another player learns who the new Prince is.",
+        "If the Prince dies at night, due to an ability during the day, or is nominated by a good player and executed, a new Prince is not created.",
+        "Princes that have turned evil can still create a new Prince, however an evil Townsfolk or Outsider cannot become the new Prince."
+      ]
+    },
+    "howToRun": [
+      "While preparing the first night, put the Prince's *KNOW* reminder by any character token.",
+      "During the first night, wake the player marked *KNOW*. Show them the *THIS PLAYER IS* info token, then point to the Prince, then show them a Prince character token.",
+      "If the Prince is ever executed, if the player who nominated them that day is evil, mark the Prince with the *CORONATION TONIGHT* reminder. If the Prince is executed due to an ability, this does not happen.",
+      "If the Prince is marked *CORONATION TONIGHT*, replace a good player's character token with a Prince character token. At the start of the night, wake this player. Show them the *YOU ARE* info token and a Prince character token.",
+      "If a Prince enters play after setup, including due to another Prince's ability, mark a player with the Prince's *KNOW* reminder. That night, wake the player marked *KNOW*, show them the *THIS PLAYER IS* info token, then point to the Prince, then show them a Prince character token."
+    ],
+    "examples": [
+      "The Storyteller decides to tell the Baron who the Prince is. On the 1st day, the Baron nominates and executes the Prince. That night, the Plague Doctor becomes the Prince and the Cannibal learns the new Prince.",
+      "On the 2nd day, the Fortune Teller nominates and executes the Prince. That night, nobody becomes the Prince because the player who nominated and executed the Prince was good.",
+      "On the 1st day, the Lycanthrope nominates and executes the Prince. That night, the Steward becomes the Prince. This is because the Lycanthrope was registering as evil due to their own ability."
+    ],
+    "tipsAndTricks": [
+      "It can help to hide who you are. If you can get the evil team to execute you, you manage to confirm another player in exchange for you dying. If you are executed and nobody becomes the Prince, you know that the person who executed you is likely good.",
+      "Work with the person who knows who you are. You know that one other player can verify that you are the Prince. That player will likely approach you at some point in the game to let you know about this, so you can work with them to have a stronger bluff.",
+      "You can safely claim to be the Prince. There is another player who can confirm that this is true, and if the evil team does choose to try frame you, they risk confirming even more players."
+    ],
+    "opposingTips": [
+      "If you want to execute a Prince, try and get an evil player with a weaker ability or a lot of suspicion on them to nominate them. This doesn't risk confirming a player, or implicating an evil player who's survival is more important.",
+      "If you have the ability to, poisoning a Prince can be very valuable. This can be used to confirm an evil player who gets the Prince executed, or frame a good player as evil, as well as allowing evil players to claim that they became the Prince.",
+      "Bluffing as the Prince requires a lot of communication within your team. You need a player to claim to learn that you are the Prince, as well as potentially needing a player to claim to have became the Prince if you get executed."
+    ]
+  },
+  {
+    "id": "songstress",
+    "summary": {
+      "description": "The Songstress can ensure their teammates' abilities work correctly.",
+      "rules": [
+        "Each night, the Songstress chooses players to make sober and healthy.",
+        "The Songstress may choose as many or as few players as they want.",
+        "Characters that misregister can affect whether the Songstress makes the chosen players sober and healthy.",
+        "An opposing player chosen by the Songstress might learn who the Songstress is."
+      ]
+    },
+    "howToRun": [
+      "Each night, wake the Songstress. They point at any amount of players. If all chosen players are the same alignment as the Songstress, mark them all *SOBER & HEALTHY*.",
+      "If a chosen player is on an opposing team to the Songstress, you can choose to mark them with *KNOW*.",
+      "Wake up players marked *KNOW* and show them the *THIS CHARACTER SELECTED YOU* info token, then the Songstress token, then point to the Songstress.",
+      "Players marked *SOBER & HEALTHY* are sober and healthy, even if they're also marked *DRUNK* or *POISONED*.",
+      "At dusk, remove all Songstress *SOBER & HEALTHY* and *KNOW* reminders."
+    ],
+    "examples": [
+      "On night 1, the good Songstress chooses the evil Spy and the good Pixie. The Pixie neighbors a No Dashii. The Storyteller registers the Spy as good and makes both players sober and healthy to hide the No Dashii poison.",
+      "On night 3, the good Songstress picks the Cerenovus, the poisoned good Bounty Hunter and the evil Chambermaid. The evil Chambermaid learns who the Songstress is, and the Bounty Hunter remains poisoned.",
+      "On night 1, the good Songstress chooses the good Grandmother and the good Sailor who made themself drunk. The Sailor becomes sober and healthy.",
+      "On night 2, the evil Songstress chooses the evil Cerenovus and the evil Vortox who was made drunk by the Courtier. The Vortox becomes sober."
+    ],
+    "tipsAndTricks": [
+      "Try to only pick the players you trust most. This increases the chance that you only pick good players and make them sober and healthy.",
+      "Single out players who claim to have false information in your picks. If they are good, their information will become consistent with other players information. If it remains inconsistent, they may be evil.",
+      "If you become evil as the Songstress, try to find your evil team! There is likely a reason you were able to turn evil, and you might prevent powerful disruption caused by good players."
+    ],
+    "opposingTips": [
+      "If you learn of a Songstress, you should inform evil players who can effectively prevent their ability from causing harm to the good team. If a Songstress is in play, there is likely a lot of harmful misinformation they can prevent.",
+      "Try to convince the Songstress you are good. If you can get them to choose you, their ability is then useless for the night.",
+      "If you can work out when the Songstress has chosen you, formulate your bluff around it! Bluff false information to frame another chosen player, or the Songstress themself.",
+      "When bluffing as the Songstress, you can claim to pick players who have false info. This can help verify their info to point the good team in the wrong direction."
+    ]
+  }
+]

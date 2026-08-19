@@ -19,6 +19,12 @@
 				"/static/jinxes.json",
 			],
 			"url": "./schemas/jinx-schema.json"
+		},
+		{
+			"fileMatch": [
+				"/static/almanac/*.json"
+			],
+			"url": "./schemas/almanac-schema.json"
 		}
 	],
 	"[python]": {

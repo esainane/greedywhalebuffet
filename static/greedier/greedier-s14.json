@@ -1,12 +1,5 @@
 [
   {
-    "id": "lammia",
-    "name": "Lammia",
-    "team": "demon",
-    "ability": "Each Night*, pick a player, learn their character, then choose if they die. If you choose no, deaths tonight are arbitrary.",
-    "flavor": "Lammia sucks your blood."
-  },
-  {
     "id": "partyhost",
     "name": "Party Host",
     "team": "townsfolk",
@@ -49,5 +42,12 @@
     "ability": "Each night, 3 prompts are given. Choose one to happen to Ash. If Ash dies learn this. [+Ash]",
     "flavor": "Hmmmmm what will I do this time?",
     "setup": true
+  },
+  {
+    "id": "lammia",
+    "name": "Lammia",
+    "team": "demon",
+    "ability": "Each Night*, pick a player, learn their character, then choose if they die. If you choose no, deaths tonight are arbitrary.",
+    "flavor": "Lammia sucks your blood."
   }
 ]

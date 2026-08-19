@@ -18,7 +18,7 @@
     "name": "Solemdeath",
     "team": "townsfolk",
     "ability": "Once per game, you may build a world in front of the storyteller learn how close you are to the correct world.",
-    "flavor": "Before the games ends, I would like to alsaahir guess that...."
+    "flavor": "Before the games ends, I would like to alsaahir guess that..."
   },
   {
     "id": "groundskeeper",
@@ -39,7 +39,7 @@
     "name": "Ash",
     "team": "outsider",
     "ability": "Something bad happens to Ash. [+Bidoof’s Wheel]",
-    "flavor": "“Bidoof’s Wheel hates women” -Ash",
+    "flavor": "Bidoof’s Wheel hates women -Ash",
     "setup": true
   },
   {

@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import type { GenerationOptions } from '../../../types.js';
 import type { GenerationOptionName } from '../../../options.js';
 import { GENERATION_OPTIONS, getOptionDependencies } from '../../../options.js';
+import { BOTC_SCRIPT_ENTRY_LIMIT } from '../../../constants.js';
 import { HelpBubble } from '../../components/HelpBubble.js';
 import { Switch } from '../../components/Switch.js';
 import { useAppActions } from '../../context/AppContext.js';
@@ -27,7 +28,11 @@ export function ControlsPanel(): React.JSX.Element {
 	const actions = useAppActions();
 	const loading = useIsLoading();
 	const status = useStatus();
-	const { displayScriptName: displayedScriptName, unsatisfiedDependencyCharacterIds } = useGenerationDerivedState();
+	const {
+		displayScriptName: displayedScriptName,
+		generationResult,
+		unsatisfiedDependencyCharacterIds,
+	} = useGenerationDerivedState();
 	const { visibleCharacters: characters } = useCharacterView();
 	const { options } = usePreferencesView();
 	const selectedCharacterIds = useSelectedCharacterIds();
@@ -41,6 +46,8 @@ export function ControlsPanel(): React.JSX.Element {
 			selectedCharacterIds.has(character.id) &&
 			unsatisfiedDependencyCharacterIds.has(character.id),
 	).length;
+	const exportedEntryCount = generationResult?.script.length ?? 0;
+	const charactersToRemove = Math.max(0, exportedEntryCount - BOTC_SCRIPT_ENTRY_LIMIT);
 
 	const onSubmit = useCallback(
 		async (event: React.FormEvent<HTMLFormElement>) => {
@@ -69,7 +76,22 @@ export function ControlsPanel(): React.JSX.Element {
 				<section className="status-copy-panel">
 					<form id="copy-form" className="copy-form" onSubmit={onSubmit}>
 						<div className="actions">
-							<button id="copy-button" type="submit" disabled={loading}>
+							<button
+								id="copy-button"
+								type="submit"
+								disabled={loading}
+								aria-describedby={charactersToRemove > 0 ? 'script-size-warning' : undefined}
+							>
+								{charactersToRemove > 0 ? (
+									<svg
+										className="copy-warning-icon"
+										viewBox="0 0 24 24"
+										aria-hidden="true"
+									>
+										<path d="M12 3 2.5 20h19L12 3Z" />
+										<path d="M12 9v5M12 17.5v.5" />
+									</svg>
+								) : null}
 								Copy JSON to clipboard
 							</button>
 							<button
@@ -119,6 +141,18 @@ export function ControlsPanel(): React.JSX.Element {
 					<p id="status" className="status" data-tone={status.tone} aria-live="polite">
 						{status.message}
 					</p>
+					{charactersToRemove > 0 ? (
+						<p
+							id="script-size-warning"
+							className="status"
+							data-tone="warning"
+							role="alert"
+						>
+							There are too many characters selected, and the BotC App will refuse it. Remove at
+							least {charactersToRemove} more {charactersToRemove === 1 ? 'character' : 'characters'}
+							{' '}for the BotC App to accept it.
+						</p>
+					) : null}
 				</section>
 
 				<section className="panel options-panel">

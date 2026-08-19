@@ -101,6 +101,11 @@
       "kind": "roles",
       "path": "./greedier/greedier-s13.json",
       "sourceSet": 13
+    },
+    {
+      "kind": "roles",
+      "path": "./greedier/greedier-s14.json",
+      "sourceSet": 14
     }
   ]
 }

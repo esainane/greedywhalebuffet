@@ -1,0 +1,53 @@
+[
+  {
+    "id": "lammia",
+    "name": "Lammia",
+    "team": "demon",
+    "ability": "Each Night*, pick a player, learn their character, then choose if they die. If you choose no, deaths tonight are arbitrary.",
+    "flavor": "Lammia sucks your blood."
+  },
+  {
+    "id": "partyhost",
+    "name": "Party Host",
+    "team": "townsfolk",
+    "ability": "If at least one of your alive neighbors is poisoned or drunk, you cannot die.",
+    "flavor": "Let’s keep this party going all night!"
+  },
+  {
+    "id": "solemdeath",
+    "name": "Solemdeath",
+    "team": "townsfolk",
+    "ability": "Once per game, you may build a world in front of the storyteller learn how close you are to the correct world.",
+    "flavor": "Before the games ends, I would like to alsaahir guess that...."
+  },
+  {
+    "id": "groundskeeper",
+    "name": "Groundskeeper",
+    "team": "townsfolk",
+    "ability": "You start knowing if your neighbors are the same character type.",
+    "flavor": "In cleaning up others messes, you learn quite a bit about your community."
+  },
+  {
+    "id": "paladin",
+    "name": "Paladin",
+    "team": "townsfolk",
+    "ability": "You start knowing a player that is not the demon. If the player you know dies, you learn another player that is not the demon tonight.",
+    "flavor": "A real warrior doesn’t battle with a sword. It fights with the heart."
+  },
+  {
+    "id": "ash",
+    "name": "Ash",
+    "team": "outsider",
+    "ability": "Something bad happens to Ash. [+Bidoof’s Wheel]",
+    "flavor": "“Bidoof’s Wheel hates women” -Ash",
+    "setup": true
+  },
+  {
+    "id": "bidoofswheel",
+    "name": "Bidoof’s Wheel",
+    "team": "outsider",
+    "ability": "Each night, 3 prompts are given. Choose one to happen to Ash. If Ash dies learn this. [+Ash]",
+    "flavor": "Hmmmmm what will I do this time?",
+    "setup": true
+  }
+]

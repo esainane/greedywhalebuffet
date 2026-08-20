@@ -1,35 +1,35 @@
 [
   {
     "id": "partyhost",
-    "name": "Party Host",
+    "name": "Party Host Ω",
     "team": "townsfolk",
     "ability": "If at least one of your alive neighbors is poisoned or drunk, you cannot die.",
     "flavor": "Let’s keep this party going all night!"
   },
   {
     "id": "solemdeath",
-    "name": "Solemdeath",
+    "name": "Solemdeath Ω",
     "team": "townsfolk",
     "ability": "Once per game, you may build a world in front of the storyteller learn how close you are to the correct world.",
     "flavor": "Before the games ends, I would like to alsaahir guess that..."
   },
   {
     "id": "groundskeeper",
-    "name": "Groundskeeper",
+    "name": "Groundskeeper Ω",
     "team": "townsfolk",
     "ability": "You start knowing if your neighbors are the same character type.",
     "flavor": "In cleaning up others messes, you learn quite a bit about your community."
   },
   {
     "id": "paladin",
-    "name": "Paladin",
+    "name": "Paladin Ω",
     "team": "townsfolk",
     "ability": "You start knowing a player that is not the demon. If the player you know dies, you learn another player that is not the demon tonight.",
     "flavor": "A real warrior doesn’t battle with a sword. It fights with the heart."
   },
   {
     "id": "ash",
-    "name": "Ash",
+    "name": "Ash Ω",
     "team": "outsider",
     "ability": "Something bad happens to Ash. [+Bidoof’s Wheel]",
     "flavor": "Bidoof’s Wheel hates women -Ash",
@@ -37,7 +37,7 @@
   },
   {
     "id": "bidoofswheel",
-    "name": "Bidoof’s Wheel",
+    "name": "Bidoof’s Wheel Ω",
     "team": "outsider",
     "ability": "Each night, 3 prompts are given. Choose one to happen to Ash. If Ash dies learn this. [+Ash]",
     "flavor": "Hmmmmm what will I do this time?",
@@ -45,7 +45,7 @@
   },
   {
     "id": "lammia",
-    "name": "Lammia",
+    "name": "Lammia Ω",
     "image": [
       "https://greedy.antihype.space/icons/greedier/lammia_e.webp",
       "https://greedy.antihype.space/icons/greedier/lammia_g.webp"

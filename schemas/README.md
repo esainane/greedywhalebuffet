@@ -6,4 +6,4 @@
 
 Regenerate derived schemas with:
 
-- `pnpm schema:generate`
+- `pnpm tool:generate-schema`

@@ -1,0 +1,88 @@
+[
+  {
+    "id": "partyhost",
+    "name": "Party Host Ω",
+    "team": "townsfolk",
+    "ability": "If at least 1 of your alive neighbors is poisoned or drunk, you can't die.",
+    "edition": "gwb",
+    "flavor": "Let’s keep this party going all night!",
+    "reminders": [
+      "Can't Die"
+    ]
+  },
+  {
+    "id": "solemdeath",
+    "name": "Solemdeath Ω",
+    "team": "townsfolk",
+    "ability": "Once per game, you may build a world in front of the Storyteller: learn how close it is to the truth.",
+    "edition": "gwb",
+    "flavor": "Before the game ends, I would like to Alsaahir guess that...",
+    "reminders": [
+      "No Ability"
+    ]
+  },
+  {
+    "id": "groundskeeper",
+    "name": "Groundskeeper Ω",
+    "team": "townsfolk",
+    "ability": "You start knowing if your 2 neighbors are the same character type.",
+    "edition": "gwb",
+    "flavor": "In cleaning up others’ messes, you learn quite a bit about your community.",
+    "firstNight": 55,
+    "firstNightReminder": "Either nod or shake your head."
+  },
+  {
+    "id": "paladin",
+    "name": "Paladin Ω",
+    "team": "townsfolk",
+    "ability": "You start knowing 1 player who is not the Demon. If they die, you learn another player who is not the Demon that night.",
+    "edition": "gwb",
+    "flavor": "A real warrior doesn’t battle with a sword. They fight with their heart.",
+    "firstNight": 63,
+    "firstNightReminder": "Point to the player marked *KNOW*.",
+    "otherNight": 88,
+    "otherNightReminder": "If the player marked *KNOW* died today or tonight, point to the new player marked *KNOW*.",
+    "reminders": [
+      "Know"
+    ]
+  },
+  {
+    "id": "ash",
+    "name": "Ash Ω",
+    "team": "outsider",
+    "ability": "Something bad happens to you. [+Bidoof’s Wheel]",
+    "edition": "gwb",
+    "flavor": "Bidoof’s Wheel hates women. -Ash",
+    "setup": true
+  },
+  {
+    "id": "bidoofswheel",
+    "name": "Bidoof’s Wheel Ω",
+    "team": "outsider",
+    "ability": "Each night, you are given 3 prompts: choose 1 to happen to Ash. If Ash dies, you learn this. [+Ash]",
+    "edition": "gwb",
+    "flavor": "Hmmmmm what will I do this time?",
+    "firstNight": 47,
+    "firstNightReminder": "Give 3 prompts. Bidoof’s Wheel chooses 1: apply it to Ash. If Ash died, show Ash's token.",
+    "otherNight": 39,
+    "otherNightReminder": "If Ash is alive, give 3 prompts. Bidoof’s Wheel chooses 1: apply it to Ash. If Ash died, show Ash's token.",
+    "setup": true
+  },
+  {
+    "id": "lammia",
+    "name": "Lammia Ω",
+    "team": "demon",
+    "ability": "Each night*, choose a player: learn their character, then choose whether they die. If not, deaths tonight are arbitrary.",
+    "image": [
+      "https://greedy.antihype.space/icons/greedier/lammia_e.webp",
+      "https://greedy.antihype.space/icons/greedier/lammia_g.webp"
+    ],
+    "edition": "gwb",
+    "flavor": "Lammia sucks your blood.",
+    "otherNight": 51,
+    "otherNightReminder": "The Lammia chooses a player. Show their character token. The Lammia chooses whether they die. :reminder: If not, deaths tonight are arbitrary.",
+    "reminders": [
+      "Dead"
+    ]
+  }
+]

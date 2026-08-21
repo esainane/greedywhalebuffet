@@ -137,12 +137,15 @@ async function fetchJsonSource(path: string, signal?: AbortSignal): Promise<unkn
 	}
 }
 
+export type JsonSourceLoader = (path: string, signal?: AbortSignal) => Promise<unknown>;
+
 async function fetchJsonSourcesInParallel(
 	paths: readonly string[],
 	signal?: AbortSignal,
+	loadJsonSource: JsonSourceLoader = fetchJsonSource,
 ): Promise<Map<string, unknown>> {
 	const entries = await Promise.all(
-		paths.map(async (path) => [path, await fetchJsonSource(path, signal)] as const),
+		paths.map(async (path) => [path, await loadJsonSource(path, signal)] as const),
 	);
 
 	return new Map(entries);
@@ -156,15 +159,19 @@ function parseManifest(rawManifest: unknown): DataSourcesManifest {
  * Load all JSON data sources in parallel.
  * Constructs and returns an immutable Catalog.
  */
-export async function loadLatestJson(options: { signal?: AbortSignal } = {}): Promise<{ catalog: Catalog }> {
-	const rawManifest = await fetchJsonSource(DATA_SOURCES_MANIFEST_URL, options.signal);
+export async function loadLatestJson(options: {
+	signal?: AbortSignal;
+	loadJsonSource?: JsonSourceLoader;
+} = {}): Promise<{ catalog: Catalog }> {
+	const loadJsonSource = options.loadJsonSource ?? fetchJsonSource;
+	const rawManifest = await loadJsonSource(DATA_SOURCES_MANIFEST_URL, options.signal);
 	const manifest = parseManifest(rawManifest);
 
 	const allSourcePaths = [
 		...manifest.coreSources.map((source) => source.path),
 		...manifest.greedierScripts.map((source) => source.path),
 	];
-	const parsedByPath = await fetchJsonSourcesInParallel(allSourcePaths, options.signal);
+	const parsedByPath = await fetchJsonSourcesInParallel(allSourcePaths, options.signal, loadJsonSource);
 
 	const greedyPath = getCoreSourceByName(manifest, 'greedyScript').path;
 	const greedyJinxPath = getCoreSourceByName(manifest, 'greedyJinxes').path;

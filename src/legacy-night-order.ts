@@ -6,6 +6,7 @@ export type Night = 'firstNight' | 'otherNight';
 export type LegacyNightOrderEntry = {
 	readonly id: string;
 	readonly name: string;
+	readonly team?: string;
 	readonly order: number;
 	readonly reminder: string;
 };
@@ -22,6 +23,15 @@ const SPECIAL_NAMES: Readonly<Record<string, string>> = {
 	dawn: 'Dawn',
 	minioninfo: 'Minion Info',
 	demoninfo: 'Demon Info',
+};
+
+const ANSI_RESET = '\u001B[0m';
+const ANSI_BOLD = '\u001B[1m';
+const TEAM_NAME_COLORS: Readonly<Record<string, string>> = {
+	townsfolk: '\u001B[34m',
+	outsider: '\u001B[36m',
+	minion: '\u001B[38;5;208m',
+	demon: '\u001B[31m',
 };
 
 function reminderFieldFor(night: Night): 'firstNightReminder' | 'otherNightReminder' {
@@ -63,6 +73,7 @@ function entryForCharacter(
 	return {
 		id,
 		name: source.name || id,
+		team: source.team,
 		order: order as number,
 		reminder: source[reminderField] ?? '',
 	};
@@ -128,18 +139,25 @@ export function formatLegacyNightOrdersAsJson(
 	}, null, 2);
 }
 
-function textLine(entry: LegacyNightOrderEntry): string {
+function textLine(entry: LegacyNightOrderEntry, maxNameLength: number): string {
 	const name = entry.name.replace(/\s+/g, ' ').trim();
 	const reminder = entry.reminder.replace(/\s+/g, ' ').trim();
-	return `${name}\t${entry.order}\t${reminder}`;
+	const padding = ' '.repeat(Math.max(0, maxNameLength - name.length));
+	const color = entry.team ? TEAM_NAME_COLORS[entry.team] : undefined;
+	const styledName = `${ANSI_BOLD}${color ?? ''}${name}${ANSI_RESET}`;
+	return `${entry.order.toString().padStart(3, ' ')} ${styledName}${padding} ${reminder}`;
 }
 
 export function formatLegacyNightOrdersAsText(orders: LegacyNightOrders): string {
+	const longestNameLength = Math.max(
+		...orders.firstNight.map((entry) => entry.name.length),
+		...orders.otherNight.map((entry) => entry.name.length),
+	);
 	return [
 		'First night:',
-		...orders.firstNight.map(textLine),
+		...orders.firstNight.map((entry) => textLine(entry, longestNameLength)),
 		'',
 		'Other night:',
-		...orders.otherNight.map(textLine),
+		...orders.otherNight.map((entry) => textLine(entry, longestNameLength)),
 	].join('\n');
 }

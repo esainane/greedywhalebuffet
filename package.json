@@ -9,8 +9,9 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
-    "schema:generate": "python3 tools/generate_schemas.py",
-    "lint": "eslint src --max-warnings=0",
+    "tool:night-order": "tsx tools/legacy-night-order.ts",
+    "tool:generate-schema": "python3 tools/generate_schemas.py",
+    "lint": "eslint src tools --max-warnings=0",
     "type-check": "vitest run --project types",
     "test": "vitest run",
     "test:data:schema": "vitest run --project data-schema",
@@ -46,6 +47,7 @@
     "jsdom": "^29.1.1",
     "parcel": "^2.16.4",
     "parcel-reporter-static-files-copy": "^1.5.3",
+    "tsx": "^4.23.12",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.66.0",
     "vitest": "^4.1.10"

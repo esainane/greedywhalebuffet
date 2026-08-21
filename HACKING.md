@@ -26,3 +26,8 @@ Test categories can also be run distinctly:
 ## Notes
 
 - The raw script remains directly downloadable as a standalone JSON artifact. The raw script is as intentionally compatible with the BotC app as the generated script.
+
+## Tools
+
+- `pnpm tool:generate-schema`: Regenerate derived schemas in `schemas/`.
+- `pnpm tool:night-order`: Generate legacy `firstNight` and `otherNight` arrays, or print night order.

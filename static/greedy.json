@@ -659,7 +659,7 @@
       "https://greedy.antihype.space/icons/snv/sweetheart_e.webp"
     ],
     "team": "outsider",
-    "ability": "When you die, 1 player is drunk from now on. When dead, you may guess (once) which. If correct, all players learn you are the Sweetheart tonight.",
+    "ability": "When you die, 1 player is drunk from now on. When dead, you may guess which (once). If correct, all players learn you are the Sweetheart tonight.",
     "flavor": "My heart will go on! *Penny whistle solo*. -Miss Chief",
     "otherNight": 61,
     "otherNightReminder": "If the Sweetheart died, a player became drunk immediately. If you haven't done this yet, do so now. :reminder: If the Sweetheart made a correct guess when dead, wake each player. Show them *THIS PLAYER IS* info token & the Sweetheart token.",

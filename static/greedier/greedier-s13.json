@@ -64,10 +64,10 @@
       "https://greedy.antihype.space/icons/greedier/reflector_e.webp"
     ],
     "team": "outsider",
-    "ability": "Each night, the first player’s ability to target you might target another player instead.",
+    "ability": "Each night, the first player ability to choose you might target another player instead.",
     "flavor": "Mayor under house arrest… :P",
     "reminders": [
-      "Reflected"
+      "Chosen"
     ]
   },
   {

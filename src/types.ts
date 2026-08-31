@@ -15,6 +15,7 @@ export type MetaEntry = {
 	name: string;
 	author?: string;
 	almanac?: string;
+	background?: string;
 	bootlegger?: string[];
 };
 

@@ -1,0 +1,98 @@
+[
+  {
+    "id": "portiafeatherington_winningclub",
+    "summary": {
+      "description": "Portia Featherington swaps teams constantly.",
+      "rules": [
+        "Each night except the first, Portia changes to the opposite alignment.",
+        "Portia changes alignment even while dead. Death does not end the cycle.",
+        "Ordinarily, this means Portia Featherington is good on odd days and evil on even days.",
+        "If Portia is drunk or poisoned when the change would occur, they do not change that night. They resume flipping the next time they are sober and healthy.",
+        "Portia always wins or loses with their alignment when the game ends."
+      ]
+    },
+    "howToRun": [
+      "Each night except the first, if Portia is sober and healthy, flip their alignment marker.",
+      "Wake Portia. Show *YOU ARE*, then give a thumbs-up for good or thumbs-down for evil. Put Portia to sleep.",
+      "Continue waking a dead Portia whenever their alignment changes."
+    ],
+    "examples": [
+      "Portia Featherington starts good, becomes evil on night 2, good on night 3, and evil on night 4.",
+      "Portia Featherington is poisoned on night 3, so remains evil. On night 4 they become good."
+    ],
+    "tipsAndTricks": [
+      "You have the unenviable task of working out who is winning, guessing the tempo of the game, and the parity when the game does end, all while nobody has any reason to trust you. Your alignment is even more fickle than the Goon, and even death will not grant anyone certainty.",
+      "If the outcome seems certain, be earnest about when you want the game to end. Try to convince town to execute on final 4 instead of sleeping, if you believe they have the Demon and want to win with good.",
+      "You change alignment after kills happen in the night. Tying on final 3 to continue the game for one more night, instead of ending during the day, will not cause you to flip before the game ends.",
+      "If found, a Poisoner can lock your alignment by poisoning you every night while they remain alive and able. Similarly, a Courtier can keep you good for three more days. The Sailor can backfire, but can always try."
+    ],
+    "opposingTips": [
+      "Nobody will trust anyone claiming Portia Featherington. If you are outed evil, perhaps you can convince people that you are a lesser priority by insisting that your alignment is fickle, rather than set against them.",
+      "You might be able to convince town to delay to end the game on an odd day. Perhaps this gives your Imp a chance to starpass or a Fang Gu a chance to jump. But town could just as easily decide to be unsympathetic."
+    ]
+  },
+  {
+    "id": "baffler_winningclub",
+    "summary": {
+      "description": "The Baffler burdens players with Zealot-like voting and awkward speech.",
+      "rules": [
+        "Each night, the Baffler chooses one living player to be baffled the following day.",
+        "While at least five players are alive, the baffled player must vote on every nomination for which they are eligible to vote, as if they were a Zealot.",
+        "The baffled player must communicate in rhymes, riddles, or another genuinely convoluted manner for the day, regardless of how many players live.",
+        "A baffled player who fails either requirement may be executed by the Storyteller.",
+        "As the source of compulsory voting is external, unlike a Zealot, they must spend an available dead vote if they have died since being selected, or risk execution."
+      ]
+    },
+    "howToRun": [
+      "Each night, wake the Baffler. They point to a living player. Mark that player *BAFFLED!* and remove the previous night's marker.",
+      "Wake the target. Show *THIS CHARACTER SELECTED YOU* and the Baffler token. Put them to sleep.",
+      "During the next day, count the target's votes and judge their speech charitably but meaningfully. If they break either requirement, you may execute them at any time."
+    ],
+    "examples": [
+      "The Baffler chooses Ada the Seamstress. Seven players live. Ada must raise her hand on every nomination, and speaks only in rhyming couplets.",
+      "The Baffler chooses Ben the Fortune Teller. Four players live. Ben no longer has to vote on every nomination, but must still speak in riddles.",
+      "The Baffler chooses Evelyn the Puzzlemaster. The same night, the Imp kills Evelyn. To avoid the risk of execution, Evelyn must use their dead vote on the first nomination, then cannot vote on later nominations because their vote is spent."
+    ],
+    "tipsAndTricks": [
+      "Target a confirmed or trusted coordinator. Awkward speech makes nuance difficult, and compulsory voting makes it harder to follow.",
+      "You cannot target a dead player, but a chosen living player can still die before your next choice is made."
+    ],
+    "opposingTips": [
+      "If in doubt, ask the Storyteller to clarify what kind of speech qualifies. However, the Storyteller is less likely to be lenient if you are deliberately trying to minimize your compliance.",
+      "A player selected while alive must decide whether to comply even if they die before the next day. To comply, they must spend their ghost vote at the first legal opportunity."
+    ]
+  },
+  {
+    "id": "baroness_winningclub",
+    "summary": {
+      "description": "The Baroness rules a town with no Townsfolk, but isolated good Minions.",
+      "rules": [
+        "There are no Townsfolk in the game, only Outsiders, Minions, and the Baroness herself.",
+        "Good Minions know their own character and alignment, but do not receive Minion Info, and are not shown to the Demon or other Minions during Demon Info.",
+        "Good Minions have functioning Minion abilities used for the good team's victory condition. If the Alchemist has any jinxes with a Minion, Good Minions use that effect.",
+        "Unlike the Alchemist, Good Minions will not be prompted to choose differently.",
+        "The Baroness cannot reliably kill in the night. The game can end up with unusual levels of adversity, and the Storyteller may choose to give the town more time and more executions to compensate."
+      ]
+    },
+    "howToRun": [
+      "Build a legal bag containing no Townsfolk. Add zero to two Minion characters that will be good. This is typically one less than the base number of evil Minions for the player count.",
+      "On the first night, omit good Minions from all evil-team introductions. Privately signal their good alignment if the token itself would imply evil.",
+      "Each later night, wake the Baroness. They choose a player. Put them to sleep. Decide whether to mark the chosen player *DEAD*."
+    ],
+    "howToRunExamples": [
+      "Choose good Minion abilities that remain usable without evil-team knowledge, and can't identify the Baroness immediately."
+    ],
+    "examples": [
+      "The bag sees the Baroness, two evil Minions, a good Godfather, and eight Outsiders. The Good Godfather learns all eight on the first night.",
+      "The bag sees the Baroness, one evil Minion, and seven Outsiders. The Baroness fails to kill most nights."
+    ],
+    "tipsAndTricks": [
+      "The Outsider roster is much shorter than the Townsfolk roster, and a Godfather will know every Outsider. Consider your bluffs carefully.",
+      "Almost every good player must claim Outsider, Good Minions might try to stay hidden. A Mutant will likely claim to be a Good Minion."
+    ],
+    "opposingTips": [
+      "Pay attention to voting patterns. Watch for who seems to have information, or cares deeply about particular people being executed. Trust that good will be given more executions if necessary.",
+      "Do not expect Townsfolk information. If your town has Good Minions, they might provide the power needed, but Minions are built for influencing the game first and foremost."
+    ]
+  }
+]

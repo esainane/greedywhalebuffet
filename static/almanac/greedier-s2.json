@@ -1,0 +1,104 @@
+[
+  {
+    "id": "informant_winningclub",
+    "summary": {
+      "description": "The Informant learns who woke up at night.",
+      "rules": [
+        "Each night, the Informant learns one other player who mechanically woke tonight.",
+        "A player qualifies whether they woke because of their own ability, another character's ability, Demon or Minion information, or another rules-defined game procedure.",
+        "Drunk or poisoned players still qualify if they physically woke. A dead player also qualifies if an ability legitimately woke them.",
+        "Accidental wakeups, administrative checks, and unrelated interruptions do not qualify. The wake must be a mechanically deducible part of the game.",
+        "The Informant cannot learn themself. A jinx may explicitly let the Informant learn a Chambermaid or Mathematician whose mechanically required wake occurs later in the night."
+      ]
+    },
+    "howToRun": [
+      "Each night, wake the Informant. Point to a player which woke tonight. Put the Informant to sleep.",
+      "Do not wake the Informant if nobody woke tonight. This might happen from a Mastermind, Zombuul, or Yaggababble."
+    ],
+    "examples": [
+      "On the first night, the Poisoner and Fortune Teller use their abilities, and the Minions and Demon receive their information. The Informant may learn any one of those players.",
+      "Francis the Nightwatchman chooses Ada the Pacifist. Ada wakes to learn that the Nightwatchman selected her. Either Francis or Ada could be shown to the Informant.",
+      "A No Dashii-poisoned Chambermaid wakes and chooses players. The Informant may still learn the Chambermaid.",
+      "The Storyteller wakes Ben to confirm whether Ben voted yesterday, then wakes Cara to check their pizza order. Neither of these are mechanical wakeups, and neither player qualifies.",
+      "Nobody other than the Informant mechanically wakes. The Storyteller does not wake the Informant, because the Informant cannot be shown themself.",
+      "It is night 6. The only living players are Scott the Vortox, Matt the Poisoner, Mary the Fortune Teller, and Robert the Informant. Robert cannot be correctly told any living player woke, due to the Vortox. Robert must be shown a dead player, or not woken at all."
+    ],
+    "tipsAndTricks": [
+      "Your information covers more than characters using their own abilities. Minion & Demon Info, madness notification, and alignment or character changes all qualify.",
+      "Like the High Priestess, the Storyteller chooses which eligible player you learn. Ask what reason that wake may matter.",
+      "Once evil learns that an Informant is in play, any which wake will probably adjust their bluff to match a waking pattern. Any which do not wake will feel less pressure, as you cannot be sent to them. You will likely die before you can become suspicious about who you could be sent to, based on their claims, but have not."
+    ],
+    "opposingTips": [
+      "Bluffing as the Informant without Grimoire access is difficult. Broad waking criteria gives you more plausible targets than the Chambermaid, but with a single player, you have less room to back out if you get it wrong.",
+      "If you are confident about some good players, you can claim to have seen them, and build trust both ways."
+    ]
+  },
+  {
+    "id": "armageddon_winningclub",
+    "summary": {
+      "description": "Armageddon immediately brings the game to a final 3 showdown.",
+      "rules": [
+        "The Armageddon chooses exactly three alive non-Travellers. They'll want to choose themselves or a Scarlet Woman, they must choose at least one good player, and the third player they bring is likely a Minion.",
+        "Only the chosen three survive that night. They cannot die or change alignment from any source during that night. This must happen! Even the Assassin is trumped.",
+        "On the following day, if nobody dies before dusk, Evil wins. Any death that day prevents this alternate win. Otherwise, the winner is likely determined by the usual final 3 execution choice.",
+        "Normally, armageddon night happens on night r. If created mid-game, without a relevant jinx, armageddon night happens later."
+      ]
+    },
+    "howToRun": [
+      "Track the Armageddon's nights. On its 4th night, wake it and require three legal choices. Mark them *SHELTERED*.",
+      "If no chosen player is good, shake your head and require a new set. Do not otherwise reveal alignments.",
+      "Resolve the night, preventing every death and alignment change to sheltered players. Kill every other living player, even if another ability would protect them.",
+      "At dawn, announce the survivors normally. Remove *SHELTERED* from all players. If no player dies during the day, declare Evil the winner at dusk."
+    ],
+    "howToRunExamples": [
+      "With everyone dying on night 4, town will receive about the same amount of information as a Riot game.",
+      "As with Riot and Leviathan, there are many characters which don't normally interact well with Demons that do not cause night deaths. Consider using the No Death at Night jinxes if you want to bag these characters together."
+    ],
+    "examples": [
+      "On night 4, the Armageddon shelters themself, a Minion, and a good Slayer. Everyone else dies. The Slayer shoots the Armageddon the next day, so Good wins normally.",
+      "The three survivors execute a sheltered good player. That player dies because shelter ended at dawn. Armageddon's alternate win is prevented, but Evil wins because only two players live.",
+      "The Assassin tries to kill a sheltered player during night 4. The player survives. Armageddon's protection cannot be bypassed.",
+      "The Armageddon shelters the Mayor. The next day, nobody is executed. Good wins due to the Mayor's ability, as Good wins ties."
+    ],
+    "tipsAndTricks": [
+      "You can't win from an all-evil final 3. Think ahead about who you want to frame!",
+      "Rely on your Minions. You can't kill at night! If your Minions can kill, try to match the killing pattern of a regular Demon. If your Minions sow disinformation, try to identify the most important roles quickly. If your Minions cause madness, try to make a player look suspicious, and keep them mad on the final day."
+    ],
+    "opposingTips": [
+      "Compared to Riot, you get one more day of observing voting patterns and one more execution. Who really does not want someone else to die?",
+      "A good survivor is guaranteed to exist. They will almost always be the last remaining good alive. When the person you think is good nominates, give them your support, even if you think they might have it wrong. Evil isn't going to nominate for you!"
+    ]
+  },
+  {
+    "id": "arsonist_winningclub",
+    "summary": {
+      "description": "The Arsonist quietly poisons players, then ignites every poisoned player at once.",
+      "rules": [
+        "Each night, the Arsonist either chooses one player to poison, or chooses nobody to trigger ignition.",
+        "A chosen player remains poisoned by the Arsonist until ignition, across multiple days and nights.",
+        "On ignition, every currently poisoned player dies, including players poisoned by other abilities. Afterwards, only poison created by the Arsonist is removed."
+      ]
+    },
+    "howToRun": [
+      "Each night, wake the Arsonist. If they point to a player, mark that player *POISONED*. Do not remove older Arsonist poison.",
+      "If the Arsonist shakes their head, and it is not night one, identify every player who is currently poisoned from any source. Mark each of them *DEAD*.",
+      "Remove every *POISONED* reminder belonging to the Arsonist. Other poison expires or remains according to its own source."
+    ],
+    "examples": [
+      "The Arsonist poisons Ada and Ben on successive nights, then chooses nobody. Both die, then their Arsonist poison is removed.",
+      "The Poisoner poisons Cara on the night the Arsonist ignites. Cara dies even though the Arsonist never chose her.",
+      "The Arsonist decides to ignite on the third night, when all townsfolk are poisoned from a Xaan 3. Those which are only poisoned by the Xaan do not die, due to the Xaan jinx."
+    ],
+    "tipsAndTricks": [
+      "Frequent ignition slows you down! Try to poison as many players as possible at once.",
+      "The Arsonist will not ignite players who are drunk, only those that are poisoned.",
+      "You can't selectively kill people who are poisoned. Ignition will reveal a Widow's choice.",
+      "Poison won't persist if you need to Barber swap yourself, or pass to a Scarlet Woman.",
+      "You might need to ignite once or twice before ending the game, to avoid an overwhelming good voting majority."
+    ],
+    "opposingTips": [
+      "The Monk can keep players protected from the Arsonist's poison, even when the Arsonist is not trying to kill. If the Monk can find a player with important ongoing information, they can keep that information healthy.",
+      "A sudden burst of deaths signals an Arsonist or a summoned Yaggababble. If the death count lines up with an Arsonist, work backwards to guess which players were poisoned from when."
+    ]
+  }
+]

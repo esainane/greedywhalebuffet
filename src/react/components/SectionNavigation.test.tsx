@@ -30,6 +30,21 @@ function setup() {
 }
 
 describe('SectionNavigation', () => {
+	it('treats character almanac hashes as the Greedier Homebrew section', async () => {
+		window.history.replaceState(null, '', '#almanac-alpha');
+		const section = document.createElement('section');
+		section.id = 'section-greedier-homebrew';
+		document.body.append(section);
+
+		render(<SectionNavigation sections={[{ id: 'section-greedier-homebrew', label: 'Greedier Homebrew' }]} />);
+
+		await waitFor(() => {
+			expect(screen.getAllByRole('button', { name: 'Greedier Homebrew' })[0]).toHaveClass('is-active');
+		});
+		section.remove();
+		window.history.replaceState(null, '', window.location.pathname);
+	});
+
 	it('updates the active section as viewport position changes on scroll', async () => {
 		const sections = [
 			{ id: 'section-generate', label: 'Generate & Options' },

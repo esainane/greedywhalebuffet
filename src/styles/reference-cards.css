@@ -23,6 +23,119 @@
 	gap: 0.75rem;
 }
 
+.reference-card[id^='almanac-'] {
+	scroll-margin-top: 5.5rem;
+}
+
+.almanac-card-header {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.75rem;
+}
+
+.almanac-toggle {
+	flex: 0 0 auto;
+	padding: 0.45rem 0.7rem;
+	border: 1px solid var(--surface-border);
+	border-radius: var(--radius-pill);
+	background: var(--surface);
+	color: var(--text);
+	font: inherit;
+	font-size: 0.82rem;
+	font-weight: 700;
+	cursor: pointer;
+}
+
+.almanac-toggle:hover,
+.almanac-toggle:focus-visible {
+	border-color: var(--accent);
+	outline: none;
+}
+
+.almanac-content {
+	display: grid;
+	gap: 1rem;
+	padding-top: 0.25rem;
+	border-top: 1px solid var(--surface-border);
+}
+
+.almanac-overview {
+	display: grid;
+	gap: 1rem;
+}
+
+.almanac-content section {
+	display: grid;
+	gap: 0.45rem;
+}
+
+.almanac-content h4,
+.almanac-content p,
+.almanac-content ul,
+.almanac-content ol {
+	margin: 0;
+}
+
+.almanac-content h4 {
+	font-size: 0.9rem;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+	color: var(--homebrew-purple);
+}
+
+.almanac-content ul,
+.almanac-content ol {
+	display: grid;
+	gap: 0.35rem;
+	padding-left: 1.35rem;
+}
+
+.almanac-content li,
+.almanac-content p {
+	line-height: 1.5;
+}
+
+.almanac-character-reference {
+	font-weight: 700;
+}
+
+.almanac-character-reference.team-loric {
+	color: var(--almanac-loric);
+}
+
+.almanac-character-reference.team-fabled {
+	color: var(--almanac-fabled);
+}
+
+.almanac-character-reference.team-traveller {
+	color: var(--almanac-traveller-start);
+	background-image: linear-gradient(
+		to right,
+		var(--almanac-traveller-start),
+		var(--almanac-traveller-end)
+	);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+.almanac-content .how-to-run-examples,
+.almanac-content .almanac-example-banners {
+	gap: 0.5rem;
+	padding: 0.15rem 0 0;
+	list-style: none;
+}
+
+.how-to-run-examples li,
+.almanac-example-banners li {
+	padding: 0.65rem 0.75rem;
+	border: 1px solid color-mix(in srgb, var(--surface-border) 60%, var(--homebrew-purple-muted));
+	border-left: 0.25rem solid var(--homebrew-purple-muted);
+	border-radius: 10px;
+	background: color-mix(in srgb, var(--surface) 88%, var(--homebrew-purple-muted));
+}
+
 .reference-header {
 	display: grid;
 	gap: 0.55rem;
@@ -68,6 +181,18 @@
 
 .team-demon {
 	color: var(--team-demon);
+}
+
+.team-traveller {
+	color: var(--team-traveller);
+}
+
+.team-fabled {
+	color: var(--team-fabled);
+}
+
+.team-loric {
+	color: var(--team-loric);
 }
 
 .reference-pair {

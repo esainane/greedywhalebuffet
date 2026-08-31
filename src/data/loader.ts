@@ -9,6 +9,9 @@ import type {
 	JinxFile,
 	NightsheetFile,
 	MappingFile,
+	AlmanacEntry,
+	CatalogAlmanac,
+	AlmanacCharacterReference,
 } from '../types.js';
 import Ajv2020, { type ValidateFunction } from 'ajv/dist/2020.js';
 import addFormats from 'ajv-formats';
@@ -24,6 +27,7 @@ import {
 import scriptSchema from '../../schemas/script-schema.json';
 import scriptExtraSchema from '../../schemas/roles-schema.json';
 import jinxSchema from '../../schemas/jinx-schema.json';
+import almanacSchema from '../../schemas/almanac-schema.json';
 import { parseScriptFile } from '../model/script-document.js';
 import { Catalog, OneToOneIdMap, NightOrderIndex } from './catalog.js';
 
@@ -33,6 +37,7 @@ addFormats(ajv);
 const validateScriptFile = ajv.compile(scriptSchema);
 const validateScriptExtraData = ajv.compile(scriptExtraSchema);
 const validateJinxData = ajv.compile(jinxSchema);
+const validateAlmanacData = ajv.compile(almanacSchema);
 
 function assertSchemaValid(data: unknown, validate: ValidateFunction, sourceName: string): void {
 	if (validate(data)) {
@@ -170,6 +175,7 @@ export async function loadLatestJson(options: {
 	const allSourcePaths = [
 		...manifest.coreSources.map((source) => source.path),
 		...manifest.greedierScripts.map((source) => source.path),
+		...manifest.greedierAlmanacs.map((source) => source.path),
 	];
 	const parsedByPath = await fetchJsonSourcesInParallel(allSourcePaths, options.signal, loadJsonSource);
 
@@ -199,6 +205,10 @@ export async function loadLatestJson(options: {
 		const parsed = parsedByPath.get(source.path);
 		assertSchemaValid(parsed, validateScriptExtraData, source.path);
 	}
+	for (const source of manifest.greedierAlmanacs) {
+		const parsed = parsedByPath.get(source.path);
+		assertSchemaValid(parsed, validateAlmanacData, source.path);
+	}
 
 	const greedyDocument = parseScriptFile(greedyParsed as ScriptFile, greedyPath);
 
@@ -218,6 +228,7 @@ export async function loadLatestJson(options: {
 
 	const greedierCharactersById = new Map<string, CatalogCharacter>();
 	const greedierCharacterSourceById = new Map<string, string>();
+	const additionalAlmanacCharacters: AlmanacCharacterReference[] = [];
 	for (const source of manifest.greedierScripts) {
 		const greedierData = parsedByPath.get(source.path);
 		if (!Array.isArray(greedierData)) {
@@ -225,6 +236,11 @@ export async function loadLatestJson(options: {
 		}
 
 		const scriptEntries = greedierData as ScriptFile;
+		for (const entry of scriptEntries) {
+			if (isCharacterEntry(entry)) {
+				additionalAlmanacCharacters.push({ name: entry.name, team: entry.team });
+			}
+		}
 		const sourceSet = source.sourceSet;
 		for (const character of extractFilterableCharactersFromScriptFile(scriptEntries)) {
 			const existingSourcePath = greedierCharacterSourceById.get(character.id);
@@ -245,11 +261,36 @@ export async function loadLatestJson(options: {
 	}
 
 	const greedierCharactersData = [...greedierCharactersById.values()];
+	const filterableGreedierIds = new Set(greedierCharactersById.keys());
+	const greedierAlmanacsById = new Map<string, CatalogAlmanac>();
+	for (const source of manifest.greedierAlmanacs) {
+		const entries = parsedByPath.get(source.path) as AlmanacEntry[];
+		for (const entry of entries) {
+			const character = greedierCharactersById.get(entry.id);
+			if (!character) {
+				throw new Error(`${source.path} has almanac for unknown or unsupported Greedier character "${entry.id}".`);
+			}
+			if (character.sourceSet !== source.sourceSet) {
+				throw new Error(`${source.path} places almanac "${entry.id}" in set ${source.sourceSet}, but its character is in set ${String(character.sourceSet)}.`);
+			}
+			if (greedierAlmanacsById.has(entry.id)) {
+				throw new Error(`Duplicate Greedier almanac id "${entry.id}" found in ${source.path}.`);
+			}
+			greedierAlmanacsById.set(entry.id, { entry, sourceSet: source.sourceSet });
+		}
+	}
+	for (const id of filterableGreedierIds) {
+		if (!greedierAlmanacsById.has(id)) {
+			throw new Error(`Missing Greedier almanac for character "${id}".`);
+		}
+	}
 
 	const catalog = Catalog.create({
 		baseScript: greedyDocument,
 		roles: rolesParsed,
 		greedierCharacters: greedierCharactersData,
+		greedierAlmanacs: [...greedierAlmanacsById.values()],
+		additionalAlmanacCharacters,
 		idMappings: OneToOneIdMap.fromRecord(mappingFileParsed, mappingPath),
 		nightOrder: new NightOrderIndex(nightsheetParsed),
 		officialJinxes: jinxParsed as JinxFile,

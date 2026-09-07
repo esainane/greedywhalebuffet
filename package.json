@@ -9,6 +9,7 @@
   "scripts": {
     "start": "parcel",
     "build": "parcel build",
+    "tool:file-validate": "tsx tools/file-validate.ts",
     "tool:night-order": "tsx tools/legacy-night-order.ts",
     "tool:generate-schema": "python3 tools/generate_schemas.py",
     "lint": "eslint src tools --max-warnings=0",

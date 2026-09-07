@@ -29,5 +29,6 @@ Test categories can also be run distinctly:
 
 ## Tools
 
+- `pnpm file-validate <file> [script|roles|jinx]`: Validate a JSON file against a schema. The script schema is used by default.
 - `pnpm tool:generate-schema`: Regenerate derived schemas in `schemas/`.
 - `pnpm tool:night-order`: Generate legacy `firstNight` and `otherNight` arrays, or print night order.

@@ -4,6 +4,10 @@
     "name": "Party Host Ω",
     "team": "townsfolk",
     "ability": "If at least 1 of your alive neighbors is poisoned or drunk, you can't die.",
+    "image": [
+      "https://greedy.antihype.space/icons/greedier/partyhost_g.webp",
+      "https://greedy.antihype.space/icons/greedier/partyhost_e.webp"
+    ],
     "edition": "gwb",
     "flavor": "Let’s keep this party going all night!",
     "reminders": [
@@ -36,6 +40,10 @@
     "name": "Paladin Ω",
     "team": "townsfolk",
     "ability": "You start knowing 1 player who is not the Demon. If they die, you learn another player who is not the Demon that night.",
+    "image": [
+      "https://greedy.antihype.space/icons/greedier/paladin_g.webp",
+      "https://greedy.antihype.space/icons/greedier/paladin_e.webp"
+    ],
     "edition": "gwb",
     "flavor": "A real warrior doesn’t battle with a sword. They fight with their heart.",
     "firstNight": 63,

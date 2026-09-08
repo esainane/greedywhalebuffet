@@ -59,6 +59,10 @@
     "name": "Ash Ω",
     "team": "outsider",
     "ability": "Something bad happens to you. [+Bidoof’s Wheel]",
+    "image": [
+      "https://greedy.antihype.space/icons/greedier/ash_g.webp",
+      "https://greedy.antihype.space/icons/greedier/ash_e.webp"
+    ],
     "edition": "gwb",
     "flavor": "Bidoof’s Wheel hates women. -Ash",
     "setup": true
@@ -68,6 +72,10 @@
     "name": "Bidoof’s Wheel Ω",
     "team": "outsider",
     "ability": "Each night, you are given 3 prompts: choose 1 to happen to Ash. If Ash dies, you learn this. [+Ash]",
+    "image": [
+      "https://greedy.antihype.space/icons/greedier/bidoofswheel_g.webp",
+      "https://greedy.antihype.space/icons/greedier/bidoofswheel_e.webp"
+    ],
     "edition": "gwb",
     "flavor": "Hmmmmm what will I do this time?",
     "firstNight": 47,

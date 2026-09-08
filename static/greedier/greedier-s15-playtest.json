@@ -19,7 +19,6 @@
     "otherNightReminder": "If any players have made a guess, wake the Actuary. Point to the player marked *CLOSEST*.",
     "reminders": ["Closest", "Guess Used"],
     "setup": false,
-    "jinxes": [{"id": "vortox", "reason": "The initial 3 numbers are falsified. The closest guesser is not."}],
     "flavor": "I know the odds for many a scenario. It's just a matter of proportion."
   },
   {
@@ -59,11 +58,6 @@
     "otherNightReminder": "Wake the Shadowseeker and have them pick a player. If an outsider was executed by an evil player, wake them again, show them the grimoire and have them pick a player.",
     "reminders": ["Dead", "Died Today", "Turns Evil", "Once"],
     "setup": true,
-    "jinxes": [
-      {"id": "damsel", "reason": "If the shadowseeker sees the grim they are poisoned."},
-      {"id": "heretic", "reason": "If the shadowseeker sees the grim they are poisoned."},
-      {"id": "poppygrower", "reason": "The shadowseeker doesnt see the grim but makes a choice."}
-    ],
     "flavor": "Whispers on the cold wind whistle through the town. 'HE LIES IN WAIT IN HELL' is scrawled in scarlet upon the chapel doors. Citizens are scared. Children are crying. A fleeting speck of dusk falls from the church bell. Maybe he is closer than we all think."
   },
   {
@@ -106,7 +100,6 @@
     "otherNightReminder": "The Secretkeeper might choose a player. If they do, tell the chosen player that the Secretkeeper has chosen them and give them one piece of true information. Then place the \"Secret Given\" token with the chosen player.",
     "reminders": ["Secret Given"],
     "setup": false,
-    "jinxes": [{"id": "heretic", "reason": "If the Secretkeeper chosen player reveals their secret in a Heretic game, the chosen player will automatically revert to the losing team."}],
     "flavor": "I have something to share with you. Protect it as if your life depends on it. Perhaps it does."
   },
   {
@@ -161,22 +154,6 @@
     "otherNightReminder": "Wake everyone to prompt a choice. Clarify that this choice is for the Famine kill. Remind everyone to be silent, if needed. Tally the good votes and kill the player with the most votes. If it is tied, choose a player among the tie to kill.",
     "reminders": ["Dead"],
     "setup": false,
-    "jinxes": [
-      {"id": "choirboy", "reason": "If the King dies to the Famine, the Choirboy becomes a King instead of learning information."},
-      {"id": "courtier", "reason": "While the Famine is drunk by the Courtier, the Famine keeps their ability, and learns this. If they were to die to their own ability while drunk, the player with the next most votes dies instead."},
-      {"id": "exorcist", "reason": "If the Famine were to die to their own ability while exorcised, the player with the next most votes dies instead."},
-      {"id": "fool", "reason": "If the Fool can not die and would otherwise die to the Famine, the player with the next most votes dies instead."},
-      {"id": "innkeeper", "reason": "If the Innkeeper's target would have otherwise died to the Famine, the player with the next most votes dies instead."},
-      {"id": "monk", "reason": "If the Monk’s target would have otherwise died to the Famine, the Monk learns this, and the player with the next most votes dies instead."},
-      {"id": "princess", "reason": "If the Princess nominated & executed a player on their first day, the Famine can not die due to their ability tonight."},
-      {"id": "sailor", "reason": "If the Famine is drunked by the Sailor, the Famine keeps their ability, but can not win due to their ability. While the Sailor can not die, if they were to otherwise die to the Famine, the player with the next most votes dies instead."},
-      {"id": "soldier", "reason": "If the Soldier’s ability saves them from the Famine, all players learn this, and the Soldier then loses their ability for as long as a Famine is in play."},
-      {"id": "tealady", "reason": "If the Tea Lady’s ability saves a player from the Famine, the player with the next most votes dies instead."},
-      {"id": "mastermind", "reason": "If there is a functioning Mastermind ability and the Famine dies by execution (ending the game), the Famine keeps their ability until dawn. One good player knows a Mastermind is in play."},
-      {"id": "lycanthrope", "reason": "If a player were to misregister to the Famine for any reason, they don’t."},
-      {"id": "recluse", "reason": "If a player were to misregister to the Famine for any reason, they don’t."},
-      {"id": "spy", "reason": "If a player were to misregister to the Famine for any reason, they don’t."}
-    ],
     "flavor": "That which is abundant to one is scarce to all.",
     "special": [{"type": "ability", "name": "pointing", "time": "otherNight"}]
   },
@@ -200,7 +177,6 @@
     "otherNightReminder": "The Thestral chooses a player and mark them the chosen player with the Dead reminder token.",
     "reminders": ["Dead"],
     "setup": false,
-    "jinxes": [{"id": "summoner", "reason": "If the Summoner summons a dead player into the Thestral, the Thestral has already \"died once\"."}],
     "flavor": "\"Thestrals would forcefully attack anyone or anything they saw as a threat\", \"Professor Rubeus Hagrid stated that they were \"dead clever\".\" \"Thestrals were carnivorous and attracted to the smell of blood.\""
   },
   {

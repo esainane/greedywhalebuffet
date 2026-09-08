@@ -164,7 +164,7 @@
     "ability": "Each night*, choose a player: they are poisoned until your next choice & good players they target with their ability die. If no good alive players are chosen by dawn, deaths are arbitrary.",
     "otherNightReminder": "Wake to pick a player.",
     "reminders": ["Poisoned", "Dead"],
-    "firstnight": 0,
+    "firstNight": 0,
     "otherNight": 28,
     "setup": false,
     "flavor": "Look at this little cutie~ I think I'll have you get your hands dirty for me dearie"

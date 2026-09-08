@@ -51,16 +51,6 @@
     "flavor": "When the bell rings, the flock reveals which way it was led."
   },
   {
-    "id": "shadowseeker",
-    "name": "Shadowseeker Ω",
-    "team": "townsfolk",
-    "ability": "Each night* choose a player, they die. If an evil player executed an outsider (once), tonight look at the grimoire and choose a player, they turn evil. [+1 outsider]",
-    "otherNightReminder": "Wake the Shadowseeker and have them pick a player. If an outsider was executed by an evil player, wake them again, show them the grimoire and have them pick a player.",
-    "reminders": ["Dead", "Died Today", "Turns Evil", "Once"],
-    "setup": true,
-    "flavor": "Whispers on the cold wind whistle through the town. 'HE LIES IN WAIT IN HELL' is scrawled in scarlet upon the chapel doors. Citizens are scared. Children are crying. A fleeting speck of dusk falls from the church bell. Maybe he is closer than we all think."
-  },
-  {
     "id": "crux",
     "name": "Crux Ω",
     "team": "outsider",
@@ -144,6 +134,16 @@
     "reminders": ["Bombed", "Dead"],
     "setup": false,
     "flavor": "Why don’t you be a dear and hold this for me, eh?"
+  },
+  {
+    "id": "shadowseeker",
+    "name": "Shadowseeker Ω",
+    "team": "demon",
+    "ability": "Each night* choose a player, they die. If an evil player executed an outsider (once), tonight look at the grimoire and choose a player, they turn evil. [+1 outsider]",
+    "otherNightReminder": "Wake the Shadowseeker and have them pick a player. If an outsider was executed by an evil player, wake them again, show them the grimoire and have them pick a player.",
+    "reminders": ["Dead", "Died Today", "Turns Evil", "Once"],
+    "setup": true,
+    "flavor": "Whispers on the cold wind whistle through the town. 'HE LIES IN WAIT IN HELL' is scrawled in scarlet upon the chapel doors. Citizens are scared. Children are crying. A fleeting speck of dusk falls from the church bell. Maybe he is closer than we all think."
   },
   {
     "id": "famine",

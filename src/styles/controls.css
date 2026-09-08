@@ -203,6 +203,18 @@ button.danger:focus-visible {
 	opacity: 0.94;
 }
 
+.copy-warning-icon {
+	width: 1.05rem;
+	height: 1.05rem;
+	margin-right: 0.35rem;
+	vertical-align: -0.16rem;
+	fill: var(--warning);
+	stroke: var(--bg-strong);
+	stroke-width: 2;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+}
+
 .meta {
 	margin: 0;
 	display: flex;
@@ -249,4 +261,9 @@ button.danger:focus-visible {
 .status[data-tone='error'] {
 	background: rgba(183, 77, 44, 0.12);
 	color: var(--danger);
+}
+
+.status[data-tone='warning'] {
+	background: color-mix(in srgb, var(--warning) 16%, transparent);
+	color: var(--warning);
 }

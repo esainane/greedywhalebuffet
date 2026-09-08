@@ -63,15 +63,13 @@ export class CatalogEntry {
 		return fallbackUrls(this.baseId, this.entry.edition ?? 'carousel', this.team);
 	}
 
-	/** Relative-or-external URLs normalized for display (greedy host stripped). */
-	displayImageUrls(): string[] {
-		return this.scriptImageUrls().map(normalizeImageUrl);
-	}
-
-	/** Primary display image URL, with generic fallback. */
-	primaryDisplayImageUrl(): string {
+	/** Primary image URL, with generic fallback. */
+	primaryImageUrl(): string {
 		if (!FILTERABLE_TEAMS.has(this.team)) return fallbackDisplayUrl(this.team);
-		return this.displayImageUrls()[0] ?? fallbackDisplayUrl(this.team);
+		if (this.sourceSet !== undefined && this.entry.image === undefined) {
+			return fallbackDisplayUrl(this.team);
+		}
+		return this.scriptImageUrls()[0] ?? fallbackDisplayUrl(this.team);
 	}
 
 	/** Build the SelectableCharacter view model from this entry. */
@@ -81,7 +79,7 @@ export class CatalogEntry {
 			name: this.entry.name,
 			team: this.entry.team,
 			edition: this.entry.edition,
-			imageUrl: this.primaryDisplayImageUrl(),
+			imageUrl: normalizeImageUrl(this.primaryImageUrl()),
 			sourceSet: this.sourceSet,
 		};
 	}

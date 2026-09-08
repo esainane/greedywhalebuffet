@@ -8,6 +8,8 @@
     "otherNightReminder": "Wake Percy Jackson and tell them the alignment of the non-nominated Chosen players, but do not tell Percy Jackson which alignment is for who. After, ask them to choose up to four players and mark the new chosen players with the Chosen reminder token.",
     "reminders": ["Chosen", "Chosen", "Chosen", "Chosen"],
     "setup": false,
+    "firstNight": 70,
+    "otherNight": 70,
     "flavor": "“I’m the son of Poseidon and I’m gonna winnnn!”"
   },
   {
@@ -19,6 +21,8 @@
     "otherNightReminder": "If any players have made a guess, wake the Actuary. Point to the player marked *CLOSEST*.",
     "reminders": ["Closest", "Guess Used"],
     "setup": false,
+    "firstNight": 55,
+    "otherNight": 76,
     "flavor": "I know the odds for many a scenario. It's just a matter of proportion."
   },
   {
@@ -29,6 +33,8 @@
     "firstNightReminder": "Wake and ask for 2 minion or 2 demon roles, put to sleep. If the first role is in play, wake that player and show them the \"You Are\" token and the 2nd role that was chosen.",
     "otherNightReminder": "Wake and ask for 2 minion or 2 demon roles, put to sleep. If the first role is in play, wake that player and show them the \"You Are\" token and the 2nd role that was chosen.",
     "setup": false,
+    "firstNight": 15,
+    "otherNight": 12,
     "flavor": "You come here for a healin' or for a harmin'?"
   },
   {
@@ -39,6 +45,8 @@
     "firstNightReminder": "The Psychiatrist chooses a player. Either shake your head or nod and show the character inflicting the madness.",
     "otherNightReminder": "The Psychiatrist chooses a player. Either shake your head (no) or nod (yes) and show the character inflicting the madness.",
     "setup": false,
+    "firstNight": 70,
+    "otherNight": 70,
     "flavor": "Mad? I was mad once."
   },
   {
@@ -48,6 +56,7 @@
     "ability": "Each night*, if a player was executed today, learn if more good than evil\nplayers voted for them.",
     "otherNightReminder": "If a player was executed today, count the players who voted for the execution. Nod if more good than evil players voted for them.",
     "setup": false,
+    "otherNight": 75,
     "flavor": "When the bell rings, the flock reveals which way it was led."
   },
   {
@@ -58,6 +67,7 @@
     "firstNightReminder": "Point to the player marked KNOW.",
     "reminders": ["Know"],
     "setup": false,
+    "firstNight": 69,
     "flavor": "You may be deceived if you trust too much, but you will live in torment if you do not trust enough."
   },
   {
@@ -69,6 +79,8 @@
     "otherNightReminder": "The previously drunk player is no longer drunk. Make one of the Vigneron’s alive Townsfolk neighbors drunk.",
     "reminders": ["Drunk"],
     "setup": true,
+    "firstNight": 13,
+    "otherNight": 10,
     "flavor": "Bah! My cellars are full, but I still have a whole ten bottles that need storing! I suppose I’ll just leave them in the shed until I can make space."
   },
   {
@@ -79,6 +91,7 @@
     "otherNightReminder": "If the Plaguebearer is dead, a living Townsfolk who neighbours an Outsider might become an Outsider.",
     "reminders": ["Contagious"],
     "setup": true,
+    "otherNight": 62,
     "flavor": "\"Close the city gates lest the infection reach inside!\""
   },
   {
@@ -90,6 +103,8 @@
     "otherNightReminder": "The Secretkeeper might choose a player. If they do, tell the chosen player that the Secretkeeper has chosen them and give them one piece of true information. Then place the \"Secret Given\" token with the chosen player.",
     "reminders": ["Secret Given"],
     "setup": false,
+    "firstNight": 70,
+    "otherNight": 70,
     "flavor": "I have something to share with you. Protect it as if your life depends on it. Perhaps it does."
   },
   {
@@ -101,6 +116,8 @@
     "otherNightReminder": "Wake the Cupid and ask them to choose 2 players. Show the first chosen player that This Character Selected You: Cupid and point to the second chosen player.",
     "reminders": ["Mad", "2nd"],
     "setup": false,
+    "firstNight": 45,
+    "otherNight": 31,
     "flavor": "I think I love you."
   },
   {
@@ -112,6 +129,8 @@
     "otherNightReminder": "Wake them up and ask them to choose a player and a character. If correct, mark them with the No Ability reminder token and mark the chosen player with the Dead reminder token.",
     "reminders": ["No Ability", "Dead"],
     "setup": false,
+    "firstNight": 34,
+    "otherNight": 57,
     "flavor": "\"Please do not let the bells sound for midnight. That voice whispers 'Thrust the edge you hold and take away everything'.\""
   },
   {
@@ -122,6 +141,7 @@
     "otherNightReminder": "2 players die.",
     "reminders": ["No Ability", "Dead", "Dead"],
     "setup": true,
+    "otherNight": 40,
     "flavor": "Awooooo!!"
   },
   {
@@ -133,6 +153,8 @@
     "otherNightReminder": "Wake the Pyrotechnist, prompt them to either detonate or bomb another player. If they bomb another player, mark them with the “Bombed” reminder token. If they choose to detonate, mark all previously with the “Dead” reminder token.",
     "reminders": ["Bombed", "Dead"],
     "setup": false,
+    "firstNight": 47,
+    "otherNight": 40,
     "flavor": "Why don’t you be a dear and hold this for me, eh?"
   },
   {
@@ -143,6 +165,7 @@
     "otherNightReminder": "Wake the Shadowseeker and have them pick a player. If an outsider was executed by an evil player, wake them again, show them the grimoire and have them pick a player.",
     "reminders": ["Dead", "Died Today", "Turns Evil", "Once"],
     "setup": true,
+    "otherNight": 40,
     "flavor": "Whispers on the cold wind whistle through the town. 'HE LIES IN WAIT IN HELL' is scrawled in scarlet upon the chapel doors. Citizens are scared. Children are crying. A fleeting speck of dusk falls from the church bell. Maybe he is closer than we all think."
   },
   {
@@ -154,6 +177,8 @@
     "otherNightReminder": "Wake everyone to prompt a choice. Clarify that this choice is for the Famine kill. Remind everyone to be silent, if needed. Tally the good votes and kill the player with the most votes. If it is tied, choose a player among the tie to kill.",
     "reminders": ["Dead"],
     "setup": false,
+    "firstNight": 80,
+    "otherNight": 40,
     "flavor": "That which is abundant to one is scarce to all.",
     "special": [{"type": "ability", "name": "pointing", "time": "otherNight"}]
   },
@@ -164,8 +189,7 @@
     "ability": "Each night*, choose a player: they are poisoned until your next choice & good players they target with their ability die. If no good alive players are chosen by dawn, deaths are arbitrary.",
     "otherNightReminder": "Wake to pick a player.",
     "reminders": ["Poisoned", "Dead"],
-    "firstNight": 0,
-    "otherNight": 28,
+    "otherNight": 40,
     "setup": false,
     "flavor": "Look at this little cutie~ I think I'll have you get your hands dirty for me dearie"
   },
@@ -177,6 +201,7 @@
     "otherNightReminder": "The Thestral chooses a player and mark them the chosen player with the Dead reminder token.",
     "reminders": ["Dead"],
     "setup": false,
+    "otherNight": 40,
     "flavor": "\"Thestrals would forcefully attack anyone or anything they saw as a threat\", \"Professor Rubeus Hagrid stated that they were \"dead clever\".\" \"Thestrals were carnivorous and attracted to the smell of blood.\""
   },
   {
@@ -187,6 +212,7 @@
     "firstNightReminder": "Announce the dragon to the town.",
     "remindersGlobal": ["Is The Dragon"],
     "setup": true,
+     "firstNight": 80,
     "flavor": "「私の鎧は10倍の盾のようで、私の歯は剣で、私の爪は槍で、私の尾の衝撃は雷で、私の翼はハリケーンで、私の息は死です!」",
     "special": [{"type": "reminder", "name": "public"}]
   }

@@ -40,8 +40,26 @@ describe('character image behavior', () => {
 			baseScript: [{ id: '_meta', name: 'Test Script' }, role.id],
 		});
 
-		expect(catalog.lookupById('clockmaker')?.displayImageUrls()).toEqual([
-			'icons/carousel/clockmaker_g.webp',
-		]);
+		expect(catalog.lookupById('clockmaker')?.toSelectable().imageUrl).toBe(
+			'icons/carousel/clockmaker_g.webp'
+		);
+	});
+
+	it('uses the team generic image for image-less Greedier characters', () => {
+		const role: CharacterEntry = {
+			id: 'clockmaker',
+			name: 'Clockmaker',
+			team: 'townsfolk',
+			ability: 'Test ability',
+		};
+		const catalog = createTestCatalog({
+			rolesData: [],
+			greedierCharactersData: [{ entry: role, sourceSet: 1 }],
+			baseScript: [{ id: '_meta', name: 'Test Script' }, role.id],
+		});
+
+		expect(catalog.lookupById('clockmaker')?.toSelectable().imageUrl).toBe(
+			'icons/generic/townsfolk.webp',
+		);
 	});
 });

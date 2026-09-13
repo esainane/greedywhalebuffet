@@ -4,6 +4,7 @@
 
 ### Character Updates
 
+- Immortalized: Simplified ability text. Abilities are kept to the point, and don't include text which would be implied by the ability being pointless otherwise. See: Ravenkeeper, Banshee.
 - Pathologist: Copy-edited flavor text.
 - Pilgrim: Fixed templating on setup ability.
 - Made minor text fixes to many characters for ability and reminder text templating consistency.

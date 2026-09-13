@@ -11,7 +11,7 @@
     ],
     "name": "Immortalized Ω",
     "team": "townsfolk",
-    "ability": "If you die at night, you gain a Townsfolk ability (you learn it), you keep this ability, even if dead.",
+    "ability": "If you die at night, you gain a Townsfolk ability.",
     "flavor": "Those with a legacy larger than their life are the only that are truly successful.",
     "otherNight": 63,
     "remindersGlobal": [

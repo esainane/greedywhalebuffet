@@ -1,5 +1,14 @@
 [
   {
+    "id": "actuary",
+    "jinx": [
+      {
+        "id": "vortox",
+        "reason": "The initial 3 numbers are falsified. The closest guesser is not."
+      }
+    ]
+  },
+  {
     "id": "alchemist",
     "jinx": [
       {
@@ -147,6 +156,67 @@
     ]
   },
   {
+    "id": "famine",
+    "jinx": [
+      {
+        "id": "choirboy",
+        "reason": "If the King dies to the Famine, the Choirboy becomes a King instead of learning information."
+      },
+      {
+        "id": "courtier",
+        "reason": "While the Famine is drunk by the Courtier, the Famine keeps their ability, and learns this. If they were to die to their own ability while drunk, the player with the next most votes dies instead."
+      },
+      {
+        "id": "exorcist",
+        "reason": "If the Famine were to die to their own ability while exorcised, the player with the next most votes dies instead."
+      },
+      {
+        "id": "fool",
+        "reason": "If the Fool can not die and would otherwise die to the Famine, the player with the next most votes dies instead."
+      },
+      {
+        "id": "innkeeper",
+        "reason": "If the Innkeeper's target would have otherwise died to the Famine, the player with the next most votes dies instead."
+      },
+      {
+        "id": "monk",
+        "reason": "If the Monk’s target would have otherwise died to the Famine, the Monk learns this, and the player with the next most votes dies instead."
+      },
+      {
+        "id": "princess",
+        "reason": "If the Princess nominated & executed a player on their first day, the Famine can not die due to their ability tonight."
+      },
+      {
+        "id": "sailor",
+        "reason": "If the Famine is drunked by the Sailor, the Famine keeps their ability, but can not win due to their ability. While the Sailor can not die, if they were to otherwise die to the Famine, the player with the next most votes dies instead."
+      },
+      {
+        "id": "soldier",
+        "reason": "If the Soldier’s ability saves them from the Famine, all players learn this, and the Soldier then loses their ability for as long as a Famine is in play."
+      },
+      {
+        "id": "tealady",
+        "reason": "If the Tea Lady’s ability saves a player from the Famine, the player with the next most votes dies instead."
+      },
+      {
+        "id": "mastermind",
+        "reason": "If there is a functioning Mastermind ability and the Famine dies by execution (ending the game), the Famine keeps their ability until dawn. One good player knows a Mastermind is in play."
+      },
+      {
+        "id": "lycanthrope",
+        "reason": "If a player were to misregister to the Famine for any reason, they don’t."
+      },
+      {
+        "id": "recluse",
+        "reason": "If a player were to misregister to the Famine for any reason, they don’t."
+      },
+      {
+        "id": "spy",
+        "reason": "If a player were to misregister to the Famine for any reason, they don’t."
+      }
+    ]
+  },
+  {
     "id": "hatter",
     "jinx": [
       {
@@ -231,6 +301,32 @@
     ]
   },
   {
+    "id": "secretkeeper",
+    "jinx": [
+      {
+        "id": "heretic",
+        "reason": "If the Secretkeeper chosen player reveals their secret in a Heretic game, the chosen player will automatically revert to the losing team."
+      }
+    ]
+  },
+  {
+    "id": "shadowseeker",
+    "jinx": [
+      {
+        "id": "damsel",
+        "reason": "If the shadowseeker sees the grim they are poisoned."
+      },
+      {
+        "id": "heretic",
+        "reason": "If the shadowseeker sees the grim they are poisoned."
+      },
+      {
+        "id": "poppygrower",
+        "reason": "The shadowseeker doesnt see the grim but makes a choice."
+      }
+    ]
+  },
+  {
     "id": "summoner",
     "jinx": [
       {
@@ -240,6 +336,15 @@
       {
         "id": "lolth_winningclub",
         "reason": "If the Summoner summons a Lolth, a Townsfolk might become evil."
+      }
+    ]
+  },
+  {
+    "id": "thestral",
+    "jinx": [
+      {
+        "id": "summoner",
+        "reason": "If the Summoner summons a dead player into the Thestral, the Thestral has already \"died once\"."
       }
     ]
   },

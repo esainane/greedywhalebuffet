@@ -1,5 +1,11 @@
 # Changelog
 
+## [v3.0.1, Unreleased] 2026-09-22
+
+### Bug Fixes
+
+- Pilgrim: Fixed templating on setup ability.
+
 ## [v3.0.0] 2026-09-22
 
 ### Simplifications

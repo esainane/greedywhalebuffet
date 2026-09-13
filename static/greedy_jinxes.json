@@ -291,6 +291,10 @@
       {
         "id": "investigator",
         "reason": "If an Investigator is in play, the Storyteller might not declare the Vizier is in play."
+      },
+      {
+        "id": "mastermind",
+        "reason": "If a Mastermind day is active, the Vizier might fail to immediately execute."
       }
     ]
   },

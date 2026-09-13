@@ -10,6 +10,7 @@
 
 - Vizier/Alsaahir: Now optionally suppresses announcement.
 - Vizier/Investigator: Now optionally suppresses announcement.
+- Vizier/Mastermind: Added. The Vizier might fail to push an execution if a Mastermind day is active.
 
 ### Homebrew Character Updates
 

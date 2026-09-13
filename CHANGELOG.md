@@ -2,9 +2,10 @@
 
 ## [v3.0.1, Unreleased] 2026-09-22
 
-### Bug Fixes
+### Character Updates
 
 - Pilgrim: Fixed templating on setup ability.
+- Made minor text fixes to many characters for ability and reminder text templating consistency.
 
 ## [v3.0.0] 2026-09-22
 

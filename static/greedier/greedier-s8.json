@@ -60,7 +60,7 @@
     ],
     "name": "Copycat Ω",
     "team": "outsider",
-    "ability": "On your first night, gain the ability of an in-play townsfolk: they are drunk. When you die, they become a drunk Copycat.",
+    "ability": "On your first night, gain the ability of an in-play Townsfolk: they are drunk. When you die, they become a drunk Copycat.",
     "flavor": "Stop copying me! - Satyr / Stoooop Copyiiiing Meeeee! - Orpheus",
     "firstNight": 14,
     "otherNight": 70,
@@ -86,7 +86,7 @@
     "setup": true,
     "name": "Realtor Ω",
     "team": "outsider",
-    "ability": "Once per game, during the day, guess your setup effect, you learn how accurate you are. [Something bad]",
+    "ability": "Once per game, during the day, guess your setup effect: you learn how accurate you are. [Something bad]",
     "flavor": "This house has QUITE the history..."
   },
   {

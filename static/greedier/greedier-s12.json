@@ -43,7 +43,7 @@
       "https://user-images.klutzbanana.com/wbz25wvpmuk7vxs62ps4n6td.png"
     ],
     "edition": "gwb",
-    "flavor": "Any man who must say \"I am the King\" is no true king.",
+    "flavor": "Any man who must say “I am the King” is no true king.",
     "reminders": [
       "Safe"
     ]
@@ -99,11 +99,11 @@
       "https://user-images.klutzbanana.com/mgi52jmarmmbma9fierq5lcz.png"
     ],
     "edition": "gwb",
-    "flavor": "How beautiful! My beautiful melodies have touched that hearts of Ravenswood Bluff. May you rejoice forever in song and dance.",
+    "flavor": "How beautiful! My beautiful melodies have touched the hearts of Ravenswood Bluff. May you rejoice forever in song and dance.",
     "firstNight": 35,
-    "firstNightReminder": "The Songstress chooses any number of players. :reminder: If an opposing player was chosen, you may mark them. :reminder: Put the Songstress to sleep. If marked, wake the player marked *KNOW*. Show the *THIS PLAYER IS* & Songstress tokens.",
+    "firstNightReminder": "The Songstress chooses any number of players. :reminder: If an opposing player was chosen, you may mark them. :reminder: Put the Songstress to sleep. If marked, wake the player marked *KNOW*. Show the *THIS PLAYER IS* info token, point to the Songstress, then show the Songstress token.",
     "otherNight": 19,
-    "otherNightReminder": "The Songstress chooses any number of players. :reminder: If an opposing player was chosen, you may mark them. :reminder: Put the Songstress to sleep. If marked, wake the player marked *KNOW*. Show the *THIS PLAYER IS* & Songstress tokens.",
+    "otherNightReminder": "The Songstress chooses any number of players. :reminder: If an opposing player was chosen, you may mark them. :reminder: Put the Songstress to sleep. If marked, wake the player marked *KNOW*. Show the *THIS PLAYER IS* info token, point to the Songstress, then show the Songstress token.",
     "reminders": [
       "Sober & Healthy",
       "Sober & Healthy",

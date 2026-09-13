@@ -50,7 +50,7 @@
     "name": "Baroness Ω",
     "team": "demon",
     "setup": true,
-    "ability": "Each night*, choose a player: they might die. Good Minions do not learn or are shown in Minion or Demon info. [0 Townsfolk. +0 to +2 Good Minions]",
+    "ability": "Each night*, choose a player: they might die. Good Minions are not involved in Minion or Demon info. [0 Townsfolk. +0 to +2 good Minions]",
     "flavor": "Not my circus, not my monkeys. But I'm the ringmaster of this carnival and, I promise, it is the greatest show you are ever going to see.",
     "firstNight": 18,
     "otherNight": 49

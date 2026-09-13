@@ -15,7 +15,7 @@
     ],
     "name": "Buffet's Gourmet Ω",
     "team": "townsfolk",
-    "ability": "On your 1st four nights, choose a different character type: you learn five not-in-play characters for it.",
+    "ability": "On your first 4 nights, choose a different character type: you learn five not-in-play characters of that type.",
     "flavor": "Oh no, those flavours couldn't possibly go together. Pass.",
     "firstNight": 61,
     "otherNight": 79

@@ -4,6 +4,7 @@
 
 ### Character Updates
 
+- Pathologist: Copy-edited flavor text.
 - Pilgrim: Fixed templating on setup ability.
 - Made minor text fixes to many characters for ability and reminder text templating consistency.
 

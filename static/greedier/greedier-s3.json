@@ -41,7 +41,7 @@
     "name": "Pathologist Ω",
     "team": "townsfolk",
     "ability": "Each night*, choose a player: if they die tonight, learn which character killed them.",
-    "flavor": "Eyewitness account report that the victim died while in the middle of rolling dies; perhaps due to a stress-induced cardiac arrest. Interesting, there is a scratch mark on the victim's wrist and almost untraceable slow-acting poison in their system. It'd seem our gambler die not of bad gambling skills but of demonic poison!",
+    "flavor": "Eyewitness accounts report that the victim died while rolling dice, perhaps due to stress-induced cardiac arrest. Interesting, there is a scratch mark on the victim's wrist and almost untraceable slow-acting poison in their system. It seems our gambler died not from poor gambling skills, but from demonic poison!",
     "otherNightReminder": "The Pathologist chooses a player. :reminder: If that player dies tonight, wake the Pathologist. Show a character token.",
     "otherNight": 22
   },

@@ -5,11 +5,11 @@
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/informant_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/informant_e_winningclub.png"
     ],
-    "firstNightReminder": "Point to a player who woke up tonight.",
-    "otherNightReminder": "Point to a player who woke up tonight.",
+    "firstNightReminder": "Point to a player who woke tonight.",
+    "otherNightReminder": "Point to a player who woke tonight.",
     "name": "Informant Ω",
     "team": "townsfolk",
-    "ability": "Each night, learn a player who woke up tonight.",
+    "ability": "Each night, learn a player who woke tonight.",
     "flavor": "So you're just a Chambermaid?",
     "firstNight": 76,
     "otherNight": 95

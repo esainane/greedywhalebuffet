@@ -17,7 +17,7 @@
     "id": "archivist",
     "name": "Archivist Ω",
     "team": "townsfolk",
-    "ability": "Each night, choose two players (not yourself): learn which player's character goes first alphabetically.",
+    "ability": "Each night, choose 2 players (not yourself): learn whose character goes first alphabetically.",
     "image": [
       "https://user-images.klutzbanana.com/xm60c7m4990ilmgddrl4gepr.png",
       "https://user-images.klutzbanana.com/oz1qzn8oe5oa5k9cqz4idgjr.png"
@@ -53,7 +53,7 @@
     "name": "Hawkmoth Ω",
     "team": "demon",
     "setup": true,
-    "ability": "Each night*, choose a player: they die. You start by choosing a good player: they become evil & gain a character ability of your choice. You may be told to reconsider. If this happens 3 times, the Storyteller chooses. [-1 Minion]",
+    "ability": "Each night*, choose a player: they die. You start by choosing a player & character: they become evil & gain that ability. You may be told to reconsider. If this happens 3 times, the Storyteller chooses. [-1 Minion]",
     "image": [
       "https://user-images.klutzbanana.com/t1aq0stecddaqlofnps3v4y6.png",
       "https://user-images.klutzbanana.com/gs0doxeic2tjufg1e2b7qbox.png"
@@ -93,7 +93,7 @@
     "id": "songstress",
     "name": "Songstress Ω",
     "team": "townsfolk",
-    "ability": "Each night, choose any number of players: if all are your alignment, they are sober & healthy until dusk. An opposing player, if chosen, might learn who you are.",
+    "ability": "Each night, choose any number of players: if all are your alignment, they are sober & healthy until dusk. A chosen opposing player might learn who you are.",
     "image": [
       "https://user-images.klutzbanana.com/ape65gn9rl0q2p4ye3skbi8j.png",
       "https://user-images.klutzbanana.com/mgi52jmarmmbma9fierq5lcz.png"

@@ -23,7 +23,7 @@
       "Chosen"
     ],
     "team": "townsfolk",
-    "ability": "Each night*, choose 2 players: the Demon learns them. For each of these players the Demon chooses, you learn a true statement, even if dead.",
+    "ability": "Each night*, choose 2 players: the Demon learns them. For each the Demon chooses, you learn a true statement, even if dead.",
     "flavor": "I see... Well, I'm not gonna let something as silly as threat-of-death stop me from getting the truth!",
     "otherNight": 19
   },
@@ -36,7 +36,7 @@
     "otherNightReminder": "Lisa Rinna might choose a player. :reminder: :reminder: :reminder:",
     "name": "Lisa Rinna Ω",
     "team": "townsfolk",
-    "ability": "Once per game, during the night*, choose a player: if good, they die & keep their ability. If an Outsider, they instead are drunk.",
+    "ability": "Once per game, at night*, choose a player: if good, they die & keep their ability. If an Outsider, they instead are drunk.",
     "flavor": "Well. I'm Lisa fuckin' Rinna.",
     "reminders": [
       "Dead",
@@ -60,7 +60,7 @@
     ],
     "name": "Copycat Ω",
     "team": "outsider",
-    "ability": "On your first night, gain the ability of an in-play Townsfolk: they are drunk. When you die, they become a drunk Copycat.",
+    "ability": "You have an in-play Townsfolk ability & they are drunk. When you die, they become a drunk Copycat.",
     "flavor": "Stop copying me! - Satyr / Stoooop Copyiiiing Meeeee! - Orpheus",
     "firstNight": 14,
     "otherNight": 70,
@@ -106,7 +106,7 @@
     ],
     "name": "Potion Seller Ω",
     "team": "minion",
-    "ability": "On your 1st night, name up to 5 potions. You may be told to reconsider. Each night, choose a player: they choose one of your potions, receiving its effect & removing the option.",
+    "ability": "On your 1st night, name up to 5 potions. You may be told to reconsider. Each night, choose a player: they choose a remaining potion, receiving its effect.",
     "flavor": "I warned you, traveller. My potions would set the world on fire.",
     "firstNight": 39,
     "otherNight": 24

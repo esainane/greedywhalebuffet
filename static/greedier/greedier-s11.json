@@ -38,7 +38,7 @@
     "id": "sol",
     "name": "Sol Ω",
     "team": "townsfolk",
-    "ability": "If evil would win, but your 1st vote today was for the Demon, good wins instead.",
+    "ability": "If evil would win, but your 1st vote today was for the Demon, your team wins.",
     "image": [
       "https://user-images.klutzbanana.com/ul6uduww8bmqwiwzsddvoqvj.png",
       "https://user-images.klutzbanana.com/yb0s7fckmcb5xdp0k22jekk1.png"
@@ -53,7 +53,7 @@
     "id": "trainconductor",
     "name": "Train Conductor Ω",
     "team": "townsfolk",
-    "ability": "You start knowing how many sources of poisoning & drunkenness are in play.",
+    "ability": "You start knowing how many sources of drunkenness & poisoning are in play.",
     "image": [
       "https://user-images.klutzbanana.com/c8gex4peqbj61t1ihlyimwzv.png",
       "https://user-images.klutzbanana.com/is71mo4r63cyhls0t2bcp1g7.png"
@@ -91,7 +91,7 @@
     "id": "veteran",
     "name": "Veteran Ω",
     "team": "townsfolk",
-    "ability": "Each night*, learn which players died. Once per game, you may choose 1 of these players: they live & you die instead.",
+    "ability": "Each night*, learn which players died. Once per game, you may choose 1 of them: they live & you die instead.",
     "image": [
       "https://user-images.klutzbanana.com/z7lct49eptfrgpv8d8uyy96b.png",
       "https://user-images.klutzbanana.com/z68g62qcpe96kvketno5tapv.png"

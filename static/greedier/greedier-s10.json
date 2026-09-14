@@ -87,7 +87,7 @@
     "id": "watcher",
     "name": "Watcher Ω",
     "team": "minion",
-    "ability": "Each night, choose a player (different from last night). They are told they are being watched, and you learn their information instead of them. If a player is mad about being watched today, they might die.",
+    "ability": "Each night, choose a player (different from last night): they learn this & you learn their information instead of them. If a player is mad about being watched, they might die.",
     "image": [
       "https://user-images.klutzbanana.com/aj9jfoomqon0fj0mk5kxbrwk.png",
       "https://user-images.klutzbanana.com/fhbl0hte0f1kuo3yfdut8wnn.png"

@@ -9,7 +9,7 @@
     "otherNightReminder": "The Huli Jing chooses a character. If necessary, swap their character token. :reminder:",
     "name": "Huli Jing Ω",
     "team": "minion",
-    "ability": "You start knowing 5 out-of-play characters. Each night, choose one of them: you have its ability & might register as it would until dusk.",
+    "ability": "You start knowing 5 out-of-play characters. Each night, choose one: you gain that ability & might register as it would until dusk.",
     "flavor": "For shame! How dare you accuse me of being a mischievous fox spirit when I have been nothing but loyal as your… uhm, baker? Wait, no, I misspoke, I’m a fisherwoman.",
     "firstNight": 30,
     "otherNight": 16,
@@ -35,7 +35,7 @@
     ],
     "name": "Daki Ω",
     "team": "demon",
-    "ability": "Each night*, choose a player (not yourself): they die. If 5 or more players are alive & you die, a player becomes an evil Gyutaro.",
+    "ability": "Each night*, choose a player (not yourself): they die. If 5 or more players are alive (Travellers don't count) & you die, a player becomes an evil Gyutaro.",
     "flavor": "We beautiful, powerful demons can do whatever we want!",
     "otherNight": 40
   },
@@ -48,12 +48,11 @@
     "otherNightReminder": "The Gyutaro chooses a player. :reminder: If an evil player was executed for the first time, put Gyutaro to sleep. Wake the player marked *KNOW*. Show the Gyutaro token.",
     "reminders": [
       "Dead",
-      "Know",
-      "Reveal Tonight"
+      "Know"
     ],
     "name": "Gyutaro Ω",
     "team": "demon",
-    "ability": "Each night*, choose a player: they might die. The first time an evil player is executed, a good player learns you are in play tonight. [Cannot start in play]",
+    "ability": "Each night*, choose a player: they might die. The first time an evil player is executed, a good player learns a Gyutaro is in play. [Cannot start in play]",
     "flavor": "The two of us, together, we’re invincible. We can stand the cold. We can stand the hunger.",
     "otherNight": 40
   },
@@ -80,7 +79,7 @@
     ],
     "name": "Hopeful Ω",
     "team": "townsfolk",
-    "ability": "If evil has won, publicly guess each player's character: if correct, good wins instead, even if dead.",
+    "ability": "If evil would win, publicly guess each player's character: if correct, good wins, even if dead.",
     "flavor": "Dum Spiro, Spero."
   }
 ]

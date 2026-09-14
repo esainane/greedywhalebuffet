@@ -8,11 +8,11 @@
     ],
     "team": "townsfolk",
     "setup": true,
-    "ability": "You start knowing all other Clergymen. If one of you dies, the others might die as well. [+1 or +2 Clergymen]",
+    "ability": "You start knowing all Clergymen. If one dies, others might die as well. [+1 or +2 Clergymen]",
     "flavor": "The church bell tolls. The masses gather. Choruses of choirboys and members of the clergy echo throughout the town. Devout believers of HIM join us in this heavenly parade. I thank you dear child for opening your arms to HIS embrace.",
     "firstNight": 60,
     "otherNight": 58,
-    "firstNightReminder": "Point to all other Clergymen.",
+    "firstNightReminder": "Point to all Clergymen.",
     "otherNightReminder": "If a Clergyman died, other Clergymen might die. :reminder: :reminder:",
     "reminders": [
       "Dead",
@@ -64,7 +64,7 @@
       "https://greedy.antihype.space/icons/greedier/reflector_e.webp"
     ],
     "team": "outsider",
-    "ability": "Each night, the first player ability to choose you might target another player instead.",
+    "ability": "Each night, the 1st player to choose you with their ability might target another player instead.",
     "flavor": "Mayor under house arrest… :P",
     "reminders": [
       "Chosen"
@@ -78,7 +78,7 @@
       "https://user-images.klutzbanana.com/yulv5gd750wvo7w2uns5gj0f.png"
     ],
     "team": "minion",
-    "ability": "Once per game, during the day, if 5 or more players live (Travellers don't count) and you publicly claim “Joe”, you will be executed any time before dusk.",
+    "ability": "Once per game, if 5 or more players live (Travellers don't count) and you publicly claim to be the Joe, you will be executed before dusk.",
     "flavor": "I’m just Joeking…",
     "reminders": [
       "Claimed"
@@ -96,7 +96,7 @@
     "firstNightReminder": "Allow the Sniper to make any guesses and devise daytime signals. :reminder:",
     "otherNightReminder": "If the Sniper has their ability, wake them. Allow the Sniper to make any guesses and devise daytime signals. :reminder:",
     "team": "minion",
-    "ability": "Twice per game, privately signal the Storyteller to guess a player’s character. If correct, the guessed player dies any time during nominations.",
+    "ability": "Twice per game, secretly choose a player & guess their character: if correct, they die during nominations.",
     "flavor": "That’s why you shouldn’t hard claim on Day 1…",
     "reminders": [
       "One Shot",

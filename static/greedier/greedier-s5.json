@@ -29,7 +29,7 @@
     ],
     "name": "Secretary Ω",
     "team": "townsfolk",
-    "ability": "You start knowing two in-play characters.",
+    "ability": "You start knowing 2 in-play characters.",
     "flavor": "Yes, Karen, the manager is on their way.",
     "firstNight": 56
   },
@@ -46,7 +46,7 @@
     ],
     "name": "Quitter Ω",
     "team": "outsider",
-    "ability": "On your 1st night, choose a player (not yourself): if they die, you can no longer vote on any nominations, even if you are dead.",
+    "ability": "On your 1st night, choose a player (not yourself): you may only vote if they live, even if you are dead.",
     "flavor": "“We just lost our greatest information.. Evil must be stomping, there’s no more point in trying.”",
     "firstNight": 73
   },

@@ -5,6 +5,7 @@ import {
 	usePreferencesView,
 } from '../../context/selectors.js';
 import {
+	deriveAlmanacCharacterReferences,
 	deriveGreedyDifferences,
 	deriveGreedyHomebrew,
 	deriveGreedyJinxes,
@@ -27,6 +28,7 @@ export function GreedyReferencePanel(): React.JSX.Element {
 				differences: [],
 				jinxes: [],
 				homebrew: [],
+				almanacCharacters: [],
 			};
 		}
 
@@ -39,6 +41,7 @@ export function GreedyReferencePanel(): React.JSX.Element {
 				includeNoDeathAtNightJinxes,
 			}),
 			homebrew: deriveGreedyHomebrew(catalog, greedierSortBySet),
+			almanacCharacters: deriveAlmanacCharacterReferences(catalog),
 		};
 	}, [
 		catalog,
@@ -72,6 +75,7 @@ export function GreedyReferencePanel(): React.JSX.Element {
 				<p className="lede">The Greedy community runs community contests for homebrew "Greedier" characters, with a variety of exotic abilities.</p>
 				<GreedyHomebrewDetail
 					items={details.homebrew}
+					characters={details.almanacCharacters}
 					loading={loading}
 					sortBySet={greedierSortBySet}
 					onSortBySetChange={actions.setGreedierSortBySet}

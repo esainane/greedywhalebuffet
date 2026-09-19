@@ -12,6 +12,7 @@ const validManifest = {
 		{ name: 'officialJinxes', kind: 'jinx', path: './jinxes.json' },
 	],
 	greedierScripts: [{ kind: 'roles', path: './greedier/greedier-s1.json', sourceSet: 1 }],
+	greedierAlmanacs: [{ kind: 'almanac', path: './almanac/greedier-s1.json', sourceSet: 1 }],
 };
 
 describe('data sources manifest validation', () => {
@@ -46,7 +47,23 @@ describe('data sources manifest validation', () => {
 					{ name: 'greedyScript', kind: 'unexpected-kind', path: './greedy.json' },
 				],
 				greedierScripts: [],
+				greedierAlmanacs: [],
 			}),
 		).toThrow(/unsupported source kind/);
+	});
+
+	it('requires an almanac for every Greedier source set', () => {
+		expect(() => parseDataSourcesManifest({ ...validManifest, greedierAlmanacs: [] }))
+			.toThrow(/missing greedier almanac sourceSet: 1/);
+	});
+
+	it('rejects duplicate almanac source sets', () => {
+		expect(() => parseDataSourcesManifest({
+			...validManifest,
+			greedierAlmanacs: [
+				...validManifest.greedierAlmanacs,
+				{ kind: 'almanac', path: './almanac/duplicate.json', sourceSet: 1 },
+			],
+		})).toThrow(/duplicate greedier almanac sourceSet/);
 	});
 });

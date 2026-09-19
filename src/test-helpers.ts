@@ -6,6 +6,7 @@ import { parseScriptFile, serializeScriptDocument } from './model/script-documen
 import { GENERATION_OPTION_NAMES } from './options.js';
 import type {
 	CatalogCharacter,
+	CatalogAlmanac,
 	CharacterEntry,
 	GenerationOptions,
 	JinxFile,
@@ -54,6 +55,7 @@ type TestCatalogParams = Partial<Omit<CatalogParams, 'baseScript'>> & {
 	greedyJson?: ScriptFile;
 	rolesData?: CharacterEntry[];
 	greedierCharactersData?: CatalogCharacter[];
+	greedierAlmanacsData?: CatalogAlmanac[];
 	greedyToBaseID?: Record<string, string>;
 	nightsheetFile?: NightsheetFile;
 	official?: JinxFile;
@@ -77,6 +79,8 @@ export function createTestCatalog(params: TestCatalogParams = {}): Catalog {
 		baseScript: parseScriptFile(scriptEntries, 'synthetic'),
 		roles: params.roles ?? params.rolesData ?? [],
 		greedierCharacters: params.greedierCharacters ?? params.greedierCharactersData ?? [],
+		greedierAlmanacs: params.greedierAlmanacs ?? params.greedierAlmanacsData ?? [],
+		additionalAlmanacCharacters: params.additionalAlmanacCharacters ?? [],
 		idMappings: params.idMappings ?? OneToOneIdMap.fromRecord(params.greedyToBaseID ?? {}),
 		nightOrder: params.nightOrder ?? new NightOrderIndex(params.nightsheetFile ?? { firstNight: [], otherNight: [] }),
 		officialJinxes: params.officialJinxes ?? params.official ?? params.jinxData ?? [],

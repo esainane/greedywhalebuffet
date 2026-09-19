@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "title": "Greedier Character Almanacs",
+  "minItems": 1,
+  "maxItems": 201,
+  "items": {
+    "type": "object",
+    "additionalProperties": false,
+    "required": ["id", "summary", "howToRun", "examples", "tipsAndTricks", "opposingTips"],
+    "properties": {
+      "id": {
+        "type": "string",
+        "pattern": "^[a-z0-9_]+$",
+        "minLength": 1,
+        "maxLength": 50
+      },
+      "summary": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["description", "rules"],
+        "properties": {
+          "description": { "$ref": "#/$defs/nonEmptyText" },
+          "rules": { "$ref": "#/$defs/nonEmptyTextList" }
+        }
+      },
+      "howToRun": { "$ref": "#/$defs/nonEmptyTextList" },
+      "howToRunExamples": { "$ref": "#/$defs/nonEmptyTextList" },
+      "examples": { "$ref": "#/$defs/nonEmptyTextList" },
+      "tipsAndTricks": { "$ref": "#/$defs/nonEmptyTextList" },
+      "opposingTips": { "$ref": "#/$defs/nonEmptyTextList" }
+    }
+  },
+  "$defs": {
+    "nonEmptyText": {
+      "type": "string",
+      "minLength": 0,
+      "pattern": "\\S*"
+    },
+    "nonEmptyTextList": {
+      "type": "array",
+      "minItems": 0,
+      "items": { "$ref": "#/$defs/nonEmptyText" }
+    }
+  }
+}

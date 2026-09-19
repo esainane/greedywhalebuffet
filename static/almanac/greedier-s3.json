@@ -1,0 +1,137 @@
+[
+  {
+    "id": "immortalized_winningclub",
+    "summary": {
+      "description": "The Immortalized brings aid from beyond the grave.",
+      "rules": [
+        "The ability triggers only when the Immortalized dies at night. Execution and other daytime deaths do not trigger it.",
+        "After dying, the Immortalized gains one Townsfolk ability chosen by the Storyteller and learns which ability it is.",
+        "They remain the Immortalized and keep the gained ability while dead. If revived, they become a new instance of the Immortalized and lose any previously gained ability.",
+        "Setup effects on a gained ability are not applied retroactively."
+      ]
+    },
+    "howToRun": [
+      "If the Immortalized dies at night, choose a useful Townsfolk ability appropriate to the current game.",
+      "Wake the dead Immortalized. Show *YOU ARE*, the Immortalized token, then the chosen Townsfolk token. Mark them *HAS ABILITY*. If you wish, you may replace their character token with the token of the gained ability, and mark them with the *IS THE IMMORTALIZED* reminder.",
+      "From then on, run the granted ability for the Immortalized, protecting or learning information as appropriate, even though they are dead."
+    ],
+    "howToRunExamples": [
+      "Prefer an ability that remains meaningful while dead. Avoid choices whose setup effect, required living state, or public confirmation would make the result useless or overpowering."
+    ],
+    "examples": [
+      "The Fang Gu kills the Immortalized. They gain the Artist ability and may ask one question while dead.",
+      "The Immortalized is executed. They do not gain any ability.",
+      "The Immortalized dies at night, and gains the Undertaker ability. On later nights they learn the characters of executed players, despite being dead."
+    ],
+    "tipsAndTricks": [
+      "You are a demonbane! Make yourself an attractive night target without openly confirming your role, or being too obvious about it.",
+      "Once dead, use your new ability boldly. Evil can't kill you to silence it.",
+      "The ability you receive may reveal what the Storyteller thinks the good team needs.",
+      "If you have your ability, you still can't nominate, or vote without spending a deadvote token. Use your deadvote wisely.",
+      "A Barber can strip you of your ability, and Evil is unlikely to make the mistake of killing the new Immortalized. If you hear of a Barber, keep them secret!"
+    ],
+    "opposingTips": [
+      "Bluffing as the Immortalized offers some fun options for a Vigormortis or Fang Gu. You can claim anything!",
+      "In a Lil' Monsta game, the rowdy child will kill their babysitters during the night. Keep the possibility of an Immortalized bluff open to remain in the spotlight, and take heat off the current babysitter."
+    ]
+  },
+  {
+    "id": "pathologist_winningclub",
+    "summary": {
+      "description": "The Pathologist uncovers the cause of death.",
+      "rules": [
+        "From the second night, the Pathologist chooses a player they think is likely to die.",
+        "If that player dies before dawn, the Pathologist learns the character whose ability caused that death.",
+        "Multiple abilities may contribute, but the shown character is the one with the ability which triggered the death. An Acrobat dying to their own ability will show the Acrobat token, rather than the source of droisoning.",
+        "If the chosen player does not die, the Pathologist learns nothing that night."
+      ]
+    },
+    "howToRun": [
+      "Wake the Pathologist. They point to any player. Mark that player *CHOSEN* and put the Pathologist to sleep.",
+      "After all deaths are resolved, if the chosen player died tonight, wake the Pathologist and show a character token that caused the death.",
+      "Remove *CHOSEN* at dawn."
+    ],
+    "howToRunExamples": [
+      "In the unlikely event a chosen player is revived to die multiple times in one night, you may show any source of death. The Pathologist might appreciate being shown the most relevant source of death that night."
+    ],
+    "examples": [
+      "The Pathologist chooses Ada, who is killed by the Imp. The Pathologist sees the Imp token.",
+      "The Pathologist chooses Ben. The Po attacks Ben, but the Monk protects him. The Pathologist learns nothing.",
+      "Cara the Gossip makes a true Gossip. That night, Barbara the Pathologist chooses Cara. The Storyteller chooses to kill Cara to signal that the gossip was especially relevant. At the end of the night, Barbara learns Gossip."
+    ],
+    "tipsAndTricks": [
+      "Choose players likely to be attacked! Learning evil characters in play is very powerful information.",
+      "Choose players likely to die to their own ability! Confirming a Gambler to rule out Imp starpass, Vigormortis minion kill, or Fang Gu jump worlds goes a long way. Confirming a Grandmother death creates a very long confirmation chain.",
+      "Stay hidden! You're much more likely to find a target among 5 alive than among 14."
+    ],
+    "opposingTips": [
+      "Spread misinformation! Claim someone who died to their own ability actually died to a Shabaloth, Po, Godfather, Assassin, or even Yaggababble!",
+      "A Pathologist is unlikely to hit targets early on. Bluff plausible misses.",
+      "The fewer people live, the more dangerous a Pathologist becomes. Have an excuse ready for why you're still alive!"
+    ]
+  },
+  {
+    "id": "hypochondriac_winningclub",
+    "summary": {
+      "description": "The Hypochondriac has a real ability, but must act as though they have false information.",
+      "rules": [
+        "The Hypochondriac is an Outsider. They have a Townsfolk ability selected by the Storyteller, and know which.",
+        "They have that ability normally. They are not drunk for being the Hypochondriac.",
+        "They do not need to have an ability that provides information. They could have a demonbane, protection, or science ability.",
+        "The Hypochondriac must be mad that they have false information even if they do not have any. A Hypochondriac with the Sailor ability causes chaos without ever being able to explain why. Failing to uphold madness may end the day in an execution without removing their threat, and make it even harder to uphold madness."
+      ]
+    },
+    "howToRun": [
+      "On the first night, choose a Townsfolk ability. Wake the Hypochondriac and show *YOU ARE*, Hypochondriac, then the chosen Townsfolk token. If you wish, you may replace their character token with the token of the gained ability, and mark them with the *IS THE HYPOCHONDRIAC* reminder.",
+      "Run the gained ability normally. If it gives information, give information according to the actual game state.",
+      "During the day, judge whether the Hypochondriac is making a genuine effort to convince people that they have false information. If not, you may execute them at any time."
+    ],
+    "howToRunExamples": [
+      "The Hypochondriac is an Outsider. Give an ability which can backfire to hurt town, but pose an interesting puzzle for the Hypochondriac to mitigate."
+    ],
+    "examples": [
+      "Mikhael the Hypochondriac has the Washerwoman ability, and learns that either Maryam or John is the Ravenkeeper. They tell town that they're not sure of their information, and want to be executed so an Undertaker can see whether they are the Drunk. Town executes them, and they can then safely out that they were the Hypochondriac with the Washerwoman ability. The Hypochondriac's ability has done little to hinder good.",
+      "Joel the Hypochondriac has the Slayer ability. They shoot at Jane the Godfather during the day. Jane is not a Demon, so does not die, and Joel is executed for not convincing town they have a role with false information."
+    ],
+    "tipsAndTricks": [
+      "Never admit to being the Hypochondriac while alive. Breaking madness costs the town its most precious resource, day executions.",
+      "Be afraid of surviving execution. If evil works out where you are, you are a frightening candidate for the Devil's Advocate to protect. If you have the Sailor or Pacifist abilities, you should expect them to be used against you.",
+      "Bluff Cerenovus madness if you break and survive. Town building you as the Hypochondriac is enough to break madness on its own. Find any other explanation you can, any way you can."
+    ],
+    "opposingTips": [
+      "If you reveal your \"identity\", the Storyteller can't execute you, since you aren't actually the Hypochondriac. Blame this on the \"might\" condition - the storyteller only executes you at their discretion, and, like the Mutant, might spare you to make you look more suspicious/avoid confirming information for the town. Claim this is what is happening when you are not executed.",
+      "A real Hypochondriac has a functioning Townsfolk ability. Try to look like a Hypochondriac trying to cagily get real information out. Madness can explain some of the awkwardness that comes with bluffing."
+    ]
+  },
+  {
+    "id": "lolth_winningclub",
+    "summary": {
+      "description": "The Lolth replaces Minions with a larger web of evil Townsfolk.",
+      "rules": [
+        "During setup, some number X of Minions are removed and X+1 Townsfolk players are made evil. X may be zero, but this is less likely.",
+        "Evil Townsfolk are still Townsfolk! They do not learn who Lolth is, and Lolth does not learn them."
+      ]
+    },
+    "howToRun": [
+      "During setup, choose a number for X. Remove that many Minion tokens, and add enough Townsfolk tokens to maintain the player count. Mark X+1 Townsfolk as evil.",
+      "Each night except the first, wake the Lolth. They point at any player. That player dies - mark them with the *DEAD* reminder. Put the Lolth to sleep."
+    ],
+    "howToRunExamples": [
+      "Extra evil voting power is very dangerous when the evil team knows each other. Be wary of running with a Spy, Widow, or Wraith who completely remove Lolth's downside."
+    ],
+    "examples": [
+      "In a 12-player game, two Minions are removed and three Townsfolk are evil. Lolth and those three players form the evil team. They do not learn each other.",
+      "X is zero, so no Minions are removed and one Townsfolk is evil in addition to the normal Minions. Town has much stronger characters than usual to compensate.",
+      "Jeremy the evil Virgin is nominated by Sasha, an evil Chef. Sasha is still a Townsfolk. Sasha is immediately executed and dies, ending the day."
+    ],
+    "tipsAndTricks": [
+      "Trust your hidden saboteurs! They are your only allies, and they are likely to be the most powerful players in the game.",
+      "Watch for claims that you know are not in play. Is someone claiming King, or Magician, but you didn't observe their effect? An evil turned townsfolk may be bluffing Poppy Grower to signal that their claim isn't real, and to cover for ambient reluctance to execute. Be careful, as they may just be Drunk, or shrewd good townsfolk beginning to suspect a Lolth game trying to confuse the evil team.",
+      "If you are an evil turned townsfolk, you could be turned by a Bounty Hunter, or by a Lolth. Does this look like a Poppy Grower or Legion game? A Lolth fully replacing their Minions can cause similar voting patterns."
+    ],
+    "opposingTips": [
+      "Confirmed Townsfolk are not confirmed good in a Lolth game. Confirming a character doesn't confirm alignment.",
+      "Evil Townsfolk will still be trying to find the evil team. If someone is jumping to unusual conclusions, they may be trying to hide a real deduction they just made!"
+    ]
+  }
+]

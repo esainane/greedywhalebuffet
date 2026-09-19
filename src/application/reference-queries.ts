@@ -2,7 +2,8 @@ import { FILTERABLE_TEAMS } from '../constants.js';
 import type { Catalog } from '../data/catalog.js';
 import { compareCanonicalCharacterOrder, compareCanonicalJinxOrder } from '../jinxOrder.js';
 import { isNoDeathAtNightJinxPair } from '../characterPolicy.js';
-import type { SelectableCharacter } from '../types.js';
+import type { AlmanacCharacterReference, SelectableCharacter } from '../types.js';
+import type { AlmanacEntry } from '../types.js';
 
 export type GreedyDifferenceDetail = {
 	character: SelectableCharacter;
@@ -31,7 +32,12 @@ export type GreedyHomebrewDetail = {
 	ability: string;
 	firstNight?: number;
 	otherNight?: number;
+	almanac: AlmanacEntry;
 };
+
+export function deriveAlmanacCharacterReferences(catalog: Catalog): AlmanacCharacterReference[] {
+	return catalog.almanacCharacters.map((character) => ({ ...character }));
+}
 
 function buildOfficialJinxLookup(catalog: Catalog): Map<string, string> {
 	const officialLookup = new Map<string, string>();
@@ -221,6 +227,7 @@ export function deriveGreedyHomebrew(catalog: Catalog, sortBySet = true): Greedy
 			ability: catalogEntry.entry.ability,
 			firstNight: catalogEntry.entry.firstNight,
 			otherNight: catalogEntry.entry.otherNight,
+			almanac: catalog.greedierAlmanacById.get(catalogEntry.id)!,
 		});
 	}
 

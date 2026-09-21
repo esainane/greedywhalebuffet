@@ -365,7 +365,7 @@
       },
       {
         "id": "secretary_winningclub",
-        "reason": "The Vizier isn't announced if the Secretary saw the Vizier."
+        "reason": "If a Secretary is in play, the Storyteller might not declare the Vizier is in play."
       },
       {
         "id": "sympath",

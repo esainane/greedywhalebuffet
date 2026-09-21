@@ -2,7 +2,12 @@
 
 ## [v3.0.1, Unreleased] 2026-09-22
 
-### Character Updates
+### Base Jinxes
+
+- Vizier/Alsaahir: Now optionally suppresses announcement.
+- Vizier/Investigator: Now optionally suppresses announcement.
+
+### Homebrew Character Updates
 
 - Ancient One: Fixed replace-character & setup
 - Hero: Reminder token changed to "Safe" for consistency.
@@ -11,6 +16,10 @@
 - Pilgrim: Fixed templating on setup ability.
 - Sniper: Reworked ability for in-person play. It is still likely best played online.
 - Made minor text fixes to many characters for ability and reminder text templating consistency.
+
+### Homebrew Jinxes
+
+- Vizier/Secretary: Now optionally suppresses announcement.
 
 ## [v3.0.0] 2026-09-22
 

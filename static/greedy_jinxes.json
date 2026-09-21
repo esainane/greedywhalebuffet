@@ -270,7 +270,7 @@
     "jinx": [
       {
         "id": "alsaahir",
-        "reason": "If an Alsaahir is in play, the Storyteller doesn't declare the Vizier is in play."
+        "reason": "If an Alsaahir is in play, the Storyteller might not declare the Vizier is in play."
       },
       {
         "id": "atheist",
@@ -290,7 +290,7 @@
       },
       {
         "id": "investigator",
-        "reason": "If an Investigator is in play, the Storyteller doesn't declare the Vizier is in play."
+        "reason": "If an Investigator is in play, the Storyteller might not declare the Vizier is in play."
       }
     ]
   },

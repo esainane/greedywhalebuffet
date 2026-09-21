@@ -2,6 +2,10 @@
 
 ## [v3.0.1, Unreleased] 2026-09-22
 
+### Base Character Updates
+
+- Recluse: No longer misregisters living status.
+
 ### Base Jinxes
 
 - Vizier/Alsaahir: Now optionally suppresses announcement.

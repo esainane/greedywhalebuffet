@@ -2,6 +2,10 @@
 
 ## [v3.0.1, Unreleased] 2026-09-22
 
+### Character selection
+
+- Magician and Poppy Grower are now default abnormal picks.
+
 ### Base Character Updates
 
 - Recluse: No longer misregisters living status.

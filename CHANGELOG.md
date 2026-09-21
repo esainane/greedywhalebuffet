@@ -1,6 +1,6 @@
 # Changelog
 
-## [v2.1, Unreleased]
+## [v3.0.0] 2026-09-22
 
 ### Simplifications
 

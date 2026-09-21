@@ -62,6 +62,8 @@
 - Reflector: Added icons. Reflection is now optional. The character takes an Outsider slot, and should not be a super-Mayor that continues to live even if mechanically confirmed.
 - Shepherd: Added icons.
 - Truthsayer: Now has explicit No Ability reminder.
+- Set 14 has been released in partial form, with some missing icons.
+- Set 15 playtest is active, with missing icons.
 
 ### Homebrew Jinxes
 

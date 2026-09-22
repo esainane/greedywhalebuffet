@@ -22,6 +22,25 @@ export function PageHeading(): React.JSX.Element {
 					characters={characters}
 				/>
 			</p>
+			<section aria-labelledby="normal-picks-description">
+				<h2 id="normal-picks-description">Normal Picks</h2>
+				<p><RichText
+					text="You can make as many picks as you want, but you still need to give the Storyteller enough normal picks to work with. They can't built a balanced bag when everyone's Townsfolk picks are Cult Leader and Alchemist, and everyone's Outsider picks are Politician and Ogre!"
+					characters={characters}
+				/></p>
+				<p><RichText
+					text={"To make balanced bags possible, \"normal\" picks are characters which do not adjust alignments, or are Atheist, Alchemist, Magician, Philosopher, Poppy Grower, Heretic, Legion, or Lil' Monsta."}
+					characters={characters}
+				/></p>
+				<p><RichText
+					text="Base characters which adjust alignment are: Bounty Hunter, Cult Leader, Snake Charmer, Goon, Ogre, Politician, Mezepheles, Pit-Hag, Summoner, Fang Gu, and Lord of Typhon."
+					characters={characters}
+				/></p>
+				<p><RichText
+					text="Greedier Homebrew characters which adjust alignment are: Jester, Portia Featherington, Sympath, Daki, Dragon, Lolth, and Shadowseeker."
+					characters={characters}
+				/></p>
+			</section>
 			<a href="https://discord.gg/Px3wvyGC4w" target="_blank" rel="noopener noreferrer" className="discord-link">
 				<img src="https://cdn.simpleicons.org/discord/ffffff" alt="" aria-hidden="true" />
 				Discord guild

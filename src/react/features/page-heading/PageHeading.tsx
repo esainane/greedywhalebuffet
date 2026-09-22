@@ -27,7 +27,7 @@ export function PageHeading(): React.JSX.Element {
 			<section aria-labelledby="normal-picks-description" className="panel">
 				<p className="eyebrow">Normal Picks</p>
 				<p><RichText
-					text="You can make as many picks as you want, but you still need to give the Storyteller enough normal picks to work with. They can't build a balanced bag when everyone's Townsfolk picks are Cult Leader and Alchemist, and everyone's Outsider picks are Politician and Ogre!"
+					text="You can make as many picks as you want, but you still need to give the Storyteller enough normal picks to work with. They can't build a balanced bag when everyone's good picks are Cult Leader, Alchemist, Politician, and Ogre!"
 					characters={characters}
 				/></p>
 				<p>

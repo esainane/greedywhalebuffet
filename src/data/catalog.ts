@@ -142,11 +142,6 @@ export class Catalog {
 		}
 		this.rolesById = rolesById;
 
-		this.textNameTeams = [...this.rolesById.values()].map((character) => ({
-			name: character.name,
-			team: character.team,
-		}));
-
 		const greedierById = new Map<string, CatalogEntry>();
 		for (const { entry, sourceSet } of params.greedierCharacters) {
 			const cloned: CharacterEntry = { ...entry, edition: 'greedier' };
@@ -155,6 +150,11 @@ export class Catalog {
 			allEntries.set(entry.id, catalogEntry);
 		}
 		this.greedierById = greedierById;
+
+		this.textNameTeams = [...rolesById.values(), ...greedierById.values()].map((character) => ({
+			name: character.name,
+			team: character.team,
+		}));
 
 		// Index any inline character objects from the base script that aren't in roles.
 		for (const entry of params.baseScript.entries) {

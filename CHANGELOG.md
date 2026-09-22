@@ -1,6 +1,6 @@
 # Changelog
 
-## [v3.0.1, Unreleased] 2026-09-22
+## [v3.0.1] 2026-09-22
 
 ### Character selection
 

@@ -76,6 +76,14 @@
 
 .team-traveller {
 	color: var(--team-traveller);
+	background-image: linear-gradient(
+		to right,
+		var(--team-traveller-start),
+		var(--team-traveller-end)
+	);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .team-fabled {

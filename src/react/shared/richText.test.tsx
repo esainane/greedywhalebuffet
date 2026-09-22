@@ -6,6 +6,9 @@ import { RichText, normalizeCharacterName, tokenizeRichText } from './richText.j
 const characters = [
 	{ name: 'Alpha Ω', team: 'townsfolk' },
 	{ name: 'Alpha Wolf Ω', team: 'demon' },
+	{ name: 'Storm Catcher', team: 'loric' },
+	{ name: 'Angel', team: 'fabled' },
+	{ name: 'Butcher', team: 'traveller' },
 ];
 
 describe('normalizeCharacterName', () => {
@@ -36,5 +39,18 @@ describe('RichText', () => {
 			{ kind: 'text', value: '*Not caps*' },
 			{ kind: 'text', value: ' and Alphabet' },
 		]);
+	});
+
+	it('recognizes lorics, Fabled, and travellers', () => {
+		const html = renderToStaticMarkup(
+			<RichText
+				text="Angel protects the Alpha. Storm Catcher protects the Butcher."
+				characters={characters}
+			/>,
+		);
+
+		expect(html).toContain('<strong class="text-character-reference team-loric">Storm Catcher</strong>');
+		expect(html).toContain('<strong class="text-character-reference team-fabled">Angel</strong>');
+		expect(html).toContain('<strong class="text-character-reference team-traveller">Butcher</strong>');
 	});
 });

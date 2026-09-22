@@ -2,7 +2,7 @@ import type { Catalog } from './data/catalog.js';
 import {
 	CHARACTER_DEPENDENCY_REQUIREMENTS,
 	evaluateDependencyDiagnostics,
-} from './characterPolicy.js';
+} from './character-policy.js';
 
 
 export const CHARACTER_DEPENDENCIES = CHARACTER_DEPENDENCY_REQUIREMENTS;

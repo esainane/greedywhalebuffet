@@ -10,7 +10,7 @@ export type TooltipPosition = {
 export type HelpBubbleProps = {
 	optionId: string;
 	label: string;
-	helpText: string;
+	helpText: string | React.JSX.Element;
 };
 
 export function HelpBubble(props: HelpBubbleProps): React.JSX.Element {
@@ -131,7 +131,7 @@ export function HelpBubble(props: HelpBubbleProps): React.JSX.Element {
 	}, [isOpen, updatePosition]);
 
 	return (
-		<div className="help-bubble">
+		<span className="help-bubble">
 			<button
 				type="button"
 				className="help-trigger"
@@ -164,6 +164,6 @@ export function HelpBubble(props: HelpBubbleProps): React.JSX.Element {
 					document.body
 				)
 				: null}
-		</div>
+		</span>
 	);
 }

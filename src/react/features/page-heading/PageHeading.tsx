@@ -3,6 +3,7 @@ import { useCatalog } from '../../context/selectors.js';
 import { RichText } from '../../shared/richText';
 import { RichCharacterReference } from '../../../types';
 import { HelpBubble } from '../../components/HelpBubble.js';
+import { PLAYER_RESPONSIBILITIES, STORYTELLER_RESPONSIBILITIES } from './coc-policy.js';
 
 export function PageHeading(): React.JSX.Element {
 	const catalog = useCatalog();
@@ -59,6 +60,24 @@ export function PageHeading(): React.JSX.Element {
 					{"."}
 				</p>
 			</section>
+			<span className="conduct-responsibilities">
+				<section aria-labelledby="player-responsibilities-heading" className="panel">
+					<p className="eyebrow" id="player-responsibilities-heading">Players</p>
+					{PLAYER_RESPONSIBILITIES.map((paragraph, index) => (
+						<p key={index}>
+							<RichText text={paragraph} characters={characters} />
+						</p>
+					))}
+				</section>
+				<section aria-labelledby="storyteller-responsibilities-heading" className="panel">
+					<p className="eyebrow" id="storyteller-responsibilities-heading">Storytellers</p>
+					{STORYTELLER_RESPONSIBILITIES.map((paragraph, index) => (
+						<p key={index}>
+							<RichText text={paragraph} characters={characters} />
+						</p>
+					))}
+				</section>
+			</span>
 			<a href="https://discord.gg/Px3wvyGC4w" target="_blank" rel="noopener noreferrer" className="discord-link">
 				<img src="https://cdn.simpleicons.org/discord/ffffff" alt="" aria-hidden="true" />
 				Discord guild

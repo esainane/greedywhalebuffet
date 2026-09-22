@@ -7,6 +7,7 @@ import type {
 	CatalogCharacter,
 	SelectableCharacter,
 	ScriptEntry,
+	RichCharacterReference,
 } from '../types.js';
 import { CatalogEntry } from './catalog-entry.js';
 import { FILTERABLE_TEAMS } from '../constants.js';
@@ -106,6 +107,9 @@ export class Catalog {
 	/** Base roles indexed by base ID. */
 	readonly rolesById: ReadonlyMap<string, CatalogEntry>;
 
+	/** Flat human readable name to team. */
+	readonly textNameTeams: readonly RichCharacterReference[];
+
 	/** Greedier characters indexed by their ID (already custom). */
 	readonly greedierById: ReadonlyMap<string, CatalogEntry>;
 
@@ -137,6 +141,11 @@ export class Catalog {
 			}
 		}
 		this.rolesById = rolesById;
+
+		this.textNameTeams = [...this.rolesById.values()].map((character) => ({
+			name: character.name,
+			team: character.team,
+		}));
 
 		const greedierById = new Map<string, CatalogEntry>();
 		for (const { entry, sourceSet } of params.greedierCharacters) {

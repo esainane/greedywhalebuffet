@@ -7,13 +7,8 @@ import { PLAYER_RESPONSIBILITIES, STORYTELLER_RESPONSIBILITIES } from './coc-pol
 
 export function CodeOfConductPanel(): React.JSX.Element {
 	const catalog = useCatalog();
-	const characters = useMemo<RichCharacterReference[]>(
-		() => catalog
-			? [...catalog.rolesById.values()].map((character) => ({
-				name: character.name,
-				team: character.team,
-			}))
-			: [],
+	const characters = useMemo<readonly RichCharacterReference[]>(
+		() => catalog?.textNameTeams ?? [],
 		[catalog],
 	);
 

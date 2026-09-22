@@ -19,10 +19,6 @@ function escapeRegExp(value: string): string {
 	return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
 
-function isAllCapsPhrase(value: string): boolean {
-	return /[A-Z]/.test(value) && value === value.toUpperCase();
-}
-
 export function tokenizeRichText(
 	text: string,
 	characters: readonly RichCharacterReference[],
@@ -53,7 +49,7 @@ export function tokenizeRichText(
 
 		const emphasizedText = match[1];
 		const characterName = match[2];
-		if (emphasizedText !== undefined && isAllCapsPhrase(emphasizedText)) {
+		if (emphasizedText !== undefined) {
 			tokens.push({ kind: 'emphasis', value: emphasizedText });
 		} else if (characterName !== undefined) {
 			tokens.push({

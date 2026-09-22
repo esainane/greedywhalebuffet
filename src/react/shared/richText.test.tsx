@@ -34,9 +34,9 @@ describe('RichText', () => {
 		expect(html).not.toContain('*YOU ARE*');
 	});
 
-	it('preserves asterisk pairs that are not all caps and avoids partial name matches', () => {
+	it('emphasizes mixed-case marked text and avoids partial name matches', () => {
 		expect(tokenizeRichText('*Not caps* and Alphabet', characters)).toEqual([
-			{ kind: 'text', value: '*Not caps*' },
+			{ kind: 'emphasis', value: 'Not caps' },
 			{ kind: 'text', value: ' and Alphabet' },
 		]);
 	});

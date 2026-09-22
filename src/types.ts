@@ -29,7 +29,7 @@ export type CharacterBase = {
 	edition?: string;
 };
 
-export type AlmanacCharacterReference = Pick<CharacterBase, 'name' | 'team'>;
+export type RichCharacterReference = Pick<CharacterBase, 'name' | 'team'>;
 
 type JinxDefs = { id: string; reason: string }[];
 

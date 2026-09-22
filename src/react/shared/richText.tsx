@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
-import type { AlmanacCharacterReference } from '../../../types.js';
+import type { RichCharacterReference } from '../../types.js';
 
-type AlmanacTextProps = {
+type RichTextProps = {
 	text: string;
-	characters: readonly AlmanacCharacterReference[];
+	characters: readonly RichCharacterReference[];
 };
 
-type AlmanacTextToken =
+type RichTextToken =
 	| { kind: 'text'; value: string }
 	| { kind: 'emphasis'; value: string }
 	| { kind: 'character'; value: string; team: string };
@@ -23,11 +23,11 @@ function isAllCapsPhrase(value: string): boolean {
 	return /[A-Z]/.test(value) && value === value.toUpperCase();
 }
 
-export function tokenizeAlmanacText(
+export function tokenizeRichText(
 	text: string,
-	characters: readonly AlmanacCharacterReference[],
-): AlmanacTextToken[] {
-	const characterByName = new Map<string, AlmanacCharacterReference>();
+	characters: readonly RichCharacterReference[],
+): RichTextToken[] {
+	const characterByName = new Map<string, RichCharacterReference>();
 	for (const character of characters) {
 		const normalizedName = normalizeCharacterName(character.name);
 		if (normalizedName) {
@@ -42,7 +42,7 @@ export function tokenizeAlmanacText(
 	const pattern = namesPattern
 		? new RegExp(`\\*([^*]+)\\*|(?<![A-Za-z0-9])(${namesPattern})(?![A-Za-z0-9])`, 'gu')
 		: /\*([^*]+)\*/gu;
-	const tokens: AlmanacTextToken[] = [];
+	const tokens: RichTextToken[] = [];
 	let cursor = 0;
 
 	for (const match of text.matchAll(pattern)) {
@@ -74,9 +74,9 @@ export function tokenizeAlmanacText(
 	return tokens;
 }
 
-export function AlmanacText(props: AlmanacTextProps): React.JSX.Element {
+export function RichText(props: RichTextProps): React.JSX.Element {
 	const { text, characters } = props;
-	const tokens = useMemo(() => tokenizeAlmanacText(text, characters), [characters, text]);
+	const tokens = useMemo(() => tokenizeRichText(text, characters), [characters, text]);
 
 	return (
 		<>
@@ -86,7 +86,7 @@ export function AlmanacText(props: AlmanacTextProps): React.JSX.Element {
 					return <strong key={key}>{token.value}</strong>;
 				}
 				if (token.kind === 'character') {
-					return <strong key={key} className={`almanac-character-reference team-${token.team}`}>{token.value}</strong>;
+					return <strong key={key} className={`text-character-reference team-${token.team}`}>{token.value}</strong>;
 				}
 				return <React.Fragment key={key}>{token.value}</React.Fragment>;
 			})}

@@ -53,4 +53,21 @@ describe('RichText', () => {
 		expect(html).toContain('<strong class="text-character-reference team-fabled">Angel</strong>');
 		expect(html).toContain('<strong class="text-character-reference team-traveller">Butcher</strong>');
 	});
+
+	it('highlights singular and plural team names in their team colours', () => {
+		const html = renderToStaticMarkup(
+			<RichText
+				text="Townsfolk, Outsiders, a Minion, Demons, a Traveller, Fabled, and Lorics."
+				characters={[]}
+			/>,
+		);
+
+		expect(html).toContain('class="text-team-reference team-townsfolk">Townsfolk</strong>');
+		expect(html).toContain('class="text-team-reference team-outsider">Outsiders</strong>');
+		expect(html).toContain('class="text-team-reference team-minion">Minion</strong>');
+		expect(html).toContain('class="text-team-reference team-demon">Demons</strong>');
+		expect(html).toContain('class="text-team-reference team-traveller">Traveller</strong>');
+		expect(html).toContain('class="text-team-reference team-fabled">Fabled</strong>');
+		expect(html).toContain('class="text-team-reference team-loric">Lorics</strong>');
+	});
 });

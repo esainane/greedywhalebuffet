@@ -9,7 +9,23 @@ type RichTextProps = {
 type RichTextToken =
 	| { kind: 'text'; value: string }
 	| { kind: 'emphasis'; value: string }
-	| { kind: 'character'; value: string; team: string };
+	| { kind: 'character'; value: string; team: string }
+	| { kind: 'team'; value: string; team: string };
+
+const TEAM_BY_NAME = new Map<string, string>([
+	['Townsfolk', 'townsfolk'],
+	['Outsiders', 'outsider'],
+	['Outsider', 'outsider'],
+	['Minions', 'minion'],
+	['Minion', 'minion'],
+	['Demons', 'demon'],
+	['Demon', 'demon'],
+	['Travellers', 'traveller'],
+	['Traveller', 'traveller'],
+	['Fabled', 'fabled'],
+	['Lorics', 'loric'],
+	['Loric', 'loric'],
+]);
 
 export function normalizeCharacterName(name: string): string {
 	return name.replace(/ (?:Ω|Omega)$/u, '');
@@ -35,9 +51,15 @@ export function tokenizeRichText(
 		.sort((left, right) => right.length - left.length)
 		.map(escapeRegExp)
 		.join('|');
-	const pattern = namesPattern
-		? new RegExp(`\\*([^*]+)\\*|(?<![A-Za-z0-9])(${namesPattern})(?![A-Za-z0-9])`, 'gu')
-		: /\*([^*]+)\*/gu;
+	const teamsPattern = [...TEAM_BY_NAME.keys()]
+		.sort((left, right) => right.length - left.length)
+		.map(escapeRegExp)
+		.join('|');
+	const referencesPattern = `(?<character>${namesPattern || '(?!)'})|(?<team>${teamsPattern})`;
+	const pattern = new RegExp(
+		`\\*(?<emphasis>[^*]+)\\*|(?<![A-Za-z0-9])(?:${referencesPattern})(?![A-Za-z0-9])`,
+		'gu',
+	);
 	const tokens: RichTextToken[] = [];
 	let cursor = 0;
 
@@ -47,8 +69,9 @@ export function tokenizeRichText(
 			tokens.push({ kind: 'text', value: text.slice(cursor, index) });
 		}
 
-		const emphasizedText = match[1];
-		const characterName = match[2];
+		const emphasizedText = match.groups?.emphasis;
+		const characterName = match.groups?.character;
+		const teamName = match.groups?.team;
 		if (emphasizedText !== undefined) {
 			tokens.push({ kind: 'emphasis', value: emphasizedText });
 		} else if (characterName !== undefined) {
@@ -56,6 +79,12 @@ export function tokenizeRichText(
 				kind: 'character',
 				value: characterName,
 				team: characterByName.get(characterName)?.team ?? '',
+			});
+		} else if (teamName !== undefined) {
+			tokens.push({
+				kind: 'team',
+				value: teamName,
+				team: TEAM_BY_NAME.get(teamName) ?? '',
 			});
 		} else {
 			tokens.push({ kind: 'text', value: match[0] });
@@ -83,6 +112,9 @@ export function RichText(props: RichTextProps): React.JSX.Element {
 				}
 				if (token.kind === 'character') {
 					return <strong key={key} className={`text-character-reference team-${token.team}`}>{token.value}</strong>;
+				}
+				if (token.kind === 'team') {
+					return <strong key={key} className={`text-team-reference team-${token.team}`}>{token.value}</strong>;
 				}
 				return <React.Fragment key={key}>{token.value}</React.Fragment>;
 			})}

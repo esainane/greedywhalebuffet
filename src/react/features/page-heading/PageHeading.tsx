@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
 import { useCatalog } from '../../context/selectors.js';
-import { RichText } from '../../shared/richText';
-import { RichCharacterReference } from '../../../types';
+import { RichText } from '../../shared/richText.js';
+import { RichCharacterReference } from '../../../types.js';
 import { HelpBubble } from '../../components/HelpBubble.js';
 import { PLAYER_RESPONSIBILITIES, STORYTELLER_RESPONSIBILITIES } from './coc-policy.js';
 

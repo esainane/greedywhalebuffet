@@ -1,6 +1,6 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { App } from './react/App';
+import { App } from './react/App.js';
 
 const rootElement = document.querySelector('#app-root');
 if (!(rootElement instanceof HTMLElement)) {

@@ -34,7 +34,7 @@ jobs:
             local theirs="$2"
 
             if ! cmp -s "$ours" "$theirs"; then
-              echo "::warning file=$ours,title=Out of sync with botc-release::$ours differs from $theirs in ThePandemoniumInstitute/botc-release@main"
+              echo "::error file=$ours,title=Out of sync with botc-release::$ours differs from $theirs in ThePandemoniumInstitute/botc-release@main"
               stale=1
             fi
           }
@@ -45,7 +45,8 @@ jobs:
           compare_file "static/jinxes.json" "botc-release/resources/data/jinxes.json"
 
           if [[ "$stale" -eq 1 ]]; then
-            echo "::warning title=Data stale::Data stale."
+            echo "::error title=Data stale::Data stale."
+            exit 1
           else
             echo "All files up to date."
           fi

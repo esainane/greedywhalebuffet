@@ -72,6 +72,9 @@ export function ControlsPanel(): React.JSX.Element {
 			aria-label="Generate and options"
 		>
 			<p className="eyebrow">Generate</p>
+			<p>
+				Generate a Greedy Whalebuffet script for Blood on the Clocktower. Paste as a custom script in the <a href="https://botc.app/" target="_blank" rel="noopener noreferrer">official BotC app</a>.
+			</p>
 			<div className="controls-content">
 				<section className="status-copy-panel">
 					<form id="copy-form" className="copy-form" onSubmit={onSubmit}>
@@ -92,7 +95,7 @@ export function ControlsPanel(): React.JSX.Element {
 										<path d="M12 9v5M12 17.5v.5" />
 									</svg>
 								) : null}
-								Copy JSON to clipboard
+								Copy script to clipboard
 							</button>
 							<button
 								id="reload-button"

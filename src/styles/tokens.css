@@ -19,6 +19,11 @@
 	--team-outsider: #6ee9f5;
 	--team-minion: #ffb064;
 	--team-demon: #ff7878;
+	--team-traveller: #d7a4ff;
+	--team-traveller-start: #ff6868;
+	--team-traveller-end: #75b9ff;
+	--team-fabled: #f7cf54;
+	--team-loric: #65d984;
 	--surface: rgba(255, 255, 255, 0.05);
 	--surface-strong: rgba(255, 255, 255, 0.08);
 	--surface-border: rgba(196, 222, 214, 0.12);
@@ -67,6 +72,11 @@
 		--team-outsider: #007f93;
 		--team-minion: #b85a00;
 		--team-demon: #b4232d;
+		--team-traveller: #6f2f91;
+		--team-traveller-start: #b4232d;
+		--team-traveller-end: #0d66c5;
+		--team-fabled: #806000;
+		--team-loric: #16813c;
 		--surface: rgba(255, 255, 255, 0.72);
 		--surface-strong: rgba(255, 255, 255, 0.82);
 		--surface-border: rgba(88, 57, 24, 0.1);

@@ -3,6 +3,7 @@ import { AppProvider } from './context/AppContext.js';
 import { ControlsPanel } from './features/controls/ControlsPanel.js';
 import { CharactersPanel } from './features/characters/CharactersPanel.js';
 import { GreedyReferencePanel } from './features/greedy-reference/GreedyReferencePanel.js';
+import { PageHeading } from './features/page-heading/PageHeading.js';
 import { SectionNavigation } from './components/SectionNavigation.js';
 import { useIsLoading } from './context/selectors.js';
 
@@ -16,7 +17,8 @@ const APP_SECTIONS = [
 
 function AppShell(): React.JSX.Element {
 	const loading = useIsLoading();
-	return (
+	return (<>
+		<PageHeading />
 		<div className={`app-layout${loading ? ' is-loading' : ''}`}>
 			<SectionNavigation sections={APP_SECTIONS} />
 			<div className="content-stack">
@@ -25,7 +27,7 @@ function AppShell(): React.JSX.Element {
 				<GreedyReferencePanel />
 			</div>
 		</div>
-	);
+	</>);
 }
 
 export function App(): React.JSX.Element {

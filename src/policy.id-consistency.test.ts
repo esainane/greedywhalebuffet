@@ -9,7 +9,7 @@ import {
 	NO_DEATH_AT_NIGHT_DEMON_IDS,
 	NO_DEATH_AT_NIGHT_ROLE_IDS,
 	POLICY_CANONICAL_ID_ALIASES,
-} from './characterPolicy.js';
+} from './character-policy.js';
 import { assertNoIssues, readJson } from './test-helpers.js';
 import type { CharacterBase, MappingFile, ScriptFile } from './types.js';
 

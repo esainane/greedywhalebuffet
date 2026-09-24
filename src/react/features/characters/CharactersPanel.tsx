@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import type { SelectableCharacter } from '../../../types.js';
-import { COMMON_BANNED_CHARACTER_ID_SET, POPULAR_GREEDIER_CHARACTER_ID_SET } from '../../../characterPolicy.js';
+import { COMMON_BANNED_CHARACTER_ID_SET, POPULAR_GREEDIER_CHARACTER_ID_SET } from '../../../character-policy.js';
 import { compareCanonicalCharacterOrder } from '../../../jinxOrder.js';
 import { useAppActions } from '../../context/AppContext.js';
 import {

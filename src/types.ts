@@ -29,6 +29,8 @@ export type CharacterBase = {
 	edition?: string;
 };
 
+export type RichCharacterReference = Pick<CharacterBase, 'name' | 'team'>;
+
 type JinxDefs = { id: string; reason: string }[];
 
 /**

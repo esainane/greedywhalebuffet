@@ -66,6 +66,7 @@ describe('preferences service', () => {
 					'mayor_mayor',
 					'vortox_poppppp',
 					'yaggababble_poppppp',
+					'snakecharmer_custom',
 					'alchemistclean',
 				],
 			}),
@@ -86,6 +87,7 @@ describe('preferences service', () => {
 			'mayorbalance',
 			'vortoxclean',
 			'yaggababbleclean',
+			'snakecharmercustom',
 		]);
 		expect(JSON.parse(getSavedValues()[0])).toMatchObject({
 			version: 2,
@@ -100,6 +102,7 @@ describe('preferences service', () => {
 				'mayorbalance',
 				'vortoxclean',
 				'yaggababbleclean',
+				'snakecharmercustom',
 			],
 		});
 	});

@@ -15,4 +15,4 @@ export const FILTERABLE_TEAMS = new Set(['townsfolk', 'outsider', 'minion', 'dem
 export const BOTC_SCRIPT_ENTRY_LIMIT = scriptSchema.maxItems;
 
 // Character ID suffix for custom characters
-export const CUSTOM_CHARACTER_ID_SUFFIX = '_custom';
+export const CUSTOM_CHARACTER_ID_SUFFIX = 'custom';

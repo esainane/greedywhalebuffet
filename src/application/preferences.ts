@@ -85,17 +85,19 @@ function normalizeStoredPreferences(
 	};
 }
 
+const V2_EXCEPTIONAL_CHARACTER_ID_RENAMES = new Map<string, string>([
+	['choose_your_chars', 'choosechars'],
+	['choose_your_chars_dummy', 'choosecharsdummy'],
+	['choose_a_own_trv', 'choosetravs'],
+	['mayor_mayor', 'mayorbalance'],
+	['vortox_poppppp', 'vortoxclean'],
+	['yaggababble_poppppp', 'yaggababbleclean'],
+]);
+
 function migrateCharacterIdToV2(id: string): string {
-	const exceptionalRenames: Readonly<Record<string, string>> = {
-		choose_your_chars: 'choosechars',
-		choose_your_chars_dummy: 'choosecharsdummy',
-		choose_a_own_trv: 'choosetravs',
-		mayor_mayor: 'mayorbalance',
-		vortox_poppppp: 'vortoxclean',
-		yaggababble_poppppp: 'yaggababbleclean',
-	};
-	if (id in exceptionalRenames) {
-		return exceptionalRenames[id];
+	const exceptionalRename = V2_EXCEPTIONAL_CHARACTER_ID_RENAMES.get(id);
+	if (exceptionalRename !== undefined) {
+		return exceptionalRename;
 	}
 	if (id.endsWith('_popppp')) {
 		return `${id.slice(0, -'_popppp'.length)}clean`;
@@ -108,6 +110,9 @@ function migrateCharacterIdToV2(id: string): string {
 	}
 	if (id.endsWith('_winningclub')) {
 		return id.slice(0, -'_winningclub'.length);
+	}
+	if (id.endsWith('_custom')) {
+		return `${id.slice(0, -'_custom'.length)}custom`;
 	}
 	return id;
 }

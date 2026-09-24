@@ -6,7 +6,7 @@ import { assertNoIssues, readJson } from './test-helpers.js';
 import type { JinxFile, MappingFile, NightsheetFile, CharacterBase, CharacterEntry } from './types.js';
 
 const CORE_TEAMS = new Set(['townsfolk', 'outsider', 'minion', 'demon']);
-const GREEDY_EXCEPTIONS = new Set(['choose_your_chars', '_meta']);
+const GREEDY_EXCEPTIONS = new Set(['choosechars', '_meta']);
 const NIGHTSHEET_EXCEPTIONS = new Set([
 	'dusk',
 	'dawn',

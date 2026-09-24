@@ -61,7 +61,7 @@ export function deriveGreedyDifferences(
 	const showNonAbilityDifferences = options.showNonAbilityDifferences === true;
 
 	for (const entry of catalog.baseScript.entries) {
-		if (typeof entry === 'string' || entry.id === 'choose_your_chars') {
+		if (typeof entry === 'string' || entry.id === 'choosechars') {
 			continue;
 		}
 

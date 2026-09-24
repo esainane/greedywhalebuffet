@@ -1,6 +1,6 @@
 [
   {
-    "id": "jester_winningclub",
+    "id": "jester",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/jester_leftovers_whoops.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/jester_e_leftovers_whoops.png"
@@ -14,7 +14,7 @@
     "flavor": "Gobble gobble gobble. -Satyr"
   },
   {
-    "id": "hypnotist_winningclub",
+    "id": "hypnotist",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hypnotist_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hypnotist_g_winningclub.png"
@@ -38,7 +38,7 @@
     "otherNight": 6
   },
   {
-    "id": "unfathomable_winningclub",
+    "id": "unfathomable",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/unfathomable_leftovers_whoops.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/unfathomable_g_leftovers_whoops.png"

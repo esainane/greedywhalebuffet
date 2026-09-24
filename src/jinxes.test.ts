@@ -164,7 +164,7 @@ describe('applySelectedJinxes', () => {
 			includeGreedier: false,
 			includeNoDeathAtNight: false,
 		});
-		expect(getCharacterEntryById(filtered, 'leviathan_custom')?.jinxes).toEqual([
+		expect(getCharacterEntryById(filtered, 'leviathancustom')?.jinxes).toEqual([
 			{ id: 'baron', reason: 'Unrelated pair' },
 		]);
 
@@ -175,7 +175,7 @@ describe('applySelectedJinxes', () => {
 			includeGreedier: false,
 			includeNoDeathAtNight: true,
 		});
-		expect(getCharacterEntryById(included, 'leviathan_custom')?.jinxes).toEqual([
+		expect(getCharacterEntryById(included, 'leviathancustom')?.jinxes).toEqual([
 			{ id: 'soldier', reason: 'No-death-at-night pair' },
 			{ id: 'baron', reason: 'Unrelated pair' },
 		]);
@@ -189,7 +189,7 @@ describe('applySelectedJinxes', () => {
 		const greedierCharactersData: CatalogCharacter[] = [
 			{
 				entry: {
-					id: 'journalist_winningclub',
+					id: 'journalist',
 					name: 'Journalist',
 					team: 'townsfolk',
 					ability: 'Journalist ability',
@@ -198,7 +198,7 @@ describe('applySelectedJinxes', () => {
 			},
 		];
 		const greedier: JinxFile = [
-			{ id: 'heretic', jinx: [{ id: 'journalist_winningclub', reason: 'Greedier reason' }] },
+			{ id: 'heretic', jinx: [{ id: 'journalist', reason: 'Greedier reason' }] },
 		];
 
 		const catalog = createTestCatalog({
@@ -228,7 +228,7 @@ describe('applySelectedJinxes', () => {
 			includeNoDeathAtNight: true,
 		});
 		expect(getSourceEntry(withGreedier)?.jinxes).toEqual([
-			{ id: 'journalist_winningclub', reason: 'Greedier reason' },
+			{ id: 'journalist', reason: 'Greedier reason' },
 			{ id: 'baron', reason: 'Greedy reason' },
 		]);
 	});

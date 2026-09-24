@@ -143,7 +143,7 @@ describe('generation characterization fixtures', () => {
 			expect(exportedIdSet.has(selectedId)).toBe(true);
 		}
 
-		const alwaysIncludedIds = new Set(['choose_your_chars']);
+		const alwaysIncludedIds = new Set(['choosechars']);
 		const unselectedIds = allFilterable.filter(
 			(id) => !selectedCharacterIds.has(id) && !alwaysIncludedIds.has(id),
 		);
@@ -166,7 +166,7 @@ describe('generation characterization fixtures', () => {
 		const { bootlegger } = getMetaEntry(payload);
 
 		expect(hasCharacter(payload, 'choirboy')).toBe(false);
-		expect(hasCharacter(payload, 'choirboy_custom')).toBe(false);
+		expect(hasCharacter(payload, 'choirboycustom')).toBe(false);
 		expect(bootlegger.join(' ')).toContain('Choirboy');
 	});
 
@@ -223,7 +223,7 @@ describe('generation characterization fixtures', () => {
 		const alejoPayload = JSON.parse(
 			buildExportedScript(selected, buildTestOptions({ alejoRules: true }), catalog),
 		) as ScriptFile;
-		const snake = findCharacter(alejoPayload, ['snakecharmer_custom', 'snakecharmer']);
+		const snake = findCharacter(alejoPayload, ['snakecharmercustom', 'snakecharmer']);
 		expect(snake?.firstNight).toBe(1);
 	});
 
@@ -237,7 +237,7 @@ describe('generation characterization fixtures', () => {
 			greedierCharactersData: [
 				{
 					entry: {
-						id: 'journalist_winningclub',
+						id: 'journalist',
 						name: 'Journalist',
 						team: 'townsfolk',
 						ability: 'Journalist',
@@ -258,14 +258,14 @@ describe('generation characterization fixtures', () => {
 			greedierJinxData: [
 				{
 					id: 'heretic',
-					jinx: [{ id: 'journalist_winningclub', reason: 'Greedier reason' }],
+					jinx: [{ id: 'journalist', reason: 'Greedier reason' }],
 				},
 			],
 		});
 
 		const payload = JSON.parse(
 			buildExportedScript(
-				new Set(['heretic', 'journalist_winningclub']),
+				new Set(['heretic', 'journalist']),
 				buildTestOptions({
 					listOfficialJinxes: true,
 					listGreedyJinxes: true,
@@ -274,7 +274,7 @@ describe('generation characterization fixtures', () => {
 					catalog,
 			),
 		) as ScriptFile;
-		const source = findCharacter(payload, ['heretic_custom', 'heretic']);
+		const source = findCharacter(payload, ['hereticcustom', 'heretic']);
 
 		expect(source?.jinxes ?? []).not.toContainEqual({ id: 'baron', reason: 'Official reason' });
 		expect(source?.jinxes ?? []).toContainEqual({
@@ -282,7 +282,7 @@ describe('generation characterization fixtures', () => {
 			reason: 'Greedy reason retained off-script',
 		});
 		expect(source?.jinxes ?? []).toContainEqual({
-			id: 'journalist_winningclub',
+			id: 'journalist',
 			reason: 'Greedier reason',
 		});
 		// Current contract: absent jinx targets are retained as IDs even when not selected.
@@ -291,7 +291,7 @@ describe('generation characterization fixtures', () => {
 
 	it('fixture: no-death-at-night jinxes are excluded by default and included when explicitly enabled', async () => {
 		const catalog = await loadFixtureData();
-		const selectedCharacterIds = new Set(['leviathan_popppp']);
+		const selectedCharacterIds = new Set(['leviathanclean']);
 
 		const excludedPayload = generate(
 			{ selectedCharacterIds, options: buildTestOptions({ listOfficialJinxes: true, useNoDeathAtNightJinxes: false }) },
@@ -302,8 +302,8 @@ describe('generation characterization fixtures', () => {
 			catalog,
 		).script;
 
-		const excludedLeviathan = findCharacter(excludedPayload, ['leviathan_popppp', 'leviathan_custom']);
-		const includedLeviathan = findCharacter(includedPayload, ['leviathan_popppp', 'leviathan_custom']);
+		const excludedLeviathan = findCharacter(excludedPayload, ['leviathanclean', 'leviathancustom']);
+		const includedLeviathan = findCharacter(includedPayload, ['leviathanclean', 'leviathancustom']);
 		const excludedTargetIds = new Set((excludedLeviathan?.jinxes ?? []).map((entry) => entry.id));
 		const includedTargetIds = new Set((includedLeviathan?.jinxes ?? []).map((entry) => entry.id));
 

@@ -1,5 +1,9 @@
 # Changelog
 
+## [v3.0.2] 2026-09-24
+
+Remove underscores from all character IDs. TPI now validates character IDs as all alphanumeric only.
+
 ## [v3.0.1] 2026-09-22
 
 ### Character selection

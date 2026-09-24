@@ -1,34 +1,34 @@
 import type { Catalog } from './data/catalog.js';
 
 export const COMMON_BANNED_CHARACTER_IDS: readonly string[] = [
-	'alchemist_popppp',
+	'alchemistclean',
 	'atheist',
 	'bountyhunter',
-	'cultleader_popppp',
-	'philosopher_ultimate',
-	'poppygrower_popppp',
+	'cultleaderclean',
+	'philosopherbalance',
+	'poppygrowerclean',
 	'snakecharmer',
-	'heretic_popppp',
+	'hereticclean',
 	'goon',
-	'pithag_ultimate',
-	'wizard_popppp',
-	'legion_popppp',
-	'leviathan_popppp',
-	'riot_popppp',
+	'pithagbalance',
+	'wizardclean',
+	'legionclean',
+	'leviathanclean',
+	'riotclean',
 	'zombuul',
 ] as const;
 
 export const COMMON_BANNED_CHARACTER_ID_SET = new Set(COMMON_BANNED_CHARACTER_IDS) as ReadonlySet<string>;
 
 export const POPULAR_GREEDIER_CHARACTER_IDS: readonly string[] = [
-	'hypnotist_winningclub',
-	'lolth_winningclub',
-	'bingbong_winningclub',
-	'secretary_winningclub',
-	'baffler_winningclub',
-	'hopeful_winningclub',
-	'potionseller_winningclub',
-	'buffetsgourmet_winningclub',
+	'hypnotist',
+	'lolth',
+	'bingbong',
+	'secretary',
+	'baffler',
+	'hopeful',
+	'potionseller',
+	'buffetsgourmet',
 	'skaldi',
 	'archivist',
 	'hawkmoth',
@@ -39,8 +39,8 @@ export const POPULAR_GREEDIER_CHARACTER_ID_SET = new Set(POPULAR_GREEDIER_CHARAC
 
 export const CHARACTER_DEPENDENCY_REQUIREMENTS: Readonly<Record<string, readonly string[]>> = {
 	choirboy: ['king'],
-	daki_winningclub: ['gyutaro_winningclub'],
-	gyutaro_winningclub: ['daki_winningclub'],
+	daki: ['gyutaro'],
+	gyutaro: ['daki'],
 	ash: ['bidoofswheel'],
 	bidoofswheel: ['ash'],
 };
@@ -61,9 +61,9 @@ export const NO_DEATH_AT_NIGHT_ROLE_IDS: readonly string[] = [
 ] as const;
 
 export const POLICY_CANONICAL_ID_ALIASES: Readonly<Record<string, string>> = {
-	armageddon_winningclub: 'armageddon',
-	journalist_winningclub: 'journalist',
-	pathologist_winningclub: 'pathologist',
+	armageddon: 'armageddon',
+	journalist: 'journalist',
+	pathologist: 'pathologist',
 };
 
 const noDeathAtNightDemonIdsSet = new Set(NO_DEATH_AT_NIGHT_DEMON_IDS) as ReadonlySet<string>;

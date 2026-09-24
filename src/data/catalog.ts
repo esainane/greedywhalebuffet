@@ -230,7 +230,7 @@ export class Catalog {
 
 		for (const entry of this.baseScript.entries) {
 			const id = typeof entry === 'string' ? entry : entry.id;
-			if (id === 'choose_your_chars') continue;
+			if (id === 'choosechars') continue;
 
 			const catalogEntry = this.lookupById(id);
 			if (!catalogEntry || !FILTERABLE_TEAMS.has(catalogEntry.team)) continue;

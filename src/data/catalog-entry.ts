@@ -29,10 +29,10 @@ export class CatalogEntry {
 	readonly entry: CharacterEntry;
 	readonly sourceSet: number | undefined;
 
-	/** Resolved base ID (e.g. alchemist, not alchemist_popppp). */
+	/** Resolved base ID (e.g. alchemist, not alchemistclean). */
 	readonly baseId: string;
 
-	/** Resolved export-facing custom ID (e.g. alchemist_popppp or alchemist_custom). */
+	/** Resolved export-facing custom ID (e.g. alchemistclean or alchemistcustom). */
 	readonly customId: string;
 
 	constructor(

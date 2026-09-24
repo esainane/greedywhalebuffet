@@ -1,6 +1,6 @@
 [
   {
-    "id": "portiafeatherington_winningclub",
+    "id": "portiafeatherington",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/portiafeatherington_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/portia_e_winningclub.png"
@@ -13,7 +13,7 @@
     "otherNight": 90
   },
   {
-    "id": "baffler_winningclub",
+    "id": "baffler",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baffler_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baffler_g_winningclub.png"
@@ -35,7 +35,7 @@
     "otherNight": 31
   },
   {
-    "id": "baroness_winningclub",
+    "id": "baroness",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baroness_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/baroness_g_winningclub.png"
@@ -56,7 +56,7 @@
     "otherNight": 49
   },
   {
-    "id": "monkeyspaw_winningclub",
+    "id": "monkeyspaw",
     "image": "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/monkeyspaw_winningclub.png",
     "firstNightReminder": "Ask a player to potentially make a wish. Run it as possible.",
     "otherNightReminder": "Ask a player to potentially make a wish. Run it as possible.",

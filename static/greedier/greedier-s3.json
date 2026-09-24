@@ -1,6 +1,6 @@
 [
   {
-    "id": "immortalized_winningclub",
+    "id": "immortalized",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/immortalized_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/immortalized_e_winningclub.png"
@@ -30,7 +30,7 @@
     ]
   },
   {
-    "id": "pathologist_winningclub",
+    "id": "pathologist",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/pathologist_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/pathologist_e_winningclub.png"
@@ -46,7 +46,7 @@
     "otherNight": 22
   },
   {
-    "id": "hypochondriac_winningclub",
+    "id": "hypochondriac",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hypochondriac_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hypochondriac_e_winningclub.png"
@@ -73,7 +73,7 @@
     ]
   },
   {
-    "id": "lolth_winningclub",
+    "id": "lolth",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/lolth_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/lolth_g_winningclub.png"

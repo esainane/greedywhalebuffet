@@ -42,7 +42,7 @@ describe('buildCopyPayload', () => {
 			greedyJson: [
 				{ id: '_meta', name: 'Test Script' },
 				{
-					id: 'leviathan_popppp',
+					id: 'leviathanclean',
 					name: 'Leviathan',
 					team: 'demon',
 					ability: 'Leviathan ability',
@@ -53,7 +53,7 @@ describe('buildCopyPayload', () => {
 					reminders: ['Day 1', 'Jinx Chosen'],
 				},
 				{
-					id: 'riot_popppp',
+					id: 'riotclean',
 					name: 'Riot',
 					team: 'demon',
 					ability: 'Riot ability',
@@ -64,8 +64,8 @@ describe('buildCopyPayload', () => {
 			],
 			greedierCharactersData: [],
 			greedyToBaseID: {
-				leviathan_popppp: 'leviathan',
-				riot_popppp: 'riot',
+				leviathanclean: 'leviathan',
+				riotclean: 'riot',
 			},
 			rolesData: [
 				{
@@ -93,16 +93,16 @@ describe('buildCopyPayload', () => {
 		});
 
 		const payload = buildExportedScript(
-			new Set(['leviathan_popppp', 'riot_popppp']),
+			new Set(['leviathanclean', 'riotclean']),
 			buildTestOptions({ useNoDeathAtNightJinxes: false }),
 			catalog,
 		);
 		const exported = JSON.parse(payload) as ScriptFile;
 		const leviathan = exported.find(
-			(entry) => typeof entry === 'object' && entry !== null && 'id' in entry && entry.id === 'leviathan_popppp',
+			(entry) => typeof entry === 'object' && entry !== null && 'id' in entry && entry.id === 'leviathanclean',
 		) as CharacterEntry | undefined;
 		const riot = exported.find(
-			(entry) => typeof entry === 'object' && entry !== null && 'id' in entry && entry.id === 'riot_popppp',
+			(entry) => typeof entry === 'object' && entry !== null && 'id' in entry && entry.id === 'riotclean',
 		) as CharacterEntry | undefined;
 
 		expect(leviathan?.firstNight).toBe(1);
@@ -124,7 +124,7 @@ describe('buildCopyPayload', () => {
 			greedierCharactersData: [
 				{
 					entry: {
-						id: 'journalist_winningclub',
+						id: 'journalist',
 						name: 'Journalist',
 						team: 'townsfolk',
 						ability: 'Journalist ability',
@@ -142,13 +142,13 @@ describe('buildCopyPayload', () => {
 			greedierJinxData: [
 				{
 					id: 'heretic',
-					jinx: [{ id: 'journalist_winningclub', reason: 'Greedier reason' }],
+					jinx: [{ id: 'journalist', reason: 'Greedier reason' }],
 				},
 			],
 		});
 
 		const payload = buildExportedScript(
-			new Set(['heretic', 'journalist_winningclub']),
+			new Set(['heretic', 'journalist']),
 			buildTestOptions({
 				addGreedierHomebrew: true,
 				listGreedyJinxes: true,
@@ -157,11 +157,11 @@ describe('buildCopyPayload', () => {
 		);
 		const exported = JSON.parse(payload) as ScriptFile;
 		const heretic = exported.find(
-			(entry) => typeof entry === 'object' && entry !== null && 'id' in entry && entry.id === 'heretic_custom',
+			(entry) => typeof entry === 'object' && entry !== null && 'id' in entry && entry.id === 'hereticcustom',
 		) as CharacterEntry | undefined;
 
 		expect(heretic?.jinxes).toEqual([
-			{ id: 'journalist_winningclub', reason: 'Greedier reason' },
+			{ id: 'journalist', reason: 'Greedier reason' },
 			{ id: 'baron', reason: 'Greedy reason' },
 		]);
 	});

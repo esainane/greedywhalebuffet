@@ -1,6 +1,6 @@
 [
   {
-    "id": "hulijing_winningclub",
+    "id": "hulijing",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hulijing_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hulijing_g_winningclub.png"
@@ -24,7 +24,7 @@
     ]
   },
   {
-    "id": "daki_winningclub",
+    "id": "daki",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/daki_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/daki_g_winningclub.png"
@@ -40,7 +40,7 @@
     "otherNight": 40
   },
   {
-    "id": "gyutaro_winningclub",
+    "id": "gyutaro",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/gyutaro_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/gyutaro_g_winningclub.png"
@@ -57,7 +57,7 @@
     "otherNight": 40
   },
   {
-    "id": "rasputin_winningclub",
+    "id": "rasputin",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/rasputin_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/rasputin_g_winningclub.png",
@@ -72,7 +72,7 @@
     "flavor": "Oh, those ravenswoodbluffians..."
   },
   {
-    "id": "hopeful_winningclub",
+    "id": "hopeful",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hopeful1_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hopeful_e1_winningclub.png"

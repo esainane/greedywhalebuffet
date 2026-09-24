@@ -6,7 +6,7 @@ export const noDeathAtNightJinxRule: GenerationRule = {
 	apply({ workspace, options }) {
 		if (options.useNoDeathAtNightJinxes) {
 			const promptOrder = workspace.catalog.otherNightOrder('riot') ?? workspace.catalog.otherNightOrder('leviathan') ?? 50;
-			for (const sourceId of ['leviathan', 'riot', 'armageddon_winningclub']) {
+			for (const sourceId of ['leviathan', 'riot', 'armageddon']) {
 				const entry = workspace.generationContext.findOrExpandCharacter(sourceId, workspace.entries, workspace.catalog);
 				if (entry) {
 					entry.otherNight ??= promptOrder;

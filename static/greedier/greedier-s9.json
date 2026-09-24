@@ -1,6 +1,6 @@
 [
   {
-    "id": "buffetsgourmet_winningclub",
+    "id": "buffetsgourmet",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/buffetsgourmet_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/buffetsgourmet_e_winningclub.png"
@@ -21,7 +21,7 @@
     "otherNight": 79
   },
   {
-    "id": "hero_winningclub",
+    "id": "hero",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hero_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hero_e_winningclub.png"
@@ -37,7 +37,7 @@
     "flavor": "A hero always arrives just in the nick of ti... Oh wait one died already."
   },
   {
-    "id": "suitor_winningclub",
+    "id": "suitor",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/suitor1_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/suitor_e1_winningclub.png"
@@ -56,7 +56,7 @@
     "otherNight": 85
   },
   {
-    "id": "racketeer_winningclub",
+    "id": "racketeer",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/racketeer_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/racketeer_e_winningclub.png"
@@ -75,7 +75,7 @@
     "otherNight": 86
   },
   {
-    "id": "dullahan_winningclub",
+    "id": "dullahan",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/dullahan_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/dullahan_g_winningclub.png"
@@ -93,7 +93,7 @@
     "otherNight": 43
   },
   {
-    "id": "sinofgluttony_winningclub",
+    "id": "sinofgluttony",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/sinofgluttony_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/sin_of_gluttony_g_winningclub.png"

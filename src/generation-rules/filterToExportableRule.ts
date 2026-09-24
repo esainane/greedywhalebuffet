@@ -25,7 +25,7 @@ function classifyEntry(
 	return {
 		id: characterEntry.id,
 		name: characterEntry.name || characterEntry.id,
-		alwaysInclude: characterEntry.id === 'choose_your_chars',
+		alwaysInclude: characterEntry.id === 'choosechars',
 		filterable: !!characterEntry.team && FILTERABLE_TEAMS.has(characterEntry.team),
 	};
 }

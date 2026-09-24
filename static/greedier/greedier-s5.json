@@ -1,6 +1,6 @@
 [
   {
-    "id": "bingbong_winningclub",
+    "id": "bingbong",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/bingbong_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/bingbong_e_winningclub.png"
@@ -17,7 +17,7 @@
     "flavor": "Take her to the moon for me."
   },
   {
-    "id": "secretary_winningclub",
+    "id": "secretary",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/secretary_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/secretary_e_winningclub.png"
@@ -34,7 +34,7 @@
     "firstNight": 56
   },
   {
-    "id": "quitter_winningclub",
+    "id": "quitter",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/quitter_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/quitter_e_winningclub.png"
@@ -51,7 +51,7 @@
     "firstNight": 73
   },
   {
-    "id": "chocolatier_winningclub",
+    "id": "chocolatier",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/chocolatier_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/chocolatier_g_winningclub.png",

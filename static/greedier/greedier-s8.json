@@ -1,6 +1,6 @@
 [
   {
-    "id": "eavesdropper_winningclub",
+    "id": "eavesdropper",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/eavesdropper_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/eavesdropper_e_winningclub.png"
@@ -11,7 +11,7 @@
     "flavor": "I heard Mole and Odysseus talking about how they were going to start a gang. Said they'd call it the Gayng. Pretty cringe if you ask me."
   },
   {
-    "id": "journalist_winningclub",
+    "id": "journalist",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/journalist_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/journalist_evil_winningclub.png"
@@ -28,7 +28,7 @@
     "otherNight": 19
   },
   {
-    "id": "lisarinna_winningclub",
+    "id": "lisarinna",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/lisarinna_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/lisarinna_e_winningclub.png"
@@ -47,7 +47,7 @@
     "otherNight": 25
   },
   {
-    "id": "copycat_winningclub",
+    "id": "copycat",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/copycat_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/copycat_e_winningclub.png"
@@ -75,7 +75,7 @@
     ]
   },
   {
-    "id": "realtor_winningclub",
+    "id": "realtor",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/realtor_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/realtor_e_winningclub.png"
@@ -90,7 +90,7 @@
     "flavor": "This house has QUITE the history..."
   },
   {
-    "id": "potionseller_winningclub",
+    "id": "potionseller",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/potionseller_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/potionsellerg_winningclub.png"

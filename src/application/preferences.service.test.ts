@@ -28,7 +28,7 @@ describe('preferences service', () => {
 		const { repository, getSavedValues } = createInMemoryPreferencesRepository(
 			JSON.stringify({
 				options: { addGreedierHomebrew: true, notAnOption: true },
-				bannedCharacterIds: ['po', 42, 'po'],
+				bannedCharacterIds: ['po', 42, 'po', 'recluse_wewew'],
 				greedierSortBySet: false,
 			}),
 		);
@@ -38,16 +38,69 @@ describe('preferences service', () => {
 		expect(result.migrated).toBe(true);
 		expect(result.error).toBeNull();
 		expect(result.preferences.options.addGreedierHomebrew).toBe(true);
-		expect(result.preferences.bannedCharacterIds).toEqual(['po']);
+		expect(result.preferences.bannedCharacterIds).toEqual(['po', 'reclusefun']);
 		expect(result.preferences.greedierSortBySet).toBe(false);
 
 		const saved = getSavedValues();
 		expect(saved).toHaveLength(1);
 		expect(JSON.parse(saved[0])).toMatchObject({
-			version: 1,
+			version: 2,
 			options: expect.any(Object),
-			bannedCharacterIds: ['po'],
+			bannedCharacterIds: ['po', 'reclusefun'],
 			greedierSortBySet: false,
+		});
+	});
+
+	it('migrates v1 character IDs to their underscore-free replacements', () => {
+		const { repository, getSavedValues } = createInMemoryPreferencesRepository(
+			JSON.stringify({
+				version: 1,
+				bannedCharacterIds: [
+					'alchemist_popppp',
+					'engineer_ultimate',
+					'recluse_wewew',
+					'journalist_winningclub',
+					'choose_your_chars',
+					'choose_your_chars_dummy',
+					'choose_a_own_trv',
+					'mayor_mayor',
+					'vortox_poppppp',
+					'yaggababble_poppppp',
+					'alchemistclean',
+				],
+			}),
+		);
+
+		const result = loadPreferences(repository);
+
+		expect(result.migrated).toBe(true);
+		expect(result.error).toBeNull();
+		expect(result.preferences.bannedCharacterIds).toEqual([
+			'alchemistclean',
+			'engineerbalance',
+			'reclusefun',
+			'journalist',
+			'choosechars',
+			'choosecharsdummy',
+			'choosetravs',
+			'mayorbalance',
+			'vortoxclean',
+			'yaggababbleclean',
+		]);
+		expect(JSON.parse(getSavedValues()[0])).toMatchObject({
+			version: 2,
+			bannedCharacterIds: [
+				'alchemistclean',
+				'engineerbalance',
+				'reclusefun',
+				'journalist',
+				'choosechars',
+				'choosecharsdummy',
+				'choosetravs',
+				'mayorbalance',
+				'vortoxclean',
+				'yaggababbleclean',
+			],
 		});
 	});
 

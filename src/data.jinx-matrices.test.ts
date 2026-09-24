@@ -41,17 +41,17 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, '..');
 const staticRoot = path.join(repoRoot, 'static');
 
-const NO_DEATH_DEMONS = ['leviathan', 'riot', 'armageddon_winningclub'] as const;
+const NO_DEATH_DEMONS = ['leviathan', 'riot', 'armageddon'] as const;
 const NO_DEATH_TARGETS: NoDeathTargetInfo[] = [
 	{ id: 'banshee', name: 'Banshee', kind: 'demonbane-gainer' },
 	{ id: 'exorcist', name: 'Exorcist', kind: 'protector', protectedSuffix: 'the Exorcist-chosen player' },
 	{ id: 'farmer', name: 'Farmer', kind: 'demonbane-trigger' },
 	{ id: 'grandmother', name: 'Grandmother', kind: 'vulnerable' },
 	{ id: 'innkeeper', name: 'Innkeeper', kind: 'protector', protectedSuffix: 'an Innkeeper-protected player' },
-	{ id: 'journalist_winningclub', name: 'Journalist', kind: 'journalist' },
+	{ id: 'journalist', name: 'Journalist', kind: 'journalist' },
 	{ id: 'king', name: 'King', kind: 'king' },
 	{ id: 'monk', name: 'Monk', kind: 'protector', protectedSuffix: 'the Monk-protected player' },
-	{ id: 'pathologist_winningclub', name: 'Pathologist', kind: 'pathologist' },
+	{ id: 'pathologist', name: 'Pathologist', kind: 'pathologist' },
 	{ id: 'ravenkeeper', name: 'Ravenkeeper', kind: 'demonbane-trigger' },
 	{ id: 'sage', name: 'Sage', kind: 'demonbane-trigger' },
 	{ id: 'soldier', name: 'Soldier', kind: 'soldier' },
@@ -63,14 +63,14 @@ const EVIL_TURN_GOOD_TARGETS: EvilTurnGoodTargetInfo[] = [
 	{ id: 'goon', name: 'Goon', kind: 'side-effect' },
 	{ id: 'ogre', name: 'Ogre', kind: 'sole' },
 	{ id: 'politician', name: 'Politician', kind: 'sole' },
-	{ id: 'portiafeatherington_winningclub', name: 'Portia Featherington', kind: 'sole' },
+	{ id: 'portiafeatherington', name: 'Portia Featherington', kind: 'sole' },
 	{ id: 'sympath', name: 'Sympath', kind: 'sole' },
 ];
 
 const NO_DEATH_SOURCE_PHRASES: Record<(typeof NO_DEATH_DEMONS)[number], string> = {
 	leviathan: 'the Leviathan',
 	riot: 'Riot',
-	armageddon_winningclub: 'the Armageddon',
+	armageddon: 'the Armageddon',
 };
 
 function isCharacterEntry(value: unknown): value is CharacterEntry {

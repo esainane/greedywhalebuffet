@@ -1,6 +1,6 @@
 [
   {
-    "id": "informant_winningclub",
+    "id": "informant",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/informant_winningclub.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/informant_e_winningclub.png"
@@ -15,7 +15,7 @@
     "otherNight": 95
   },
   {
-    "id": "armageddon_winningclub",
+    "id": "armageddon",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/armageddon_leftovers_whoops.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/armageddon_g_leftovers_whoops.png"
@@ -50,7 +50,7 @@
     "otherNight": 53
   },
   {
-    "id": "arsonist_winningclub",
+    "id": "arsonist",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/arsonist_leftovers_whoops.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/arsonist_g_leftovers_whoops.png"
@@ -82,7 +82,7 @@
     "otherNight": 42
   },
   {
-    "id": "warden_winningclub",
+    "id": "warden",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/warden_leftovers_whoops.png",
       "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/warden_g_leftovers_whoops.png",

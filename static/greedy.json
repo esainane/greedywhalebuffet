@@ -1,7 +1,7 @@
 [
   {
     "id": "_meta",
-    "name": "Greedy Whalebuffet+ v3.0.1 (edited by Sai)",
+    "name": "Greedy Whalebuffet+ v3.0.2 (edited by Sai)",
     "author": "kianu",
     "almanac": "https://greedy.antihype.space/",
     "background": "https://greedy.antihype.space/img/bg.webp",
@@ -18,7 +18,7 @@
     ]
   },
   {
-    "id": "choose_your_chars",
+    "id": "choosechars",
     "name": "Choose your characters",
     "image": [
       "https://greedy.antihype.space/icons/loric/bootlegger.webp"
@@ -74,7 +74,7 @@
   },
   "acrobat",
   {
-    "id": "alchemist_popppp",
+    "id": "alchemistclean",
     "name": "Alchemist",
     "image": [
       "https://greedy.antihype.space/icons/carousel/alchemist_g.webp",
@@ -110,7 +110,7 @@
   "banshee",
   "bountyhunter",
   {
-    "id": "cannibal_popppp",
+    "id": "cannibalclean",
     "name": "Cannibal",
     "image": [
       "https://greedy.antihype.space/icons/carousel/cannibal_g.webp",
@@ -129,7 +129,7 @@
   "choirboy",
   "clockmaker",
   {
-    "id": "courtier_popppp",
+    "id": "courtierclean",
     "name": "Courtier Ω",
     "image": [
       "https://greedy.antihype.space/icons/bmr/courtier_g.webp",
@@ -154,7 +154,7 @@
     ]
   },
   {
-    "id": "cultleader_popppp",
+    "id": "cultleaderclean",
     "name": "Cult Leader Ω",
     "image": [
       "https://greedy.antihype.space/icons/carousel/cultleader_g.webp",
@@ -171,7 +171,7 @@
   "dreamer",
   "empath",
   {
-    "id": "engineer_ultimate",
+    "id": "engineerbalance",
     "name": "Engineer Ω",
     "image": [
       "https://greedy.antihype.space/icons/carousel/engineer_g.webp",
@@ -188,7 +188,7 @@
   "farmer",
   "fisherman",
   {
-    "id": "flowergirl_popppp",
+    "id": "flowergirlclean",
     "name": "Flowergirl",
     "image": [
       "https://greedy.antihype.space/icons/snv/flowergirl_g.webp",
@@ -212,7 +212,7 @@
   "grandmother",
   "highpriestess",
   {
-    "id": "huntsman_popppp",
+    "id": "huntsmanclean",
     "name": "Huntsman Ω",
     "image": [
       "https://greedy.antihype.space/icons/carousel/huntsman_g.webp",
@@ -239,7 +239,7 @@
   "librarian",
   "lycanthrope",
   {
-    "id": "magician_popppp",
+    "id": "magicianclean",
     "name": "Magician",
     "image": [
       "https://greedy.antihype.space/icons/carousel/magician_g.webp",
@@ -252,7 +252,7 @@
     "firstNightReminder": "During Minion Info, point to the Magician and the Demon. During Demon Info, point to the Magician and the Minions."
   },
   {
-    "id": "mathematician_popppp",
+    "id": "mathematicianclean",
     "name": "Mathematician",
     "image": [
       "https://greedy.antihype.space/icons/snv/mathematician_g.webp",
@@ -278,7 +278,7 @@
     ]
   },
   {
-    "id": "mayor_mayor",
+    "id": "mayorbalance",
     "name": "Mayor Ω",
     "image": [
       "https://greedy.antihype.space/icons/tb/mayor_g.webp",
@@ -296,7 +296,7 @@
   "oracle",
   "pacifist",
   {
-    "id": "philosopher_ultimate",
+    "id": "philosopherbalance",
     "name": "Philosopher Ω",
     "image": [
       "https://greedy.antihype.space/icons/snv/philosopher_g.webp",
@@ -328,7 +328,7 @@
   },
   "pixie",
   {
-    "id": "poppygrower_popppp",
+    "id": "poppygrowerclean",
     "name": "Poppy Grower Ω",
     "image": [
       "https://greedy.antihype.space/icons/carousel/poppygrower_g.webp",
@@ -346,7 +346,7 @@
     ]
   },
   {
-    "id": "preacher_popppp",
+    "id": "preacherclean",
     "name": "Preacher",
     "image": [
       "https://greedy.antihype.space/icons/carousel/preacher_g.webp",
@@ -369,7 +369,7 @@
     ]
   },
   {
-    "id": "princess_popppp",
+    "id": "princessclean",
     "name": "Princess",
     "image": [
       "https://greedy.antihype.space/icons/carousel/princess_g.webp",
@@ -395,7 +395,7 @@
   "slayer",
   "snakecharmer",
   {
-    "id": "soldier_popppp",
+    "id": "soldierclean",
     "name": "Soldier Ω",
     "image": [
       "https://greedy.antihype.space/icons/tb/soldier_g.webp",
@@ -421,7 +421,7 @@
   "washerwoman",
   "barber",
   {
-    "id": "butler_popppp",
+    "id": "butlerclean",
     "name": "Butler",
     "image": [
       "https://greedy.antihype.space/icons/tb/butler_g.webp",
@@ -444,7 +444,7 @@
   },
   "damsel",
   {
-    "id": "drunk_popppp",
+    "id": "drunkclean",
     "name": "Drunk",
     "image": [
       "https://greedy.antihype.space/icons/tb/drunk_g.webp",
@@ -478,7 +478,7 @@
   "golem",
   "goon",
   {
-    "id": "hatter_popppp",
+    "id": "hatterclean",
     "name": "Hatter Ω",
     "image": [
       "https://greedy.antihype.space/icons/carousel/hatter_g.webp",
@@ -501,7 +501,7 @@
     ]
   },
   {
-    "id": "heretic_popppp",
+    "id": "hereticclean",
     "name": "Heretic Ω",
     "image": [
       "https://greedy.antihype.space/icons/carousel/heretic_g.webp",
@@ -512,7 +512,7 @@
     "flavor": "I swear if it's a Heretic game. -Mole"
   },
   {
-    "id": "hermit_popppp",
+    "id": "hermitclean",
     "name": "Hermit Ω",
     "image": [
       "https://greedy.antihype.space/icons/carousel/hermit_g.webp",
@@ -555,7 +555,7 @@
   },
   "klutz",
   {
-    "id": "lunatic_popppp",
+    "id": "lunaticclean",
     "name": "Lunatic Ω",
     "image": [
       "https://greedy.antihype.space/icons/bmr/lunatic_g.webp",
@@ -601,7 +601,7 @@
   "mutant",
   "ogre",
   {
-    "id": "plaguedoctor_popppp",
+    "id": "plaguedoctorclean",
     "name": "Plague Doctor",
     "image": [
       "https://greedy.antihype.space/icons/carousel/plaguedoctor_g.webp",
@@ -619,7 +619,7 @@
   "politician",
   "puzzlemaster",
   {
-    "id": "recluse_wewew",
+    "id": "reclusefun",
     "name": "Recluse Ω",
     "image": [
       "https://greedy.antihype.space/icons/tb/recluse_g.webp",
@@ -631,7 +631,7 @@
   },
   "saint",
   {
-    "id": "snitch_wewew",
+    "id": "snitchfun",
     "name": "Snitch Ω",
     "image": [
       "https://greedy.antihype.space/icons/carousel/snitch_g.webp",
@@ -652,7 +652,7 @@
     ]
   },
   {
-    "id": "sweetheart_wewew",
+    "id": "sweetheartfun",
     "name": "Sweetheart Ω",
     "image": [
       "https://greedy.antihype.space/icons/snv/sweetheart_g.webp",
@@ -673,7 +673,7 @@
   "assassin",
   "baron",
   {
-    "id": "boffin_popppp",
+    "id": "boffinclean",
     "name": "Boffin",
     "image": [
       "https://greedy.antihype.space/icons/carousel/boffin_e.webp",
@@ -687,7 +687,7 @@
   },
   "boomdandy",
   {
-    "id": "cerenovus_popppp",
+    "id": "cerenovusclean",
     "name": "Cerenovus",
     "image": [
       "https://greedy.antihype.space/icons/snv/cerenovus_e.webp",
@@ -712,7 +712,7 @@
   },
   "devilsadvocate",
   {
-    "id": "eviltwin_popppp",
+    "id": "eviltwinclean",
     "name": "Evil Twin",
     "image": [
       "https://greedy.antihype.space/icons/snv/eviltwin_e.webp",
@@ -732,7 +732,7 @@
   "godfather",
   "harpy",
   {
-    "id": "marionette_popppp",
+    "id": "marionetteclean",
     "name": "Marionette",
     "image": [
       "https://greedy.antihype.space/icons/carousel/marionette_e.webp",
@@ -808,7 +808,7 @@
     ]
   },
   {
-    "id": "pithag_ultimate",
+    "id": "pithagbalance",
     "name": "Pit-Hag Ω",
     "image": [
       "https://greedy.antihype.space/icons/snv/pithag_e.webp",
@@ -825,7 +825,7 @@
   },
   "poisoner",
   {
-    "id": "psychopath_ultimate",
+    "id": "psychopathbalance",
     "name": "Psychopath Ω",
     "image": [
       "https://greedy.antihype.space/icons/carousel/psychopath_e.webp",
@@ -839,7 +839,7 @@
     ]
   },
   {
-    "id": "scarletwoman_popppp",
+    "id": "scarletwomanclean",
     "name": "Scarlet Woman",
     "image": [
       "https://greedy.antihype.space/icons/tb/scarletwoman_e.webp",
@@ -864,7 +864,7 @@
     ]
   },
   {
-    "id": "spy_popppp",
+    "id": "spyclean",
     "name": "Spy",
     "image": [
       "https://greedy.antihype.space/icons/tb/spy_e.webp",
@@ -886,7 +886,7 @@
     ]
   },
   {
-    "id": "summoner_popppp",
+    "id": "summonerclean",
     "name": "Summoner Ω",
     "image": [
       "https://greedy.antihype.space/icons/carousel/summoner_e.webp",
@@ -905,7 +905,7 @@
     ]
   },
   {
-    "id": "vizier_popppp",
+    "id": "vizierclean",
     "name": "Vizier",
     "image": [
       "https://greedy.antihype.space/icons/carousel/vizier_e.webp",
@@ -928,7 +928,7 @@
     ]
   },
   {
-    "id": "widow_popppp",
+    "id": "widowclean",
     "name": "Widow",
     "image": [
       "https://greedy.antihype.space/icons/carousel/widow_e.webp",
@@ -955,7 +955,7 @@
   },
   "witch",
   {
-    "id": "wizard_popppp",
+    "id": "wizardclean",
     "name": "Wizard Ω",
     "image": [
       "https://greedy.antihype.space/icons/carousel/wizard_e.webp",
@@ -982,7 +982,7 @@
     ]
   },
   {
-    "id": "wraith_popppp",
+    "id": "wraithclean",
     "name": "Wraith",
     "image": [
       "https://greedy.antihype.space/icons/carousel/wraith_e.webp",
@@ -1005,7 +1005,7 @@
   },
   "xaan",
   {
-    "id": "alhadikhia_ultimate",
+    "id": "alhadikhiabalance",
     "name": "Al-Hadikhia Ω",
     "image": [
       "https://greedy.antihype.space/icons/carousel/alhadikhia_e.webp",
@@ -1025,7 +1025,7 @@
   "fanggu",
   "imp",
   {
-    "id": "kazali_popppp",
+    "id": "kazaliclean",
     "name": "Kazali Ω",
     "image": [
       "https://greedy.antihype.space/icons/carousel/kazali_e.webp",
@@ -1044,7 +1044,7 @@
     "setup": true
   },
   {
-    "id": "legion_popppp",
+    "id": "legionclean",
     "name": "Legion",
     "image": [
       "https://greedy.antihype.space/icons/carousel/legion_e.webp",
@@ -1079,7 +1079,7 @@
     ]
   },
   {
-    "id": "leviathan_popppp",
+    "id": "leviathanclean",
     "name": "Leviathan",
     "image": [
       "https://greedy.antihype.space/icons/carousel/leviathan_e.webp",
@@ -1112,7 +1112,7 @@
   },
   "lilmonsta",
   {
-    "id": "lleech_popppp",
+    "id": "lleechclean",
     "name": "Lleech",
     "image": [
       "https://greedy.antihype.space/icons/carousel/lleech_e.webp",
@@ -1138,7 +1138,7 @@
   "po",
   "pukka",
   {
-    "id": "riot_popppp",
+    "id": "riotclean",
     "name": "Riot",
     "image": [
       "https://greedy.antihype.space/icons/carousel/riot_e.webp",
@@ -1166,7 +1166,7 @@
   },
   "shabaloth",
   {
-    "id": "vigormortis_popppp",
+    "id": "vigormortisclean",
     "name": "Vigormortis",
     "image": [
       "https://greedy.antihype.space/icons/snv/vigormortis_e.webp",
@@ -1190,7 +1190,7 @@
     ]
   },
   {
-    "id": "vortox_poppppp",
+    "id": "vortoxclean",
     "name": "Vortox",
     "image": [
       "https://greedy.antihype.space/icons/snv/vortox_e.webp",
@@ -1206,7 +1206,7 @@
     ]
   },
   {
-    "id": "yaggababble_poppppp",
+    "id": "yaggababbleclean",
     "name": "Yaggababble",
     "image": [
       "https://greedy.antihype.space/icons/carousel/yaggababble_e.webp",
@@ -1236,7 +1236,7 @@
   },
   "zombuul",
   {
-    "id": "choose_a_own_trv",
+    "id": "choosetravs",
     "name": "Choose a Traveller",
     "team": "traveller",
     "ability": "Choose a Traveller character to become.",
@@ -1255,7 +1255,7 @@
   },
   "gardener",
   {
-    "id": "dealerschoice_popppp",
+    "id": "dealerschoiceclean",
     "name": "Dealer's Choice Ω",
     "image": [
       "https://www.bloodstar.xyz/p/ZuZuxy/popppp/dealerschoice1_popppp.png"
@@ -1291,7 +1291,7 @@
     ]
   },
   {
-    "id": "choose_your_chars_dummy",
+    "id": "choosecharsdummy",
     "name": "Choose your characters",
     "image": [
       "https://greedy.antihype.space/icons/loric/bootlegger.webp"

@@ -8,7 +8,6 @@ import {
 	CHARACTER_DEPENDENCY_REQUIREMENTS,
 	NO_DEATH_AT_NIGHT_DEMON_IDS,
 	NO_DEATH_AT_NIGHT_ROLE_IDS,
-	POLICY_CANONICAL_ID_ALIASES,
 } from './character-policy.js';
 import { assertNoIssues, readJson } from './test-helpers.js';
 import type { CharacterBase, MappingFile, ScriptFile } from './types.js';
@@ -77,7 +76,7 @@ describe('policy ID consistency', () => {
 		assertNoIssues(issues, 'dependency policy contains stale IDs:');
 	});
 
-	it('keeps no-death-at-night policy IDs and alias targets valid', async () => {
+	it('keeps no-death-at-night policy IDs valid', async () => {
 		const [roles, mappingFile, greedierIds] = await Promise.all([
 			readJson<CharacterBase[]>(path.join(staticRoot, 'roles.json')),
 			readJson<MappingFile>(path.join(staticRoot, 'id_mappings.json')),
@@ -88,32 +87,17 @@ describe('policy ID consistency', () => {
 			...Object.keys(mappingFile),
 			...greedierIds,
 		]);
-		const baseRoleIds = new Set(roles.map((role) => role.id));
-		const noDeathAtNightCanonicalIds = new Set([
-			...NO_DEATH_AT_NIGHT_DEMON_IDS,
-			...NO_DEATH_AT_NIGHT_ROLE_IDS,
-		]);
 		const issues: string[] = [];
 
 		for (const id of NO_DEATH_AT_NIGHT_DEMON_IDS) {
-			if (!baseRoleIds.has(id) && !Object.values(POLICY_CANONICAL_ID_ALIASES).includes(id)) {
-				issues.push(`NDAN demon id "${id}" is not a known base/canonical ID`);
+			if (!knownIds.has(id)) {
+				issues.push(`NDAN demon id "${id}" is not a known policy ID`);
 			}
 		}
 
 		for (const id of NO_DEATH_AT_NIGHT_ROLE_IDS) {
-			if (!baseRoleIds.has(id) && !Object.values(POLICY_CANONICAL_ID_ALIASES).includes(id)) {
-				issues.push(`NDAN role id "${id}" is not a known base/canonical ID`);
-			}
-		}
-
-		for (const [aliasId, canonicalId] of Object.entries(POLICY_CANONICAL_ID_ALIASES)) {
-			if (!knownIds.has(aliasId)) {
-				issues.push(`policy alias id "${aliasId}" is not present in known IDs`);
-			}
-
-			if (!noDeathAtNightCanonicalIds.has(canonicalId)) {
-				issues.push(`policy canonical target "${canonicalId}" for alias "${aliasId}" is not an NDAN participant ID`);
+			if (!knownIds.has(id)) {
+				issues.push(`NDAN role id "${id}" is not a known policy ID`);
 			}
 		}
 

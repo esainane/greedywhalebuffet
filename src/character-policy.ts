@@ -60,12 +60,6 @@ export const NO_DEATH_AT_NIGHT_ROLE_IDS: readonly string[] = [
 	'pathologist',
 ] as const;
 
-export const POLICY_CANONICAL_ID_ALIASES: Readonly<Record<string, string>> = {
-	armageddon: 'armageddon',
-	journalist: 'journalist',
-	pathologist: 'pathologist',
-};
-
 const noDeathAtNightDemonIdsSet = new Set(NO_DEATH_AT_NIGHT_DEMON_IDS) as ReadonlySet<string>;
 const noDeathAtNightRoleIdsSet = new Set(NO_DEATH_AT_NIGHT_ROLE_IDS) as ReadonlySet<string>;
 
@@ -74,18 +68,13 @@ export type DependencyDiagnostic = {
 	readonly missingDependencyIds: readonly string[];
 };
 
-export function normalizePolicyCharacterId(id: string, catalog: Catalog): string {
-	const baseId = catalog.resolveBaseId(id);
-	return POLICY_CANONICAL_ID_ALIASES[baseId] ?? baseId;
-}
-
 export function isNoDeathAtNightJinxPair(
 	sourceId: string,
 	targetId: string,
 	catalog: Catalog,
 ): boolean {
-	const source = normalizePolicyCharacterId(sourceId, catalog);
-	const target = normalizePolicyCharacterId(targetId, catalog);
+	const source = catalog.resolveBaseId(sourceId);
+	const target = catalog.resolveBaseId(targetId);
 
 	return (
 		(noDeathAtNightDemonIdsSet.has(source) && noDeathAtNightRoleIdsSet.has(target)) ||

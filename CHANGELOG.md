@@ -1,5 +1,11 @@
 # Changelog
 
+## [v3.0.3] 2026-09-27
+
+### Base Character Updates
+
+- Hatter: Choosing a new character is no longer mandatory, consistent with base character behavior.
+
 ## [v3.0.2] 2026-09-24
 
 Remove underscores from all character IDs. TPI now validates character IDs as all alphanumeric only.

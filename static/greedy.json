@@ -1,7 +1,7 @@
 [
   {
     "id": "_meta",
-    "name": "Greedy Whalebuffet+ v3.0.2 (edited by Sai)",
+    "name": "Greedy Whalebuffet+ v3.0.3 (edited by Sai)",
     "author": "kianu",
     "almanac": "https://greedy.antihype.space/",
     "background": "https://greedy.antihype.space/img/bg.webp",
@@ -485,7 +485,7 @@
       "https://greedy.antihype.space/icons/carousel/hatter_e.webp"
     ],
     "team": "outsider",
-    "ability": "If you die, at night, choose Minions or Demons. All players of the type you chose pick new characters of the same type to be.",
+    "ability": "If you die, at night, choose Minions or Demons. They may choose new characters of the same type to be.",
     "flavor": "10/6 is a much greater number than 6 - 7  -Soril",
     "otherNight": 59,
     "otherNightReminder": "If the Hatter died, wake the Hatter. They point to either Minions or Demons. Put the Hatter to sleep. Wake each player of the type they chose. Each may choose a new character. If they do, show the *YOU ARE* token & their new character token.",

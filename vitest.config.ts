@@ -22,7 +22,7 @@ export default defineConfig({
 				test: {
 					name: 'unit',
 					environment: 'node',
-					include: ['src/**/*.test.ts'],
+					include: ['src/**/*.test.ts', 'tools/**/*.test.ts'],
 					exclude: ['src/**/data.*.test.ts', 'src/e2e.schema.test.ts', 'src/playwright.smoketest.test.ts']
 				},
 			},

@@ -8,7 +8,8 @@
   "source": "src/index.html",
   "scripts": {
     "start": "parcel",
-    "build": "parcel build",
+    "build": "parcel build && pnpm tool:materialize-changelog",
+    "tool:materialize-changelog": "tsx tools/materialize-changelog.ts",
     "tool:file-validate": "tsx tools/file-validate.ts",
     "tool:night-order": "tsx tools/legacy-night-order.ts",
     "tool:generate-schema": "python3 tools/generate_schemas.py",

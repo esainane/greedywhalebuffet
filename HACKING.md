@@ -10,7 +10,7 @@
 Common commands:
 
 - `pnpm test`: Run all tests.
-- `pnpm build`: Check build.
+- `pnpm build`: Run build and materialization.
 - `pnpm lint`: Run linter.
 - `pnpm type-check`: Run TypeScript type checking.
 
@@ -29,6 +29,9 @@ Test categories can also be run distinctly:
 
 ## Tools
 
+- `pnpm tool:materialize-changelog`: Convert the release headings, sections, and changes in `CHANGELOG.md` into structured JSON. Unsupported Markdown blocks fail the command rather than being omitted.
 - `pnpm file-validate <file> [script|roles|jinx]`: Validate a JSON file against a schema. The script schema is used by default.
 - `pnpm tool:generate-schema`: Regenerate derived schemas in `schemas/`.
 - `pnpm tool:night-order`: Generate legacy `firstNight` and `otherNight` arrays, or print night order.
+
+The changelog materializer accepts `## [vX.Y.Z]` release headings with an optional `Unreleased` marker and ISO date, `###` section headings, bullet changes, sectionless paragraphs, and `---` separators. Sectionless changes are emitted under `General`.

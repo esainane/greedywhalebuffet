@@ -3,8 +3,8 @@
     "id": "clergyman",
     "name": "Clergyman Ω",
     "image": [
-      "https://user-images.klutzbanana.com/ttlk5o6xmq3ggssptcjq4oip.png",
-      "https://user-images.klutzbanana.com/iu4uxsww3tcd1g414hswe8cp.png"
+      "https://greedy.antihype.space/icons/greedier/ttlk5o6xmq3ggssptcjq4oip.png",
+      "https://greedy.antihype.space/icons/greedier/iu4uxsww3tcd1g414hswe8cp.png"
     ],
     "team": "townsfolk",
     "setup": true,
@@ -45,8 +45,8 @@
     "id": "yesdashii",
     "name": "Yes Dashii Ω",
     "image": [
-      "https://user-images.klutzbanana.com/z4zb5ed8sy3ey2yfhq2omw3k.png",
-      "https://user-images.klutzbanana.com/queucuwhbj1ixybxwcg3v7ha.png"
+      "https://greedy.antihype.space/icons/greedier/z4zb5ed8sy3ey2yfhq2omw3k.png",
+      "https://greedy.antihype.space/icons/greedier/queucuwhbj1ixybxwcg3v7ha.png"
     ],
     "team": "townsfolk",
     "ability": "Your 2 Townsfolk neighbors are sober and healthy.",
@@ -74,8 +74,8 @@
     "id": "joe",
     "name": "Joe Ω",
     "image": [
-      "https://user-images.klutzbanana.com/ukajti0iro74zb7njkajhe4g.png",
-      "https://user-images.klutzbanana.com/yulv5gd750wvo7w2uns5gj0f.png"
+      "https://greedy.antihype.space/icons/greedier/ukajti0iro74zb7njkajhe4g.png",
+      "https://greedy.antihype.space/icons/greedier/yulv5gd750wvo7w2uns5gj0f.png"
     ],
     "team": "minion",
     "ability": "Once per game, if 5 or more players live (Travellers don't count) and you publicly claim to be the Joe, you will be executed before dusk.",
@@ -88,8 +88,8 @@
     "id": "sniper",
     "name": "Sniper Ω",
     "image": [
-      "https://user-images.klutzbanana.com/czem9ucdri22ue7rhnz0arpm.png",
-      "https://user-images.klutzbanana.com/t9y6jvrjqrg01i569bhrcsbr.png"
+      "https://greedy.antihype.space/icons/greedier/czem9ucdri22ue7rhnz0arpm.png",
+      "https://greedy.antihype.space/icons/greedier/t9y6jvrjqrg01i569bhrcsbr.png"
     ],
     "firstNight": 70,
     "otherNight": 91,

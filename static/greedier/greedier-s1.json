@@ -2,8 +2,8 @@
   {
     "id": "jester",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/jester_leftovers_whoops.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/jester_e_leftovers_whoops.png"
+      "https://greedy.antihype.space/icons/greedier/jester_leftovers_whoops.png",
+      "https://greedy.antihype.space/icons/greedier/jester_e_leftovers_whoops.png"
     ],
     "reminders": [
       "Claimed"
@@ -16,8 +16,8 @@
   {
     "id": "hypnotist",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hypnotist_winningclub.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hypnotist_g_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/hypnotist_winningclub.png",
+      "https://greedy.antihype.space/icons/greedier/hypnotist_g_winningclub.png"
     ],
     "firstNightReminder": "The Hypnotist chooses a player. :reminder: That player might receive false night cards.",
     "otherNightReminder": "The Hypnotist chooses a player. :reminder: Any players marked *HYPNOTIZED* might receive false night cards.",
@@ -40,8 +40,8 @@
   {
     "id": "unfathomable",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/unfathomable_leftovers_whoops.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/leftovers_whoops/unfathomable_g_leftovers_whoops.png"
+      "https://greedy.antihype.space/icons/greedier/unfathomable_leftovers_whoops.png",
+      "https://greedy.antihype.space/icons/greedier/unfathomable_g_leftovers_whoops.png"
     ],
     "firstNightReminder": "The Unfathomable might choose a player they would prefer to die. :reminder:",
     "otherNightReminder": "The Unfathomable might choose a player they would prefer to die. :reminder:",

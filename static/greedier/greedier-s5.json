@@ -2,8 +2,8 @@
   {
     "id": "bingbong",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/bingbong_winningclub.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/bingbong_e_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/bingbong_winningclub.png",
+      "https://greedy.antihype.space/icons/greedier/bingbong_e_winningclub.png"
     ],
     "reminders": [
       "Real Friend",
@@ -19,8 +19,8 @@
   {
     "id": "secretary",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/secretary_winningclub.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/secretary_e_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/secretary_winningclub.png",
+      "https://greedy.antihype.space/icons/greedier/secretary_e_winningclub.png"
     ],
     "firstNightReminder": "Show the character tokens of the players marked *KNOW*.",
     "reminders": [
@@ -36,8 +36,8 @@
   {
     "id": "quitter",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/quitter_winningclub.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/quitter_e_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/quitter_winningclub.png",
+      "https://greedy.antihype.space/icons/greedier/quitter_e_winningclub.png"
     ],
     "firstNightReminder": "The Quitter chooses a player. :reminder:",
     "reminders": [
@@ -53,9 +53,9 @@
   {
     "id": "chocolatier",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/chocolatier_winningclub.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/chocolatier_g_winningclub.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/chocolatier_e_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/chocolatier_winningclub.png",
+      "https://greedy.antihype.space/icons/greedier/chocolatier_g_winningclub.png",
+      "https://greedy.antihype.space/icons/greedier/chocolatier_e_winningclub.png"
     ],
     "firstNightReminder": "Tell them 2 phrases & what happens if they say each phrase.",
     "reminders": [

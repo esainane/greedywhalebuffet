@@ -2,8 +2,8 @@
   {
     "id": "hulijing",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hulijing_winningclub.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hulijing_g_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/hulijing_winningclub.png",
+      "https://greedy.antihype.space/icons/greedier/hulijing_g_winningclub.png"
     ],
     "firstNightReminder": "Show them 5 out-of-play character tokens. The Huli Jing chooses a character. If necessary, swap their character token. :reminder:",
     "otherNightReminder": "The Huli Jing chooses a character. If necessary, swap their character token. :reminder:",
@@ -26,8 +26,8 @@
   {
     "id": "daki",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/daki_winningclub.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/daki_g_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/daki_winningclub.png",
+      "https://greedy.antihype.space/icons/greedier/daki_g_winningclub.png"
     ],
     "otherNightReminder": "The Daki chooses a player. :reminder:",
     "reminders": [
@@ -42,8 +42,8 @@
   {
     "id": "gyutaro",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/gyutaro_winningclub.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/gyutaro_g_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/gyutaro_winningclub.png",
+      "https://greedy.antihype.space/icons/greedier/gyutaro_g_winningclub.png"
     ],
     "otherNightReminder": "The Gyutaro chooses a player. :reminder: If an evil player was executed for the first time, put Gyutaro to sleep. Wake the player marked *KNOW*. Show the Gyutaro token.",
     "reminders": [
@@ -59,9 +59,9 @@
   {
     "id": "rasputin",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/rasputin_winningclub.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/rasputin_g_winningclub.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/rasputin_e_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/rasputin_winningclub.png",
+      "https://greedy.antihype.space/icons/greedier/rasputin_g_winningclub.png",
+      "https://greedy.antihype.space/icons/greedier/rasputin_e_winningclub.png"
     ],
     "reminders": [
       "Chosen"
@@ -74,8 +74,8 @@
   {
     "id": "hopeful",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hopeful1_winningclub.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hopeful_e1_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/hopeful1_winningclub.png",
+      "https://greedy.antihype.space/icons/greedier/hopeful_e1_winningclub.png"
     ],
     "name": "Hopeful Ω",
     "team": "townsfolk",

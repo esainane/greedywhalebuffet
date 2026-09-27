@@ -2,8 +2,8 @@
   {
     "id": "immortalized",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/immortalized_winningclub.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/immortalized_e_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/immortalized_winningclub.png",
+      "https://greedy.antihype.space/icons/greedier/immortalized_e_winningclub.png"
     ],
     "otherNightReminder": "If Immortalized died, wake them. Show the *YOU ARE* info token, the Immortalized character token, and a Townsfolk token. If necessary, swap their character token. :reminder:",
     "reminders": [
@@ -32,8 +32,8 @@
   {
     "id": "pathologist",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/pathologist_winningclub.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/pathologist_e_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/pathologist_winningclub.png",
+      "https://greedy.antihype.space/icons/greedier/pathologist_e_winningclub.png"
     ],
     "reminders": [
       "Chosen"
@@ -48,8 +48,8 @@
   {
     "id": "hypochondriac",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hypochondriac_winningclub.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/hypochondriac_e_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/hypochondriac_winningclub.png",
+      "https://greedy.antihype.space/icons/greedier/hypochondriac_e_winningclub.png"
     ],
     "firstNightReminder": "Show the *YOU ARE*, Hypochondriac, and a Townsfolk token. If necessary, swap their character token. :reminder:",
     "name": "Hypochondriac Ω",
@@ -75,8 +75,8 @@
   {
     "id": "lolth",
     "image": [
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/lolth_winningclub.png",
-      "https://www.bloodstar.xyz/p/ZuZuxy/WinningClub/lolth_g_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/lolth_winningclub.png",
+      "https://greedy.antihype.space/icons/greedier/lolth_g_winningclub.png"
     ],
     "otherNightReminder": "The Lolth chooses a player. :reminder:",
     "reminders": [

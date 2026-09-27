@@ -1,6 +1,14 @@
 # Changelog
 
-## [Unreleased]
+## [v3.0.4, Unreleased] 2026-09-27
+
+### General
+
+- Dealer's Choice: No longer has the "clean" suffix or the trailing Ω.
+
+### Homebrew Characters
+
+- Hosted and optimized all remaining Bloodstar and Klutzbanana images. 21.4MB -> 4.5MB.
 
 ### Website
 

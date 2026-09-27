@@ -21,18 +21,11 @@ export const COMMON_BANNED_CHARACTER_IDS: readonly string[] = [
 export const COMMON_BANNED_CHARACTER_ID_SET = new Set(COMMON_BANNED_CHARACTER_IDS) as ReadonlySet<string>;
 
 export const POPULAR_GREEDIER_CHARACTER_IDS: readonly string[] = [
-	'hypnotist',
-	'lolth',
-	'bingbong',
 	'secretary',
-	'baffler',
 	'hopeful',
-	'potionseller',
 	'buffetsgourmet',
-	'skaldi',
 	'archivist',
-	'hawkmoth',
-	'joe',
+	'crux'
 ] as const;
 
 export const POPULAR_GREEDIER_CHARACTER_ID_SET = new Set(POPULAR_GREEDIER_CHARACTER_IDS) as ReadonlySet<string>;

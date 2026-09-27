@@ -7,6 +7,7 @@
 - Visually reworked for consistency with Jay's background.
 - Character and jinx references make better use of horizontal space when available.
 - Flattened many nested elements.
+- Adjusted "popular" homebrew preset: Removed Hypnotist, Lolth, Bing Bong, Baffler, Potion Seller, Skaldi, Hawkmoth, Joe. Added Crux.
 
 ## [v3.0.3] 2026-09-27
 

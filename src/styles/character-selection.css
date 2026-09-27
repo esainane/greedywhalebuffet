@@ -10,15 +10,11 @@
 	color: var(--muted);
 }
 
-.quick-remove-box {
-	margin-bottom: 1rem;
-	padding: 0.9rem;
-	border-radius: 18px;
-	background: var(--surface);
-	border: 1px solid var(--surface-border);
+.inner-rule {
+	margin: 1rem 8rem;
 }
 
-.quick-remove-box .actions {
+.greedier-character-selection .actions {
 	margin: 0 0 .75rem;
 }
 
@@ -52,7 +48,7 @@
 }
 
 .quick-remove-list {
-	grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+	grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
 }
 
 .character-item {
@@ -66,11 +62,6 @@
 	cursor: pointer;
 	transition: background-color 140ms ease, border-color 140ms ease, opacity 140ms ease;
 	opacity: 1;
-}
-
-.quick-remove-item {
-	padding: 0.6rem;
-	border-style: dashed;
 }
 
 .character-item:hover:not(.banned) {

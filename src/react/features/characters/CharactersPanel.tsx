@@ -39,7 +39,6 @@ type CharacterListProps = {
 	unsatisfiedDependencyCharacterIds: ReadonlySet<string>;
 	getMissingDependencyNames: (characterId: string) => readonly string[];
 	emptyText: string;
-	isQuickRemove: boolean;
 	showTeamSubtitle?: boolean;
 };
 
@@ -47,7 +46,6 @@ type CharacterCardProps = {
 	character: SelectableCharacter;
 	isSelected: boolean;
 	missingDependencyNames: readonly string[];
-	isQuickRemove: boolean;
 	showTeamSubtitle: boolean;
 	onToggle: (checked: boolean) => void;
 };
@@ -57,7 +55,6 @@ function CharacterCard(props: CharacterCardProps): React.JSX.Element {
 		character,
 		isSelected,
 		missingDependencyNames,
-		isQuickRemove,
 		showTeamSubtitle,
 		onToggle,
 	} = props;
@@ -89,7 +86,7 @@ function CharacterCard(props: CharacterCardProps): React.JSX.Element {
 			<label
 				id={labelId}
 				htmlFor={checkboxId}
-				className={`character-item ${isQuickRemove ? 'quick-remove-item' : ''} ${
+				className={`character-item ${
 					isSelected ? '' : 'banned'
 				} ${hasMissingDependencies ? 'dependency-missing' : ''}`}
 			>
@@ -120,7 +117,6 @@ function CharacterList(props: CharacterListProps): React.JSX.Element {
 		unsatisfiedDependencyCharacterIds,
 		getMissingDependencyNames,
 		emptyText,
-		isQuickRemove,
 		showTeamSubtitle = true,
 	} = props;
 	const actions = useAppActions();
@@ -148,7 +144,6 @@ function CharacterList(props: CharacterListProps): React.JSX.Element {
 						character={character}
 						isSelected={isSelected}
 						missingDependencyNames={missingDependencyNames}
-						isQuickRemove={isQuickRemove}
 						showTeamSubtitle={showTeamSubtitle}
 						onToggle={(checked) => {
 							actions.toggleCharacter(character.id, checked);
@@ -223,21 +218,21 @@ export function CharactersPanel(): React.JSX.Element {
 		<section id="section-characters" className="panel characters">
 			<p className="eyebrow">Characters</p>
 			<p className="lede">Click to remove characters from the script</p>
-			<div className="quick-remove-box">
+			<div className="common-bans">
 				<p className="quick-remove-title">Common bans</p>
 				<CharacterList
 					id="quick-remove-list"
-					className="character-list quick-remove-list"
+					className="character-list"
 					characters={quickRemove}
 					selectedCharacterIds={selectedCharacterIds}
 					unsatisfiedDependencyCharacterIds={unsatisfiedDependencyCharacterIds}
 					getMissingDependencyNames={getMissingDependencyNames}
 					emptyText={loading ? 'Loading quick removals...' : 'No common bans in this script.'}
-					isQuickRemove
 				/>
 			</div>
+			<div className="gold-rule inner-rule" aria-hidden="true" />
 			{greedierCharacters.length > 0 ? (
-				<div className="quick-remove-box">
+				<div className="greedier-character-selection">
 					<p className="quick-remove-title">Greedier homebrew</p>
 					<div className="actions">
 						<button
@@ -289,10 +284,11 @@ export function CharactersPanel(): React.JSX.Element {
 						unsatisfiedDependencyCharacterIds={unsatisfiedDependencyCharacterIds}
 						getMissingDependencyNames={getMissingDependencyNames}
 						emptyText="No greedier homebrew characters available."
-						isQuickRemove={false}
 					/>
+					<div className="gold-rule inner-rule" aria-hidden="true" />
 				</div>
 			) : null}
+			<p className="quick-remove-title">All characters</p>
 			<CharacterList
 				id="character-list"
 				className="character-list"
@@ -301,7 +297,6 @@ export function CharactersPanel(): React.JSX.Element {
 				unsatisfiedDependencyCharacterIds={unsatisfiedDependencyCharacterIds}
 				getMissingDependencyNames={getMissingDependencyNames}
 				emptyText={loading ? 'Loading base characters...' : 'No base characters available.'}
-				isQuickRemove={false}
 			/>
 		</section>
 	);

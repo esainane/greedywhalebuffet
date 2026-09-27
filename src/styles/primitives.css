@@ -63,6 +63,11 @@ body {
 	pointer-events: none;
 }
 
+.gold-rule {
+	height: 2px;
+	background: var(--gold-rule);
+}
+
 .hero {
 	padding: 2rem 1.5rem;
 }

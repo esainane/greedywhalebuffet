@@ -5,9 +5,9 @@
     "team": "traveller",
     "ability": "Each night, choose a player (not yourself) & offer a boon or curse. They may accept.",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/bestower.png",
-      "https://greedy.antihype.space/icons/greedier/bestower_g.png",
-      "https://greedy.antihype.space/icons/greedier/bestower_e.png"
+      "https://greedy.antihype.space/icons/greedier/bestower.webp",
+      "https://greedy.antihype.space/icons/greedier/bestower_g.webp",
+      "https://greedy.antihype.space/icons/greedier/bestower_e.webp"
     ],
     "edition": "gwb",
     "flavor": "I bestow upon you this gift.",
@@ -27,9 +27,9 @@
     "team": "traveller",
     "ability": "Each day, you publicly choose a player: swap seats with them. If you swap seats with a player of your alignment, you can't die until you swap again. One opposing player registers as your alignment to your ability.",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/cat.png",
-      "https://greedy.antihype.space/icons/greedier/cat_g.png",
-      "https://greedy.antihype.space/icons/greedier/cat_e.png"
+      "https://greedy.antihype.space/icons/greedier/cat.webp",
+      "https://greedy.antihype.space/icons/greedier/cat_g.webp",
+      "https://greedy.antihype.space/icons/greedier/cat_e.webp"
     ],
     "edition": "gwb",
     "flavor": "Meow.",
@@ -44,9 +44,9 @@
     "team": "traveller",
     "ability": "Each day, you may visit the Storyteller to make a decision or learn information relating to a Loric or Fabled. [+0 or +1 Loric or Fabled while you are alive]",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/pilgrim.png",
-      "https://greedy.antihype.space/icons/greedier/pilgrim_g.png",
-      "https://greedy.antihype.space/icons/greedier/pilgrim_e.png"
+      "https://greedy.antihype.space/icons/greedier/pilgrim.webp",
+      "https://greedy.antihype.space/icons/greedier/pilgrim_g.webp",
+      "https://greedy.antihype.space/icons/greedier/pilgrim_e.webp"
     ],
     "edition": "gwb",
     "flavor": "Long roads make friends of strange fellows and faiths."
@@ -57,8 +57,8 @@
     "team": "townsfolk",
     "ability": "If at least one of your alive neighbors is a Minion, you can't die.",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/skaldi_g.png",
-      "https://greedy.antihype.space/icons/greedier/skaldi_e.png"
+      "https://greedy.antihype.space/icons/greedier/skaldi_g.webp",
+      "https://greedy.antihype.space/icons/greedier/skaldi_e.webp"
     ],
     "edition": "gwb",
     "flavor": "The harsh winds of the North gloss my lips. My skin bears no ill intent to the force of nature it's encompassed by every day. To be cold, is to be me.",
@@ -72,8 +72,8 @@
     "team": "outsider",
     "ability": "Each night*, you become the alignment of the recently killed executee.",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/sympath_g.png",
-      "https://greedy.antihype.space/icons/greedier/sympath_e.png"
+      "https://greedy.antihype.space/icons/greedier/sympath_g.webp",
+      "https://greedy.antihype.space/icons/greedier/sympath_e.webp"
     ],
     "edition": "gwb",
     "flavor": "I feel your pain, let me join you.",
@@ -89,8 +89,8 @@
     "team": "minion",
     "ability": "Each night, choose a player (different from last night): they learn this & you learn their information instead of them. If a player is mad about being watched, they might die.",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/watcher_e.png",
-      "https://greedy.antihype.space/icons/greedier/watcher_g.png"
+      "https://greedy.antihype.space/icons/greedier/watcher_e.webp",
+      "https://greedy.antihype.space/icons/greedier/watcher_g.webp"
     ],
     "edition": "gwb",
     "flavor": "He was never meant to be there...He was only ever meant to watch",

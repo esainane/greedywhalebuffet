@@ -2,8 +2,8 @@
   {
     "id": "portiafeatherington",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/portiafeatherington_g.png",
-      "https://greedy.antihype.space/icons/greedier/portiafeatherington_e.png"
+      "https://greedy.antihype.space/icons/greedier/portiafeatherington_g.webp",
+      "https://greedy.antihype.space/icons/greedier/portiafeatherington_e.webp"
     ],
     "otherNightReminder": "They swap alignment. Show the *YOU ARE* info token & give a thumb signal.",
     "name": "Portia Featherington Ω",
@@ -15,8 +15,8 @@
   {
     "id": "baffler",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/baffler_e.png",
-      "https://greedy.antihype.space/icons/greedier/baffler_g.png"
+      "https://greedy.antihype.space/icons/greedier/baffler_e.webp",
+      "https://greedy.antihype.space/icons/greedier/baffler_g.webp"
     ],
     "firstNightReminder": "The Baffler chooses a player. :reminder: Put the Baffler to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* & Baffler tokens.",
     "otherNightReminder": "The Baffler chooses a player. :reminder: Put the Baffler to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* & Baffler tokens.",
@@ -37,8 +37,8 @@
   {
     "id": "baroness",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/baroness_e.png",
-      "https://greedy.antihype.space/icons/greedier/baroness_g.png"
+      "https://greedy.antihype.space/icons/greedier/baroness_e.webp",
+      "https://greedy.antihype.space/icons/greedier/baroness_g.webp"
     ],
     "firstNightReminder": "Omit Good Minions from all Minion and Demon Info. Wake each Good Minion. Show the *YOU ARE* info token & give a thumb signal.",
     "otherNightReminder": "The Baroness chooses a player. :reminder:",
@@ -57,7 +57,7 @@
   },
   {
     "id": "monkeyspaw",
-    "image": "https://greedy.antihype.space/icons/greedier/monkeyspaw.png",
+    "image": "https://greedy.antihype.space/icons/greedier/monkeyspaw.webp",
     "firstNightReminder": "Ask a player to potentially make a wish. Run it as possible.",
     "otherNightReminder": "Ask a player to potentially make a wish. Run it as possible.",
     "reminders": [

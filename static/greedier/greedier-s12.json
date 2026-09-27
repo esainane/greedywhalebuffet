@@ -5,7 +5,7 @@
     "team": "loric",
     "ability": "Each day, the player that the Storyteller thinks is the funniest might get a boon.",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/aha.png"
+      "https://greedy.antihype.space/icons/greedier/aha.webp"
     ],
     "edition": "gwb",
     "flavor": "The Masked Fools share a parable about the Aeon: When Aha climbed to the highest branch of the Imaginary Tree, THEY saw the void, the stars operating like machinery, and how meaning bows before nothingness. THEY continued looking until THEY saw a baby fall to the ground and cry. THEY burst into laughter so clear it tore through the universe and still reverberates to this day.",
@@ -19,8 +19,8 @@
     "team": "townsfolk",
     "ability": "Each night, choose 2 players (not yourself): learn whose character goes first alphabetically.",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/archivist_g.png",
-      "https://greedy.antihype.space/icons/greedier/archivist_e.png"
+      "https://greedy.antihype.space/icons/greedier/archivist_g.webp",
+      "https://greedy.antihype.space/icons/greedier/archivist_e.webp"
     ],
     "edition": "gwb",
     "flavor": "These records are impeccably kept. The answer you seek will be here.",
@@ -39,8 +39,8 @@
     "team": "townsfolk",
     "ability": "If you were mad that you were not the Emperor, you can't die.",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/emperor_g.png",
-      "https://greedy.antihype.space/icons/greedier/emperor_e.png"
+      "https://greedy.antihype.space/icons/greedier/emperor_g.webp",
+      "https://greedy.antihype.space/icons/greedier/emperor_e.webp"
     ],
     "edition": "gwb",
     "flavor": "Any man who must say “I am the King” is no true king.",
@@ -55,8 +55,8 @@
     "setup": true,
     "ability": "Each night*, choose a player: they die. You start by choosing a player & character: they become evil & gain that ability. You may be told to reconsider. If this happens 3 times, the Storyteller chooses. [-1 Minion]",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/hawkmoth_e.png",
-      "https://greedy.antihype.space/icons/greedier/hawkmoth_g.png"
+      "https://greedy.antihype.space/icons/greedier/hawkmoth_e.webp",
+      "https://greedy.antihype.space/icons/greedier/hawkmoth_g.webp"
     ],
     "edition": "gwb",
     "flavor": "This is just the beginning, Ladybug. You and Cat Noir may have won this battle, but I will win the war.",
@@ -75,8 +75,8 @@
     "team": "townsfolk",
     "ability": "1 player starts knowing you are the Prince. If an evil player nominates & executes you, a good player becomes the Prince.",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/prince_g.png",
-      "https://greedy.antihype.space/icons/greedier/prince_e.png"
+      "https://greedy.antihype.space/icons/greedier/prince_g.webp",
+      "https://greedy.antihype.space/icons/greedier/prince_e.webp"
     ],
     "edition": "gwb",
     "flavor": "This is my father's land to rule over! How dare these damned demons try take what has been destined to be mine!",
@@ -95,8 +95,8 @@
     "team": "townsfolk",
     "ability": "Each night, choose any number of players: if all are your alignment, they are sober & healthy until dusk. A chosen opposing player might learn who you are.",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/songstress_g.png",
-      "https://greedy.antihype.space/icons/greedier/songstress_e.png"
+      "https://greedy.antihype.space/icons/greedier/songstress_g.webp",
+      "https://greedy.antihype.space/icons/greedier/songstress_e.webp"
     ],
     "edition": "gwb",
     "flavor": "How beautiful! My beautiful melodies have touched the hearts of Ravenswood Bluff. May you rejoice forever in song and dance.",

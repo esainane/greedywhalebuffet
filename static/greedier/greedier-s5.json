@@ -2,8 +2,8 @@
   {
     "id": "bingbong",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/bingbong_g.png",
-      "https://greedy.antihype.space/icons/greedier/bingbong_e.png"
+      "https://greedy.antihype.space/icons/greedier/bingbong_g.webp",
+      "https://greedy.antihype.space/icons/greedier/bingbong_e.webp"
     ],
     "reminders": [
       "Real Friend",
@@ -19,8 +19,8 @@
   {
     "id": "secretary",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/secretary_g.png",
-      "https://greedy.antihype.space/icons/greedier/secretary_e.png"
+      "https://greedy.antihype.space/icons/greedier/secretary_g.webp",
+      "https://greedy.antihype.space/icons/greedier/secretary_e.webp"
     ],
     "firstNightReminder": "Show the character tokens of the players marked *KNOW*.",
     "reminders": [
@@ -36,8 +36,8 @@
   {
     "id": "quitter",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/quitter_g.png",
-      "https://greedy.antihype.space/icons/greedier/quitter_e.png"
+      "https://greedy.antihype.space/icons/greedier/quitter_g.webp",
+      "https://greedy.antihype.space/icons/greedier/quitter_e.webp"
     ],
     "firstNightReminder": "The Quitter chooses a player. :reminder:",
     "reminders": [
@@ -53,9 +53,9 @@
   {
     "id": "chocolatier",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/chocolatier.png",
-      "https://greedy.antihype.space/icons/greedier/chocolatier_g.png",
-      "https://greedy.antihype.space/icons/greedier/chocolatier_e.png"
+      "https://greedy.antihype.space/icons/greedier/chocolatier.webp",
+      "https://greedy.antihype.space/icons/greedier/chocolatier_g.webp",
+      "https://greedy.antihype.space/icons/greedier/chocolatier_e.webp"
     ],
     "firstNightReminder": "Tell them 2 phrases & what happens if they say each phrase.",
     "reminders": [

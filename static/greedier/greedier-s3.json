@@ -2,8 +2,8 @@
   {
     "id": "immortalized",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/immortalized_g.png",
-      "https://greedy.antihype.space/icons/greedier/immortalized_e.png"
+      "https://greedy.antihype.space/icons/greedier/immortalized_g.webp",
+      "https://greedy.antihype.space/icons/greedier/immortalized_e.webp"
     ],
     "otherNightReminder": "If Immortalized died, wake them. Show the *YOU ARE* info token, the Immortalized character token, and a Townsfolk token. If necessary, swap their character token. :reminder:",
     "reminders": [
@@ -32,8 +32,8 @@
   {
     "id": "pathologist",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/pathologist_g.png",
-      "https://greedy.antihype.space/icons/greedier/pathologist_e.png"
+      "https://greedy.antihype.space/icons/greedier/pathologist_g.webp",
+      "https://greedy.antihype.space/icons/greedier/pathologist_e.webp"
     ],
     "reminders": [
       "Chosen"
@@ -48,8 +48,8 @@
   {
     "id": "hypochondriac",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/hypochondriac_g.png",
-      "https://greedy.antihype.space/icons/greedier/hypochondriac_e.png"
+      "https://greedy.antihype.space/icons/greedier/hypochondriac_g.webp",
+      "https://greedy.antihype.space/icons/greedier/hypochondriac_e.webp"
     ],
     "firstNightReminder": "Show the *YOU ARE*, Hypochondriac, and a Townsfolk token. If necessary, swap their character token. :reminder:",
     "name": "Hypochondriac Ω",
@@ -75,8 +75,8 @@
   {
     "id": "lolth",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/lolth_e.png",
-      "https://greedy.antihype.space/icons/greedier/lolth_g.png"
+      "https://greedy.antihype.space/icons/greedier/lolth_e.webp",
+      "https://greedy.antihype.space/icons/greedier/lolth_g.webp"
     ],
     "otherNightReminder": "The Lolth chooses a player. :reminder:",
     "reminders": [

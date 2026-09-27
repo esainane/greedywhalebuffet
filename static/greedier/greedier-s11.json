@@ -5,8 +5,8 @@
     "team": "townsfolk",
     "ability": "Each night, you learn two statements & choose one: it becomes true (if not true already).",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/advisor_g.png",
-      "https://greedy.antihype.space/icons/greedier/advisor_e.png"
+      "https://greedy.antihype.space/icons/greedier/advisor_g.webp",
+      "https://greedy.antihype.space/icons/greedier/advisor_e.webp"
     ],
     "edition": "gwb",
     "flavor": "It comes down to this, so it's up to you. All that's left: choose right.",
@@ -21,8 +21,8 @@
     "team": "minion",
     "ability": "If a good player was executed today, their Townsfolk neighbors are poisoned tonight & tomorrow day.",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/corpseeater_e.png",
-      "https://greedy.antihype.space/icons/greedier/corpseeater_g.png"
+      "https://greedy.antihype.space/icons/greedier/corpseeater_e.webp",
+      "https://greedy.antihype.space/icons/greedier/corpseeater_g.webp"
     ],
     "edition": "gwb",
     "flavor": "Munch munch",
@@ -40,8 +40,8 @@
     "team": "townsfolk",
     "ability": "If evil would win, but your 1st vote today was for the Demon, your team wins.",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/sol_g.png",
-      "https://greedy.antihype.space/icons/greedier/sol_e.png"
+      "https://greedy.antihype.space/icons/greedier/sol_g.webp",
+      "https://greedy.antihype.space/icons/greedier/sol_e.webp"
     ],
     "edition": "gwb",
     "flavor": "BECAUSE I'M ME!!",
@@ -55,8 +55,8 @@
     "team": "townsfolk",
     "ability": "You start knowing how many sources of drunkenness & poisoning are in play.",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/trainconductor_g.png",
-      "https://greedy.antihype.space/icons/greedier/trainconductor_e.png"
+      "https://greedy.antihype.space/icons/greedier/trainconductor_g.webp",
+      "https://greedy.antihype.space/icons/greedier/trainconductor_e.webp"
     ],
     "edition": "gwb",
     "flavor": "Next stop Ravenwoods Bluff!",
@@ -75,8 +75,8 @@
     "team": "minion",
     "ability": "Each night*, a player that nominated you yesterday dies, even if you are dead.",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/vengeance_e.png",
-      "https://greedy.antihype.space/icons/greedier/vengeance_g.png"
+      "https://greedy.antihype.space/icons/greedier/vengeance_e.webp",
+      "https://greedy.antihype.space/icons/greedier/vengeance_g.webp"
     ],
     "edition": "gwb",
     "flavor": "HOW DARE YOU !!!!!",
@@ -93,8 +93,8 @@
     "team": "townsfolk",
     "ability": "Each night*, learn which players died. Once per game, you may choose 1 of them: they live & you die instead.",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/veteran_g.png",
-      "https://greedy.antihype.space/icons/greedier/veteran_e.png"
+      "https://greedy.antihype.space/icons/greedier/veteran_g.webp",
+      "https://greedy.antihype.space/icons/greedier/veteran_e.webp"
     ],
     "edition": "gwb",
     "flavor": "I have fought my battles. These children, they are the future!!",

@@ -2,8 +2,8 @@
   {
     "id": "informant",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/informant_g.png",
-      "https://greedy.antihype.space/icons/greedier/informant_e.png"
+      "https://greedy.antihype.space/icons/greedier/informant_g.webp",
+      "https://greedy.antihype.space/icons/greedier/informant_e.webp"
     ],
     "firstNightReminder": "Point to a player who woke tonight.",
     "otherNightReminder": "Point to a player who woke tonight.",
@@ -17,8 +17,8 @@
   {
     "id": "armageddon",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/armageddon_e.png",
-      "https://greedy.antihype.space/icons/greedier/armageddon_g.png"
+      "https://greedy.antihype.space/icons/greedier/armageddon_e.webp",
+      "https://greedy.antihype.space/icons/greedier/armageddon_g.webp"
     ],
     "otherNightReminder": "If tonight is Armageddon night: the Armageddon chooses 3 players. If a good player is not among them, shake your head & they choose again. :reminder: :reminder: :reminder: The 3 chosen players can't die or change alignment, even from the Assassin. Kill all players not *SHELTERED*.",
     "reminders": [
@@ -52,8 +52,8 @@
   {
     "id": "arsonist",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/arsonist_e.png",
-      "https://greedy.antihype.space/icons/greedier/arsonist_g.png"
+      "https://greedy.antihype.space/icons/greedier/arsonist_e.webp",
+      "https://greedy.antihype.space/icons/greedier/arsonist_g.webp"
     ],
     "firstNightReminder": "The Arsonist might choose a player. :reminder:",
     "otherNightReminder": "The Arsonist might choose a player. :reminder: If the Arsonist chose no one, kill all players that are poisoned, even if not poisoned by the Arsonist. :reminder: Then, players the Arsonist was poisoning become Healthy. :reminder:",
@@ -84,9 +84,9 @@
   {
     "id": "warden",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/warden.png",
-      "https://greedy.antihype.space/icons/greedier/warden_g.png",
-      "https://greedy.antihype.space/icons/greedier/warden_e.png"
+      "https://greedy.antihype.space/icons/greedier/warden.webp",
+      "https://greedy.antihype.space/icons/greedier/warden_g.webp",
+      "https://greedy.antihype.space/icons/greedier/warden_e.webp"
     ],
     "otherNightReminder": "The Warden chooses a player. :reminder: Wake the target, and allow them to communicate. At any point, the Warden may indicate they want the target to die. :reminder: If so, they die right before dawn. :reminder:",
     "reminders": [

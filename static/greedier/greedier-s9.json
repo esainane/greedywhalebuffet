@@ -2,8 +2,8 @@
   {
     "id": "buffetsgourmet",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/buffetsgourmet_g.png",
-      "https://greedy.antihype.space/icons/greedier/buffetsgourmet_e.png"
+      "https://greedy.antihype.space/icons/greedier/buffetsgourmet_g.webp",
+      "https://greedy.antihype.space/icons/greedier/buffetsgourmet_e.webp"
     ],
     "firstNightReminder": "The Buffet's Gourmet chooses a character type. :reminder: Show five not-in-play character tokens of that type.",
     "otherNightReminder": "The Buffet's Gourmet chooses a different character type. :reminder: Show five not-in-play character tokens of that type.",
@@ -23,8 +23,8 @@
   {
     "id": "hero",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/hero_g.png",
-      "https://greedy.antihype.space/icons/greedier/hero_e.png"
+      "https://greedy.antihype.space/icons/greedier/hero_g.webp",
+      "https://greedy.antihype.space/icons/greedier/hero_e.webp"
     ],
     "reminders": [
       "Safe",
@@ -39,8 +39,8 @@
   {
     "id": "suitor",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/suitor_g.png",
-      "https://greedy.antihype.space/icons/greedier/suitor_e.png"
+      "https://greedy.antihype.space/icons/greedier/suitor_g.webp",
+      "https://greedy.antihype.space/icons/greedier/suitor_e.webp"
     ],
     "firstNightReminder": "The Suitor chooses a character. Give a thumb signal. :reminder:",
     "otherNightReminder": "The Suitor chooses a character. If it's not in play, give a thumbs down signal. If it's in play and the 1st time, give a thumbs up signal. :reminder: Otherwise, give a thumbs down signal. :reminder:",
@@ -58,8 +58,8 @@
   {
     "id": "racketeer",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/racketeer_g.png",
-      "https://greedy.antihype.space/icons/greedier/racketeer_e.png"
+      "https://greedy.antihype.space/icons/greedier/racketeer_g.webp",
+      "https://greedy.antihype.space/icons/greedier/racketeer_e.webp"
     ],
     "firstNightReminder": "Give a finger signal.",
     "otherNightReminder": "Give a finger signal.",
@@ -77,8 +77,8 @@
   {
     "id": "dullahan",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/dullahan_e.png",
-      "https://greedy.antihype.space/icons/greedier/dullahan_g.png"
+      "https://greedy.antihype.space/icons/greedier/dullahan_e.webp",
+      "https://greedy.antihype.space/icons/greedier/dullahan_g.webp"
     ],
     "otherNightReminder": "The Dullahan chooses a player. :reminder:",
     "reminders": [
@@ -95,8 +95,8 @@
   {
     "id": "sinofgluttony",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/sinofgluttony_e.png",
-      "https://greedy.antihype.space/icons/greedier/sinofgluttony_g.png"
+      "https://greedy.antihype.space/icons/greedier/sinofgluttony_e.webp",
+      "https://greedy.antihype.space/icons/greedier/sinofgluttony_g.webp"
     ],
     "firstNightReminder": "Wake the Sin of Gluttony. :reminder: They choose 3 players. :reminder: :reminder: :reminder:",
     "otherNightReminder": "If the Sin of Gluttony did not wake last night, wake the Sin of Gluttony. :reminder: They choose 3 players. :reminder: :reminder: :reminder:",

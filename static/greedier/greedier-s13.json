@@ -3,8 +3,8 @@
     "id": "clergyman",
     "name": "Clergyman Ω",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/clergyman_g.png",
-      "https://greedy.antihype.space/icons/greedier/clergyman_e.png"
+      "https://greedy.antihype.space/icons/greedier/clergyman_g.webp",
+      "https://greedy.antihype.space/icons/greedier/clergyman_e.webp"
     ],
     "team": "townsfolk",
     "setup": true,
@@ -45,8 +45,8 @@
     "id": "yesdashii",
     "name": "Yes Dashii Ω",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/yesdashii_g.png",
-      "https://greedy.antihype.space/icons/greedier/yesdashii_e.png"
+      "https://greedy.antihype.space/icons/greedier/yesdashii_g.webp",
+      "https://greedy.antihype.space/icons/greedier/yesdashii_e.webp"
     ],
     "team": "townsfolk",
     "ability": "Your 2 Townsfolk neighbors are sober and healthy.",
@@ -74,8 +74,8 @@
     "id": "joe",
     "name": "Joe Ω",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/joe_e.png",
-      "https://greedy.antihype.space/icons/greedier/joe_g.png"
+      "https://greedy.antihype.space/icons/greedier/joe_e.webp",
+      "https://greedy.antihype.space/icons/greedier/joe_g.webp"
     ],
     "team": "minion",
     "ability": "Once per game, if 5 or more players live (Travellers don't count) and you publicly claim to be the Joe, you will be executed before dusk.",
@@ -88,8 +88,8 @@
     "id": "sniper",
     "name": "Sniper Ω",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/sniper_e.png",
-      "https://greedy.antihype.space/icons/greedier/sniper_g.png"
+      "https://greedy.antihype.space/icons/greedier/sniper_e.webp",
+      "https://greedy.antihype.space/icons/greedier/sniper_g.webp"
     ],
     "firstNight": 70,
     "otherNight": 91,

@@ -2,8 +2,8 @@
   {
     "id": "jester",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/jester_g.png",
-      "https://greedy.antihype.space/icons/greedier/jester_e.png"
+      "https://greedy.antihype.space/icons/greedier/jester_g.webp",
+      "https://greedy.antihype.space/icons/greedier/jester_e.webp"
     ],
     "reminders": [
       "Claimed"
@@ -16,8 +16,8 @@
   {
     "id": "hypnotist",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/hypnotist_e.png",
-      "https://greedy.antihype.space/icons/greedier/hypnotist_g.png"
+      "https://greedy.antihype.space/icons/greedier/hypnotist_e.webp",
+      "https://greedy.antihype.space/icons/greedier/hypnotist_g.webp"
     ],
     "firstNightReminder": "The Hypnotist chooses a player. :reminder: That player might receive false night cards.",
     "otherNightReminder": "The Hypnotist chooses a player. :reminder: Any players marked *HYPNOTIZED* might receive false night cards.",
@@ -40,8 +40,8 @@
   {
     "id": "unfathomable",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/unfathomable_e.png",
-      "https://greedy.antihype.space/icons/greedier/unfathomable_g.png"
+      "https://greedy.antihype.space/icons/greedier/unfathomable_e.webp",
+      "https://greedy.antihype.space/icons/greedier/unfathomable_g.webp"
     ],
     "firstNightReminder": "The Unfathomable might choose a player they would prefer to die. :reminder:",
     "otherNightReminder": "The Unfathomable might choose a player they would prefer to die. :reminder:",

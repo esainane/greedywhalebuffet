@@ -2,8 +2,8 @@
   {
     "id": "crow",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/crow_winningclub.png",
-      "https://greedy.antihype.space/icons/greedier/crow_e_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/crow_g.png",
+      "https://greedy.antihype.space/icons/greedier/crow_e.png"
     ],
     "otherNightReminder": "If the Crow died, wake them. Show a character token.",
     "remindersGlobal": [
@@ -33,8 +33,8 @@
   {
     "id": "sybil",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/sybil_winningclub.png",
-      "https://greedy.antihype.space/icons/greedier/sybil_g_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/sybil_e.png",
+      "https://greedy.antihype.space/icons/greedier/sybil_g.png"
     ],
     "otherNightReminder": "The Sybil chooses a player & a word. :reminder: Put them to sleep. Do whatever is needed relating to the word. Announce the Sybil has declared the word.",
     "reminders": [
@@ -53,8 +53,8 @@
   {
     "id": "truthsayer",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/truthsayer_winningclub.png",
-      "https://greedy.antihype.space/icons/greedier/truthsayer_g_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/truthsayer_e.png",
+      "https://greedy.antihype.space/icons/greedier/truthsayer_g.png"
     ],
     "reminders": [
       "No Ability",
@@ -86,8 +86,8 @@
   {
     "id": "theancientone",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/theancientone_winningclub.png",
-      "https://greedy.antihype.space/icons/greedier/ancient_one_g_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/theancientone_e.png",
+      "https://greedy.antihype.space/icons/greedier/theancientone_g.png"
     ],
     "firstNight": 18,
     "firstNightReminder": "Skip Demon Info. During Minion Info, show the *THIS IS THE DEMON* & Ancient One tokens, and point to the two Townsfolk vessels. :reminder: :reminder:",

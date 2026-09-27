@@ -5,9 +5,9 @@
     "team": "traveller",
     "ability": "Each night, choose a player (not yourself) & offer a boon or curse. They may accept.",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/q0pl1q7nky2b6s44t456qw9o.png",
-      "https://greedy.antihype.space/icons/greedier/uhxluwi1fqn8kfql1qt7pu95.png",
-      "https://greedy.antihype.space/icons/greedier/culc6x5z76hpfcmc4ixh8qi2.png"
+      "https://greedy.antihype.space/icons/greedier/bestower.png",
+      "https://greedy.antihype.space/icons/greedier/bestower_g.png",
+      "https://greedy.antihype.space/icons/greedier/bestower_e.png"
     ],
     "edition": "gwb",
     "flavor": "I bestow upon you this gift.",
@@ -27,9 +27,9 @@
     "team": "traveller",
     "ability": "Each day, you publicly choose a player: swap seats with them. If you swap seats with a player of your alignment, you can't die until you swap again. One opposing player registers as your alignment to your ability.",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/kj0kg574vbpjugzaowo9fhxl.png",
-      "https://greedy.antihype.space/icons/greedier/ira66u7q6eriz6ttg22cjr98.png",
-      "https://greedy.antihype.space/icons/greedier/ubsox5fsgh4g97sr6zuthyso.png"
+      "https://greedy.antihype.space/icons/greedier/cat.png",
+      "https://greedy.antihype.space/icons/greedier/cat_g.png",
+      "https://greedy.antihype.space/icons/greedier/cat_e.png"
     ],
     "edition": "gwb",
     "flavor": "Meow.",
@@ -44,9 +44,9 @@
     "team": "traveller",
     "ability": "Each day, you may visit the Storyteller to make a decision or learn information relating to a Loric or Fabled. [+0 or +1 Loric or Fabled while you are alive]",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/bshoboh4z3pkev41ubvsrri0.png",
-      "https://greedy.antihype.space/icons/greedier/sm2gsmg5yi5413ag5fqeqwmq.png",
-      "https://greedy.antihype.space/icons/greedier/o24xi9ln6pbq5bqagvi8ffbq.png"
+      "https://greedy.antihype.space/icons/greedier/pilgrim.png",
+      "https://greedy.antihype.space/icons/greedier/pilgrim_g.png",
+      "https://greedy.antihype.space/icons/greedier/pilgrim_e.png"
     ],
     "edition": "gwb",
     "flavor": "Long roads make friends of strange fellows and faiths."
@@ -57,8 +57,8 @@
     "team": "townsfolk",
     "ability": "If at least one of your alive neighbors is a Minion, you can't die.",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/bfgh8rf0qwdq7dflqp87jtx8.png",
-      "https://greedy.antihype.space/icons/greedier/y339ktxej40lgja5xw3hatt2.png"
+      "https://greedy.antihype.space/icons/greedier/skaldi_g.png",
+      "https://greedy.antihype.space/icons/greedier/skaldi_e.png"
     ],
     "edition": "gwb",
     "flavor": "The harsh winds of the North gloss my lips. My skin bears no ill intent to the force of nature it's encompassed by every day. To be cold, is to be me.",
@@ -72,8 +72,8 @@
     "team": "outsider",
     "ability": "Each night*, you become the alignment of the recently killed executee.",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/rulznb3340pju4ce154a3gda.png",
-      "https://greedy.antihype.space/icons/greedier/mpl9wq7o9daoobjfyoky76gl.png"
+      "https://greedy.antihype.space/icons/greedier/sympath_g.png",
+      "https://greedy.antihype.space/icons/greedier/sympath_e.png"
     ],
     "edition": "gwb",
     "flavor": "I feel your pain, let me join you.",
@@ -89,8 +89,8 @@
     "team": "minion",
     "ability": "Each night, choose a player (different from last night): they learn this & you learn their information instead of them. If a player is mad about being watched, they might die.",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/aj9jfoomqon0fj0mk5kxbrwk.png",
-      "https://greedy.antihype.space/icons/greedier/fhbl0hte0f1kuo3yfdut8wnn.png"
+      "https://greedy.antihype.space/icons/greedier/watcher_e.png",
+      "https://greedy.antihype.space/icons/greedier/watcher_g.png"
     ],
     "edition": "gwb",
     "flavor": "He was never meant to be there...He was only ever meant to watch",

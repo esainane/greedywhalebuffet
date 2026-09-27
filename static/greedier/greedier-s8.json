@@ -2,8 +2,8 @@
   {
     "id": "eavesdropper",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/eavesdropper_winningclub.png",
-      "https://greedy.antihype.space/icons/greedier/eavesdropper_e_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/eavesdropper_g.png",
+      "https://greedy.antihype.space/icons/greedier/eavesdropper_e.png"
     ],
     "name": "Eavesdropper Ω",
     "team": "townsfolk",
@@ -13,8 +13,8 @@
   {
     "id": "journalist",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/journalist_winningclub.png",
-      "https://greedy.antihype.space/icons/greedier/journalist_evil_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/journalist_g.png",
+      "https://greedy.antihype.space/icons/greedier/journalist_e.png"
     ],
     "otherNightReminder": "The Journalist chooses 2 players. :reminder: :reminder: Put the Journalist to sleep. Wake the Demon. Show the *THIS CHARACTER SELECTED YOU* info token, the Journalist token, and point to the two players marked *CHOSEN*. If the Demon chooses any tonight, wake the Journalist to learn a true statement for each chosen.",
     "name": "Journalist Ω",
@@ -30,8 +30,8 @@
   {
     "id": "lisarinna",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/lisarinna_winningclub.png",
-      "https://greedy.antihype.space/icons/greedier/lisarinna_e_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/lisarinna_g.png",
+      "https://greedy.antihype.space/icons/greedier/lisarinna_e.png"
     ],
     "otherNightReminder": "Lisa Rinna might choose a player. :reminder: :reminder: :reminder:",
     "name": "Lisa Rinna Ω",
@@ -49,8 +49,8 @@
   {
     "id": "copycat",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/copycat_winningclub.png",
-      "https://greedy.antihype.space/icons/greedier/copycat_e_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/copycat_g.png",
+      "https://greedy.antihype.space/icons/greedier/copycat_e.png"
     ],
     "firstNightReminder": "Show the *YOU ARE* info token, the Copycat character token, and a Townsfolk token. If necessary, swap their character token. :reminder:",
     "otherNightReminder": "If they die, make the in-play Townsfolk a drunk Copycat.",
@@ -77,8 +77,8 @@
   {
     "id": "realtor",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/realtor_winningclub.png",
-      "https://greedy.antihype.space/icons/greedier/realtor_e_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/realtor_g.png",
+      "https://greedy.antihype.space/icons/greedier/realtor_e.png"
     ],
     "reminders": [
       "Used"
@@ -92,8 +92,8 @@
   {
     "id": "potionseller",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/potionseller_winningclub.png",
-      "https://greedy.antihype.space/icons/greedier/potionsellerg_winningclub.png"
+      "https://greedy.antihype.space/icons/greedier/potionseller_e.png",
+      "https://greedy.antihype.space/icons/greedier/potionseller_g.png"
     ],
     "firstNightReminder": "The Potion Seller names up to 5 potions. The Potion Seller chooses a player. :reminder: Put the Potion Seller to sleep. Wake the target. They must choose 1 potion. If this is the last potion, the Potion Seller loses their ability. :reminder:",
     "otherNightReminder": "The Potion Seller chooses a player. :reminder: Put the Potion Seller to sleep. Wake the target. They must choose 1 remaining potion. If this is the last potion, the Potion Seller loses their ability. :reminder:",

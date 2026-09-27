@@ -1,17 +1,32 @@
+@font-face {
+	font-family: 'Pirata One';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('../../static/fonts/PirataOne-Regular.woff2') format('woff2');
+}
+
 :root {
 	color-scheme: dark;
-	--bg: #0f1418;
-	--bg-mid: #162128;
-	--bg-strong: #1f2d35;
-	--panel: rgba(17, 24, 29, 0.78);
-	--panel-border: rgba(196, 222, 214, 0.14);
-	--text: #edf3ee;
-	--muted: #adc0b8;
-	--accent-light: #3cb091;
-	--accent: #4bc2ae;
-	--accent-strong: #8ce4d6;
+	--bg: #061313;
+	--bg-mid: #0a2323;
+	--bg-strong: #102d2d;
+	--page-surface: rgba(5, 20, 21, 0.88);
+	--panel: transparent;
+	--gold-dark: #5f4323;
+	--gold: #a47d42;
+	--gold-light: #d3bd7b;
+	--gold-muted: rgba(184, 147, 82, 0.55);
+	--gold-rule: linear-gradient(90deg, transparent, var(--gold-dark) 8%, var(--gold-light) 38%, var(--gold) 62%, var(--gold-dark) 92%, transparent);
+	--panel-border: var(--gold-muted);
+	--text: #e9eee8;
+	--muted: #adbbb3;
+	--accent-light: #48aa9b;
+	--accent: #287f75;
+	--accent-strong: #76d1c1;
+	--link: #d3bd7b;
 	--success: #2db567;
-	--warning: #f7cf54;
+	--warning: #e3bc61;
 	--danger: #ff8d6a;
 	--homebrew-purple: #bea7ff;
 	--homebrew-purple-muted: #8870ba;
@@ -24,45 +39,51 @@
 	--team-traveller-end: #75b9ff;
 	--team-fabled: #f7cf54;
 	--team-loric: #65d984;
-	--surface: rgba(255, 255, 255, 0.05);
-	--surface-strong: rgba(255, 255, 255, 0.08);
-	--surface-border: rgba(196, 222, 214, 0.12);
-	--button-text: #081311;
-	--shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+	--surface: rgba(21, 62, 60, 0.34);
+	--surface-strong: rgba(27, 77, 73, 0.48);
+	--surface-border: rgba(184, 147, 82, 0.42);
+	--button-text: #f5ead0;
+	--shadow: 0 20px 58px rgba(0, 0, 0, 0.42);
 	--content-max-width: 1100px;
 	--desktop-nav-width: 250px;
 	--radius-pill: 999px;
 	--visually-hidden-size: 1px;
 	--social-link-text: #f2f5ff;
-	--github-start: #111827;
-	--github-end: #374151;
+	--github-start: #101817;
+	--github-end: #263d39;
 	--github-shadow: rgba(17, 24, 39, 0.28);
 	--discord-start: #5865f2;
 	--discord-end: #7480f7;
 	--discord-shadow: rgba(88, 101, 242, 0.35);
 	--spreadsheet-text: #f3fff4;
-	--spreadsheet-start: #218553;
-	--spreadsheet-end: #2aa56a;
+	--spreadsheet-start: #1d675b;
+	--spreadsheet-end: #338f7f;
 	--spreadsheet-shadow: rgba(33, 133, 83, 0.34);
 	--danger-button-text: #fff7f5;
-	--danger-button-start: #b49f28;
-	--danger-button-end: #a87323;
+	--danger-button-start: #8c6330;
+	--danger-button-end: #67401f;
 	--danger-button-shadow: rgba(183, 77, 44, 0.34);
 }
 
 @media (prefers-color-scheme: light) {
 	:root {
 		color-scheme: light;
-		--bg: #f5efe3;
-		--bg-mid: #f9f5ed;
-		--bg-strong: #e8dcc7;
-		--panel: rgba(255, 252, 245, 0.78);
-		--panel-border: rgba(88, 57, 24, 0.16);
-		--text: #2e2216;
-		--muted: #6d5a45;
-		--accent-light: #6ce0d1;
-		--accent: #0d6b5f;
-		--accent-strong: #084b43;
+		--bg: #102d2d;
+		--bg-mid: #16403d;
+		--bg-strong: #e0d6bc;
+		--page-surface: rgba(226, 219, 192, 0.92);
+		--gold-dark: #62431f;
+		--gold: #98713a;
+		--gold-light: #c7a965;
+		--gold-muted: rgba(118, 79, 33, 0.6);
+		--panel: transparent;
+		--panel-border: var(--gold-muted);
+		--text: #182c28;
+		--muted: #52635b;
+		--accent-light: #2d8a7c;
+		--accent: #176b61;
+		--accent-strong: #0d514b;
+		--link: #704d1f;
 		--success: #0c8a4a;
 		--warning: #9f7700;
 		--danger: #b74d2c;
@@ -77,10 +98,10 @@
 		--team-traveller-end: #0d66c5;
 		--team-fabled: #806000;
 		--team-loric: #16813c;
-		--surface: rgba(255, 255, 255, 0.72);
-		--surface-strong: rgba(255, 255, 255, 0.82);
-		--surface-border: rgba(88, 57, 24, 0.1);
+		--surface: rgba(255, 252, 235, 0.54);
+		--surface-strong: rgba(255, 252, 235, 0.72);
+		--surface-border: rgba(118, 79, 33, 0.36);
 		--button-text: #f9f5ed;
-		--shadow: 0 24px 70px rgba(75, 49, 22, 0.15);
+		--shadow: 0 20px 54px rgba(15, 35, 31, 0.2);
 	}
 }

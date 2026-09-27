@@ -13,3 +13,27 @@ test('built application initializes', async ({ page }) => {
 
   expect(errors).toEqual([]);
 });
+
+test('responsive layouts do not overflow horizontally', async ({ page }) => {
+  await page.goto('/');
+
+  for (const viewport of [
+    { width: 390, height: 844 },
+    { width: 768, height: 1024 },
+    { width: 1280, height: 900 },
+  ]) {
+    await page.setViewportSize(viewport);
+
+    const dimensions = await page.evaluate(() => {
+      const heading = document.querySelector<HTMLElement>('h1')!;
+      return {
+        documentWidth: document.documentElement.scrollWidth,
+        viewportWidth: document.documentElement.clientWidth,
+        headingRight: heading.getBoundingClientRect().right,
+      };
+    });
+
+    expect(dimensions.documentWidth).toBeLessThanOrEqual(dimensions.viewportWidth);
+    expect(dimensions.headingRight).toBeLessThanOrEqual(dimensions.viewportWidth);
+  }
+});

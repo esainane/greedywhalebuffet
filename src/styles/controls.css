@@ -168,7 +168,7 @@
 
 button {
 	appearance: none;
-	border: 0;
+	border: 1px solid var(--gold-muted);
 	border-radius: var(--radius-pill);
 	padding: 0.9rem 1.25rem;
 	font: inherit;
@@ -189,7 +189,7 @@ button.secondary {
 	color: var(--text);
 	background: var(--surface-strong);
 	box-shadow: none;
-	border: 1px solid var(--surface-border);
+	border: 1px solid var(--gold-muted);
 }
 
 button.danger {

@@ -16,7 +16,7 @@
 	.panel,
 	.hero {
 		padding: 1.15rem;
-		border-radius: 20px;
+		border-radius: 0;
 	}
 
 	h1 {

@@ -1,7 +1,21 @@
 h1 {
 	margin-bottom: 0.75rem;
-	font-size: clamp(2rem, 5vw, 3.8rem);
-	line-height: 0.95;
+	font-family: 'Pirata One', Georgia, serif;
+	font-size: clamp(3.3rem, 8vw, 6.3rem);
+	font-weight: 400;
+	letter-spacing: 0.025em;
+	line-height: 0.88;
+	color: #3c9b8e;
+	background: linear-gradient(180deg, #76cbb8 5%, #2f8d82 50%, #155650 92%);
+	background-clip: text;
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	-webkit-text-stroke: 1px var(--gold-light);
+	paint-order: stroke fill;
+	filter:
+		drop-shadow(1px 1px 0 var(--gold-dark))
+		drop-shadow(2px 2px 0 rgba(28, 18, 9, 0.85))
+		drop-shadow(0 7px 10px rgba(0, 0, 0, 0.34));
 }
 
 .lede {

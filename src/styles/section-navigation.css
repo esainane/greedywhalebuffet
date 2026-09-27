@@ -1,9 +1,11 @@
 .section-nav {
-	background: var(--panel);
-	backdrop-filter: blur(10px);
-	border: 1px solid var(--panel-border);
-	box-shadow: var(--shadow);
-	border-radius: 20px;
+	background: color-mix(in srgb, var(--page-surface) 88%, var(--bg-mid));
+	backdrop-filter: blur(8px);
+	border: 0;
+	border-top: 1px solid var(--gold-light);
+	border-bottom: 1px solid var(--gold-dark);
+	box-shadow: none;
+	border-radius: 0;
 }
 
 .section-nav-title {
@@ -32,7 +34,7 @@
 	display: block;
 	width: 100%;
 	text-align: left;
-	border-radius: 12px;
+	border-radius: 0;
 	padding: 0.65rem 0.75rem;
 	border: 1px solid transparent;
 	box-shadow: none;
@@ -62,8 +64,9 @@
 .section-nav-chip.is-active,
 .section-nav-sheet-link.is-active {
 	border-color: var(--accent-light);
-	background: color-mix(in srgb, var(--accent-light) 18%, var(--surface));
+	background: color-mix(in srgb, var(--accent-light) 22%, var(--surface));
 	color: var(--accent-strong);
+	box-shadow: inset 3px 0 0 var(--gold-light);
 }
 
 .section-nav-tablet {
@@ -116,11 +119,11 @@
 
 .section-nav-sheet {
 	width: min(100%, 520px);
-	border-radius: 18px;
+	border-radius: 0;
 	padding: 1rem;
-	background: var(--panel);
+	background: color-mix(in srgb, var(--page-surface) 94%, var(--bg-mid));
 	backdrop-filter: blur(12px);
-	border: 1px solid var(--panel-border);
+	border: 1px solid var(--gold-muted);
 	display: grid;
 	gap: 0.45rem;
 	box-shadow: var(--shadow);

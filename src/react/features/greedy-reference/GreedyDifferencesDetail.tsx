@@ -3,7 +3,7 @@ import type { GreedyDifferenceDetail } from '../../../application/reference-quer
 import { InlineWordDiff } from '../../components/InlineWordDiff.js';
 import { Switch } from '../../components/Switch.js';
 import { splitAbilityText } from './abilityText.js';
-import { AbilityBlock } from './AbilityBlock.js';
+import { ReferenceField } from './ReferenceField.js';
 import { CharacterHeader } from './CharacterHeader.js';
 import { DetailListState } from './DetailListState.js';
 import { ReferenceCard } from './ReferenceCard.js';
@@ -59,7 +59,7 @@ export function GreedyDifferencesDetail(props: GreedyDifferencesDetailProps): Re
 							key={item.character.id}
 							header={<CharacterHeader character={item.character} />}
 						>
-							<AbilityBlock label="Ability">
+							<ReferenceField label="Ability">
 								<p>
 									<InlineWordDiff
 										before={officialParts.mainText}
@@ -75,9 +75,9 @@ export function GreedyDifferencesDetail(props: GreedyDifferencesDetailProps): Re
 										/>
 									) : null}
 								</p>
-							</AbilityBlock>
+							</ReferenceField>
 							{showNonAbilityDifferences && hasNightOrderDifference ? (
-								<AbilityBlock label="Night order">
+								<ReferenceField label="Night order">
 									<p>
 										{item.officialFirstNight !== item.greedyFirstNight ? (
 											<>
@@ -101,10 +101,10 @@ export function GreedyDifferencesDetail(props: GreedyDifferencesDetailProps): Re
 											</>
 										) : null}
 									</p>
-								</AbilityBlock>
+								</ReferenceField>
 							) : null}
 							{showNonAbilityDifferences && hasReminderDifference ? (
-								<AbilityBlock label="Night reminders">
+								<ReferenceField label="Night reminders">
 									<p>
 										{item.officialFirstNightReminder !== item.greedyFirstNightReminder ? (
 											<>
@@ -128,7 +128,7 @@ export function GreedyDifferencesDetail(props: GreedyDifferencesDetailProps): Re
 											</>
 										) : null}
 									</p>
-								</AbilityBlock>
+								</ReferenceField>
 							) : null}
 						</ReferenceCard>
 					);

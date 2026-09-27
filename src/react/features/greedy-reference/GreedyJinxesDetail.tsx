@@ -1,7 +1,7 @@
 import React from 'react';
 import type { GreedyJinxDetail } from '../../../application/reference-queries.js';
 import { InlineWordDiff } from '../../components/InlineWordDiff.js';
-import { AbilityBlock } from './AbilityBlock.js';
+import { ReferenceField } from './ReferenceField.js';
 import { CharacterHeader } from './CharacterHeader.js';
 import { DetailListState } from './DetailListState.js';
 import { ReferenceCard } from './ReferenceCard.js';
@@ -87,10 +87,11 @@ export function GreedyJinxesDetail(props: GreedyJinxesDetailProps): React.JSX.El
 								</div>
 							}
 						>
-							<AbilityBlock
+							<ReferenceField
 								label={status.label}
 								labelClassName={status.labelClassName}
 								className={status.labelClassName}
+								alwaysShowLabel
 							>
 								{isChangedJinx ? (
 									<InlineWordDiff
@@ -101,7 +102,7 @@ export function GreedyJinxesDetail(props: GreedyJinxesDetailProps): React.JSX.El
 								) : (
 									<p>{plainJinxText || 'No jinx text available.'}</p>
 								)}
-							</AbilityBlock>
+							</ReferenceField>
 						</ReferenceCard>
 					);
 				})}

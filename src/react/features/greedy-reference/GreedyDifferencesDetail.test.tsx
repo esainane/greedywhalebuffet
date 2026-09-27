@@ -34,7 +34,38 @@ describe('GreedyDifferencesDetail', () => {
 		);
 
 		expect(html).toContain('Show non-ability differences');
+		expect(html).toContain('Same ability');
+		expect(html).not.toContain('>Ability<');
 		expect(html).not.toContain('Night order');
 		expect(html).not.toContain('Night reminders');
+	});
+
+	it('shows field labels when multiple differences are displayed', () => {
+		const html = renderToStaticMarkup(
+			<GreedyDifferencesDetail
+				items={[
+					{
+						character: {
+							id: 'alpha',
+							name: 'Alpha',
+							team: 'townsfolk',
+							imageUrl: 'alpha.png',
+						},
+						officialAbility: 'Official ability',
+						greedyAbility: 'Greedy ability',
+						officialFirstNight: 1,
+						greedyFirstNight: 2,
+						officialOtherNight: 3,
+						greedyOtherNight: 3,
+					},
+				]}
+				loading={false}
+				showNonAbilityDifferences={true}
+				onShowNonAbilityDifferencesChange={() => {}}
+			/>,
+		);
+
+		expect(html).toContain('>Ability<');
+		expect(html).toContain('>Night order<');
 	});
 });

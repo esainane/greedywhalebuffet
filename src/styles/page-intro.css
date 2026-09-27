@@ -4,7 +4,6 @@ h1 {
 	font-size: clamp(3.3rem, 8vw, 6.3rem);
 	font-weight: 400;
 	letter-spacing: 0.025em;
-	line-height: 0.88;
 	color: #3c9b8e;
 	background: linear-gradient(180deg, #76cbb8 5%, #2f8d82 50%, #155650 92%);
 	background-clip: text;

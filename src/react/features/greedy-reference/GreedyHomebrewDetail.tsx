@@ -1,7 +1,7 @@
 import React from 'react';
 import type { GreedyHomebrewDetail } from '../../../application/reference-queries.js';
 import { splitAbilityText } from './abilityText.js';
-import { AbilityBlock } from './AbilityBlock.js';
+import { ReferenceField } from './ReferenceField.js';
 import { CharacterHeader } from './CharacterHeader.js';
 import { DetailListState } from './DetailListState.js';
 import { ReferenceCard } from './ReferenceCard.js';
@@ -49,7 +49,7 @@ export function GreedyHomebrewDetail(props: GreedyHomebrewDetailProps): React.JS
 							key={item.character.id}
 							header={<CharacterHeader character={item.character} />}
 						>
-							<AbilityBlock label="Ability">
+							<ReferenceField label="Ability">
 								{hasMainText || hasSetupText ? (
 									<p>
 										{hasMainText ? abilityParts.mainText : null}
@@ -60,7 +60,7 @@ export function GreedyHomebrewDetail(props: GreedyHomebrewDetailProps): React.JS
 								) : (
 									<p>No ability text available.</p>
 								)}
-							</AbilityBlock>
+							</ReferenceField>
 						</ReferenceCard>
 					);
 				})}

@@ -1,4 +1,5 @@
 import React from 'react';
+import { ReferenceFields } from './ReferenceField.js';
 
 type ReferenceCardProps = {
 	header: React.ReactNode;
@@ -11,7 +12,7 @@ export function ReferenceCard(props: ReferenceCardProps): React.JSX.Element {
 	return (
 		<article className="reference-card">
 			<header className="reference-header">{header}</header>
-			<div className="reference-body">{children}</div>
+			<ReferenceFields>{children}</ReferenceFields>
 		</article>
 	);
 }

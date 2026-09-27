@@ -11,11 +11,11 @@ describe('GreedyHomebrewDetail', () => {
 					{
 						character: {
 							id: 'alpha',
-							name: 'Alpha',
+							name: 'Alpha Ω',
 							team: 'townsfolk',
 							imageUrl: 'alpha.png',
 						},
-						ability: 'Ability text',
+						ability: 'Ability text [2 Townsfolk]',
 					},
 				]}
 				loading={false}
@@ -27,5 +27,11 @@ describe('GreedyHomebrewDetail', () => {
 		expect(html).toContain('greedier-sort-by-set-detail-label');
 		expect(html.match(/<label/g)?.length ?? 0).toBeGreaterThan(0);
 		expect(html).not.toContain('<label class="inline-switch-control"');
+		expect(html).not.toContain('>Ability<');
+		expect(html).toContain('alt="Alpha"');
+		expect(html).toContain('<h3>Alpha</h3>');
+		expect(html).not.toContain('Ω');
+		expect(html).toContain('Ability text');
+		expect(html).toContain('class="setup-ability"');
 	});
 });

@@ -1255,10 +1255,10 @@
   },
   "gardener",
   {
-    "id": "dealerschoiceclean",
-    "name": "Dealer's Choice Ω",
+    "id": "dealerschoice",
+    "name": "Dealer's Choice",
     "image": [
-      "https://greedy.antihype.space/icons/greedier/dealerschoiceclean.webp"
+      "https://greedy.antihype.space/icons/greedier/dealerschoice.webp"
     ],
     "team": "fabled",
     "ability": "During setup, a player may choose Dealer's Choice to allow the Storyteller to assign them any character. They may still describe the style of character they would prefer, or name anything they do not want.",

@@ -728,7 +728,22 @@
     ]
   },
   "fearmonger",
-  "goblin",
+  {
+    "id": "goblin",
+    "name": "Goblin",
+    "image": [
+      "https://greedy.antihype.space/icons/carousel/goblin_e.webp",
+      "https://greedy.antihype.space/icons/carousel/goblin_g.webp"
+    ],
+    "team": "minion",
+    "edition": "carousel",
+    "ability": "If you publicly claim to be the Goblin when nominated & are executed that day, your team wins.",
+    "flavor": "Wallahi we are cooked. -Hashirlol",
+    "reminders": [
+      "Claimed"
+    ],
+    "setup": false
+  },
   "godfather",
   "harpy",
   {

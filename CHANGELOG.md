@@ -6,6 +6,10 @@
 
 - Dealer's Choice: No longer has the "clean" suffix or the trailing Ω.
 
+### Quotes
+
+- Assigned quotes for Goblin.
+
 ### Homebrew Characters
 
 - Hosted and optimized all remaining Bloodstar and Klutzbanana images. 21.4MB -> 4.5MB.

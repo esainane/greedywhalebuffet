@@ -17,6 +17,7 @@
 ### Homebrew Characters
 
 - Hosted and optimized all remaining Bloodstar and Klutzbanana images. 21.4MB -> 4.5MB.
+- Secretkeeper: Force a choice. 2nd night for now.
 
 ### Website
 

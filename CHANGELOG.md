@@ -8,7 +8,7 @@
 
 ### Quotes
 
-- Assigned quotes for Goblin.
+- Assigned quotes: Damsel, and Goblin.
 
 ### Homebrew Characters
 

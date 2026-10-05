@@ -442,7 +442,26 @@
       "Master!"
     ]
   },
-  "damsel",
+  {
+    "id": "damsel",
+    "name": "Damsel",
+    "image": [
+      "https://greedy.antihype.space/icons/carousel/damsel_g.png",
+      "https://greedy.antihype.space/icons/carousel/damsel_e.png"
+    ],
+    "team": "outsider",
+    "edition": "carousel",
+    "ability": "All Minions know a Damsel is in play. If a Minion publicly guesses you (once), your team loses.",
+    "flavor": "I'm a strong independent woman, who just happens to be a man. -Soril",
+    "firstNight": 50,
+    "firstNightReminder": "During Minion Info, show the Minions the Damsel token. If you haven't done this yet, do so now. If the Damsel was chosen by the Huntsman, show the *YOU ARE* info token & their new character token.",
+    "otherNight": 68,
+    "otherNightReminder": "If the Damsel was chosen by the Huntsman, show the *YOU ARE* info token & their new character token.",
+    "reminders": [
+      "Guess Used"
+    ],
+    "setup": false
+  },
   {
     "id": "drunkclean",
     "name": "Drunk",

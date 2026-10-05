@@ -2,6 +2,10 @@
 
 ## [v3.0.4, Unreleased] 2026-09-27
 
+### Simplifications
+
+- Updated all references in the website and character selection to use "exceptional" and "non-exceptional" terminology instead of "abnormal" and "normal".
+
 ### General
 
 - Dealer's Choice: No longer has the "clean" suffix or the trailing Ω.

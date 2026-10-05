@@ -208,7 +208,7 @@
     "id": "dragon",
     "name": "Dragon Ω",
     "team": "demon",
-    "ability": "All players know you are the Dragon. Minions and Demons do not know each other. Each day, publicly choose a player: they die. After the execution, players may nominate you; if executed while a Minion lives, your team wins. [+1 Minion. -X Outsiders]",
+    "ability": "All players know you are the Dragon. Minions & Demons do not know each other. Players you nominate die. If executed while a Minion lives and good voted, your team wins. Each day, after the 1st execution, you are nominated. [+1 Minion. -X Outsiders]",
     "firstNightReminder": "Announce which player is the Dragon. :reminder:",
     "reminders": ["Dragon"],
     "setup": true,

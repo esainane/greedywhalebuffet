@@ -1,6 +1,6 @@
 # Changelog
 
-## [v3.0.4, Unreleased] 2026-09-27
+## [v3.0.4] 2026-11-06
 
 ### Simplifications
 

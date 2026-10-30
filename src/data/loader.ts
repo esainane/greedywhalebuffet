@@ -30,9 +30,9 @@ import { Catalog, OneToOneIdMap, NightOrderIndex } from './catalog.js';
 const ajv = new Ajv2020({ allErrors: true, strict: false });
 addFormats(ajv);
 
-const validateScriptFile = ajv.compile(scriptSchema);
-const validateScriptExtraData = ajv.compile(scriptExtraSchema);
-const validateJinxData = ajv.compile(jinxSchema);
+const validateScriptFile = ajv.compile<ScriptFile>(scriptSchema);
+const validateScriptExtraData = ajv.compile<ScriptFile>(scriptExtraSchema);
+const validateJinxData = ajv.compile<JinxFile>(jinxSchema);
 
 function assertSchemaValid(data: unknown, validate: ValidateFunction, sourceName: string): void {
 	if (validate(data)) {

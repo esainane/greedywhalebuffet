@@ -99,7 +99,7 @@
     "name": "Secretkeeper Ω",
     "team": "outsider",
     "ability": "On your 1st night, choose a player (not yourself): they learn true information. If they reveal this information, they lose, even if you are dead.",
-    "firstNightReminder": "The Secretkeeper might choose a player. :reminder: If they do, put the Secretkeeper to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* & Secretkeeper tokens, then give true information.",
+    "firstNightReminder": "The Secretkeeper chooses a player. :reminder: Put the Secretkeeper to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* & Secretkeeper tokens, then give true information.",
     "reminders": ["Secret Given"],
     "setup": false,
     "firstNight": 70,

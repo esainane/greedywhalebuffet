@@ -6,6 +6,10 @@
 
 - Updated all references in the website and character selection to use "exceptional" and "non-exceptional" terminology instead of "abnormal" and "normal".
 
+### Character Updates
+
+- Heretic: Shortened ability text.
+
 ### General
 
 - Dealer's Choice: No longer has the "clean" suffix or the trailing Ω.

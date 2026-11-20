@@ -1,6 +1,6 @@
 # Changelog
 
-## [v3.0.6, Unreleased]
+## [v3.0.6] 2026-11-20
 
 ### Options
 

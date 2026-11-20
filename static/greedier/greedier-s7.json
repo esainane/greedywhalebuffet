@@ -1,5 +1,16 @@
 [
   {
+    "id": "hopeful",
+    "image": [
+      "https://greedy.antihype.space/icons/greedier/hopeful_g.webp",
+      "https://greedy.antihype.space/icons/greedier/hopeful_e.webp"
+    ],
+    "name": "Hopeful Ω",
+    "team": "townsfolk",
+    "ability": "If evil would win, publicly guess each player's character: if correct, good wins, even if dead.",
+    "flavor": "Dum Spiro, Spero."
+  },
+  {
     "id": "hulijing",
     "image": [
       "https://greedy.antihype.space/icons/greedier/hulijing_e.webp",
@@ -70,16 +81,5 @@
     "team": "traveller",
     "ability": "You are a co-Storyteller. Each night, you may choose the information given to a player. You cannot speak (except to the Storyteller) or vote.",
     "flavor": "Oh, those ravenswoodbluffians..."
-  },
-  {
-    "id": "hopeful",
-    "image": [
-      "https://greedy.antihype.space/icons/greedier/hopeful_g.webp",
-      "https://greedy.antihype.space/icons/greedier/hopeful_e.webp"
-    ],
-    "name": "Hopeful Ω",
-    "team": "townsfolk",
-    "ability": "If evil would win, publicly guess each player's character: if correct, good wins, even if dead.",
-    "flavor": "Dum Spiro, Spero."
   }
 ]

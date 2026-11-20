@@ -1,31 +1,5 @@
 [
   {
-    "id": "partyhost",
-    "name": "Party Host Ω",
-    "team": "townsfolk",
-    "ability": "If at least 1 of your alive neighbors is poisoned or drunk, you can't die.",
-    "image": [
-      "https://greedy.antihype.space/icons/greedier/partyhost_g.webp",
-      "https://greedy.antihype.space/icons/greedier/partyhost_e.webp"
-    ],
-    "edition": "gwb",
-    "flavor": "Let’s keep this party going all night!",
-    "reminders": [
-      "Can't Die"
-    ]
-  },
-  {
-    "id": "solemdeath",
-    "name": "Solemdeath Ω",
-    "team": "townsfolk",
-    "ability": "Once per game, you may build a world in front of the Storyteller: learn how close it is to the truth.",
-    "edition": "gwb",
-    "flavor": "Before the game ends, I would like to Alsaahir guess that...",
-    "reminders": [
-      "No Ability"
-    ]
-  },
-  {
     "id": "groundskeeper",
     "name": "Groundskeeper Ω",
     "team": "townsfolk",
@@ -52,6 +26,32 @@
     "otherNightReminder": "If the player marked *KNOW* died today or tonight, point to the new player marked *KNOW*.",
     "reminders": [
       "Know"
+    ]
+  },
+  {
+    "id": "partyhost",
+    "name": "Party Host Ω",
+    "team": "townsfolk",
+    "ability": "If at least 1 of your alive neighbors is poisoned or drunk, you can't die.",
+    "image": [
+      "https://greedy.antihype.space/icons/greedier/partyhost_g.webp",
+      "https://greedy.antihype.space/icons/greedier/partyhost_e.webp"
+    ],
+    "edition": "gwb",
+    "flavor": "Let’s keep this party going all night!",
+    "reminders": [
+      "Can't Die"
+    ]
+  },
+  {
+    "id": "solemdeath",
+    "name": "Solemdeath Ω",
+    "team": "townsfolk",
+    "ability": "Once per game, you may build a world in front of the Storyteller: learn how close it is to the truth.",
+    "edition": "gwb",
+    "flavor": "Before the game ends, I would like to Alsaahir guess that...",
+    "reminders": [
+      "No Ability"
     ]
   },
   {

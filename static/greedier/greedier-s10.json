@@ -1,5 +1,56 @@
 [
   {
+    "id": "skaldi",
+    "name": "Skaldi Ω",
+    "team": "townsfolk",
+    "ability": "If at least one of your alive neighbors is a Minion, you can't die.",
+    "image": [
+      "https://greedy.antihype.space/icons/greedier/skaldi_g.webp",
+      "https://greedy.antihype.space/icons/greedier/skaldi_e.webp"
+    ],
+    "edition": "gwb",
+    "flavor": "The harsh winds of the North gloss my lips. My skin bears no ill intent to the force of nature it's encompassed by every day. To be cold, is to be me.",
+    "reminders": [
+      "Can't Die"
+    ]
+  },
+  {
+    "id": "sympath",
+    "name": "Sympath Ω",
+    "team": "outsider",
+    "ability": "Each night*, you become the alignment of the recently killed executee.",
+    "image": [
+      "https://greedy.antihype.space/icons/greedier/sympath_g.webp",
+      "https://greedy.antihype.space/icons/greedier/sympath_e.webp"
+    ],
+    "edition": "gwb",
+    "flavor": "I feel your pain, let me join you.",
+    "otherNight": 12,
+    "otherNightReminder": "If the Sympath changed alignment, wake them. Show the *YOU ARE* info token & give a thumb signal.",
+    "reminders": [
+      "Executed"
+    ]
+  },
+  {
+    "id": "watcher",
+    "name": "Watcher Ω",
+    "team": "minion",
+    "ability": "Each night, choose a player (different from last night): they learn this & you learn their information instead of them. If a player is mad about being watched, they might die.",
+    "image": [
+      "https://greedy.antihype.space/icons/greedier/watcher_e.webp",
+      "https://greedy.antihype.space/icons/greedier/watcher_g.webp"
+    ],
+    "edition": "gwb",
+    "flavor": "He was never meant to be there...He was only ever meant to watch",
+    "firstNight": 24,
+    "firstNightReminder": "The Watcher chooses a player. :reminder: If the *WATCHED* would learn information tonight, inform the Watcher instead. Put the Watcher to sleep. Wake the *WATCHED*. Show the *THIS CHARACTER SELECTED YOU* & Watcher tokens.",
+    "otherNight": 21,
+    "otherNightReminder": "The Watcher chooses a player. :reminder: If the *WATCHED* would learn information tonight, inform the Watcher instead. Put the Watcher to sleep. Wake the *WATCHED*. Show the *THIS CHARACTER SELECTED YOU* & Watcher tokens.",
+    "reminders": [
+      "Watched"
+    ]
+  },
+  {
     "id": "bestower",
     "name": "Bestower Ω",
     "team": "traveller",
@@ -50,56 +101,5 @@
     ],
     "edition": "gwb",
     "flavor": "Long roads make friends of strange fellows and faiths."
-  },
-  {
-    "id": "skaldi",
-    "name": "Skaldi Ω",
-    "team": "townsfolk",
-    "ability": "If at least one of your alive neighbors is a Minion, you can't die.",
-    "image": [
-      "https://greedy.antihype.space/icons/greedier/skaldi_g.webp",
-      "https://greedy.antihype.space/icons/greedier/skaldi_e.webp"
-    ],
-    "edition": "gwb",
-    "flavor": "The harsh winds of the North gloss my lips. My skin bears no ill intent to the force of nature it's encompassed by every day. To be cold, is to be me.",
-    "reminders": [
-      "Can't Die"
-    ]
-  },
-  {
-    "id": "sympath",
-    "name": "Sympath Ω",
-    "team": "outsider",
-    "ability": "Each night*, you become the alignment of the recently killed executee.",
-    "image": [
-      "https://greedy.antihype.space/icons/greedier/sympath_g.webp",
-      "https://greedy.antihype.space/icons/greedier/sympath_e.webp"
-    ],
-    "edition": "gwb",
-    "flavor": "I feel your pain, let me join you.",
-    "otherNight": 12,
-    "otherNightReminder": "If the Sympath changed alignment, wake them. Show the *YOU ARE* info token & give a thumb signal.",
-    "reminders": [
-      "Executed"
-    ]
-  },
-  {
-    "id": "watcher",
-    "name": "Watcher Ω",
-    "team": "minion",
-    "ability": "Each night, choose a player (different from last night): they learn this & you learn their information instead of them. If a player is mad about being watched, they might die.",
-    "image": [
-      "https://greedy.antihype.space/icons/greedier/watcher_e.webp",
-      "https://greedy.antihype.space/icons/greedier/watcher_g.webp"
-    ],
-    "edition": "gwb",
-    "flavor": "He was never meant to be there...He was only ever meant to watch",
-    "firstNight": 24,
-    "firstNightReminder": "The Watcher chooses a player. :reminder: If the *WATCHED* would learn information tonight, inform the Watcher instead. Put the Watcher to sleep. Wake the *WATCHED*. Show the *THIS CHARACTER SELECTED YOU* & Watcher tokens.",
-    "otherNight": 21,
-    "otherNightReminder": "The Watcher chooses a player. :reminder: If the *WATCHED* would learn information tonight, inform the Watcher instead. Put the Watcher to sleep. Wake the *WATCHED*. Show the *THIS CHARACTER SELECTED YOU* & Watcher tokens.",
-    "reminders": [
-      "Watched"
-    ]
   }
 ]

@@ -4,6 +4,7 @@
 
 ### Homebrew Characters
 - Greedier Travellers can now be selected when Greedier homebrew is enabled.
+- Ensure all sets define characters in a consistent (character type, then alphabetical) order.
 
 ## [v3.0.6] 2026-11-20
 

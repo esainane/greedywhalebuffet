@@ -3,10 +3,20 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, it } from 'vitest';
 import { assertNoIssues, readJson } from './test-helpers.js';
-import type { JinxFile, MappingFile, NightsheetFile, CharacterBase, CharacterEntry } from './types.js';
+import type {
+	CharacterBase,
+	CharacterEntry,
+	JinxFile,
+	MappingFile,
+	NightsheetFile,
+	ScriptFile,
+} from './types.js';
+import { getCoreSourceByName, type DataSourcesManifest } from './data/manifest.js';
 
 const CORE_TEAMS = new Set(['townsfolk', 'outsider', 'minion', 'demon']);
-const GREEDY_EXCEPTIONS = new Set(['choosechars', '_meta']);
+const CHARACTER_TEAM_ORDER = ['townsfolk', 'outsider', 'minion', 'demon', 'traveller', 'fabled', 'loric'];
+const CHARACTER_TEAM_RANK = new Map(CHARACTER_TEAM_ORDER.map((team, index) => [team, index]));
+const GREEDY_EXCEPTIONS = new Set(['choosechars', 'choosecharsdummy', 'dealerschoice', '_meta']);
 const NIGHTSHEET_EXCEPTIONS = new Set([
 	'dusk',
 	'dawn',
@@ -166,6 +176,61 @@ describe('static data ID consistency', () => {
 		}
 
 		assertNoIssues(issues, 'greedy.json has invalid IDs:');
+	});
+
+	it('orders extra source characters by team and alphabetically within teams', async () => {
+		const [roles, mappingFile, manifest] = await Promise.all([
+			readJson<CharacterBase[]>(path.join(staticRoot, 'roles.json')),
+			readJson<MappingFile>(path.join(staticRoot, 'id_mappings.json')),
+			readJson<DataSourcesManifest>(path.join(staticRoot, 'data_sources_manifest.json')),
+		]);
+
+		const rolesById = new Map(roles.map((role) => [role.id, role]));
+		const sourcePaths = [
+			getCoreSourceByName(manifest, 'greedyScript').path,
+			...manifest.greedierScripts.map((source) => source.path),
+		];
+		const collator = new Intl.Collator('en', { sensitivity: 'base' });
+		const issues: string[] = [];
+
+		for (const sourcePath of sourcePaths) {
+			const entries = await readJson<ScriptFile>(path.join(staticRoot, sourcePath));
+			let previousCharacter: CharacterBase | undefined;
+
+			for (const entry of entries) {
+				let character: CharacterBase | undefined;
+				if (typeof entry === 'string' && !GREEDY_EXCEPTIONS.has(entry)) {
+					const baseId = mappingFile[entry] ?? entry;
+					character = rolesById.get(baseId);
+				} else if (typeof entry !== 'string' && !GREEDY_EXCEPTIONS.has(entry.id) && 'team' in entry) {
+					character = entry;
+				}
+
+				if (!character || !CHARACTER_TEAM_RANK.has(character.team)) {
+					continue;
+				}
+
+				if (previousCharacter) {
+					const previousTeamRank = CHARACTER_TEAM_RANK.get(previousCharacter.team);
+					const characterTeamRank = CHARACTER_TEAM_RANK.get(character.team);
+					if (previousTeamRank === undefined || characterTeamRank === undefined) {
+						continue;
+					}
+
+					const teamOrder = previousTeamRank - characterTeamRank;
+					const nameOrder = collator.compare(previousCharacter.name, character.name);
+					if (teamOrder > 0 || (teamOrder === 0 && nameOrder > 0)) {
+						issues.push(
+							`${sourcePath}: "${character.name}" (${character.team}) should appear before "${previousCharacter.name}" (${previousCharacter.team})`,
+						);
+					}
+				}
+
+				previousCharacter = character;
+			}
+		}
+
+		assertNoIssues(issues, 'extra source files have characters out of order:');
 	});
 
 	it('keeps jinxes.json using only base role IDs', async () => {

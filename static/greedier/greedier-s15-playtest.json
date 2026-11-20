@@ -1,18 +1,5 @@
 [
   {
-    "id": "percyjackson",
-    "name": "Percy Jackson Ω",
-    "team": "townsfolk",
-    "ability": "Each night, choose up to 4 players: if any are nominated tomorrow, learn how many non-nominated chosen players were evil.",
-    "firstNightReminder": "Percy Jackson chooses up to 4 players. :reminder: :reminder: :reminder: :reminder:",
-    "otherNightReminder": "If a player is marked *NOMINATED*, give a finger signal. Percy Jackson chooses up to 4 players. :reminder: :reminder: :reminder: :reminder:",
-    "reminders": ["Chosen", "Chosen", "Chosen", "Chosen", "Nominated"],
-    "setup": false,
-    "firstNight": 70,
-    "otherNight": 70,
-    "flavor": "“I’m the son of Poseidon and I’m gonna winnnn!”"
-  },
-  {
     "id": "actuary",
     "name": "Actuary Ω",
     "team": "townsfolk",
@@ -24,6 +11,16 @@
     "firstNight": 55,
     "otherNight": 76,
     "flavor": "I know the odds for many a scenario. It's just a matter of proportion."
+  },
+  {
+    "id": "bellwether",
+    "name": "Bellwether Ω",
+    "team": "townsfolk",
+    "ability": "Each night*, learn if more votes on the most recently executed player were good.",
+    "otherNightReminder": "Nod if a strict majority of votes for them were good. Otherwise, shake your head.",
+    "setup": false,
+    "otherNight": 75,
+    "flavor": "When the bell rings, the flock reveals which way it was led."
   },
   {
     "id": "conjurer",
@@ -38,6 +35,19 @@
     "flavor": "You come here for a healin' or for a harmin'?"
   },
   {
+    "id": "percyjackson",
+    "name": "Percy Jackson Ω",
+    "team": "townsfolk",
+    "ability": "Each night, choose up to 4 players: if any are nominated tomorrow, learn how many non-nominated chosen players were evil.",
+    "firstNightReminder": "Percy Jackson chooses up to 4 players. :reminder: :reminder: :reminder: :reminder:",
+    "otherNightReminder": "If a player is marked *NOMINATED*, give a finger signal. Percy Jackson chooses up to 4 players. :reminder: :reminder: :reminder: :reminder:",
+    "reminders": ["Chosen", "Chosen", "Chosen", "Chosen", "Nominated"],
+    "setup": false,
+    "firstNight": 70,
+    "otherNight": 70,
+    "flavor": "“I’m the son of Poseidon and I’m gonna winnnn!”"
+  },
+  {
     "id": "psychiatrist",
     "name": "Psychiatrist Ω",
     "team": "townsfolk",
@@ -50,16 +60,6 @@
     "flavor": "Mad? I was mad once."
   },
   {
-    "id": "bellwether",
-    "name": "Bellwether Ω",
-    "team": "townsfolk",
-    "ability": "Each night*, learn if more votes on the most recently executed player were good.",
-    "otherNightReminder": "Nod if a strict majority of votes for them were good. Otherwise, shake your head.",
-    "setup": false,
-    "otherNight": 75,
-    "flavor": "When the bell rings, the flock reveals which way it was led."
-  },
-  {
     "id": "crux",
     "name": "Crux Ω",
     "team": "outsider",
@@ -69,19 +69,6 @@
     "setup": false,
     "firstNight": 69,
     "flavor": "You may be deceived if you trust too much, but you will live in torment if you do not trust enough."
-  },
-  {
-    "id": "vigneron",
-    "name": "Vigneron Ω",
-    "team": "outsider",
-    "ability": "Each night, 1 of your alive Townsfolk neighbors becomes drunk until dusk.",
-    "firstNightReminder": "Make 1 of the Vigneron's alive Townsfolk neighbors drunk. :reminder:",
-    "otherNightReminder": "The previously drunk player becomes sober. Make 1 of the Vigneron's alive Townsfolk neighbors drunk. :reminder:",
-    "reminders": ["Drunk"],
-    "setup": true,
-    "firstNight": 13,
-    "otherNight": 10,
-    "flavor": "Bah! My cellars are full, but I still have a whole ten bottles that need storing! I suppose I’ll just leave them in the shed until I can make space."
   },
   {
     "id": "plaguebearer",
@@ -106,17 +93,17 @@
     "flavor": "I have something to share with you. Protect it as if your life depends on it. Perhaps it does."
   },
   {
-    "id": "cupid",
-    "name": "Cupid Ω",
-    "team": "minion",
-    "ability": "Each night, choose 2 players: tomorrow, the 1st is mad that the 2nd is good, or either might die.",
-    "firstNightReminder": "The Cupid chooses 2 players. :reminder: :reminder: Put the Cupid to sleep. Wake the 1st target. Show the *THIS CHARACTER SELECTED YOU* & Cupid tokens, then point to the 2nd target.",
-    "otherNightReminder": "The Cupid chooses 2 players. :reminder: :reminder: Put the Cupid to sleep. Wake the 1st target. Show the *THIS CHARACTER SELECTED YOU* & Cupid tokens, then point to the 2nd target.",
-    "reminders": ["Mad", "2nd"],
-    "setup": false,
-    "firstNight": 45,
-    "otherNight": 31,
-    "flavor": "I think I love you."
+    "id": "vigneron",
+    "name": "Vigneron Ω",
+    "team": "outsider",
+    "ability": "Each night, 1 of your alive Townsfolk neighbors becomes drunk until dusk.",
+    "firstNightReminder": "Make 1 of the Vigneron's alive Townsfolk neighbors drunk. :reminder:",
+    "otherNightReminder": "The previously drunk player becomes sober. Make 1 of the Vigneron's alive Townsfolk neighbors drunk. :reminder:",
+    "reminders": ["Drunk"],
+    "setup": true,
+    "firstNight": 13,
+    "otherNight": 10,
+    "flavor": "Bah! My cellars are full, but I still have a whole ten bottles that need storing! I suppose I’ll just leave them in the shed until I can make space."
   },
   {
     "id": "cendrillion",
@@ -130,6 +117,45 @@
     "firstNight": 34,
     "otherNight": 57,
     "flavor": "\"Please do not let the bells sound for midnight. That voice whispers 'Thrust the edge you hold and take away everything'.\""
+  },
+  {
+    "id": "cupid",
+    "name": "Cupid Ω",
+    "team": "minion",
+    "ability": "Each night, choose 2 players: tomorrow, the 1st is mad that the 2nd is good, or either might die.",
+    "firstNightReminder": "The Cupid chooses 2 players. :reminder: :reminder: Put the Cupid to sleep. Wake the 1st target. Show the *THIS CHARACTER SELECTED YOU* & Cupid tokens, then point to the 2nd target.",
+    "otherNightReminder": "The Cupid chooses 2 players. :reminder: :reminder: Put the Cupid to sleep. Wake the 1st target. Show the *THIS CHARACTER SELECTED YOU* & Cupid tokens, then point to the 2nd target.",
+    "reminders": ["Mad", "2nd"],
+    "setup": false,
+    "firstNight": 45,
+    "otherNight": 31,
+    "flavor": "I think I love you."
+  },
+  {
+    "id": "dragon",
+    "name": "Dragon Ω",
+    "team": "demon",
+    "ability": "All players know you are the Dragon. Minions & Demons do not know each other. Players you nominate die. If executed while a Minion lives and good voted, your team wins. Each day, after the 1st execution, you are nominated. [+1 Minion. -X Outsiders]",
+    "firstNightReminder": "Announce which player is the Dragon. :reminder:",
+    "reminders": ["Dragon"],
+    "setup": true,
+    "firstNight": 80,
+    "flavor": "「私の鎧は10倍の盾のようで、私の歯は剣で、私の爪は槍で、私の尾の衝撃は雷で、私の翼はハリケーンで、私の息は死です!」",
+    "special": [{"type": "reminder", "name": "public"}]
+  },
+  {
+    "id": "famine",
+    "name": "Famine Ω",
+    "team": "demon",
+    "ability": "Each night*, all players silently choose a living player: the player chosen by the most good players dies. If you die this way, evil wins. All players know you are in play.",
+    "firstNightReminder": "If a Mastermind ability is also in play, wake the player marked *KNOW* & show the Mastermind token. :reminder: After Dawn, announce that Famine is in play.",
+    "otherNightReminder": "Wake each player. Each chooses a living player. The player chosen by the most good players dies. :reminder: If tied, choose 1 tied player.",
+    "reminders": ["Dead", "Know"],
+    "setup": false,
+    "firstNight": 77,
+    "otherNight": 40,
+    "flavor": "That which is abundant to one is scarce to all.",
+    "special": [{"type": "ability", "name": "pointing", "time": "otherNight"}]
   },
   {
     "id": "lupa",
@@ -167,20 +193,6 @@
     "flavor": "Whispers on the cold wind whistle through the town. 'HE LIES IN WAIT IN HELL' is scrawled in scarlet upon the chapel doors. Citizens are scared. Children are crying. A fleeting speck of dusk falls from the church bell. Maybe he is closer than we all think."
   },
   {
-    "id": "famine",
-    "name": "Famine Ω",
-    "team": "demon",
-    "ability": "Each night*, all players silently choose a living player: the player chosen by the most good players dies. If you die this way, evil wins. All players know you are in play.",
-    "firstNightReminder": "If a Mastermind ability is also in play, wake the player marked *KNOW* & show the Mastermind token. :reminder: After Dawn, announce that Famine is in play.",
-    "otherNightReminder": "Wake each player. Each chooses a living player. The player chosen by the most good players dies. :reminder: If tied, choose 1 tied player.",
-    "reminders": ["Dead", "Know"],
-    "setup": false,
-    "firstNight": 77,
-    "otherNight": 40,
-    "flavor": "That which is abundant to one is scarce to all.",
-    "special": [{"type": "ability", "name": "pointing", "time": "otherNight"}]
-  },
-  {
     "id": "sinoflust",
     "name": "Sin Of Lust Ω",
     "team": "demon",
@@ -201,17 +213,5 @@
     "setup": false,
     "otherNight": 40,
     "flavor": "\"Thestrals would forcefully attack anyone or anything they saw as a threat\", \"Professor Rubeus Hagrid stated that they were \"dead clever\".\" \"Thestrals were carnivorous and attracted to the smell of blood.\""
-  },
-  {
-    "id": "dragon",
-    "name": "Dragon Ω",
-    "team": "demon",
-    "ability": "All players know you are the Dragon. Minions & Demons do not know each other. Players you nominate die. If executed while a Minion lives and good voted, your team wins. Each day, after the 1st execution, you are nominated. [+1 Minion. -X Outsiders]",
-    "firstNightReminder": "Announce which player is the Dragon. :reminder:",
-    "reminders": ["Dragon"],
-    "setup": true,
-    "firstNight": 80,
-    "flavor": "「私の鎧は10倍の盾のようで、私の歯は剣で、私の爪は槍で、私の尾の衝撃は雷で、私の翼はハリケーンで、私の息は死です!」",
-    "special": [{"type": "reminder", "name": "public"}]
   }
 ]

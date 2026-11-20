@@ -16,25 +16,6 @@
     "otherNight": 75
   },
   {
-    "id": "corpseeater",
-    "name": "Corpse Eater Ω",
-    "team": "minion",
-    "ability": "If a good player was executed today, their Townsfolk neighbors are poisoned tonight & tomorrow day.",
-    "image": [
-      "https://greedy.antihype.space/icons/greedier/corpseeater_e.webp",
-      "https://greedy.antihype.space/icons/greedier/corpseeater_g.webp"
-    ],
-    "edition": "gwb",
-    "flavor": "Munch munch",
-    "otherNightReminder": "If a good player was executed today, mark their Townsfolk neighbors. :reminder: :reminder: :reminder:",
-    "otherNight": 10,
-    "reminders": [
-      "Died Today",
-      "Poisoned",
-      "Poisoned"
-    ]
-  },
-  {
     "id": "sol",
     "name": "Sol Ω",
     "team": "townsfolk",
@@ -70,24 +51,6 @@
     ]
   },
   {
-    "id": "vengeance",
-    "name": "Vengeance Ω",
-    "team": "minion",
-    "ability": "Each night*, a player that nominated you yesterday dies, even if you are dead.",
-    "image": [
-      "https://greedy.antihype.space/icons/greedier/vengeance_e.webp",
-      "https://greedy.antihype.space/icons/greedier/vengeance_g.webp"
-    ],
-    "edition": "gwb",
-    "flavor": "HOW DARE YOU !!!!!",
-    "otherNightReminder": "If a player nominated Vengeance yesterday, they die. :reminder: :reminder:",
-    "otherNight": 16,
-    "reminders": [
-      "Marked",
-      "Dead"
-    ]
-  },
-  {
     "id": "veteran",
     "name": "Veteran Ω",
     "team": "townsfolk",
@@ -103,6 +66,43 @@
     "reminders": [
       "Alive",
       "No Ability",
+      "Dead"
+    ]
+  },
+  {
+    "id": "corpseeater",
+    "name": "Corpse Eater Ω",
+    "team": "minion",
+    "ability": "If a good player was executed today, their Townsfolk neighbors are poisoned tonight & tomorrow day.",
+    "image": [
+      "https://greedy.antihype.space/icons/greedier/corpseeater_e.webp",
+      "https://greedy.antihype.space/icons/greedier/corpseeater_g.webp"
+    ],
+    "edition": "gwb",
+    "flavor": "Munch munch",
+    "otherNightReminder": "If a good player was executed today, mark their Townsfolk neighbors. :reminder: :reminder: :reminder:",
+    "otherNight": 10,
+    "reminders": [
+      "Died Today",
+      "Poisoned",
+      "Poisoned"
+    ]
+  },
+  {
+    "id": "vengeance",
+    "name": "Vengeance Ω",
+    "team": "minion",
+    "ability": "Each night*, a player that nominated you yesterday dies, even if you are dead.",
+    "image": [
+      "https://greedy.antihype.space/icons/greedier/vengeance_e.webp",
+      "https://greedy.antihype.space/icons/greedier/vengeance_g.webp"
+    ],
+    "edition": "gwb",
+    "flavor": "HOW DARE YOU !!!!!",
+    "otherNightReminder": "If a player nominated Vengeance yesterday, they die. :reminder: :reminder:",
+    "otherNight": 16,
+    "reminders": [
+      "Marked",
       "Dead"
     ]
   }

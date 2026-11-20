@@ -50,7 +50,7 @@ export function ControlsPanel(): React.JSX.Element {
 	const charactersToRemove = Math.max(0, exportedEntryCount - BOTC_SCRIPT_ENTRY_LIMIT);
 
 	const onSubmit = useCallback(
-		async (event: React.FormEvent<HTMLFormElement>) => {
+		async (event: React.SubmitEvent<HTMLFormElement>) => {
 			event.preventDefault();
 			await actions.copyToClipboard();
 		},

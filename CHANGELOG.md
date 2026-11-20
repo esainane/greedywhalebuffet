@@ -1,5 +1,11 @@
 # Changelog
 
+## [v3.0.6, Unreleased]
+
+### Options
+
+- The Demon receiving no bluffs is now optional.
+
 ## [v3.0.5] 2026-11-07
 
 ### Character Updated

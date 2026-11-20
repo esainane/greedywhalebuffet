@@ -119,7 +119,7 @@ describe('end-to-end schema validation', () => {
 			}
 
 			const combinations = allOptionCombinations();
-			expect(combinations).toHaveLength(128);
+			expect(combinations).toHaveLength(256);
 
 			for (const options of combinations) {
 				const selectionChunks = chunkSelectionForSchema(selectedCharacterIds, options, catalog);

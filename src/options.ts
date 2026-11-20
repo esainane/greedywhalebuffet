@@ -31,6 +31,12 @@ export const OPTION_DEFINITIONS = defineOptionDefinitions({
 		helpText:
 			"Adds the Spirit of Ivory NPC. This prevents there being any more than one Evil over the base Evil count in the game.",
 	},
+	noDemonBluffs: {
+		id: 'no-demon-bluffs',
+		label: 'The Demon receives no bluffs',
+		defaultValue: true,
+		helpText: "The Demon receives no bluffs. The ST can still ask evil players for mechanical bluffs, and offer feedback if it's unlikely to work.",
+	},
 	alejoRules: {
 		id: 'alejo-rules',
 		label: 'Alejo rules',

@@ -5,6 +5,7 @@ import { FILTERABLE_TEAMS, REMOVED_CHARACTERS_PREFIX } from './constants.js';
 import { Catalog } from './data/catalog.js';
 import { getUnsatisfiedDependencyCharacterIds } from './dependencies.js';
 import { buildExportedScript, generate } from './generation.js';
+import { defaultGenerationOptions } from './options.js';
 import type {
 	CharacterEntry,
 	ScriptFile,
@@ -225,6 +226,23 @@ describe('generation characterization fixtures', () => {
 		) as ScriptFile;
 		const snake = findCharacter(alejoPayload, ['snakecharmercustom', 'snakecharmer']);
 		expect(snake?.firstNight).toBe(1);
+	});
+
+	it('fixture: the Demon no-bluffs rule is included by default and can be disabled', async () => {
+		const catalog = await loadFixtureData();
+		const selectedCharacterIds = new Set(['chef']);
+
+		const defaultPayload = generate(
+			{ selectedCharacterIds, options: defaultGenerationOptions() },
+			catalog,
+		).script;
+		const disabledPayload = generate(
+			{ selectedCharacterIds, options: buildTestOptions({ noDemonBluffs: false }) },
+			catalog,
+		).script;
+
+		expect(getMetaEntry(defaultPayload).bootlegger).toContain('The Demon receives no bluffs.');
+		expect(getMetaEntry(disabledPayload).bootlegger).not.toContain('The Demon receives no bluffs.');
 	});
 
 	it('fixture: official -> greedy -> greedier precedence with blank tombstones and off-script target retention', () => {

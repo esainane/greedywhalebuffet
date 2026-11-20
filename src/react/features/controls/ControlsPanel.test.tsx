@@ -46,6 +46,8 @@ describe('ControlsPanel script size warning', () => {
 		expect(html).not.toContain('id="script-size-warning"');
 		expect(html).not.toContain('class="copy-warning-icon"');
 		expect(html).not.toContain('aria-describedby="script-size-warning"');
+		expect(html).toContain('id="no-demon-bluffs"');
+		expect(html).toContain('The Demon receives no bluffs');
 	});
 
 	it('reports how many characters must be removed from an oversized script', () => {

@@ -8,6 +8,7 @@ import { alejoRulesRule } from './alejoRulesRule.js';
 import { jinxListingRule } from './jinxListingRule.js';
 import { noDeathAtNightJinxRule } from './noDeathAtNightJinxRule.js';
 import { homebrewNamingRule } from './homebrewNamingRule.js';
+import { noDemonBluffsRule } from './noDemonBluffsRule.js';
 
 /**
  * Rules that affect the candidate source character pool before deselection filtering.
@@ -23,6 +24,7 @@ export const TRANSFORMATION_RULES: readonly GenerationRule[] = [
 	filterToExportableRule,
 	bootleggerCharacterLineRule,
 	homebrewNamingRule,
+	noDemonBluffsRule,
 	permitDuplicateCharactersRule,
 	addSpiritOfIvoryRule,
 	alejoRulesRule,

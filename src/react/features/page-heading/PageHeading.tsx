@@ -24,17 +24,17 @@ export function PageHeading(): React.JSX.Element {
 					characters={characters}
 				/>
 			</p>
-			<section aria-labelledby="normal-picks-description" className="panel">
-				<p className="eyebrow">Normal Picks</p>
+			<section aria-labelledby="alignment-changers-description" className="panel">
+				<p className="eyebrow">Exceptional characters</p>
 				<p><RichText
-					text="You can make as many picks as you want, but you still need to give the Storyteller enough normal picks to work with. They can't build a balanced bag when everyone's good picks are Cult Leader, Alchemist, Politician, and Ogre!"
+					text="You can pick as many characters you'd like to play as you want, but you still need to give the Storyteller enough regular characters to work with. They can't build a balanced bag when everyone's good picks are Cult Leader, Alchemist, Politician, and Ogre!"
 					characters={characters}
 				/></p>
 				<p>
-					{"To make balanced bags possible, \"normal\" picks are characters which do not adjust alignments"}
+					{"To make balanced bags possible, exceptional characters do not count towards the required two characters of each type. Exceptional characters either adjust alignment"}
 					<HelpBubble
-						optionId="normal-picks"
-						label="Normal Picks"
+						optionId="alignment-changers"
+						label="Alignment changers"
 						helpText={<>
 							<p><RichText
 								text="Base characters which adjust alignment: Bounty Hunter, Cult Leader, Snake Charmer, Goon, Ogre, Politician, Mezepheles, Pit-Hag, Summoner, Fang Gu, and Lord of Typhon."
@@ -46,13 +46,13 @@ export function PageHeading(): React.JSX.Element {
 							/></p>
 						</>}
 					/>
-					{" or are explicitly abnormal"}
+					{" or are explicitly exceptional"}
 					<HelpBubble
-						optionId="abnormal-picks"
-						label="Abnormal Picks"
+						optionId="explicitly-exceptional-characters"
+						label="Explicitly exceptional"
 						helpText={<>
 							<p><RichText
-								text="Characters considered abnormal by default: Atheist, Alchemist, Magician, Philosopher, Poppy Grower, Heretic, Legion, or Lil' Monsta."
+								text="Characters explicitly considered exceptional: Atheist, Alchemist, Magician, Philosopher, Poppy Grower, Heretic, Legion, and Lil' Monsta."
 								characters={characters}
 							/></p>
 						</>}

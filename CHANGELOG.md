@@ -5,6 +5,7 @@
 ### Options
 
 - The Demon receiving no bluffs is now optional.
+- Changed default options. Local preferences are still saved and will not be overridden.
 
 ## [v3.0.5] 2026-11-07
 

@@ -21,7 +21,7 @@ export const OPTION_DEFINITIONS = defineOptionDefinitions({
 	permitDuplicateCharacters: {
 		id: 'add-duplicate-characters-line',
 		label: 'Permit duplicate characters',
-		defaultValue: true,
+		defaultValue: false,
 		helpText: 'Duplicate characters might be added during setup, even without setup abilities.',
 	},
 	addSpiritOfIvory: {
@@ -40,21 +40,21 @@ export const OPTION_DEFINITIONS = defineOptionDefinitions({
 	alejoRules: {
 		id: 'alejo-rules',
 		label: 'Alejo rules',
-		defaultValue: false,
+		defaultValue: true,
 		helpText:
 			'Run Alejo ordering for the first night: Snake Charmer acts before Minion and Demon information.',
 	},
 	listOfficialJinxes: {
 		id: 'list-official-jinxes',
 		label: 'List official jinxes',
-		defaultValue: false,
+		defaultValue: true,
 		helpText:
 			'Adds all vanilla Blood on the Clocktower official jinxes to the generated script sheet.',
 	},
 	listGreedyJinxes: {
 		id: 'list-greedy-jinxes',
 		label: 'List Greedy jinxes',
-		defaultValue: false,
+		defaultValue: true,
 		helpText:
 			'Adds all Greedy Whalebuffet-specific jinxes to the generated script sheet.',
 	},

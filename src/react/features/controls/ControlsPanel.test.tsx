@@ -58,7 +58,7 @@ describe('ControlsPanel script size warning', () => {
 		expect(html).toContain('id="script-size-warning"');
 		expect(html).toContain('class="copy-warning-icon"');
 		expect(html).toContain('aria-describedby="script-size-warning"');
-		expect(html).toContain('There are too many characters selected');
+		expect(html).toContain('Too many characters selected');
 		expect(html).toContain('Remove at least 3 more characters for the BotC App to accept it.');
 	});
 

@@ -151,7 +151,7 @@ export function ControlsPanel(): React.JSX.Element {
 							data-tone="warning"
 							role="alert"
 						>
-							There are too many characters selected, and the BotC App will refuse it. Remove at
+							Too many characters selected. Remove at
 							least {charactersToRemove} more {charactersToRemove === 1 ? 'character' : 'characters'}
 							{' '}for the BotC App to accept it.
 						</p>

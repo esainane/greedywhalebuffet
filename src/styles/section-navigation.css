@@ -66,7 +66,6 @@
 	border-color: var(--accent-light);
 	background: color-mix(in srgb, var(--accent-light) 22%, var(--surface));
 	color: var(--accent-strong);
-	box-shadow: inset 3px 0 0 var(--gold-light);
 }
 
 .section-nav-link.has-new-changes,

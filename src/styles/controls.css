@@ -176,8 +176,7 @@ button {
 	cursor: pointer;
 	color: var(--button-text);
 	background: linear-gradient(135deg, var(--accent), var(--accent-strong));
-	transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
-	box-shadow: 0 10px 30px rgba(13, 107, 95, 0.28);
+	transition: transform 160ms ease, opacity 160ms ease;
 }
 
 button:hover,
@@ -195,7 +194,6 @@ button.secondary {
 button.danger {
 	color: var(--danger-button-text);
 	background: linear-gradient(135deg, var(--danger-button-start), var(--danger-button-end));
-	box-shadow: 0 10px 30px var(--danger-button-shadow);
 }
 
 button.danger:hover,

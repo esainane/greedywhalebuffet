@@ -274,7 +274,7 @@ export function parseChangelog(markdown: string): Changelog {
 async function main(): Promise<void> {
 	const repositoryRoot = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 	const changelogPath = path.join(repositoryRoot, 'CHANGELOG.md');
-	const outputDirectory = path.join(repositoryRoot, 'dist');
+	const outputDirectory = path.join(repositoryRoot, 'static');
 	const outputPath = path.join(outputDirectory, 'changelog.json');
 	const changelog = parseChangelog(await readFile(changelogPath, 'utf8'));
 

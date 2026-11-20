@@ -69,6 +69,30 @@
 	box-shadow: inset 3px 0 0 var(--gold-light);
 }
 
+.section-nav-link.has-new-changes,
+.section-nav-chip.has-new-changes,
+.section-nav-sheet-link.has-new-changes {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 0.6rem;
+	border-color: var(--accent-strong);
+	color: var(--accent-strong);
+	background: color-mix(in srgb, var(--accent-strong) 15%, var(--surface));
+}
+
+.section-nav-new-indicator {
+	flex: 0 0 auto;
+	padding: 0.16rem 0.45rem;
+	border: 1px solid currentColor;
+	border-radius: var(--radius-pill);
+	font-size: 0.68rem;
+	font-weight: 700;
+	line-height: 1.2;
+	text-transform: uppercase;
+	letter-spacing: 0.05em;
+}
+
 .section-nav-tablet {
 	display: flex;
 	gap: 0.55rem;

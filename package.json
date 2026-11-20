@@ -7,8 +7,8 @@
   "packageManager": "pnpm@11.21.0",
   "source": "src/index.html",
   "scripts": {
-    "start": "parcel",
-    "build": "parcel build && pnpm tool:materialize-changelog",
+    "start": "pnpm tool:materialize-changelog && parcel",
+    "build": "pnpm tool:materialize-changelog && parcel build",
     "tool:materialize-changelog": "tsx tools/materialize-changelog.ts",
     "tool:file-validate": "tsx tools/file-validate.ts",
     "tool:night-order": "tsx tools/legacy-night-order.ts",

@@ -1,5 +1,6 @@
 .parcel-cache/
 dist/
+static/changelog.json
 node_modules/
 *scratch*
 test-results/

@@ -1,0 +1,137 @@
+.changelog-modal-open {
+	overflow: hidden;
+}
+
+.changelog-modal-backdrop {
+	position: fixed;
+	inset: 0;
+	z-index: 50;
+	display: grid;
+	place-items: center;
+	padding: 1rem;
+	background: rgba(0, 0, 0, 0.68);
+}
+
+.changelog-modal {
+	width: min(100%, 760px);
+	max-height: min(88vh, 960px);
+	overflow-y: auto;
+	padding: 1.25rem;
+	border: 1px solid var(--gold-muted);
+	background: var(--bg-strong);
+	box-shadow: var(--shadow);
+}
+
+.changelog-modal-header,
+.changelog-release-header {
+	display: flex;
+	align-items: flex-start;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.changelog-modal-header h2,
+.changelog-release-header h3 {
+	margin: 0;
+}
+
+.changelog-modal-close {
+	width: auto;
+}
+
+.changelog-summary {
+	margin: 1rem 0;
+	color: var(--muted);
+}
+
+.changelog-releases {
+	display: grid;
+	gap: 1rem;
+}
+
+.changelog-release {
+	padding: 1rem;
+	border: 1px solid var(--surface-border);
+	background: var(--surface);
+}
+
+.changelog-release.is-unseen {
+	border-color: var(--accent-strong);
+	box-shadow: inset 3px 0 0 var(--accent-strong);
+}
+
+.changelog-release-header h3 {
+	font-size: 1rem;
+}
+
+.changelog-release-header p,
+.changelog-release-header time,
+.changelog-release-header div > span {
+	display: inline-block;
+	margin: 0.25rem 0 0;
+	color: var(--muted);
+	font-size: 0.82rem;
+}
+
+.changelog-new-badge {
+	flex: 0 0 auto;
+	padding: 0.2rem 0.55rem;
+	border: 1px solid var(--accent-strong);
+	border-radius: var(--radius-pill);
+	color: var(--accent-strong);
+	font-size: 0.72rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	letter-spacing: 0.06em;
+}
+
+.changelog-section {
+	margin-top: 0.9rem;
+}
+
+.changelog-section h4 {
+	margin: 0 0 0.35rem;
+	color: var(--accent-strong);
+	font-size: 0.88rem;
+}
+
+.changelog-section ul {
+	margin: 0;
+	padding-left: 1.25rem;
+}
+
+.changelog-section li {
+	margin-top: 0.3rem;
+	line-height: 1.5;
+}
+
+.changelog-section code {
+	padding: 0.08rem 0.25rem;
+	background: var(--surface-strong);
+	font-family: monospace;
+}
+
+.changelog-load-error {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 0.75rem;
+	border: 1px solid var(--danger);
+}
+
+.changelog-load-error p {
+	margin: 0;
+}
+
+@media (max-width: 640px) {
+	.changelog-modal-backdrop {
+		align-items: end;
+		padding: 0.5rem;
+	}
+
+	.changelog-modal {
+		max-height: 94vh;
+		padding: 1rem;
+	}
+}

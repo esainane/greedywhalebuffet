@@ -1,6 +1,7 @@
 @import './styles/tokens.css';
 @import './styles/primitives.css';
 @import './styles/section-navigation.css';
+@import './styles/changelog-modal.css';
 @import './styles/loading-scroll-hack.css';
 @import './styles/page-intro.css';
 @import './styles/controls.css';

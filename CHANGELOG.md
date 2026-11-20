@@ -11,6 +11,7 @@
 ### Website
 
 - Shortened warning text for too many characters.
+- Display Changelog on site.
 
 ## [v3.0.5] 2026-11-07
 

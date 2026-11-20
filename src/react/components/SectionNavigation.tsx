@@ -1,4 +1,5 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { ChangelogModal } from './ChangelogModal.js';
 
 type SectionItem = {
 	id: string;
@@ -32,9 +33,24 @@ export function SectionNavigation(props: SectionNavigationProps): React.JSX.Elem
 	const { sections } = props;
 	const [activeSectionId, setActiveSectionId] = useState(sections[0]?.id ?? '');
 	const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+	const [isChangelogOpen, setIsChangelogOpen] = useState(false);
+	const [hasNewChangelog, setHasNewChangelog] = useState(false);
 	const prefersReducedMotion = useReducedMotionPreference();
 	const triggerRef = useRef<HTMLButtonElement | null>(null);
 	const dialogRef = useRef<HTMLDivElement | null>(null);
+	const changelogTriggerRef = useRef<HTMLButtonElement | null>(null);
+
+	const openChangelog = (trigger: HTMLButtonElement) => {
+		changelogTriggerRef.current = trigger;
+		setIsChangelogOpen(true);
+	};
+
+	const closeChangelog = useCallback(() => {
+		setIsChangelogOpen(false);
+	}, []);
+	const onNewChangesChange = useCallback((hasNewChanges: boolean) => {
+		setHasNewChangelog(hasNewChanges);
+	}, []);
 
 	useEffect(() => {
 		if (sections.length === 0) {
@@ -216,6 +232,20 @@ export function SectionNavigation(props: SectionNavigationProps): React.JSX.Elem
 						{section.label}
 					</button>
 				))}
+				<button
+					type="button"
+					className={`section-nav-link${hasNewChangelog ? ' has-new-changes' : ''}`}
+					aria-label={hasNewChangelog ? 'Changelog, new changes' : 'Changelog'}
+					aria-haspopup="dialog"
+					aria-expanded={isChangelogOpen}
+					aria-controls="changelog-dialog"
+					onClick={(event) => {
+						openChangelog(event.currentTarget);
+					}}
+				>
+					Changelog
+					{hasNewChangelog ? <span className="section-nav-new-indicator">New</span> : null}
+				</button>
 			</nav>
 
 			<nav className="section-nav section-nav-tablet" aria-label="Panel navigation">
@@ -232,6 +262,20 @@ export function SectionNavigation(props: SectionNavigationProps): React.JSX.Elem
 						{section.label}
 					</button>
 				))}
+				<button
+					type="button"
+					className={`section-nav-chip${hasNewChangelog ? ' has-new-changes' : ''}`}
+					aria-label={hasNewChangelog ? 'Changelog, new changes' : 'Changelog'}
+					aria-haspopup="dialog"
+					aria-expanded={isChangelogOpen}
+					aria-controls="changelog-dialog"
+					onClick={(event) => {
+						openChangelog(event.currentTarget);
+					}}
+				>
+					Changelog
+					{hasNewChangelog ? <span className="section-nav-new-indicator">New</span> : null}
+				</button>
 			</nav>
 
 			<div className="section-nav-mobile">
@@ -281,6 +325,21 @@ export function SectionNavigation(props: SectionNavigationProps): React.JSX.Elem
 							))}
 							<button
 								type="button"
+								className={`section-nav-sheet-link${hasNewChangelog ? ' has-new-changes' : ''}`}
+								aria-label={hasNewChangelog ? 'Changelog, new changes' : 'Changelog'}
+								aria-haspopup="dialog"
+								aria-expanded={isChangelogOpen}
+								aria-controls="changelog-dialog"
+								onClick={(event) => {
+									openChangelog(event.currentTarget);
+									closeMobileMenu();
+								}}
+							>
+								Changelog
+								{hasNewChangelog ? <span className="section-nav-new-indicator">New</span> : null}
+							</button>
+							<button
+								type="button"
 								className="section-nav-sheet-link"
 								onClick={() => {
 									onNavigate(sections[0]?.id ?? '');
@@ -302,6 +361,13 @@ export function SectionNavigation(props: SectionNavigationProps): React.JSX.Elem
 					</div>
 				) : null}
 			</div>
+			<ChangelogModal
+				isOpen={isChangelogOpen}
+				onClose={closeChangelog}
+				onNewChangesChange={onNewChangesChange}
+				triggerRef={changelogTriggerRef}
+				fallbackFocusRef={triggerRef}
+			/>
 		</>
 	);
 }

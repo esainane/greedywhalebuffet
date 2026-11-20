@@ -8,13 +8,15 @@ export type Preferences = {
 	options: GenerationOptions;
 	bannedCharacterIds: string[];
 	greedierSortBySet: boolean;
+	greedierLoricDefaultsApplied: boolean;
 };
 
-type StoredPreferencesV1 = {
-	version: 1;
+type StoredPreferencesV3 = {
+	version: 3;
 	options?: unknown;
 	bannedCharacterIds?: unknown;
 	greedierSortBySet?: unknown;
+	greedierLoricDefaultsApplied?: unknown;
 };
 
 type StoredPreferencesV2 = {
@@ -30,13 +32,21 @@ type StoredPreferencesLegacy = {
 	greedierSortBySet?: unknown;
 };
 
-export const CURRENT_PREFERENCES_VERSION = 2;
+type StoredPreferencesV1 = {
+	version: 1;
+	options?: unknown;
+	bannedCharacterIds?: unknown;
+	greedierSortBySet?: unknown;
+};
+
+export const CURRENT_PREFERENCES_VERSION = 3;
 
 export function defaultPreferences(): Preferences {
 	return {
 		options: defaultGenerationOptions(),
 		bannedCharacterIds: [],
 		greedierSortBySet: true,
+		greedierLoricDefaultsApplied: false,
 	};
 }
 
@@ -75,13 +85,20 @@ function normalizeGreedierSortBySet(rawValue: unknown): boolean {
 	return typeof rawValue === 'boolean' ? rawValue : true;
 }
 
+function normalizeGreedierLoricDefaultsApplied(rawValue: unknown): boolean {
+	return rawValue === true;
+}
+
 function normalizeStoredPreferences(
-	raw: StoredPreferencesLegacy | StoredPreferencesV1 | StoredPreferencesV2,
+	raw: StoredPreferencesLegacy | StoredPreferencesV1 | StoredPreferencesV2 | StoredPreferencesV3,
 ): Preferences {
 	return {
 		options: normalizeOptions(raw.options),
 		bannedCharacterIds: normalizeBannedCharacterIds(raw.bannedCharacterIds),
 		greedierSortBySet: normalizeGreedierSortBySet(raw.greedierSortBySet),
+		greedierLoricDefaultsApplied: normalizeGreedierLoricDefaultsApplied(
+			'greedierLoricDefaultsApplied' in raw ? raw.greedierLoricDefaultsApplied : undefined,
+		),
 	};
 }
 
@@ -127,6 +144,12 @@ function migratePreferencesToV2(
 	return preferences;
 }
 
+function migratePreferencesToV3(
+	raw: StoredPreferencesLegacy | StoredPreferencesV1 | StoredPreferencesV2,
+): Preferences {
+	return normalizeStoredPreferences(raw);
+}
+
 export type ParsedPreferences = {
 	preferences: Preferences;
 	migrated: boolean;
@@ -167,16 +190,24 @@ export function parseStoredPreferences(serialized: string | null): ParsedPrefere
 
 	if (version === CURRENT_PREFERENCES_VERSION) {
 		return {
-			preferences: normalizeStoredPreferences(parsedRecord as StoredPreferencesV2),
+			preferences: normalizeStoredPreferences(parsedRecord as StoredPreferencesV3),
 			migrated: false,
+			parseError: false,
+		};
+	}
+
+	if (version === 2) {
+		return {
+			preferences: migratePreferencesToV3(parsedRecord as StoredPreferencesV2),
+			migrated: true,
 			parseError: false,
 		};
 	}
 
 	if (version === 1 || !hasVersion) {
 		return {
-			preferences: migratePreferencesToV2(
-				parsedRecord as StoredPreferencesLegacy | StoredPreferencesV1,
+			preferences: migratePreferencesToV3(
+				migratePreferencesToV2(parsedRecord as StoredPreferencesLegacy | StoredPreferencesV1),
 			),
 			migrated: true,
 			parseError: false,
@@ -196,5 +227,6 @@ export function serializePreferences(preferences: Preferences): string {
 		options: preferences.options,
 		bannedCharacterIds: preferences.bannedCharacterIds,
 		greedierSortBySet: preferences.greedierSortBySet,
+		greedierLoricDefaultsApplied: preferences.greedierLoricDefaultsApplied,
 	});
 }

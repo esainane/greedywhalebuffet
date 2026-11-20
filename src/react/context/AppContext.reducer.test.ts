@@ -20,6 +20,7 @@ describe('appReducer', () => {
 			loadedAt: 500,
 			catalog,
 			allCharacterIds: ['a', 'b', 'c'],
+			defaultDeselectedCharacterIds: new Set<string>(),
 			bannedCharacterIds: new Set(['b']),
 		};
 
@@ -30,7 +31,7 @@ describe('appReducer', () => {
 		expect(next.notification).toEqual({ message: 'Script loaded.', tone: 'success' });
 	});
 
-	it('resets preferences and reselects all known characters in one transition', () => {
+	it('resets preferences and selects all non-Loric characters in one transition', () => {
 		const catalog = createTestCatalog({
 			baseScript: [
 				{ id: '_meta', name: 'Reducer Script' },
@@ -50,6 +51,15 @@ describe('appReducer', () => {
 					},
 					sourceSet: 2,
 				},
+				{
+					entry: {
+						id: 'greedier_loric',
+						name: 'Greedier Loric',
+						team: 'loric',
+						ability: 'Ability',
+						edition: 'greedier',
+					},
+				},
 			],
 		});
 		const state = createSourceState({
@@ -65,12 +75,41 @@ describe('appReducer', () => {
 
 		const next = appReducer(state, { type: 'reset_preferences' });
 
-		expect(next.preferences).toEqual(defaultPreferences());
+		expect(next.preferences).toEqual({
+			...defaultPreferences(),
+			greedierLoricDefaultsApplied: true,
+		});
 		expect(next.selectedCharacterIds).toEqual(new Set(['base_a', 'greedier_a']));
+		expect(next.preferences.greedierLoricDefaultsApplied).toBe(true);
 		expect(next.notification).toEqual({
 			message: 'Preferences reset to defaults.',
 			tone: 'success',
 		});
+	});
+
+	it('deselects Greedier Lorics once by default, then preserves user selections on reload', () => {
+		const catalog = createTestCatalog();
+		const initialState = createSourceState({
+			preferences: defaultPreferences(),
+		});
+		const action = {
+			type: 'load_success' as const,
+			loadedAt: 500,
+			catalog,
+			allCharacterIds: ['base_a', 'loric_a'],
+			defaultDeselectedCharacterIds: new Set(['loric_a']),
+			bannedCharacterIds: new Set<string>(),
+		};
+
+		const firstLoad = appReducer(initialState, action);
+		expect(firstLoad.selectedCharacterIds).toEqual(new Set(['base_a']));
+		expect(firstLoad.preferences.greedierLoricDefaultsApplied).toBe(true);
+
+		const selectedLoric = appReducer(
+			{ ...firstLoad, selectedCharacterIds: new Set(['base_a', 'loric_a']) },
+			action,
+		);
+		expect(selectedLoric.selectedCharacterIds).toEqual(new Set(['base_a', 'loric_a']));
 	});
 
 	it('stores a cloned selected-ID set for bulk updates', () => {

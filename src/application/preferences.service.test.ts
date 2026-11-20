@@ -40,14 +40,16 @@ describe('preferences service', () => {
 		expect(result.preferences.options.addGreedierHomebrew).toBe(true);
 		expect(result.preferences.bannedCharacterIds).toEqual(['po', 'reclusefun']);
 		expect(result.preferences.greedierSortBySet).toBe(false);
+		expect(result.preferences.greedierLoricDefaultsApplied).toBe(false);
 
 		const saved = getSavedValues();
 		expect(saved).toHaveLength(1);
 		expect(JSON.parse(saved[0])).toMatchObject({
-			version: 2,
+			version: 3,
 			options: expect.any(Object),
 			bannedCharacterIds: ['po', 'reclusefun'],
 			greedierSortBySet: false,
+			greedierLoricDefaultsApplied: false,
 		});
 	});
 
@@ -90,7 +92,7 @@ describe('preferences service', () => {
 			'snakecharmercustom',
 		]);
 		expect(JSON.parse(getSavedValues()[0])).toMatchObject({
-			version: 2,
+			version: 3,
 			bannedCharacterIds: [
 				'alchemistclean',
 				'engineerbalance',
@@ -104,6 +106,26 @@ describe('preferences service', () => {
 				'yaggababbleclean',
 				'snakecharmercustom',
 			],
+			greedierLoricDefaultsApplied: false,
+		});
+	});
+
+	it('migrates v2 preferences to initialize Greedier Loric defaults', () => {
+		const { repository, getSavedValues } = createInMemoryPreferencesRepository(
+			JSON.stringify({
+				version: 2,
+				bannedCharacterIds: ['loric_a'],
+			}),
+		);
+
+		const result = loadPreferences(repository);
+
+		expect(result.migrated).toBe(true);
+		expect(result.preferences.bannedCharacterIds).toEqual(['loric_a']);
+		expect(result.preferences.greedierLoricDefaultsApplied).toBe(false);
+		expect(JSON.parse(getSavedValues()[0])).toMatchObject({
+			version: 3,
+			greedierLoricDefaultsApplied: false,
 		});
 	});
 

@@ -9,7 +9,7 @@ export const DUPLICATE_LINE = 'Duplicate characters might be in play.';
 export const REMOVED_CHARACTERS_PREFIX = 'The following characters are not available: ';
 
 // Character filtering
-export const FILTERABLE_TEAMS = new Set(['townsfolk', 'outsider', 'minion', 'demon']);
+export const FILTERABLE_TEAMS = new Set(['townsfolk', 'outsider', 'minion', 'demon', 'loric']);
 
 /** Maximum number of entries accepted by the upstream BotC script schema. */
 export const BOTC_SCRIPT_ENTRY_LIMIT = scriptSchema.maxItems;

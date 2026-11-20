@@ -62,4 +62,41 @@ describe('character image behavior', () => {
 			'icons/generic/townsfolk.webp',
 		);
 	});
+
+	it('uses the supplied Greedier Loric images in character cards', () => {
+		const catalog = createTestCatalog({
+			greedierCharactersData: [
+				{
+					entry: {
+						id: 'monkeyspaw',
+						name: "Monkey's Paw",
+						team: 'loric',
+						ability: 'Test ability',
+						image: 'https://greedy.antihype.space/icons/greedier/monkeyspaw.webp',
+					},
+					sourceSet: 6,
+				},
+				{
+					entry: {
+						id: 'aha',
+						name: 'Aha',
+						team: 'loric',
+						ability: 'Test ability',
+						image: [
+							'https://greedy.antihype.space/icons/greedier/aha.webp',
+							'https://greedy.antihype.space/icons/greedier/aha-alt.webp',
+						],
+					},
+					sourceSet: 12,
+				},
+			],
+		});
+
+		expect(catalog.lookupById('monkeyspaw')?.toSelectable().imageUrl).toBe(
+			'icons/greedier/monkeyspaw.webp',
+		);
+		expect(catalog.lookupById('aha')?.toSelectable().imageUrl).toBe(
+			'icons/greedier/aha.webp',
+		);
+	});
 });

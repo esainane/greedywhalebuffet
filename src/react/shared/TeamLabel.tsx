@@ -24,6 +24,10 @@ const TEAM_LABELS: Record<string, TeamLabelInfo> = {
 		label: 'Demon',
 		className: 'team-demon',
 	},
+	loric: {
+		label: 'Loric',
+		className: 'team-loric',
+	},
 };
 
 function getTeamLabel(team: string | undefined, mode: TeamLabelMode = 'strict'): TeamLabelInfo | null {

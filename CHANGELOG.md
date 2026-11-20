@@ -6,6 +6,7 @@
 
 - The Demon receiving no bluffs is now optional.
 - Changed default options. Local preferences are still saved and will not be overridden.
+- Greedier Lorics can now be selected when Greedier homebrew is enabled.
 
 ### Website
 

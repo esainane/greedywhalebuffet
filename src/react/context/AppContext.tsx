@@ -52,6 +52,7 @@ export type AppAction =
 			loadedAt: number;
 			catalog: Catalog;
 			allCharacterIds: readonly string[];
+			defaultDeselectedCharacterIds: ReadonlySet<string>;
 			bannedCharacterIds: Set<string>;
 	  }
 	| { type: 'load_stale'; message: string }
@@ -126,11 +127,19 @@ export function appReducer(state: AppSourceState, action: AppAction): AppSourceS
 			};
 		}
 		case 'load_success': {
+			const applyLoricDefaults = !state.preferences.greedierLoricDefaultsApplied;
 			const selectedCharacterIds = new Set(
-				action.allCharacterIds.filter((characterId) => !action.bannedCharacterIds.has(characterId)),
+				action.allCharacterIds.filter(
+					(characterId) =>
+						!action.bannedCharacterIds.has(characterId) &&
+						(!applyLoricDefaults || !action.defaultDeselectedCharacterIds.has(characterId)),
+				),
 			);
 			return {
 				...state,
+				preferences: applyLoricDefaults
+					? { ...state.preferences, greedierLoricDefaultsApplied: true }
+					: state.preferences,
 				catalogLoad: {
 					kind: 'ready',
 					catalog: action.catalog,
@@ -194,11 +203,20 @@ export function appReducer(state: AppSourceState, action: AppAction): AppSourceS
 			const allCharacterIds = catalogView
 				? [...catalogView.baseCharacters, ...catalogView.greedierCharacters].map((character) => character.id)
 				: [];
+			const defaultDeselectedCharacterIds = new Set(
+				catalogView?.greedierCharacters
+					.filter((character) => character.team === 'loric')
+					.map((character) => character.id) ?? [],
+			);
 
 			return {
 				...state,
-				preferences: nextPreferences,
-				selectedCharacterIds: new Set(allCharacterIds),
+				preferences: catalogView
+					? { ...nextPreferences, greedierLoricDefaultsApplied: true }
+					: nextPreferences,
+				selectedCharacterIds: new Set(
+					allCharacterIds.filter((characterId) => !defaultDeselectedCharacterIds.has(characterId)),
+				),
 				notification: {
 					message: 'Preferences reset to defaults.',
 					tone: 'success',
@@ -341,12 +359,18 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 		const preferencesResult = loadPreferences(preferencesRepository);
 		const { baseCharacters, greedierCharacters } = catalogToViewModel(loadResult.catalog);
 		const allCharacterIds = [...baseCharacters, ...greedierCharacters].map((character) => character.id);
+		const defaultDeselectedCharacterIds = new Set(
+			greedierCharacters
+				.filter((character) => character.team === 'loric')
+				.map((character) => character.id),
+		);
 
 		dispatch({
 			type: 'load_success',
 			loadedAt: loadResult.loadedAt,
 			catalog: loadResult.catalog,
 			allCharacterIds,
+			defaultDeselectedCharacterIds,
 			bannedCharacterIds: new Set(preferencesResult.preferences.bannedCharacterIds),
 		});
 
@@ -417,6 +441,7 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 			options,
 			bannedCharacterIds,
 			greedierSortBySet,
+			greedierLoricDefaultsApplied: state.preferences.greedierLoricDefaultsApplied,
 		});
 	}, [
 		baseCharacters,
@@ -424,6 +449,7 @@ export function AppProvider(props: AppProviderProps): React.JSX.Element {
 		greedierCharacters,
 		greedierSortBySet,
 		options,
+		state.preferences.greedierLoricDefaultsApplied,
 		state.selectedCharacterIds,
 	]);
 

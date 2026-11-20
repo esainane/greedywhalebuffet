@@ -3,6 +3,10 @@ import { describe, expect, it, vi } from 'vitest';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { CharactersPanel } from './CharactersPanel.js';
 
+const mocks = vi.hoisted(() => ({
+	addGreedierHomebrew: false,
+}));
+
 vi.mock('../../context/AppContext.js', () => ({
 	useAppActions: () => ({
 		toggleCharacter: () => {},
@@ -32,7 +36,14 @@ vi.mock('../../context/selectors.js', () => ({
 				imageUrl: 'chef.png',
 			},
 		],
-		greedierCharacters: [],
+		greedierCharacters: [
+			{
+				id: 'aha',
+				name: 'Aha',
+				team: 'loric',
+				imageUrl: 'aha.png',
+			},
+		],
 		visibleCharacters: [],
 	}),
 	useGenerationDerivedState: () => ({
@@ -48,7 +59,7 @@ vi.mock('../../context/selectors.js', () => ({
 	}),
 	useIsLoading: () => false,
 	usePreferencesView: () => ({
-		options: { addGreedierHomebrew: false },
+		options: { addGreedierHomebrew: mocks.addGreedierHomebrew },
 		greedierSortBySet: false,
 	}),
 	useSelectedCharacterIds: () => new Set<string>(['chef']),
@@ -56,6 +67,7 @@ vi.mock('../../context/selectors.js', () => ({
 
 describe('CharactersPanel', () => {
 	it('renders explicit checkbox labeling and visible dependency text', () => {
+		mocks.addGreedierHomebrew = false;
 		const html = renderToStaticMarkup(<CharactersPanel />);
 
 		expect(html).toContain('id="character-toggle-chef"');
@@ -63,5 +75,16 @@ describe('CharactersPanel', () => {
 		expect(html).toContain('aria-describedby="character-dependencies-chef"');
 		expect(html).toContain('Missing: Required Alpha');
 		expect(html).not.toContain('<label class="inline-switch-control"');
+		expect(html).not.toContain('greedier-character-list');
+	});
+
+	it('shows Greedier Lorics only when enabled and leaves them deselected', () => {
+		mocks.addGreedierHomebrew = true;
+		const html = renderToStaticMarkup(<CharactersPanel />);
+		const loricCheckbox = html.match(/<input[^>]*id="character-toggle-aha"[^>]*>/)?.[0];
+
+		expect(loricCheckbox).toBeDefined();
+		expect(loricCheckbox).not.toContain('checked=""');
+		expect(html).toContain('<p class="team-label team-loric">Loric</p>');
 	});
 });

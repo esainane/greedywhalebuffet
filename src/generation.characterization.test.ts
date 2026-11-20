@@ -193,6 +193,29 @@ describe('generation characterization fixtures', () => {
 		).toBe(true);
 	});
 
+	it('fixture: Greedier Lorics are available and only exported when selected', async () => {
+		const catalog = await loadFixtureData();
+		expect([...catalog.rolesById.values()].some((character) => character.team === 'loric')).toBe(false);
+		const loric = [...catalog.greedierById.values()].find((character) => character.team === 'loric');
+		expect(loric).toBeDefined();
+		if (!loric) {
+			throw new Error('Expected at least one Greedier Loric');
+		}
+
+		const options = buildTestOptions({ addGreedierHomebrew: true });
+		const deselectedPayload = generate(
+			{ selectedCharacterIds: new Set(), options },
+			catalog,
+		).script;
+		const selectedPayload = generate(
+			{ selectedCharacterIds: new Set([loric.id]), options },
+			catalog,
+		).script;
+
+		expect(hasCharacter(deselectedPayload, loric.id)).toBe(false);
+		expect(hasCharacter(selectedPayload, loric.id)).toBe(true);
+	});
+
 	it('fixture: independent options remain behaviorally observable on a minimal script', () => {
 		const catalog = createTestCatalog({
 			greedyJson: [{ id: '_meta', name: 'Greedy Mini' }, 'snakecharmer', 'philosopher'],

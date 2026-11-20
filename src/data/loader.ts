@@ -215,6 +215,7 @@ export async function loadLatestJson(options: {
 	if (!isCharacterEntryArray(rolesParsed)) {
 		throw new Error(`${rolesPath} must be an array of character objects.`);
 	}
+	const importedBaseRoles = rolesParsed.filter((entry) => entry.team !== 'loric');
 
 	const greedierCharactersById = new Map<string, CatalogCharacter>();
 	const greedierCharacterSourceById = new Map<string, string>();
@@ -248,7 +249,7 @@ export async function loadLatestJson(options: {
 
 	const catalog = Catalog.create({
 		baseScript: greedyDocument,
-		roles: rolesParsed,
+		roles: importedBaseRoles,
 		greedierCharacters: greedierCharactersData,
 		idMappings: OneToOneIdMap.fromRecord(mappingFileParsed, mappingPath),
 		nightOrder: new NightOrderIndex(nightsheetParsed),

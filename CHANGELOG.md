@@ -1,6 +1,6 @@
 # Changelog
 
-## [v3.0.7] Unreleased
+## [v3.0.7] 2026-11-20
 
 ### Homebrew Characters
 - Greedier Travellers can now be selected when Greedier homebrew is enabled.

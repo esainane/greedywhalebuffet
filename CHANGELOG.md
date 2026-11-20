@@ -10,7 +10,7 @@
 
 ### Website
 
-- Shortened warning text for too many characters.
+- Shortened "too many characters" warning text.
 - Display Changelog on site.
 
 ## [v3.0.5] 2026-11-07

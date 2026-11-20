@@ -43,6 +43,12 @@ vi.mock('../../context/selectors.js', () => ({
 				team: 'loric',
 				imageUrl: 'aha.png',
 			},
+			{
+				id: 'wanderer',
+				name: 'Wanderer',
+				team: 'traveller',
+				imageUrl: 'wanderer.png',
+			},
 		],
 		visibleCharacters: [],
 	}),
@@ -78,13 +84,17 @@ describe('CharactersPanel', () => {
 		expect(html).not.toContain('greedier-character-list');
 	});
 
-	it('shows Greedier Lorics only when enabled and leaves them deselected', () => {
+	it('shows Greedier special teams only when enabled and leaves them deselected', () => {
 		mocks.addGreedierHomebrew = true;
 		const html = renderToStaticMarkup(<CharactersPanel />);
 		const loricCheckbox = html.match(/<input[^>]*id="character-toggle-aha"[^>]*>/)?.[0];
+		const travellerCheckbox = html.match(/<input[^>]*id="character-toggle-wanderer"[^>]*>/)?.[0];
 
 		expect(loricCheckbox).toBeDefined();
 		expect(loricCheckbox).not.toContain('checked=""');
 		expect(html).toContain('<p class="team-label team-loric">Loric</p>');
+		expect(travellerCheckbox).toBeDefined();
+		expect(travellerCheckbox).not.toContain('checked=""');
+		expect(html).toContain('<p class="team-label team-traveller">Traveller</p>');
 	});
 });

@@ -28,6 +28,10 @@ const TEAM_LABELS: Record<string, TeamLabelInfo> = {
 		label: 'Loric',
 		className: 'team-loric',
 	},
+	traveller: {
+		label: 'Traveller',
+		className: 'team-traveller',
+	},
 };
 
 function getTeamLabel(team: string | undefined, mode: TeamLabelMode = 'strict'): TeamLabelInfo | null {

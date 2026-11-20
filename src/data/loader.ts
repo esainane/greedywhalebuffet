@@ -215,7 +215,9 @@ export async function loadLatestJson(options: {
 	if (!isCharacterEntryArray(rolesParsed)) {
 		throw new Error(`${rolesPath} must be an array of character objects.`);
 	}
-	const importedBaseRoles = rolesParsed.filter((entry) => entry.team !== 'loric');
+	const importedBaseRoles = rolesParsed.filter(
+		(entry) => entry.team !== 'loric' && entry.team !== 'traveller',
+	);
 
 	const greedierCharactersById = new Map<string, CatalogCharacter>();
 	const greedierCharacterSourceById = new Map<string, string>();

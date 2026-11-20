@@ -1,12 +1,19 @@
 # Changelog
 
+## [v3.0.7] Unreleased
+
+### Homebrew Characters
+- Greedier Travellers can now be selected when Greedier homebrew is enabled.
+
 ## [v3.0.6] 2026-11-20
+
+### Homebrew Characters
+- Greedier Lorics can now be selected when Greedier homebrew is enabled.
 
 ### Options
 
 - The Demon receiving no bluffs is now optional.
 - Changed default options. Local preferences are still saved and will not be overridden.
-- Greedier Lorics can now be selected when Greedier homebrew is enabled.
 
 ### Website
 

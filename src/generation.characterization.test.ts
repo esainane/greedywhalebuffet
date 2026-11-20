@@ -193,27 +193,34 @@ describe('generation characterization fixtures', () => {
 		).toBe(true);
 	});
 
-	it('fixture: Greedier Lorics are available and only exported when selected', async () => {
+	it('fixture: Greedier Lorics and Travellers are available and only exported when selected', async () => {
 		const catalog = await loadFixtureData();
-		expect([...catalog.rolesById.values()].some((character) => character.team === 'loric')).toBe(false);
-		const loric = [...catalog.greedierById.values()].find((character) => character.team === 'loric');
-		expect(loric).toBeDefined();
-		if (!loric) {
-			throw new Error('Expected at least one Greedier Loric');
-		}
+		const excludedBaseTeams = new Set(['loric', 'traveller']);
+		expect(
+			[...catalog.rolesById.values()].some((character) => excludedBaseTeams.has(character.team)),
+		).toBe(false);
+		const greedierTeams = ['loric', 'traveller'];
+		const specialGreedierCharacters = greedierTeams.map((team) => {
+			const character = [...catalog.greedierById.values()].find((entry) => entry.team === team);
+			expect(character, `Expected at least one Greedier ${team}`).toBeDefined();
+			if (!character) {
+				throw new Error(`Expected at least one Greedier ${team}`);
+			}
+			return character;
+		});
 
 		const options = buildTestOptions({ addGreedierHomebrew: true });
-		const deselectedPayload = generate(
-			{ selectedCharacterIds: new Set(), options },
-			catalog,
-		).script;
-		const selectedPayload = generate(
-			{ selectedCharacterIds: new Set([loric.id]), options },
-			catalog,
-		).script;
+		const deselectedPayload = generate({ selectedCharacterIds: new Set(), options }, catalog).script;
 
-		expect(hasCharacter(deselectedPayload, loric.id)).toBe(false);
-		expect(hasCharacter(selectedPayload, loric.id)).toBe(true);
+		for (const character of specialGreedierCharacters) {
+			const selectedPayload = generate(
+				{ selectedCharacterIds: new Set([character.id]), options },
+				catalog,
+			).script;
+
+			expect(hasCharacter(deselectedPayload, character.id)).toBe(false);
+			expect(hasCharacter(selectedPayload, character.id)).toBe(true);
+		}
 	});
 
 	it('fixture: independent options remain behaviorally observable on a minimal script', () => {

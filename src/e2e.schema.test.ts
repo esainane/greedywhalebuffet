@@ -88,8 +88,10 @@ function chunkSelectionForSchema(
 
 	const ids = [...selectedCharacterIds];
 	const chunks: Set<string>[] = [];
-	for (let offset = 0; offset < ids.length; offset += availableCharacterEntries) {
-		chunks.push(new Set(ids.slice(offset, offset + availableCharacterEntries)));
+	const chunkCount = Math.ceil(ids.length / availableCharacterEntries);
+	const charactersPerChunk = Math.ceil(ids.length / chunkCount);
+	for (let offset = 0; offset < ids.length; offset += charactersPerChunk) {
+		chunks.push(new Set(ids.slice(offset, offset + charactersPerChunk)));
 	}
 
 	return chunks;

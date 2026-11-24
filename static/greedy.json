@@ -1,7 +1,7 @@
 [
   {
     "id": "_meta",
-    "name": "Greedy Whalebuffet+ v3.0.7 (edited by Sai)",
+    "name": "Greedy Whalebuffet+ v3.0.8-pre (edited by Sai)",
     "author": "kianu",
     "almanac": "https://greedy.antihype.space/",
     "background": "https://greedy.antihype.space/img/bg.webp",
@@ -446,8 +446,8 @@
     "id": "damsel",
     "name": "Damsel",
     "image": [
-      "https://greedy.antihype.space/icons/carousel/damsel_g.png",
-      "https://greedy.antihype.space/icons/carousel/damsel_e.png"
+      "https://greedy.antihype.space/icons/carousel/damsel_g.webp",
+      "https://greedy.antihype.space/icons/carousel/damsel_e.webp"
     ],
     "team": "outsider",
     "edition": "carousel",

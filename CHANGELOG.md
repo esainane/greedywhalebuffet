@@ -1,5 +1,11 @@
 # Changelog
 
+## [v3.0.8] Unreleased
+
+### General
+
+- Fixed Damsel icon
+
 ## [v3.0.7] 2026-11-20
 
 ### Homebrew Characters

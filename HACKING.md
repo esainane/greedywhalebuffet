@@ -34,4 +34,4 @@ Test categories can also be run distinctly:
 - `pnpm tool:generate-schema`: Regenerate derived schemas in `schemas/`.
 - `pnpm tool:night-order`: Generate legacy `firstNight` and `otherNight` arrays, or print night order.
 
-The changelog materializer accepts `## [vX.Y.Z]` release headings with an optional `Unreleased` marker and ISO date, `###` section headings, bullet changes, sectionless paragraphs, and `---` separators. Sectionless changes are emitted under `General`.
+The changelog materializer accepts `## [vX.Y.Z]` release headings with an optional ISO date or title, `###` section headings, bullet changes, sectionless paragraphs, and `---` separators.

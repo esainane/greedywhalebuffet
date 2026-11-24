@@ -64,13 +64,13 @@ function parseReleaseHeading(line: string, lineNumber: number): MutableRelease {
 	const suffix = headingMatch.groups.suffix;
 	const release: MutableRelease = {
 		version: metadataMatch.groups.version,
-		status: metadataMatch.groups.marker === 'Unreleased' ? 'unreleased' : 'released',
+		status: metadataMatch.groups.marker === 'Unreleased' || suffix === 'Unreleased' ? 'unreleased' : 'released',
 		sections: [],
 		explicitSectionTitles: new Set<string>(),
 		generalSectionWasSynthesized: false,
 	};
 
-	if (suffix !== undefined) {
+	if (suffix !== undefined && suffix !== 'Unreleased') {
 		if (isValidIsoDate(suffix)) {
 			release.date = suffix;
 		} else if (DATE_LIKE_SUFFIX.test(suffix)) {

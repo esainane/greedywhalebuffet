@@ -55,6 +55,40 @@ Original release.
 		});
 	});
 
+	it.each([
+		'## [v3.0.10] Unreleased',
+		'## [v3.0.10, Unreleased]',
+	])('recognizes the unreleased marker in %s without emitting a title', (heading) => {
+		const result = parseChangelog(`# Changelog
+
+${heading}
+
+- A pending change.
+`);
+
+		expect(result.releases).toEqual([
+			{
+				version: '3.0.10',
+				status: 'unreleased',
+				sections: [{ title: 'General', changes: ['A pending change.'] }],
+			},
+		]);
+	});
+
+	it('preserves a release title containing the word Unreleased', () => {
+		const result = parseChangelog(`# Changelog
+
+## [v1.0.0] Previously Unreleased
+
+- A released change.
+`);
+
+		expect(result.releases[0]).toMatchObject({
+			status: 'released',
+			title: 'Previously Unreleased',
+		});
+	});
+
 	it('joins lines within a sectionless paragraph', () => {
 		const result = parseChangelog(`# Changelog
 

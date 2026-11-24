@@ -1,5 +1,11 @@
 # Changelog
 
+## [v3.0.9] Unreleased
+
+### Website
+
+- Special "travellers" from the base script are no longer shown for filtering/banning.
+
 ## [v3.0.8] 2026-11-25
 
 ### General

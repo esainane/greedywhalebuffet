@@ -1,4 +1,4 @@
-import { FILTERABLE_TEAMS } from '../constants.js';
+import { FILTERABLE_TEAMS, NON_SELECTABLE_BASE_SCRIPT_IDS } from '../constants.js';
 import type { CharacterEntry, ScriptEntry } from '../types.js';
 import type { ExclusionRecord, GenerationRule } from './types.js';
 
@@ -26,7 +26,9 @@ function classifyEntry(
 		id: characterEntry.id,
 		name: characterEntry.name || characterEntry.id,
 		alwaysInclude: characterEntry.id === 'choosechars',
-		filterable: !!characterEntry.team && FILTERABLE_TEAMS.has(characterEntry.team),
+		filterable: !NON_SELECTABLE_BASE_SCRIPT_IDS.has(characterEntry.id)
+			&& !!characterEntry.team
+			&& FILTERABLE_TEAMS.has(characterEntry.team),
 	};
 }
 

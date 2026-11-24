@@ -18,6 +18,11 @@ export const FILTERABLE_TEAMS = new Set([
 	'traveller',
 ]);
 
+export const NON_SELECTABLE_BASE_SCRIPT_IDS = new Set([
+	'choosetravs',
+	'choosecharsdummy',
+]);
+
 /** Maximum number of entries accepted by the upstream BotC script schema. */
 export const BOTC_SCRIPT_ENTRY_LIMIT = scriptSchema.maxItems;
 

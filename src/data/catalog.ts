@@ -10,7 +10,7 @@ import type {
 	RichCharacterReference,
 } from '../types.js';
 import { CatalogEntry } from './catalog-entry.js';
-import { FILTERABLE_TEAMS } from '../constants.js';
+import { FILTERABLE_TEAMS, NON_SELECTABLE_BASE_SCRIPT_IDS } from '../constants.js';
 
 export type CatalogParams = {
 	baseScript: ScriptDocument;
@@ -223,7 +223,7 @@ export class Catalog {
 
 	/**
 	 * Return selectable base-script characters in script order.
-	 * Uses inline entry image data when present and skips non-filterable entries.
+	 * Uses inline entry image data when present and skips non-selectable and non-filterable entries.
 	 */
 	baseSelectableCharacters(): SelectableCharacter[] {
 		const characters: SelectableCharacter[] = [];
@@ -231,6 +231,7 @@ export class Catalog {
 		for (const entry of this.baseScript.entries) {
 			const id = typeof entry === 'string' ? entry : entry.id;
 			if (id === 'choosechars') continue;
+			if (NON_SELECTABLE_BASE_SCRIPT_IDS.has(id)) continue;
 
 			const catalogEntry = this.lookupById(id);
 			if (!catalogEntry || !FILTERABLE_TEAMS.has(catalogEntry.team)) continue;

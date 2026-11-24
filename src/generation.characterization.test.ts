@@ -199,6 +199,9 @@ describe('generation characterization fixtures', () => {
 		expect(
 			[...catalog.rolesById.values()].some((character) => excludedBaseTeams.has(character.team)),
 		).toBe(false);
+		const baseSelectableIds = new Set(catalog.baseSelectableCharacters().map((character) => character.id));
+		expect(baseSelectableIds.has('choosetravs')).toBe(false);
+		expect(baseSelectableIds.has('choosecharsdummy')).toBe(false);
 		const greedierTeams = ['loric', 'traveller'];
 		const specialGreedierCharacters = greedierTeams.map((team) => {
 			const character = [...catalog.greedierById.values()].find((entry) => entry.team === team);
@@ -211,6 +214,8 @@ describe('generation characterization fixtures', () => {
 
 		const options = buildTestOptions({ addGreedierHomebrew: true });
 		const deselectedPayload = generate({ selectedCharacterIds: new Set(), options }, catalog).script;
+		expect(hasCharacter(deselectedPayload, 'choosetravs')).toBe(true);
+		expect(hasCharacter(deselectedPayload, 'choosecharsdummy')).toBe(true);
 
 		for (const character of specialGreedierCharacters) {
 			const selectedPayload = generate(

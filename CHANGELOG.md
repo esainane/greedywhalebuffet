@@ -2,6 +2,10 @@
 
 ## [v3.0.9] Unreleased
 
+### Base Jinxes
+
+- Vizier/Cerenovus: A player voting in compliance with madness might register as evil to the Vizier. This is mostly intended for madness as Zealot, but other niche situations could apply.
+
 ### Website
 
 - Special "travellers" from the base script are no longer shown for filtering/banning.

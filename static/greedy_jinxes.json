@@ -277,6 +277,10 @@
         "reason": "The Vizier cannot immediately execute the Storyteller."
       },
       {
+        "id": "cerenovus",
+        "reason": "A player voting in compliance with madness might register as evil to the Vizier."
+      },
+      {
         "id": "fearmonger",
         "reason": "The Vizier knows any Fearmonger chosen players. The Vizier might fail to immediately execute them."
       },

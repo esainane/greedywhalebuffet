@@ -14,7 +14,6 @@ const characters = [
 describe('normalizeCharacterName', () => {
 	it('removes only a trailing Omega suffix and its preceding space', () => {
 		expect(normalizeCharacterName('Alpha Ω')).toBe('Alpha');
-		expect(normalizeCharacterName('Alpha Omega')).toBe('Alpha');
 		expect(normalizeCharacterName('Omega Alpha')).toBe('Omega Alpha');
 	});
 });

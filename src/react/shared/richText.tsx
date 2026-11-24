@@ -28,7 +28,7 @@ const TEAM_BY_NAME = new Map<string, string>([
 ]);
 
 export function normalizeCharacterName(name: string): string {
-	return name.replace(/ (?:Ω|Omega)$/u, '');
+	return name.replace(/ Ω$/u, '');
 }
 
 function escapeRegExp(value: string): string {

@@ -156,6 +156,11 @@ describe('generation characterization fixtures', () => {
 		expect(
 			bootlegger.some((line) => line.startsWith(REMOVED_CHARACTERS_PREFIX)),
 		).toBe(true);
+		expect(
+			bootlegger
+				.filter((line) => line.startsWith(REMOVED_CHARACTERS_PREFIX))
+				.every((line) => !line.includes('Ω')),
+		).toBe(true);
 	});
 
 	it('fixture: small selection with unsatisfied dependency excludes dependent role and records it in metadata', async () => {

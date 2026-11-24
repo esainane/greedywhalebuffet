@@ -1,5 +1,11 @@
 # Changelog
 
+## [v3.0.10] Unreleased
+
+### General
+
+- Removed characters are now listed without a trailing Omega in the bootlegger.
+
 ## [v3.0.9] 2026-11-25
 
 ### Base Jinxes

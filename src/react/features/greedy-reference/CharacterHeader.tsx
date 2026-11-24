@@ -1,6 +1,6 @@
 import React from 'react';
+import { normalizeCharacterName } from '../../../text-helpers.js';
 import { TeamLabel } from '../../shared/TeamLabel.js';
-import { normalizeCharacterName } from '../../shared/richText.js';
 
 type CharacterHeaderData = {
 	name: string;

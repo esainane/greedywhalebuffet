@@ -1,7 +1,7 @@
 import React from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
-import { RichText, normalizeCharacterName, tokenizeRichText } from './richText.js';
+import { RichText, tokenizeRichText } from './richText.js';
 
 const characters = [
 	{ name: 'Alpha Ω', team: 'townsfolk' },
@@ -10,13 +10,6 @@ const characters = [
 	{ name: 'Angel', team: 'fabled' },
 	{ name: 'Butcher', team: 'traveller' },
 ];
-
-describe('normalizeCharacterName', () => {
-	it('removes only a trailing Omega suffix and its preceding space', () => {
-		expect(normalizeCharacterName('Alpha Ω')).toBe('Alpha');
-		expect(normalizeCharacterName('Omega Alpha')).toBe('Omega Alpha');
-	});
-});
 
 describe('RichText', () => {
 	it('emphasizes marked all-caps phrases and longest matching normalized character names', () => {

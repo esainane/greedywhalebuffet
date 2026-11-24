@@ -1,3 +1,4 @@
+import { normalizeCharacterName } from '../text-helpers.js';
 import { REMOVED_CHARACTERS_PREFIX } from '../constants.js';
 import type { GenerationRule } from './types.js';
 
@@ -14,14 +15,16 @@ export const bootleggerCharacterLineRule: GenerationRule = {
 		}
 
 		const bootlegger = Array.isArray(workspace.meta.bootlegger) ? [...workspace.meta.bootlegger] : [];
-		const allRemovedLine = `${REMOVED_CHARACTERS_PREFIX}${[...removedBaseNames, ...removedGreedierNames].join(', ')}`;
+		const removedBaseNamesWithoutOmega = removedBaseNames.map(normalizeCharacterName);
+		const removedGreedierNamesWithoutOmega = removedGreedierNames.map(normalizeCharacterName);
+		const allRemovedLine = `${REMOVED_CHARACTERS_PREFIX}${[...removedBaseNamesWithoutOmega, ...removedGreedierNamesWithoutOmega].join(', ')}`;
 		const addedLine = `The following Greedier characters have been added: ${addedGreedierNames.join(', ')}`;
 
 		const canMixed = removedBaseNames.length > 0
 			&& removedGreedierNames.length > 0
 			&& addedGreedierNames.length > 0;
 		if (canMixed) {
-			const mixedLine = `${REMOVED_CHARACTERS_PREFIX}${removedBaseNames.join(', ')}. ${addedLine}`;
+			const mixedLine = `${REMOVED_CHARACTERS_PREFIX}${removedBaseNamesWithoutOmega.join(', ')}. ${addedLine}`;
 			bootlegger.push(mixedLine.length < allRemovedLine.length ? mixedLine : allRemovedLine);
 		} else if (
 			removedBaseNames.length === 0

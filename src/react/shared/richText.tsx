@@ -1,4 +1,5 @@
 import React, { useMemo } from 'react';
+import { normalizeCharacterName } from '../../text-helpers.js';
 import type { RichCharacterReference } from '../../types.js';
 
 type RichTextProps = {
@@ -26,10 +27,6 @@ const TEAM_BY_NAME = new Map<string, string>([
 	['Lorics', 'loric'],
 	['Loric', 'loric'],
 ]);
-
-export function normalizeCharacterName(name: string): string {
-	return name.replace(/ Ω$/u, '');
-}
 
 function escapeRegExp(value: string): string {
 	return value.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');

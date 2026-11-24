@@ -1,6 +1,6 @@
 # Changelog
 
-## [v3.0.9] Unreleased
+## [v3.0.9] 2026-11-25
 
 ### Base Jinxes
 

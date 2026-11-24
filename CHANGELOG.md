@@ -1,6 +1,6 @@
 # Changelog
 
-## [v3.0.8] Unreleased
+## [v3.0.8] 2026-11-25
 
 ### General
 

@@ -33,7 +33,7 @@ export function GreedyReferencePanel(): React.JSX.Element {
 		const includeNoDeathAtNightJinxes = options.useNoDeathAtNightJinxes;
 
 		return {
-			differences: deriveGreedyDifferences(catalog, { showNonAbilityDifferences }),
+			differences: deriveGreedyDifferences(catalog, { showNonAbilityDifferences, generationOptions: options }),
 			jinxes: deriveGreedyJinxes(catalog, {
 				includeGreedierHomebrew: options.addGreedierHomebrew,
 				includeNoDeathAtNightJinxes,
@@ -43,8 +43,7 @@ export function GreedyReferencePanel(): React.JSX.Element {
 	}, [
 		catalog,
 		greedierSortBySet,
-		options.addGreedierHomebrew,
-		options.useNoDeathAtNightJinxes,
+		options,
 		showNonAbilityDifferences,
 	]);
 
@@ -52,7 +51,7 @@ export function GreedyReferencePanel(): React.JSX.Element {
 		<>
 			<section id="section-greedy-characters" className="panel reference-panel">
 				<p className="eyebrow">Greedy Characters</p>
-				<p className="lede">Some characters have been modified to be different from their base version. This might be to make them perform better with a very large script or with characters they weren't originally written for, permit combinations that would be nonsensical otherwise, open new possibilities, or prevent annoyances.</p>
+				<p className="lede">Some characters have been modified to be different from their base version. This might be to make them perform better with a very large script or with characters they weren't originally written for, permit combinations that would be nonsensical otherwise, open new possibilities, or prevent annoyances. Comparisons reflect the current rule options, regardless of character selection.</p>
 				<GreedyDifferencesDetail
 					items={details.differences}
 					loading={loading}

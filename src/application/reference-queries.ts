@@ -2,7 +2,9 @@ import { FILTERABLE_TEAMS } from '../constants.js';
 import type { Catalog } from '../data/catalog.js';
 import { compareCanonicalCharacterOrder, compareCanonicalJinxOrder } from '../jinxOrder.js';
 import { isNoDeathAtNightJinxPair } from '../character-policy.js';
-import type { SelectableCharacter } from '../types.js';
+import { generateReferenceEntries } from '../generation.js';
+import { defaultGenerationOptions } from '../options.js';
+import type { GenerationOptions, SelectableCharacter } from '../types.js';
 
 export type GreedyDifferenceDetail = {
 	character: SelectableCharacter;
@@ -55,13 +57,18 @@ function buildOfficialJinxLookup(catalog: Catalog): Map<string, string> {
 
 export function deriveGreedyDifferences(
 	catalog: Catalog,
-	options: { showNonAbilityDifferences?: boolean } = {},
+	options: { showNonAbilityDifferences?: boolean; generationOptions?: GenerationOptions } = {},
 ): GreedyDifferenceDetail[] {
 	const differences: GreedyDifferenceDetail[] = [];
 	const showNonAbilityDifferences = options.showNonAbilityDifferences === true;
+	const baseEntryIds = new Set(
+		catalog.baseScript.entries
+			.filter((entry) => typeof entry !== 'string')
+			.map((entry) => entry.id),
+	);
 
-	for (const entry of catalog.baseScript.entries) {
-		if (typeof entry === 'string' || entry.id === 'choosechars') {
+	for (const entry of generateReferenceEntries(catalog, options.generationOptions ?? defaultGenerationOptions())) {
+		if (typeof entry === 'string' || entry.id === 'choosechars' || !baseEntryIds.has(entry.id)) {
 			continue;
 		}
 

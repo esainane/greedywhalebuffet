@@ -1,8 +1,35 @@
-import type { GenerationOptions, GenerationRequest, GenerationResult, GenerationDiagnostic } from './types.js';
+import type { GenerationOptions, GenerationRequest, GenerationResult, GenerationDiagnostic, ScriptEntry } from './types.js';
 import type { Catalog } from './data/catalog.js';
 import { getDependencyDiagnostics } from './dependencies.js';
 import { GenerationWorkspace } from './generation-workspace.js';
 import { SOURCE_COMPOSITION_RULES, TRANSFORMATION_RULES } from './generation-rules/index.js';
+
+function applyGenerationRules(
+	workspace: GenerationWorkspace,
+	options: GenerationOptions,
+	exportableIds: ReadonlySet<string>,
+): void {
+	const ruleContext = { workspace, options, exportableIds };
+
+	for (const rule of SOURCE_COMPOSITION_RULES) {
+		rule.apply(ruleContext);
+	}
+
+	for (const rule of TRANSFORMATION_RULES) {
+		rule.apply(ruleContext);
+	}
+}
+
+/** Apply generation rules to the complete character pool for reference views. */
+export function generateReferenceEntries(catalog: Catalog, options: GenerationOptions): readonly ScriptEntry[] {
+	const workspace = new GenerationWorkspace(catalog);
+	const allIds = new Set([
+		...workspace.entries.map((entry) => typeof entry === 'string' ? entry : entry.id),
+		...catalog.greedierById.keys(),
+	]);
+	applyGenerationRules(workspace, options, allIds);
+	return workspace.entries;
+}
 
 /**
  * Run the generation pipeline for a request against an immutable catalog.
@@ -22,21 +49,7 @@ export function generate(request: GenerationRequest, catalog: Catalog): Generati
 
 	// Mutable state to be passed around the generation pipeline
 	const workspace = new GenerationWorkspace(catalog);
-	const ruleContext = {
-		workspace,
-		options,
-		exportableIds,
-	};
-
-	// Apply pre-filter source-composition rules.
-	for (const rule of SOURCE_COMPOSITION_RULES) {
-		rule.apply(ruleContext);
-	}
-
-	// Apply ordered option transformations.
-	for (const rule of TRANSFORMATION_RULES) {
-		rule.apply(ruleContext);
-	}
+	applyGenerationRules(workspace, options, exportableIds);
 
 	return {
 		script: workspace.toScriptFile(),

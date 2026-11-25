@@ -1,9 +1,62 @@
 import { describe, expect, it } from 'vitest';
 import { catalogToViewModel } from './services.js';
 import { deriveGreedyDifferences, deriveGreedyHomebrew, deriveGreedyJinxes } from './reference-queries.js';
-import { createTestCatalog } from '../test-helpers.js';
+import { buildTestOptions, createTestCatalog } from '../test-helpers.js';
 
 describe('deriveGreedyDifferences', () => {
+	it('compares the rule-adjusted Summoner ability without mutating the catalog', () => {
+		const catalog = createTestCatalog({
+			baseScript: [
+				{ id: '_meta', name: 'Reference Script', bootlegger: ['The Demon receives no bluffs.'] },
+				{ id: 'summonerclean', name: 'Summoner', team: 'minion', ability: 'Greedy ability.' },
+			],
+			rolesData: [
+				{ id: 'summoner', name: 'Summoner', team: 'minion', ability: 'You get 3 bluffs. Official ability.' },
+			],
+			greedyToBaseID: { summonerclean: 'summoner' },
+		});
+
+		const withNoBluffs = deriveGreedyDifferences(catalog, {
+			generationOptions: buildTestOptions({ noDemonBluffs: true }),
+		});
+		const withBluffs = deriveGreedyDifferences(catalog, {
+			generationOptions: buildTestOptions({ noDemonBluffs: false }),
+		});
+
+		expect(withNoBluffs[0]?.greedyAbility).toBe('Greedy ability.');
+		expect(withBluffs[0]?.greedyAbility).toBe('You get 3 bluffs. Greedy ability.');
+		expect(catalog.baseScript.entries[0]).toMatchObject({ ability: 'Greedy ability.' });
+	});
+
+	it('omits a difference removed by a rule and applies night-order rules to the full reference pool', () => {
+		const catalog = createTestCatalog({
+			baseScript: [
+				{ id: '_meta', name: 'Reference Script', bootlegger: ['The Demon receives no bluffs.'] },
+				{ id: 'summoner', name: 'Summoner', team: 'minion', ability: 'Same ability.' },
+				{ id: 'snakecharmer', name: 'Snake Charmer', team: 'townsfolk', ability: 'Same ability.' },
+				{ id: 'choirboy', name: 'Choirboy', team: 'townsfolk', ability: 'Greedy ability.' },
+			],
+			rolesData: [
+				{ id: 'summoner', name: 'Summoner', team: 'minion', ability: 'You get 3 bluffs. Same ability.' },
+				{ id: 'snakecharmer', name: 'Snake Charmer', team: 'townsfolk', ability: 'Same ability.' },
+				{ id: 'choirboy', name: 'Choirboy', team: 'townsfolk', ability: 'Official ability.' },
+			],
+			nightsheetFile: { firstNight: ['philosopher', 'snakecharmer'], otherNight: [] },
+		});
+
+		const differences = deriveGreedyDifferences(catalog, {
+			showNonAbilityDifferences: true,
+			generationOptions: buildTestOptions({ noDemonBluffs: false, alejoRules: true }),
+		});
+
+		expect(differences.map((entry) => entry.character.id)).toEqual(['snakecharmer', 'choirboy']);
+		expect(differences[0]).toMatchObject({ officialFirstNight: 2, greedyFirstNight: 1 });
+		expect(deriveGreedyDifferences(catalog, {
+			showNonAbilityDifferences: true,
+			generationOptions: buildTestOptions({ noDemonBluffs: true }),
+		}).map((entry) => entry.character.id)).toEqual(['summoner', 'choirboy']);
+	});
+
 	it('returns changed abilities for filterable roles only', () => {
 		const catalog = createTestCatalog({
 			baseScript: [

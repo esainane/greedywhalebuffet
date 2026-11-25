@@ -1,5 +1,11 @@
 # Changelog
 
+## [v3.0.11] Unreleased
+
+### Character Updates
+
+- Riot, Summoner: Reverted to use absolute days again.
+
 ## [v3.0.10] 2026-11-25
 
 ### General

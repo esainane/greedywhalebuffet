@@ -1,7 +1,7 @@
 [
   {
     "id": "_meta",
-    "name": "Greedy Whalebuffet+ v3.0.10 (edited by Sai)",
+    "name": "Greedy Whalebuffet+ v3.0.11-pre (edited by Sai)",
     "author": "kianu",
     "almanac": "https://greedy.antihype.space/",
     "background": "https://greedy.antihype.space/img/bg.webp",
@@ -927,7 +927,7 @@
       "https://greedy.antihype.space/icons/carousel/summoner_g.webp"
     ],
     "team": "minion",
-    "ability": "On your 3rd night, choose a player: they become an evil Demon of your choice. If not, you learn this, and are asked to reconsider. [No Demon]",
+    "ability": "On the 3rd night, choose a player: they become an evil Demon of your choice. If not, you learn this, and are asked to reconsider. [No Demon]",
     "flavor": "With this treasure, I summon… -Chara",
     "otherNight": 34,
     "otherNightReminder": "Change the Summoner reminder token to the relevant night. :reminder: If it's night 2, ask the Summoner if they want to create a Pukka. If it is night 3, the Summoner chooses a player & a Demon character. If any part of a summoning would fail, shake your head, and let them choose again. Put the Summoner to sleep. Wake the target. Show the *YOU ARE* and Demon tokens & give a thumbs-down.",
@@ -1179,7 +1179,7 @@
       "https://greedy.antihype.space/icons/carousel/riot_g.webp"
     ],
     "team": "demon",
-    "ability": "On your 3rd day, Minions become Riot & nominees die but nominate an alive player immediately. This must happen.",
+    "ability": "On day 3, Minions become Riot & nominees die but nominate an alive player immediately. This must happen.",
     "flavor": "Guys I need to leave in 30 minutes",
     "otherNight": 55,
     "otherNightReminder": "Riot chooses a player for jinxed interactions. :reminder: Change the Riot reminder token to the relevant day. :reminder: If it is night 3, you may wake the Minions before dawn. Show the *YOU ARE* & Riot tokens.",

@@ -5,6 +5,7 @@
 ### Character Updates
 
 - Riot, Summoner: Reverted to use absolute days again.
+- Summoner: If the Demon would receive bluffs, so does the Summoner. If Demon bluffs are enabled in the website, the Summoner's ability is adjusted to reflect this.
 
 ## [v3.0.10] 2026-11-25
 

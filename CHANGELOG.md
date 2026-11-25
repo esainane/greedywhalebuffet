@@ -1,6 +1,6 @@
 # Changelog
 
-## [v3.0.11] Unreleased
+## [v3.0.11] 2026-11-26
 
 ### Character Updates
 

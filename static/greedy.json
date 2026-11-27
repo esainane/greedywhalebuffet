@@ -827,17 +827,7 @@
       {
         "type": "signal",
         "name": "card",
-        "value": "Sober or Drunk?"
-      },
-      {
-        "type": "signal",
-        "name": "player",
-        "value": "Sober"
-      },
-      {
-        "type": "signal",
-        "name": "player",
-        "value": "Drunk"
+        "value": "Be drunk today?"
       }
     ]
   },

@@ -2,6 +2,10 @@
 
 ## [v3.0.12] Unreleased
 
+### Character Updates
+
+- Organ Grinder: Now has a "Be drunk today?" preset signal to send. STs commonly typed out a full question when asking, and players commonly asked for clarification if sent a "Use your ability?" card.
+
 ### General
 
 - Fixed Damsel, Goblin, and Organ Grinder overrides.

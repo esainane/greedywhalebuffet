@@ -1,5 +1,11 @@
 # Changelog
 
+## [v3.0.12] Unreleased
+
+### General
+
+- Fixed Damsel, Goblin, and Organ Grinder overrides.
+
 ## [v3.0.11] 2026-11-26
 
 ### Character Updates

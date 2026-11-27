@@ -1,5 +1,12 @@
 # Changelog
 
+## [v3.0.13] Unreleased
+
+### Greedier Homebrew
+
+- Set 15 has been finalized! Congratulations to: Bellwether, Percy Jackson, Psychiatrist, Crux, Secretkeeper, Cupid, Famine, and Sin Of Lust.
+- Note: Bellwether may be reclassified as part of a different set in a future update.
+
 ## [v3.0.12] 2026-11-28
 
 ### Character Updates

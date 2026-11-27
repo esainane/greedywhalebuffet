@@ -1,14 +1,5 @@
 [
   {
-    "id": "actuary",
-    "jinx": [
-      {
-        "id": "vortox",
-        "reason": "The initial 3 numbers are falsified. The closest guesser is not."
-      }
-    ]
-  },
-  {
     "id": "alchemist",
     "jinx": [
       {
@@ -310,23 +301,6 @@
     ]
   },
   {
-    "id": "shadowseeker",
-    "jinx": [
-      {
-        "id": "damsel",
-        "reason": "If the shadowseeker sees the grim they are poisoned."
-      },
-      {
-        "id": "heretic",
-        "reason": "If the shadowseeker sees the grim they are poisoned."
-      },
-      {
-        "id": "poppygrower",
-        "reason": "The shadowseeker doesnt see the grim but makes a choice."
-      }
-    ]
-  },
-  {
     "id": "summoner",
     "jinx": [
       {
@@ -336,15 +310,6 @@
       {
         "id": "lolth",
         "reason": "If the Summoner summons a Lolth, a Townsfolk might become evil."
-      }
-    ]
-  },
-  {
-    "id": "thestral",
-    "jinx": [
-      {
-        "id": "summoner",
-        "reason": "If the Summoner summons a dead player into the Thestral, the Thestral has already \"died once\"."
       }
     ]
   },

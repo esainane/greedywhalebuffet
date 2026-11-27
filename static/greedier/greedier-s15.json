@@ -1,0 +1,97 @@
+[
+  {
+    "id": "bellwether",
+    "name": "Bellwether Ω",
+    "team": "townsfolk",
+    "ability": "Each night*, learn if more votes on the most recently executed player were good.",
+    "otherNightReminder": "Nod if a strict majority of votes for them were good. Otherwise, shake your head.",
+    "setup": false,
+    "otherNight": 75,
+    "flavor": "When the bell rings, the flock reveals which way it was led."
+  },
+  {
+    "id": "percyjackson",
+    "name": "Percy Jackson Ω",
+    "team": "townsfolk",
+    "ability": "Each night, choose up to 4 players: if any are nominated tomorrow, learn how many non-nominated chosen players were evil.",
+    "firstNightReminder": "Percy Jackson chooses up to 4 players. :reminder: :reminder: :reminder: :reminder:",
+    "otherNightReminder": "If a player is marked *NOMINATED*, give a finger signal. Percy Jackson chooses up to 4 players. :reminder: :reminder: :reminder: :reminder:",
+    "reminders": ["Chosen", "Chosen", "Chosen", "Chosen", "Nominated"],
+    "setup": false,
+    "firstNight": 70,
+    "otherNight": 70,
+    "flavor": "“I’m the son of Poseidon and I’m gonna winnnn!”"
+  },
+  {
+    "id": "psychiatrist",
+    "name": "Psychiatrist Ω",
+    "team": "townsfolk",
+    "ability": "Each night, choose a player: learn if they are mad due to an ability & the source.",
+    "firstNightReminder": "The Psychiatrist chooses a player. If they are mad due to an ability, show a character token. Otherwise, shake your head.",
+    "otherNightReminder": "The Psychiatrist chooses a player. If they are mad due to an ability, show a character token. Otherwise, shake your head.",
+    "setup": false,
+    "firstNight": 70,
+    "otherNight": 70,
+    "flavor": "Mad? I was mad once."
+  },
+  {
+    "id": "crux",
+    "name": "Crux Ω",
+    "team": "outsider",
+    "ability": "You start knowing a player: if they are good & executed, your team loses, even if you are dead.",
+    "firstNightReminder": "Point to the player marked *KNOW*.",
+    "reminders": ["Know"],
+    "setup": false,
+    "firstNight": 69,
+    "flavor": "You may be deceived if you trust too much, but you will live in torment if you do not trust enough."
+  },
+  {
+    "id": "secretkeeper",
+    "name": "Secretkeeper Ω",
+    "team": "outsider",
+    "ability": "On your 1st night, choose a player (not yourself): they learn true information. If they reveal this information, they lose, even if you are dead.",
+    "firstNightReminder": "The Secretkeeper chooses a player. :reminder: Put the Secretkeeper to sleep. Wake the target. Show the *THIS CHARACTER SELECTED YOU* & Secretkeeper tokens, then give true information.",
+    "reminders": ["Secret Given"],
+    "setup": false,
+    "firstNight": 70,
+    "flavor": "I have something to share with you. Protect it as if your life depends on it. Perhaps it does."
+  },
+  {
+    "id": "cupid",
+    "name": "Cupid Ω",
+    "team": "minion",
+    "ability": "Each night, choose 2 players: tomorrow, the 1st is mad that the 2nd is good, or either might die.",
+    "firstNightReminder": "The Cupid chooses 2 players. :reminder: :reminder: Put the Cupid to sleep. Wake the 1st target. Show the *THIS CHARACTER SELECTED YOU* & Cupid tokens, then point to the 2nd target.",
+    "otherNightReminder": "The Cupid chooses 2 players. :reminder: :reminder: Put the Cupid to sleep. Wake the 1st target. Show the *THIS CHARACTER SELECTED YOU* & Cupid tokens, then point to the 2nd target.",
+    "reminders": ["Mad", "2nd"],
+    "setup": false,
+    "firstNight": 45,
+    "otherNight": 31,
+    "flavor": "I think I love you."
+  },
+  {
+    "id": "famine",
+    "name": "Famine Ω",
+    "team": "demon",
+    "ability": "Each night*, all players silently choose a living player: the player chosen by the most good players dies. If you die this way, evil wins. All players know you are in play.",
+    "firstNightReminder": "If a Mastermind ability is also in play, wake the player marked *KNOW* & show the Mastermind token. :reminder: After Dawn, announce that Famine is in play.",
+    "otherNightReminder": "Wake each player. Each chooses a living player. The player chosen by the most good players dies. :reminder: If tied, choose 1 tied player.",
+    "reminders": ["Dead", "Know"],
+    "setup": false,
+    "firstNight": 77,
+    "otherNight": 40,
+    "flavor": "That which is abundant to one is scarce to all.",
+    "special": [{"type": "ability", "name": "pointing", "time": "otherNight"}]
+  },
+  {
+    "id": "sinoflust",
+    "name": "Sin Of Lust Ω",
+    "team": "demon",
+    "ability": "Each night*, choose a player: they are poisoned, the previously chosen player becomes healthy & good players they choose with their ability die. If they chose no alive good players by dawn, deaths are arbitrary.",
+    "otherNightReminder": "The previously poisoned player becomes healthy. The Sin Of Lust chooses a player. :reminder: Good players chosen tonight by the player marked *POISONED* die. :reminder: If they chose no alive good players, deaths tonight are arbitrary.",
+    "reminders": ["Poisoned", "Dead"],
+    "otherNight": 40,
+    "setup": false,
+    "flavor": "Look at this little cutie~ I think I'll have you get your hands dirty for me dearie"
+  }
+]

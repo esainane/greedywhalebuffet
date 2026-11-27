@@ -109,7 +109,7 @@
     },
     {
       "kind": "roles",
-      "path": "./greedier/greedier-s15-playtest.json",
+      "path": "./greedier/greedier-s15.json",
       "sourceSet": 15
     }
   ]

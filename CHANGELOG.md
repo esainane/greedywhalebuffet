@@ -1,6 +1,6 @@
 # Changelog
 
-## [v3.0.13] Unreleased
+## [v3.0.13] 2026-11-28
 
 ### Greedier Homebrew
 

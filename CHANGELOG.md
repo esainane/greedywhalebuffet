@@ -4,6 +4,7 @@
 
 ### Character Updates
 
+- Lunatic: No longer has an omega suffix.
 - Organ Grinder: Now has a "Be drunk today?" preset signal to send. STs commonly typed out a full question when asking, and players commonly asked for clarification if sent a "Use your ability?" card.
 
 ### General

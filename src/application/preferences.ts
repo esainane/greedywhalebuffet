@@ -11,6 +11,14 @@ export type Preferences = {
 	greedierLoricDefaultsApplied: boolean;
 };
 
+type StoredPreferencesV4 = {
+	version: 4;
+	options?: unknown;
+	bannedCharacterIds?: unknown;
+	greedierSortBySet?: unknown;
+	greedierLoricDefaultsApplied?: unknown;
+};
+
 type StoredPreferencesV3 = {
 	version: 3;
 	options?: unknown;
@@ -39,7 +47,7 @@ type StoredPreferencesV1 = {
 	greedierSortBySet?: unknown;
 };
 
-export const CURRENT_PREFERENCES_VERSION = 3;
+export const CURRENT_PREFERENCES_VERSION = 4;
 
 export function defaultPreferences(): Preferences {
 	return {
@@ -90,7 +98,12 @@ function normalizeGreedierLoricDefaultsApplied(rawValue: unknown): boolean {
 }
 
 function normalizeStoredPreferences(
-	raw: StoredPreferencesLegacy | StoredPreferencesV1 | StoredPreferencesV2 | StoredPreferencesV3,
+	raw:
+		| StoredPreferencesLegacy
+		| StoredPreferencesV1
+		| StoredPreferencesV2
+		| StoredPreferencesV3
+		| StoredPreferencesV4,
 ): Preferences {
 	return {
 		options: normalizeOptions(raw.options),
@@ -150,6 +163,26 @@ function migratePreferencesToV3(
 	return normalizeStoredPreferences(raw);
 }
 
+const V4_CHARACTER_ID_RENAMES = new Map<string, string>([
+	['damsel', 'damselquote'],
+	['goblin', 'goblinquote'],
+	['organgrinder', 'organgrinderqol'],
+]);
+
+function migrateCharacterIdToV4(id: string): string {
+	return V4_CHARACTER_ID_RENAMES.get(id) ?? id;
+}
+
+function migratePreferencesToV4(
+	raw: StoredPreferencesLegacy | StoredPreferencesV1 | StoredPreferencesV2 | StoredPreferencesV3,
+): Preferences {
+	const preferences = normalizeStoredPreferences(raw);
+	preferences.bannedCharacterIds = [
+		...new Set(preferences.bannedCharacterIds.map(migrateCharacterIdToV4)),
+	];
+	return preferences;
+}
+
 export type ParsedPreferences = {
 	preferences: Preferences;
 	migrated: boolean;
@@ -190,15 +223,25 @@ export function parseStoredPreferences(serialized: string | null): ParsedPrefere
 
 	if (version === CURRENT_PREFERENCES_VERSION) {
 		return {
-			preferences: normalizeStoredPreferences(parsedRecord as StoredPreferencesV3),
+			preferences: normalizeStoredPreferences(parsedRecord as StoredPreferencesV4),
 			migrated: false,
+			parseError: false,
+		};
+	}
+
+	if (version === 3) {
+		return {
+			preferences: migratePreferencesToV4(parsedRecord as StoredPreferencesV3),
+			migrated: true,
 			parseError: false,
 		};
 	}
 
 	if (version === 2) {
 		return {
-			preferences: migratePreferencesToV3(parsedRecord as StoredPreferencesV2),
+			preferences: migratePreferencesToV4(
+				migratePreferencesToV3(parsedRecord as StoredPreferencesV2),
+			),
 			migrated: true,
 			parseError: false,
 		};
@@ -206,8 +249,10 @@ export function parseStoredPreferences(serialized: string | null): ParsedPrefere
 
 	if (version === 1 || !hasVersion) {
 		return {
-			preferences: migratePreferencesToV3(
-				migratePreferencesToV2(parsedRecord as StoredPreferencesLegacy | StoredPreferencesV1),
+			preferences: migratePreferencesToV4(
+				migratePreferencesToV3(
+					migratePreferencesToV2(parsedRecord as StoredPreferencesLegacy | StoredPreferencesV1),
+				),
 			),
 			migrated: true,
 			parseError: false,

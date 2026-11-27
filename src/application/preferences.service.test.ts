@@ -28,7 +28,7 @@ describe('preferences service', () => {
 		const { repository, getSavedValues } = createInMemoryPreferencesRepository(
 			JSON.stringify({
 				options: { addGreedierHomebrew: true, notAnOption: true },
-				bannedCharacterIds: ['po', 42, 'po', 'recluse_wewew'],
+				bannedCharacterIds: ['po', 42, 'po', 'recluse_wewew', 'goblin'],
 				greedierSortBySet: false,
 			}),
 		);
@@ -38,16 +38,16 @@ describe('preferences service', () => {
 		expect(result.migrated).toBe(true);
 		expect(result.error).toBeNull();
 		expect(result.preferences.options.addGreedierHomebrew).toBe(true);
-		expect(result.preferences.bannedCharacterIds).toEqual(['po', 'reclusefun']);
+		expect(result.preferences.bannedCharacterIds).toEqual(['po', 'reclusefun', 'goblinquote']);
 		expect(result.preferences.greedierSortBySet).toBe(false);
 		expect(result.preferences.greedierLoricDefaultsApplied).toBe(false);
 
 		const saved = getSavedValues();
 		expect(saved).toHaveLength(1);
 		expect(JSON.parse(saved[0])).toMatchObject({
-			version: 3,
+			version: 4,
 			options: expect.any(Object),
-			bannedCharacterIds: ['po', 'reclusefun'],
+			bannedCharacterIds: ['po', 'reclusefun', 'goblinquote'],
 			greedierSortBySet: false,
 			greedierLoricDefaultsApplied: false,
 		});
@@ -92,7 +92,7 @@ describe('preferences service', () => {
 			'snakecharmercustom',
 		]);
 		expect(JSON.parse(getSavedValues()[0])).toMatchObject({
-			version: 3,
+			version: 4,
 			bannedCharacterIds: [
 				'alchemistclean',
 				'engineerbalance',
@@ -114,19 +114,62 @@ describe('preferences service', () => {
 		const { repository, getSavedValues } = createInMemoryPreferencesRepository(
 			JSON.stringify({
 				version: 2,
-				bannedCharacterIds: ['loric_a'],
+				bannedCharacterIds: ['loric_a', 'organgrinder'],
 			}),
 		);
 
 		const result = loadPreferences(repository);
 
 		expect(result.migrated).toBe(true);
-		expect(result.preferences.bannedCharacterIds).toEqual(['loric_a']);
+		expect(result.preferences.bannedCharacterIds).toEqual(['loric_a', 'organgrinderqol']);
 		expect(result.preferences.greedierLoricDefaultsApplied).toBe(false);
 		expect(JSON.parse(getSavedValues()[0])).toMatchObject({
-			version: 3,
+			version: 4,
+			bannedCharacterIds: ['loric_a', 'organgrinderqol'],
 			greedierLoricDefaultsApplied: false,
 		});
+	});
+
+	it('migrates v3 banned IDs to the renamed greedy character IDs', () => {
+		const { repository, getSavedValues } = createInMemoryPreferencesRepository(
+			JSON.stringify({
+				version: 3,
+				bannedCharacterIds: ['damsel', 'po', 'goblin', 'organgrinder', 'damselquote'],
+				greedierLoricDefaultsApplied: true,
+			}),
+		);
+
+		const result = loadPreferences(repository);
+
+		expect(result.migrated).toBe(true);
+		expect(result.error).toBeNull();
+		expect(result.preferences.bannedCharacterIds).toEqual([
+			'damselquote',
+			'po',
+			'goblinquote',
+			'organgrinderqol',
+		]);
+		expect(result.preferences.greedierLoricDefaultsApplied).toBe(true);
+		expect(JSON.parse(getSavedValues()[0])).toMatchObject({
+			version: 4,
+			bannedCharacterIds: ['damselquote', 'po', 'goblinquote', 'organgrinderqol'],
+			greedierLoricDefaultsApplied: true,
+		});
+	});
+
+	it('does not rename IDs already stored at the current version', () => {
+		const { repository, getSavedValues } = createInMemoryPreferencesRepository(
+			JSON.stringify({
+				version: 4,
+				bannedCharacterIds: ['damsel'],
+			}),
+		);
+
+		const result = loadPreferences(repository);
+
+		expect(result.migrated).toBe(false);
+		expect(result.preferences.bannedCharacterIds).toEqual(['damsel']);
+		expect(getSavedValues()).toHaveLength(0);
 	});
 
 	it('falls back to defaults and surfaces a parse error for malformed data', () => {
